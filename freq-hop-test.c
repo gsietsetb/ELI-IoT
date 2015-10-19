@@ -55,12 +55,10 @@ set(struct indicator *indicator, int onoff) {
 static void
 abc_recv(struct abc_conn *c)
 {
-  /* packet received */
-  if(packetbuf_datalen() < PACKET_SIZE
-     || strncmp((char *)packetbuf_dataptr(), HEADER, sizeof(HEADER))) {
-    /* invalid message */
-
-  } else {
+  /* packet received */                     
+  if(packetbuf_datalen() < PACKET_SIZE || strncmp((char *)packetbuf_dataptr(), HEADER, sizeof(HEADER))) {
+  
+  } else {/* invalid message */
     PROCESS_CONTEXT_BEGIN(&radio_test_process);
     set(&recv, ON);
     set(&other, ((char *)packetbuf_dataptr())[sizeof(HEADER)] ? ON : OFF);
@@ -127,7 +125,7 @@ PROCESS_THREAD(radio_test_process, ev, data)
         cc2420_set_channel(channel);
         leds_blink();
         int freq = 2405 + 5 * (channel - 11);
-        printf("freq changed to %d, frequency: %d MHz\n", channel, freq);
+        printf("channel: %d\tfrequency: %d\n", channel, freq);
       /*
       if(txpower > 5) {
       	txpower -= 5;
