@@ -1,2 +1,0 @@
-# ewsn
-EWSN challenge - Austria
