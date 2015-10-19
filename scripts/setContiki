@@ -1,0 +1,1 @@
+echo "cd /home/user/contiki-2.7/ELI-IoT" > /home/user/.bashrc

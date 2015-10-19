@@ -1,0 +1,9 @@
+#Contiki:
+
+*.h
+symbols.c
+*~
+*.map
+*.a
+obj_sky/*
+obj_sky
