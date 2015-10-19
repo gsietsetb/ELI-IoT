@@ -79,11 +79,12 @@ static struct abc_conn abc;
 PROCESS_THREAD(radio_test_process, ev, data)
 {
   static uint8_t txpower;
+  static int channel;
   PROCESS_BEGIN();
         
   txpower = CC2420_TXPOWER_MAX;
-  int channel = 11;
-
+  channel = 11;
+  
   /* Initialize the indicators */
   recv.onoff = other.onoff = flash.onoff = OFF;
   recv.interval = other.interval = CLOCK_SECOND;
@@ -120,15 +121,13 @@ PROCESS_THREAD(radio_test_process, ev, data)
 	set(&flash, OFF);
       }
     } else if(ev == sensors_event && data == &button_sensor) {
-        if(++channel >=25)
+        channel++;        
+        if(channel >=25)
               channel==11;
         cc2420_set_channel(channel);
         leds_blink();
-        printf("freq changed to %d\n", channel);
-      	leds_blink();
-      	leds_blink();
-      	leds_blink();
-      	leds_blink();
+        int freq = 2405 + 5 * (channel - 11);
+        printf("freq changed to %d, frequency: %d MHz\n", channel, freq);
       /*
       if(txpower > 5) {
       	txpower -= 5;
