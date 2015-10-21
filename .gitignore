@@ -1,6 +1,6 @@
 #Contiki:
 
-*.h
+#.h   // not for project-conf.h (such needed as important conf file)
 symbols.c
 *~
 *.map
