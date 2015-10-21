@@ -6,7 +6,34 @@ power consumption).
 
 [Wireless communication]
 
-Introduction {#sec:intro}
+AUTHORS:
+=======
+
+Guillermo Aiello
+-------------------------------------
+Department of Network Engineering
+Universitat Politecnica de Catalunya, Spain
+gsie.etsetb@gmail.com
+
+Ilker Demirkol
+-------------------------------------
+Department of Network Engineering
+Universitat Politecnica de Catalunya, Spain
+ilker.demirkol@entel.upc.edu
+
+August Betzler
+-------------------------------------
+Mobile and Wireless Internet Unit
+i2CAT Foundation, Spain
+august.betzler@i2cat.net
+
+Anna Calveras
+-------------------------------------
+Department of Network Engineering
+Universitat Politecnica de Catalunya, Spain
+anna.calveras@entel.upc.edu
+
+Introduction 
 ============
 
 According to EWSN 2016 Dependability challenge specifications, we devise
@@ -17,7 +44,7 @@ transmission) and low latency. The challenge uses off-the-shelf Maxfor
 MTM-5000 sensor nodes, which bring some computational and memory
 constraints.
 
-Proposed Solutions {#sec:solutions}
+Proposed Solutions 
 ==================
 
 We take two approaches for this challenge: i) optimization of
