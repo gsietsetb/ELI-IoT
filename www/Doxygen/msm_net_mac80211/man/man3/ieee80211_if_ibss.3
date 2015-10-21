@@ -1,0 +1,199 @@
+.TH "ieee80211_if_ibss" 3 "Sun Jun 1 2014" "Version 1.0" "net_mac80211" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+ieee80211_if_ibss \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <ieee80211_i\&.h>\fP
+.SS "Public Types"
+
+.in +1c
+.ti -1c
+.RI "enum { \fBIEEE80211_IBSS_MLME_SEARCH\fP, \fBIEEE80211_IBSS_MLME_JOINED\fP }"
+.br
+.in -1c
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "u8 bssid[ETH_ALEN] \fB__aligned\fP (2)"
+.br
+.in -1c
+.SS "Data Fields"
+
+.in +1c
+.ti -1c
+.RI "struct timer_list \fBtimer\fP"
+.br
+.ti -1c
+.RI "struct mutex \fBmtx\fP"
+.br
+.ti -1c
+.RI "unsigned long \fBlast_scan_completed\fP"
+.br
+.ti -1c
+.RI "u32 \fBbasic_rates\fP"
+.br
+.ti -1c
+.RI "bool \fBtimer_running\fP"
+.br
+.ti -1c
+.RI "bool \fBfixed_bssid\fP"
+.br
+.ti -1c
+.RI "bool \fBfixed_channel\fP"
+.br
+.ti -1c
+.RI "bool \fBprivacy\fP"
+.br
+.ti -1c
+.RI "bool \fBcontrol_port\fP"
+.br
+.ti -1c
+.RI "u8 \fBssid\fP [IEEE80211_MAX_SSID_LEN]"
+.br
+.ti -1c
+.RI "u8 \fBssid_len\fP"
+.br
+.ti -1c
+.RI "u8 \fBie_len\fP"
+.br
+.ti -1c
+.RI "u8 * \fBie\fP"
+.br
+.ti -1c
+.RI "struct ieee80211_channel * \fBchannel\fP"
+.br
+.ti -1c
+.RI "enum nl80211_channel_type \fBchannel_type\fP"
+.br
+.ti -1c
+.RI "unsigned long \fBibss_join_req\fP"
+.br
+.ti -1c
+.RI "struct sk_buff __rcu * \fBpresp\fP"
+.br
+.ti -1c
+.RI "struct sk_buff * \fBskb\fP"
+.br
+.ti -1c
+.RI "spinlock_t \fBincomplete_lock\fP"
+.br
+.ti -1c
+.RI "struct list_head \fBincomplete_stations\fP"
+.br
+.ti -1c
+.RI "enum ieee80211_if_ibss:: { \&.\&.\&. }  \fBstate\fP"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Definition at line 518 of file ieee80211_i\&.h\&.
+.SH "Member Enumeration Documentation"
+.PP 
+.SS "anonymous enum"
+
+.PP
+\fBEnumerator\fP
+.in +1c
+.TP
+\fB\fIIEEE80211_IBSS_MLME_SEARCH \fP\fP
+.TP
+\fB\fIIEEE80211_IBSS_MLME_JOINED \fP\fP
+.PP
+Definition at line 550 of file ieee80211_i\&.h\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "u8 bssid [ETH_ALEN] __aligned (2)"
+
+.SH "Field Documentation"
+.PP 
+.SS "u32 basic_rates"
+
+.PP
+Definition at line 525 of file ieee80211_i\&.h\&.
+.SS "struct ieee80211_channel* channel"
+
+.PP
+Definition at line 539 of file ieee80211_i\&.h\&.
+.SS "enum nl80211_channel_type channel_type"
+
+.PP
+Definition at line 540 of file ieee80211_i\&.h\&.
+.SS "bool control_port"
+
+.PP
+Definition at line 533 of file ieee80211_i\&.h\&.
+.SS "bool fixed_bssid"
+
+.PP
+Definition at line 529 of file ieee80211_i\&.h\&.
+.SS "bool fixed_channel"
+
+.PP
+Definition at line 530 of file ieee80211_i\&.h\&.
+.SS "unsigned long ibss_join_req"
+
+.PP
+Definition at line 542 of file ieee80211_i\&.h\&.
+.SS "u8* ie"
+
+.PP
+Definition at line 538 of file ieee80211_i\&.h\&.
+.SS "u8 ie_len"
+
+.PP
+Definition at line 537 of file ieee80211_i\&.h\&.
+.SS "spinlock_t incomplete_lock"
+
+.PP
+Definition at line 547 of file ieee80211_i\&.h\&.
+.SS "struct list_head incomplete_stations"
+
+.PP
+Definition at line 548 of file ieee80211_i\&.h\&.
+.SS "unsigned long last_scan_completed"
+
+.PP
+Definition at line 523 of file ieee80211_i\&.h\&.
+.SS "struct mutex mtx"
+
+.PP
+Definition at line 521 of file ieee80211_i\&.h\&.
+.SS "struct sk_buff __rcu* presp"
+
+.PP
+Definition at line 544 of file ieee80211_i\&.h\&.
+.SS "bool privacy"
+
+.PP
+Definition at line 531 of file ieee80211_i\&.h\&.
+.SS "struct sk_buff* skb"
+
+.PP
+Definition at line 545 of file ieee80211_i\&.h\&.
+.SS "u8 ssid[IEEE80211_MAX_SSID_LEN]"
+
+.PP
+Definition at line 536 of file ieee80211_i\&.h\&.
+.SS "u8 ssid_len"
+
+.PP
+Definition at line 537 of file ieee80211_i\&.h\&.
+.SS "enum { \&.\&.\&. }   state"
+
+.SS "struct timer_list timer"
+
+.PP
+Definition at line 519 of file ieee80211_i\&.h\&.
+.SS "bool timer_running"
+
+.PP
+Definition at line 527 of file ieee80211_i\&.h\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for net_mac80211 from the source code\&.

@@ -1,0 +1,328 @@
+\hypertarget{structieee80211__if__mesh}{\section{ieee80211\-\_\-if\-\_\-mesh Struct Reference}
+\label{structieee80211__if__mesh}\index{ieee80211\-\_\-if\-\_\-mesh@{ieee80211\-\_\-if\-\_\-mesh}}
+}
+
+
+{\ttfamily \#include $<$ieee80211\-\_\-i.\-h$>$}
+
+
+
+Collaboration diagram for ieee80211\-\_\-if\-\_\-mesh\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{structieee80211__if__mesh__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+enum \{ \hyperlink{structieee80211__if__mesh_abed82baf7f470b522273a3e37c24c600aa331dabfdfb64a090cab58b911900030}{I\-E\-E\-E80211\-\_\-\-M\-E\-S\-H\-\_\-\-S\-E\-C\-\_\-\-N\-O\-N\-E} = 0x0, 
+\hyperlink{structieee80211__if__mesh_abed82baf7f470b522273a3e37c24c600a5c7f982c3bea5482bd1f92f95466f7d4}{I\-E\-E\-E80211\-\_\-\-M\-E\-S\-H\-\_\-\-S\-E\-C\-\_\-\-A\-U\-T\-H\-E\-D} = 0x1, 
+\hyperlink{structieee80211__if__mesh_abed82baf7f470b522273a3e37c24c600ae1b4bbdd667c8ca83ce0c15e4cad1e75}{I\-E\-E\-E80211\-\_\-\-M\-E\-S\-H\-\_\-\-S\-E\-C\-\_\-\-S\-E\-C\-U\-R\-E\-D} = 0x2
+ \}
+\end{DoxyCompactItemize}
+\subsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+struct timer\-\_\-list \hyperlink{structieee80211__if__mesh_aedaac0553091bd2ddcc6d928973785d7}{housekeeping\-\_\-timer}
+\item 
+struct timer\-\_\-list \hyperlink{structieee80211__if__mesh_ac6aa531e38336119608446120beb1794}{mesh\-\_\-path\-\_\-timer}
+\item 
+struct timer\-\_\-list \hyperlink{structieee80211__if__mesh_a06ffe037b1a26965a1463ba7bf70e516}{mesh\-\_\-path\-\_\-root\-\_\-timer}
+\item 
+unsigned long \hyperlink{structieee80211__if__mesh_a17be34de946a3782a1daf2f20c1e913d}{timers\-\_\-running}
+\item 
+unsigned long \hyperlink{structieee80211__if__mesh_a108e8fea002f332c33b05d8ab571f494}{wrkq\-\_\-flags}
+\item 
+u8 \hyperlink{structieee80211__if__mesh_a2711e1d2c70fa6d2655834f90803d57b}{mesh\-\_\-id} \mbox{[}I\-E\-E\-E80211\-\_\-\-M\-A\-X\-\_\-\-M\-E\-S\-H\-\_\-\-I\-D\-\_\-\-L\-E\-N\mbox{]}
+\item 
+size\-\_\-t \hyperlink{structieee80211__if__mesh_a791aab7f12f13e6fa1f99f0eaf4fd7b0}{mesh\-\_\-id\-\_\-len}
+\item 
+u8 \hyperlink{structieee80211__if__mesh_a1dd8e1a94ceedad87851b023b7f53e6c}{mesh\-\_\-pp\-\_\-id}
+\item 
+u8 \hyperlink{structieee80211__if__mesh_a12e1b42980e196b8395edd3b7b00185a}{mesh\-\_\-pm\-\_\-id}
+\item 
+u8 \hyperlink{structieee80211__if__mesh_a50d32de091d16cc5ee16cdd8e9e61a45}{mesh\-\_\-cc\-\_\-id}
+\item 
+u8 \hyperlink{structieee80211__if__mesh_a082033acd11ca0e290b5d58e588129dc}{mesh\-\_\-sp\-\_\-id}
+\item 
+u8 \hyperlink{structieee80211__if__mesh_a5a1467a37395b9b885664f1885dfc199}{mesh\-\_\-auth\-\_\-id}
+\item 
+u32 \hyperlink{structieee80211__if__mesh_a3a5989b8e6d4286ac3822b65bbc1cf16}{sn}
+\item 
+u32 \hyperlink{structieee80211__if__mesh_a892d957726166f4493acf446b312e7a0}{preq\-\_\-id}
+\item 
+atomic\-\_\-t \hyperlink{structieee80211__if__mesh_a682324aeb04ad3c555c56e5cb52e53c5}{mpaths}
+\item 
+unsigned long \hyperlink{structieee80211__if__mesh_a7f98e84dc24836f077044eb5e00e78f1}{last\-\_\-sn\-\_\-update}
+\item 
+unsigned long \hyperlink{structieee80211__if__mesh_ae90d36efd492fcfe01281116836def4b}{next\-\_\-perr}
+\item 
+unsigned long \hyperlink{structieee80211__if__mesh_a62360839e8d0d87871320ad614778d68}{last\-\_\-preq}
+\item 
+struct \hyperlink{structmesh__rmc}{mesh\-\_\-rmc} $\ast$ \hyperlink{structieee80211__if__mesh_a41a923e5b48f47e8ee460387dc5dc673}{rmc}
+\item 
+spinlock\-\_\-t \hyperlink{structieee80211__if__mesh_a38a1a735de11766717875f1e40ae6ca7}{mesh\-\_\-preq\-\_\-queue\-\_\-lock}
+\item 
+struct \hyperlink{structmesh__preq__queue}{mesh\-\_\-preq\-\_\-queue} \hyperlink{structieee80211__if__mesh_ad73838a40d5e3d10af379c4fc37d4dfd}{preq\-\_\-queue}
+\item 
+int \hyperlink{structieee80211__if__mesh_a24b4255901094231004e9da5de02341c}{preq\-\_\-queue\-\_\-len}
+\item 
+struct \hyperlink{structmesh__stats}{mesh\-\_\-stats} \hyperlink{structieee80211__if__mesh_a63aef80a54bf42d120b10d0b637b57be}{mshstats}
+\item 
+struct mesh\-\_\-config \hyperlink{structieee80211__if__mesh_a7b25051eee4817560f5bcb80402751f5}{mshcfg}
+\item 
+u32 \hyperlink{structieee80211__if__mesh_aa5e6ec48251f030a59d356caac4db5ec}{mesh\-\_\-seqnum}
+\item 
+bool \hyperlink{structieee80211__if__mesh_a27b3535c857149e70e4b9c973719ad7b}{accepting\-\_\-plinks}
+\item 
+int \hyperlink{structieee80211__if__mesh_af6554718fdcf2fe36e9eed14cc159ebf}{num\-\_\-gates}
+\item 
+const u8 $\ast$ \hyperlink{structieee80211__if__mesh_a74b4af5de0da224d9fb8b59a3aec207e}{ie}
+\item 
+u8 \hyperlink{structieee80211__if__mesh_a8e143706c80e5faf90dc4a385c4517f6}{ie\-\_\-len}
+\item 
+enum ieee80211\-\_\-if\-\_\-mesh\-:: \{ ... \}  \hyperlink{structieee80211__if__mesh_a268036aaf659e69fd41622af680bc598}{security}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+
+
+Definition at line 556 of file ieee80211\-\_\-i.\-h.
+
+
+
+\subsection{Member Enumeration Documentation}
+\hypertarget{structieee80211__if__mesh_abed82baf7f470b522273a3e37c24c600}{\subsubsection[{anonymous enum}]{\setlength{\rightskip}{0pt plus 5cm}anonymous enum}}\label{structieee80211__if__mesh_abed82baf7f470b522273a3e37c24c600}
+\begin{Desc}
+\item[Enumerator]\par
+\begin{description}
+\index{I\-E\-E\-E80211\-\_\-\-M\-E\-S\-H\-\_\-\-S\-E\-C\-\_\-\-N\-O\-N\-E@{I\-E\-E\-E80211\-\_\-\-M\-E\-S\-H\-\_\-\-S\-E\-C\-\_\-\-N\-O\-N\-E}!ieee80211\-\_\-if\-\_\-mesh@{ieee80211\-\_\-if\-\_\-mesh}}\index{ieee80211\-\_\-if\-\_\-mesh@{ieee80211\-\_\-if\-\_\-mesh}!I\-E\-E\-E80211\-\_\-\-M\-E\-S\-H\-\_\-\-S\-E\-C\-\_\-\-N\-O\-N\-E@{I\-E\-E\-E80211\-\_\-\-M\-E\-S\-H\-\_\-\-S\-E\-C\-\_\-\-N\-O\-N\-E}}\item[{\em 
+\hypertarget{structieee80211__if__mesh_abed82baf7f470b522273a3e37c24c600aa331dabfdfb64a090cab58b911900030}{I\-E\-E\-E80211\-\_\-\-M\-E\-S\-H\-\_\-\-S\-E\-C\-\_\-\-N\-O\-N\-E}\label{structieee80211__if__mesh_abed82baf7f470b522273a3e37c24c600aa331dabfdfb64a090cab58b911900030}
+}]\index{I\-E\-E\-E80211\-\_\-\-M\-E\-S\-H\-\_\-\-S\-E\-C\-\_\-\-A\-U\-T\-H\-E\-D@{I\-E\-E\-E80211\-\_\-\-M\-E\-S\-H\-\_\-\-S\-E\-C\-\_\-\-A\-U\-T\-H\-E\-D}!ieee80211\-\_\-if\-\_\-mesh@{ieee80211\-\_\-if\-\_\-mesh}}\index{ieee80211\-\_\-if\-\_\-mesh@{ieee80211\-\_\-if\-\_\-mesh}!I\-E\-E\-E80211\-\_\-\-M\-E\-S\-H\-\_\-\-S\-E\-C\-\_\-\-A\-U\-T\-H\-E\-D@{I\-E\-E\-E80211\-\_\-\-M\-E\-S\-H\-\_\-\-S\-E\-C\-\_\-\-A\-U\-T\-H\-E\-D}}\item[{\em 
+\hypertarget{structieee80211__if__mesh_abed82baf7f470b522273a3e37c24c600a5c7f982c3bea5482bd1f92f95466f7d4}{I\-E\-E\-E80211\-\_\-\-M\-E\-S\-H\-\_\-\-S\-E\-C\-\_\-\-A\-U\-T\-H\-E\-D}\label{structieee80211__if__mesh_abed82baf7f470b522273a3e37c24c600a5c7f982c3bea5482bd1f92f95466f7d4}
+}]\index{I\-E\-E\-E80211\-\_\-\-M\-E\-S\-H\-\_\-\-S\-E\-C\-\_\-\-S\-E\-C\-U\-R\-E\-D@{I\-E\-E\-E80211\-\_\-\-M\-E\-S\-H\-\_\-\-S\-E\-C\-\_\-\-S\-E\-C\-U\-R\-E\-D}!ieee80211\-\_\-if\-\_\-mesh@{ieee80211\-\_\-if\-\_\-mesh}}\index{ieee80211\-\_\-if\-\_\-mesh@{ieee80211\-\_\-if\-\_\-mesh}!I\-E\-E\-E80211\-\_\-\-M\-E\-S\-H\-\_\-\-S\-E\-C\-\_\-\-S\-E\-C\-U\-R\-E\-D@{I\-E\-E\-E80211\-\_\-\-M\-E\-S\-H\-\_\-\-S\-E\-C\-\_\-\-S\-E\-C\-U\-R\-E\-D}}\item[{\em 
+\hypertarget{structieee80211__if__mesh_abed82baf7f470b522273a3e37c24c600ae1b4bbdd667c8ca83ce0c15e4cad1e75}{I\-E\-E\-E80211\-\_\-\-M\-E\-S\-H\-\_\-\-S\-E\-C\-\_\-\-S\-E\-C\-U\-R\-E\-D}\label{structieee80211__if__mesh_abed82baf7f470b522273a3e37c24c600ae1b4bbdd667c8ca83ce0c15e4cad1e75}
+}]\end{description}
+\end{Desc}
+
+
+Definition at line 599 of file ieee80211\-\_\-i.\-h.
+
+
+
+\subsection{Field Documentation}
+\hypertarget{structieee80211__if__mesh_a27b3535c857149e70e4b9c973719ad7b}{\index{ieee80211\-\_\-if\-\_\-mesh@{ieee80211\-\_\-if\-\_\-mesh}!accepting\-\_\-plinks@{accepting\-\_\-plinks}}
+\index{accepting\-\_\-plinks@{accepting\-\_\-plinks}!ieee80211_if_mesh@{ieee80211\-\_\-if\-\_\-mesh}}
+\subsubsection[{accepting\-\_\-plinks}]{\setlength{\rightskip}{0pt plus 5cm}bool accepting\-\_\-plinks}}\label{structieee80211__if__mesh_a27b3535c857149e70e4b9c973719ad7b}
+
+
+Definition at line 595 of file ieee80211\-\_\-i.\-h.
+
+\hypertarget{structieee80211__if__mesh_aedaac0553091bd2ddcc6d928973785d7}{\index{ieee80211\-\_\-if\-\_\-mesh@{ieee80211\-\_\-if\-\_\-mesh}!housekeeping\-\_\-timer@{housekeeping\-\_\-timer}}
+\index{housekeeping\-\_\-timer@{housekeeping\-\_\-timer}!ieee80211_if_mesh@{ieee80211\-\_\-if\-\_\-mesh}}
+\subsubsection[{housekeeping\-\_\-timer}]{\setlength{\rightskip}{0pt plus 5cm}struct timer\-\_\-list housekeeping\-\_\-timer}}\label{structieee80211__if__mesh_aedaac0553091bd2ddcc6d928973785d7}
+
+
+Definition at line 557 of file ieee80211\-\_\-i.\-h.
+
+\hypertarget{structieee80211__if__mesh_a74b4af5de0da224d9fb8b59a3aec207e}{\index{ieee80211\-\_\-if\-\_\-mesh@{ieee80211\-\_\-if\-\_\-mesh}!ie@{ie}}
+\index{ie@{ie}!ieee80211_if_mesh@{ieee80211\-\_\-if\-\_\-mesh}}
+\subsubsection[{ie}]{\setlength{\rightskip}{0pt plus 5cm}const u8$\ast$ ie}}\label{structieee80211__if__mesh_a74b4af5de0da224d9fb8b59a3aec207e}
+
+
+Definition at line 597 of file ieee80211\-\_\-i.\-h.
+
+\hypertarget{structieee80211__if__mesh_a8e143706c80e5faf90dc4a385c4517f6}{\index{ieee80211\-\_\-if\-\_\-mesh@{ieee80211\-\_\-if\-\_\-mesh}!ie\-\_\-len@{ie\-\_\-len}}
+\index{ie\-\_\-len@{ie\-\_\-len}!ieee80211_if_mesh@{ieee80211\-\_\-if\-\_\-mesh}}
+\subsubsection[{ie\-\_\-len}]{\setlength{\rightskip}{0pt plus 5cm}u8 ie\-\_\-len}}\label{structieee80211__if__mesh_a8e143706c80e5faf90dc4a385c4517f6}
+
+
+Definition at line 598 of file ieee80211\-\_\-i.\-h.
+
+\hypertarget{structieee80211__if__mesh_a62360839e8d0d87871320ad614778d68}{\index{ieee80211\-\_\-if\-\_\-mesh@{ieee80211\-\_\-if\-\_\-mesh}!last\-\_\-preq@{last\-\_\-preq}}
+\index{last\-\_\-preq@{last\-\_\-preq}!ieee80211_if_mesh@{ieee80211\-\_\-if\-\_\-mesh}}
+\subsubsection[{last\-\_\-preq}]{\setlength{\rightskip}{0pt plus 5cm}unsigned long last\-\_\-preq}}\label{structieee80211__if__mesh_a62360839e8d0d87871320ad614778d68}
+
+
+Definition at line 587 of file ieee80211\-\_\-i.\-h.
+
+\hypertarget{structieee80211__if__mesh_a7f98e84dc24836f077044eb5e00e78f1}{\index{ieee80211\-\_\-if\-\_\-mesh@{ieee80211\-\_\-if\-\_\-mesh}!last\-\_\-sn\-\_\-update@{last\-\_\-sn\-\_\-update}}
+\index{last\-\_\-sn\-\_\-update@{last\-\_\-sn\-\_\-update}!ieee80211_if_mesh@{ieee80211\-\_\-if\-\_\-mesh}}
+\subsubsection[{last\-\_\-sn\-\_\-update}]{\setlength{\rightskip}{0pt plus 5cm}unsigned long last\-\_\-sn\-\_\-update}}\label{structieee80211__if__mesh_a7f98e84dc24836f077044eb5e00e78f1}
+
+
+Definition at line 583 of file ieee80211\-\_\-i.\-h.
+
+\hypertarget{structieee80211__if__mesh_a5a1467a37395b9b885664f1885dfc199}{\index{ieee80211\-\_\-if\-\_\-mesh@{ieee80211\-\_\-if\-\_\-mesh}!mesh\-\_\-auth\-\_\-id@{mesh\-\_\-auth\-\_\-id}}
+\index{mesh\-\_\-auth\-\_\-id@{mesh\-\_\-auth\-\_\-id}!ieee80211_if_mesh@{ieee80211\-\_\-if\-\_\-mesh}}
+\subsubsection[{mesh\-\_\-auth\-\_\-id}]{\setlength{\rightskip}{0pt plus 5cm}u8 mesh\-\_\-auth\-\_\-id}}\label{structieee80211__if__mesh_a5a1467a37395b9b885664f1885dfc199}
+
+
+Definition at line 576 of file ieee80211\-\_\-i.\-h.
+
+\hypertarget{structieee80211__if__mesh_a50d32de091d16cc5ee16cdd8e9e61a45}{\index{ieee80211\-\_\-if\-\_\-mesh@{ieee80211\-\_\-if\-\_\-mesh}!mesh\-\_\-cc\-\_\-id@{mesh\-\_\-cc\-\_\-id}}
+\index{mesh\-\_\-cc\-\_\-id@{mesh\-\_\-cc\-\_\-id}!ieee80211_if_mesh@{ieee80211\-\_\-if\-\_\-mesh}}
+\subsubsection[{mesh\-\_\-cc\-\_\-id}]{\setlength{\rightskip}{0pt plus 5cm}u8 mesh\-\_\-cc\-\_\-id}}\label{structieee80211__if__mesh_a50d32de091d16cc5ee16cdd8e9e61a45}
+
+
+Definition at line 572 of file ieee80211\-\_\-i.\-h.
+
+\hypertarget{structieee80211__if__mesh_a2711e1d2c70fa6d2655834f90803d57b}{\index{ieee80211\-\_\-if\-\_\-mesh@{ieee80211\-\_\-if\-\_\-mesh}!mesh\-\_\-id@{mesh\-\_\-id}}
+\index{mesh\-\_\-id@{mesh\-\_\-id}!ieee80211_if_mesh@{ieee80211\-\_\-if\-\_\-mesh}}
+\subsubsection[{mesh\-\_\-id}]{\setlength{\rightskip}{0pt plus 5cm}u8 mesh\-\_\-id\mbox{[}I\-E\-E\-E80211\-\_\-\-M\-A\-X\-\_\-\-M\-E\-S\-H\-\_\-\-I\-D\-\_\-\-L\-E\-N\mbox{]}}}\label{structieee80211__if__mesh_a2711e1d2c70fa6d2655834f90803d57b}
+
+
+Definition at line 565 of file ieee80211\-\_\-i.\-h.
+
+\hypertarget{structieee80211__if__mesh_a791aab7f12f13e6fa1f99f0eaf4fd7b0}{\index{ieee80211\-\_\-if\-\_\-mesh@{ieee80211\-\_\-if\-\_\-mesh}!mesh\-\_\-id\-\_\-len@{mesh\-\_\-id\-\_\-len}}
+\index{mesh\-\_\-id\-\_\-len@{mesh\-\_\-id\-\_\-len}!ieee80211_if_mesh@{ieee80211\-\_\-if\-\_\-mesh}}
+\subsubsection[{mesh\-\_\-id\-\_\-len}]{\setlength{\rightskip}{0pt plus 5cm}size\-\_\-t mesh\-\_\-id\-\_\-len}}\label{structieee80211__if__mesh_a791aab7f12f13e6fa1f99f0eaf4fd7b0}
+
+
+Definition at line 566 of file ieee80211\-\_\-i.\-h.
+
+\hypertarget{structieee80211__if__mesh_a06ffe037b1a26965a1463ba7bf70e516}{\index{ieee80211\-\_\-if\-\_\-mesh@{ieee80211\-\_\-if\-\_\-mesh}!mesh\-\_\-path\-\_\-root\-\_\-timer@{mesh\-\_\-path\-\_\-root\-\_\-timer}}
+\index{mesh\-\_\-path\-\_\-root\-\_\-timer@{mesh\-\_\-path\-\_\-root\-\_\-timer}!ieee80211_if_mesh@{ieee80211\-\_\-if\-\_\-mesh}}
+\subsubsection[{mesh\-\_\-path\-\_\-root\-\_\-timer}]{\setlength{\rightskip}{0pt plus 5cm}struct timer\-\_\-list mesh\-\_\-path\-\_\-root\-\_\-timer}}\label{structieee80211__if__mesh_a06ffe037b1a26965a1463ba7bf70e516}
+
+
+Definition at line 559 of file ieee80211\-\_\-i.\-h.
+
+\hypertarget{structieee80211__if__mesh_ac6aa531e38336119608446120beb1794}{\index{ieee80211\-\_\-if\-\_\-mesh@{ieee80211\-\_\-if\-\_\-mesh}!mesh\-\_\-path\-\_\-timer@{mesh\-\_\-path\-\_\-timer}}
+\index{mesh\-\_\-path\-\_\-timer@{mesh\-\_\-path\-\_\-timer}!ieee80211_if_mesh@{ieee80211\-\_\-if\-\_\-mesh}}
+\subsubsection[{mesh\-\_\-path\-\_\-timer}]{\setlength{\rightskip}{0pt plus 5cm}struct timer\-\_\-list mesh\-\_\-path\-\_\-timer}}\label{structieee80211__if__mesh_ac6aa531e38336119608446120beb1794}
+
+
+Definition at line 558 of file ieee80211\-\_\-i.\-h.
+
+\hypertarget{structieee80211__if__mesh_a12e1b42980e196b8395edd3b7b00185a}{\index{ieee80211\-\_\-if\-\_\-mesh@{ieee80211\-\_\-if\-\_\-mesh}!mesh\-\_\-pm\-\_\-id@{mesh\-\_\-pm\-\_\-id}}
+\index{mesh\-\_\-pm\-\_\-id@{mesh\-\_\-pm\-\_\-id}!ieee80211_if_mesh@{ieee80211\-\_\-if\-\_\-mesh}}
+\subsubsection[{mesh\-\_\-pm\-\_\-id}]{\setlength{\rightskip}{0pt plus 5cm}u8 mesh\-\_\-pm\-\_\-id}}\label{structieee80211__if__mesh_a12e1b42980e196b8395edd3b7b00185a}
+
+
+Definition at line 570 of file ieee80211\-\_\-i.\-h.
+
+\hypertarget{structieee80211__if__mesh_a1dd8e1a94ceedad87851b023b7f53e6c}{\index{ieee80211\-\_\-if\-\_\-mesh@{ieee80211\-\_\-if\-\_\-mesh}!mesh\-\_\-pp\-\_\-id@{mesh\-\_\-pp\-\_\-id}}
+\index{mesh\-\_\-pp\-\_\-id@{mesh\-\_\-pp\-\_\-id}!ieee80211_if_mesh@{ieee80211\-\_\-if\-\_\-mesh}}
+\subsubsection[{mesh\-\_\-pp\-\_\-id}]{\setlength{\rightskip}{0pt plus 5cm}u8 mesh\-\_\-pp\-\_\-id}}\label{structieee80211__if__mesh_a1dd8e1a94ceedad87851b023b7f53e6c}
+
+
+Definition at line 568 of file ieee80211\-\_\-i.\-h.
+
+\hypertarget{structieee80211__if__mesh_a38a1a735de11766717875f1e40ae6ca7}{\index{ieee80211\-\_\-if\-\_\-mesh@{ieee80211\-\_\-if\-\_\-mesh}!mesh\-\_\-preq\-\_\-queue\-\_\-lock@{mesh\-\_\-preq\-\_\-queue\-\_\-lock}}
+\index{mesh\-\_\-preq\-\_\-queue\-\_\-lock@{mesh\-\_\-preq\-\_\-queue\-\_\-lock}!ieee80211_if_mesh@{ieee80211\-\_\-if\-\_\-mesh}}
+\subsubsection[{mesh\-\_\-preq\-\_\-queue\-\_\-lock}]{\setlength{\rightskip}{0pt plus 5cm}spinlock\-\_\-t mesh\-\_\-preq\-\_\-queue\-\_\-lock}}\label{structieee80211__if__mesh_a38a1a735de11766717875f1e40ae6ca7}
+
+
+Definition at line 589 of file ieee80211\-\_\-i.\-h.
+
+\hypertarget{structieee80211__if__mesh_aa5e6ec48251f030a59d356caac4db5ec}{\index{ieee80211\-\_\-if\-\_\-mesh@{ieee80211\-\_\-if\-\_\-mesh}!mesh\-\_\-seqnum@{mesh\-\_\-seqnum}}
+\index{mesh\-\_\-seqnum@{mesh\-\_\-seqnum}!ieee80211_if_mesh@{ieee80211\-\_\-if\-\_\-mesh}}
+\subsubsection[{mesh\-\_\-seqnum}]{\setlength{\rightskip}{0pt plus 5cm}u32 mesh\-\_\-seqnum}}\label{structieee80211__if__mesh_aa5e6ec48251f030a59d356caac4db5ec}
+
+
+Definition at line 594 of file ieee80211\-\_\-i.\-h.
+
+\hypertarget{structieee80211__if__mesh_a082033acd11ca0e290b5d58e588129dc}{\index{ieee80211\-\_\-if\-\_\-mesh@{ieee80211\-\_\-if\-\_\-mesh}!mesh\-\_\-sp\-\_\-id@{mesh\-\_\-sp\-\_\-id}}
+\index{mesh\-\_\-sp\-\_\-id@{mesh\-\_\-sp\-\_\-id}!ieee80211_if_mesh@{ieee80211\-\_\-if\-\_\-mesh}}
+\subsubsection[{mesh\-\_\-sp\-\_\-id}]{\setlength{\rightskip}{0pt plus 5cm}u8 mesh\-\_\-sp\-\_\-id}}\label{structieee80211__if__mesh_a082033acd11ca0e290b5d58e588129dc}
+
+
+Definition at line 574 of file ieee80211\-\_\-i.\-h.
+
+\hypertarget{structieee80211__if__mesh_a682324aeb04ad3c555c56e5cb52e53c5}{\index{ieee80211\-\_\-if\-\_\-mesh@{ieee80211\-\_\-if\-\_\-mesh}!mpaths@{mpaths}}
+\index{mpaths@{mpaths}!ieee80211_if_mesh@{ieee80211\-\_\-if\-\_\-mesh}}
+\subsubsection[{mpaths}]{\setlength{\rightskip}{0pt plus 5cm}atomic\-\_\-t mpaths}}\label{structieee80211__if__mesh_a682324aeb04ad3c555c56e5cb52e53c5}
+
+
+Definition at line 581 of file ieee80211\-\_\-i.\-h.
+
+\hypertarget{structieee80211__if__mesh_a7b25051eee4817560f5bcb80402751f5}{\index{ieee80211\-\_\-if\-\_\-mesh@{ieee80211\-\_\-if\-\_\-mesh}!mshcfg@{mshcfg}}
+\index{mshcfg@{mshcfg}!ieee80211_if_mesh@{ieee80211\-\_\-if\-\_\-mesh}}
+\subsubsection[{mshcfg}]{\setlength{\rightskip}{0pt plus 5cm}struct mesh\-\_\-config mshcfg}}\label{structieee80211__if__mesh_a7b25051eee4817560f5bcb80402751f5}
+
+
+Definition at line 593 of file ieee80211\-\_\-i.\-h.
+
+\hypertarget{structieee80211__if__mesh_a63aef80a54bf42d120b10d0b637b57be}{\index{ieee80211\-\_\-if\-\_\-mesh@{ieee80211\-\_\-if\-\_\-mesh}!mshstats@{mshstats}}
+\index{mshstats@{mshstats}!ieee80211_if_mesh@{ieee80211\-\_\-if\-\_\-mesh}}
+\subsubsection[{mshstats}]{\setlength{\rightskip}{0pt plus 5cm}struct {\bf mesh\-\_\-stats} mshstats}}\label{structieee80211__if__mesh_a63aef80a54bf42d120b10d0b637b57be}
+
+
+Definition at line 592 of file ieee80211\-\_\-i.\-h.
+
+\hypertarget{structieee80211__if__mesh_ae90d36efd492fcfe01281116836def4b}{\index{ieee80211\-\_\-if\-\_\-mesh@{ieee80211\-\_\-if\-\_\-mesh}!next\-\_\-perr@{next\-\_\-perr}}
+\index{next\-\_\-perr@{next\-\_\-perr}!ieee80211_if_mesh@{ieee80211\-\_\-if\-\_\-mesh}}
+\subsubsection[{next\-\_\-perr}]{\setlength{\rightskip}{0pt plus 5cm}unsigned long next\-\_\-perr}}\label{structieee80211__if__mesh_ae90d36efd492fcfe01281116836def4b}
+
+
+Definition at line 585 of file ieee80211\-\_\-i.\-h.
+
+\hypertarget{structieee80211__if__mesh_af6554718fdcf2fe36e9eed14cc159ebf}{\index{ieee80211\-\_\-if\-\_\-mesh@{ieee80211\-\_\-if\-\_\-mesh}!num\-\_\-gates@{num\-\_\-gates}}
+\index{num\-\_\-gates@{num\-\_\-gates}!ieee80211_if_mesh@{ieee80211\-\_\-if\-\_\-mesh}}
+\subsubsection[{num\-\_\-gates}]{\setlength{\rightskip}{0pt plus 5cm}int num\-\_\-gates}}\label{structieee80211__if__mesh_af6554718fdcf2fe36e9eed14cc159ebf}
+
+
+Definition at line 596 of file ieee80211\-\_\-i.\-h.
+
+\hypertarget{structieee80211__if__mesh_a892d957726166f4493acf446b312e7a0}{\index{ieee80211\-\_\-if\-\_\-mesh@{ieee80211\-\_\-if\-\_\-mesh}!preq\-\_\-id@{preq\-\_\-id}}
+\index{preq\-\_\-id@{preq\-\_\-id}!ieee80211_if_mesh@{ieee80211\-\_\-if\-\_\-mesh}}
+\subsubsection[{preq\-\_\-id}]{\setlength{\rightskip}{0pt plus 5cm}u32 preq\-\_\-id}}\label{structieee80211__if__mesh_a892d957726166f4493acf446b312e7a0}
+
+
+Definition at line 580 of file ieee80211\-\_\-i.\-h.
+
+\hypertarget{structieee80211__if__mesh_ad73838a40d5e3d10af379c4fc37d4dfd}{\index{ieee80211\-\_\-if\-\_\-mesh@{ieee80211\-\_\-if\-\_\-mesh}!preq\-\_\-queue@{preq\-\_\-queue}}
+\index{preq\-\_\-queue@{preq\-\_\-queue}!ieee80211_if_mesh@{ieee80211\-\_\-if\-\_\-mesh}}
+\subsubsection[{preq\-\_\-queue}]{\setlength{\rightskip}{0pt plus 5cm}struct {\bf mesh\-\_\-preq\-\_\-queue} preq\-\_\-queue}}\label{structieee80211__if__mesh_ad73838a40d5e3d10af379c4fc37d4dfd}
+
+
+Definition at line 590 of file ieee80211\-\_\-i.\-h.
+
+\hypertarget{structieee80211__if__mesh_a24b4255901094231004e9da5de02341c}{\index{ieee80211\-\_\-if\-\_\-mesh@{ieee80211\-\_\-if\-\_\-mesh}!preq\-\_\-queue\-\_\-len@{preq\-\_\-queue\-\_\-len}}
+\index{preq\-\_\-queue\-\_\-len@{preq\-\_\-queue\-\_\-len}!ieee80211_if_mesh@{ieee80211\-\_\-if\-\_\-mesh}}
+\subsubsection[{preq\-\_\-queue\-\_\-len}]{\setlength{\rightskip}{0pt plus 5cm}int preq\-\_\-queue\-\_\-len}}\label{structieee80211__if__mesh_a24b4255901094231004e9da5de02341c}
+
+
+Definition at line 591 of file ieee80211\-\_\-i.\-h.
+
+\hypertarget{structieee80211__if__mesh_a41a923e5b48f47e8ee460387dc5dc673}{\index{ieee80211\-\_\-if\-\_\-mesh@{ieee80211\-\_\-if\-\_\-mesh}!rmc@{rmc}}
+\index{rmc@{rmc}!ieee80211_if_mesh@{ieee80211\-\_\-if\-\_\-mesh}}
+\subsubsection[{rmc}]{\setlength{\rightskip}{0pt plus 5cm}struct {\bf mesh\-\_\-rmc}$\ast$ rmc}}\label{structieee80211__if__mesh_a41a923e5b48f47e8ee460387dc5dc673}
+
+
+Definition at line 588 of file ieee80211\-\_\-i.\-h.
+
+\hypertarget{structieee80211__if__mesh_a268036aaf659e69fd41622af680bc598}{\index{ieee80211\-\_\-if\-\_\-mesh@{ieee80211\-\_\-if\-\_\-mesh}!security@{security}}
+\index{security@{security}!ieee80211_if_mesh@{ieee80211\-\_\-if\-\_\-mesh}}
+\subsubsection[{security}]{\setlength{\rightskip}{0pt plus 5cm}enum \{ ... \}   security}}\label{structieee80211__if__mesh_a268036aaf659e69fd41622af680bc598}
+\hypertarget{structieee80211__if__mesh_a3a5989b8e6d4286ac3822b65bbc1cf16}{\index{ieee80211\-\_\-if\-\_\-mesh@{ieee80211\-\_\-if\-\_\-mesh}!sn@{sn}}
+\index{sn@{sn}!ieee80211_if_mesh@{ieee80211\-\_\-if\-\_\-mesh}}
+\subsubsection[{sn}]{\setlength{\rightskip}{0pt plus 5cm}u32 sn}}\label{structieee80211__if__mesh_a3a5989b8e6d4286ac3822b65bbc1cf16}
+
+
+Definition at line 578 of file ieee80211\-\_\-i.\-h.
+
+\hypertarget{structieee80211__if__mesh_a17be34de946a3782a1daf2f20c1e913d}{\index{ieee80211\-\_\-if\-\_\-mesh@{ieee80211\-\_\-if\-\_\-mesh}!timers\-\_\-running@{timers\-\_\-running}}
+\index{timers\-\_\-running@{timers\-\_\-running}!ieee80211_if_mesh@{ieee80211\-\_\-if\-\_\-mesh}}
+\subsubsection[{timers\-\_\-running}]{\setlength{\rightskip}{0pt plus 5cm}unsigned long timers\-\_\-running}}\label{structieee80211__if__mesh_a17be34de946a3782a1daf2f20c1e913d}
+
+
+Definition at line 561 of file ieee80211\-\_\-i.\-h.
+
+\hypertarget{structieee80211__if__mesh_a108e8fea002f332c33b05d8ab571f494}{\index{ieee80211\-\_\-if\-\_\-mesh@{ieee80211\-\_\-if\-\_\-mesh}!wrkq\-\_\-flags@{wrkq\-\_\-flags}}
+\index{wrkq\-\_\-flags@{wrkq\-\_\-flags}!ieee80211_if_mesh@{ieee80211\-\_\-if\-\_\-mesh}}
+\subsubsection[{wrkq\-\_\-flags}]{\setlength{\rightskip}{0pt plus 5cm}unsigned long wrkq\-\_\-flags}}\label{structieee80211__if__mesh_a108e8fea002f332c33b05d8ab571f494}
+
+
+Definition at line 563 of file ieee80211\-\_\-i.\-h.
+
+
+
+The documentation for this struct was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+/home/guille/msm/net/mac80211/\hyperlink{ieee80211__i_8h}{ieee80211\-\_\-i.\-h}\end{DoxyCompactItemize}

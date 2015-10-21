@@ -1,0 +1,27 @@
+var structieee80211__if__ibss =
+[
+    [ "IEEE80211_IBSS_MLME_SEARCH", "structieee80211__if__ibss.html#a0411cd49bb5b71852cecd93bcbf0ca2da74a07e1c77254e60cbe5ba98cdd1f5ac", null ],
+    [ "IEEE80211_IBSS_MLME_JOINED", "structieee80211__if__ibss.html#a0411cd49bb5b71852cecd93bcbf0ca2dad8ebf6128c567875ba4bf30a7407d6ce", null ],
+    [ "__aligned", "structieee80211__if__ibss.html#af446847dcbfde15aabb52beb5b1972e5", null ],
+    [ "basic_rates", "structieee80211__if__ibss.html#a38fe4973d85ce09896a4da100ee7470d", null ],
+    [ "channel", "structieee80211__if__ibss.html#a80252eb32e874a054a819044989184e2", null ],
+    [ "channel_type", "structieee80211__if__ibss.html#a54d35cd8a215e66908b8671a70fa4fca", null ],
+    [ "control_port", "structieee80211__if__ibss.html#a5f56e2447bde008fc2d675dcd029fc17", null ],
+    [ "fixed_bssid", "structieee80211__if__ibss.html#a7930c3868b223ce60e12e84d087b3f58", null ],
+    [ "fixed_channel", "structieee80211__if__ibss.html#aaeb95af3104d555b91418ca7b173e7ac", null ],
+    [ "ibss_join_req", "structieee80211__if__ibss.html#a0557131126944ea730092a4df84149d7", null ],
+    [ "ie", "structieee80211__if__ibss.html#a837e19ab2bc08b5dec813ad916a6f09d", null ],
+    [ "ie_len", "structieee80211__if__ibss.html#a8e143706c80e5faf90dc4a385c4517f6", null ],
+    [ "incomplete_lock", "structieee80211__if__ibss.html#a8356eead4fd0be0edf4ea2e0237a4de8", null ],
+    [ "incomplete_stations", "structieee80211__if__ibss.html#a18703abd5d82801e889c2c13282d2f5c", null ],
+    [ "last_scan_completed", "structieee80211__if__ibss.html#a02630c17c918fc4068543524fa1c2793", null ],
+    [ "mtx", "structieee80211__if__ibss.html#a06f637951b74c996f2e4987a7be1dbdd", null ],
+    [ "presp", "structieee80211__if__ibss.html#a9daf15f2ed9d31b8120ac9c337ca9c62", null ],
+    [ "privacy", "structieee80211__if__ibss.html#a416c8f7c70b4e5fdcd31edb1cd9004ab", null ],
+    [ "skb", "structieee80211__if__ibss.html#aeba6836824708325a83121030f092c30", null ],
+    [ "ssid", "structieee80211__if__ibss.html#ae8d768cff77168f424870b6745c90714", null ],
+    [ "ssid_len", "structieee80211__if__ibss.html#a440f44724caffefa0f9c838518a3c790", null ],
+    [ "state", "structieee80211__if__ibss.html#a3253c6d1cd5d679b637262e95a0986a1", null ],
+    [ "timer", "structieee80211__if__ibss.html#ae8aedee6c0bd2f7edbb10f18d574f107", null ],
+    [ "timer_running", "structieee80211__if__ibss.html#a23958e610207eb28549d8d13255aa129", null ]
+];

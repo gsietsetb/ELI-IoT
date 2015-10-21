@@ -1,0 +1,93 @@
+\hypertarget{aes__cmac_8h}{\section{/home/guille/msm/net/mac80211/aes\-\_\-cmac.h File Reference}
+\label{aes__cmac_8h}\index{/home/guille/msm/net/mac80211/aes\-\_\-cmac.\-h@{/home/guille/msm/net/mac80211/aes\-\_\-cmac.\-h}}
+}
+{\ttfamily \#include $<$linux/crypto.\-h$>$}\\*
+Include dependency graph for aes\-\_\-cmac.\-h\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=200pt]{aes__cmac_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{aes__cmac_8h__dep__incl}
+\end{center}
+\end{figure}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+struct crypto\-\_\-cipher $\ast$ \hyperlink{aes__cmac_8h_ac875d30ae8f10530ca928c4f3c02f6e5}{ieee80211\-\_\-aes\-\_\-cmac\-\_\-key\-\_\-setup} (const u8 key\mbox{[}$\,$\mbox{]})
+\item 
+void \hyperlink{aes__cmac_8h_a3cd28c83bdac640b39723dd158162b72}{ieee80211\-\_\-aes\-\_\-cmac} (struct crypto\-\_\-cipher $\ast$tfm, const u8 $\ast$aad, const u8 $\ast$data, size\-\_\-t data\-\_\-len, u8 $\ast$mic)
+\item 
+void \hyperlink{aes__cmac_8h_aa37103bb5143cd5dd3942d36c4be9fb0}{ieee80211\-\_\-aes\-\_\-cmac\-\_\-key\-\_\-free} (struct crypto\-\_\-cipher $\ast$tfm)
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\hypertarget{aes__cmac_8h_a3cd28c83bdac640b39723dd158162b72}{\index{aes\-\_\-cmac.\-h@{aes\-\_\-cmac.\-h}!ieee80211\-\_\-aes\-\_\-cmac@{ieee80211\-\_\-aes\-\_\-cmac}}
+\index{ieee80211\-\_\-aes\-\_\-cmac@{ieee80211\-\_\-aes\-\_\-cmac}!aes_cmac.h@{aes\-\_\-cmac.\-h}}
+\subsubsection[{ieee80211\-\_\-aes\-\_\-cmac}]{\setlength{\rightskip}{0pt plus 5cm}void ieee80211\-\_\-aes\-\_\-cmac (
+\begin{DoxyParamCaption}
+\item[{struct crypto\-\_\-cipher $\ast$}]{tfm, }
+\item[{const u8 $\ast$}]{aad, }
+\item[{const u8 $\ast$}]{data, }
+\item[{size\-\_\-t}]{data\-\_\-len, }
+\item[{u8 $\ast$}]{mic}
+\end{DoxyParamCaption}
+)}}\label{aes__cmac_8h_a3cd28c83bdac640b39723dd158162b72}
+
+
+Definition at line 98 of file aes\-\_\-cmac.\-c.
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=342pt]{aes__cmac_8h_a3cd28c83bdac640b39723dd158162b72_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{aes__cmac_8h_aa37103bb5143cd5dd3942d36c4be9fb0}{\index{aes\-\_\-cmac.\-h@{aes\-\_\-cmac.\-h}!ieee80211\-\_\-aes\-\_\-cmac\-\_\-key\-\_\-free@{ieee80211\-\_\-aes\-\_\-cmac\-\_\-key\-\_\-free}}
+\index{ieee80211\-\_\-aes\-\_\-cmac\-\_\-key\-\_\-free@{ieee80211\-\_\-aes\-\_\-cmac\-\_\-key\-\_\-free}!aes_cmac.h@{aes\-\_\-cmac.\-h}}
+\subsubsection[{ieee80211\-\_\-aes\-\_\-cmac\-\_\-key\-\_\-free}]{\setlength{\rightskip}{0pt plus 5cm}void ieee80211\-\_\-aes\-\_\-cmac\-\_\-key\-\_\-free (
+\begin{DoxyParamCaption}
+\item[{struct crypto\-\_\-cipher $\ast$}]{tfm}
+\end{DoxyParamCaption}
+)}}\label{aes__cmac_8h_aa37103bb5143cd5dd3942d36c4be9fb0}
+
+
+Definition at line 129 of file aes\-\_\-cmac.\-c.
+
+\hypertarget{aes__cmac_8h_ac875d30ae8f10530ca928c4f3c02f6e5}{\index{aes\-\_\-cmac.\-h@{aes\-\_\-cmac.\-h}!ieee80211\-\_\-aes\-\_\-cmac\-\_\-key\-\_\-setup@{ieee80211\-\_\-aes\-\_\-cmac\-\_\-key\-\_\-setup}}
+\index{ieee80211\-\_\-aes\-\_\-cmac\-\_\-key\-\_\-setup@{ieee80211\-\_\-aes\-\_\-cmac\-\_\-key\-\_\-setup}!aes_cmac.h@{aes\-\_\-cmac.\-h}}
+\subsubsection[{ieee80211\-\_\-aes\-\_\-cmac\-\_\-key\-\_\-setup}]{\setlength{\rightskip}{0pt plus 5cm}struct crypto\-\_\-cipher$\ast$ ieee80211\-\_\-aes\-\_\-cmac\-\_\-key\-\_\-setup (
+\begin{DoxyParamCaption}
+\item[{const u8}]{key\mbox{[}$\,$\mbox{]}}
+\end{DoxyParamCaption}
+)}}\label{aes__cmac_8h_ac875d30ae8f10530ca928c4f3c02f6e5}
+
+
+Definition at line 117 of file aes\-\_\-cmac.\-c.
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=336pt]{aes__cmac_8h_ac875d30ae8f10530ca928c4f3c02f6e5_icgraph}
+\end{center}
+\end{figure}
+
+

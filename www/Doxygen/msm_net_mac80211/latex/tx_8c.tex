@@ -1,0 +1,513 @@
+\hypertarget{tx_8c}{\section{/home/guille/msm/net/mac80211/tx.c File Reference}
+\label{tx_8c}\index{/home/guille/msm/net/mac80211/tx.\-c@{/home/guille/msm/net/mac80211/tx.\-c}}
+}
+{\ttfamily \#include $<$linux/kernel.\-h$>$}\\*
+{\ttfamily \#include $<$linux/slab.\-h$>$}\\*
+{\ttfamily \#include $<$linux/skbuff.\-h$>$}\\*
+{\ttfamily \#include $<$linux/etherdevice.\-h$>$}\\*
+{\ttfamily \#include $<$linux/bitmap.\-h$>$}\\*
+{\ttfamily \#include $<$linux/rcupdate.\-h$>$}\\*
+{\ttfamily \#include $<$linux/export.\-h$>$}\\*
+{\ttfamily \#include $<$net/net\-\_\-namespace.\-h$>$}\\*
+{\ttfamily \#include $<$net/ieee80211\-\_\-radiotap.\-h$>$}\\*
+{\ttfamily \#include $<$net/cfg80211.\-h$>$}\\*
+{\ttfamily \#include $<$net/mac80211.\-h$>$}\\*
+{\ttfamily \#include $<$asm/unaligned.\-h$>$}\\*
+{\ttfamily \#include \char`\"{}ieee80211\-\_\-i.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}driver-\/ops.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}led.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}mesh.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}wep.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}wpa.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}wme.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}rate.\-h\char`\"{}}\\*
+Include dependency graph for tx.\-c\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{tx_8c__incl}
+\end{center}
+\end{figure}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{tx_8c_ac219e533a62242d86e827aa10cdcc833}{C\-A\-L\-L\-\_\-\-T\-X\-H}(txh)
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{tx_8c_a65a7812627c89c5acac3c32f84c2f26d}{ieee80211\-\_\-xmit} (struct \hyperlink{structieee80211__sub__if__data}{ieee80211\-\_\-sub\-\_\-if\-\_\-data} $\ast$sdata, struct sk\-\_\-buff $\ast$skb)
+\item 
+netdev\-\_\-tx\-\_\-t \hyperlink{tx_8c_a951d245dd3949f39c22f4d2edc31fd27}{ieee80211\-\_\-monitor\-\_\-start\-\_\-xmit} (struct sk\-\_\-buff $\ast$skb, struct net\-\_\-device $\ast$dev)
+\item 
+netdev\-\_\-tx\-\_\-t \hyperlink{tx_8c_a9ef198202d80d955161015d689874c4b}{ieee80211\-\_\-subif\-\_\-start\-\_\-xmit} (struct sk\-\_\-buff $\ast$skb, struct net\-\_\-device $\ast$dev)
+\item 
+void \hyperlink{tx_8c_ab44808fd6af0cdb323fc0341becf29ef}{ieee80211\-\_\-clear\-\_\-tx\-\_\-pending} (struct \hyperlink{structieee80211__local}{ieee80211\-\_\-local} $\ast$local)
+\item 
+void \hyperlink{tx_8c_a3cff4e6856b66cc31c7605660117e3dd}{ieee80211\-\_\-tx\-\_\-pending} (unsigned long data)
+\item 
+struct sk\-\_\-buff $\ast$ \hyperlink{tx_8c_a47323d882810413b2cfd559459097a9b}{ieee80211\-\_\-beacon\-\_\-get\-\_\-tim} (struct ieee80211\-\_\-hw $\ast$hw, struct ieee80211\-\_\-vif $\ast$vif, u16 $\ast$tim\-\_\-offset, u16 $\ast$tim\-\_\-length)
+\item 
+\hyperlink{tx_8c_ad1f2ce26ca1d02dc9e4ec26c577f8242}{E\-X\-P\-O\-R\-T\-\_\-\-S\-Y\-M\-B\-O\-L} (\hyperlink{tx_8c_a47323d882810413b2cfd559459097a9b}{ieee80211\-\_\-beacon\-\_\-get\-\_\-tim})
+\item 
+struct sk\-\_\-buff $\ast$ \hyperlink{tx_8c_af7e6946720ab000d8716178633ef86f2}{ieee80211\-\_\-proberesp\-\_\-get} (struct ieee80211\-\_\-hw $\ast$hw, struct ieee80211\-\_\-vif $\ast$vif)
+\item 
+\hyperlink{tx_8c_a1167147043d4c7c9b34811c388eed9c7}{E\-X\-P\-O\-R\-T\-\_\-\-S\-Y\-M\-B\-O\-L} (\hyperlink{tx_8c_af7e6946720ab000d8716178633ef86f2}{ieee80211\-\_\-proberesp\-\_\-get})
+\item 
+struct sk\-\_\-buff $\ast$ \hyperlink{tx_8c_a59ac2f022db1a9d4ce0c291cfc7f5910}{ieee80211\-\_\-pspoll\-\_\-get} (struct ieee80211\-\_\-hw $\ast$hw, struct ieee80211\-\_\-vif $\ast$vif)
+\item 
+\hyperlink{tx_8c_ab12eb96e33b6937c12bfc0bc7c04aeca}{E\-X\-P\-O\-R\-T\-\_\-\-S\-Y\-M\-B\-O\-L} (\hyperlink{tx_8c_a59ac2f022db1a9d4ce0c291cfc7f5910}{ieee80211\-\_\-pspoll\-\_\-get})
+\item 
+struct sk\-\_\-buff $\ast$ \hyperlink{tx_8c_a4cf21e00a87f68315686c4017d8709d6}{ieee80211\-\_\-nullfunc\-\_\-get} (struct ieee80211\-\_\-hw $\ast$hw, struct ieee80211\-\_\-vif $\ast$vif)
+\item 
+\hyperlink{tx_8c_a68ab5ebde90e02fa142f9c79f469d74f}{E\-X\-P\-O\-R\-T\-\_\-\-S\-Y\-M\-B\-O\-L} (\hyperlink{tx_8c_a4cf21e00a87f68315686c4017d8709d6}{ieee80211\-\_\-nullfunc\-\_\-get})
+\item 
+struct sk\-\_\-buff $\ast$ \hyperlink{tx_8c_ace9eaedc679dcbcdca8b66a84606b861}{ieee80211\-\_\-probereq\-\_\-get} (struct ieee80211\-\_\-hw $\ast$hw, struct ieee80211\-\_\-vif $\ast$vif, const u8 $\ast$ssid, size\-\_\-t ssid\-\_\-len, const u8 $\ast$ie, size\-\_\-t ie\-\_\-len)
+\item 
+\hyperlink{tx_8c_aead42c25aa76c922bb2acd88738c7edf}{E\-X\-P\-O\-R\-T\-\_\-\-S\-Y\-M\-B\-O\-L} (\hyperlink{tx_8c_ace9eaedc679dcbcdca8b66a84606b861}{ieee80211\-\_\-probereq\-\_\-get})
+\item 
+void \hyperlink{tx_8c_a624ea4c484640cb9ae7905ed72f56a28}{ieee80211\-\_\-rts\-\_\-get} (struct ieee80211\-\_\-hw $\ast$hw, struct ieee80211\-\_\-vif $\ast$vif, const void $\ast$frame, size\-\_\-t frame\-\_\-len, const struct ieee80211\-\_\-tx\-\_\-info $\ast$frame\-\_\-txctl, struct ieee80211\-\_\-rts $\ast$rts)
+\item 
+\hyperlink{tx_8c_a319b45641a394f90b88626312d4f2480}{E\-X\-P\-O\-R\-T\-\_\-\-S\-Y\-M\-B\-O\-L} (\hyperlink{tx_8c_a624ea4c484640cb9ae7905ed72f56a28}{ieee80211\-\_\-rts\-\_\-get})
+\item 
+void \hyperlink{tx_8c_a4117f3ef7a1f0842b139c339669181e7}{ieee80211\-\_\-ctstoself\-\_\-get} (struct ieee80211\-\_\-hw $\ast$hw, struct ieee80211\-\_\-vif $\ast$vif, const void $\ast$frame, size\-\_\-t frame\-\_\-len, const struct ieee80211\-\_\-tx\-\_\-info $\ast$frame\-\_\-txctl, struct ieee80211\-\_\-cts $\ast$cts)
+\item 
+\hyperlink{tx_8c_a7aa9f979c9988da18fe89d70974f8557}{E\-X\-P\-O\-R\-T\-\_\-\-S\-Y\-M\-B\-O\-L} (\hyperlink{tx_8c_a4117f3ef7a1f0842b139c339669181e7}{ieee80211\-\_\-ctstoself\-\_\-get})
+\item 
+struct sk\-\_\-buff $\ast$ \hyperlink{tx_8c_ade364bd5dffc9a60efde808b453bed16}{ieee80211\-\_\-get\-\_\-buffered\-\_\-bc} (struct ieee80211\-\_\-hw $\ast$hw, struct ieee80211\-\_\-vif $\ast$vif)
+\item 
+\hyperlink{tx_8c_aa511cb6b5a0ce17b89e85d812f87febd}{E\-X\-P\-O\-R\-T\-\_\-\-S\-Y\-M\-B\-O\-L} (\hyperlink{tx_8c_ade364bd5dffc9a60efde808b453bed16}{ieee80211\-\_\-get\-\_\-buffered\-\_\-bc})
+\item 
+void \hyperlink{tx_8c_ab08be1ce70cfc5660bac1eaaa803a963}{ieee80211\-\_\-tx\-\_\-skb\-\_\-tid} (struct \hyperlink{structieee80211__sub__if__data}{ieee80211\-\_\-sub\-\_\-if\-\_\-data} $\ast$sdata, struct sk\-\_\-buff $\ast$skb, int tid)
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{tx_8c_ac219e533a62242d86e827aa10cdcc833}{\index{tx.\-c@{tx.\-c}!C\-A\-L\-L\-\_\-\-T\-X\-H@{C\-A\-L\-L\-\_\-\-T\-X\-H}}
+\index{C\-A\-L\-L\-\_\-\-T\-X\-H@{C\-A\-L\-L\-\_\-\-T\-X\-H}!tx.c@{tx.\-c}}
+\subsubsection[{C\-A\-L\-L\-\_\-\-T\-X\-H}]{\setlength{\rightskip}{0pt plus 5cm}\#define C\-A\-L\-L\-\_\-\-T\-X\-H(
+\begin{DoxyParamCaption}
+\item[{}]{txh}
+\end{DoxyParamCaption}
+)}}\label{tx_8c_ac219e533a62242d86e827aa10cdcc833}
+{\bfseries Value\-:}
+\begin{DoxyCode}
+\textcolor{keywordflow}{do} \{                \(\backslash\)
+        res = txh(tx);      \(\backslash\)
+        if (res != \hyperlink{ieee80211__i_8h_a16ead43be6a3608f8c408636651f133d}{TX\_CONTINUE})  \(\backslash\)
+            goto txh\_done;  \(\backslash\)
+    \} \textcolor{keywordflow}{while} (0)
+\end{DoxyCode}
+
+
+\subsection{Function Documentation}
+\hypertarget{tx_8c_ad1f2ce26ca1d02dc9e4ec26c577f8242}{\index{tx.\-c@{tx.\-c}!E\-X\-P\-O\-R\-T\-\_\-\-S\-Y\-M\-B\-O\-L@{E\-X\-P\-O\-R\-T\-\_\-\-S\-Y\-M\-B\-O\-L}}
+\index{E\-X\-P\-O\-R\-T\-\_\-\-S\-Y\-M\-B\-O\-L@{E\-X\-P\-O\-R\-T\-\_\-\-S\-Y\-M\-B\-O\-L}!tx.c@{tx.\-c}}
+\subsubsection[{E\-X\-P\-O\-R\-T\-\_\-\-S\-Y\-M\-B\-O\-L}]{\setlength{\rightskip}{0pt plus 5cm}E\-X\-P\-O\-R\-T\-\_\-\-S\-Y\-M\-B\-O\-L (
+\begin{DoxyParamCaption}
+\item[{{\bf ieee80211\-\_\-beacon\-\_\-get\-\_\-tim}}]{}
+\end{DoxyParamCaption}
+)}}\label{tx_8c_ad1f2ce26ca1d02dc9e4ec26c577f8242}
+\hypertarget{tx_8c_a1167147043d4c7c9b34811c388eed9c7}{\index{tx.\-c@{tx.\-c}!E\-X\-P\-O\-R\-T\-\_\-\-S\-Y\-M\-B\-O\-L@{E\-X\-P\-O\-R\-T\-\_\-\-S\-Y\-M\-B\-O\-L}}
+\index{E\-X\-P\-O\-R\-T\-\_\-\-S\-Y\-M\-B\-O\-L@{E\-X\-P\-O\-R\-T\-\_\-\-S\-Y\-M\-B\-O\-L}!tx.c@{tx.\-c}}
+\subsubsection[{E\-X\-P\-O\-R\-T\-\_\-\-S\-Y\-M\-B\-O\-L}]{\setlength{\rightskip}{0pt plus 5cm}E\-X\-P\-O\-R\-T\-\_\-\-S\-Y\-M\-B\-O\-L (
+\begin{DoxyParamCaption}
+\item[{{\bf ieee80211\-\_\-proberesp\-\_\-get}}]{}
+\end{DoxyParamCaption}
+)}}\label{tx_8c_a1167147043d4c7c9b34811c388eed9c7}
+\hypertarget{tx_8c_ab12eb96e33b6937c12bfc0bc7c04aeca}{\index{tx.\-c@{tx.\-c}!E\-X\-P\-O\-R\-T\-\_\-\-S\-Y\-M\-B\-O\-L@{E\-X\-P\-O\-R\-T\-\_\-\-S\-Y\-M\-B\-O\-L}}
+\index{E\-X\-P\-O\-R\-T\-\_\-\-S\-Y\-M\-B\-O\-L@{E\-X\-P\-O\-R\-T\-\_\-\-S\-Y\-M\-B\-O\-L}!tx.c@{tx.\-c}}
+\subsubsection[{E\-X\-P\-O\-R\-T\-\_\-\-S\-Y\-M\-B\-O\-L}]{\setlength{\rightskip}{0pt plus 5cm}E\-X\-P\-O\-R\-T\-\_\-\-S\-Y\-M\-B\-O\-L (
+\begin{DoxyParamCaption}
+\item[{{\bf ieee80211\-\_\-pspoll\-\_\-get}}]{}
+\end{DoxyParamCaption}
+)}}\label{tx_8c_ab12eb96e33b6937c12bfc0bc7c04aeca}
+\hypertarget{tx_8c_a68ab5ebde90e02fa142f9c79f469d74f}{\index{tx.\-c@{tx.\-c}!E\-X\-P\-O\-R\-T\-\_\-\-S\-Y\-M\-B\-O\-L@{E\-X\-P\-O\-R\-T\-\_\-\-S\-Y\-M\-B\-O\-L}}
+\index{E\-X\-P\-O\-R\-T\-\_\-\-S\-Y\-M\-B\-O\-L@{E\-X\-P\-O\-R\-T\-\_\-\-S\-Y\-M\-B\-O\-L}!tx.c@{tx.\-c}}
+\subsubsection[{E\-X\-P\-O\-R\-T\-\_\-\-S\-Y\-M\-B\-O\-L}]{\setlength{\rightskip}{0pt plus 5cm}E\-X\-P\-O\-R\-T\-\_\-\-S\-Y\-M\-B\-O\-L (
+\begin{DoxyParamCaption}
+\item[{{\bf ieee80211\-\_\-nullfunc\-\_\-get}}]{}
+\end{DoxyParamCaption}
+)}}\label{tx_8c_a68ab5ebde90e02fa142f9c79f469d74f}
+\hypertarget{tx_8c_aead42c25aa76c922bb2acd88738c7edf}{\index{tx.\-c@{tx.\-c}!E\-X\-P\-O\-R\-T\-\_\-\-S\-Y\-M\-B\-O\-L@{E\-X\-P\-O\-R\-T\-\_\-\-S\-Y\-M\-B\-O\-L}}
+\index{E\-X\-P\-O\-R\-T\-\_\-\-S\-Y\-M\-B\-O\-L@{E\-X\-P\-O\-R\-T\-\_\-\-S\-Y\-M\-B\-O\-L}!tx.c@{tx.\-c}}
+\subsubsection[{E\-X\-P\-O\-R\-T\-\_\-\-S\-Y\-M\-B\-O\-L}]{\setlength{\rightskip}{0pt plus 5cm}E\-X\-P\-O\-R\-T\-\_\-\-S\-Y\-M\-B\-O\-L (
+\begin{DoxyParamCaption}
+\item[{{\bf ieee80211\-\_\-probereq\-\_\-get}}]{}
+\end{DoxyParamCaption}
+)}}\label{tx_8c_aead42c25aa76c922bb2acd88738c7edf}
+\hypertarget{tx_8c_a319b45641a394f90b88626312d4f2480}{\index{tx.\-c@{tx.\-c}!E\-X\-P\-O\-R\-T\-\_\-\-S\-Y\-M\-B\-O\-L@{E\-X\-P\-O\-R\-T\-\_\-\-S\-Y\-M\-B\-O\-L}}
+\index{E\-X\-P\-O\-R\-T\-\_\-\-S\-Y\-M\-B\-O\-L@{E\-X\-P\-O\-R\-T\-\_\-\-S\-Y\-M\-B\-O\-L}!tx.c@{tx.\-c}}
+\subsubsection[{E\-X\-P\-O\-R\-T\-\_\-\-S\-Y\-M\-B\-O\-L}]{\setlength{\rightskip}{0pt plus 5cm}E\-X\-P\-O\-R\-T\-\_\-\-S\-Y\-M\-B\-O\-L (
+\begin{DoxyParamCaption}
+\item[{{\bf ieee80211\-\_\-rts\-\_\-get}}]{}
+\end{DoxyParamCaption}
+)}}\label{tx_8c_a319b45641a394f90b88626312d4f2480}
+\hypertarget{tx_8c_a7aa9f979c9988da18fe89d70974f8557}{\index{tx.\-c@{tx.\-c}!E\-X\-P\-O\-R\-T\-\_\-\-S\-Y\-M\-B\-O\-L@{E\-X\-P\-O\-R\-T\-\_\-\-S\-Y\-M\-B\-O\-L}}
+\index{E\-X\-P\-O\-R\-T\-\_\-\-S\-Y\-M\-B\-O\-L@{E\-X\-P\-O\-R\-T\-\_\-\-S\-Y\-M\-B\-O\-L}!tx.c@{tx.\-c}}
+\subsubsection[{E\-X\-P\-O\-R\-T\-\_\-\-S\-Y\-M\-B\-O\-L}]{\setlength{\rightskip}{0pt plus 5cm}E\-X\-P\-O\-R\-T\-\_\-\-S\-Y\-M\-B\-O\-L (
+\begin{DoxyParamCaption}
+\item[{{\bf ieee80211\-\_\-ctstoself\-\_\-get}}]{}
+\end{DoxyParamCaption}
+)}}\label{tx_8c_a7aa9f979c9988da18fe89d70974f8557}
+\hypertarget{tx_8c_aa511cb6b5a0ce17b89e85d812f87febd}{\index{tx.\-c@{tx.\-c}!E\-X\-P\-O\-R\-T\-\_\-\-S\-Y\-M\-B\-O\-L@{E\-X\-P\-O\-R\-T\-\_\-\-S\-Y\-M\-B\-O\-L}}
+\index{E\-X\-P\-O\-R\-T\-\_\-\-S\-Y\-M\-B\-O\-L@{E\-X\-P\-O\-R\-T\-\_\-\-S\-Y\-M\-B\-O\-L}!tx.c@{tx.\-c}}
+\subsubsection[{E\-X\-P\-O\-R\-T\-\_\-\-S\-Y\-M\-B\-O\-L}]{\setlength{\rightskip}{0pt plus 5cm}E\-X\-P\-O\-R\-T\-\_\-\-S\-Y\-M\-B\-O\-L (
+\begin{DoxyParamCaption}
+\item[{{\bf ieee80211\-\_\-get\-\_\-buffered\-\_\-bc}}]{}
+\end{DoxyParamCaption}
+)}}\label{tx_8c_aa511cb6b5a0ce17b89e85d812f87febd}
+\hypertarget{tx_8c_a47323d882810413b2cfd559459097a9b}{\index{tx.\-c@{tx.\-c}!ieee80211\-\_\-beacon\-\_\-get\-\_\-tim@{ieee80211\-\_\-beacon\-\_\-get\-\_\-tim}}
+\index{ieee80211\-\_\-beacon\-\_\-get\-\_\-tim@{ieee80211\-\_\-beacon\-\_\-get\-\_\-tim}!tx.c@{tx.\-c}}
+\subsubsection[{ieee80211\-\_\-beacon\-\_\-get\-\_\-tim}]{\setlength{\rightskip}{0pt plus 5cm}struct sk\-\_\-buff$\ast$ ieee80211\-\_\-beacon\-\_\-get\-\_\-tim (
+\begin{DoxyParamCaption}
+\item[{struct ieee80211\-\_\-hw $\ast$}]{hw, }
+\item[{struct ieee80211\-\_\-vif $\ast$}]{vif, }
+\item[{u16 $\ast$}]{tim\-\_\-offset, }
+\item[{u16 $\ast$}]{tim\-\_\-length}
+\end{DoxyParamCaption}
+)}}\label{tx_8c_a47323d882810413b2cfd559459097a9b}
+
+
+Definition at line 2286 of file tx.\-c.
+
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{tx_8c_a47323d882810413b2cfd559459097a9b_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{tx_8c_ab44808fd6af0cdb323fc0341becf29ef}{\index{tx.\-c@{tx.\-c}!ieee80211\-\_\-clear\-\_\-tx\-\_\-pending@{ieee80211\-\_\-clear\-\_\-tx\-\_\-pending}}
+\index{ieee80211\-\_\-clear\-\_\-tx\-\_\-pending@{ieee80211\-\_\-clear\-\_\-tx\-\_\-pending}!tx.c@{tx.\-c}}
+\subsubsection[{ieee80211\-\_\-clear\-\_\-tx\-\_\-pending}]{\setlength{\rightskip}{0pt plus 5cm}void ieee80211\-\_\-clear\-\_\-tx\-\_\-pending (
+\begin{DoxyParamCaption}
+\item[{struct {\bf ieee80211\-\_\-local} $\ast$}]{local}
+\end{DoxyParamCaption}
+)}}\label{tx_8c_ab44808fd6af0cdb323fc0341becf29ef}
+
+
+Definition at line 2127 of file tx.\-c.
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=346pt]{tx_8c_ab44808fd6af0cdb323fc0341becf29ef_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{tx_8c_a4117f3ef7a1f0842b139c339669181e7}{\index{tx.\-c@{tx.\-c}!ieee80211\-\_\-ctstoself\-\_\-get@{ieee80211\-\_\-ctstoself\-\_\-get}}
+\index{ieee80211\-\_\-ctstoself\-\_\-get@{ieee80211\-\_\-ctstoself\-\_\-get}!tx.c@{tx.\-c}}
+\subsubsection[{ieee80211\-\_\-ctstoself\-\_\-get}]{\setlength{\rightskip}{0pt plus 5cm}void ieee80211\-\_\-ctstoself\-\_\-get (
+\begin{DoxyParamCaption}
+\item[{struct ieee80211\-\_\-hw $\ast$}]{hw, }
+\item[{struct ieee80211\-\_\-vif $\ast$}]{vif, }
+\item[{const void $\ast$}]{frame, }
+\item[{size\-\_\-t}]{frame\-\_\-len, }
+\item[{const struct ieee80211\-\_\-tx\-\_\-info $\ast$}]{frame\-\_\-txctl, }
+\item[{struct ieee80211\-\_\-cts $\ast$}]{cts}
+\end{DoxyParamCaption}
+)}}\label{tx_8c_a4117f3ef7a1f0842b139c339669181e7}
+
+
+Definition at line 2636 of file tx.\-c.
+
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{tx_8c_a4117f3ef7a1f0842b139c339669181e7_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{tx_8c_ade364bd5dffc9a60efde808b453bed16}{\index{tx.\-c@{tx.\-c}!ieee80211\-\_\-get\-\_\-buffered\-\_\-bc@{ieee80211\-\_\-get\-\_\-buffered\-\_\-bc}}
+\index{ieee80211\-\_\-get\-\_\-buffered\-\_\-bc@{ieee80211\-\_\-get\-\_\-buffered\-\_\-bc}!tx.c@{tx.\-c}}
+\subsubsection[{ieee80211\-\_\-get\-\_\-buffered\-\_\-bc}]{\setlength{\rightskip}{0pt plus 5cm}struct sk\-\_\-buff$\ast$ ieee80211\-\_\-get\-\_\-buffered\-\_\-bc (
+\begin{DoxyParamCaption}
+\item[{struct ieee80211\-\_\-hw $\ast$}]{hw, }
+\item[{struct ieee80211\-\_\-vif $\ast$}]{vif}
+\end{DoxyParamCaption}
+)}}\label{tx_8c_ade364bd5dffc9a60efde808b453bed16}
+
+
+Definition at line 2652 of file tx.\-c.
+
+\hypertarget{tx_8c_a951d245dd3949f39c22f4d2edc31fd27}{\index{tx.\-c@{tx.\-c}!ieee80211\-\_\-monitor\-\_\-start\-\_\-xmit@{ieee80211\-\_\-monitor\-\_\-start\-\_\-xmit}}
+\index{ieee80211\-\_\-monitor\-\_\-start\-\_\-xmit@{ieee80211\-\_\-monitor\-\_\-start\-\_\-xmit}!tx.c@{tx.\-c}}
+\subsubsection[{ieee80211\-\_\-monitor\-\_\-start\-\_\-xmit}]{\setlength{\rightskip}{0pt plus 5cm}netdev\-\_\-tx\-\_\-t ieee80211\-\_\-monitor\-\_\-start\-\_\-xmit (
+\begin{DoxyParamCaption}
+\item[{struct sk\-\_\-buff $\ast$}]{skb, }
+\item[{struct net\-\_\-device $\ast$}]{dev}
+\end{DoxyParamCaption}
+)}}\label{tx_8c_a951d245dd3949f39c22f4d2edc31fd27}
+
+
+Definition at line 1567 of file tx.\-c.
+
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{tx_8c_a951d245dd3949f39c22f4d2edc31fd27_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{tx_8c_a4cf21e00a87f68315686c4017d8709d6}{\index{tx.\-c@{tx.\-c}!ieee80211\-\_\-nullfunc\-\_\-get@{ieee80211\-\_\-nullfunc\-\_\-get}}
+\index{ieee80211\-\_\-nullfunc\-\_\-get@{ieee80211\-\_\-nullfunc\-\_\-get}!tx.c@{tx.\-c}}
+\subsubsection[{ieee80211\-\_\-nullfunc\-\_\-get}]{\setlength{\rightskip}{0pt plus 5cm}struct sk\-\_\-buff$\ast$ ieee80211\-\_\-nullfunc\-\_\-get (
+\begin{DoxyParamCaption}
+\item[{struct ieee80211\-\_\-hw $\ast$}]{hw, }
+\item[{struct ieee80211\-\_\-vif $\ast$}]{vif}
+\end{DoxyParamCaption}
+)}}\label{tx_8c_a4cf21e00a87f68315686c4017d8709d6}
+
+
+Definition at line 2537 of file tx.\-c.
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{tx_8c_a4cf21e00a87f68315686c4017d8709d6_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{tx_8c_ace9eaedc679dcbcdca8b66a84606b861}{\index{tx.\-c@{tx.\-c}!ieee80211\-\_\-probereq\-\_\-get@{ieee80211\-\_\-probereq\-\_\-get}}
+\index{ieee80211\-\_\-probereq\-\_\-get@{ieee80211\-\_\-probereq\-\_\-get}!tx.c@{tx.\-c}}
+\subsubsection[{ieee80211\-\_\-probereq\-\_\-get}]{\setlength{\rightskip}{0pt plus 5cm}struct sk\-\_\-buff$\ast$ ieee80211\-\_\-probereq\-\_\-get (
+\begin{DoxyParamCaption}
+\item[{struct ieee80211\-\_\-hw $\ast$}]{hw, }
+\item[{struct ieee80211\-\_\-vif $\ast$}]{vif, }
+\item[{const u8 $\ast$}]{ssid, }
+\item[{size\-\_\-t}]{ssid\-\_\-len, }
+\item[{const u8 $\ast$}]{ie, }
+\item[{size\-\_\-t}]{ie\-\_\-len}
+\end{DoxyParamCaption}
+)}}\label{tx_8c_ace9eaedc679dcbcdca8b66a84606b861}
+
+
+Definition at line 2573 of file tx.\-c.
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{tx_8c_ace9eaedc679dcbcdca8b66a84606b861_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{tx_8c_af7e6946720ab000d8716178633ef86f2}{\index{tx.\-c@{tx.\-c}!ieee80211\-\_\-proberesp\-\_\-get@{ieee80211\-\_\-proberesp\-\_\-get}}
+\index{ieee80211\-\_\-proberesp\-\_\-get@{ieee80211\-\_\-proberesp\-\_\-get}!tx.c@{tx.\-c}}
+\subsubsection[{ieee80211\-\_\-proberesp\-\_\-get}]{\setlength{\rightskip}{0pt plus 5cm}struct sk\-\_\-buff$\ast$ ieee80211\-\_\-proberesp\-\_\-get (
+\begin{DoxyParamCaption}
+\item[{struct ieee80211\-\_\-hw $\ast$}]{hw, }
+\item[{struct ieee80211\-\_\-vif $\ast$}]{vif}
+\end{DoxyParamCaption}
+)}}\label{tx_8c_af7e6946720ab000d8716178633ef86f2}
+
+
+Definition at line 2468 of file tx.\-c.
+
+\hypertarget{tx_8c_a59ac2f022db1a9d4ce0c291cfc7f5910}{\index{tx.\-c@{tx.\-c}!ieee80211\-\_\-pspoll\-\_\-get@{ieee80211\-\_\-pspoll\-\_\-get}}
+\index{ieee80211\-\_\-pspoll\-\_\-get@{ieee80211\-\_\-pspoll\-\_\-get}!tx.c@{tx.\-c}}
+\subsubsection[{ieee80211\-\_\-pspoll\-\_\-get}]{\setlength{\rightskip}{0pt plus 5cm}struct sk\-\_\-buff$\ast$ ieee80211\-\_\-pspoll\-\_\-get (
+\begin{DoxyParamCaption}
+\item[{struct ieee80211\-\_\-hw $\ast$}]{hw, }
+\item[{struct ieee80211\-\_\-vif $\ast$}]{vif}
+\end{DoxyParamCaption}
+)}}\label{tx_8c_a59ac2f022db1a9d4ce0c291cfc7f5910}
+
+
+Definition at line 2499 of file tx.\-c.
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=344pt]{tx_8c_a59ac2f022db1a9d4ce0c291cfc7f5910_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{tx_8c_a624ea4c484640cb9ae7905ed72f56a28}{\index{tx.\-c@{tx.\-c}!ieee80211\-\_\-rts\-\_\-get@{ieee80211\-\_\-rts\-\_\-get}}
+\index{ieee80211\-\_\-rts\-\_\-get@{ieee80211\-\_\-rts\-\_\-get}!tx.c@{tx.\-c}}
+\subsubsection[{ieee80211\-\_\-rts\-\_\-get}]{\setlength{\rightskip}{0pt plus 5cm}void ieee80211\-\_\-rts\-\_\-get (
+\begin{DoxyParamCaption}
+\item[{struct ieee80211\-\_\-hw $\ast$}]{hw, }
+\item[{struct ieee80211\-\_\-vif $\ast$}]{vif, }
+\item[{const void $\ast$}]{frame, }
+\item[{size\-\_\-t}]{frame\-\_\-len, }
+\item[{const struct ieee80211\-\_\-tx\-\_\-info $\ast$}]{frame\-\_\-txctl, }
+\item[{struct ieee80211\-\_\-rts $\ast$}]{rts}
+\end{DoxyParamCaption}
+)}}\label{tx_8c_a624ea4c484640cb9ae7905ed72f56a28}
+
+
+Definition at line 2620 of file tx.\-c.
+
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{tx_8c_a624ea4c484640cb9ae7905ed72f56a28_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{tx_8c_a9ef198202d80d955161015d689874c4b}{\index{tx.\-c@{tx.\-c}!ieee80211\-\_\-subif\-\_\-start\-\_\-xmit@{ieee80211\-\_\-subif\-\_\-start\-\_\-xmit}}
+\index{ieee80211\-\_\-subif\-\_\-start\-\_\-xmit@{ieee80211\-\_\-subif\-\_\-start\-\_\-xmit}!tx.c@{tx.\-c}}
+\subsubsection[{ieee80211\-\_\-subif\-\_\-start\-\_\-xmit}]{\setlength{\rightskip}{0pt plus 5cm}netdev\-\_\-tx\-\_\-t ieee80211\-\_\-subif\-\_\-start\-\_\-xmit (
+\begin{DoxyParamCaption}
+\item[{struct sk\-\_\-buff $\ast$}]{skb, }
+\item[{struct net\-\_\-device $\ast$}]{dev}
+\end{DoxyParamCaption}
+)}}\label{tx_8c_a9ef198202d80d955161015d689874c4b}
+ieee80211\-\_\-subif\-\_\-start\-\_\-xmit -\/ netif start\-\_\-xmit function for Ethernet-\/type subinterfaces (wlan\#, W\-D\-S, and V\-L\-A\-N interfaces) \-: packet to be sent \-: incoming interface
+
+Returns\-: 0 on success (and frees skb in this case) or 1 on failure (skb will not be freed, and caller is responsible for either retrying later or freeing skb).
+
+This function takes in an Ethernet header and encapsulates it with suitable I\-E\-E\-E 802.\-11 header based on which interface the packet is coming in. The encapsulated packet will then be passed to master interface, wlan\#.11, for transmission (through low-\/level driver). 
+
+Definition at line 1710 of file tx.\-c.
+
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{tx_8c_a9ef198202d80d955161015d689874c4b_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{tx_8c_a3cff4e6856b66cc31c7605660117e3dd}{\index{tx.\-c@{tx.\-c}!ieee80211\-\_\-tx\-\_\-pending@{ieee80211\-\_\-tx\-\_\-pending}}
+\index{ieee80211\-\_\-tx\-\_\-pending@{ieee80211\-\_\-tx\-\_\-pending}!tx.c@{tx.\-c}}
+\subsubsection[{ieee80211\-\_\-tx\-\_\-pending}]{\setlength{\rightskip}{0pt plus 5cm}void ieee80211\-\_\-tx\-\_\-pending (
+\begin{DoxyParamCaption}
+\item[{unsigned long}]{data}
+\end{DoxyParamCaption}
+)}}\label{tx_8c_a3cff4e6856b66cc31c7605660117e3dd}
+
+
+Definition at line 2171 of file tx.\-c.
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=334pt]{tx_8c_a3cff4e6856b66cc31c7605660117e3dd_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{tx_8c_ab08be1ce70cfc5660bac1eaaa803a963}{\index{tx.\-c@{tx.\-c}!ieee80211\-\_\-tx\-\_\-skb\-\_\-tid@{ieee80211\-\_\-tx\-\_\-skb\-\_\-tid}}
+\index{ieee80211\-\_\-tx\-\_\-skb\-\_\-tid@{ieee80211\-\_\-tx\-\_\-skb\-\_\-tid}!tx.c@{tx.\-c}}
+\subsubsection[{ieee80211\-\_\-tx\-\_\-skb\-\_\-tid}]{\setlength{\rightskip}{0pt plus 5cm}void ieee80211\-\_\-tx\-\_\-skb\-\_\-tid (
+\begin{DoxyParamCaption}
+\item[{struct {\bf ieee80211\-\_\-sub\-\_\-if\-\_\-data} $\ast$}]{sdata, }
+\item[{struct sk\-\_\-buff $\ast$}]{skb, }
+\item[{int}]{tid}
+\end{DoxyParamCaption}
+)}}\label{tx_8c_ab08be1ce70cfc5660bac1eaaa803a963}
+
+
+Definition at line 2711 of file tx.\-c.
+
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{tx_8c_ab08be1ce70cfc5660bac1eaaa803a963_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{tx_8c_ab08be1ce70cfc5660bac1eaaa803a963_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{tx_8c_a65a7812627c89c5acac3c32f84c2f26d}{\index{tx.\-c@{tx.\-c}!ieee80211\-\_\-xmit@{ieee80211\-\_\-xmit}}
+\index{ieee80211\-\_\-xmit@{ieee80211\-\_\-xmit}!tx.c@{tx.\-c}}
+\subsubsection[{ieee80211\-\_\-xmit}]{\setlength{\rightskip}{0pt plus 5cm}void ieee80211\-\_\-xmit (
+\begin{DoxyParamCaption}
+\item[{struct {\bf ieee80211\-\_\-sub\-\_\-if\-\_\-data} $\ast$}]{sdata, }
+\item[{struct sk\-\_\-buff $\ast$}]{skb}
+\end{DoxyParamCaption}
+)}}\label{tx_8c_a65a7812627c89c5acac3c32f84c2f26d}
+
+
+Definition at line 1443 of file tx.\-c.
+
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{tx_8c_a65a7812627c89c5acac3c32f84c2f26d_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{tx_8c_a65a7812627c89c5acac3c32f84c2f26d_icgraph}
+\end{center}
+\end{figure}
+
+

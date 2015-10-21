@@ -1,0 +1,132 @@
+\hypertarget{cfg_8c}{\section{/home/guille/msm/net/mac80211/cfg.c File Reference}
+\label{cfg_8c}\index{/home/guille/msm/net/mac80211/cfg.\-c@{/home/guille/msm/net/mac80211/cfg.\-c}}
+}
+{\ttfamily \#include $<$linux/ieee80211.\-h$>$}\\*
+{\ttfamily \#include $<$linux/nl80211.\-h$>$}\\*
+{\ttfamily \#include $<$linux/rtnetlink.\-h$>$}\\*
+{\ttfamily \#include $<$linux/slab.\-h$>$}\\*
+{\ttfamily \#include $<$net/net\-\_\-namespace.\-h$>$}\\*
+{\ttfamily \#include $<$linux/rcupdate.\-h$>$}\\*
+{\ttfamily \#include $<$linux/if\-\_\-ether.\-h$>$}\\*
+{\ttfamily \#include $<$net/cfg80211.\-h$>$}\\*
+{\ttfamily \#include \char`\"{}ieee80211\-\_\-i.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}driver-\/ops.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}cfg.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}rate.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}mesh.\-h\char`\"{}}\\*
+Include dependency graph for cfg.\-c\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{cfg_8c__incl}
+\end{center}
+\end{figure}
+\subsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structiapp__layer2__update}{iapp\-\_\-layer2\-\_\-update}
+\end{DoxyCompactItemize}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{cfg_8c_ac6490533ccf994b004b85eb3ca008c96}{ieee80211\-\_\-suspend}~N\-U\-L\-L
+\item 
+\#define \hyperlink{cfg_8c_a4f83e2e29dad6bc0e3ddc552ee3d565c}{ieee80211\-\_\-resume}~N\-U\-L\-L
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{cfg_8c_a8fd22f1f4c3bef2b83b9d1678749a361}{sta\-\_\-set\-\_\-rate\-\_\-info\-\_\-tx} (struct \hyperlink{structsta__info}{sta\-\_\-info} $\ast$sta, const struct ieee80211\-\_\-tx\-\_\-rate $\ast$rate, struct rate\-\_\-info $\ast$rinfo)
+\item 
+int \hyperlink{cfg_8c_a50a2b57de8a1e708bc6204c801bc5244}{\-\_\-\-\_\-ieee80211\-\_\-request\-\_\-smps} (struct \hyperlink{structieee80211__sub__if__data}{ieee80211\-\_\-sub\-\_\-if\-\_\-data} $\ast$sdata, enum ieee80211\-\_\-smps\-\_\-mode smps\-\_\-mode)
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structiapp__layer2__update}{iapp\-\_\-layer2\-\_\-update} \hyperlink{cfg_8c_a255f7a71369c07e4b392da2bffa76c97}{\-\_\-\-\_\-packed}
+\item 
+struct cfg80211\-\_\-ops \hyperlink{cfg_8c_a3a35791268f42eb48bce87faf7049962}{mac80211\-\_\-config\-\_\-ops}
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{cfg_8c_a4f83e2e29dad6bc0e3ddc552ee3d565c}{\index{cfg.\-c@{cfg.\-c}!ieee80211\-\_\-resume@{ieee80211\-\_\-resume}}
+\index{ieee80211\-\_\-resume@{ieee80211\-\_\-resume}!cfg.c@{cfg.\-c}}
+\subsubsection[{ieee80211\-\_\-resume}]{\setlength{\rightskip}{0pt plus 5cm}\#define ieee80211\-\_\-resume~N\-U\-L\-L}}\label{cfg_8c_a4f83e2e29dad6bc0e3ddc552ee3d565c}
+
+
+Definition at line 1530 of file cfg.\-c.
+
+\hypertarget{cfg_8c_ac6490533ccf994b004b85eb3ca008c96}{\index{cfg.\-c@{cfg.\-c}!ieee80211\-\_\-suspend@{ieee80211\-\_\-suspend}}
+\index{ieee80211\-\_\-suspend@{ieee80211\-\_\-suspend}!cfg.c@{cfg.\-c}}
+\subsubsection[{ieee80211\-\_\-suspend}]{\setlength{\rightskip}{0pt plus 5cm}\#define ieee80211\-\_\-suspend~N\-U\-L\-L}}\label{cfg_8c_ac6490533ccf994b004b85eb3ca008c96}
+
+
+Definition at line 1529 of file cfg.\-c.
+
+
+
+\subsection{Function Documentation}
+\hypertarget{cfg_8c_a50a2b57de8a1e708bc6204c801bc5244}{\index{cfg.\-c@{cfg.\-c}!\-\_\-\-\_\-ieee80211\-\_\-request\-\_\-smps@{\-\_\-\-\_\-ieee80211\-\_\-request\-\_\-smps}}
+\index{\-\_\-\-\_\-ieee80211\-\_\-request\-\_\-smps@{\-\_\-\-\_\-ieee80211\-\_\-request\-\_\-smps}!cfg.c@{cfg.\-c}}
+\subsubsection[{\-\_\-\-\_\-ieee80211\-\_\-request\-\_\-smps}]{\setlength{\rightskip}{0pt plus 5cm}int \-\_\-\-\_\-ieee80211\-\_\-request\-\_\-smps (
+\begin{DoxyParamCaption}
+\item[{struct {\bf ieee80211\-\_\-sub\-\_\-if\-\_\-data} $\ast$}]{sdata, }
+\item[{enum ieee80211\-\_\-smps\-\_\-mode}]{smps\-\_\-mode}
+\end{DoxyParamCaption}
+)}}\label{cfg_8c_a50a2b57de8a1e708bc6204c801bc5244}
+
+
+Definition at line 1774 of file cfg.\-c.
+
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{cfg_8c_a50a2b57de8a1e708bc6204c801bc5244_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{cfg_8c_a50a2b57de8a1e708bc6204c801bc5244_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{cfg_8c_a8fd22f1f4c3bef2b83b9d1678749a361}{\index{cfg.\-c@{cfg.\-c}!sta\-\_\-set\-\_\-rate\-\_\-info\-\_\-tx@{sta\-\_\-set\-\_\-rate\-\_\-info\-\_\-tx}}
+\index{sta\-\_\-set\-\_\-rate\-\_\-info\-\_\-tx@{sta\-\_\-set\-\_\-rate\-\_\-info\-\_\-tx}!cfg.c@{cfg.\-c}}
+\subsubsection[{sta\-\_\-set\-\_\-rate\-\_\-info\-\_\-tx}]{\setlength{\rightskip}{0pt plus 5cm}void sta\-\_\-set\-\_\-rate\-\_\-info\-\_\-tx (
+\begin{DoxyParamCaption}
+\item[{struct {\bf sta\-\_\-info} $\ast$}]{sta, }
+\item[{const struct ieee80211\-\_\-tx\-\_\-rate $\ast$}]{rate, }
+\item[{struct rate\-\_\-info $\ast$}]{rinfo}
+\end{DoxyParamCaption}
+)}}\label{cfg_8c_a8fd22f1f4c3bef2b83b9d1678749a361}
+
+
+Definition at line 339 of file cfg.\-c.
+
+
+
+\subsection{Variable Documentation}
+\hypertarget{cfg_8c_a255f7a71369c07e4b392da2bffa76c97}{\index{cfg.\-c@{cfg.\-c}!\-\_\-\-\_\-packed@{\-\_\-\-\_\-packed}}
+\index{\-\_\-\-\_\-packed@{\-\_\-\-\_\-packed}!cfg.c@{cfg.\-c}}
+\subsubsection[{\-\_\-\-\_\-packed}]{\setlength{\rightskip}{0pt plus 5cm}struct {\bf iapp\-\_\-layer2\-\_\-update}  \-\_\-\-\_\-packed}}\label{cfg_8c_a255f7a71369c07e4b392da2bffa76c97}
+\hypertarget{cfg_8c_a3a35791268f42eb48bce87faf7049962}{\index{cfg.\-c@{cfg.\-c}!mac80211\-\_\-config\-\_\-ops@{mac80211\-\_\-config\-\_\-ops}}
+\index{mac80211\-\_\-config\-\_\-ops@{mac80211\-\_\-config\-\_\-ops}!cfg.c@{cfg.\-c}}
+\subsubsection[{mac80211\-\_\-config\-\_\-ops}]{\setlength{\rightskip}{0pt plus 5cm}struct cfg80211\-\_\-ops mac80211\-\_\-config\-\_\-ops}}\label{cfg_8c_a3a35791268f42eb48bce87faf7049962}
+
+
+Definition at line 2678 of file cfg.\-c.
+

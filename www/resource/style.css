@@ -1,0 +1,101 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 06-nov-2014, 1:40:11
+    Author     : Guillermo
+*/
+img.top {
+    vertical-align: text-top;
+}
+
+h1 {
+	font-family: "Times New Roman", Times, serif;
+	font-size: 2.5em; /* 40px/16=2.5em */
+}
+
+header {
+    background-color:black;
+    color:white;
+    text-align:left;
+    float:left;
+    padding:5px;
+    font-family: "Times New Roman", Times, serif;
+}
+headerReceive {
+	background-color:black;
+	color:white;
+	text-align:right;
+	float:left;
+        margin-left: 70px;
+	padding:5px;
+}
+
+header2 {
+    background-color:black;
+    color:white;
+    text-align:left;
+    float:right;
+    margin-left: 15px;
+    padding:10px;
+}
+
+header3 {
+    background-color:black;
+    color:white;
+    text-align:left;
+    float:right;
+    padding:5px;
+}
+nav {
+    line-height:30px;
+    background-color:#eeeeee;
+    height:600px;
+    width:210px;
+    float:left;
+    padding:5px;	      
+}
+
+scroll {
+    line-height:30px;
+    background-image: url("wallpaper.jpg");
+    height:650px;
+    width:450px;
+    float:right;
+    padding:15px;	      
+}
+
+section {
+    width:950px;
+    float:left;
+    padding:10px;	 	 
+}
+footer {
+    background-color:black;
+    color:white;
+    clear:both;
+    text-align:center;
+    padding:5px;	 	 
+}
+end{
+    white-space: nowrap;
+    color:white; 
+}
+
+body{
+    body {background-color:lightgrey}
+    h1   {color:blue}
+    h2   {color:darkgoldenrod}
+    p    {color:green}
+    a    {color:maroon;   white-space: nowrap;}
+}
+
+table, th, td {
+    border: 1px solid black;
+}
+li{
+    color:maroon; text-decoration: none;
+}
+

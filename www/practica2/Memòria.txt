@@ -1,0 +1,19 @@
+Descarreguem el web.zip
+descomprimim en una carpeta pròpia.
+fem make help i trobem les regles per compilar, però no crea cap cgi
+descobrim l'altre makefile dins de ./example ; aquest sí que compila els exemples
+fem:
+make build/example.cgi
+make build/example2.cgi
+make all
+
+Llavors veiem la nova carpeta ./build amb dos cgi. Accedits per navegador, mostren els formularis d'exemple
+Ens disposem a fer el nostre exercici en base als exemples.
+
+Provem la solució de la pràctica 2. Decidim fer una sala de xat en comptes d'un servei de missatgeria.
+Pensem que haurà d'actualitzar-se automàticament la pàgina, i trobem com fer-ho a través de html:
+
+<head>
+<meta http-equiv="refresh" content="5" /> <!-- refresca cada 5 segons>
+</head>
+

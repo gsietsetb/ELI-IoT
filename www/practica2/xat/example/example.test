@@ -1,0 +1,44 @@
+#!/bin/bash
+
+change=yes
+msg="Hola%3cBR%3e+que+tal."
+
+
+test -f $(dirname $0)/build/example.cgi || exit 1
+cd $(dirname $0)/build
+
+# Elimina variables d'entorn importants que no estan definides
+# quan el CGI es cridat des del servidor
+unset PATH
+
+
+if test $change != yes; then
+
+# Defineix les variables d'entorn usades pel CGI
+export REQUEST_METHOD="GET"
+
+# Mostra variables d'entorn
+/usr/bin/env | /usr/bin/sort
+
+# Invoca el CGI 'example.cgi'
+./example.cgi
+
+else
+
+# Defineix un contingut del formulari
+form="change=Envia&message=$msg"
+
+# Defineix les variables d'entorn usades pel CGI
+export REQUEST_METHOD="POST"
+export CONTENT_TYPE="application/x-www-form-urlencoded"
+export CONTENT_LENGTH=$(/usr/bin/expr length $form)
+
+# Mostra variables d'entorn
+/usr/bin/env | /usr/bin/sort
+
+# Invoca el CGI 'example.cgi' passant el contingut del formulari
+# per l'entrada estandar
+echo $form | ./example.cgi
+
+fi
+

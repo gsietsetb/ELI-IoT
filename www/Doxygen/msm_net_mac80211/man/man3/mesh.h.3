@@ -1,0 +1,687 @@
+.TH "/home/guille/msm/net/mac80211/mesh.h" 3 "Sun Jun 1 2014" "Version 1.0" "net_mac80211" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+/home/guille/msm/net/mac80211/mesh.h \- 
+.SH SYNOPSIS
+.br
+.PP
+\fC#include <linux/types\&.h>\fP
+.br
+\fC#include <linux/jhash\&.h>\fP
+.br
+\fC#include 'ieee80211_i\&.h'\fP
+.br
+
+.SS "Data Structures"
+
+.in +1c
+.ti -1c
+.RI "struct \fBmesh_path\fP"
+.br
+.ti -1c
+.RI "struct \fBmesh_table\fP"
+.br
+.ti -1c
+.RI "struct \fBrmc_entry\fP"
+.br
+.ti -1c
+.RI "struct \fBmesh_rmc\fP"
+.br
+.in -1c
+.SS "Macros"
+
+.in +1c
+.ti -1c
+.RI "#define \fBRMC_BUCKETS\fP   256"
+.br
+.ti -1c
+.RI "#define \fBRMC_QUEUE_MAX_LEN\fP   4"
+.br
+.ti -1c
+.RI "#define \fBRMC_TIMEOUT\fP   (3 * HZ)"
+.br
+.ti -1c
+.RI "#define \fBIEEE80211_MESH_PEER_INACTIVITY_LIMIT\fP   (1800 * HZ)"
+.br
+.ti -1c
+.RI "#define \fBIEEE80211_MESH_HOUSEKEEPING_INTERVAL\fP   (60 * HZ)"
+.br
+.ti -1c
+.RI "#define \fBMESH_DEFAULT_BEACON_INTERVAL\fP   1000 	/* in 1024 us units */"
+.br
+.ti -1c
+.RI "#define \fBMESH_PATH_EXPIRE\fP   (600 * HZ)"
+.br
+.ti -1c
+.RI "#define \fBMESH_MAX_PLINKS\fP   256"
+.br
+.ti -1c
+.RI "#define \fBMESH_MAX_MPATHS\fP   1024"
+.br
+.ti -1c
+.RI "#define \fBmesh_allocated\fP   0"
+.br
+.in -1c
+.SS "Enumerations"
+
+.in +1c
+.ti -1c
+.RI "enum \fBmesh_path_flags\fP { \fBMESH_PATH_ACTIVE\fP = BIT(0), \fBMESH_PATH_RESOLVING\fP = BIT(1), \fBMESH_PATH_SN_VALID\fP = BIT(2), \fBMESH_PATH_FIXED\fP = BIT(3), \fBMESH_PATH_RESOLVED\fP = BIT(4), \fBMESH_PATH_REQ_QUEUED\fP = BIT(5) }"
+.br
+.ti -1c
+.RI "enum \fBmesh_deferred_task_flags\fP { \fBMESH_WORK_HOUSEKEEPING\fP, \fBMESH_WORK_GROW_MPATH_TABLE\fP, \fBMESH_WORK_GROW_MPP_TABLE\fP, \fBMESH_WORK_ROOT\fP }"
+.br
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "int \fBieee80211_fill_mesh_addresses\fP (struct ieee80211_hdr *hdr, __le16 *fc, const u8 *da, const u8 *sa)"
+.br
+.ti -1c
+.RI "int \fBieee80211_new_mesh_header\fP (struct ieee80211s_hdr *meshhdr, struct \fBieee80211_sub_if_data\fP *sdata, char *addr4or5, char *addr6)"
+.br
+.ti -1c
+.RI "int \fBmesh_rmc_check\fP (u8 *addr, struct ieee80211s_hdr *mesh_hdr, struct \fBieee80211_sub_if_data\fP *sdata)"
+.br
+.ti -1c
+.RI "bool \fBmesh_matches_local\fP (struct \fBieee802_11_elems\fP *ie, struct \fBieee80211_sub_if_data\fP *sdata)"
+.br
+.ti -1c
+.RI "void \fBmesh_ids_set_default\fP (struct \fBieee80211_if_mesh\fP *mesh)"
+.br
+.ti -1c
+.RI "void \fBmesh_mgmt_ies_add\fP (struct sk_buff *skb, struct \fBieee80211_sub_if_data\fP *sdata)"
+.br
+.ti -1c
+.RI "int \fBmesh_add_meshconf_ie\fP (struct sk_buff *skb, struct \fBieee80211_sub_if_data\fP *sdata)"
+.br
+.ti -1c
+.RI "int \fBmesh_add_meshid_ie\fP (struct sk_buff *skb, struct \fBieee80211_sub_if_data\fP *sdata)"
+.br
+.ti -1c
+.RI "int \fBmesh_add_rsn_ie\fP (struct sk_buff *skb, struct \fBieee80211_sub_if_data\fP *sdata)"
+.br
+.ti -1c
+.RI "int \fBmesh_add_vendor_ies\fP (struct sk_buff *skb, struct \fBieee80211_sub_if_data\fP *sdata)"
+.br
+.ti -1c
+.RI "int \fBmesh_add_ds_params_ie\fP (struct sk_buff *skb, struct \fBieee80211_sub_if_data\fP *sdata)"
+.br
+.ti -1c
+.RI "int \fBmesh_add_ht_cap_ie\fP (struct sk_buff *skb, struct \fBieee80211_sub_if_data\fP *sdata)"
+.br
+.ti -1c
+.RI "int \fBmesh_add_ht_info_ie\fP (struct sk_buff *skb, struct \fBieee80211_sub_if_data\fP *sdata)"
+.br
+.ti -1c
+.RI "void \fBmesh_rmc_free\fP (struct \fBieee80211_sub_if_data\fP *sdata)"
+.br
+.ti -1c
+.RI "int \fBmesh_rmc_init\fP (struct \fBieee80211_sub_if_data\fP *sdata)"
+.br
+.ti -1c
+.RI "void \fBieee80211s_init\fP (void)"
+.br
+.ti -1c
+.RI "void \fBieee80211s_update_metric\fP (struct \fBieee80211_local\fP *local, struct \fBsta_info\fP *stainfo, struct sk_buff *skb)"
+.br
+.ti -1c
+.RI "void \fBieee80211s_stop\fP (void)"
+.br
+.ti -1c
+.RI "void \fBieee80211_mesh_init_sdata\fP (struct \fBieee80211_sub_if_data\fP *sdata)"
+.br
+.ti -1c
+.RI "void \fBieee80211_start_mesh\fP (struct \fBieee80211_sub_if_data\fP *sdata)"
+.br
+.ti -1c
+.RI "void \fBieee80211_stop_mesh\fP (struct \fBieee80211_sub_if_data\fP *sdata)"
+.br
+.ti -1c
+.RI "void \fBieee80211_mesh_root_setup\fP (struct \fBieee80211_if_mesh\fP *ifmsh)"
+.br
+.ti -1c
+.RI "int \fBmesh_nexthop_lookup\fP (struct sk_buff *skb, struct \fBieee80211_sub_if_data\fP *sdata)"
+.br
+.ti -1c
+.RI "int \fBmesh_nexthop_resolve\fP (struct sk_buff *skb, struct \fBieee80211_sub_if_data\fP *sdata)"
+.br
+.ti -1c
+.RI "void \fBmesh_path_start_discovery\fP (struct \fBieee80211_sub_if_data\fP *sdata)"
+.br
+.ti -1c
+.RI "struct \fBmesh_path\fP * \fBmesh_path_lookup\fP (u8 *dst, struct \fBieee80211_sub_if_data\fP *sdata)"
+.br
+.ti -1c
+.RI "struct \fBmesh_path\fP * \fBmpp_path_lookup\fP (u8 *dst, struct \fBieee80211_sub_if_data\fP *sdata)"
+.br
+.ti -1c
+.RI "int \fBmpp_path_add\fP (u8 *dst, u8 *mpp, struct \fBieee80211_sub_if_data\fP *sdata)"
+.br
+.ti -1c
+.RI "struct \fBmesh_path\fP * \fBmesh_path_lookup_by_idx\fP (int idx, struct \fBieee80211_sub_if_data\fP *sdata)"
+.br
+.ti -1c
+.RI "void \fBmesh_path_fix_nexthop\fP (struct \fBmesh_path\fP *mpath, struct \fBsta_info\fP *next_hop)"
+.br
+.ti -1c
+.RI "void \fBmesh_path_expire\fP (struct \fBieee80211_sub_if_data\fP *sdata)"
+.br
+.ti -1c
+.RI "void \fBmesh_rx_path_sel_frame\fP (struct \fBieee80211_sub_if_data\fP *sdata, struct ieee80211_mgmt *mgmt, size_t len)"
+.br
+.ti -1c
+.RI "int \fBmesh_path_add\fP (u8 *dst, struct \fBieee80211_sub_if_data\fP *sdata)"
+.br
+.ti -1c
+.RI "int \fBmesh_path_add_gate\fP (struct \fBmesh_path\fP *mpath)"
+.br
+.ti -1c
+.RI "int \fBmesh_path_send_to_gates\fP (struct \fBmesh_path\fP *mpath)"
+.br
+.ti -1c
+.RI "int \fBmesh_gate_num\fP (struct \fBieee80211_sub_if_data\fP *sdata)"
+.br
+.ti -1c
+.RI "void \fBmesh_neighbour_update\fP (u8 *hw_addr, u32 rates, struct \fBieee80211_sub_if_data\fP *sdata, struct \fBieee802_11_elems\fP *ie)"
+.br
+.ti -1c
+.RI "bool \fBmesh_peer_accepts_plinks\fP (struct \fBieee802_11_elems\fP *ie)"
+.br
+.ti -1c
+.RI "void \fBmesh_accept_plinks_update\fP (struct \fBieee80211_sub_if_data\fP *sdata)"
+.br
+.ti -1c
+.RI "void \fBmesh_plink_broken\fP (struct \fBsta_info\fP *sta)"
+.br
+.ti -1c
+.RI "void \fBmesh_plink_deactivate\fP (struct \fBsta_info\fP *sta)"
+.br
+.ti -1c
+.RI "int \fBmesh_plink_open\fP (struct \fBsta_info\fP *sta)"
+.br
+.ti -1c
+.RI "void \fBmesh_plink_block\fP (struct \fBsta_info\fP *sta)"
+.br
+.ti -1c
+.RI "void \fBmesh_rx_plink_frame\fP (struct \fBieee80211_sub_if_data\fP *sdata, struct ieee80211_mgmt *mgmt, size_t len, struct ieee80211_rx_status *rx_status)"
+.br
+.ti -1c
+.RI "void \fBmesh_mpath_table_grow\fP (void)"
+.br
+.ti -1c
+.RI "void \fBmesh_mpp_table_grow\fP (void)"
+.br
+.ti -1c
+.RI "int \fBmesh_path_error_tx\fP (u8 ttl, u8 *target, __le32 target_sn, __le16 target_rcode, const u8 *ra, struct \fBieee80211_sub_if_data\fP *sdata)"
+.br
+.ti -1c
+.RI "void \fBmesh_path_assign_nexthop\fP (struct \fBmesh_path\fP *mpath, struct \fBsta_info\fP *sta)"
+.br
+.ti -1c
+.RI "void \fBmesh_path_flush_pending\fP (struct \fBmesh_path\fP *mpath)"
+.br
+.ti -1c
+.RI "void \fBmesh_path_tx_pending\fP (struct \fBmesh_path\fP *mpath)"
+.br
+.ti -1c
+.RI "int \fBmesh_pathtbl_init\fP (void)"
+.br
+.ti -1c
+.RI "void \fBmesh_pathtbl_unregister\fP (void)"
+.br
+.ti -1c
+.RI "int \fBmesh_path_del\fP (u8 *addr, struct \fBieee80211_sub_if_data\fP *sdata)"
+.br
+.ti -1c
+.RI "void \fBmesh_path_timer\fP (unsigned long data)"
+.br
+.ti -1c
+.RI "void \fBmesh_path_flush_by_nexthop\fP (struct \fBsta_info\fP *sta)"
+.br
+.ti -1c
+.RI "void \fBmesh_path_flush_by_iface\fP (struct \fBieee80211_sub_if_data\fP *sdata)"
+.br
+.ti -1c
+.RI "void \fBmesh_path_discard_frame\fP (struct sk_buff *skb, struct \fBieee80211_sub_if_data\fP *sdata)"
+.br
+.ti -1c
+.RI "void \fBmesh_path_quiesce\fP (struct \fBieee80211_sub_if_data\fP *sdata)"
+.br
+.ti -1c
+.RI "void \fBmesh_path_restart\fP (struct \fBieee80211_sub_if_data\fP *sdata)"
+.br
+.ti -1c
+.RI "void \fBmesh_path_tx_root_frame\fP (struct \fBieee80211_sub_if_data\fP *sdata)"
+.br
+.ti -1c
+.RI "bool \fBmesh_action_is_path_sel\fP (struct ieee80211_mgmt *mgmt)"
+.br
+.in -1c
+.SS "Variables"
+
+.in +1c
+.ti -1c
+.RI "int \fBmesh_paths_generation\fP"
+.br
+.in -1c
+.SH "Macro Definition Documentation"
+.PP 
+.SS "#define IEEE80211_MESH_HOUSEKEEPING_INTERVAL   (60 * HZ)"
+
+.PP
+Definition at line 185 of file mesh\&.h\&.
+.SS "#define IEEE80211_MESH_PEER_INACTIVITY_LIMIT   (1800 * HZ)"
+
+.PP
+Definition at line 184 of file mesh\&.h\&.
+.SS "#define mesh_allocated   0"
+
+.PP
+Definition at line 329 of file mesh\&.h\&.
+.SS "#define MESH_DEFAULT_BEACON_INTERVAL   1000 	/* in 1024 us units */"
+
+.PP
+Definition at line 187 of file mesh\&.h\&.
+.SS "#define MESH_MAX_MPATHS   1024"
+
+.PP
+Definition at line 195 of file mesh\&.h\&.
+.SS "#define MESH_MAX_PLINKS   256"
+
+.PP
+Definition at line 192 of file mesh\&.h\&.
+.SS "#define MESH_PATH_EXPIRE   (600 * HZ)"
+
+.PP
+Definition at line 189 of file mesh\&.h\&.
+.SS "#define RMC_BUCKETS   256"
+
+.PP
+Definition at line 157 of file mesh\&.h\&.
+.SS "#define RMC_QUEUE_MAX_LEN   4"
+
+.PP
+Definition at line 158 of file mesh\&.h\&.
+.SS "#define RMC_TIMEOUT   (3 * HZ)"
+
+.PP
+Definition at line 159 of file mesh\&.h\&.
+.SH "Enumeration Type Documentation"
+.PP 
+.SS "enum \fBmesh_deferred_task_flags\fP"
+enum mesh_deferred_task_flags - mac80211 mesh deferred tasks
+.PP
+: run the periodic mesh housekeeping tasks : the mesh path table is full and needs to grow\&. : the mesh portals table is full and needs to grow : the mesh root station needs to send a frame 
+.PP
+\fBEnumerator\fP
+.in +1c
+.TP
+\fB\fIMESH_WORK_HOUSEKEEPING \fP\fP
+.TP
+\fB\fIMESH_WORK_GROW_MPATH_TABLE \fP\fP
+.TP
+\fB\fIMESH_WORK_GROW_MPP_TABLE \fP\fP
+.TP
+\fB\fIMESH_WORK_ROOT \fP\fP
+.PP
+Definition at line 60 of file mesh\&.h\&.
+.SS "enum \fBmesh_path_flags\fP"
+enum mesh_path_flags - mac80211 mesh path flags
+.PP
+: the mesh path can be used for forwarding : the discovery process is running for this mesh path : the mesh path contains a valid destination sequence number : the mesh path has been manually set and should not be modified : the mesh path can has been resolved : there is an unsent path request for this destination already queued up, waiting for the discovery process to start\&.
+.PP
+MESH_PATH_RESOLVED is used by the mesh path timer to decide when to stop or cancel the mesh path discovery\&. 
+.PP
+\fBEnumerator\fP
+.in +1c
+.TP
+\fB\fIMESH_PATH_ACTIVE \fP\fP
+.TP
+\fB\fIMESH_PATH_RESOLVING \fP\fP
+.TP
+\fB\fIMESH_PATH_SN_VALID \fP\fP
+.TP
+\fB\fIMESH_PATH_FIXED \fP\fP
+.TP
+\fB\fIMESH_PATH_RESOLVED \fP\fP
+.TP
+\fB\fIMESH_PATH_REQ_QUEUED \fP\fP
+.PP
+Definition at line 39 of file mesh\&.h\&.
+.SH "Function Documentation"
+.PP 
+.SS "int ieee80211_fill_mesh_addresses (struct ieee80211_hdr *hdr, __le16 *fc, const u8 *meshda, const u8 *meshsa)"
+ieee80211_fill_mesh_addresses - fill addresses of a locally originated mesh frame : 802\&.11 frame header : frame control field : destination address in the mesh : source address address in the mesh\&. Same as TA, as frame is locally originated\&.
+.PP
+Return the length of the 802\&.11 (does not include a mesh control header) 
+.PP
+Definition at line 449 of file mesh\&.c\&.
+.SS "void ieee80211_mesh_init_sdata (struct \fBieee80211_sub_if_data\fP *sdata)"
+
+.PP
+Definition at line 737 of file mesh\&.c\&.
+.SS "void ieee80211_mesh_root_setup (struct \fBieee80211_if_mesh\fP *ifmsh)"
+
+.PP
+Definition at line 428 of file mesh\&.c\&.
+.SS "int ieee80211_new_mesh_header (struct ieee80211s_hdr *meshhdr, struct \fBieee80211_sub_if_data\fP *sdata, char *addr4or5, char *addr6)"
+ieee80211_new_mesh_header - create a new mesh header : uninitialized mesh header : mesh interface to be used : 1st address in the ae header, which may correspond to address 4 (if addr6 is NULL) or address 5 (if addr6 is present)\&. It may be NULL\&. : 2nd address in the ae header, which corresponds to addr6 of the mesh frame
+.PP
+Return the header length\&. 
+.PP
+Definition at line 482 of file mesh\&.c\&.
+.SS "void ieee80211_start_mesh (struct \fBieee80211_sub_if_data\fP *sdata)"
+
+.PP
+Definition at line 565 of file mesh\&.c\&.
+.SS "void ieee80211_stop_mesh (struct \fBieee80211_sub_if_data\fP *sdata)"
+
+.PP
+Definition at line 587 of file mesh\&.c\&.
+.SS "void ieee80211s_init (void)"
+
+.PP
+Definition at line 37 of file mesh\&.c\&.
+.SS "void ieee80211s_stop (void)"
+
+.PP
+Definition at line 45 of file mesh\&.c\&.
+.SS "void ieee80211s_update_metric (struct \fBieee80211_local\fP *local, struct \fBsta_info\fP *stainfo, struct sk_buff *skb)"
+
+.PP
+Definition at line 305 of file mesh_hwmp\&.c\&.
+.SS "void mesh_accept_plinks_update (struct \fBieee80211_sub_if_data\fP *sdata)"
+mesh_accept_plinks_update: update accepting_plink in local mesh beacons
+.PP
+: mesh interface in which mesh beacons are going to be updated 
+.PP
+Definition at line 127 of file mesh\&.c\&.
+.SS "bool mesh_action_is_path_sel (struct ieee80211_mgmt *mgmt)"
+
+.PP
+Definition at line 33 of file mesh\&.c\&.
+.SS "int mesh_add_ds_params_ie (struct sk_buff *skb, struct \fBieee80211_sub_if_data\fP *sdata)"
+
+.PP
+Definition at line 332 of file mesh\&.c\&.
+.SS "int mesh_add_ht_cap_ie (struct sk_buff *skb, struct \fBieee80211_sub_if_data\fP *sdata)"
+
+.PP
+Definition at line 353 of file mesh\&.c\&.
+.SS "int mesh_add_ht_info_ie (struct sk_buff *skb, struct \fBieee80211_sub_if_data\fP *sdata)"
+
+.PP
+Definition at line 374 of file mesh\&.c\&.
+.SS "int mesh_add_meshconf_ie (struct sk_buff *skb, struct \fBieee80211_sub_if_data\fP *sdata)"
+
+.PP
+Definition at line 223 of file mesh\&.c\&.
+.SS "int mesh_add_meshid_ie (struct sk_buff *skb, struct \fBieee80211_sub_if_data\fP *sdata)"
+
+.PP
+Definition at line 262 of file mesh\&.c\&.
+.SS "int mesh_add_rsn_ie (struct sk_buff *skb, struct \fBieee80211_sub_if_data\fP *sdata)"
+
+.PP
+Definition at line 304 of file mesh\&.c\&.
+.SS "int mesh_add_vendor_ies (struct sk_buff *skb, struct \fBieee80211_sub_if_data\fP *sdata)"
+
+.PP
+Definition at line 280 of file mesh\&.c\&.
+.SS "int mesh_gate_num (struct \fBieee80211_sub_if_data\fP *sdata)"
+mesh_gate_num - number of gates known to this interface : subif data 
+.PP
+Definition at line 493 of file mesh_pathtbl\&.c\&.
+.SS "void mesh_ids_set_default (struct \fBieee80211_if_mesh\fP *mesh)"
+
+.SS "bool mesh_matches_local (struct \fBieee802_11_elems\fP *ie, struct \fBieee80211_sub_if_data\fP *sdata)"
+mesh_matches_local - check if the config of a mesh point matches ours
+.PP
+: information elements of a management frame from the mesh peer : local mesh subif
+.PP
+This function checks if the mesh configuration of a mesh point matches the local mesh configuration, i\&.e\&. if both nodes belong to the same mesh network\&. 
+.PP
+Definition at line 76 of file mesh\&.c\&.
+.SS "void mesh_mgmt_ies_add (struct sk_buff *skb, struct \fBieee80211_sub_if_data\fP *sdata)"
+
+.SS "void mesh_mpath_table_grow (void)"
+
+.PP
+Definition at line 599 of file mesh_pathtbl\&.c\&.
+.SS "void mesh_mpp_table_grow (void)"
+
+.PP
+Definition at line 620 of file mesh_pathtbl\&.c\&.
+.SS "void mesh_neighbour_update (u8 *hw_addr, u32rates, struct \fBieee80211_sub_if_data\fP *sdata, struct \fBieee802_11_elems\fP *ie)"
+
+.PP
+Definition at line 277 of file mesh_plink\&.c\&.
+.SS "int mesh_nexthop_lookup (struct sk_buff *skb, struct \fBieee80211_sub_if_data\fP *sdata)"
+mesh_nexthop_lookup - put the appropriate next hop on a mesh frame\&. Calling this function is considered 'using' the associated mpath, so preempt a path refresh if this mpath expires soon\&.
+.PP
+: 802\&.11 frame to be sent : network subif the frame will be sent through
+.PP
+Returns: 0 if the next hop was found\&. Nonzero otherwise\&. 
+.PP
+Definition at line 1071 of file mesh_hwmp\&.c\&.
+.SS "int mesh_nexthop_resolve (struct sk_buff *skb, struct \fBieee80211_sub_if_data\fP *sdata)"
+
+.PP
+Definition at line 1017 of file mesh_hwmp\&.c\&.
+.SS "int mesh_path_add (u8 *dst, struct \fBieee80211_sub_if_data\fP *sdata)"
+mesh_path_add - allocate and add a new path to the mesh path table : destination address of the path (ETH_ALEN length) : local subif
+.PP
+Returns: 0 on success
+.PP
+State: the initial state of the new path is set to 0 
+.PP
+Definition at line 507 of file mesh_pathtbl\&.c\&.
+.SS "int mesh_path_add_gate (struct \fBmesh_path\fP *mpath)"
+mesh_path_add_gate - add the given mpath to a mesh gate to our path table : gate path to add to table 
+.PP
+Definition at line 420 of file mesh_pathtbl\&.c\&.
+.SS "void mesh_path_assign_nexthop (struct \fBmesh_path\fP *mpath, struct \fBsta_info\fP *sta)"
+mesh_path_assign_nexthop - update mesh path next hop
+.PP
+: mesh path to update : next hop to assign
+.PP
+Locking: mpath->state_lock must be held when calling this function 
+.PP
+Definition at line 208 of file mesh_pathtbl\&.c\&.
+.SS "int mesh_path_del (u8 *addr, struct \fBieee80211_sub_if_data\fP *sdata)"
+mesh_path_del - delete a mesh path from the table
+.PP
+: dst address (ETH_ALEN length) : local subif
+.PP
+Returns: 0 if successful 
+.PP
+Definition at line 866 of file mesh_pathtbl\&.c\&.
+.SS "void mesh_path_discard_frame (struct sk_buff *skb, struct \fBieee80211_sub_if_data\fP *sdata)"
+mesh_path_discard_frame - discard a frame whose path could not be resolved
+.PP
+: frame to discard : network subif the frame was to be sent through
+.PP
+Locking: the function must me called within a rcu_read_lock region 
+.PP
+Definition at line 974 of file mesh_pathtbl\&.c\&.
+.SS "int mesh_path_error_tx (u8ttl, u8 *target, __le32target_sn, __le16target_rcode, const u8 *ra, struct \fBieee80211_sub_if_data\fP *sdata)"
+mesh_send_path error - Sends a PERR mesh management frame
+.PP
+: broken destination : SN of the broken destination : reason code for this PERR : node this frame is addressed to
+.PP
+Note: This function may be called with driver locks taken that the driver also acquires in the TX path\&. To avoid a deadlock we don't transmit the frame directly but add it to the pending queue instead\&. 
+.PP
+Definition at line 240 of file mesh_hwmp\&.c\&.
+.SS "void mesh_path_expire (struct \fBieee80211_sub_if_data\fP *sdata)"
+
+.PP
+Definition at line 1097 of file mesh_pathtbl\&.c\&.
+.SS "void mesh_path_fix_nexthop (struct \fBmesh_path\fP *mpath, struct \fBsta_info\fP *next_hop)"
+mesh_path_fix_nexthop - force a specific next hop for a mesh path
+.PP
+: the mesh path to modify : the next hop to force
+.PP
+Locking: this function must be called holding mpath->state_lock 
+.PP
+Definition at line 1004 of file mesh_pathtbl\&.c\&.
+.SS "void mesh_path_flush_by_iface (struct \fBieee80211_sub_if_data\fP *sdata)"
+mesh_path_flush_by_iface - Deletes all mesh paths associated with a given iface
+.PP
+This function deletes both mesh paths as well as mesh portal paths\&.
+.PP
+- interface data to match 
+.PP
+Definition at line 844 of file mesh_pathtbl\&.c\&.
+.SS "void mesh_path_flush_by_nexthop (struct \fBsta_info\fP *sta)"
+mesh_path_flush_by_nexthop - Deletes mesh paths if their next hop matches
+.PP
+- mesh peer to match
+.PP
+RCU notes: this function is called when a mesh plink transitions from PLINK_ESTAB to any other state, since PLINK_ESTAB state is the only one that allows path creation\&. This will happen before the sta can be freed (because sta_info_destroy() calls this) so any reader in a rcu read block will be protected against the plink disappearing\&. 
+.PP
+Definition at line 794 of file mesh_pathtbl\&.c\&.
+.SS "void mesh_path_flush_pending (struct \fBmesh_path\fP *mpath)"
+mesh_path_flush_pending - free the pending queue of a mesh path
+.PP
+: mesh path whose queue has to be freed
+.PP
+Locking: the function must me called within a rcu_read_lock region 
+.PP
+Definition at line 988 of file mesh_pathtbl\&.c\&.
+.SS "struct \fBmesh_path\fP* mesh_path_lookup (u8 *dst, struct \fBieee80211_sub_if_data\fP *sdata)"
+mesh_path_lookup - look up a path in the mesh path table : hardware address (ETH_ALEN length) of destination : local subif
+.PP
+Returns: pointer to the mesh path structure, or NULL if not found
+.PP
+Locking: must be called within a read rcu section\&. 
+.PP
+Definition at line 372 of file mesh_pathtbl\&.c\&.
+.SS "struct \fBmesh_path\fP* mesh_path_lookup_by_idx (intidx, struct \fBieee80211_sub_if_data\fP *sdata)"
+mesh_path_lookup_by_idx - look up a path in the mesh path table by its index : index : local subif, or NULL for all entries
+.PP
+Returns: pointer to the mesh path structure, or NULL if not found\&.
+.PP
+Locking: must be called within a read rcu section\&. 
+.PP
+Definition at line 392 of file mesh_pathtbl\&.c\&.
+.SS "void mesh_path_quiesce (struct \fBieee80211_sub_if_data\fP *sdata)"
+
+.SS "void mesh_path_restart (struct \fBieee80211_sub_if_data\fP *sdata)"
+
+.SS "int mesh_path_send_to_gates (struct \fBmesh_path\fP *mpath)"
+mesh_path_send_to_gates - sends pending frames to all known mesh gates
+.PP
+: mesh path whose queue will be emptied
+.PP
+If there is only one gate, the frames are transferred from the failed mpath queue to that gate's queue\&. If there are more than one gates, the frames are copied from each gate to the next\&. After frames are copied, the mpath queues are emptied onto the transmission queue\&. 
+.PP
+Definition at line 924 of file mesh_pathtbl\&.c\&.
+.SS "void mesh_path_start_discovery (struct \fBieee80211_sub_if_data\fP *sdata)"
+mesh_path_start_discovery - launch a path discovery from the PREQ queue
+.PP
+: local mesh subif 
+.PP
+Definition at line 926 of file mesh_hwmp\&.c\&.
+.SS "void mesh_path_timer (unsigned longdata)"
+
+.PP
+Definition at line 1106 of file mesh_hwmp\&.c\&.
+.SS "void mesh_path_tx_pending (struct \fBmesh_path\fP *mpath)"
+mesh_path_tx_pending - sends pending frames in a mesh path queue
+.PP
+: mesh path to activate
+.PP
+Locking: the state_lock of the mpath structure must NOT be held when calling this function\&. 
+.PP
+Definition at line 907 of file mesh_pathtbl\&.c\&.
+.SS "void mesh_path_tx_root_frame (struct \fBieee80211_sub_if_data\fP *sdata)"
+
+.PP
+Definition at line 1140 of file mesh_hwmp\&.c\&.
+.SS "int mesh_pathtbl_init (void)"
+
+.PP
+Definition at line 1050 of file mesh_pathtbl\&.c\&.
+.SS "void mesh_pathtbl_unregister (void)"
+
+.PP
+Definition at line 1119 of file mesh_pathtbl\&.c\&.
+.SS "bool mesh_peer_accepts_plinks (struct \fBieee802_11_elems\fP *ie)"
+mesh_peer_accepts_plinks - check if an mp is willing to establish peer links
+.PP
+: information elements of a management frame from the mesh peer 
+.PP
+Definition at line 116 of file mesh\&.c\&.
+.SS "void mesh_plink_block (struct \fBsta_info\fP *sta)"
+
+.PP
+Definition at line 441 of file mesh_plink\&.c\&.
+.SS "void mesh_plink_broken (struct \fBsta_info\fP *sta)"
+mesh_plink_broken - deactivates paths and sends perr when a link breaks
+.PP
+: broken peer link
+.PP
+This function must be called from the rate control algorithm if enough delivery errors suggest that a peer link is no longer usable\&. 
+.PP
+Definition at line 727 of file mesh_pathtbl\&.c\&.
+.SS "void mesh_plink_deactivate (struct \fBsta_info\fP *sta)"
+mesh_plink_deactivate - deactivate mesh peer link
+.PP
+: mesh peer link to deactivate
+.PP
+All mesh paths with this peer as next hop will be flushed 
+.PP
+Definition at line 152 of file mesh_plink\&.c\&.
+.SS "int mesh_plink_open (struct \fBsta_info\fP *sta)"
+
+.PP
+Definition at line 416 of file mesh_plink\&.c\&.
+.SS "int mesh_rmc_check (u8 *sa, struct ieee80211s_hdr *mesh_hdr, struct \fBieee80211_sub_if_data\fP *sdata)"
+mesh_rmc_check - Check frame in recent multicast cache and add if absent\&.
+.PP
+\fBSee Also:\fP
+.RS 4
+: source address : mesh_header
+.RE
+.PP
+Returns: 0 if the frame is not in the cache, nonzero otherwise\&.
+.PP
+Checks using the source address and the mesh sequence number if we have received this frame lately\&. If the frame is not in the cache, it is added to it\&. 
+.PP
+Definition at line 187 of file mesh\&.c\&.
+.SS "void mesh_rmc_free (struct \fBieee80211_sub_if_data\fP *sdata)"
+
+.PP
+Definition at line 156 of file mesh\&.c\&.
+.SS "int mesh_rmc_init (struct \fBieee80211_sub_if_data\fP *sdata)"
+
+.PP
+Definition at line 143 of file mesh\&.c\&.
+.SS "void mesh_rx_path_sel_frame (struct \fBieee80211_sub_if_data\fP *sdata, struct ieee80211_mgmt *mgmt, size_tlen)"
+
+.PP
+Definition at line 804 of file mesh_hwmp\&.c\&.
+.SS "void mesh_rx_plink_frame (struct \fBieee80211_sub_if_data\fP *sdata, struct ieee80211_mgmt *mgmt, size_tlen, struct ieee80211_rx_status *rx_status)"
+
+.PP
+Definition at line 456 of file mesh_plink\&.c\&.
+.SS "int mpp_path_add (u8 *dst, u8 *mpp, struct \fBieee80211_sub_if_data\fP *sdata)"
+
+.PP
+Definition at line 640 of file mesh_pathtbl\&.c\&.
+.SS "struct \fBmesh_path\fP* mpp_path_lookup (u8 *dst, struct \fBieee80211_sub_if_data\fP *sdata)"
+
+.PP
+Definition at line 377 of file mesh_pathtbl\&.c\&.
+.SH "Variable Documentation"
+.PP 
+.SS "int mesh_paths_generation"
+
+.PP
+Definition at line 49 of file mesh_pathtbl\&.c\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for net_mac80211 from the source code\&.

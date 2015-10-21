@@ -1,0 +1,26 @@
+
+Contenido
+=========
+
+    README       Este fichero.
+    Makefile     Makefile para la construcción de la biblioteca y las utilidades.
+    src/         Fuentes de la biblioteca y utilidades.
+    example/     Ejemplo de aplicación (CGI, HTML, ...).
+    lib/         Biblioteca de soporte (compilada para los ordenadores del laboratorio).
+    bin/         Utilidades para la gestión de la base de datos (compiladas para los ordenadores del laboratorio).
+
+
+Construcción de la biblioteca de soporte (lib/web-pract2.a) y las utilidades (bin/*)
+====================================================================================
+
+    1. Situarse en este directorio.
+
+    2. Ejecutar 'make all'.
+
+
+Construcción del ejemplo
+========================
+
+Situarse en el directorio 'example' y seguir los pasos indicados en 'example/README'.
+
+

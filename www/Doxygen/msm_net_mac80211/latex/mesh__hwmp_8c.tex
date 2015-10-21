@@ -1,0 +1,889 @@
+\hypertarget{mesh__hwmp_8c}{\section{/home/guille/msm/net/mac80211/mesh\-\_\-hwmp.c File Reference}
+\label{mesh__hwmp_8c}\index{/home/guille/msm/net/mac80211/mesh\-\_\-hwmp.\-c@{/home/guille/msm/net/mac80211/mesh\-\_\-hwmp.\-c}}
+}
+{\ttfamily \#include $<$linux/slab.\-h$>$}\\*
+{\ttfamily \#include $<$linux/etherdevice.\-h$>$}\\*
+{\ttfamily \#include $<$asm/unaligned.\-h$>$}\\*
+{\ttfamily \#include \char`\"{}wme.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}mesh.\-h\char`\"{}}\\*
+Include dependency graph for mesh\-\_\-hwmp.\-c\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{mesh__hwmp_8c__incl}
+\end{center}
+\end{figure}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{mesh__hwmp_8c_a174aa3d0b8cb151ed09160fa3cf6ac37}{mhwmp\-\_\-dbg}(fmt, args...)~do \{ (void)(0); \} while (0)
+\item 
+\#define \hyperlink{mesh__hwmp_8c_ad3d5ca82618a3423c9f2c20d52dcc0ea}{T\-E\-S\-T\-\_\-\-F\-R\-A\-M\-E\-\_\-\-L\-E\-N}~8192
+\item 
+\#define \hyperlink{mesh__hwmp_8c_a8e8991b78b54c782af689962d0265a9c}{M\-A\-X\-\_\-\-M\-E\-T\-R\-I\-C}~0xffffffff
+\item 
+\#define \hyperlink{mesh__hwmp_8c_a9bce0d51771828e8fdc2eea017f0fd2a}{A\-R\-I\-T\-H\-\_\-\-S\-H\-I\-F\-T}~8
+\item 
+\#define \hyperlink{mesh__hwmp_8c_a5818cd7c8a050714091266eafa59c9bd}{M\-E\-S\-H\-\_\-\-F\-R\-A\-M\-E\-\_\-\-Q\-U\-E\-U\-E\-\_\-\-L\-E\-N}~10
+\item 
+\#define \hyperlink{mesh__hwmp_8c_a14610d30f8b27a1a7d18b14c58990346}{M\-A\-X\-\_\-\-P\-R\-E\-Q\-\_\-\-Q\-U\-E\-U\-E\-\_\-\-L\-E\-N}~64
+\item 
+\#define \hyperlink{mesh__hwmp_8c_ab85359db7b676bc473adc8a9c600b779}{M\-P\-\_\-\-F\-\_\-\-D\-O}~0x1
+\item 
+\#define \hyperlink{mesh__hwmp_8c_ac8996daa5399752773b6e7202a98c56e}{M\-P\-\_\-\-F\-\_\-\-R\-F}~0x2
+\item 
+\#define \hyperlink{mesh__hwmp_8c_a00e48b701789f2089a84e85deb1100b7}{M\-P\-\_\-\-F\-\_\-\-U\-S\-N}~0x01
+\item 
+\#define \hyperlink{mesh__hwmp_8c_a5129c4f857c6616c6412555d040c6a74}{M\-P\-\_\-\-F\-\_\-\-R\-C\-O\-D\-E}~0x02
+\item 
+\#define \hyperlink{mesh__hwmp_8c_ae37670643e80b1a1fd741791f6b3ee7f}{A\-E\-\_\-\-F}~(1$<$$<$6)
+\item 
+\#define \hyperlink{mesh__hwmp_8c_a20bac4c5e9e5d52cd1a509eba857e24a}{A\-E\-\_\-\-F\-\_\-\-S\-E\-T}(x)~($\ast$x \& \hyperlink{mesh__hwmp_8c_ae37670643e80b1a1fd741791f6b3ee7f}{A\-E\-\_\-\-F})
+\item 
+\#define \hyperlink{mesh__hwmp_8c_ae86af75fdef8ccc3cde52c6dd4998a7c}{P\-R\-E\-Q\-\_\-\-I\-E\-\_\-\-F\-L\-A\-G\-S}(x)~($\ast$(x))
+\item 
+\#define \hyperlink{mesh__hwmp_8c_a42684c5658ae9cccecc669bb1a62c719}{P\-R\-E\-Q\-\_\-\-I\-E\-\_\-\-H\-O\-P\-C\-O\-U\-N\-T}(x)~($\ast$(x + 1))
+\item 
+\#define \hyperlink{mesh__hwmp_8c_ad4b347602f5803f3f3e6dda756a9cdde}{P\-R\-E\-Q\-\_\-\-I\-E\-\_\-\-T\-T\-L}(x)~($\ast$(x + 2))
+\item 
+\#define \hyperlink{mesh__hwmp_8c_a659ec6ecd8132ade679d21d58713831f}{P\-R\-E\-Q\-\_\-\-I\-E\-\_\-\-P\-R\-E\-Q\-\_\-\-I\-D}(x)~u32\-\_\-field\-\_\-get(x, 3, 0)
+\item 
+\#define \hyperlink{mesh__hwmp_8c_a2e0f87338622dc6d8d4a88a125d24d63}{P\-R\-E\-Q\-\_\-\-I\-E\-\_\-\-O\-R\-I\-G\-\_\-\-A\-D\-D\-R}(x)~(x + 7)
+\item 
+\#define \hyperlink{mesh__hwmp_8c_a419a2218ec79573a16f7e2f7ac27ce4a}{P\-R\-E\-Q\-\_\-\-I\-E\-\_\-\-O\-R\-I\-G\-\_\-\-S\-N}(x)~u32\-\_\-field\-\_\-get(x, 13, 0)
+\item 
+\#define \hyperlink{mesh__hwmp_8c_ac0e9e2cc00d295b08f4767956bfa64c8}{P\-R\-E\-Q\-\_\-\-I\-E\-\_\-\-L\-I\-F\-E\-T\-I\-M\-E}(x)~u32\-\_\-field\-\_\-get(x, 17, \hyperlink{mesh__hwmp_8c_a20bac4c5e9e5d52cd1a509eba857e24a}{A\-E\-\_\-\-F\-\_\-\-S\-E\-T}(x))
+\item 
+\#define \hyperlink{mesh__hwmp_8c_a4a1952bd6f0a212e8cf6c983124dfccf}{P\-R\-E\-Q\-\_\-\-I\-E\-\_\-\-M\-E\-T\-R\-I\-C}(x)~u32\-\_\-field\-\_\-get(x, 21, \hyperlink{mesh__hwmp_8c_a20bac4c5e9e5d52cd1a509eba857e24a}{A\-E\-\_\-\-F\-\_\-\-S\-E\-T}(x))
+\item 
+\#define \hyperlink{mesh__hwmp_8c_a091a03f62ea0be046c340d8d698c7562}{P\-R\-E\-Q\-\_\-\-I\-E\-\_\-\-T\-A\-R\-G\-E\-T\-\_\-\-F}(x)~($\ast$(\hyperlink{mesh__hwmp_8c_a20bac4c5e9e5d52cd1a509eba857e24a}{A\-E\-\_\-\-F\-\_\-\-S\-E\-T}(x) ? x + 32 \-: x + 26))
+\item 
+\#define \hyperlink{mesh__hwmp_8c_a8278bcd886d8fa4ac60765f5516ad438}{P\-R\-E\-Q\-\_\-\-I\-E\-\_\-\-T\-A\-R\-G\-E\-T\-\_\-\-A\-D\-D\-R}(x)~(\hyperlink{mesh__hwmp_8c_a20bac4c5e9e5d52cd1a509eba857e24a}{A\-E\-\_\-\-F\-\_\-\-S\-E\-T}(x) ? x + 33 \-: x + 27)
+\item 
+\#define \hyperlink{mesh__hwmp_8c_ad7732b8d0ad62d9fca84deced8cb01da}{P\-R\-E\-Q\-\_\-\-I\-E\-\_\-\-T\-A\-R\-G\-E\-T\-\_\-\-S\-N}(x)~u32\-\_\-field\-\_\-get(x, 33, \hyperlink{mesh__hwmp_8c_a20bac4c5e9e5d52cd1a509eba857e24a}{A\-E\-\_\-\-F\-\_\-\-S\-E\-T}(x))
+\item 
+\#define \hyperlink{mesh__hwmp_8c_aa5bc8aea10b88ccd5c08f8c409989d7c}{P\-R\-E\-P\-\_\-\-I\-E\-\_\-\-F\-L\-A\-G\-S}(x)~\hyperlink{mesh__hwmp_8c_ae86af75fdef8ccc3cde52c6dd4998a7c}{P\-R\-E\-Q\-\_\-\-I\-E\-\_\-\-F\-L\-A\-G\-S}(x)
+\item 
+\#define \hyperlink{mesh__hwmp_8c_a339e12a9aaebb4ff901373216f83ed38}{P\-R\-E\-P\-\_\-\-I\-E\-\_\-\-H\-O\-P\-C\-O\-U\-N\-T}(x)~\hyperlink{mesh__hwmp_8c_a42684c5658ae9cccecc669bb1a62c719}{P\-R\-E\-Q\-\_\-\-I\-E\-\_\-\-H\-O\-P\-C\-O\-U\-N\-T}(x)
+\item 
+\#define \hyperlink{mesh__hwmp_8c_a2dbfe55c3702aa1524c242bfcb3b00c4}{P\-R\-E\-P\-\_\-\-I\-E\-\_\-\-T\-T\-L}(x)~\hyperlink{mesh__hwmp_8c_ad4b347602f5803f3f3e6dda756a9cdde}{P\-R\-E\-Q\-\_\-\-I\-E\-\_\-\-T\-T\-L}(x)
+\item 
+\#define \hyperlink{mesh__hwmp_8c_af832f09e3928e96bf570f844866efb4c}{P\-R\-E\-P\-\_\-\-I\-E\-\_\-\-O\-R\-I\-G\-\_\-\-A\-D\-D\-R}(x)~(\hyperlink{mesh__hwmp_8c_a20bac4c5e9e5d52cd1a509eba857e24a}{A\-E\-\_\-\-F\-\_\-\-S\-E\-T}(x) ? x + 27 \-: x + 21)
+\item 
+\#define \hyperlink{mesh__hwmp_8c_a33d8bcfabf9361a62bea097af8b2c544}{P\-R\-E\-P\-\_\-\-I\-E\-\_\-\-O\-R\-I\-G\-\_\-\-S\-N}(x)~u32\-\_\-field\-\_\-get(x, 27, \hyperlink{mesh__hwmp_8c_a20bac4c5e9e5d52cd1a509eba857e24a}{A\-E\-\_\-\-F\-\_\-\-S\-E\-T}(x))
+\item 
+\#define \hyperlink{mesh__hwmp_8c_a474ba03d38e48964375e54a1c36dd640}{P\-R\-E\-P\-\_\-\-I\-E\-\_\-\-L\-I\-F\-E\-T\-I\-M\-E}(x)~u32\-\_\-field\-\_\-get(x, 13, \hyperlink{mesh__hwmp_8c_a20bac4c5e9e5d52cd1a509eba857e24a}{A\-E\-\_\-\-F\-\_\-\-S\-E\-T}(x))
+\item 
+\#define \hyperlink{mesh__hwmp_8c_a21e6118fca239306bbfb0c12fea371bb}{P\-R\-E\-P\-\_\-\-I\-E\-\_\-\-M\-E\-T\-R\-I\-C}(x)~u32\-\_\-field\-\_\-get(x, 17, \hyperlink{mesh__hwmp_8c_a20bac4c5e9e5d52cd1a509eba857e24a}{A\-E\-\_\-\-F\-\_\-\-S\-E\-T}(x))
+\item 
+\#define \hyperlink{mesh__hwmp_8c_a761bad12b5a47bfe44046156aa130ed7}{P\-R\-E\-P\-\_\-\-I\-E\-\_\-\-T\-A\-R\-G\-E\-T\-\_\-\-A\-D\-D\-R}(x)~(x + 3)
+\item 
+\#define \hyperlink{mesh__hwmp_8c_ab22d1dc24a97dc94ad78df00cbc00594}{P\-R\-E\-P\-\_\-\-I\-E\-\_\-\-T\-A\-R\-G\-E\-T\-\_\-\-S\-N}(x)~u32\-\_\-field\-\_\-get(x, 9, 0)
+\item 
+\#define \hyperlink{mesh__hwmp_8c_a076f0a1586a271296edf8319bc6415d8}{P\-E\-R\-R\-\_\-\-I\-E\-\_\-\-T\-T\-L}(x)~($\ast$(x))
+\item 
+\#define \hyperlink{mesh__hwmp_8c_aa84ef3b7aec3506aa8c4335eae035aee}{P\-E\-R\-R\-\_\-\-I\-E\-\_\-\-T\-A\-R\-G\-E\-T\-\_\-\-F\-L\-A\-G\-S}(x)~($\ast$(x + 2))
+\item 
+\#define \hyperlink{mesh__hwmp_8c_a50288600ce5034aa7adbe834a99df102}{P\-E\-R\-R\-\_\-\-I\-E\-\_\-\-T\-A\-R\-G\-E\-T\-\_\-\-A\-D\-D\-R}(x)~(x + 3)
+\item 
+\#define \hyperlink{mesh__hwmp_8c_ada15811ec776a1317c376c87e8d01a3d}{P\-E\-R\-R\-\_\-\-I\-E\-\_\-\-T\-A\-R\-G\-E\-T\-\_\-\-S\-N}(x)~u32\-\_\-field\-\_\-get(x, 9, 0)
+\item 
+\#define \hyperlink{mesh__hwmp_8c_a5c7f2af2c082b247640570bdffb2e68a}{P\-E\-R\-R\-\_\-\-I\-E\-\_\-\-T\-A\-R\-G\-E\-T\-\_\-\-R\-C\-O\-D\-E}(x)~u16\-\_\-field\-\_\-get(x, 13, 0)
+\item 
+\#define \hyperlink{mesh__hwmp_8c_aa135c65b508cc490b18b9fd48ad0cf57}{M\-S\-E\-C\-\_\-\-T\-O\-\_\-\-T\-U}(x)~(x$\ast$1000/1024)
+\item 
+\#define \hyperlink{mesh__hwmp_8c_a2974ed0a33d2aa3fe78b72736b8920c6}{S\-N\-\_\-\-G\-T}(x, y)~((long) (y) -\/ (long) (x) $<$ 0)
+\item 
+\#define \hyperlink{mesh__hwmp_8c_a822937a62bacc820e1cc7b030f056439}{S\-N\-\_\-\-L\-T}(x, y)~((long) (x) -\/ (long) (y) $<$ 0)
+\item 
+\#define \hyperlink{mesh__hwmp_8c_af17c62bf8868cf922bb742bce2fc0f7d}{net\-\_\-traversal\-\_\-jiffies}(s)~msecs\-\_\-to\-\_\-jiffies(s-\/$>$u.\-mesh.\-mshcfg.\-dot11\-Mesh\-H\-W\-M\-Pnet\-Diameter\-Traversal\-Time)
+\item 
+\#define \hyperlink{mesh__hwmp_8c_a1a7739c06f74f360ffb9f8804f34e44f}{default\-\_\-lifetime}(s)~\hyperlink{mesh__hwmp_8c_aa135c65b508cc490b18b9fd48ad0cf57}{M\-S\-E\-C\-\_\-\-T\-O\-\_\-\-T\-U}(s-\/$>$u.\-mesh.\-mshcfg.\-dot11\-Mesh\-H\-W\-M\-Pactive\-Path\-Timeout)
+\item 
+\#define \hyperlink{mesh__hwmp_8c_a208b25a6701ab009eba8245017558906}{min\-\_\-preq\-\_\-int\-\_\-jiff}(s)~(msecs\-\_\-to\-\_\-jiffies(s-\/$>$u.\-mesh.\-mshcfg.\-dot11\-Mesh\-H\-W\-M\-Ppreq\-Min\-Interval))
+\item 
+\#define \hyperlink{mesh__hwmp_8c_ae361e3a67ef789b395519138b816e83e}{max\-\_\-preq\-\_\-retries}(s)~(s-\/$>$u.\-mesh.\-mshcfg.\-dot11\-Mesh\-H\-W\-M\-Pmax\-P\-R\-E\-Qretries)
+\item 
+\#define \hyperlink{mesh__hwmp_8c_a242c7d52e49134a2d91db66c2a61c52c}{disc\-\_\-timeout\-\_\-jiff}(s)~msecs\-\_\-to\-\_\-jiffies(sdata-\/$>$u.\-mesh.\-mshcfg.\-min\-\_\-discovery\-\_\-timeout)
+\end{DoxyCompactItemize}
+\subsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \hyperlink{mesh__hwmp_8c_ae7058e016ea4ccbf73cbd23fdedead6a}{mpath\-\_\-frame\-\_\-type} \{ \hyperlink{mesh__hwmp_8c_ae7058e016ea4ccbf73cbd23fdedead6aa4ebc1d3df8806f051c27a2e31b57183a}{M\-P\-A\-T\-H\-\_\-\-P\-R\-E\-Q} = 0, 
+\hyperlink{mesh__hwmp_8c_ae7058e016ea4ccbf73cbd23fdedead6aae99e56e9d23cd9f4712eb3779b049b37}{M\-P\-A\-T\-H\-\_\-\-P\-R\-E\-P}, 
+\hyperlink{mesh__hwmp_8c_ae7058e016ea4ccbf73cbd23fdedead6aa9ba07ec3f395f2a9fd3f5680c0e29259}{M\-P\-A\-T\-H\-\_\-\-P\-E\-R\-R}, 
+\hyperlink{mesh__hwmp_8c_ae7058e016ea4ccbf73cbd23fdedead6aa4a029e56c9db5f34d405c955ab4dcf32}{M\-P\-A\-T\-H\-\_\-\-R\-A\-N\-N}
+ \}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{mesh__hwmp_8c_af57470fb1db40170d88d1d742534e7c8}{mesh\-\_\-path\-\_\-error\-\_\-tx} (u8 ttl, u8 $\ast$target, \-\_\-\-\_\-le32 target\-\_\-sn, \-\_\-\-\_\-le16 target\-\_\-rcode, const u8 $\ast$ra, struct \hyperlink{structieee80211__sub__if__data}{ieee80211\-\_\-sub\-\_\-if\-\_\-data} $\ast$sdata)
+\item 
+void \hyperlink{mesh__hwmp_8c_af2dc80ac8cb32fc451793cbbb2082a89}{ieee80211s\-\_\-update\-\_\-metric} (struct \hyperlink{structieee80211__local}{ieee80211\-\_\-local} $\ast$local, struct \hyperlink{structsta__info}{sta\-\_\-info} $\ast$stainfo, struct sk\-\_\-buff $\ast$skb)
+\item 
+void \hyperlink{mesh__hwmp_8c_ad09af1edb1e70d04aecb63ede83a4b45}{mesh\-\_\-rx\-\_\-path\-\_\-sel\-\_\-frame} (struct \hyperlink{structieee80211__sub__if__data}{ieee80211\-\_\-sub\-\_\-if\-\_\-data} $\ast$sdata, struct ieee80211\-\_\-mgmt $\ast$mgmt, size\-\_\-t len)
+\item 
+void \hyperlink{mesh__hwmp_8c_adcc5bbc97b6e4d90352ed4ad250986e2}{mesh\-\_\-path\-\_\-start\-\_\-discovery} (struct \hyperlink{structieee80211__sub__if__data}{ieee80211\-\_\-sub\-\_\-if\-\_\-data} $\ast$sdata)
+\item 
+int \hyperlink{mesh__hwmp_8c_a730b0e40f9056c043cdb988589638fe1}{mesh\-\_\-nexthop\-\_\-resolve} (struct sk\-\_\-buff $\ast$skb, struct \hyperlink{structieee80211__sub__if__data}{ieee80211\-\_\-sub\-\_\-if\-\_\-data} $\ast$sdata)
+\item 
+int \hyperlink{mesh__hwmp_8c_a9d9333d534703251d6b25e5e58979a8d}{mesh\-\_\-nexthop\-\_\-lookup} (struct sk\-\_\-buff $\ast$skb, struct \hyperlink{structieee80211__sub__if__data}{ieee80211\-\_\-sub\-\_\-if\-\_\-data} $\ast$sdata)
+\item 
+void \hyperlink{mesh__hwmp_8c_a4a547cd7d0a2595ca69e59fb18638fa3}{mesh\-\_\-path\-\_\-timer} (unsigned long data)
+\item 
+void \hyperlink{mesh__hwmp_8c_a2320e242ed0520b086988c9beece933f}{mesh\-\_\-path\-\_\-tx\-\_\-root\-\_\-frame} (struct \hyperlink{structieee80211__sub__if__data}{ieee80211\-\_\-sub\-\_\-if\-\_\-data} $\ast$sdata)
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{mesh__hwmp_8c_ae37670643e80b1a1fd741791f6b3ee7f}{\index{mesh\-\_\-hwmp.\-c@{mesh\-\_\-hwmp.\-c}!A\-E\-\_\-\-F@{A\-E\-\_\-\-F}}
+\index{A\-E\-\_\-\-F@{A\-E\-\_\-\-F}!mesh_hwmp.c@{mesh\-\_\-hwmp.\-c}}
+\subsubsection[{A\-E\-\_\-\-F}]{\setlength{\rightskip}{0pt plus 5cm}\#define A\-E\-\_\-\-F~(1$<$$<$6)}}\label{mesh__hwmp_8c_ae37670643e80b1a1fd741791f6b3ee7f}
+
+
+Definition at line 57 of file mesh\-\_\-hwmp.\-c.
+
+\hypertarget{mesh__hwmp_8c_a20bac4c5e9e5d52cd1a509eba857e24a}{\index{mesh\-\_\-hwmp.\-c@{mesh\-\_\-hwmp.\-c}!A\-E\-\_\-\-F\-\_\-\-S\-E\-T@{A\-E\-\_\-\-F\-\_\-\-S\-E\-T}}
+\index{A\-E\-\_\-\-F\-\_\-\-S\-E\-T@{A\-E\-\_\-\-F\-\_\-\-S\-E\-T}!mesh_hwmp.c@{mesh\-\_\-hwmp.\-c}}
+\subsubsection[{A\-E\-\_\-\-F\-\_\-\-S\-E\-T}]{\setlength{\rightskip}{0pt plus 5cm}\#define A\-E\-\_\-\-F\-\_\-\-S\-E\-T(
+\begin{DoxyParamCaption}
+\item[{}]{x}
+\end{DoxyParamCaption}
+)~($\ast$x \& {\bf A\-E\-\_\-\-F})}}\label{mesh__hwmp_8c_a20bac4c5e9e5d52cd1a509eba857e24a}
+
+
+Definition at line 58 of file mesh\-\_\-hwmp.\-c.
+
+\hypertarget{mesh__hwmp_8c_a9bce0d51771828e8fdc2eea017f0fd2a}{\index{mesh\-\_\-hwmp.\-c@{mesh\-\_\-hwmp.\-c}!A\-R\-I\-T\-H\-\_\-\-S\-H\-I\-F\-T@{A\-R\-I\-T\-H\-\_\-\-S\-H\-I\-F\-T}}
+\index{A\-R\-I\-T\-H\-\_\-\-S\-H\-I\-F\-T@{A\-R\-I\-T\-H\-\_\-\-S\-H\-I\-F\-T}!mesh_hwmp.c@{mesh\-\_\-hwmp.\-c}}
+\subsubsection[{A\-R\-I\-T\-H\-\_\-\-S\-H\-I\-F\-T}]{\setlength{\rightskip}{0pt plus 5cm}\#define A\-R\-I\-T\-H\-\_\-\-S\-H\-I\-F\-T~8}}\label{mesh__hwmp_8c_a9bce0d51771828e8fdc2eea017f0fd2a}
+
+
+Definition at line 25 of file mesh\-\_\-hwmp.\-c.
+
+\hypertarget{mesh__hwmp_8c_a1a7739c06f74f360ffb9f8804f34e44f}{\index{mesh\-\_\-hwmp.\-c@{mesh\-\_\-hwmp.\-c}!default\-\_\-lifetime@{default\-\_\-lifetime}}
+\index{default\-\_\-lifetime@{default\-\_\-lifetime}!mesh_hwmp.c@{mesh\-\_\-hwmp.\-c}}
+\subsubsection[{default\-\_\-lifetime}]{\setlength{\rightskip}{0pt plus 5cm}\#define default\-\_\-lifetime(
+\begin{DoxyParamCaption}
+\item[{}]{s}
+\end{DoxyParamCaption}
+)~{\bf M\-S\-E\-C\-\_\-\-T\-O\-\_\-\-T\-U}(s-\/$>$u.\-mesh.\-mshcfg.\-dot11\-Mesh\-H\-W\-M\-Pactive\-Path\-Timeout)}}\label{mesh__hwmp_8c_a1a7739c06f74f360ffb9f8804f34e44f}
+
+
+Definition at line 94 of file mesh\-\_\-hwmp.\-c.
+
+\hypertarget{mesh__hwmp_8c_a242c7d52e49134a2d91db66c2a61c52c}{\index{mesh\-\_\-hwmp.\-c@{mesh\-\_\-hwmp.\-c}!disc\-\_\-timeout\-\_\-jiff@{disc\-\_\-timeout\-\_\-jiff}}
+\index{disc\-\_\-timeout\-\_\-jiff@{disc\-\_\-timeout\-\_\-jiff}!mesh_hwmp.c@{mesh\-\_\-hwmp.\-c}}
+\subsubsection[{disc\-\_\-timeout\-\_\-jiff}]{\setlength{\rightskip}{0pt plus 5cm}\#define disc\-\_\-timeout\-\_\-jiff(
+\begin{DoxyParamCaption}
+\item[{}]{s}
+\end{DoxyParamCaption}
+)~msecs\-\_\-to\-\_\-jiffies(sdata-\/$>$u.\-mesh.\-mshcfg.\-min\-\_\-discovery\-\_\-timeout)}}\label{mesh__hwmp_8c_a242c7d52e49134a2d91db66c2a61c52c}
+
+
+Definition at line 99 of file mesh\-\_\-hwmp.\-c.
+
+\hypertarget{mesh__hwmp_8c_a8e8991b78b54c782af689962d0265a9c}{\index{mesh\-\_\-hwmp.\-c@{mesh\-\_\-hwmp.\-c}!M\-A\-X\-\_\-\-M\-E\-T\-R\-I\-C@{M\-A\-X\-\_\-\-M\-E\-T\-R\-I\-C}}
+\index{M\-A\-X\-\_\-\-M\-E\-T\-R\-I\-C@{M\-A\-X\-\_\-\-M\-E\-T\-R\-I\-C}!mesh_hwmp.c@{mesh\-\_\-hwmp.\-c}}
+\subsubsection[{M\-A\-X\-\_\-\-M\-E\-T\-R\-I\-C}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\-A\-X\-\_\-\-M\-E\-T\-R\-I\-C~0xffffffff}}\label{mesh__hwmp_8c_a8e8991b78b54c782af689962d0265a9c}
+
+
+Definition at line 24 of file mesh\-\_\-hwmp.\-c.
+
+\hypertarget{mesh__hwmp_8c_a14610d30f8b27a1a7d18b14c58990346}{\index{mesh\-\_\-hwmp.\-c@{mesh\-\_\-hwmp.\-c}!M\-A\-X\-\_\-\-P\-R\-E\-Q\-\_\-\-Q\-U\-E\-U\-E\-\_\-\-L\-E\-N@{M\-A\-X\-\_\-\-P\-R\-E\-Q\-\_\-\-Q\-U\-E\-U\-E\-\_\-\-L\-E\-N}}
+\index{M\-A\-X\-\_\-\-P\-R\-E\-Q\-\_\-\-Q\-U\-E\-U\-E\-\_\-\-L\-E\-N@{M\-A\-X\-\_\-\-P\-R\-E\-Q\-\_\-\-Q\-U\-E\-U\-E\-\_\-\-L\-E\-N}!mesh_hwmp.c@{mesh\-\_\-hwmp.\-c}}
+\subsubsection[{M\-A\-X\-\_\-\-P\-R\-E\-Q\-\_\-\-Q\-U\-E\-U\-E\-\_\-\-L\-E\-N}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\-A\-X\-\_\-\-P\-R\-E\-Q\-\_\-\-Q\-U\-E\-U\-E\-\_\-\-L\-E\-N~64}}\label{mesh__hwmp_8c_a14610d30f8b27a1a7d18b14c58990346}
+
+
+Definition at line 29 of file mesh\-\_\-hwmp.\-c.
+
+\hypertarget{mesh__hwmp_8c_ae361e3a67ef789b395519138b816e83e}{\index{mesh\-\_\-hwmp.\-c@{mesh\-\_\-hwmp.\-c}!max\-\_\-preq\-\_\-retries@{max\-\_\-preq\-\_\-retries}}
+\index{max\-\_\-preq\-\_\-retries@{max\-\_\-preq\-\_\-retries}!mesh_hwmp.c@{mesh\-\_\-hwmp.\-c}}
+\subsubsection[{max\-\_\-preq\-\_\-retries}]{\setlength{\rightskip}{0pt plus 5cm}\#define max\-\_\-preq\-\_\-retries(
+\begin{DoxyParamCaption}
+\item[{}]{s}
+\end{DoxyParamCaption}
+)~(s-\/$>$u.\-mesh.\-mshcfg.\-dot11\-Mesh\-H\-W\-M\-Pmax\-P\-R\-E\-Qretries)}}\label{mesh__hwmp_8c_ae361e3a67ef789b395519138b816e83e}
+
+
+Definition at line 98 of file mesh\-\_\-hwmp.\-c.
+
+\hypertarget{mesh__hwmp_8c_a5818cd7c8a050714091266eafa59c9bd}{\index{mesh\-\_\-hwmp.\-c@{mesh\-\_\-hwmp.\-c}!M\-E\-S\-H\-\_\-\-F\-R\-A\-M\-E\-\_\-\-Q\-U\-E\-U\-E\-\_\-\-L\-E\-N@{M\-E\-S\-H\-\_\-\-F\-R\-A\-M\-E\-\_\-\-Q\-U\-E\-U\-E\-\_\-\-L\-E\-N}}
+\index{M\-E\-S\-H\-\_\-\-F\-R\-A\-M\-E\-\_\-\-Q\-U\-E\-U\-E\-\_\-\-L\-E\-N@{M\-E\-S\-H\-\_\-\-F\-R\-A\-M\-E\-\_\-\-Q\-U\-E\-U\-E\-\_\-\-L\-E\-N}!mesh_hwmp.c@{mesh\-\_\-hwmp.\-c}}
+\subsubsection[{M\-E\-S\-H\-\_\-\-F\-R\-A\-M\-E\-\_\-\-Q\-U\-E\-U\-E\-\_\-\-L\-E\-N}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\-E\-S\-H\-\_\-\-F\-R\-A\-M\-E\-\_\-\-Q\-U\-E\-U\-E\-\_\-\-L\-E\-N~10}}\label{mesh__hwmp_8c_a5818cd7c8a050714091266eafa59c9bd}
+
+
+Definition at line 28 of file mesh\-\_\-hwmp.\-c.
+
+\hypertarget{mesh__hwmp_8c_a174aa3d0b8cb151ed09160fa3cf6ac37}{\index{mesh\-\_\-hwmp.\-c@{mesh\-\_\-hwmp.\-c}!mhwmp\-\_\-dbg@{mhwmp\-\_\-dbg}}
+\index{mhwmp\-\_\-dbg@{mhwmp\-\_\-dbg}!mesh_hwmp.c@{mesh\-\_\-hwmp.\-c}}
+\subsubsection[{mhwmp\-\_\-dbg}]{\setlength{\rightskip}{0pt plus 5cm}\#define mhwmp\-\_\-dbg(
+\begin{DoxyParamCaption}
+\item[{}]{fmt, }
+\item[{}]{args...}
+\end{DoxyParamCaption}
+)~do \{ (void)(0); \} while (0)}}\label{mesh__hwmp_8c_a174aa3d0b8cb151ed09160fa3cf6ac37}
+
+
+Definition at line 20 of file mesh\-\_\-hwmp.\-c.
+
+\hypertarget{mesh__hwmp_8c_a208b25a6701ab009eba8245017558906}{\index{mesh\-\_\-hwmp.\-c@{mesh\-\_\-hwmp.\-c}!min\-\_\-preq\-\_\-int\-\_\-jiff@{min\-\_\-preq\-\_\-int\-\_\-jiff}}
+\index{min\-\_\-preq\-\_\-int\-\_\-jiff@{min\-\_\-preq\-\_\-int\-\_\-jiff}!mesh_hwmp.c@{mesh\-\_\-hwmp.\-c}}
+\subsubsection[{min\-\_\-preq\-\_\-int\-\_\-jiff}]{\setlength{\rightskip}{0pt plus 5cm}\#define min\-\_\-preq\-\_\-int\-\_\-jiff(
+\begin{DoxyParamCaption}
+\item[{}]{s}
+\end{DoxyParamCaption}
+)~(msecs\-\_\-to\-\_\-jiffies(s-\/$>$u.\-mesh.\-mshcfg.\-dot11\-Mesh\-H\-W\-M\-Ppreq\-Min\-Interval))}}\label{mesh__hwmp_8c_a208b25a6701ab009eba8245017558906}
+
+
+Definition at line 96 of file mesh\-\_\-hwmp.\-c.
+
+\hypertarget{mesh__hwmp_8c_ab85359db7b676bc473adc8a9c600b779}{\index{mesh\-\_\-hwmp.\-c@{mesh\-\_\-hwmp.\-c}!M\-P\-\_\-\-F\-\_\-\-D\-O@{M\-P\-\_\-\-F\-\_\-\-D\-O}}
+\index{M\-P\-\_\-\-F\-\_\-\-D\-O@{M\-P\-\_\-\-F\-\_\-\-D\-O}!mesh_hwmp.c@{mesh\-\_\-hwmp.\-c}}
+\subsubsection[{M\-P\-\_\-\-F\-\_\-\-D\-O}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\-P\-\_\-\-F\-\_\-\-D\-O~0x1}}\label{mesh__hwmp_8c_ab85359db7b676bc473adc8a9c600b779}
+
+
+Definition at line 32 of file mesh\-\_\-hwmp.\-c.
+
+\hypertarget{mesh__hwmp_8c_a5129c4f857c6616c6412555d040c6a74}{\index{mesh\-\_\-hwmp.\-c@{mesh\-\_\-hwmp.\-c}!M\-P\-\_\-\-F\-\_\-\-R\-C\-O\-D\-E@{M\-P\-\_\-\-F\-\_\-\-R\-C\-O\-D\-E}}
+\index{M\-P\-\_\-\-F\-\_\-\-R\-C\-O\-D\-E@{M\-P\-\_\-\-F\-\_\-\-R\-C\-O\-D\-E}!mesh_hwmp.c@{mesh\-\_\-hwmp.\-c}}
+\subsubsection[{M\-P\-\_\-\-F\-\_\-\-R\-C\-O\-D\-E}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\-P\-\_\-\-F\-\_\-\-R\-C\-O\-D\-E~0x02}}\label{mesh__hwmp_8c_a5129c4f857c6616c6412555d040c6a74}
+
+
+Definition at line 38 of file mesh\-\_\-hwmp.\-c.
+
+\hypertarget{mesh__hwmp_8c_ac8996daa5399752773b6e7202a98c56e}{\index{mesh\-\_\-hwmp.\-c@{mesh\-\_\-hwmp.\-c}!M\-P\-\_\-\-F\-\_\-\-R\-F@{M\-P\-\_\-\-F\-\_\-\-R\-F}}
+\index{M\-P\-\_\-\-F\-\_\-\-R\-F@{M\-P\-\_\-\-F\-\_\-\-R\-F}!mesh_hwmp.c@{mesh\-\_\-hwmp.\-c}}
+\subsubsection[{M\-P\-\_\-\-F\-\_\-\-R\-F}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\-P\-\_\-\-F\-\_\-\-R\-F~0x2}}\label{mesh__hwmp_8c_ac8996daa5399752773b6e7202a98c56e}
+
+
+Definition at line 34 of file mesh\-\_\-hwmp.\-c.
+
+\hypertarget{mesh__hwmp_8c_a00e48b701789f2089a84e85deb1100b7}{\index{mesh\-\_\-hwmp.\-c@{mesh\-\_\-hwmp.\-c}!M\-P\-\_\-\-F\-\_\-\-U\-S\-N@{M\-P\-\_\-\-F\-\_\-\-U\-S\-N}}
+\index{M\-P\-\_\-\-F\-\_\-\-U\-S\-N@{M\-P\-\_\-\-F\-\_\-\-U\-S\-N}!mesh_hwmp.c@{mesh\-\_\-hwmp.\-c}}
+\subsubsection[{M\-P\-\_\-\-F\-\_\-\-U\-S\-N}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\-P\-\_\-\-F\-\_\-\-U\-S\-N~0x01}}\label{mesh__hwmp_8c_a00e48b701789f2089a84e85deb1100b7}
+
+
+Definition at line 36 of file mesh\-\_\-hwmp.\-c.
+
+\hypertarget{mesh__hwmp_8c_aa135c65b508cc490b18b9fd48ad0cf57}{\index{mesh\-\_\-hwmp.\-c@{mesh\-\_\-hwmp.\-c}!M\-S\-E\-C\-\_\-\-T\-O\-\_\-\-T\-U@{M\-S\-E\-C\-\_\-\-T\-O\-\_\-\-T\-U}}
+\index{M\-S\-E\-C\-\_\-\-T\-O\-\_\-\-T\-U@{M\-S\-E\-C\-\_\-\-T\-O\-\_\-\-T\-U}!mesh_hwmp.c@{mesh\-\_\-hwmp.\-c}}
+\subsubsection[{M\-S\-E\-C\-\_\-\-T\-O\-\_\-\-T\-U}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\-S\-E\-C\-\_\-\-T\-O\-\_\-\-T\-U(
+\begin{DoxyParamCaption}
+\item[{}]{x}
+\end{DoxyParamCaption}
+)~(x$\ast$1000/1024)}}\label{mesh__hwmp_8c_aa135c65b508cc490b18b9fd48ad0cf57}
+
+
+Definition at line 88 of file mesh\-\_\-hwmp.\-c.
+
+\hypertarget{mesh__hwmp_8c_af17c62bf8868cf922bb742bce2fc0f7d}{\index{mesh\-\_\-hwmp.\-c@{mesh\-\_\-hwmp.\-c}!net\-\_\-traversal\-\_\-jiffies@{net\-\_\-traversal\-\_\-jiffies}}
+\index{net\-\_\-traversal\-\_\-jiffies@{net\-\_\-traversal\-\_\-jiffies}!mesh_hwmp.c@{mesh\-\_\-hwmp.\-c}}
+\subsubsection[{net\-\_\-traversal\-\_\-jiffies}]{\setlength{\rightskip}{0pt plus 5cm}\#define net\-\_\-traversal\-\_\-jiffies(
+\begin{DoxyParamCaption}
+\item[{}]{s}
+\end{DoxyParamCaption}
+)~msecs\-\_\-to\-\_\-jiffies(s-\/$>$u.\-mesh.\-mshcfg.\-dot11\-Mesh\-H\-W\-M\-Pnet\-Diameter\-Traversal\-Time)}}\label{mesh__hwmp_8c_af17c62bf8868cf922bb742bce2fc0f7d}
+
+
+Definition at line 92 of file mesh\-\_\-hwmp.\-c.
+
+\hypertarget{mesh__hwmp_8c_a50288600ce5034aa7adbe834a99df102}{\index{mesh\-\_\-hwmp.\-c@{mesh\-\_\-hwmp.\-c}!P\-E\-R\-R\-\_\-\-I\-E\-\_\-\-T\-A\-R\-G\-E\-T\-\_\-\-A\-D\-D\-R@{P\-E\-R\-R\-\_\-\-I\-E\-\_\-\-T\-A\-R\-G\-E\-T\-\_\-\-A\-D\-D\-R}}
+\index{P\-E\-R\-R\-\_\-\-I\-E\-\_\-\-T\-A\-R\-G\-E\-T\-\_\-\-A\-D\-D\-R@{P\-E\-R\-R\-\_\-\-I\-E\-\_\-\-T\-A\-R\-G\-E\-T\-\_\-\-A\-D\-D\-R}!mesh_hwmp.c@{mesh\-\_\-hwmp.\-c}}
+\subsubsection[{P\-E\-R\-R\-\_\-\-I\-E\-\_\-\-T\-A\-R\-G\-E\-T\-\_\-\-A\-D\-D\-R}]{\setlength{\rightskip}{0pt plus 5cm}\#define P\-E\-R\-R\-\_\-\-I\-E\-\_\-\-T\-A\-R\-G\-E\-T\-\_\-\-A\-D\-D\-R(
+\begin{DoxyParamCaption}
+\item[{}]{x}
+\end{DoxyParamCaption}
+)~(x + 3)}}\label{mesh__hwmp_8c_a50288600ce5034aa7adbe834a99df102}
+
+
+Definition at line 84 of file mesh\-\_\-hwmp.\-c.
+
+\hypertarget{mesh__hwmp_8c_aa84ef3b7aec3506aa8c4335eae035aee}{\index{mesh\-\_\-hwmp.\-c@{mesh\-\_\-hwmp.\-c}!P\-E\-R\-R\-\_\-\-I\-E\-\_\-\-T\-A\-R\-G\-E\-T\-\_\-\-F\-L\-A\-G\-S@{P\-E\-R\-R\-\_\-\-I\-E\-\_\-\-T\-A\-R\-G\-E\-T\-\_\-\-F\-L\-A\-G\-S}}
+\index{P\-E\-R\-R\-\_\-\-I\-E\-\_\-\-T\-A\-R\-G\-E\-T\-\_\-\-F\-L\-A\-G\-S@{P\-E\-R\-R\-\_\-\-I\-E\-\_\-\-T\-A\-R\-G\-E\-T\-\_\-\-F\-L\-A\-G\-S}!mesh_hwmp.c@{mesh\-\_\-hwmp.\-c}}
+\subsubsection[{P\-E\-R\-R\-\_\-\-I\-E\-\_\-\-T\-A\-R\-G\-E\-T\-\_\-\-F\-L\-A\-G\-S}]{\setlength{\rightskip}{0pt plus 5cm}\#define P\-E\-R\-R\-\_\-\-I\-E\-\_\-\-T\-A\-R\-G\-E\-T\-\_\-\-F\-L\-A\-G\-S(
+\begin{DoxyParamCaption}
+\item[{}]{x}
+\end{DoxyParamCaption}
+)~($\ast$(x + 2))}}\label{mesh__hwmp_8c_aa84ef3b7aec3506aa8c4335eae035aee}
+
+
+Definition at line 83 of file mesh\-\_\-hwmp.\-c.
+
+\hypertarget{mesh__hwmp_8c_a5c7f2af2c082b247640570bdffb2e68a}{\index{mesh\-\_\-hwmp.\-c@{mesh\-\_\-hwmp.\-c}!P\-E\-R\-R\-\_\-\-I\-E\-\_\-\-T\-A\-R\-G\-E\-T\-\_\-\-R\-C\-O\-D\-E@{P\-E\-R\-R\-\_\-\-I\-E\-\_\-\-T\-A\-R\-G\-E\-T\-\_\-\-R\-C\-O\-D\-E}}
+\index{P\-E\-R\-R\-\_\-\-I\-E\-\_\-\-T\-A\-R\-G\-E\-T\-\_\-\-R\-C\-O\-D\-E@{P\-E\-R\-R\-\_\-\-I\-E\-\_\-\-T\-A\-R\-G\-E\-T\-\_\-\-R\-C\-O\-D\-E}!mesh_hwmp.c@{mesh\-\_\-hwmp.\-c}}
+\subsubsection[{P\-E\-R\-R\-\_\-\-I\-E\-\_\-\-T\-A\-R\-G\-E\-T\-\_\-\-R\-C\-O\-D\-E}]{\setlength{\rightskip}{0pt plus 5cm}\#define P\-E\-R\-R\-\_\-\-I\-E\-\_\-\-T\-A\-R\-G\-E\-T\-\_\-\-R\-C\-O\-D\-E(
+\begin{DoxyParamCaption}
+\item[{}]{x}
+\end{DoxyParamCaption}
+)~u16\-\_\-field\-\_\-get(x, 13, 0)}}\label{mesh__hwmp_8c_a5c7f2af2c082b247640570bdffb2e68a}
+
+
+Definition at line 86 of file mesh\-\_\-hwmp.\-c.
+
+\hypertarget{mesh__hwmp_8c_ada15811ec776a1317c376c87e8d01a3d}{\index{mesh\-\_\-hwmp.\-c@{mesh\-\_\-hwmp.\-c}!P\-E\-R\-R\-\_\-\-I\-E\-\_\-\-T\-A\-R\-G\-E\-T\-\_\-\-S\-N@{P\-E\-R\-R\-\_\-\-I\-E\-\_\-\-T\-A\-R\-G\-E\-T\-\_\-\-S\-N}}
+\index{P\-E\-R\-R\-\_\-\-I\-E\-\_\-\-T\-A\-R\-G\-E\-T\-\_\-\-S\-N@{P\-E\-R\-R\-\_\-\-I\-E\-\_\-\-T\-A\-R\-G\-E\-T\-\_\-\-S\-N}!mesh_hwmp.c@{mesh\-\_\-hwmp.\-c}}
+\subsubsection[{P\-E\-R\-R\-\_\-\-I\-E\-\_\-\-T\-A\-R\-G\-E\-T\-\_\-\-S\-N}]{\setlength{\rightskip}{0pt plus 5cm}\#define P\-E\-R\-R\-\_\-\-I\-E\-\_\-\-T\-A\-R\-G\-E\-T\-\_\-\-S\-N(
+\begin{DoxyParamCaption}
+\item[{}]{x}
+\end{DoxyParamCaption}
+)~u32\-\_\-field\-\_\-get(x, 9, 0)}}\label{mesh__hwmp_8c_ada15811ec776a1317c376c87e8d01a3d}
+
+
+Definition at line 85 of file mesh\-\_\-hwmp.\-c.
+
+\hypertarget{mesh__hwmp_8c_a076f0a1586a271296edf8319bc6415d8}{\index{mesh\-\_\-hwmp.\-c@{mesh\-\_\-hwmp.\-c}!P\-E\-R\-R\-\_\-\-I\-E\-\_\-\-T\-T\-L@{P\-E\-R\-R\-\_\-\-I\-E\-\_\-\-T\-T\-L}}
+\index{P\-E\-R\-R\-\_\-\-I\-E\-\_\-\-T\-T\-L@{P\-E\-R\-R\-\_\-\-I\-E\-\_\-\-T\-T\-L}!mesh_hwmp.c@{mesh\-\_\-hwmp.\-c}}
+\subsubsection[{P\-E\-R\-R\-\_\-\-I\-E\-\_\-\-T\-T\-L}]{\setlength{\rightskip}{0pt plus 5cm}\#define P\-E\-R\-R\-\_\-\-I\-E\-\_\-\-T\-T\-L(
+\begin{DoxyParamCaption}
+\item[{}]{x}
+\end{DoxyParamCaption}
+)~($\ast$(x))}}\label{mesh__hwmp_8c_a076f0a1586a271296edf8319bc6415d8}
+
+
+Definition at line 82 of file mesh\-\_\-hwmp.\-c.
+
+\hypertarget{mesh__hwmp_8c_aa5bc8aea10b88ccd5c08f8c409989d7c}{\index{mesh\-\_\-hwmp.\-c@{mesh\-\_\-hwmp.\-c}!P\-R\-E\-P\-\_\-\-I\-E\-\_\-\-F\-L\-A\-G\-S@{P\-R\-E\-P\-\_\-\-I\-E\-\_\-\-F\-L\-A\-G\-S}}
+\index{P\-R\-E\-P\-\_\-\-I\-E\-\_\-\-F\-L\-A\-G\-S@{P\-R\-E\-P\-\_\-\-I\-E\-\_\-\-F\-L\-A\-G\-S}!mesh_hwmp.c@{mesh\-\_\-hwmp.\-c}}
+\subsubsection[{P\-R\-E\-P\-\_\-\-I\-E\-\_\-\-F\-L\-A\-G\-S}]{\setlength{\rightskip}{0pt plus 5cm}\#define P\-R\-E\-P\-\_\-\-I\-E\-\_\-\-F\-L\-A\-G\-S(
+\begin{DoxyParamCaption}
+\item[{}]{x}
+\end{DoxyParamCaption}
+)~{\bf P\-R\-E\-Q\-\_\-\-I\-E\-\_\-\-F\-L\-A\-G\-S}(x)}}\label{mesh__hwmp_8c_aa5bc8aea10b88ccd5c08f8c409989d7c}
+
+
+Definition at line 72 of file mesh\-\_\-hwmp.\-c.
+
+\hypertarget{mesh__hwmp_8c_a339e12a9aaebb4ff901373216f83ed38}{\index{mesh\-\_\-hwmp.\-c@{mesh\-\_\-hwmp.\-c}!P\-R\-E\-P\-\_\-\-I\-E\-\_\-\-H\-O\-P\-C\-O\-U\-N\-T@{P\-R\-E\-P\-\_\-\-I\-E\-\_\-\-H\-O\-P\-C\-O\-U\-N\-T}}
+\index{P\-R\-E\-P\-\_\-\-I\-E\-\_\-\-H\-O\-P\-C\-O\-U\-N\-T@{P\-R\-E\-P\-\_\-\-I\-E\-\_\-\-H\-O\-P\-C\-O\-U\-N\-T}!mesh_hwmp.c@{mesh\-\_\-hwmp.\-c}}
+\subsubsection[{P\-R\-E\-P\-\_\-\-I\-E\-\_\-\-H\-O\-P\-C\-O\-U\-N\-T}]{\setlength{\rightskip}{0pt plus 5cm}\#define P\-R\-E\-P\-\_\-\-I\-E\-\_\-\-H\-O\-P\-C\-O\-U\-N\-T(
+\begin{DoxyParamCaption}
+\item[{}]{x}
+\end{DoxyParamCaption}
+)~{\bf P\-R\-E\-Q\-\_\-\-I\-E\-\_\-\-H\-O\-P\-C\-O\-U\-N\-T}(x)}}\label{mesh__hwmp_8c_a339e12a9aaebb4ff901373216f83ed38}
+
+
+Definition at line 73 of file mesh\-\_\-hwmp.\-c.
+
+\hypertarget{mesh__hwmp_8c_a474ba03d38e48964375e54a1c36dd640}{\index{mesh\-\_\-hwmp.\-c@{mesh\-\_\-hwmp.\-c}!P\-R\-E\-P\-\_\-\-I\-E\-\_\-\-L\-I\-F\-E\-T\-I\-M\-E@{P\-R\-E\-P\-\_\-\-I\-E\-\_\-\-L\-I\-F\-E\-T\-I\-M\-E}}
+\index{P\-R\-E\-P\-\_\-\-I\-E\-\_\-\-L\-I\-F\-E\-T\-I\-M\-E@{P\-R\-E\-P\-\_\-\-I\-E\-\_\-\-L\-I\-F\-E\-T\-I\-M\-E}!mesh_hwmp.c@{mesh\-\_\-hwmp.\-c}}
+\subsubsection[{P\-R\-E\-P\-\_\-\-I\-E\-\_\-\-L\-I\-F\-E\-T\-I\-M\-E}]{\setlength{\rightskip}{0pt plus 5cm}\#define P\-R\-E\-P\-\_\-\-I\-E\-\_\-\-L\-I\-F\-E\-T\-I\-M\-E(
+\begin{DoxyParamCaption}
+\item[{}]{x}
+\end{DoxyParamCaption}
+)~u32\-\_\-field\-\_\-get(x, 13, {\bf A\-E\-\_\-\-F\-\_\-\-S\-E\-T}(x))}}\label{mesh__hwmp_8c_a474ba03d38e48964375e54a1c36dd640}
+
+
+Definition at line 77 of file mesh\-\_\-hwmp.\-c.
+
+\hypertarget{mesh__hwmp_8c_a21e6118fca239306bbfb0c12fea371bb}{\index{mesh\-\_\-hwmp.\-c@{mesh\-\_\-hwmp.\-c}!P\-R\-E\-P\-\_\-\-I\-E\-\_\-\-M\-E\-T\-R\-I\-C@{P\-R\-E\-P\-\_\-\-I\-E\-\_\-\-M\-E\-T\-R\-I\-C}}
+\index{P\-R\-E\-P\-\_\-\-I\-E\-\_\-\-M\-E\-T\-R\-I\-C@{P\-R\-E\-P\-\_\-\-I\-E\-\_\-\-M\-E\-T\-R\-I\-C}!mesh_hwmp.c@{mesh\-\_\-hwmp.\-c}}
+\subsubsection[{P\-R\-E\-P\-\_\-\-I\-E\-\_\-\-M\-E\-T\-R\-I\-C}]{\setlength{\rightskip}{0pt plus 5cm}\#define P\-R\-E\-P\-\_\-\-I\-E\-\_\-\-M\-E\-T\-R\-I\-C(
+\begin{DoxyParamCaption}
+\item[{}]{x}
+\end{DoxyParamCaption}
+)~u32\-\_\-field\-\_\-get(x, 17, {\bf A\-E\-\_\-\-F\-\_\-\-S\-E\-T}(x))}}\label{mesh__hwmp_8c_a21e6118fca239306bbfb0c12fea371bb}
+
+
+Definition at line 78 of file mesh\-\_\-hwmp.\-c.
+
+\hypertarget{mesh__hwmp_8c_af832f09e3928e96bf570f844866efb4c}{\index{mesh\-\_\-hwmp.\-c@{mesh\-\_\-hwmp.\-c}!P\-R\-E\-P\-\_\-\-I\-E\-\_\-\-O\-R\-I\-G\-\_\-\-A\-D\-D\-R@{P\-R\-E\-P\-\_\-\-I\-E\-\_\-\-O\-R\-I\-G\-\_\-\-A\-D\-D\-R}}
+\index{P\-R\-E\-P\-\_\-\-I\-E\-\_\-\-O\-R\-I\-G\-\_\-\-A\-D\-D\-R@{P\-R\-E\-P\-\_\-\-I\-E\-\_\-\-O\-R\-I\-G\-\_\-\-A\-D\-D\-R}!mesh_hwmp.c@{mesh\-\_\-hwmp.\-c}}
+\subsubsection[{P\-R\-E\-P\-\_\-\-I\-E\-\_\-\-O\-R\-I\-G\-\_\-\-A\-D\-D\-R}]{\setlength{\rightskip}{0pt plus 5cm}\#define P\-R\-E\-P\-\_\-\-I\-E\-\_\-\-O\-R\-I\-G\-\_\-\-A\-D\-D\-R(
+\begin{DoxyParamCaption}
+\item[{}]{x}
+\end{DoxyParamCaption}
+)~({\bf A\-E\-\_\-\-F\-\_\-\-S\-E\-T}(x) ? x + 27 \-: x + 21)}}\label{mesh__hwmp_8c_af832f09e3928e96bf570f844866efb4c}
+
+
+Definition at line 75 of file mesh\-\_\-hwmp.\-c.
+
+\hypertarget{mesh__hwmp_8c_a33d8bcfabf9361a62bea097af8b2c544}{\index{mesh\-\_\-hwmp.\-c@{mesh\-\_\-hwmp.\-c}!P\-R\-E\-P\-\_\-\-I\-E\-\_\-\-O\-R\-I\-G\-\_\-\-S\-N@{P\-R\-E\-P\-\_\-\-I\-E\-\_\-\-O\-R\-I\-G\-\_\-\-S\-N}}
+\index{P\-R\-E\-P\-\_\-\-I\-E\-\_\-\-O\-R\-I\-G\-\_\-\-S\-N@{P\-R\-E\-P\-\_\-\-I\-E\-\_\-\-O\-R\-I\-G\-\_\-\-S\-N}!mesh_hwmp.c@{mesh\-\_\-hwmp.\-c}}
+\subsubsection[{P\-R\-E\-P\-\_\-\-I\-E\-\_\-\-O\-R\-I\-G\-\_\-\-S\-N}]{\setlength{\rightskip}{0pt plus 5cm}\#define P\-R\-E\-P\-\_\-\-I\-E\-\_\-\-O\-R\-I\-G\-\_\-\-S\-N(
+\begin{DoxyParamCaption}
+\item[{}]{x}
+\end{DoxyParamCaption}
+)~u32\-\_\-field\-\_\-get(x, 27, {\bf A\-E\-\_\-\-F\-\_\-\-S\-E\-T}(x))}}\label{mesh__hwmp_8c_a33d8bcfabf9361a62bea097af8b2c544}
+
+
+Definition at line 76 of file mesh\-\_\-hwmp.\-c.
+
+\hypertarget{mesh__hwmp_8c_a761bad12b5a47bfe44046156aa130ed7}{\index{mesh\-\_\-hwmp.\-c@{mesh\-\_\-hwmp.\-c}!P\-R\-E\-P\-\_\-\-I\-E\-\_\-\-T\-A\-R\-G\-E\-T\-\_\-\-A\-D\-D\-R@{P\-R\-E\-P\-\_\-\-I\-E\-\_\-\-T\-A\-R\-G\-E\-T\-\_\-\-A\-D\-D\-R}}
+\index{P\-R\-E\-P\-\_\-\-I\-E\-\_\-\-T\-A\-R\-G\-E\-T\-\_\-\-A\-D\-D\-R@{P\-R\-E\-P\-\_\-\-I\-E\-\_\-\-T\-A\-R\-G\-E\-T\-\_\-\-A\-D\-D\-R}!mesh_hwmp.c@{mesh\-\_\-hwmp.\-c}}
+\subsubsection[{P\-R\-E\-P\-\_\-\-I\-E\-\_\-\-T\-A\-R\-G\-E\-T\-\_\-\-A\-D\-D\-R}]{\setlength{\rightskip}{0pt plus 5cm}\#define P\-R\-E\-P\-\_\-\-I\-E\-\_\-\-T\-A\-R\-G\-E\-T\-\_\-\-A\-D\-D\-R(
+\begin{DoxyParamCaption}
+\item[{}]{x}
+\end{DoxyParamCaption}
+)~(x + 3)}}\label{mesh__hwmp_8c_a761bad12b5a47bfe44046156aa130ed7}
+
+
+Definition at line 79 of file mesh\-\_\-hwmp.\-c.
+
+\hypertarget{mesh__hwmp_8c_ab22d1dc24a97dc94ad78df00cbc00594}{\index{mesh\-\_\-hwmp.\-c@{mesh\-\_\-hwmp.\-c}!P\-R\-E\-P\-\_\-\-I\-E\-\_\-\-T\-A\-R\-G\-E\-T\-\_\-\-S\-N@{P\-R\-E\-P\-\_\-\-I\-E\-\_\-\-T\-A\-R\-G\-E\-T\-\_\-\-S\-N}}
+\index{P\-R\-E\-P\-\_\-\-I\-E\-\_\-\-T\-A\-R\-G\-E\-T\-\_\-\-S\-N@{P\-R\-E\-P\-\_\-\-I\-E\-\_\-\-T\-A\-R\-G\-E\-T\-\_\-\-S\-N}!mesh_hwmp.c@{mesh\-\_\-hwmp.\-c}}
+\subsubsection[{P\-R\-E\-P\-\_\-\-I\-E\-\_\-\-T\-A\-R\-G\-E\-T\-\_\-\-S\-N}]{\setlength{\rightskip}{0pt plus 5cm}\#define P\-R\-E\-P\-\_\-\-I\-E\-\_\-\-T\-A\-R\-G\-E\-T\-\_\-\-S\-N(
+\begin{DoxyParamCaption}
+\item[{}]{x}
+\end{DoxyParamCaption}
+)~u32\-\_\-field\-\_\-get(x, 9, 0)}}\label{mesh__hwmp_8c_ab22d1dc24a97dc94ad78df00cbc00594}
+
+
+Definition at line 80 of file mesh\-\_\-hwmp.\-c.
+
+\hypertarget{mesh__hwmp_8c_a2dbfe55c3702aa1524c242bfcb3b00c4}{\index{mesh\-\_\-hwmp.\-c@{mesh\-\_\-hwmp.\-c}!P\-R\-E\-P\-\_\-\-I\-E\-\_\-\-T\-T\-L@{P\-R\-E\-P\-\_\-\-I\-E\-\_\-\-T\-T\-L}}
+\index{P\-R\-E\-P\-\_\-\-I\-E\-\_\-\-T\-T\-L@{P\-R\-E\-P\-\_\-\-I\-E\-\_\-\-T\-T\-L}!mesh_hwmp.c@{mesh\-\_\-hwmp.\-c}}
+\subsubsection[{P\-R\-E\-P\-\_\-\-I\-E\-\_\-\-T\-T\-L}]{\setlength{\rightskip}{0pt plus 5cm}\#define P\-R\-E\-P\-\_\-\-I\-E\-\_\-\-T\-T\-L(
+\begin{DoxyParamCaption}
+\item[{}]{x}
+\end{DoxyParamCaption}
+)~{\bf P\-R\-E\-Q\-\_\-\-I\-E\-\_\-\-T\-T\-L}(x)}}\label{mesh__hwmp_8c_a2dbfe55c3702aa1524c242bfcb3b00c4}
+
+
+Definition at line 74 of file mesh\-\_\-hwmp.\-c.
+
+\hypertarget{mesh__hwmp_8c_ae86af75fdef8ccc3cde52c6dd4998a7c}{\index{mesh\-\_\-hwmp.\-c@{mesh\-\_\-hwmp.\-c}!P\-R\-E\-Q\-\_\-\-I\-E\-\_\-\-F\-L\-A\-G\-S@{P\-R\-E\-Q\-\_\-\-I\-E\-\_\-\-F\-L\-A\-G\-S}}
+\index{P\-R\-E\-Q\-\_\-\-I\-E\-\_\-\-F\-L\-A\-G\-S@{P\-R\-E\-Q\-\_\-\-I\-E\-\_\-\-F\-L\-A\-G\-S}!mesh_hwmp.c@{mesh\-\_\-hwmp.\-c}}
+\subsubsection[{P\-R\-E\-Q\-\_\-\-I\-E\-\_\-\-F\-L\-A\-G\-S}]{\setlength{\rightskip}{0pt plus 5cm}\#define P\-R\-E\-Q\-\_\-\-I\-E\-\_\-\-F\-L\-A\-G\-S(
+\begin{DoxyParamCaption}
+\item[{}]{x}
+\end{DoxyParamCaption}
+)~($\ast$(x))}}\label{mesh__hwmp_8c_ae86af75fdef8ccc3cde52c6dd4998a7c}
+
+
+Definition at line 59 of file mesh\-\_\-hwmp.\-c.
+
+\hypertarget{mesh__hwmp_8c_a42684c5658ae9cccecc669bb1a62c719}{\index{mesh\-\_\-hwmp.\-c@{mesh\-\_\-hwmp.\-c}!P\-R\-E\-Q\-\_\-\-I\-E\-\_\-\-H\-O\-P\-C\-O\-U\-N\-T@{P\-R\-E\-Q\-\_\-\-I\-E\-\_\-\-H\-O\-P\-C\-O\-U\-N\-T}}
+\index{P\-R\-E\-Q\-\_\-\-I\-E\-\_\-\-H\-O\-P\-C\-O\-U\-N\-T@{P\-R\-E\-Q\-\_\-\-I\-E\-\_\-\-H\-O\-P\-C\-O\-U\-N\-T}!mesh_hwmp.c@{mesh\-\_\-hwmp.\-c}}
+\subsubsection[{P\-R\-E\-Q\-\_\-\-I\-E\-\_\-\-H\-O\-P\-C\-O\-U\-N\-T}]{\setlength{\rightskip}{0pt plus 5cm}\#define P\-R\-E\-Q\-\_\-\-I\-E\-\_\-\-H\-O\-P\-C\-O\-U\-N\-T(
+\begin{DoxyParamCaption}
+\item[{}]{x}
+\end{DoxyParamCaption}
+)~($\ast$(x + 1))}}\label{mesh__hwmp_8c_a42684c5658ae9cccecc669bb1a62c719}
+
+
+Definition at line 60 of file mesh\-\_\-hwmp.\-c.
+
+\hypertarget{mesh__hwmp_8c_ac0e9e2cc00d295b08f4767956bfa64c8}{\index{mesh\-\_\-hwmp.\-c@{mesh\-\_\-hwmp.\-c}!P\-R\-E\-Q\-\_\-\-I\-E\-\_\-\-L\-I\-F\-E\-T\-I\-M\-E@{P\-R\-E\-Q\-\_\-\-I\-E\-\_\-\-L\-I\-F\-E\-T\-I\-M\-E}}
+\index{P\-R\-E\-Q\-\_\-\-I\-E\-\_\-\-L\-I\-F\-E\-T\-I\-M\-E@{P\-R\-E\-Q\-\_\-\-I\-E\-\_\-\-L\-I\-F\-E\-T\-I\-M\-E}!mesh_hwmp.c@{mesh\-\_\-hwmp.\-c}}
+\subsubsection[{P\-R\-E\-Q\-\_\-\-I\-E\-\_\-\-L\-I\-F\-E\-T\-I\-M\-E}]{\setlength{\rightskip}{0pt plus 5cm}\#define P\-R\-E\-Q\-\_\-\-I\-E\-\_\-\-L\-I\-F\-E\-T\-I\-M\-E(
+\begin{DoxyParamCaption}
+\item[{}]{x}
+\end{DoxyParamCaption}
+)~u32\-\_\-field\-\_\-get(x, 17, {\bf A\-E\-\_\-\-F\-\_\-\-S\-E\-T}(x))}}\label{mesh__hwmp_8c_ac0e9e2cc00d295b08f4767956bfa64c8}
+
+
+Definition at line 65 of file mesh\-\_\-hwmp.\-c.
+
+\hypertarget{mesh__hwmp_8c_a4a1952bd6f0a212e8cf6c983124dfccf}{\index{mesh\-\_\-hwmp.\-c@{mesh\-\_\-hwmp.\-c}!P\-R\-E\-Q\-\_\-\-I\-E\-\_\-\-M\-E\-T\-R\-I\-C@{P\-R\-E\-Q\-\_\-\-I\-E\-\_\-\-M\-E\-T\-R\-I\-C}}
+\index{P\-R\-E\-Q\-\_\-\-I\-E\-\_\-\-M\-E\-T\-R\-I\-C@{P\-R\-E\-Q\-\_\-\-I\-E\-\_\-\-M\-E\-T\-R\-I\-C}!mesh_hwmp.c@{mesh\-\_\-hwmp.\-c}}
+\subsubsection[{P\-R\-E\-Q\-\_\-\-I\-E\-\_\-\-M\-E\-T\-R\-I\-C}]{\setlength{\rightskip}{0pt plus 5cm}\#define P\-R\-E\-Q\-\_\-\-I\-E\-\_\-\-M\-E\-T\-R\-I\-C(
+\begin{DoxyParamCaption}
+\item[{}]{x}
+\end{DoxyParamCaption}
+)~u32\-\_\-field\-\_\-get(x, 21, {\bf A\-E\-\_\-\-F\-\_\-\-S\-E\-T}(x))}}\label{mesh__hwmp_8c_a4a1952bd6f0a212e8cf6c983124dfccf}
+
+
+Definition at line 66 of file mesh\-\_\-hwmp.\-c.
+
+\hypertarget{mesh__hwmp_8c_a2e0f87338622dc6d8d4a88a125d24d63}{\index{mesh\-\_\-hwmp.\-c@{mesh\-\_\-hwmp.\-c}!P\-R\-E\-Q\-\_\-\-I\-E\-\_\-\-O\-R\-I\-G\-\_\-\-A\-D\-D\-R@{P\-R\-E\-Q\-\_\-\-I\-E\-\_\-\-O\-R\-I\-G\-\_\-\-A\-D\-D\-R}}
+\index{P\-R\-E\-Q\-\_\-\-I\-E\-\_\-\-O\-R\-I\-G\-\_\-\-A\-D\-D\-R@{P\-R\-E\-Q\-\_\-\-I\-E\-\_\-\-O\-R\-I\-G\-\_\-\-A\-D\-D\-R}!mesh_hwmp.c@{mesh\-\_\-hwmp.\-c}}
+\subsubsection[{P\-R\-E\-Q\-\_\-\-I\-E\-\_\-\-O\-R\-I\-G\-\_\-\-A\-D\-D\-R}]{\setlength{\rightskip}{0pt plus 5cm}\#define P\-R\-E\-Q\-\_\-\-I\-E\-\_\-\-O\-R\-I\-G\-\_\-\-A\-D\-D\-R(
+\begin{DoxyParamCaption}
+\item[{}]{x}
+\end{DoxyParamCaption}
+)~(x + 7)}}\label{mesh__hwmp_8c_a2e0f87338622dc6d8d4a88a125d24d63}
+
+
+Definition at line 63 of file mesh\-\_\-hwmp.\-c.
+
+\hypertarget{mesh__hwmp_8c_a419a2218ec79573a16f7e2f7ac27ce4a}{\index{mesh\-\_\-hwmp.\-c@{mesh\-\_\-hwmp.\-c}!P\-R\-E\-Q\-\_\-\-I\-E\-\_\-\-O\-R\-I\-G\-\_\-\-S\-N@{P\-R\-E\-Q\-\_\-\-I\-E\-\_\-\-O\-R\-I\-G\-\_\-\-S\-N}}
+\index{P\-R\-E\-Q\-\_\-\-I\-E\-\_\-\-O\-R\-I\-G\-\_\-\-S\-N@{P\-R\-E\-Q\-\_\-\-I\-E\-\_\-\-O\-R\-I\-G\-\_\-\-S\-N}!mesh_hwmp.c@{mesh\-\_\-hwmp.\-c}}
+\subsubsection[{P\-R\-E\-Q\-\_\-\-I\-E\-\_\-\-O\-R\-I\-G\-\_\-\-S\-N}]{\setlength{\rightskip}{0pt plus 5cm}\#define P\-R\-E\-Q\-\_\-\-I\-E\-\_\-\-O\-R\-I\-G\-\_\-\-S\-N(
+\begin{DoxyParamCaption}
+\item[{}]{x}
+\end{DoxyParamCaption}
+)~u32\-\_\-field\-\_\-get(x, 13, 0)}}\label{mesh__hwmp_8c_a419a2218ec79573a16f7e2f7ac27ce4a}
+
+
+Definition at line 64 of file mesh\-\_\-hwmp.\-c.
+
+\hypertarget{mesh__hwmp_8c_a659ec6ecd8132ade679d21d58713831f}{\index{mesh\-\_\-hwmp.\-c@{mesh\-\_\-hwmp.\-c}!P\-R\-E\-Q\-\_\-\-I\-E\-\_\-\-P\-R\-E\-Q\-\_\-\-I\-D@{P\-R\-E\-Q\-\_\-\-I\-E\-\_\-\-P\-R\-E\-Q\-\_\-\-I\-D}}
+\index{P\-R\-E\-Q\-\_\-\-I\-E\-\_\-\-P\-R\-E\-Q\-\_\-\-I\-D@{P\-R\-E\-Q\-\_\-\-I\-E\-\_\-\-P\-R\-E\-Q\-\_\-\-I\-D}!mesh_hwmp.c@{mesh\-\_\-hwmp.\-c}}
+\subsubsection[{P\-R\-E\-Q\-\_\-\-I\-E\-\_\-\-P\-R\-E\-Q\-\_\-\-I\-D}]{\setlength{\rightskip}{0pt plus 5cm}\#define P\-R\-E\-Q\-\_\-\-I\-E\-\_\-\-P\-R\-E\-Q\-\_\-\-I\-D(
+\begin{DoxyParamCaption}
+\item[{}]{x}
+\end{DoxyParamCaption}
+)~u32\-\_\-field\-\_\-get(x, 3, 0)}}\label{mesh__hwmp_8c_a659ec6ecd8132ade679d21d58713831f}
+
+
+Definition at line 62 of file mesh\-\_\-hwmp.\-c.
+
+\hypertarget{mesh__hwmp_8c_a8278bcd886d8fa4ac60765f5516ad438}{\index{mesh\-\_\-hwmp.\-c@{mesh\-\_\-hwmp.\-c}!P\-R\-E\-Q\-\_\-\-I\-E\-\_\-\-T\-A\-R\-G\-E\-T\-\_\-\-A\-D\-D\-R@{P\-R\-E\-Q\-\_\-\-I\-E\-\_\-\-T\-A\-R\-G\-E\-T\-\_\-\-A\-D\-D\-R}}
+\index{P\-R\-E\-Q\-\_\-\-I\-E\-\_\-\-T\-A\-R\-G\-E\-T\-\_\-\-A\-D\-D\-R@{P\-R\-E\-Q\-\_\-\-I\-E\-\_\-\-T\-A\-R\-G\-E\-T\-\_\-\-A\-D\-D\-R}!mesh_hwmp.c@{mesh\-\_\-hwmp.\-c}}
+\subsubsection[{P\-R\-E\-Q\-\_\-\-I\-E\-\_\-\-T\-A\-R\-G\-E\-T\-\_\-\-A\-D\-D\-R}]{\setlength{\rightskip}{0pt plus 5cm}\#define P\-R\-E\-Q\-\_\-\-I\-E\-\_\-\-T\-A\-R\-G\-E\-T\-\_\-\-A\-D\-D\-R(
+\begin{DoxyParamCaption}
+\item[{}]{x}
+\end{DoxyParamCaption}
+)~({\bf A\-E\-\_\-\-F\-\_\-\-S\-E\-T}(x) ? x + 33 \-: x + 27)}}\label{mesh__hwmp_8c_a8278bcd886d8fa4ac60765f5516ad438}
+
+
+Definition at line 68 of file mesh\-\_\-hwmp.\-c.
+
+\hypertarget{mesh__hwmp_8c_a091a03f62ea0be046c340d8d698c7562}{\index{mesh\-\_\-hwmp.\-c@{mesh\-\_\-hwmp.\-c}!P\-R\-E\-Q\-\_\-\-I\-E\-\_\-\-T\-A\-R\-G\-E\-T\-\_\-\-F@{P\-R\-E\-Q\-\_\-\-I\-E\-\_\-\-T\-A\-R\-G\-E\-T\-\_\-\-F}}
+\index{P\-R\-E\-Q\-\_\-\-I\-E\-\_\-\-T\-A\-R\-G\-E\-T\-\_\-\-F@{P\-R\-E\-Q\-\_\-\-I\-E\-\_\-\-T\-A\-R\-G\-E\-T\-\_\-\-F}!mesh_hwmp.c@{mesh\-\_\-hwmp.\-c}}
+\subsubsection[{P\-R\-E\-Q\-\_\-\-I\-E\-\_\-\-T\-A\-R\-G\-E\-T\-\_\-\-F}]{\setlength{\rightskip}{0pt plus 5cm}\#define P\-R\-E\-Q\-\_\-\-I\-E\-\_\-\-T\-A\-R\-G\-E\-T\-\_\-\-F(
+\begin{DoxyParamCaption}
+\item[{}]{x}
+\end{DoxyParamCaption}
+)~($\ast$({\bf A\-E\-\_\-\-F\-\_\-\-S\-E\-T}(x) ? x + 32 \-: x + 26))}}\label{mesh__hwmp_8c_a091a03f62ea0be046c340d8d698c7562}
+
+
+Definition at line 67 of file mesh\-\_\-hwmp.\-c.
+
+\hypertarget{mesh__hwmp_8c_ad7732b8d0ad62d9fca84deced8cb01da}{\index{mesh\-\_\-hwmp.\-c@{mesh\-\_\-hwmp.\-c}!P\-R\-E\-Q\-\_\-\-I\-E\-\_\-\-T\-A\-R\-G\-E\-T\-\_\-\-S\-N@{P\-R\-E\-Q\-\_\-\-I\-E\-\_\-\-T\-A\-R\-G\-E\-T\-\_\-\-S\-N}}
+\index{P\-R\-E\-Q\-\_\-\-I\-E\-\_\-\-T\-A\-R\-G\-E\-T\-\_\-\-S\-N@{P\-R\-E\-Q\-\_\-\-I\-E\-\_\-\-T\-A\-R\-G\-E\-T\-\_\-\-S\-N}!mesh_hwmp.c@{mesh\-\_\-hwmp.\-c}}
+\subsubsection[{P\-R\-E\-Q\-\_\-\-I\-E\-\_\-\-T\-A\-R\-G\-E\-T\-\_\-\-S\-N}]{\setlength{\rightskip}{0pt plus 5cm}\#define P\-R\-E\-Q\-\_\-\-I\-E\-\_\-\-T\-A\-R\-G\-E\-T\-\_\-\-S\-N(
+\begin{DoxyParamCaption}
+\item[{}]{x}
+\end{DoxyParamCaption}
+)~u32\-\_\-field\-\_\-get(x, 33, {\bf A\-E\-\_\-\-F\-\_\-\-S\-E\-T}(x))}}\label{mesh__hwmp_8c_ad7732b8d0ad62d9fca84deced8cb01da}
+
+
+Definition at line 69 of file mesh\-\_\-hwmp.\-c.
+
+\hypertarget{mesh__hwmp_8c_ad4b347602f5803f3f3e6dda756a9cdde}{\index{mesh\-\_\-hwmp.\-c@{mesh\-\_\-hwmp.\-c}!P\-R\-E\-Q\-\_\-\-I\-E\-\_\-\-T\-T\-L@{P\-R\-E\-Q\-\_\-\-I\-E\-\_\-\-T\-T\-L}}
+\index{P\-R\-E\-Q\-\_\-\-I\-E\-\_\-\-T\-T\-L@{P\-R\-E\-Q\-\_\-\-I\-E\-\_\-\-T\-T\-L}!mesh_hwmp.c@{mesh\-\_\-hwmp.\-c}}
+\subsubsection[{P\-R\-E\-Q\-\_\-\-I\-E\-\_\-\-T\-T\-L}]{\setlength{\rightskip}{0pt plus 5cm}\#define P\-R\-E\-Q\-\_\-\-I\-E\-\_\-\-T\-T\-L(
+\begin{DoxyParamCaption}
+\item[{}]{x}
+\end{DoxyParamCaption}
+)~($\ast$(x + 2))}}\label{mesh__hwmp_8c_ad4b347602f5803f3f3e6dda756a9cdde}
+
+
+Definition at line 61 of file mesh\-\_\-hwmp.\-c.
+
+\hypertarget{mesh__hwmp_8c_a2974ed0a33d2aa3fe78b72736b8920c6}{\index{mesh\-\_\-hwmp.\-c@{mesh\-\_\-hwmp.\-c}!S\-N\-\_\-\-G\-T@{S\-N\-\_\-\-G\-T}}
+\index{S\-N\-\_\-\-G\-T@{S\-N\-\_\-\-G\-T}!mesh_hwmp.c@{mesh\-\_\-hwmp.\-c}}
+\subsubsection[{S\-N\-\_\-\-G\-T}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\-N\-\_\-\-G\-T(
+\begin{DoxyParamCaption}
+\item[{}]{x, }
+\item[{}]{y}
+\end{DoxyParamCaption}
+)~((long) (y) -\/ (long) (x) $<$ 0)}}\label{mesh__hwmp_8c_a2974ed0a33d2aa3fe78b72736b8920c6}
+
+
+Definition at line 89 of file mesh\-\_\-hwmp.\-c.
+
+\hypertarget{mesh__hwmp_8c_a822937a62bacc820e1cc7b030f056439}{\index{mesh\-\_\-hwmp.\-c@{mesh\-\_\-hwmp.\-c}!S\-N\-\_\-\-L\-T@{S\-N\-\_\-\-L\-T}}
+\index{S\-N\-\_\-\-L\-T@{S\-N\-\_\-\-L\-T}!mesh_hwmp.c@{mesh\-\_\-hwmp.\-c}}
+\subsubsection[{S\-N\-\_\-\-L\-T}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\-N\-\_\-\-L\-T(
+\begin{DoxyParamCaption}
+\item[{}]{x, }
+\item[{}]{y}
+\end{DoxyParamCaption}
+)~((long) (x) -\/ (long) (y) $<$ 0)}}\label{mesh__hwmp_8c_a822937a62bacc820e1cc7b030f056439}
+
+
+Definition at line 90 of file mesh\-\_\-hwmp.\-c.
+
+\hypertarget{mesh__hwmp_8c_ad3d5ca82618a3423c9f2c20d52dcc0ea}{\index{mesh\-\_\-hwmp.\-c@{mesh\-\_\-hwmp.\-c}!T\-E\-S\-T\-\_\-\-F\-R\-A\-M\-E\-\_\-\-L\-E\-N@{T\-E\-S\-T\-\_\-\-F\-R\-A\-M\-E\-\_\-\-L\-E\-N}}
+\index{T\-E\-S\-T\-\_\-\-F\-R\-A\-M\-E\-\_\-\-L\-E\-N@{T\-E\-S\-T\-\_\-\-F\-R\-A\-M\-E\-\_\-\-L\-E\-N}!mesh_hwmp.c@{mesh\-\_\-hwmp.\-c}}
+\subsubsection[{T\-E\-S\-T\-\_\-\-F\-R\-A\-M\-E\-\_\-\-L\-E\-N}]{\setlength{\rightskip}{0pt plus 5cm}\#define T\-E\-S\-T\-\_\-\-F\-R\-A\-M\-E\-\_\-\-L\-E\-N~8192}}\label{mesh__hwmp_8c_ad3d5ca82618a3423c9f2c20d52dcc0ea}
+
+
+Definition at line 23 of file mesh\-\_\-hwmp.\-c.
+
+
+
+\subsection{Enumeration Type Documentation}
+\hypertarget{mesh__hwmp_8c_ae7058e016ea4ccbf73cbd23fdedead6a}{\index{mesh\-\_\-hwmp.\-c@{mesh\-\_\-hwmp.\-c}!mpath\-\_\-frame\-\_\-type@{mpath\-\_\-frame\-\_\-type}}
+\index{mpath\-\_\-frame\-\_\-type@{mpath\-\_\-frame\-\_\-type}!mesh_hwmp.c@{mesh\-\_\-hwmp.\-c}}
+\subsubsection[{mpath\-\_\-frame\-\_\-type}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf mpath\-\_\-frame\-\_\-type}}}\label{mesh__hwmp_8c_ae7058e016ea4ccbf73cbd23fdedead6a}
+\begin{Desc}
+\item[Enumerator]\par
+\begin{description}
+\index{M\-P\-A\-T\-H\-\_\-\-P\-R\-E\-Q@{M\-P\-A\-T\-H\-\_\-\-P\-R\-E\-Q}!mesh\-\_\-hwmp.\-c@{mesh\-\_\-hwmp.\-c}}\index{mesh\-\_\-hwmp.\-c@{mesh\-\_\-hwmp.\-c}!M\-P\-A\-T\-H\-\_\-\-P\-R\-E\-Q@{M\-P\-A\-T\-H\-\_\-\-P\-R\-E\-Q}}\item[{\em 
+\hypertarget{mesh__hwmp_8c_ae7058e016ea4ccbf73cbd23fdedead6aa4ebc1d3df8806f051c27a2e31b57183a}{M\-P\-A\-T\-H\-\_\-\-P\-R\-E\-Q}\label{mesh__hwmp_8c_ae7058e016ea4ccbf73cbd23fdedead6aa4ebc1d3df8806f051c27a2e31b57183a}
+}]\index{M\-P\-A\-T\-H\-\_\-\-P\-R\-E\-P@{M\-P\-A\-T\-H\-\_\-\-P\-R\-E\-P}!mesh\-\_\-hwmp.\-c@{mesh\-\_\-hwmp.\-c}}\index{mesh\-\_\-hwmp.\-c@{mesh\-\_\-hwmp.\-c}!M\-P\-A\-T\-H\-\_\-\-P\-R\-E\-P@{M\-P\-A\-T\-H\-\_\-\-P\-R\-E\-P}}\item[{\em 
+\hypertarget{mesh__hwmp_8c_ae7058e016ea4ccbf73cbd23fdedead6aae99e56e9d23cd9f4712eb3779b049b37}{M\-P\-A\-T\-H\-\_\-\-P\-R\-E\-P}\label{mesh__hwmp_8c_ae7058e016ea4ccbf73cbd23fdedead6aae99e56e9d23cd9f4712eb3779b049b37}
+}]\index{M\-P\-A\-T\-H\-\_\-\-P\-E\-R\-R@{M\-P\-A\-T\-H\-\_\-\-P\-E\-R\-R}!mesh\-\_\-hwmp.\-c@{mesh\-\_\-hwmp.\-c}}\index{mesh\-\_\-hwmp.\-c@{mesh\-\_\-hwmp.\-c}!M\-P\-A\-T\-H\-\_\-\-P\-E\-R\-R@{M\-P\-A\-T\-H\-\_\-\-P\-E\-R\-R}}\item[{\em 
+\hypertarget{mesh__hwmp_8c_ae7058e016ea4ccbf73cbd23fdedead6aa9ba07ec3f395f2a9fd3f5680c0e29259}{M\-P\-A\-T\-H\-\_\-\-P\-E\-R\-R}\label{mesh__hwmp_8c_ae7058e016ea4ccbf73cbd23fdedead6aa9ba07ec3f395f2a9fd3f5680c0e29259}
+}]\index{M\-P\-A\-T\-H\-\_\-\-R\-A\-N\-N@{M\-P\-A\-T\-H\-\_\-\-R\-A\-N\-N}!mesh\-\_\-hwmp.\-c@{mesh\-\_\-hwmp.\-c}}\index{mesh\-\_\-hwmp.\-c@{mesh\-\_\-hwmp.\-c}!M\-P\-A\-T\-H\-\_\-\-R\-A\-N\-N@{M\-P\-A\-T\-H\-\_\-\-R\-A\-N\-N}}\item[{\em 
+\hypertarget{mesh__hwmp_8c_ae7058e016ea4ccbf73cbd23fdedead6aa4a029e56c9db5f34d405c955ab4dcf32}{M\-P\-A\-T\-H\-\_\-\-R\-A\-N\-N}\label{mesh__hwmp_8c_ae7058e016ea4ccbf73cbd23fdedead6aa4a029e56c9db5f34d405c955ab4dcf32}
+}]\end{description}
+\end{Desc}
+
+
+Definition at line 102 of file mesh\-\_\-hwmp.\-c.
+
+
+
+\subsection{Function Documentation}
+\hypertarget{mesh__hwmp_8c_af2dc80ac8cb32fc451793cbbb2082a89}{\index{mesh\-\_\-hwmp.\-c@{mesh\-\_\-hwmp.\-c}!ieee80211s\-\_\-update\-\_\-metric@{ieee80211s\-\_\-update\-\_\-metric}}
+\index{ieee80211s\-\_\-update\-\_\-metric@{ieee80211s\-\_\-update\-\_\-metric}!mesh_hwmp.c@{mesh\-\_\-hwmp.\-c}}
+\subsubsection[{ieee80211s\-\_\-update\-\_\-metric}]{\setlength{\rightskip}{0pt plus 5cm}void ieee80211s\-\_\-update\-\_\-metric (
+\begin{DoxyParamCaption}
+\item[{struct {\bf ieee80211\-\_\-local} $\ast$}]{local, }
+\item[{struct {\bf sta\-\_\-info} $\ast$}]{stainfo, }
+\item[{struct sk\-\_\-buff $\ast$}]{skb}
+\end{DoxyParamCaption}
+)}}\label{mesh__hwmp_8c_af2dc80ac8cb32fc451793cbbb2082a89}
+
+
+Definition at line 305 of file mesh\-\_\-hwmp.\-c.
+
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{mesh__hwmp_8c_af2dc80ac8cb32fc451793cbbb2082a89_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{mesh__hwmp_8c_af2dc80ac8cb32fc451793cbbb2082a89_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{mesh__hwmp_8c_a9d9333d534703251d6b25e5e58979a8d}{\index{mesh\-\_\-hwmp.\-c@{mesh\-\_\-hwmp.\-c}!mesh\-\_\-nexthop\-\_\-lookup@{mesh\-\_\-nexthop\-\_\-lookup}}
+\index{mesh\-\_\-nexthop\-\_\-lookup@{mesh\-\_\-nexthop\-\_\-lookup}!mesh_hwmp.c@{mesh\-\_\-hwmp.\-c}}
+\subsubsection[{mesh\-\_\-nexthop\-\_\-lookup}]{\setlength{\rightskip}{0pt plus 5cm}int mesh\-\_\-nexthop\-\_\-lookup (
+\begin{DoxyParamCaption}
+\item[{struct sk\-\_\-buff $\ast$}]{skb, }
+\item[{struct {\bf ieee80211\-\_\-sub\-\_\-if\-\_\-data} $\ast$}]{sdata}
+\end{DoxyParamCaption}
+)}}\label{mesh__hwmp_8c_a9d9333d534703251d6b25e5e58979a8d}
+mesh\-\_\-nexthop\-\_\-lookup -\/ put the appropriate next hop on a mesh frame. Calling this function is considered \char`\"{}using\char`\"{} the associated mpath, so preempt a path refresh if this mpath expires soon.
+
+\-: 802.\-11 frame to be sent \-: network subif the frame will be sent through
+
+Returns\-: 0 if the next hop was found. Nonzero otherwise. 
+
+Definition at line 1071 of file mesh\-\_\-hwmp.\-c.
+
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=328pt]{mesh__hwmp_8c_a9d9333d534703251d6b25e5e58979a8d_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{mesh__hwmp_8c_a9d9333d534703251d6b25e5e58979a8d_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{mesh__hwmp_8c_a730b0e40f9056c043cdb988589638fe1}{\index{mesh\-\_\-hwmp.\-c@{mesh\-\_\-hwmp.\-c}!mesh\-\_\-nexthop\-\_\-resolve@{mesh\-\_\-nexthop\-\_\-resolve}}
+\index{mesh\-\_\-nexthop\-\_\-resolve@{mesh\-\_\-nexthop\-\_\-resolve}!mesh_hwmp.c@{mesh\-\_\-hwmp.\-c}}
+\subsubsection[{mesh\-\_\-nexthop\-\_\-resolve}]{\setlength{\rightskip}{0pt plus 5cm}int mesh\-\_\-nexthop\-\_\-resolve (
+\begin{DoxyParamCaption}
+\item[{struct sk\-\_\-buff $\ast$}]{skb, }
+\item[{struct {\bf ieee80211\-\_\-sub\-\_\-if\-\_\-data} $\ast$}]{sdata}
+\end{DoxyParamCaption}
+)}}\label{mesh__hwmp_8c_a730b0e40f9056c043cdb988589638fe1}
+
+
+Definition at line 1017 of file mesh\-\_\-hwmp.\-c.
+
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{mesh__hwmp_8c_a730b0e40f9056c043cdb988589638fe1_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{mesh__hwmp_8c_a730b0e40f9056c043cdb988589638fe1_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{mesh__hwmp_8c_af57470fb1db40170d88d1d742534e7c8}{\index{mesh\-\_\-hwmp.\-c@{mesh\-\_\-hwmp.\-c}!mesh\-\_\-path\-\_\-error\-\_\-tx@{mesh\-\_\-path\-\_\-error\-\_\-tx}}
+\index{mesh\-\_\-path\-\_\-error\-\_\-tx@{mesh\-\_\-path\-\_\-error\-\_\-tx}!mesh_hwmp.c@{mesh\-\_\-hwmp.\-c}}
+\subsubsection[{mesh\-\_\-path\-\_\-error\-\_\-tx}]{\setlength{\rightskip}{0pt plus 5cm}int mesh\-\_\-path\-\_\-error\-\_\-tx (
+\begin{DoxyParamCaption}
+\item[{u8}]{ttl, }
+\item[{u8 $\ast$}]{target, }
+\item[{\-\_\-\-\_\-le32}]{target\-\_\-sn, }
+\item[{\-\_\-\-\_\-le16}]{target\-\_\-rcode, }
+\item[{const u8 $\ast$}]{ra, }
+\item[{struct {\bf ieee80211\-\_\-sub\-\_\-if\-\_\-data} $\ast$}]{sdata}
+\end{DoxyParamCaption}
+)}}\label{mesh__hwmp_8c_af57470fb1db40170d88d1d742534e7c8}
+mesh\-\_\-send\-\_\-path error -\/ Sends a P\-E\-R\-R mesh management frame
+
+\-: broken destination \-: S\-N of the broken destination \-: reason code for this P\-E\-R\-R \-: node this frame is addressed to
+
+Note\-: This function may be called with driver locks taken that the driver also acquires in the T\-X path. To avoid a deadlock we don't transmit the frame directly but add it to the pending queue instead. 
+
+Definition at line 240 of file mesh\-\_\-hwmp.\-c.
+
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{mesh__hwmp_8c_af57470fb1db40170d88d1d742534e7c8_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{mesh__hwmp_8c_af57470fb1db40170d88d1d742534e7c8_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{mesh__hwmp_8c_adcc5bbc97b6e4d90352ed4ad250986e2}{\index{mesh\-\_\-hwmp.\-c@{mesh\-\_\-hwmp.\-c}!mesh\-\_\-path\-\_\-start\-\_\-discovery@{mesh\-\_\-path\-\_\-start\-\_\-discovery}}
+\index{mesh\-\_\-path\-\_\-start\-\_\-discovery@{mesh\-\_\-path\-\_\-start\-\_\-discovery}!mesh_hwmp.c@{mesh\-\_\-hwmp.\-c}}
+\subsubsection[{mesh\-\_\-path\-\_\-start\-\_\-discovery}]{\setlength{\rightskip}{0pt plus 5cm}void mesh\-\_\-path\-\_\-start\-\_\-discovery (
+\begin{DoxyParamCaption}
+\item[{struct {\bf ieee80211\-\_\-sub\-\_\-if\-\_\-data} $\ast$}]{sdata}
+\end{DoxyParamCaption}
+)}}\label{mesh__hwmp_8c_adcc5bbc97b6e4d90352ed4ad250986e2}
+mesh\-\_\-path\-\_\-start\-\_\-discovery -\/ launch a path discovery from the P\-R\-E\-Q queue
+
+\-: local mesh subif 
+
+Definition at line 926 of file mesh\-\_\-hwmp.\-c.
+
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{mesh__hwmp_8c_adcc5bbc97b6e4d90352ed4ad250986e2_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{mesh__hwmp_8c_adcc5bbc97b6e4d90352ed4ad250986e2_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{mesh__hwmp_8c_a4a547cd7d0a2595ca69e59fb18638fa3}{\index{mesh\-\_\-hwmp.\-c@{mesh\-\_\-hwmp.\-c}!mesh\-\_\-path\-\_\-timer@{mesh\-\_\-path\-\_\-timer}}
+\index{mesh\-\_\-path\-\_\-timer@{mesh\-\_\-path\-\_\-timer}!mesh_hwmp.c@{mesh\-\_\-hwmp.\-c}}
+\subsubsection[{mesh\-\_\-path\-\_\-timer}]{\setlength{\rightskip}{0pt plus 5cm}void mesh\-\_\-path\-\_\-timer (
+\begin{DoxyParamCaption}
+\item[{unsigned long}]{data}
+\end{DoxyParamCaption}
+)}}\label{mesh__hwmp_8c_a4a547cd7d0a2595ca69e59fb18638fa3}
+
+
+Definition at line 1106 of file mesh\-\_\-hwmp.\-c.
+
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{mesh__hwmp_8c_a4a547cd7d0a2595ca69e59fb18638fa3_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{mesh__hwmp_8c_a4a547cd7d0a2595ca69e59fb18638fa3_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{mesh__hwmp_8c_a2320e242ed0520b086988c9beece933f}{\index{mesh\-\_\-hwmp.\-c@{mesh\-\_\-hwmp.\-c}!mesh\-\_\-path\-\_\-tx\-\_\-root\-\_\-frame@{mesh\-\_\-path\-\_\-tx\-\_\-root\-\_\-frame}}
+\index{mesh\-\_\-path\-\_\-tx\-\_\-root\-\_\-frame@{mesh\-\_\-path\-\_\-tx\-\_\-root\-\_\-frame}!mesh_hwmp.c@{mesh\-\_\-hwmp.\-c}}
+\subsubsection[{mesh\-\_\-path\-\_\-tx\-\_\-root\-\_\-frame}]{\setlength{\rightskip}{0pt plus 5cm}void mesh\-\_\-path\-\_\-tx\-\_\-root\-\_\-frame (
+\begin{DoxyParamCaption}
+\item[{struct {\bf ieee80211\-\_\-sub\-\_\-if\-\_\-data} $\ast$}]{sdata}
+\end{DoxyParamCaption}
+)}}\label{mesh__hwmp_8c_a2320e242ed0520b086988c9beece933f}
+
+
+Definition at line 1140 of file mesh\-\_\-hwmp.\-c.
+
+\hypertarget{mesh__hwmp_8c_ad09af1edb1e70d04aecb63ede83a4b45}{\index{mesh\-\_\-hwmp.\-c@{mesh\-\_\-hwmp.\-c}!mesh\-\_\-rx\-\_\-path\-\_\-sel\-\_\-frame@{mesh\-\_\-rx\-\_\-path\-\_\-sel\-\_\-frame}}
+\index{mesh\-\_\-rx\-\_\-path\-\_\-sel\-\_\-frame@{mesh\-\_\-rx\-\_\-path\-\_\-sel\-\_\-frame}!mesh_hwmp.c@{mesh\-\_\-hwmp.\-c}}
+\subsubsection[{mesh\-\_\-rx\-\_\-path\-\_\-sel\-\_\-frame}]{\setlength{\rightskip}{0pt plus 5cm}void mesh\-\_\-rx\-\_\-path\-\_\-sel\-\_\-frame (
+\begin{DoxyParamCaption}
+\item[{struct {\bf ieee80211\-\_\-sub\-\_\-if\-\_\-data} $\ast$}]{sdata, }
+\item[{struct ieee80211\-\_\-mgmt $\ast$}]{mgmt, }
+\item[{size\-\_\-t}]{len}
+\end{DoxyParamCaption}
+)}}\label{mesh__hwmp_8c_ad09af1edb1e70d04aecb63ede83a4b45}
+
+
+Definition at line 804 of file mesh\-\_\-hwmp.\-c.
+
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{mesh__hwmp_8c_ad09af1edb1e70d04aecb63ede83a4b45_cgraph}
+\end{center}
+\end{figure}
+
+

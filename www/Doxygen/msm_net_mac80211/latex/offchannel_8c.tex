@@ -1,0 +1,166 @@
+\hypertarget{offchannel_8c}{\section{/home/guille/msm/net/mac80211/offchannel.c File Reference}
+\label{offchannel_8c}\index{/home/guille/msm/net/mac80211/offchannel.\-c@{/home/guille/msm/net/mac80211/offchannel.\-c}}
+}
+{\ttfamily \#include $<$linux/export.\-h$>$}\\*
+{\ttfamily \#include $<$net/mac80211.\-h$>$}\\*
+{\ttfamily \#include \char`\"{}ieee80211\-\_\-i.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}driver-\/trace.\-h\char`\"{}}\\*
+Include dependency graph for offchannel.\-c\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{offchannel_8c__incl}
+\end{center}
+\end{figure}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{offchannel_8c_a6c449dc5f26ab63fe425d2af2820382b}{ieee80211\-\_\-offchannel\-\_\-stop\-\_\-vifs} (struct \hyperlink{structieee80211__local}{ieee80211\-\_\-local} $\ast$local, bool offchannel\-\_\-ps\-\_\-enable)
+\item 
+void \hyperlink{offchannel_8c_ad5ad4f1682c1b81d2a21955f863c49c1}{ieee80211\-\_\-offchannel\-\_\-return} (struct \hyperlink{structieee80211__local}{ieee80211\-\_\-local} $\ast$local, bool offchannel\-\_\-ps\-\_\-disable)
+\item 
+void \hyperlink{offchannel_8c_a74ef46ffdf10161a1c341bbf368ee078}{ieee80211\-\_\-ready\-\_\-on\-\_\-channel} (struct ieee80211\-\_\-hw $\ast$hw)
+\item 
+\hyperlink{offchannel_8c_a03864ab94d405280c1aa42d4650cc82b}{E\-X\-P\-O\-R\-T\-\_\-\-S\-Y\-M\-B\-O\-L\-\_\-\-G\-P\-L} (\hyperlink{offchannel_8c_a74ef46ffdf10161a1c341bbf368ee078}{ieee80211\-\_\-ready\-\_\-on\-\_\-channel})
+\item 
+void \hyperlink{offchannel_8c_a88846f8ed0c18e32f9c5f929dfe3b92b}{ieee80211\-\_\-remain\-\_\-on\-\_\-channel\-\_\-expired} (struct ieee80211\-\_\-hw $\ast$hw)
+\item 
+\hyperlink{offchannel_8c_acb855d729d0384344cc3df82369e2540}{E\-X\-P\-O\-R\-T\-\_\-\-S\-Y\-M\-B\-O\-L\-\_\-\-G\-P\-L} (\hyperlink{offchannel_8c_a88846f8ed0c18e32f9c5f929dfe3b92b}{ieee80211\-\_\-remain\-\_\-on\-\_\-channel\-\_\-expired})
+\item 
+void \hyperlink{offchannel_8c_a9e0f02c3eaecea41ffea936ba7274f20}{ieee80211\-\_\-hw\-\_\-roc\-\_\-setup} (struct \hyperlink{structieee80211__local}{ieee80211\-\_\-local} $\ast$local)
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\hypertarget{offchannel_8c_a03864ab94d405280c1aa42d4650cc82b}{\index{offchannel.\-c@{offchannel.\-c}!E\-X\-P\-O\-R\-T\-\_\-\-S\-Y\-M\-B\-O\-L\-\_\-\-G\-P\-L@{E\-X\-P\-O\-R\-T\-\_\-\-S\-Y\-M\-B\-O\-L\-\_\-\-G\-P\-L}}
+\index{E\-X\-P\-O\-R\-T\-\_\-\-S\-Y\-M\-B\-O\-L\-\_\-\-G\-P\-L@{E\-X\-P\-O\-R\-T\-\_\-\-S\-Y\-M\-B\-O\-L\-\_\-\-G\-P\-L}!offchannel.c@{offchannel.\-c}}
+\subsubsection[{E\-X\-P\-O\-R\-T\-\_\-\-S\-Y\-M\-B\-O\-L\-\_\-\-G\-P\-L}]{\setlength{\rightskip}{0pt plus 5cm}E\-X\-P\-O\-R\-T\-\_\-\-S\-Y\-M\-B\-O\-L\-\_\-\-G\-P\-L (
+\begin{DoxyParamCaption}
+\item[{{\bf ieee80211\-\_\-ready\-\_\-on\-\_\-channel}}]{}
+\end{DoxyParamCaption}
+)}}\label{offchannel_8c_a03864ab94d405280c1aa42d4650cc82b}
+\hypertarget{offchannel_8c_acb855d729d0384344cc3df82369e2540}{\index{offchannel.\-c@{offchannel.\-c}!E\-X\-P\-O\-R\-T\-\_\-\-S\-Y\-M\-B\-O\-L\-\_\-\-G\-P\-L@{E\-X\-P\-O\-R\-T\-\_\-\-S\-Y\-M\-B\-O\-L\-\_\-\-G\-P\-L}}
+\index{E\-X\-P\-O\-R\-T\-\_\-\-S\-Y\-M\-B\-O\-L\-\_\-\-G\-P\-L@{E\-X\-P\-O\-R\-T\-\_\-\-S\-Y\-M\-B\-O\-L\-\_\-\-G\-P\-L}!offchannel.c@{offchannel.\-c}}
+\subsubsection[{E\-X\-P\-O\-R\-T\-\_\-\-S\-Y\-M\-B\-O\-L\-\_\-\-G\-P\-L}]{\setlength{\rightskip}{0pt plus 5cm}E\-X\-P\-O\-R\-T\-\_\-\-S\-Y\-M\-B\-O\-L\-\_\-\-G\-P\-L (
+\begin{DoxyParamCaption}
+\item[{{\bf ieee80211\-\_\-remain\-\_\-on\-\_\-channel\-\_\-expired}}]{}
+\end{DoxyParamCaption}
+)}}\label{offchannel_8c_acb855d729d0384344cc3df82369e2540}
+\hypertarget{offchannel_8c_a9e0f02c3eaecea41ffea936ba7274f20}{\index{offchannel.\-c@{offchannel.\-c}!ieee80211\-\_\-hw\-\_\-roc\-\_\-setup@{ieee80211\-\_\-hw\-\_\-roc\-\_\-setup}}
+\index{ieee80211\-\_\-hw\-\_\-roc\-\_\-setup@{ieee80211\-\_\-hw\-\_\-roc\-\_\-setup}!offchannel.c@{offchannel.\-c}}
+\subsubsection[{ieee80211\-\_\-hw\-\_\-roc\-\_\-setup}]{\setlength{\rightskip}{0pt plus 5cm}void ieee80211\-\_\-hw\-\_\-roc\-\_\-setup (
+\begin{DoxyParamCaption}
+\item[{struct {\bf ieee80211\-\_\-local} $\ast$}]{local}
+\end{DoxyParamCaption}
+)}}\label{offchannel_8c_a9e0f02c3eaecea41ffea936ba7274f20}
+
+
+Definition at line 262 of file offchannel.\-c.
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=348pt]{offchannel_8c_a9e0f02c3eaecea41ffea936ba7274f20_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{offchannel_8c_ad5ad4f1682c1b81d2a21955f863c49c1}{\index{offchannel.\-c@{offchannel.\-c}!ieee80211\-\_\-offchannel\-\_\-return@{ieee80211\-\_\-offchannel\-\_\-return}}
+\index{ieee80211\-\_\-offchannel\-\_\-return@{ieee80211\-\_\-offchannel\-\_\-return}!offchannel.c@{offchannel.\-c}}
+\subsubsection[{ieee80211\-\_\-offchannel\-\_\-return}]{\setlength{\rightskip}{0pt plus 5cm}void ieee80211\-\_\-offchannel\-\_\-return (
+\begin{DoxyParamCaption}
+\item[{struct {\bf ieee80211\-\_\-local} $\ast$}]{local, }
+\item[{bool}]{offchannel\-\_\-ps\-\_\-disable}
+\end{DoxyParamCaption}
+)}}\label{offchannel_8c_ad5ad4f1682c1b81d2a21955f863c49c1}
+
+
+Definition at line 141 of file offchannel.\-c.
+
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=332pt]{offchannel_8c_ad5ad4f1682c1b81d2a21955f863c49c1_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{offchannel_8c_a6c449dc5f26ab63fe425d2af2820382b}{\index{offchannel.\-c@{offchannel.\-c}!ieee80211\-\_\-offchannel\-\_\-stop\-\_\-vifs@{ieee80211\-\_\-offchannel\-\_\-stop\-\_\-vifs}}
+\index{ieee80211\-\_\-offchannel\-\_\-stop\-\_\-vifs@{ieee80211\-\_\-offchannel\-\_\-stop\-\_\-vifs}!offchannel.c@{offchannel.\-c}}
+\subsubsection[{ieee80211\-\_\-offchannel\-\_\-stop\-\_\-vifs}]{\setlength{\rightskip}{0pt plus 5cm}void ieee80211\-\_\-offchannel\-\_\-stop\-\_\-vifs (
+\begin{DoxyParamCaption}
+\item[{struct {\bf ieee80211\-\_\-local} $\ast$}]{local, }
+\item[{bool}]{offchannel\-\_\-ps\-\_\-enable}
+\end{DoxyParamCaption}
+)}}\label{offchannel_8c_a6c449dc5f26ab63fe425d2af2820382b}
+
+
+Definition at line 106 of file offchannel.\-c.
+
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=332pt]{offchannel_8c_a6c449dc5f26ab63fe425d2af2820382b_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{offchannel_8c_a74ef46ffdf10161a1c341bbf368ee078}{\index{offchannel.\-c@{offchannel.\-c}!ieee80211\-\_\-ready\-\_\-on\-\_\-channel@{ieee80211\-\_\-ready\-\_\-on\-\_\-channel}}
+\index{ieee80211\-\_\-ready\-\_\-on\-\_\-channel@{ieee80211\-\_\-ready\-\_\-on\-\_\-channel}!offchannel.c@{offchannel.\-c}}
+\subsubsection[{ieee80211\-\_\-ready\-\_\-on\-\_\-channel}]{\setlength{\rightskip}{0pt plus 5cm}void ieee80211\-\_\-ready\-\_\-on\-\_\-channel (
+\begin{DoxyParamCaption}
+\item[{struct ieee80211\-\_\-hw $\ast$}]{hw}
+\end{DoxyParamCaption}
+)}}\label{offchannel_8c_a74ef46ffdf10161a1c341bbf368ee078}
+
+
+Definition at line 215 of file offchannel.\-c.
+
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=342pt]{offchannel_8c_a74ef46ffdf10161a1c341bbf368ee078_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{offchannel_8c_a88846f8ed0c18e32f9c5f929dfe3b92b}{\index{offchannel.\-c@{offchannel.\-c}!ieee80211\-\_\-remain\-\_\-on\-\_\-channel\-\_\-expired@{ieee80211\-\_\-remain\-\_\-on\-\_\-channel\-\_\-expired}}
+\index{ieee80211\-\_\-remain\-\_\-on\-\_\-channel\-\_\-expired@{ieee80211\-\_\-remain\-\_\-on\-\_\-channel\-\_\-expired}!offchannel.c@{offchannel.\-c}}
+\subsubsection[{ieee80211\-\_\-remain\-\_\-on\-\_\-channel\-\_\-expired}]{\setlength{\rightskip}{0pt plus 5cm}void ieee80211\-\_\-remain\-\_\-on\-\_\-channel\-\_\-expired (
+\begin{DoxyParamCaption}
+\item[{struct ieee80211\-\_\-hw $\ast$}]{hw}
+\end{DoxyParamCaption}
+)}}\label{offchannel_8c_a88846f8ed0c18e32f9c5f929dfe3b92b}
+
+
+Definition at line 252 of file offchannel.\-c.
+
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=348pt]{offchannel_8c_a88846f8ed0c18e32f9c5f929dfe3b92b_cgraph}
+\end{center}
+\end{figure}
+
+

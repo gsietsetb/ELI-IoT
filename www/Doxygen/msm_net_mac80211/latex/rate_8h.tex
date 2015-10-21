@@ -1,0 +1,114 @@
+\hypertarget{rate_8h}{\section{/home/guille/msm/net/mac80211/rate.h File Reference}
+\label{rate_8h}\index{/home/guille/msm/net/mac80211/rate.\-h@{/home/guille/msm/net/mac80211/rate.\-h}}
+}
+{\ttfamily \#include $<$linux/netdevice.\-h$>$}\\*
+{\ttfamily \#include $<$linux/skbuff.\-h$>$}\\*
+{\ttfamily \#include $<$linux/types.\-h$>$}\\*
+{\ttfamily \#include $<$net/mac80211.\-h$>$}\\*
+{\ttfamily \#include \char`\"{}ieee80211\-\_\-i.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}sta\-\_\-info.\-h\char`\"{}}\\*
+Include dependency graph for rate.\-h\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{rate_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{rate_8h__dep__incl}
+\end{center}
+\end{figure}
+\subsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structrate__control__ref}{rate\-\_\-control\-\_\-ref}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{rate_8h_a7716eda318c5869ba3c9b2816bb3f4a4}{rate\-\_\-control\-\_\-get\-\_\-rate} (struct \hyperlink{structieee80211__sub__if__data}{ieee80211\-\_\-sub\-\_\-if\-\_\-data} $\ast$sdata, struct \hyperlink{structsta__info}{sta\-\_\-info} $\ast$sta, struct ieee80211\-\_\-tx\-\_\-rate\-\_\-control $\ast$txrc)
+\item 
+int \hyperlink{rate_8h_affba3aaac16cf8ff032b488a24a16e3e}{ieee80211\-\_\-init\-\_\-rate\-\_\-ctrl\-\_\-alg} (struct \hyperlink{structieee80211__local}{ieee80211\-\_\-local} $\ast$local, const char $\ast$name)
+\item 
+void \hyperlink{rate_8h_a62cf573f37f2fe0b8608636309351403}{rate\-\_\-control\-\_\-deinitialize} (struct \hyperlink{structieee80211__local}{ieee80211\-\_\-local} $\ast$local)
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\hypertarget{rate_8h_affba3aaac16cf8ff032b488a24a16e3e}{\index{rate.\-h@{rate.\-h}!ieee80211\-\_\-init\-\_\-rate\-\_\-ctrl\-\_\-alg@{ieee80211\-\_\-init\-\_\-rate\-\_\-ctrl\-\_\-alg}}
+\index{ieee80211\-\_\-init\-\_\-rate\-\_\-ctrl\-\_\-alg@{ieee80211\-\_\-init\-\_\-rate\-\_\-ctrl\-\_\-alg}!rate.h@{rate.\-h}}
+\subsubsection[{ieee80211\-\_\-init\-\_\-rate\-\_\-ctrl\-\_\-alg}]{\setlength{\rightskip}{0pt plus 5cm}int ieee80211\-\_\-init\-\_\-rate\-\_\-ctrl\-\_\-alg (
+\begin{DoxyParamCaption}
+\item[{struct {\bf ieee80211\-\_\-local} $\ast$}]{local, }
+\item[{const char $\ast$}]{name}
+\end{DoxyParamCaption}
+)}}\label{rate_8h_affba3aaac16cf8ff032b488a24a16e3e}
+
+
+Definition at line 490 of file rate.\-c.
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=334pt]{rate_8h_affba3aaac16cf8ff032b488a24a16e3e_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{rate_8h_a62cf573f37f2fe0b8608636309351403}{\index{rate.\-h@{rate.\-h}!rate\-\_\-control\-\_\-deinitialize@{rate\-\_\-control\-\_\-deinitialize}}
+\index{rate\-\_\-control\-\_\-deinitialize@{rate\-\_\-control\-\_\-deinitialize}!rate.h@{rate.\-h}}
+\subsubsection[{rate\-\_\-control\-\_\-deinitialize}]{\setlength{\rightskip}{0pt plus 5cm}void rate\-\_\-control\-\_\-deinitialize (
+\begin{DoxyParamCaption}
+\item[{struct {\bf ieee80211\-\_\-local} $\ast$}]{local}
+\end{DoxyParamCaption}
+)}}\label{rate_8h_a62cf573f37f2fe0b8608636309351403}
+
+
+Definition at line 522 of file rate.\-c.
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{rate_8h_a62cf573f37f2fe0b8608636309351403_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{rate_8h_a7716eda318c5869ba3c9b2816bb3f4a4}{\index{rate.\-h@{rate.\-h}!rate\-\_\-control\-\_\-get\-\_\-rate@{rate\-\_\-control\-\_\-get\-\_\-rate}}
+\index{rate\-\_\-control\-\_\-get\-\_\-rate@{rate\-\_\-control\-\_\-get\-\_\-rate}!rate.h@{rate.\-h}}
+\subsubsection[{rate\-\_\-control\-\_\-get\-\_\-rate}]{\setlength{\rightskip}{0pt plus 5cm}void rate\-\_\-control\-\_\-get\-\_\-rate (
+\begin{DoxyParamCaption}
+\item[{struct {\bf ieee80211\-\_\-sub\-\_\-if\-\_\-data} $\ast$}]{sdata, }
+\item[{struct {\bf sta\-\_\-info} $\ast$}]{sta, }
+\item[{struct ieee80211\-\_\-tx\-\_\-rate\-\_\-control $\ast$}]{txrc}
+\end{DoxyParamCaption}
+)}}\label{rate_8h_a7716eda318c5869ba3c9b2816bb3f4a4}
+
+
+Definition at line 430 of file rate.\-c.
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{rate_8h_a7716eda318c5869ba3c9b2816bb3f4a4_icgraph}
+\end{center}
+\end{figure}
+
+

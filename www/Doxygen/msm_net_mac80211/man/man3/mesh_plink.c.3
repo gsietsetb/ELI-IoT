@@ -1,0 +1,190 @@
+.TH "/home/guille/msm/net/mac80211/mesh_plink.c" 3 "Sun Jun 1 2014" "Version 1.0" "net_mac80211" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+/home/guille/msm/net/mac80211/mesh_plink.c \- 
+.SH SYNOPSIS
+.br
+.PP
+\fC#include <linux/gfp\&.h>\fP
+.br
+\fC#include <linux/kernel\&.h>\fP
+.br
+\fC#include <linux/random\&.h>\fP
+.br
+\fC#include 'ieee80211_i\&.h'\fP
+.br
+\fC#include 'rate\&.h'\fP
+.br
+\fC#include 'mesh\&.h'\fP
+.br
+
+.SS "Macros"
+
+.in +1c
+.ti -1c
+.RI "#define \fBmpl_dbg\fP(fmt, args\&.\&.\&.)   do { (void)(0); } while (0)"
+.br
+.ti -1c
+.RI "#define \fBPLINK_GET_LLID\fP(p)   (p + 2)"
+.br
+.ti -1c
+.RI "#define \fBPLINK_GET_PLID\fP(p)   (p + 4)"
+.br
+.ti -1c
+.RI "#define \fBmod_plink_timer\fP(s, t)"
+.br
+.ti -1c
+.RI "#define \fBdot11MeshMaxRetries\fP(s)   (s->u\&.mesh\&.mshcfg\&.dot11MeshMaxRetries)"
+.br
+.ti -1c
+.RI "#define \fBdot11MeshRetryTimeout\fP(s)   (s->u\&.mesh\&.mshcfg\&.dot11MeshRetryTimeout)"
+.br
+.ti -1c
+.RI "#define \fBdot11MeshConfirmTimeout\fP(s)   (s->u\&.mesh\&.mshcfg\&.dot11MeshConfirmTimeout)"
+.br
+.ti -1c
+.RI "#define \fBdot11MeshHoldingTimeout\fP(s)   (s->u\&.mesh\&.mshcfg\&.dot11MeshHoldingTimeout)"
+.br
+.ti -1c
+.RI "#define \fBdot11MeshMaxPeerLinks\fP(s)   (s->u\&.mesh\&.mshcfg\&.dot11MeshMaxPeerLinks)"
+.br
+.ti -1c
+.RI "#define \fBrssi_threshold_check\fP(sta, sdata)"
+.br
+.in -1c
+.SS "Enumerations"
+
+.in +1c
+.ti -1c
+.RI "enum \fBplink_event\fP { \fBPLINK_UNDEFINED\fP, \fBOPN_ACPT\fP, \fBOPN_RJCT\fP, \fBOPN_IGNR\fP, \fBCNF_ACPT\fP, \fBCNF_RJCT\fP, \fBCNF_IGNR\fP, \fBCLS_ACPT\fP, \fBCLS_IGNR\fP }"
+.br
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBmesh_plink_deactivate\fP (struct \fBsta_info\fP *sta)"
+.br
+.ti -1c
+.RI "void \fBmesh_neighbour_update\fP (u8 *hw_addr, u32 rates, struct \fBieee80211_sub_if_data\fP *sdata, struct \fBieee802_11_elems\fP *elems)"
+.br
+.ti -1c
+.RI "int \fBmesh_plink_open\fP (struct \fBsta_info\fP *sta)"
+.br
+.ti -1c
+.RI "void \fBmesh_plink_block\fP (struct \fBsta_info\fP *sta)"
+.br
+.ti -1c
+.RI "void \fBmesh_rx_plink_frame\fP (struct \fBieee80211_sub_if_data\fP *sdata, struct ieee80211_mgmt *mgmt, size_t len, struct ieee80211_rx_status *rx_status)"
+.br
+.in -1c
+.SH "Macro Definition Documentation"
+.PP 
+.SS "#define dot11MeshConfirmTimeout(s)   (s->u\&.mesh\&.mshcfg\&.dot11MeshConfirmTimeout)"
+
+.PP
+Definition at line 30 of file mesh_plink\&.c\&.
+.SS "#define dot11MeshHoldingTimeout(s)   (s->u\&.mesh\&.mshcfg\&.dot11MeshHoldingTimeout)"
+
+.PP
+Definition at line 31 of file mesh_plink\&.c\&.
+.SS "#define dot11MeshMaxPeerLinks(s)   (s->u\&.mesh\&.mshcfg\&.dot11MeshMaxPeerLinks)"
+
+.PP
+Definition at line 32 of file mesh_plink\&.c\&.
+.SS "#define dot11MeshMaxRetries(s)   (s->u\&.mesh\&.mshcfg\&.dot11MeshMaxRetries)"
+
+.PP
+Definition at line 28 of file mesh_plink\&.c\&.
+.SS "#define dot11MeshRetryTimeout(s)   (s->u\&.mesh\&.mshcfg\&.dot11MeshRetryTimeout)"
+
+.PP
+Definition at line 29 of file mesh_plink\&.c\&.
+.SS "#define mod_plink_timer(s, t)"
+\fBValue:\fP
+.PP
+.nf
+(mod_timer(&s->plink_timer, \
+                jiffies + HZ * t / 1000))
+.fi
+.PP
+Definition at line 25 of file mesh_plink\&.c\&.
+.SS "#define mpl_dbg(fmt, args\&.\&.\&.)   do { (void)(0); } while (0)"
+
+.PP
+Definition at line 19 of file mesh_plink\&.c\&.
+.SS "#define PLINK_GET_LLID(p)   (p + 2)"
+
+.PP
+Definition at line 22 of file mesh_plink\&.c\&.
+.SS "#define PLINK_GET_PLID(p)   (p + 4)"
+
+.PP
+Definition at line 23 of file mesh_plink\&.c\&.
+.SS "#define rssi_threshold_check(sta, sdata)"
+\fBValue:\fP
+.PP
+.nf
+(sdata->u\&.mesh\&.mshcfg\&.rssi_threshold == 0 ||\
+        (sta && (s8) -ewma_read(&sta->avg_signal) > \
+        sdata->u\&.mesh\&.mshcfg\&.rssi_threshold))
+.fi
+.PP
+Definition at line 35 of file mesh_plink\&.c\&.
+.SH "Enumeration Type Documentation"
+.PP 
+.SS "enum \fBplink_event\fP"
+
+.PP
+\fBEnumerator\fP
+.in +1c
+.TP
+\fB\fIPLINK_UNDEFINED \fP\fP
+.TP
+\fB\fIOPN_ACPT \fP\fP
+.TP
+\fB\fIOPN_RJCT \fP\fP
+.TP
+\fB\fIOPN_IGNR \fP\fP
+.TP
+\fB\fICNF_ACPT \fP\fP
+.TP
+\fB\fICNF_RJCT \fP\fP
+.TP
+\fB\fICNF_IGNR \fP\fP
+.TP
+\fB\fICLS_ACPT \fP\fP
+.TP
+\fB\fICLS_IGNR \fP\fP
+.PP
+Definition at line 40 of file mesh_plink\&.c\&.
+.SH "Function Documentation"
+.PP 
+.SS "void mesh_neighbour_update (u8 *hw_addr, u32rates, struct \fBieee80211_sub_if_data\fP *sdata, struct \fBieee802_11_elems\fP *elems)"
+
+.PP
+Definition at line 277 of file mesh_plink\&.c\&.
+.SS "void mesh_plink_block (struct \fBsta_info\fP *sta)"
+
+.PP
+Definition at line 441 of file mesh_plink\&.c\&.
+.SS "void mesh_plink_deactivate (struct \fBsta_info\fP *sta)"
+mesh_plink_deactivate - deactivate mesh peer link
+.PP
+: mesh peer link to deactivate
+.PP
+All mesh paths with this peer as next hop will be flushed 
+.PP
+Definition at line 152 of file mesh_plink\&.c\&.
+.SS "int mesh_plink_open (struct \fBsta_info\fP *sta)"
+
+.PP
+Definition at line 416 of file mesh_plink\&.c\&.
+.SS "void mesh_rx_plink_frame (struct \fBieee80211_sub_if_data\fP *sdata, struct ieee80211_mgmt *mgmt, size_tlen, struct ieee80211_rx_status *rx_status)"
+
+.PP
+Definition at line 456 of file mesh_plink\&.c\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for net_mac80211 from the source code\&.

@@ -1,0 +1,568 @@
+.TH "/home/guille/msm/net/mac80211/driver-trace.h" 3 "Sun Jun 1 2014" "Version 1.0" "net_mac80211" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+/home/guille/msm/net/mac80211/driver-trace.h \- 
+.SH SYNOPSIS
+.br
+.PP
+\fC#include <linux/tracepoint\&.h>\fP
+.br
+\fC#include <net/mac80211\&.h>\fP
+.br
+\fC#include 'ieee80211_i\&.h'\fP
+.br
+\fC#include <trace/define_trace\&.h>\fP
+.br
+
+.SS "Macros"
+
+.in +1c
+.ti -1c
+.RI "#define \fB__MAC80211_DRIVER_TRACE\fP"
+.br
+.ti -1c
+.RI "#define \fBTRACE_SYSTEM\fP   mac80211"
+.br
+.ti -1c
+.RI "#define \fBMAXNAME\fP   32"
+.br
+.ti -1c
+.RI "#define \fBLOCAL_ENTRY\fP   __array(char, wiphy_name, 32)"
+.br
+.ti -1c
+.RI "#define \fBLOCAL_ASSIGN\fP   strlcpy(__entry->wiphy_name, wiphy_name(local->hw\&.wiphy), \fBMAXNAME\fP)"
+.br
+.ti -1c
+.RI "#define \fBLOCAL_PR_FMT\fP   '%s'"
+.br
+.ti -1c
+.RI "#define \fBLOCAL_PR_ARG\fP   __entry->wiphy_name"
+.br
+.ti -1c
+.RI "#define \fBSTA_ENTRY\fP   __array(char, sta_addr, ETH_ALEN)"
+.br
+.ti -1c
+.RI "#define \fBSTA_ASSIGN\fP   (sta ? memcpy(__entry->sta_addr, sta->addr, ETH_ALEN) : memset(__entry->sta_addr, 0, ETH_ALEN))"
+.br
+.ti -1c
+.RI "#define \fBSTA_PR_FMT\fP   ' sta:%pM'"
+.br
+.ti -1c
+.RI "#define \fBSTA_PR_ARG\fP   __entry->sta_addr"
+.br
+.ti -1c
+.RI "#define \fBVIF_ENTRY\fP"
+.br
+.ti -1c
+.RI "#define \fBVIF_ASSIGN\fP"
+.br
+.ti -1c
+.RI "#define \fBVIF_PR_FMT\fP   ' vif:%s(%d%s)'"
+.br
+.ti -1c
+.RI "#define \fBVIF_PR_ARG\fP   __get_str(vif_name), __entry->vif_type, __entry->p2p ? '/p2p' : ''"
+.br
+.ti -1c
+.RI "#define \fBTRACE_INCLUDE_PATH\fP   \&."
+.br
+.ti -1c
+.RI "#define \fBTRACE_INCLUDE_FILE\fP   driver-trace"
+.br
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBDECLARE_EVENT_CLASS\fP (local_only_evt, TP_PROTO(struct \fBieee80211_local\fP *local), TP_ARGS(local), TP_STRUCT__entry(\fBLOCAL_ENTRY\fP), TP_fast_assign(\fBLOCAL_ASSIGN\fP;), TP_printk(\fBLOCAL_PR_FMT\fP, \fBLOCAL_PR_ARG\fP))"
+.br
+.ti -1c
+.RI "\fBDECLARE_EVENT_CLASS\fP (local_sdata_addr_evt, TP_PROTO(struct \fBieee80211_local\fP *local, struct \fBieee80211_sub_if_data\fP *sdata), TP_ARGS(local, sdata), TP_STRUCT__entry(LOCAL_ENTRYVIF_ENTRY__array(char, addr, 6)), TP_fast_assign(\fBLOCAL_ASSIGN\fP;\fBVIF_ASSIGN\fP;memcpy(__entry->addr, sdata->vif\&.addr, 6);), TP_printk(LOCAL_PR_FMTVIF_PR_FMT' addr:%pM', LOCAL_PR_ARG, \fBVIF_PR_ARG\fP, __entry->addr))"
+.br
+.ti -1c
+.RI "\fBDECLARE_EVENT_CLASS\fP (local_u32_evt, TP_PROTO(struct \fBieee80211_local\fP *local, u32 value), TP_ARGS(local, value), TP_STRUCT__entry(LOCAL_ENTRY__field(u32, value)), TP_fast_assign(\fBLOCAL_ASSIGN\fP;__entry->value=value;), TP_printk(\fBLOCAL_PR_FMT\fP' value:%d', LOCAL_PR_ARG, __entry->value))"
+.br
+.ti -1c
+.RI "\fBDECLARE_EVENT_CLASS\fP (local_sdata_evt, TP_PROTO(struct \fBieee80211_local\fP *local, struct \fBieee80211_sub_if_data\fP *sdata), TP_ARGS(local, sdata), TP_STRUCT__entry(LOCAL_ENTRYVIF_ENTRY), TP_fast_assign(\fBLOCAL_ASSIGN\fP;\fBVIF_ASSIGN\fP;), TP_printk(\fBLOCAL_PR_FMT\fP \fBVIF_PR_FMT\fP, \fBLOCAL_PR_ARG\fP, \fBVIF_PR_ARG\fP))"
+.br
+.ti -1c
+.RI "\fBDEFINE_EVENT\fP (local_only_evt, drv_return_void, TP_PROTO(struct \fBieee80211_local\fP *local),)"
+.br
+.ti -1c
+.RI "\fBTRACE_EVENT\fP (drv_return_int, TP_PROTO(struct \fBieee80211_local\fP *local, int ret), TP_ARGS(local, ret), TP_STRUCT__entry(LOCAL_ENTRY__field(int, ret)), TP_fast_assign(\fBLOCAL_ASSIGN\fP;__entry->ret=ret;), TP_printk(\fBLOCAL_PR_FMT\fP' - %d', LOCAL_PR_ARG, __entry->ret))"
+.br
+.ti -1c
+.RI "\fBTRACE_EVENT\fP (drv_return_bool, TP_PROTO(struct \fBieee80211_local\fP *local, bool ret), TP_ARGS(local, ret), TP_STRUCT__entry(LOCAL_ENTRY__field(bool, ret)), TP_fast_assign(\fBLOCAL_ASSIGN\fP;__entry->ret=ret;), TP_printk(\fBLOCAL_PR_FMT\fP' - %s', LOCAL_PR_ARG,(__entry->ret)?'true':'false'))"
+.br
+.ti -1c
+.RI "\fBTRACE_EVENT\fP (drv_return_u64, TP_PROTO(struct \fBieee80211_local\fP *local, u64 ret), TP_ARGS(local, ret), TP_STRUCT__entry(LOCAL_ENTRY__field(u64, ret)), TP_fast_assign(\fBLOCAL_ASSIGN\fP;__entry->ret=ret;), TP_printk(\fBLOCAL_PR_FMT\fP' - %llu', LOCAL_PR_ARG, __entry->ret))"
+.br
+.ti -1c
+.RI "\fBDEFINE_EVENT\fP (local_only_evt, drv_start, TP_PROTO(struct \fBieee80211_local\fP *local),)"
+.br
+.ti -1c
+.RI "\fBDEFINE_EVENT\fP (local_only_evt, drv_suspend, TP_PROTO(struct \fBieee80211_local\fP *local),)"
+.br
+.ti -1c
+.RI "\fBDEFINE_EVENT\fP (local_only_evt, drv_resume, TP_PROTO(struct \fBieee80211_local\fP *local),)"
+.br
+.ti -1c
+.RI "\fBDEFINE_EVENT\fP (local_only_evt, drv_stop, TP_PROTO(struct \fBieee80211_local\fP *local),)"
+.br
+.ti -1c
+.RI "\fBDEFINE_EVENT\fP (local_sdata_addr_evt, drv_add_interface, TP_PROTO(struct \fBieee80211_local\fP *local, struct \fBieee80211_sub_if_data\fP *sdata),)"
+.br
+.ti -1c
+.RI "\fBTRACE_EVENT\fP (drv_change_interface, TP_PROTO(struct \fBieee80211_local\fP *local, struct \fBieee80211_sub_if_data\fP *sdata, enum nl80211_iftype type, bool p2p), TP_ARGS(local, sdata, type, p2p), TP_STRUCT__entry(LOCAL_ENTRYVIF_ENTRY__field(u32, new_type) __field(bool, new_p2p)), TP_fast_assign(\fBLOCAL_ASSIGN\fP;\fBVIF_ASSIGN\fP;__entry->new_type=type;__entry->new_p2p=p2p;), TP_printk(LOCAL_PR_FMTVIF_PR_FMT' new type:%d%s', LOCAL_PR_ARG, \fBVIF_PR_ARG\fP, __entry->new_type, __entry->new_p2p?'/p2p':''))"
+.br
+.ti -1c
+.RI "\fBDEFINE_EVENT\fP (local_sdata_addr_evt, drv_remove_interface, TP_PROTO(struct \fBieee80211_local\fP *local, struct \fBieee80211_sub_if_data\fP *sdata),)"
+.br
+.ti -1c
+.RI "\fBTRACE_EVENT\fP (drv_config, TP_PROTO(struct \fBieee80211_local\fP *local, u32 changed), TP_ARGS(local, changed), TP_STRUCT__entry(LOCAL_ENTRY__field(u32, changed) __field(u32, flags) __field(int, power_level) __field(int, dynamic_ps_timeout) __field(int, max_sleep_period) __field(u16, listen_interval) __field(u8, long_frame_max_tx_count) __field(u8, short_frame_max_tx_count) __field(int, center_freq) __field(int, channel_type) __field(int, smps)), TP_fast_assign(\fBLOCAL_ASSIGN\fP;__entry->changed=changed;__entry->flags=local->hw\&.conf\&.flags;__entry->power_level=local->hw\&.conf\&.power_level;__entry->dynamic_ps_timeout=local->hw\&.conf\&.dynamic_ps_timeout;__entry->max_sleep_period=local->hw\&.conf\&.max_sleep_period;__entry->listen_interval=local->hw\&.conf\&.listen_interval;__entry->long_frame_max_tx_count=local->hw\&.conf\&.long_frame_max_tx_count;__entry->short_frame_max_tx_count=local->hw\&.conf\&.short_frame_max_tx_count;__entry->center_freq=local->hw\&.conf\&.channel->center_freq;__entry->channel_type=local->hw\&.conf\&.channel_type;__entry->smps=local->hw\&.conf\&.smps_mode;), TP_printk(\fBLOCAL_PR_FMT\fP' ch:%#x freq:%d', LOCAL_PR_ARG, __entry->changed, __entry->center_freq))"
+.br
+.ti -1c
+.RI "\fBTRACE_EVENT\fP (drv_bss_info_changed, TP_PROTO(struct \fBieee80211_local\fP *local, struct \fBieee80211_sub_if_data\fP *sdata, struct ieee80211_bss_conf *info, u32 changed), TP_ARGS(local, sdata, info, changed), TP_STRUCT__entry(LOCAL_ENTRYVIF_ENTRY__field(bool, assoc) __field(u16, aid) __field(bool, cts) __field(bool, shortpre) __field(bool, shortslot) __field(u8, dtimper) __field(u16, bcnint) __field(u16, assoc_cap) __field(u64, timestamp) __field(u32, basic_rates) __field(u32, changed) __field(bool, enable_beacon) __field(u16, ht_operation_mode)), TP_fast_assign(\fBLOCAL_ASSIGN\fP;\fBVIF_ASSIGN\fP;__entry->changed=changed;__entry->aid=info->aid;__entry->assoc=info->assoc;__entry->shortpre=info->use_short_preamble;__entry->cts=info->use_cts_prot;__entry->shortslot=info->use_short_slot;__entry->dtimper=info->dtim_period;__entry->bcnint=info->beacon_int;__entry->assoc_cap=info->assoc_capability;__entry->timestamp=info->last_tsf;__entry->basic_rates=info->basic_rates;__entry->enable_beacon=info->enable_beacon;__entry->ht_operation_mode=info->ht_operation_mode;), TP_printk(LOCAL_PR_FMTVIF_PR_FMT' changed:%#x', LOCAL_PR_ARG, \fBVIF_PR_ARG\fP, __entry->changed))"
+.br
+.ti -1c
+.RI "\fBTRACE_EVENT\fP (drv_prepare_multicast, TP_PROTO(struct \fBieee80211_local\fP *local, int mc_count), TP_ARGS(local, mc_count), TP_STRUCT__entry(LOCAL_ENTRY__field(int, mc_count)), TP_fast_assign(\fBLOCAL_ASSIGN\fP;__entry->mc_count=mc_count;), TP_printk(\fBLOCAL_PR_FMT\fP' prepare mc (%d)', LOCAL_PR_ARG, __entry->mc_count))"
+.br
+.ti -1c
+.RI "\fBTRACE_EVENT\fP (drv_configure_filter, TP_PROTO(struct \fBieee80211_local\fP *local, unsigned int changed_flags, unsigned int *total_flags, u64 multicast), TP_ARGS(local, changed_flags, total_flags, multicast), TP_STRUCT__entry(LOCAL_ENTRY__field(unsigned int, changed) __field(unsigned int, total) __field(u64, multicast)), TP_fast_assign(\fBLOCAL_ASSIGN\fP;__entry->changed=changed_flags;__entry->total=*total_flags;__entry->multicast=multicast;), TP_printk(\fBLOCAL_PR_FMT\fP' changed:%#x total:%#x', LOCAL_PR_ARG, __entry->changed, __entry->total))"
+.br
+.ti -1c
+.RI "\fBTRACE_EVENT\fP (drv_set_tim, TP_PROTO(struct \fBieee80211_local\fP *local, struct ieee80211_sta *sta, bool set), TP_ARGS(local, sta, set), TP_STRUCT__entry(LOCAL_ENTRYSTA_ENTRY__field(bool, set)), TP_fast_assign(\fBLOCAL_ASSIGN\fP;\fBSTA_ASSIGN\fP;__entry->set=set;), TP_printk(\fBLOCAL_PR_FMT\fP \fBSTA_PR_FMT\fP' set:%d', LOCAL_PR_ARG, \fBSTA_PR_FMT\fP, __entry->set))"
+.br
+.ti -1c
+.RI "\fBTRACE_EVENT\fP (drv_set_key, TP_PROTO(struct \fBieee80211_local\fP *local, enum set_key_cmd cmd, struct \fBieee80211_sub_if_data\fP *sdata, struct ieee80211_sta *sta, struct ieee80211_key_conf *key), TP_ARGS(local, cmd, sdata, sta, key), TP_STRUCT__entry(LOCAL_ENTRYVIF_ENTRYSTA_ENTRY__field(u32, cipher) __field(u8, hw_key_idx) __field(u8, flags) __field(s8, keyidx)), TP_fast_assign(\fBLOCAL_ASSIGN\fP;\fBVIF_ASSIGN\fP;\fBSTA_ASSIGN\fP;__entry->cipher=key->cipher;__entry->flags=key->flags;__entry->keyidx=key->keyidx;__entry->hw_key_idx=key->hw_key_idx;), TP_printk(LOCAL_PR_FMTVIF_PR_FMTSTA_PR_FMT, \fBLOCAL_PR_ARG\fP, \fBVIF_PR_ARG\fP, \fBSTA_PR_ARG\fP))"
+.br
+.ti -1c
+.RI "\fBTRACE_EVENT\fP (drv_update_tkip_key, TP_PROTO(struct \fBieee80211_local\fP *local, struct \fBieee80211_sub_if_data\fP *sdata, struct ieee80211_key_conf *conf, struct ieee80211_sta *sta, u32 iv32), TP_ARGS(local, sdata, conf, sta, iv32), TP_STRUCT__entry(LOCAL_ENTRYVIF_ENTRYSTA_ENTRY__field(u32, iv32)), TP_fast_assign(\fBLOCAL_ASSIGN\fP;\fBVIF_ASSIGN\fP;\fBSTA_ASSIGN\fP;__entry->iv32=iv32;), TP_printk(\fBLOCAL_PR_FMT\fP \fBVIF_PR_FMT\fP \fBSTA_PR_FMT\fP' iv32:%#x', LOCAL_PR_ARG, \fBVIF_PR_ARG\fP, \fBSTA_PR_ARG\fP, __entry->iv32))"
+.br
+.ti -1c
+.RI "\fBDEFINE_EVENT\fP (local_sdata_evt, drv_hw_scan, TP_PROTO(struct \fBieee80211_local\fP *local, struct \fBieee80211_sub_if_data\fP *sdata),)"
+.br
+.ti -1c
+.RI "\fBDEFINE_EVENT\fP (local_sdata_evt, drv_cancel_hw_scan, TP_PROTO(struct \fBieee80211_local\fP *local, struct \fBieee80211_sub_if_data\fP *sdata),)"
+.br
+.ti -1c
+.RI "\fBDEFINE_EVENT\fP (local_sdata_evt, drv_sched_scan_start, TP_PROTO(struct \fBieee80211_local\fP *local, struct \fBieee80211_sub_if_data\fP *sdata),)"
+.br
+.ti -1c
+.RI "\fBDEFINE_EVENT\fP (local_sdata_evt, drv_sched_scan_stop, TP_PROTO(struct \fBieee80211_local\fP *local, struct \fBieee80211_sub_if_data\fP *sdata),)"
+.br
+.ti -1c
+.RI "\fBDEFINE_EVENT\fP (local_only_evt, drv_sw_scan_start, TP_PROTO(struct \fBieee80211_local\fP *local),)"
+.br
+.ti -1c
+.RI "\fBDEFINE_EVENT\fP (local_only_evt, drv_sw_scan_complete, TP_PROTO(struct \fBieee80211_local\fP *local),)"
+.br
+.ti -1c
+.RI "\fBTRACE_EVENT\fP (drv_get_stats, TP_PROTO(struct \fBieee80211_local\fP *local, struct ieee80211_low_level_stats *stats, int ret), TP_ARGS(local, stats, ret), TP_STRUCT__entry(LOCAL_ENTRY__field(int, ret) __field(unsigned int, ackfail) __field(unsigned int, rtsfail) __field(unsigned int, fcserr) __field(unsigned int, rtssucc)), TP_fast_assign(\fBLOCAL_ASSIGN\fP;__entry->ret=ret;__entry->ackfail=stats->dot11ACKFailureCount;__entry->rtsfail=stats->dot11RTSFailureCount;__entry->fcserr=stats->dot11FCSErrorCount;__entry->rtssucc=stats->dot11RTSSuccessCount;), TP_printk(\fBLOCAL_PR_FMT\fP' ret:%d', LOCAL_PR_ARG, __entry->ret))"
+.br
+.ti -1c
+.RI "\fBTRACE_EVENT\fP (drv_get_tkip_seq, TP_PROTO(struct \fBieee80211_local\fP *local, u8 hw_key_idx, u32 *iv32, u16 *iv16), TP_ARGS(local, hw_key_idx, iv32, iv16), TP_STRUCT__entry(LOCAL_ENTRY__field(u8, hw_key_idx) __field(u32, iv32) __field(u16, iv16)), TP_fast_assign(\fBLOCAL_ASSIGN\fP;__entry->hw_key_idx=hw_key_idx;__entry->iv32=*iv32;__entry->iv16=*iv16;), TP_printk(\fBLOCAL_PR_FMT\fP, \fBLOCAL_PR_ARG\fP))"
+.br
+.ti -1c
+.RI "\fBDEFINE_EVENT\fP (local_u32_evt, drv_set_frag_threshold, TP_PROTO(struct \fBieee80211_local\fP *local, u32 value),)"
+.br
+.ti -1c
+.RI "\fBDEFINE_EVENT\fP (local_u32_evt, drv_set_rts_threshold, TP_PROTO(struct \fBieee80211_local\fP *local, u32 value),)"
+.br
+.ti -1c
+.RI "\fBTRACE_EVENT\fP (drv_set_coverage_class, TP_PROTO(struct \fBieee80211_local\fP *local, u8 value), TP_ARGS(local, value), TP_STRUCT__entry(LOCAL_ENTRY__field(u8, value)), TP_fast_assign(\fBLOCAL_ASSIGN\fP;__entry->value=value;), TP_printk(\fBLOCAL_PR_FMT\fP' value:%d', LOCAL_PR_ARG, __entry->value))"
+.br
+.ti -1c
+.RI "\fBTRACE_EVENT\fP (drv_sta_notify, TP_PROTO(struct \fBieee80211_local\fP *local, struct \fBieee80211_sub_if_data\fP *sdata, enum sta_notify_cmd cmd, struct ieee80211_sta *sta), TP_ARGS(local, sdata, cmd, sta), TP_STRUCT__entry(LOCAL_ENTRYVIF_ENTRYSTA_ENTRY__field(u32, cmd)), TP_fast_assign(\fBLOCAL_ASSIGN\fP;\fBVIF_ASSIGN\fP;\fBSTA_ASSIGN\fP;__entry->cmd=cmd;), TP_printk(LOCAL_PR_FMTVIF_PR_FMTSTA_PR_FMT' cmd:%d', LOCAL_PR_ARG, \fBVIF_PR_ARG\fP, \fBSTA_PR_ARG\fP, __entry->cmd))"
+.br
+.ti -1c
+.RI "\fBTRACE_EVENT\fP (drv_sta_state, TP_PROTO(struct \fBieee80211_local\fP *local, struct \fBieee80211_sub_if_data\fP *sdata, struct ieee80211_sta *sta, enum ieee80211_sta_state old_state, enum ieee80211_sta_state new_state), TP_ARGS(local, sdata, sta, old_state, new_state), TP_STRUCT__entry(LOCAL_ENTRYVIF_ENTRYSTA_ENTRY__field(u32, old_state) __field(u32, new_state)), TP_fast_assign(\fBLOCAL_ASSIGN\fP;\fBVIF_ASSIGN\fP;\fBSTA_ASSIGN\fP;__entry->old_state=old_state;__entry->new_state=new_state;), TP_printk(LOCAL_PR_FMTVIF_PR_FMTSTA_PR_FMT' state: %d->%d', LOCAL_PR_ARG, \fBVIF_PR_ARG\fP, \fBSTA_PR_ARG\fP, __entry->old_state, __entry->new_state))"
+.br
+.ti -1c
+.RI "\fBTRACE_EVENT\fP (drv_sta_add, TP_PROTO(struct \fBieee80211_local\fP *local, struct \fBieee80211_sub_if_data\fP *sdata, struct ieee80211_sta *sta), TP_ARGS(local, sdata, sta), TP_STRUCT__entry(LOCAL_ENTRYVIF_ENTRYSTA_ENTRY), TP_fast_assign(\fBLOCAL_ASSIGN\fP;\fBVIF_ASSIGN\fP;\fBSTA_ASSIGN\fP;), TP_printk(LOCAL_PR_FMTVIF_PR_FMTSTA_PR_FMT, \fBLOCAL_PR_ARG\fP, \fBVIF_PR_ARG\fP, \fBSTA_PR_ARG\fP))"
+.br
+.ti -1c
+.RI "\fBTRACE_EVENT\fP (drv_sta_remove, TP_PROTO(struct \fBieee80211_local\fP *local, struct \fBieee80211_sub_if_data\fP *sdata, struct ieee80211_sta *sta), TP_ARGS(local, sdata, sta), TP_STRUCT__entry(LOCAL_ENTRYVIF_ENTRYSTA_ENTRY), TP_fast_assign(\fBLOCAL_ASSIGN\fP;\fBVIF_ASSIGN\fP;\fBSTA_ASSIGN\fP;), TP_printk(LOCAL_PR_FMTVIF_PR_FMTSTA_PR_FMT, \fBLOCAL_PR_ARG\fP, \fBVIF_PR_ARG\fP, \fBSTA_PR_ARG\fP))"
+.br
+.ti -1c
+.RI "\fBTRACE_EVENT\fP (drv_conf_tx, TP_PROTO(struct \fBieee80211_local\fP *local, struct \fBieee80211_sub_if_data\fP *sdata, u16 queue, const struct ieee80211_tx_queue_params *params), TP_ARGS(local, sdata, queue, params), TP_STRUCT__entry(LOCAL_ENTRYVIF_ENTRY__field(u16, queue) __field(u16, txop) __field(u16, cw_min) __field(u16, cw_max) __field(u8, aifs) __field(bool, uapsd)), TP_fast_assign(\fBLOCAL_ASSIGN\fP;\fBVIF_ASSIGN\fP;__entry->queue=queue;__entry->txop=params->txop;__entry->cw_max=params->cw_max;__entry->cw_min=params->cw_min;__entry->aifs=params->aifs;__entry->uapsd=params->uapsd;), TP_printk(LOCAL_PR_FMTVIF_PR_FMT' queue:%d', LOCAL_PR_ARG, \fBVIF_PR_ARG\fP, __entry->queue))"
+.br
+.ti -1c
+.RI "\fBDEFINE_EVENT\fP (local_sdata_evt, drv_get_tsf, TP_PROTO(struct \fBieee80211_local\fP *local, struct \fBieee80211_sub_if_data\fP *sdata),)"
+.br
+.ti -1c
+.RI "\fBTRACE_EVENT\fP (drv_set_tsf, TP_PROTO(struct \fBieee80211_local\fP *local, struct \fBieee80211_sub_if_data\fP *sdata, u64 tsf), TP_ARGS(local, sdata, tsf), TP_STRUCT__entry(LOCAL_ENTRYVIF_ENTRY__field(u64, tsf)), TP_fast_assign(\fBLOCAL_ASSIGN\fP;\fBVIF_ASSIGN\fP;__entry->tsf=tsf;), TP_printk(LOCAL_PR_FMTVIF_PR_FMT' tsf:%llu', LOCAL_PR_ARG, \fBVIF_PR_ARG\fP,(unsigned long long) __entry->tsf))"
+.br
+.ti -1c
+.RI "\fBDEFINE_EVENT\fP (local_sdata_evt, drv_reset_tsf, TP_PROTO(struct \fBieee80211_local\fP *local, struct \fBieee80211_sub_if_data\fP *sdata),)"
+.br
+.ti -1c
+.RI "\fBDEFINE_EVENT\fP (local_only_evt, drv_tx_last_beacon, TP_PROTO(struct \fBieee80211_local\fP *local),)"
+.br
+.ti -1c
+.RI "\fBTRACE_EVENT\fP (drv_ampdu_action, TP_PROTO(struct \fBieee80211_local\fP *local, struct \fBieee80211_sub_if_data\fP *sdata, enum ieee80211_ampdu_mlme_action action, struct ieee80211_sta *sta, u16 tid, u16 *ssn, u8 buf_size), TP_ARGS(local, sdata, action, sta, tid, ssn, buf_size), TP_STRUCT__entry(LOCAL_ENTRYSTA_ENTRY__field(u32, action) __field(u16, tid) __field(u16, ssn) __field(u8, buf_size) \fBVIF_ENTRY\fP), TP_fast_assign(\fBLOCAL_ASSIGN\fP;\fBVIF_ASSIGN\fP;\fBSTA_ASSIGN\fP;__entry->action=action;__entry->tid=tid;__entry->ssn=ssn?*ssn:0;__entry->buf_size=buf_size;), TP_printk(\fBLOCAL_PR_FMT\fP \fBVIF_PR_FMT\fP \fBSTA_PR_FMT\fP' action:%d tid:%d buf:%d', LOCAL_PR_ARG, \fBVIF_PR_ARG\fP, \fBSTA_PR_ARG\fP, __entry->action, __entry->tid, __entry->buf_size))"
+.br
+.ti -1c
+.RI "\fBTRACE_EVENT\fP (drv_get_survey, TP_PROTO(struct \fBieee80211_local\fP *local, int idx, struct survey_info *survey), TP_ARGS(local, idx, survey), TP_STRUCT__entry(LOCAL_ENTRY__field(int, idx)), TP_fast_assign(\fBLOCAL_ASSIGN\fP;__entry->idx=idx;), TP_printk(\fBLOCAL_PR_FMT\fP' idx:%d', LOCAL_PR_ARG, __entry->idx))"
+.br
+.ti -1c
+.RI "\fBTRACE_EVENT\fP (drv_flush, TP_PROTO(struct \fBieee80211_local\fP *local, bool drop), TP_ARGS(local, drop), TP_STRUCT__entry(LOCAL_ENTRY__field(bool, drop)), TP_fast_assign(\fBLOCAL_ASSIGN\fP;__entry->drop=drop;), TP_printk(\fBLOCAL_PR_FMT\fP' drop:%d', LOCAL_PR_ARG, __entry->drop))"
+.br
+.ti -1c
+.RI "\fBTRACE_EVENT\fP (drv_channel_switch, TP_PROTO(struct \fBieee80211_local\fP *local, struct ieee80211_channel_switch *ch_switch), TP_ARGS(local, ch_switch), TP_STRUCT__entry(LOCAL_ENTRY__field(u64, timestamp) __field(bool, block_tx) __field(u16, freq) __field(u8, count)), TP_fast_assign(\fBLOCAL_ASSIGN\fP;__entry->timestamp=ch_switch->timestamp;__entry->block_tx=ch_switch->block_tx;__entry->freq=ch_switch->channel->center_freq;__entry->count=ch_switch->count;), TP_printk(\fBLOCAL_PR_FMT\fP' new freq:%u count:%d', LOCAL_PR_ARG, __entry->freq, __entry->count))"
+.br
+.ti -1c
+.RI "\fBTRACE_EVENT\fP (drv_set_antenna, TP_PROTO(struct \fBieee80211_local\fP *local, u32 tx_ant, u32 rx_ant, int ret), TP_ARGS(local, tx_ant, rx_ant, ret), TP_STRUCT__entry(LOCAL_ENTRY__field(u32, tx_ant) __field(u32, rx_ant) __field(int, ret)), TP_fast_assign(\fBLOCAL_ASSIGN\fP;__entry->tx_ant=tx_ant;__entry->rx_ant=rx_ant;__entry->ret=ret;), TP_printk(\fBLOCAL_PR_FMT\fP' tx_ant:%d rx_ant:%d ret:%d', LOCAL_PR_ARG, __entry->tx_ant, __entry->rx_ant, __entry->ret))"
+.br
+.ti -1c
+.RI "\fBTRACE_EVENT\fP (drv_get_antenna, TP_PROTO(struct \fBieee80211_local\fP *local, u32 tx_ant, u32 rx_ant, int ret), TP_ARGS(local, tx_ant, rx_ant, ret), TP_STRUCT__entry(LOCAL_ENTRY__field(u32, tx_ant) __field(u32, rx_ant) __field(int, ret)), TP_fast_assign(\fBLOCAL_ASSIGN\fP;__entry->tx_ant=tx_ant;__entry->rx_ant=rx_ant;__entry->ret=ret;), TP_printk(\fBLOCAL_PR_FMT\fP' tx_ant:%d rx_ant:%d ret:%d', LOCAL_PR_ARG, __entry->tx_ant, __entry->rx_ant, __entry->ret))"
+.br
+.ti -1c
+.RI "\fBTRACE_EVENT\fP (drv_remain_on_channel, TP_PROTO(struct \fBieee80211_local\fP *local, struct ieee80211_channel *chan, enum nl80211_channel_type chantype, unsigned int duration), TP_ARGS(local, chan, chantype, duration), TP_STRUCT__entry(LOCAL_ENTRY__field(int, center_freq) __field(int, channel_type) __field(unsigned int, duration)), TP_fast_assign(\fBLOCAL_ASSIGN\fP;__entry->center_freq=chan->center_freq;__entry->channel_type=chantype;__entry->duration=duration;), TP_printk(\fBLOCAL_PR_FMT\fP' freq:%dMHz duration:%dms', LOCAL_PR_ARG, __entry->center_freq, __entry->duration))"
+.br
+.ti -1c
+.RI "\fBDEFINE_EVENT\fP (local_only_evt, drv_cancel_remain_on_channel, TP_PROTO(struct \fBieee80211_local\fP *local),)"
+.br
+.ti -1c
+.RI "\fBTRACE_EVENT\fP (drv_offchannel_tx, TP_PROTO(struct \fBieee80211_local\fP *local, struct sk_buff *skb, struct ieee80211_channel *chan, enum nl80211_channel_type channel_type, unsigned int wait), TP_ARGS(local, skb, chan, channel_type, wait), TP_STRUCT__entry(LOCAL_ENTRY__field(int, center_freq) __field(int, channel_type) __field(unsigned int, wait)), TP_fast_assign(\fBLOCAL_ASSIGN\fP;__entry->center_freq=chan->center_freq;__entry->channel_type=channel_type;__entry->wait=wait;), TP_printk(\fBLOCAL_PR_FMT\fP' freq:%dMHz, wait:%dms', LOCAL_PR_ARG, __entry->center_freq, __entry->wait))"
+.br
+.ti -1c
+.RI "\fBTRACE_EVENT\fP (drv_set_ringparam, TP_PROTO(struct \fBieee80211_local\fP *local, u32 tx, u32 rx), TP_ARGS(local, tx, rx), TP_STRUCT__entry(LOCAL_ENTRY__field(u32, tx) __field(u32, rx)), TP_fast_assign(\fBLOCAL_ASSIGN\fP;__entry->tx=tx;__entry->rx=rx;), TP_printk(\fBLOCAL_PR_FMT\fP' tx:%d rx %d', LOCAL_PR_ARG, __entry->tx, __entry->rx))"
+.br
+.ti -1c
+.RI "\fBTRACE_EVENT\fP (drv_get_ringparam, TP_PROTO(struct \fBieee80211_local\fP *local, u32 *tx, u32 *tx_max, u32 *rx, u32 *rx_max), TP_ARGS(local, tx, tx_max, rx, rx_max), TP_STRUCT__entry(LOCAL_ENTRY__field(u32, tx) __field(u32, tx_max) __field(u32, rx) __field(u32, rx_max)), TP_fast_assign(\fBLOCAL_ASSIGN\fP;__entry->tx=*tx;__entry->tx_max=*tx_max;__entry->rx=*rx;__entry->rx_max=*rx_max;), TP_printk(\fBLOCAL_PR_FMT\fP' tx:%d tx_max %d rx %d rx_max %d', LOCAL_PR_ARG, __entry->tx, __entry->tx_max, __entry->rx, __entry->rx_max))"
+.br
+.ti -1c
+.RI "\fBDEFINE_EVENT\fP (local_only_evt, drv_tx_frames_pending, TP_PROTO(struct \fBieee80211_local\fP *local),)"
+.br
+.ti -1c
+.RI "\fBDEFINE_EVENT\fP (local_only_evt, drv_offchannel_tx_cancel_wait, TP_PROTO(struct \fBieee80211_local\fP *local),)"
+.br
+.ti -1c
+.RI "\fBTRACE_EVENT\fP (drv_set_bitrate_mask, TP_PROTO(struct \fBieee80211_local\fP *local, struct \fBieee80211_sub_if_data\fP *sdata, const struct cfg80211_bitrate_mask *mask), TP_ARGS(local, sdata, mask), TP_STRUCT__entry(LOCAL_ENTRYVIF_ENTRY__field(u32, legacy_2g) __field(u32, legacy_5g)), TP_fast_assign(\fBLOCAL_ASSIGN\fP;\fBVIF_ASSIGN\fP;__entry->legacy_2g=mask->control[IEEE80211_BAND_2GHZ]\&.legacy;__entry->legacy_5g=mask->control[IEEE80211_BAND_5GHZ]\&.legacy;), TP_printk(LOCAL_PR_FMTVIF_PR_FMT' 2G Mask:0x%x 5G Mask:0x%x', LOCAL_PR_ARG, VIF_PR_ARG, __entry->legacy_2g, __entry->legacy_5g))"
+.br
+.ti -1c
+.RI "\fBTRACE_EVENT\fP (drv_set_rekey_data, TP_PROTO(struct \fBieee80211_local\fP *local, struct \fBieee80211_sub_if_data\fP *sdata, struct cfg80211_gtk_rekey_data *data), TP_ARGS(local, sdata, data), TP_STRUCT__entry(LOCAL_ENTRYVIF_ENTRY__array(u8, kek, NL80211_KEK_LEN) __array(u8, kck, NL80211_KCK_LEN) __array(u8, replay_ctr, NL80211_REPLAY_CTR_LEN)), TP_fast_assign(\fBLOCAL_ASSIGN\fP;\fBVIF_ASSIGN\fP;memcpy(__entry->kek, data->kek, NL80211_KEK_LEN);memcpy(__entry->kck, data->kck, NL80211_KCK_LEN);memcpy(__entry->replay_ctr, data->replay_ctr, NL80211_REPLAY_CTR_LEN);), TP_printk(\fBLOCAL_PR_FMT\fP \fBVIF_PR_FMT\fP, \fBLOCAL_PR_ARG\fP, \fBVIF_PR_ARG\fP))"
+.br
+.ti -1c
+.RI "\fBTRACE_EVENT\fP (drv_rssi_callback, TP_PROTO(struct \fBieee80211_local\fP *local, enum ieee80211_rssi_event rssi_event), TP_ARGS(local, rssi_event), TP_STRUCT__entry(LOCAL_ENTRY__field(u32, rssi_event)), TP_fast_assign(\fBLOCAL_ASSIGN\fP;__entry->rssi_event=rssi_event;), TP_printk(\fBLOCAL_PR_FMT\fP' rssi_event:%d', LOCAL_PR_ARG, __entry->rssi_event))"
+.br
+.ti -1c
+.RI "\fBDECLARE_EVENT_CLASS\fP (release_evt, TP_PROTO(struct \fBieee80211_local\fP *local, struct ieee80211_sta *sta, u16 tids, int num_frames, enum ieee80211_frame_release_type reason, bool more_data), TP_ARGS(local, sta, tids, num_frames, reason, more_data), TP_STRUCT__entry(LOCAL_ENTRYSTA_ENTRY__field(u16, tids) __field(int, num_frames) __field(int, reason) __field(bool, more_data)), TP_fast_assign(\fBLOCAL_ASSIGN\fP;\fBSTA_ASSIGN\fP;__entry->tids=tids;__entry->num_frames=num_frames;__entry->reason=reason;__entry->more_data=more_data;), TP_printk(\fBLOCAL_PR_FMT\fP \fBSTA_PR_FMT\fP' TIDs:0x%\&.4x frames:%d reason:%d more:%d', LOCAL_PR_ARG, STA_PR_ARG, __entry->tids, __entry->num_frames, __entry->reason, __entry->more_data))"
+.br
+.ti -1c
+.RI "\fBDEFINE_EVENT\fP (release_evt, drv_release_buffered_frames, TP_PROTO(struct \fBieee80211_local\fP *local, struct ieee80211_sta *sta, u16 tids, int num_frames, enum ieee80211_frame_release_type reason, bool more_data),)"
+.br
+.ti -1c
+.RI "\fBDEFINE_EVENT\fP (release_evt, drv_allow_buffered_frames, TP_PROTO(struct \fBieee80211_local\fP *local, struct ieee80211_sta *sta, u16 tids, int num_frames, enum ieee80211_frame_release_type reason, bool more_data),)"
+.br
+.ti -1c
+.RI "\fBTRACE_EVENT\fP (api_start_tx_ba_session, TP_PROTO(struct ieee80211_sta *sta, u16 tid), TP_ARGS(sta, tid), TP_STRUCT__entry(STA_ENTRY__field(u16, tid)), TP_fast_assign(\fBSTA_ASSIGN\fP;__entry->tid=tid;), TP_printk(\fBSTA_PR_FMT\fP' tid:%d', STA_PR_ARG, __entry->tid))"
+.br
+.ti -1c
+.RI "\fBTRACE_EVENT\fP (api_start_tx_ba_cb, TP_PROTO(struct \fBieee80211_sub_if_data\fP *sdata, const u8 *ra, u16 tid), TP_ARGS(sdata, ra, tid), TP_STRUCT__entry(VIF_ENTRY__array(u8, ra, ETH_ALEN) __field(u16, tid)), TP_fast_assign(\fBVIF_ASSIGN\fP;memcpy(__entry->ra, ra, ETH_ALEN);__entry->tid=tid;), TP_printk(\fBVIF_PR_FMT\fP' ra:%pM tid:%d', VIF_PR_ARG, __entry->ra, __entry->tid))"
+.br
+.ti -1c
+.RI "\fBTRACE_EVENT\fP (api_stop_tx_ba_session, TP_PROTO(struct ieee80211_sta *sta, u16 tid), TP_ARGS(sta, tid), TP_STRUCT__entry(STA_ENTRY__field(u16, tid)), TP_fast_assign(\fBSTA_ASSIGN\fP;__entry->tid=tid;), TP_printk(\fBSTA_PR_FMT\fP' tid:%d', STA_PR_ARG, __entry->tid))"
+.br
+.ti -1c
+.RI "\fBTRACE_EVENT\fP (api_stop_tx_ba_cb, TP_PROTO(struct \fBieee80211_sub_if_data\fP *sdata, const u8 *ra, u16 tid), TP_ARGS(sdata, ra, tid), TP_STRUCT__entry(VIF_ENTRY__array(u8, ra, ETH_ALEN) __field(u16, tid)), TP_fast_assign(\fBVIF_ASSIGN\fP;memcpy(__entry->ra, ra, ETH_ALEN);__entry->tid=tid;), TP_printk(\fBVIF_PR_FMT\fP' ra:%pM tid:%d', VIF_PR_ARG, __entry->ra, __entry->tid))"
+.br
+.ti -1c
+.RI "\fBDEFINE_EVENT\fP (local_only_evt, api_restart_hw, TP_PROTO(struct \fBieee80211_local\fP *local),)"
+.br
+.ti -1c
+.RI "\fBTRACE_EVENT\fP (api_beacon_loss, TP_PROTO(struct \fBieee80211_sub_if_data\fP *sdata), TP_ARGS(sdata), TP_STRUCT__entry(\fBVIF_ENTRY\fP), TP_fast_assign(\fBVIF_ASSIGN\fP;), TP_printk(\fBVIF_PR_FMT\fP, \fBVIF_PR_ARG\fP))"
+.br
+.ti -1c
+.RI "\fBTRACE_EVENT\fP (api_connection_loss, TP_PROTO(struct \fBieee80211_sub_if_data\fP *sdata), TP_ARGS(sdata), TP_STRUCT__entry(\fBVIF_ENTRY\fP), TP_fast_assign(\fBVIF_ASSIGN\fP;), TP_printk(\fBVIF_PR_FMT\fP, \fBVIF_PR_ARG\fP))"
+.br
+.ti -1c
+.RI "\fBTRACE_EVENT\fP (api_cqm_rssi_notify, TP_PROTO(struct \fBieee80211_sub_if_data\fP *sdata, enum nl80211_cqm_rssi_threshold_event rssi_event), TP_ARGS(sdata, rssi_event), TP_STRUCT__entry(VIF_ENTRY__field(u32, rssi_event)), TP_fast_assign(\fBVIF_ASSIGN\fP;__entry->rssi_event=rssi_event;), TP_printk(\fBVIF_PR_FMT\fP' event:%d', VIF_PR_ARG, __entry->rssi_event))"
+.br
+.ti -1c
+.RI "\fBTRACE_EVENT\fP (api_scan_completed, TP_PROTO(struct \fBieee80211_local\fP *local, bool aborted), TP_ARGS(local, aborted), TP_STRUCT__entry(LOCAL_ENTRY__field(bool, aborted)), TP_fast_assign(\fBLOCAL_ASSIGN\fP;__entry->aborted=aborted;), TP_printk(\fBLOCAL_PR_FMT\fP' aborted:%d', LOCAL_PR_ARG, __entry->aborted))"
+.br
+.ti -1c
+.RI "\fBTRACE_EVENT\fP (api_sched_scan_results, TP_PROTO(struct \fBieee80211_local\fP *local), TP_ARGS(local), TP_STRUCT__entry(\fBLOCAL_ENTRY\fP), TP_fast_assign(\fBLOCAL_ASSIGN\fP;), TP_printk(\fBLOCAL_PR_FMT\fP, \fBLOCAL_PR_ARG\fP))"
+.br
+.ti -1c
+.RI "\fBTRACE_EVENT\fP (api_sched_scan_stopped, TP_PROTO(struct \fBieee80211_local\fP *local), TP_ARGS(local), TP_STRUCT__entry(\fBLOCAL_ENTRY\fP), TP_fast_assign(\fBLOCAL_ASSIGN\fP;), TP_printk(\fBLOCAL_PR_FMT\fP, \fBLOCAL_PR_ARG\fP))"
+.br
+.ti -1c
+.RI "\fBTRACE_EVENT\fP (api_sta_block_awake, TP_PROTO(struct \fBieee80211_local\fP *local, struct ieee80211_sta *sta, bool block), TP_ARGS(local, sta, block), TP_STRUCT__entry(LOCAL_ENTRYSTA_ENTRY__field(bool, block)), TP_fast_assign(\fBLOCAL_ASSIGN\fP;\fBSTA_ASSIGN\fP;__entry->block=block;), TP_printk(\fBLOCAL_PR_FMT\fP \fBSTA_PR_FMT\fP' block:%d', LOCAL_PR_ARG, \fBSTA_PR_FMT\fP, __entry->block))"
+.br
+.ti -1c
+.RI "\fBTRACE_EVENT\fP (api_chswitch_done, TP_PROTO(struct \fBieee80211_sub_if_data\fP *sdata, bool success), TP_ARGS(sdata, success), TP_STRUCT__entry(VIF_ENTRY__field(bool, success)), TP_fast_assign(\fBVIF_ASSIGN\fP;__entry->success=success;), TP_printk(\fBVIF_PR_FMT\fP' success=%d', VIF_PR_ARG, __entry->success))"
+.br
+.ti -1c
+.RI "\fBDEFINE_EVENT\fP (local_only_evt, api_ready_on_channel, TP_PROTO(struct \fBieee80211_local\fP *local),)"
+.br
+.ti -1c
+.RI "\fBDEFINE_EVENT\fP (local_only_evt, api_remain_on_channel_expired, TP_PROTO(struct \fBieee80211_local\fP *local),)"
+.br
+.ti -1c
+.RI "\fBTRACE_EVENT\fP (api_gtk_rekey_notify, TP_PROTO(struct \fBieee80211_sub_if_data\fP *sdata, const u8 *bssid, const u8 *replay_ctr), TP_ARGS(sdata, bssid, replay_ctr), TP_STRUCT__entry(VIF_ENTRY__array(u8, bssid, ETH_ALEN) __array(u8, replay_ctr, NL80211_REPLAY_CTR_LEN)), TP_fast_assign(\fBVIF_ASSIGN\fP;memcpy(__entry->bssid, bssid, ETH_ALEN);memcpy(__entry->replay_ctr, replay_ctr, NL80211_REPLAY_CTR_LEN);), TP_printk(\fBVIF_PR_FMT\fP, \fBVIF_PR_ARG\fP))"
+.br
+.ti -1c
+.RI "\fBTRACE_EVENT\fP (api_enable_rssi_reports, TP_PROTO(struct \fBieee80211_sub_if_data\fP *sdata, int rssi_min_thold, int rssi_max_thold), TP_ARGS(sdata, rssi_min_thold, rssi_max_thold), TP_STRUCT__entry(VIF_ENTRY__field(int, rssi_min_thold) __field(int, rssi_max_thold)), TP_fast_assign(\fBVIF_ASSIGN\fP;__entry->rssi_min_thold=rssi_min_thold;__entry->rssi_max_thold=rssi_max_thold;), TP_printk(\fBVIF_PR_FMT\fP' rssi_min_thold =%d, rssi_max_thold = %d', VIF_PR_ARG, __entry->rssi_min_thold, __entry->rssi_max_thold))"
+.br
+.ti -1c
+.RI "\fBTRACE_EVENT\fP (api_eosp, TP_PROTO(struct \fBieee80211_local\fP *local, struct ieee80211_sta *sta), TP_ARGS(local, sta), TP_STRUCT__entry(LOCAL_ENTRYSTA_ENTRY), TP_fast_assign(\fBLOCAL_ASSIGN\fP;\fBSTA_ASSIGN\fP;), TP_printk(\fBLOCAL_PR_FMT\fP \fBSTA_PR_FMT\fP, \fBLOCAL_PR_ARG\fP, \fBSTA_PR_FMT\fP))"
+.br
+.ti -1c
+.RI "\fBTRACE_EVENT\fP (wake_queue, TP_PROTO(struct \fBieee80211_local\fP *local, u16 queue, enum \fBqueue_stop_reason\fP reason), TP_ARGS(local, queue, reason), TP_STRUCT__entry(LOCAL_ENTRY__field(u16, queue) __field(u32, reason)), TP_fast_assign(\fBLOCAL_ASSIGN\fP;__entry->queue=queue;__entry->reason=reason;), TP_printk(\fBLOCAL_PR_FMT\fP' queue:%d, reason:%d', LOCAL_PR_ARG, __entry->queue, __entry->reason))"
+.br
+.ti -1c
+.RI "\fBTRACE_EVENT\fP (stop_queue, TP_PROTO(struct \fBieee80211_local\fP *local, u16 queue, enum \fBqueue_stop_reason\fP reason), TP_ARGS(local, queue, reason), TP_STRUCT__entry(LOCAL_ENTRY__field(u16, queue) __field(u32, reason)), TP_fast_assign(\fBLOCAL_ASSIGN\fP;__entry->queue=queue;__entry->reason=reason;), TP_printk(\fBLOCAL_PR_FMT\fP' queue:%d, reason:%d', LOCAL_PR_ARG, __entry->queue, __entry->reason))"
+.br
+.in -1c
+.SH "Macro Definition Documentation"
+.PP 
+.SS "#define __MAC80211_DRIVER_TRACE"
+
+.PP
+Definition at line 2 of file driver-trace\&.h\&.
+.SS "#define LOCAL_ASSIGN   strlcpy(__entry->wiphy_name, wiphy_name(local->hw\&.wiphy), \fBMAXNAME\fP)"
+
+.PP
+Definition at line 13 of file driver-trace\&.h\&.
+.SS "#define LOCAL_ENTRY   __array(char, wiphy_name, 32)"
+
+.PP
+Definition at line 12 of file driver-trace\&.h\&.
+.SS "#define LOCAL_PR_ARG   __entry->wiphy_name"
+
+.PP
+Definition at line 15 of file driver-trace\&.h\&.
+.SS "#define LOCAL_PR_FMT   '%s'"
+
+.PP
+Definition at line 14 of file driver-trace\&.h\&.
+.SS "#define MAXNAME   32"
+
+.PP
+Definition at line 11 of file driver-trace\&.h\&.
+.SS "#define STA_ASSIGN   (sta ? memcpy(__entry->sta_addr, sta->addr, ETH_ALEN) : memset(__entry->sta_addr, 0, ETH_ALEN))"
+
+.PP
+Definition at line 18 of file driver-trace\&.h\&.
+.SS "#define STA_ENTRY   __array(char, sta_addr, ETH_ALEN)"
+
+.PP
+Definition at line 17 of file driver-trace\&.h\&.
+.SS "#define STA_PR_ARG   __entry->sta_addr"
+
+.PP
+Definition at line 20 of file driver-trace\&.h\&.
+.SS "#define STA_PR_FMT   ' sta:%pM'"
+
+.PP
+Definition at line 19 of file driver-trace\&.h\&.
+.SS "#define TRACE_INCLUDE_FILE   driver-trace"
+
+.PP
+Definition at line 1558 of file driver-trace\&.h\&.
+.SS "#define TRACE_INCLUDE_PATH   \&."
+
+.PP
+Definition at line 1556 of file driver-trace\&.h\&.
+.SS "#define TRACE_SYSTEM   mac80211"
+
+.PP
+Definition at line 9 of file driver-trace\&.h\&.
+.SS "#define VIF_ASSIGN"
+\fBValue:\fP
+.PP
+.nf
+__entry->vif_type = sdata->vif\&.type; __entry->sdata = sdata;   \
+            __entry->p2p = sdata->vif\&.p2p;                   \
+            __assign_str(vif_name, sdata->dev ? sdata->dev->name : "<nodev>")
+.fi
+.PP
+Definition at line 25 of file driver-trace\&.h\&.
+.SS "#define VIF_ENTRY"
+\fBValue:\fP
+.PP
+.nf
+__field(enum nl80211_iftype, vif_type) __field(void *, sdata)   \
+            __field(bool, p2p)                      \
+            __string(vif_name, sdata->dev ? sdata->dev->name : "<nodev>")
+.fi
+.PP
+Definition at line 22 of file driver-trace\&.h\&.
+.SS "#define VIF_PR_ARG   __get_str(vif_name), __entry->vif_type, __entry->p2p ? '/p2p' : ''"
+
+.PP
+Definition at line 29 of file driver-trace\&.h\&.
+.SS "#define VIF_PR_FMT   ' vif:%s(%d%s)'"
+
+.PP
+Definition at line 28 of file driver-trace\&.h\&.
+.SH "Function Documentation"
+.PP 
+.SS "DECLARE_EVENT_CLASS (local_only_evt, TP_PROTO(struct \fBieee80211_local\fP *local), TP_ARGS(local), TP_STRUCT__entry(\fBLOCAL_ENTRY\fP), TP_fast_assign(\fBLOCAL_ASSIGN\fP;), TP_printk(\fBLOCAL_PR_FMT\fP, \fBLOCAL_PR_ARG\fP))"
+
+.SS "DECLARE_EVENT_CLASS (local_sdata_addr_evt, TP_PROTO(struct \fBieee80211_local\fP *local, struct \fBieee80211_sub_if_data\fP *sdata), TP_ARGS(local, sdata), TP_STRUCT__entry(LOCAL_ENTRYVIF_ENTRY__array(char, addr, 6)), TP_fast_assign(\fBLOCAL_ASSIGN\fP;\fBVIF_ASSIGN\fP;memcpy(__entry->addr, sdata->vif\&.addr, 6);), TP_printk(LOCAL_PR_FMTVIF_PR_FMT' addr:%pM', LOCAL_PR_ARG, \fBVIF_PR_ARG\fP, __entry->addr))"
+
+.SS "DECLARE_EVENT_CLASS (local_u32_evt, TP_PROTO(struct \fBieee80211_local\fP *local, u32 value), TP_ARGS(local, value), TP_STRUCT__entry(LOCAL_ENTRY__field(u32, value)), TP_fast_assign(\fBLOCAL_ASSIGN\fP;__entry->value=value;), TP_printk(\fBLOCAL_PR_FMT\fP' value:%d', LOCAL_PR_ARG, __entry->value))"
+
+.SS "DECLARE_EVENT_CLASS (local_sdata_evt, TP_PROTO(struct \fBieee80211_local\fP *local, struct \fBieee80211_sub_if_data\fP *sdata), TP_ARGS(local, sdata), TP_STRUCT__entry(LOCAL_ENTRYVIF_ENTRY), TP_fast_assign(\fBLOCAL_ASSIGN\fP;\fBVIF_ASSIGN\fP;), TP_printk(\fBLOCAL_PR_FMT\fP \fBVIF_PR_FMT\fP, \fBLOCAL_PR_ARG\fP, \fBVIF_PR_ARG\fP))"
+
+.SS "DECLARE_EVENT_CLASS (release_evt, TP_PROTO(struct \fBieee80211_local\fP *local, struct ieee80211_sta *sta, u16 tids, int num_frames, enum ieee80211_frame_release_type reason, bool more_data), TP_ARGS(local, sta, tids, num_frames, reason, more_data), TP_STRUCT__entry(LOCAL_ENTRYSTA_ENTRY__field(u16, tids) __field(int, num_frames) __field(int, reason) __field(bool, more_data)), TP_fast_assign(\fBLOCAL_ASSIGN\fP;\fBSTA_ASSIGN\fP;__entry->tids=tids;__entry->num_frames=num_frames;__entry->reason=reason;__entry->more_data=more_data;), TP_printk(\fBLOCAL_PR_FMT\fP \fBSTA_PR_FMT\fP' TIDs:0x%\&.4x frames:%d reason:%d more:%d', LOCAL_PR_ARG, STA_PR_ARG, __entry->tids, __entry->num_frames, __entry->reason, __entry->more_data))"
+
+.SS "DEFINE_EVENT (local_only_evt, drv_return_void, TP_PROTO(struct \fBieee80211_local\fP *local))"
+
+.SS "DEFINE_EVENT (local_only_evt, drv_start, TP_PROTO(struct \fBieee80211_local\fP *local))"
+
+.SS "DEFINE_EVENT (local_only_evt, drv_suspend, TP_PROTO(struct \fBieee80211_local\fP *local))"
+
+.SS "DEFINE_EVENT (local_only_evt, drv_resume, TP_PROTO(struct \fBieee80211_local\fP *local))"
+
+.SS "DEFINE_EVENT (local_only_evt, drv_stop, TP_PROTO(struct \fBieee80211_local\fP *local))"
+
+.SS "DEFINE_EVENT (local_sdata_addr_evt, drv_add_interface, TP_PROTO(struct \fBieee80211_local\fP *local, struct \fBieee80211_sub_if_data\fP *sdata))"
+
+.SS "DEFINE_EVENT (local_sdata_addr_evt, drv_remove_interface, TP_PROTO(struct \fBieee80211_local\fP *local, struct \fBieee80211_sub_if_data\fP *sdata))"
+
+.SS "DEFINE_EVENT (local_sdata_evt, drv_hw_scan, TP_PROTO(struct \fBieee80211_local\fP *local, struct \fBieee80211_sub_if_data\fP *sdata))"
+
+.SS "DEFINE_EVENT (local_sdata_evt, drv_cancel_hw_scan, TP_PROTO(struct \fBieee80211_local\fP *local, struct \fBieee80211_sub_if_data\fP *sdata))"
+
+.SS "DEFINE_EVENT (local_sdata_evt, drv_sched_scan_start, TP_PROTO(struct \fBieee80211_local\fP *local, struct \fBieee80211_sub_if_data\fP *sdata))"
+
+.SS "DEFINE_EVENT (local_sdata_evt, drv_sched_scan_stop, TP_PROTO(struct \fBieee80211_local\fP *local, struct \fBieee80211_sub_if_data\fP *sdata))"
+
+.SS "DEFINE_EVENT (local_only_evt, drv_sw_scan_start, TP_PROTO(struct \fBieee80211_local\fP *local))"
+
+.SS "DEFINE_EVENT (local_only_evt, drv_sw_scan_complete, TP_PROTO(struct \fBieee80211_local\fP *local))"
+
+.SS "DEFINE_EVENT (local_u32_evt, drv_set_frag_threshold, TP_PROTO(struct \fBieee80211_local\fP *local, u32 value))"
+
+.SS "DEFINE_EVENT (local_u32_evt, drv_set_rts_threshold, TP_PROTO(struct \fBieee80211_local\fP *local, u32 value))"
+
+.SS "DEFINE_EVENT (local_sdata_evt, drv_get_tsf, TP_PROTO(struct \fBieee80211_local\fP *local, struct \fBieee80211_sub_if_data\fP *sdata))"
+
+.SS "DEFINE_EVENT (local_sdata_evt, drv_reset_tsf, TP_PROTO(struct \fBieee80211_local\fP *local, struct \fBieee80211_sub_if_data\fP *sdata))"
+
+.SS "DEFINE_EVENT (local_only_evt, drv_tx_last_beacon, TP_PROTO(struct \fBieee80211_local\fP *local))"
+
+.SS "DEFINE_EVENT (local_only_evt, drv_cancel_remain_on_channel, TP_PROTO(struct \fBieee80211_local\fP *local))"
+
+.SS "DEFINE_EVENT (local_only_evt, drv_tx_frames_pending, TP_PROTO(struct \fBieee80211_local\fP *local))"
+
+.SS "DEFINE_EVENT (local_only_evt, drv_offchannel_tx_cancel_wait, TP_PROTO(struct \fBieee80211_local\fP *local))"
+
+.SS "DEFINE_EVENT (release_evt, drv_release_buffered_frames, TP_PROTO(struct \fBieee80211_local\fP *local, struct ieee80211_sta *sta, u16 tids, int num_frames, enum ieee80211_frame_release_type reason, bool more_data))"
+
+.SS "DEFINE_EVENT (release_evt, drv_allow_buffered_frames, TP_PROTO(struct \fBieee80211_local\fP *local, struct ieee80211_sta *sta, u16 tids, int num_frames, enum ieee80211_frame_release_type reason, bool more_data))"
+
+.SS "DEFINE_EVENT (local_only_evt, api_restart_hw, TP_PROTO(struct \fBieee80211_local\fP *local))"
+
+.SS "DEFINE_EVENT (local_only_evt, api_ready_on_channel, TP_PROTO(struct \fBieee80211_local\fP *local))"
+
+.SS "DEFINE_EVENT (local_only_evt, api_remain_on_channel_expired, TP_PROTO(struct \fBieee80211_local\fP *local))"
+
+.SS "TRACE_EVENT (drv_return_int, TP_PROTO(struct \fBieee80211_local\fP *local, int ret), TP_ARGS(local, ret), TP_STRUCT__entry(LOCAL_ENTRY__field(int, ret)), TP_fast_assign(\fBLOCAL_ASSIGN\fP;__entry->ret=ret;), TP_printk(\fBLOCAL_PR_FMT\fP' - %d', LOCAL_PR_ARG, __entry->ret))"
+
+.SS "TRACE_EVENT (drv_return_bool, TP_PROTO(struct \fBieee80211_local\fP *local, bool ret), TP_ARGS(local, ret), TP_STRUCT__entry(LOCAL_ENTRY__field(bool, ret)), TP_fast_assign(\fBLOCAL_ASSIGN\fP;__entry->ret=ret;), TP_printk(\fBLOCAL_PR_FMT\fP' - %s', LOCAL_PR_ARG,(__entry->ret)?'true':'false'))"
+
+.SS "TRACE_EVENT (drv_return_u64, TP_PROTO(struct \fBieee80211_local\fP *local, u64 ret), TP_ARGS(local, ret), TP_STRUCT__entry(LOCAL_ENTRY__field(u64, ret)), TP_fast_assign(\fBLOCAL_ASSIGN\fP;__entry->ret=ret;), TP_printk(\fBLOCAL_PR_FMT\fP' - %llu', LOCAL_PR_ARG, __entry->ret))"
+
+.SS "TRACE_EVENT (drv_change_interface, TP_PROTO(struct \fBieee80211_local\fP *local, struct \fBieee80211_sub_if_data\fP *sdata, enum nl80211_iftype type, bool p2p), TP_ARGS(local, sdata, type, p2p), TP_STRUCT__entry(LOCAL_ENTRYVIF_ENTRY__field(u32, new_type) __field(bool, new_p2p)), TP_fast_assign(\fBLOCAL_ASSIGN\fP;\fBVIF_ASSIGN\fP;__entry->new_type=type;__entry->new_p2p=p2p;), TP_printk(LOCAL_PR_FMTVIF_PR_FMT' new type:%d%s', LOCAL_PR_ARG, \fBVIF_PR_ARG\fP, __entry->new_type, __entry->new_p2p?'/p2p':''))"
+
+.SS "TRACE_EVENT (drv_config, TP_PROTO(struct \fBieee80211_local\fP *local, u32 changed), TP_ARGS(local, changed), TP_STRUCT__entry(LOCAL_ENTRY__field(u32, changed) __field(u32, flags) __field(int, power_level) __field(int, dynamic_ps_timeout) __field(int, max_sleep_period) __field(u16, listen_interval) __field(u8, long_frame_max_tx_count) __field(u8, short_frame_max_tx_count) __field(int, center_freq) __field(int, channel_type) __field(int, smps)), TP_fast_assign(\fBLOCAL_ASSIGN\fP;__entry->changed=changed;__entry->flags=local->hw\&.conf\&.flags;__entry->power_level=local->hw\&.conf\&.power_level;__entry->dynamic_ps_timeout=local->hw\&.conf\&.dynamic_ps_timeout;__entry->max_sleep_period=local->hw\&.conf\&.max_sleep_period;__entry->listen_interval=local->hw\&.conf\&.listen_interval;__entry->long_frame_max_tx_count=local->hw\&.conf\&.long_frame_max_tx_count;__entry->short_frame_max_tx_count=local->hw\&.conf\&.short_frame_max_tx_count;__entry->center_freq=local->hw\&.conf\&.channel->center_freq;__entry->channel_type=local->hw\&.conf\&.channel_type;__entry->smps=local->hw\&.conf\&.smps_mode;), TP_printk(\fBLOCAL_PR_FMT\fP' ch:%#x freq:%d', LOCAL_PR_ARG, __entry->changed, __entry->center_freq))"
+
+.SS "TRACE_EVENT (drv_bss_info_changed, TP_PROTO(struct \fBieee80211_local\fP *local, struct \fBieee80211_sub_if_data\fP *sdata, struct ieee80211_bss_conf *info, u32 changed), TP_ARGS(local, sdata, info, changed), TP_STRUCT__entry(LOCAL_ENTRYVIF_ENTRY__field(bool, assoc) __field(u16, aid) __field(bool, cts) __field(bool, shortpre) __field(bool, shortslot) __field(u8, dtimper) __field(u16, bcnint) __field(u16, assoc_cap) __field(u64, timestamp) __field(u32, basic_rates) __field(u32, changed) __field(bool, enable_beacon) __field(u16, ht_operation_mode)), TP_fast_assign(\fBLOCAL_ASSIGN\fP;\fBVIF_ASSIGN\fP;__entry->changed=changed;__entry->aid=info->aid;__entry->assoc=info->assoc;__entry->shortpre=info->use_short_preamble;__entry->cts=info->use_cts_prot;__entry->shortslot=info->use_short_slot;__entry->dtimper=info->dtim_period;__entry->bcnint=info->beacon_int;__entry->assoc_cap=info->assoc_capability;__entry->timestamp=info->last_tsf;__entry->basic_rates=info->basic_rates;__entry->enable_beacon=info->enable_beacon;__entry->ht_operation_mode=info->ht_operation_mode;), TP_printk(LOCAL_PR_FMTVIF_PR_FMT' changed:%#x', LOCAL_PR_ARG, \fBVIF_PR_ARG\fP, __entry->changed))"
+
+.SS "TRACE_EVENT (drv_prepare_multicast, TP_PROTO(struct \fBieee80211_local\fP *local, int mc_count), TP_ARGS(local, mc_count), TP_STRUCT__entry(LOCAL_ENTRY__field(int, mc_count)), TP_fast_assign(\fBLOCAL_ASSIGN\fP;__entry->mc_count=mc_count;), TP_printk(\fBLOCAL_PR_FMT\fP' prepare mc (%d)', LOCAL_PR_ARG, __entry->mc_count))"
+
+.SS "TRACE_EVENT (drv_configure_filter, TP_PROTO(struct \fBieee80211_local\fP *local, unsigned int changed_flags, unsigned int *total_flags, u64 multicast), TP_ARGS(local, changed_flags, total_flags, multicast), TP_STRUCT__entry(LOCAL_ENTRY__field(unsigned int, changed) __field(unsigned int, total) __field(u64, multicast)), TP_fast_assign(\fBLOCAL_ASSIGN\fP;__entry->changed=changed_flags;__entry->total=*total_flags;__entry->multicast=multicast;), TP_printk(\fBLOCAL_PR_FMT\fP' changed:%#x total:%#x', LOCAL_PR_ARG, __entry->changed, __entry->total))"
+
+.SS "TRACE_EVENT (drv_set_tim, TP_PROTO(struct \fBieee80211_local\fP *local, struct ieee80211_sta *sta, bool set), TP_ARGS(local, sta, set), TP_STRUCT__entry(LOCAL_ENTRYSTA_ENTRY__field(bool, set)), TP_fast_assign(\fBLOCAL_ASSIGN\fP;\fBSTA_ASSIGN\fP;__entry->set=set;), TP_printk(\fBLOCAL_PR_FMT\fP \fBSTA_PR_FMT\fP' set:%d', LOCAL_PR_ARG, \fBSTA_PR_FMT\fP, __entry->set))"
+
+.SS "TRACE_EVENT (drv_set_key, TP_PROTO(struct \fBieee80211_local\fP *local, enum set_key_cmd cmd, struct \fBieee80211_sub_if_data\fP *sdata, struct ieee80211_sta *sta, struct ieee80211_key_conf *key), TP_ARGS(local, cmd, sdata, sta, key), TP_STRUCT__entry(LOCAL_ENTRYVIF_ENTRYSTA_ENTRY__field(u32, cipher) __field(u8, hw_key_idx) __field(u8, flags) __field(s8, keyidx)), TP_fast_assign(\fBLOCAL_ASSIGN\fP;\fBVIF_ASSIGN\fP;\fBSTA_ASSIGN\fP;__entry->cipher=key->cipher;__entry->flags=key->flags;__entry->keyidx=key->keyidx;__entry->hw_key_idx=key->hw_key_idx;), TP_printk(LOCAL_PR_FMTVIF_PR_FMTSTA_PR_FMT, \fBLOCAL_PR_ARG\fP, \fBVIF_PR_ARG\fP, \fBSTA_PR_ARG\fP))"
+
+.SS "TRACE_EVENT (drv_update_tkip_key, TP_PROTO(struct \fBieee80211_local\fP *local, struct \fBieee80211_sub_if_data\fP *sdata, struct ieee80211_key_conf *conf, struct ieee80211_sta *sta, u32 iv32), TP_ARGS(local, sdata, conf, sta, iv32), TP_STRUCT__entry(LOCAL_ENTRYVIF_ENTRYSTA_ENTRY__field(u32, iv32)), TP_fast_assign(\fBLOCAL_ASSIGN\fP;\fBVIF_ASSIGN\fP;\fBSTA_ASSIGN\fP;__entry->iv32=iv32;), TP_printk(\fBLOCAL_PR_FMT\fP \fBVIF_PR_FMT\fP \fBSTA_PR_FMT\fP' iv32:%#x', LOCAL_PR_ARG, \fBVIF_PR_ARG\fP, \fBSTA_PR_ARG\fP, __entry->iv32))"
+
+.SS "TRACE_EVENT (drv_get_stats, TP_PROTO(struct \fBieee80211_local\fP *local, struct ieee80211_low_level_stats *stats, int ret), TP_ARGS(local, stats, ret), TP_STRUCT__entry(LOCAL_ENTRY__field(int, ret) __field(unsigned int, ackfail) __field(unsigned int, rtsfail) __field(unsigned int, fcserr) __field(unsigned int, rtssucc)), TP_fast_assign(\fBLOCAL_ASSIGN\fP;__entry->ret=ret;__entry->ackfail=stats->dot11ACKFailureCount;__entry->rtsfail=stats->dot11RTSFailureCount;__entry->fcserr=stats->dot11FCSErrorCount;__entry->rtssucc=stats->dot11RTSSuccessCount;), TP_printk(\fBLOCAL_PR_FMT\fP' ret:%d', LOCAL_PR_ARG, __entry->ret))"
+
+.SS "TRACE_EVENT (drv_get_tkip_seq, TP_PROTO(struct \fBieee80211_local\fP *local, u8 hw_key_idx, u32 *iv32, u16 *iv16), TP_ARGS(local, hw_key_idx, iv32, iv16), TP_STRUCT__entry(LOCAL_ENTRY__field(u8, hw_key_idx) __field(u32, iv32) __field(u16, iv16)), TP_fast_assign(\fBLOCAL_ASSIGN\fP;__entry->hw_key_idx=hw_key_idx;__entry->iv32=*iv32;__entry->iv16=*iv16;), TP_printk(\fBLOCAL_PR_FMT\fP, \fBLOCAL_PR_ARG\fP))"
+
+.SS "TRACE_EVENT (drv_set_coverage_class, TP_PROTO(struct \fBieee80211_local\fP *local, u8 value), TP_ARGS(local, value), TP_STRUCT__entry(LOCAL_ENTRY__field(u8, value)), TP_fast_assign(\fBLOCAL_ASSIGN\fP;__entry->value=value;), TP_printk(\fBLOCAL_PR_FMT\fP' value:%d', LOCAL_PR_ARG, __entry->value))"
+
+.SS "TRACE_EVENT (drv_sta_notify, TP_PROTO(struct \fBieee80211_local\fP *local, struct \fBieee80211_sub_if_data\fP *sdata, enum sta_notify_cmd cmd, struct ieee80211_sta *sta), TP_ARGS(local, sdata, cmd, sta), TP_STRUCT__entry(LOCAL_ENTRYVIF_ENTRYSTA_ENTRY__field(u32, cmd)), TP_fast_assign(\fBLOCAL_ASSIGN\fP;\fBVIF_ASSIGN\fP;\fBSTA_ASSIGN\fP;__entry->cmd=cmd;), TP_printk(LOCAL_PR_FMTVIF_PR_FMTSTA_PR_FMT' cmd:%d', LOCAL_PR_ARG, \fBVIF_PR_ARG\fP, \fBSTA_PR_ARG\fP, __entry->cmd))"
+
+.SS "TRACE_EVENT (drv_sta_state, TP_PROTO(struct \fBieee80211_local\fP *local, struct \fBieee80211_sub_if_data\fP *sdata, struct ieee80211_sta *sta, enum ieee80211_sta_state old_state, enum ieee80211_sta_state new_state), TP_ARGS(local, sdata, sta, old_state, new_state), TP_STRUCT__entry(LOCAL_ENTRYVIF_ENTRYSTA_ENTRY__field(u32, old_state) __field(u32, new_state)), TP_fast_assign(\fBLOCAL_ASSIGN\fP;\fBVIF_ASSIGN\fP;\fBSTA_ASSIGN\fP;__entry->old_state=old_state;__entry->new_state=new_state;), TP_printk(LOCAL_PR_FMTVIF_PR_FMTSTA_PR_FMT' state: %d->%d', LOCAL_PR_ARG, \fBVIF_PR_ARG\fP, \fBSTA_PR_ARG\fP, __entry->old_state, __entry->new_state))"
+
+.SS "TRACE_EVENT (drv_sta_add, TP_PROTO(struct \fBieee80211_local\fP *local, struct \fBieee80211_sub_if_data\fP *sdata, struct ieee80211_sta *sta), TP_ARGS(local, sdata, sta), TP_STRUCT__entry(LOCAL_ENTRYVIF_ENTRYSTA_ENTRY), TP_fast_assign(\fBLOCAL_ASSIGN\fP;\fBVIF_ASSIGN\fP;\fBSTA_ASSIGN\fP;), TP_printk(LOCAL_PR_FMTVIF_PR_FMTSTA_PR_FMT, \fBLOCAL_PR_ARG\fP, \fBVIF_PR_ARG\fP, \fBSTA_PR_ARG\fP))"
+
+.SS "TRACE_EVENT (drv_sta_remove, TP_PROTO(struct \fBieee80211_local\fP *local, struct \fBieee80211_sub_if_data\fP *sdata, struct ieee80211_sta *sta), TP_ARGS(local, sdata, sta), TP_STRUCT__entry(LOCAL_ENTRYVIF_ENTRYSTA_ENTRY), TP_fast_assign(\fBLOCAL_ASSIGN\fP;\fBVIF_ASSIGN\fP;\fBSTA_ASSIGN\fP;), TP_printk(LOCAL_PR_FMTVIF_PR_FMTSTA_PR_FMT, \fBLOCAL_PR_ARG\fP, \fBVIF_PR_ARG\fP, \fBSTA_PR_ARG\fP))"
+
+.SS "TRACE_EVENT (drv_conf_tx, TP_PROTO(struct \fBieee80211_local\fP *local, struct \fBieee80211_sub_if_data\fP *sdata, u16 queue, const struct ieee80211_tx_queue_params *params), TP_ARGS(local, sdata, queue, params), TP_STRUCT__entry(LOCAL_ENTRYVIF_ENTRY__field(u16, queue) __field(u16, txop) __field(u16, cw_min) __field(u16, cw_max) __field(u8, aifs) __field(bool, uapsd)), TP_fast_assign(\fBLOCAL_ASSIGN\fP;\fBVIF_ASSIGN\fP;__entry->queue=queue;__entry->txop=params->txop;__entry->cw_max=params->cw_max;__entry->cw_min=params->cw_min;__entry->aifs=params->aifs;__entry->uapsd=params->uapsd;), TP_printk(LOCAL_PR_FMTVIF_PR_FMT' queue:%d', LOCAL_PR_ARG, \fBVIF_PR_ARG\fP, __entry->queue))"
+
+.SS "TRACE_EVENT (drv_set_tsf, TP_PROTO(struct \fBieee80211_local\fP *local, struct \fBieee80211_sub_if_data\fP *sdata, u64 tsf), TP_ARGS(local, sdata, tsf), TP_STRUCT__entry(LOCAL_ENTRYVIF_ENTRY__field(u64, tsf)), TP_fast_assign(\fBLOCAL_ASSIGN\fP;\fBVIF_ASSIGN\fP;__entry->tsf=tsf;), TP_printk(LOCAL_PR_FMTVIF_PR_FMT' tsf:%llu', LOCAL_PR_ARG, \fBVIF_PR_ARG\fP,(unsigned long long) __entry->tsf))"
+
+.SS "TRACE_EVENT (drv_ampdu_action, TP_PROTO(struct \fBieee80211_local\fP *local, struct \fBieee80211_sub_if_data\fP *sdata, enum ieee80211_ampdu_mlme_action action, struct ieee80211_sta *sta, u16 tid, u16 *ssn, u8 buf_size), TP_ARGS(local, sdata, action, sta, tid, ssn, buf_size), TP_STRUCT__entry(LOCAL_ENTRYSTA_ENTRY__field(u32, action) __field(u16, tid) __field(u16, ssn) __field(u8, buf_size) \fBVIF_ENTRY\fP), TP_fast_assign(\fBLOCAL_ASSIGN\fP;\fBVIF_ASSIGN\fP;\fBSTA_ASSIGN\fP;__entry->action=action;__entry->tid=tid;__entry->ssn=ssn?*ssn:0;__entry->buf_size=buf_size;), TP_printk(\fBLOCAL_PR_FMT\fP \fBVIF_PR_FMT\fP \fBSTA_PR_FMT\fP' action:%d tid:%d buf:%d', LOCAL_PR_ARG, \fBVIF_PR_ARG\fP, \fBSTA_PR_ARG\fP, __entry->action, __entry->tid, __entry->buf_size))"
+
+.SS "TRACE_EVENT (drv_get_survey, TP_PROTO(struct \fBieee80211_local\fP *local, int idx, struct survey_info *survey), TP_ARGS(local, idx, survey), TP_STRUCT__entry(LOCAL_ENTRY__field(int, idx)), TP_fast_assign(\fBLOCAL_ASSIGN\fP;__entry->idx=idx;), TP_printk(\fBLOCAL_PR_FMT\fP' idx:%d', LOCAL_PR_ARG, __entry->idx))"
+
+.SS "TRACE_EVENT (drv_flush, TP_PROTO(struct \fBieee80211_local\fP *local, bool drop), TP_ARGS(local, drop), TP_STRUCT__entry(LOCAL_ENTRY__field(bool, drop)), TP_fast_assign(\fBLOCAL_ASSIGN\fP;__entry->drop=drop;), TP_printk(\fBLOCAL_PR_FMT\fP' drop:%d', LOCAL_PR_ARG, __entry->drop))"
+
+.SS "TRACE_EVENT (drv_channel_switch, TP_PROTO(struct \fBieee80211_local\fP *local, struct ieee80211_channel_switch *ch_switch), TP_ARGS(local, ch_switch), TP_STRUCT__entry(LOCAL_ENTRY__field(u64, timestamp) __field(bool, block_tx) __field(u16, freq) __field(u8, count)), TP_fast_assign(\fBLOCAL_ASSIGN\fP;__entry->timestamp=ch_switch->timestamp;__entry->block_tx=ch_switch->block_tx;__entry->freq=ch_switch->channel->center_freq;__entry->count=ch_switch->count;), TP_printk(\fBLOCAL_PR_FMT\fP' new freq:%u count:%d', LOCAL_PR_ARG, __entry->freq, __entry->count))"
+
+.SS "TRACE_EVENT (drv_set_antenna, TP_PROTO(struct \fBieee80211_local\fP *local, u32 tx_ant, u32 rx_ant, int ret), TP_ARGS(local, tx_ant, rx_ant, ret), TP_STRUCT__entry(LOCAL_ENTRY__field(u32, tx_ant) __field(u32, rx_ant) __field(int, ret)), TP_fast_assign(\fBLOCAL_ASSIGN\fP;__entry->tx_ant=tx_ant;__entry->rx_ant=rx_ant;__entry->ret=ret;), TP_printk(\fBLOCAL_PR_FMT\fP' tx_ant:%d rx_ant:%d ret:%d', LOCAL_PR_ARG, __entry->tx_ant, __entry->rx_ant, __entry->ret))"
+
+.SS "TRACE_EVENT (drv_get_antenna, TP_PROTO(struct \fBieee80211_local\fP *local, u32 tx_ant, u32 rx_ant, int ret), TP_ARGS(local, tx_ant, rx_ant, ret), TP_STRUCT__entry(LOCAL_ENTRY__field(u32, tx_ant) __field(u32, rx_ant) __field(int, ret)), TP_fast_assign(\fBLOCAL_ASSIGN\fP;__entry->tx_ant=tx_ant;__entry->rx_ant=rx_ant;__entry->ret=ret;), TP_printk(\fBLOCAL_PR_FMT\fP' tx_ant:%d rx_ant:%d ret:%d', LOCAL_PR_ARG, __entry->tx_ant, __entry->rx_ant, __entry->ret))"
+
+.SS "TRACE_EVENT (drv_remain_on_channel, TP_PROTO(struct \fBieee80211_local\fP *local, struct ieee80211_channel *chan, enum nl80211_channel_type chantype, unsigned int duration), TP_ARGS(local, chan, chantype, duration), TP_STRUCT__entry(LOCAL_ENTRY__field(int, center_freq) __field(int, channel_type) __field(unsigned int, duration)), TP_fast_assign(\fBLOCAL_ASSIGN\fP;__entry->center_freq=chan->center_freq;__entry->channel_type=chantype;__entry->duration=duration;), TP_printk(\fBLOCAL_PR_FMT\fP' freq:%dMHz duration:%dms', LOCAL_PR_ARG, __entry->center_freq, __entry->duration))"
+
+.SS "TRACE_EVENT (drv_offchannel_tx, TP_PROTO(struct \fBieee80211_local\fP *local, struct sk_buff *skb, struct ieee80211_channel *chan, enum nl80211_channel_type channel_type, unsigned int wait), TP_ARGS(local, skb, chan, channel_type, wait), TP_STRUCT__entry(LOCAL_ENTRY__field(int, center_freq) __field(int, channel_type) __field(unsigned int, wait)), TP_fast_assign(\fBLOCAL_ASSIGN\fP;__entry->center_freq=chan->center_freq;__entry->channel_type=channel_type;__entry->wait=wait;), TP_printk(\fBLOCAL_PR_FMT\fP' freq:%dMHz, wait:%dms', LOCAL_PR_ARG, __entry->center_freq, __entry->wait))"
+
+.SS "TRACE_EVENT (drv_set_ringparam, TP_PROTO(struct \fBieee80211_local\fP *local, u32 tx, u32 rx), TP_ARGS(local, tx, rx), TP_STRUCT__entry(LOCAL_ENTRY__field(u32, tx) __field(u32, rx)), TP_fast_assign(\fBLOCAL_ASSIGN\fP;__entry->tx=tx;__entry->rx=rx;), TP_printk(\fBLOCAL_PR_FMT\fP' tx:%d rx %d', LOCAL_PR_ARG, __entry->tx, __entry->rx))"
+
+.SS "TRACE_EVENT (drv_get_ringparam, TP_PROTO(struct \fBieee80211_local\fP *local, u32 *tx, u32 *tx_max, u32 *rx, u32 *rx_max), TP_ARGS(local, tx, tx_max, rx, rx_max), TP_STRUCT__entry(LOCAL_ENTRY__field(u32, tx) __field(u32, tx_max) __field(u32, rx) __field(u32, rx_max)), TP_fast_assign(\fBLOCAL_ASSIGN\fP;__entry->tx=*tx;__entry->tx_max=*tx_max;__entry->rx=*rx;__entry->rx_max=*rx_max;), TP_printk(\fBLOCAL_PR_FMT\fP' tx:%d tx_max %d rx %d rx_max %d', LOCAL_PR_ARG, __entry->tx, __entry->tx_max, __entry->rx, __entry->rx_max))"
+
+.SS "TRACE_EVENT (drv_set_bitrate_mask, TP_PROTO(struct \fBieee80211_local\fP *local, struct \fBieee80211_sub_if_data\fP *sdata, const struct cfg80211_bitrate_mask *mask), TP_ARGS(local, sdata, mask), TP_STRUCT__entry(LOCAL_ENTRYVIF_ENTRY__field(u32, legacy_2g) __field(u32, legacy_5g)), TP_fast_assign(\fBLOCAL_ASSIGN\fP;\fBVIF_ASSIGN\fP;__entry->legacy_2g=mask->control[IEEE80211_BAND_2GHZ]\&.legacy;__entry->legacy_5g=mask->control[IEEE80211_BAND_5GHZ]\&.legacy;), TP_printk(LOCAL_PR_FMTVIF_PR_FMT' 2G Mask:0x%x 5G Mask:0x%x', LOCAL_PR_ARG, VIF_PR_ARG, __entry->legacy_2g, __entry->legacy_5g))"
+
+.SS "TRACE_EVENT (drv_set_rekey_data, TP_PROTO(struct \fBieee80211_local\fP *local, struct \fBieee80211_sub_if_data\fP *sdata, struct cfg80211_gtk_rekey_data *data), TP_ARGS(local, sdata, data), TP_STRUCT__entry(LOCAL_ENTRYVIF_ENTRY__array(u8, kek, NL80211_KEK_LEN) __array(u8, kck, NL80211_KCK_LEN) __array(u8, replay_ctr, NL80211_REPLAY_CTR_LEN)), TP_fast_assign(\fBLOCAL_ASSIGN\fP;\fBVIF_ASSIGN\fP;memcpy(__entry->kek, data->kek, NL80211_KEK_LEN);memcpy(__entry->kck, data->kck, NL80211_KCK_LEN);memcpy(__entry->replay_ctr, data->replay_ctr, NL80211_REPLAY_CTR_LEN);), TP_printk(\fBLOCAL_PR_FMT\fP \fBVIF_PR_FMT\fP, \fBLOCAL_PR_ARG\fP, \fBVIF_PR_ARG\fP))"
+
+.SS "TRACE_EVENT (drv_rssi_callback, TP_PROTO(struct \fBieee80211_local\fP *local, enum ieee80211_rssi_event rssi_event), TP_ARGS(local, rssi_event), TP_STRUCT__entry(LOCAL_ENTRY__field(u32, rssi_event)), TP_fast_assign(\fBLOCAL_ASSIGN\fP;__entry->rssi_event=rssi_event;), TP_printk(\fBLOCAL_PR_FMT\fP' rssi_event:%d', LOCAL_PR_ARG, __entry->rssi_event))"
+
+.SS "TRACE_EVENT (api_start_tx_ba_session, TP_PROTO(struct ieee80211_sta *sta, u16 tid), TP_ARGS(sta, tid), TP_STRUCT__entry(STA_ENTRY__field(u16, tid)), TP_fast_assign(\fBSTA_ASSIGN\fP;__entry->tid=tid;), TP_printk(\fBSTA_PR_FMT\fP' tid:%d', STA_PR_ARG, __entry->tid))"
+
+.SS "TRACE_EVENT (api_start_tx_ba_cb, TP_PROTO(struct \fBieee80211_sub_if_data\fP *sdata, const u8 *ra, u16 tid), TP_ARGS(sdata, ra, tid), TP_STRUCT__entry(VIF_ENTRY__array(u8, ra, ETH_ALEN) __field(u16, tid)), TP_fast_assign(\fBVIF_ASSIGN\fP;memcpy(__entry->ra, ra, ETH_ALEN);__entry->tid=tid;), TP_printk(\fBVIF_PR_FMT\fP' ra:%pM tid:%d', VIF_PR_ARG, __entry->ra, __entry->tid))"
+
+.SS "TRACE_EVENT (api_stop_tx_ba_session, TP_PROTO(struct ieee80211_sta *sta, u16 tid), TP_ARGS(sta, tid), TP_STRUCT__entry(STA_ENTRY__field(u16, tid)), TP_fast_assign(\fBSTA_ASSIGN\fP;__entry->tid=tid;), TP_printk(\fBSTA_PR_FMT\fP' tid:%d', STA_PR_ARG, __entry->tid))"
+
+.SS "TRACE_EVENT (api_stop_tx_ba_cb, TP_PROTO(struct \fBieee80211_sub_if_data\fP *sdata, const u8 *ra, u16 tid), TP_ARGS(sdata, ra, tid), TP_STRUCT__entry(VIF_ENTRY__array(u8, ra, ETH_ALEN) __field(u16, tid)), TP_fast_assign(\fBVIF_ASSIGN\fP;memcpy(__entry->ra, ra, ETH_ALEN);__entry->tid=tid;), TP_printk(\fBVIF_PR_FMT\fP' ra:%pM tid:%d', VIF_PR_ARG, __entry->ra, __entry->tid))"
+
+.SS "TRACE_EVENT (api_beacon_loss, TP_PROTO(struct \fBieee80211_sub_if_data\fP *sdata), TP_ARGS(sdata), TP_STRUCT__entry(\fBVIF_ENTRY\fP), TP_fast_assign(\fBVIF_ASSIGN\fP;), TP_printk(\fBVIF_PR_FMT\fP, \fBVIF_PR_ARG\fP))"
+
+.SS "TRACE_EVENT (api_connection_loss, TP_PROTO(struct \fBieee80211_sub_if_data\fP *sdata), TP_ARGS(sdata), TP_STRUCT__entry(\fBVIF_ENTRY\fP), TP_fast_assign(\fBVIF_ASSIGN\fP;), TP_printk(\fBVIF_PR_FMT\fP, \fBVIF_PR_ARG\fP))"
+
+.SS "TRACE_EVENT (api_cqm_rssi_notify, TP_PROTO(struct \fBieee80211_sub_if_data\fP *sdata, enum nl80211_cqm_rssi_threshold_event rssi_event), TP_ARGS(sdata, rssi_event), TP_STRUCT__entry(VIF_ENTRY__field(u32, rssi_event)), TP_fast_assign(\fBVIF_ASSIGN\fP;__entry->rssi_event=rssi_event;), TP_printk(\fBVIF_PR_FMT\fP' event:%d', VIF_PR_ARG, __entry->rssi_event))"
+
+.SS "TRACE_EVENT (api_scan_completed, TP_PROTO(struct \fBieee80211_local\fP *local, bool aborted), TP_ARGS(local, aborted), TP_STRUCT__entry(LOCAL_ENTRY__field(bool, aborted)), TP_fast_assign(\fBLOCAL_ASSIGN\fP;__entry->aborted=aborted;), TP_printk(\fBLOCAL_PR_FMT\fP' aborted:%d', LOCAL_PR_ARG, __entry->aborted))"
+
+.SS "TRACE_EVENT (api_sched_scan_results, TP_PROTO(struct \fBieee80211_local\fP *local), TP_ARGS(local), TP_STRUCT__entry(\fBLOCAL_ENTRY\fP), TP_fast_assign(\fBLOCAL_ASSIGN\fP;), TP_printk(\fBLOCAL_PR_FMT\fP, \fBLOCAL_PR_ARG\fP))"
+
+.SS "TRACE_EVENT (api_sched_scan_stopped, TP_PROTO(struct \fBieee80211_local\fP *local), TP_ARGS(local), TP_STRUCT__entry(\fBLOCAL_ENTRY\fP), TP_fast_assign(\fBLOCAL_ASSIGN\fP;), TP_printk(\fBLOCAL_PR_FMT\fP, \fBLOCAL_PR_ARG\fP))"
+
+.SS "TRACE_EVENT (api_sta_block_awake, TP_PROTO(struct \fBieee80211_local\fP *local, struct ieee80211_sta *sta, bool block), TP_ARGS(local, sta, block), TP_STRUCT__entry(LOCAL_ENTRYSTA_ENTRY__field(bool, block)), TP_fast_assign(\fBLOCAL_ASSIGN\fP;\fBSTA_ASSIGN\fP;__entry->block=block;), TP_printk(\fBLOCAL_PR_FMT\fP \fBSTA_PR_FMT\fP' block:%d', LOCAL_PR_ARG, \fBSTA_PR_FMT\fP, __entry->block))"
+
+.SS "TRACE_EVENT (api_chswitch_done, TP_PROTO(struct \fBieee80211_sub_if_data\fP *sdata, bool success), TP_ARGS(sdata, success), TP_STRUCT__entry(VIF_ENTRY__field(bool, success)), TP_fast_assign(\fBVIF_ASSIGN\fP;__entry->success=success;), TP_printk(\fBVIF_PR_FMT\fP' success=%d', VIF_PR_ARG, __entry->success))"
+
+.SS "TRACE_EVENT (api_gtk_rekey_notify, TP_PROTO(struct \fBieee80211_sub_if_data\fP *sdata, const u8 *bssid, const u8 *replay_ctr), TP_ARGS(sdata, bssid, replay_ctr), TP_STRUCT__entry(VIF_ENTRY__array(u8, bssid, ETH_ALEN) __array(u8, replay_ctr, NL80211_REPLAY_CTR_LEN)), TP_fast_assign(\fBVIF_ASSIGN\fP;memcpy(__entry->bssid, bssid, ETH_ALEN);memcpy(__entry->replay_ctr, replay_ctr, NL80211_REPLAY_CTR_LEN);), TP_printk(\fBVIF_PR_FMT\fP, \fBVIF_PR_ARG\fP))"
+
+.SS "TRACE_EVENT (api_enable_rssi_reports, TP_PROTO(struct \fBieee80211_sub_if_data\fP *sdata, int rssi_min_thold, int rssi_max_thold), TP_ARGS(sdata, rssi_min_thold, rssi_max_thold), TP_STRUCT__entry(VIF_ENTRY__field(int, rssi_min_thold) __field(int, rssi_max_thold)), TP_fast_assign(\fBVIF_ASSIGN\fP;__entry->rssi_min_thold=rssi_min_thold;__entry->rssi_max_thold=rssi_max_thold;), TP_printk(\fBVIF_PR_FMT\fP' rssi_min_thold =%d, rssi_max_thold = %d', VIF_PR_ARG, __entry->rssi_min_thold, __entry->rssi_max_thold))"
+
+.SS "TRACE_EVENT (api_eosp, TP_PROTO(struct \fBieee80211_local\fP *local, struct ieee80211_sta *sta), TP_ARGS(local, sta), TP_STRUCT__entry(LOCAL_ENTRYSTA_ENTRY), TP_fast_assign(\fBLOCAL_ASSIGN\fP;\fBSTA_ASSIGN\fP;), TP_printk(\fBLOCAL_PR_FMT\fP \fBSTA_PR_FMT\fP, \fBLOCAL_PR_ARG\fP, \fBSTA_PR_FMT\fP))"
+
+.SS "TRACE_EVENT (wake_queue, TP_PROTO(struct \fBieee80211_local\fP *local, u16 queue, enum \fBqueue_stop_reason\fP reason), TP_ARGS(local, queue, reason), TP_STRUCT__entry(LOCAL_ENTRY__field(u16, queue) __field(u32, reason)), TP_fast_assign(\fBLOCAL_ASSIGN\fP;__entry->queue=queue;__entry->reason=reason;), TP_printk(\fBLOCAL_PR_FMT\fP' queue:%d, reason:%d', LOCAL_PR_ARG, __entry->queue, __entry->reason))"
+
+.SS "TRACE_EVENT (stop_queue, TP_PROTO(struct \fBieee80211_local\fP *local, u16 queue, enum \fBqueue_stop_reason\fP reason), TP_ARGS(local, queue, reason), TP_STRUCT__entry(LOCAL_ENTRY__field(u16, queue) __field(u32, reason)), TP_fast_assign(\fBLOCAL_ASSIGN\fP;__entry->queue=queue;__entry->reason=reason;), TP_printk(\fBLOCAL_PR_FMT\fP' queue:%d, reason:%d', LOCAL_PR_ARG, __entry->queue, __entry->reason))"
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for net_mac80211 from the source code\&.

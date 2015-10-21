@@ -1,0 +1,79 @@
+.TH "ieee80211_fragment_entry" 3 "Sun Jun 1 2014" "Version 1.0" "net_mac80211" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+ieee80211_fragment_entry \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <ieee80211_i\&.h>\fP
+.SS "Data Fields"
+
+.in +1c
+.ti -1c
+.RI "unsigned long \fBfirst_frag_time\fP"
+.br
+.ti -1c
+.RI "unsigned int \fBseq\fP"
+.br
+.ti -1c
+.RI "unsigned int \fBrx_queue\fP"
+.br
+.ti -1c
+.RI "unsigned int \fBlast_frag\fP"
+.br
+.ti -1c
+.RI "unsigned int \fBextra_len\fP"
+.br
+.ti -1c
+.RI "struct sk_buff_head \fBskb_list\fP"
+.br
+.ti -1c
+.RI "int \fBccmp\fP"
+.br
+.ti -1c
+.RI "u8 \fBlast_pn\fP [6]"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Definition at line 66 of file ieee80211_i\&.h\&.
+.SH "Field Documentation"
+.PP 
+.SS "int ccmp"
+
+.PP
+Definition at line 73 of file ieee80211_i\&.h\&.
+.SS "unsigned int extra_len"
+
+.PP
+Definition at line 71 of file ieee80211_i\&.h\&.
+.SS "unsigned long first_frag_time"
+
+.PP
+Definition at line 67 of file ieee80211_i\&.h\&.
+.SS "unsigned int last_frag"
+
+.PP
+Definition at line 70 of file ieee80211_i\&.h\&.
+.SS "u8 last_pn[6]"
+
+.PP
+Definition at line 74 of file ieee80211_i\&.h\&.
+.SS "unsigned int rx_queue"
+
+.PP
+Definition at line 69 of file ieee80211_i\&.h\&.
+.SS "unsigned int seq"
+
+.PP
+Definition at line 68 of file ieee80211_i\&.h\&.
+.SS "struct sk_buff_head skb_list"
+
+.PP
+Definition at line 72 of file ieee80211_i\&.h\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for net_mac80211 from the source code\&.

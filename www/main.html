@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Directly accessing Street View data</title>
+        <style>
+            html, body, #map-canvas {
+                height: 100%;
+                margin: 0px;
+                padding: 0px;
+                background-color:black
+            }
+        </style>
+       <script type="text/javascript" src="http://cdn.robotwebtools.org/EventEmitter2/current/eventemitter2.js"></script>
+        <script type="text/javascript" src="http://cdn.robotwebtools.org/roslibjs/current/roslib.js"></script>
+      
+       <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&signed_in=true"></script>
+        <link href="resource/style.css" rel="stylesheet" type="text/css"/>
+        <script type="text/javascript" >
+            var poly;
+            var map;
+            var meillefer = new google.maps.LatLng(46.534622, 6.567387);
+            var meillefer_driving_place = new google.maps.LatLng(46.535773, 6.566808);
+            var sv = new google.maps.StreetViewService();
+            var panorama;
+            var lastPos = meillefer_driving_place;
+            var distance, dstTot = 0;
+            var image = 'http://www.u.arizona.edu/~patricia/cute-collection/small-toys/yellow-car.gif';
+            var dotImg = 'http://www.caraudiozone.co.in/image/bullet.jpg';
+            var dotImg2 = 'http://www.3dm-world.com.au/products/Localization/en-US/help/image/Command_Icons/Annotate%20dot.png';
+
+            function initialize() {
+                panorama = new google.maps.StreetViewPanorama(document.getElementById('pano'));
+                // Set up the map
+                var mapOptions = {center: meillefer, zoom: 18, streetViewControl: true, mapTypeId: 'hybrid'};
+                map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
+                // Set the initial Street View camera to the center of the map
+                sv.getPanoramaByLocation(meillefer, 50, processSVData);
+                //google.maps.Data.addListener('addfeature', dispatchFeatureAdded);
+                google.maps.event.addListener(map, 'click', function (event) {
+                    sv.getPanoramaByLocation(event.latLng, 50, processSVData);
+                });
+                var polyOptions = {strokeColor: '#F7F7A9', strokeOpacity: 1.0, strokeWeight: 3};
+                poly = new google.maps.Polyline(polyOptions);
+                poly.setMap(map);
+
+                // Add a listener for the click event
+                google.maps.event.addListener(map, 'click', addLatLng, toggleBounce);
+            }
+
+            function connectTCP() {            //server TCP
+                var net = require('net');
+
+                var HOST = '127.0.0.1';
+                var PORT = 6969;
+
+                net.createServer(function (sock) {
+
+                    // We have a connection - a socket object is assigned to the connection automatically
+                    alert('CONNECTED: ' + sock.remoteAddress + ':' + sock.remotePort);
+
+                    // Add a 'data' event handler to this instance of socket
+                    sock.on('data', function (data) {
+
+                        alert('DATA ' + sock.remoteAddress + ': ' + data);
+                        // Write the data back to the socket, the client will receive it as data from the server
+                        sock.write('You said "' + data + '"');
+
+                    });
+
+                    // Add a 'close' event handler to this instance of socket
+                    sock.on('close', function (data) {
+                        alert('CLOSED: ' + sock.remoteAddress + ' ' + sock.remotePort);
+                    });
+
+                }).listen(PORT, HOST);
+
+                alert('Server listening on ' + HOST + ':' + PORT);
+
+                alert("fase2");
+                var server = net.createServer();
+                server.listen(PORT, HOST);
+                alert('Server listening on ' + server.address().address + ':' + server.address().port);
+                server.on('connection', function (sock) {
+
+                    alert('CONNECTED: ' + sock.remoteAddress + ':' + sock.remotePort);
+                    // other stuff is the same from here
+
+                });
+            }
+
+            function connectUDP() {                             //serverSocket UDP
+                var host = "127.0.0.1", port = 33333;
+                var dgram = require("dgram");
+                var server = dgram.createSocket("udp4");
+                server.on("message", function (msg, rinfo) {
+                    alert(rinfo.address + ':' + rinfo.port + ' - ' + msg);
+                    server.send(msg, 0, msg.length, rinfo.port, rinfo.address); // added missing bracket
+                });
+                alert("m");
+                server.bind(port, host);
+                server.bind(port, 33334);
+            }
+
+            function connectRaw() {
+
+            }
+
+            function connectROS() {
+                var ros = new ROSLIB.Ros({url: 'ws://disalpc10:9090'});
+                /*var goal = new ROSLIB.Goal({actionClient: fibonacciClient, goalMessage: {order: 7}});
+                 goal.on('feedback', function (feedback) {
+                 alert('Feedback: ' + feedback.sequence);
+                 });
+                 goal.on('result', function (result) {
+                 alert('Final Result: ' + result.sequence);
+                 });
+                 */
+                ros.on('connection', function () {
+                    alert('Connected to websocket server.');
+                });
+                ros.on('error', function (error) {
+                    alert('Error connecting to websocket server: ', error);
+                });
+                ros.on('close', function () {
+                    alert('Connection to websocket server closed.');
+                    gps.unsubscribe();
+                    errDeviation.unsubscribe();
+                });
+                /*goal.send();
+                 
+                 // Publishing a Topic
+                 // ------------------
+                 
+                 var cmdVel = new ROSLIB.Topic({
+                 ros: ros,
+                 name: '/cmd_vel',
+                 messageType: 'geometry_msgs/Twist'
+                 });
+                 
+                 var twist = new ROSLIB.Message({
+                 linear: {
+                 x: 0.1,
+                 y: 0.2,
+                 z: 0.3
+                 },
+                 angular: {
+                 x: -0.1,
+                 y: -0.2,
+                 z: -0.3
+                 }
+                 });
+                 cmdVel.publish(twist);
+                 */
+                // Subscribing to a Topic
+                // ----------------------
+
+                /*gps values
+                 
+                 TimeDistance td
+                 
+                 # Position in degrees
+                 float64 latitude
+                 float64 longitude
+                 
+                 # Meters
+                 float64 altitude
+                 
+                 # Meters/second
+                 float32 north_vel
+                 float32 east_vel
+                 float32 down_vel
+                 
+                 # Degrees
+                 float64 roll
+                 float64 pitch
+                 float64 heading
+                 float64 wander_angle
+                 float32 track_angle
+                 
+                 # Meters/second
+                 float32 speed
+                 
+                 # Degrees/second
+                 float32 ang_rate_long
+                 float32 ang_rate_trans
+                 float32 ang_rate_down
+                 
+                 # Meters/second^2
+                 float32 long_accel
+                 float32 trans_accel
+                 float32 down_accel
+                 */
+                var gps = new ROSLIB.Topic({
+                    ros: ros,
+                    name: 'applanix/nav',
+                    messageType: 'applanix_msgs/NavigationSolution'
+                });
+
+                gps.subscribe(function (gpsMsg) {
+                    var path = poly.getPath();
+                    var pos = new google.maps.LatLng(gpsMsg.latitude, gpsMsg.longitude);
+                    distance = google.maps.geometry.spherical.computeDistanceBetween(lastPos, pos);
+                    document.getElementById("dist").innerHTML = distance;
+                    dstTot += distance;
+                    document.getElementById("distTot").innerHTML = dstTot / 1000;
+                    path.push(pos);
+                    // Add a new marker at the new plotted point on the polyline.
+                    var marker = new google.maps.Marker({position: pos, title: '#' + path.getLength(), map: map, icon: dotImg}); //animation: google.maps.Animation.DROP, 
+                    map.setCenter(pos);
+                    lastPos = pos;
+                    if (distance < 30)
+                        map.setZoom(22);
+                    else if (distance < 50)
+                        map.setZoom(19);
+                    else if (distance < 100)
+                        map.setZoom(18);
+                    else if (distance < 200)
+                        map.setZoom(17);
+                    else
+                        map.setZoom(16);
+                });
+
+
+                /*Performance
+                 TimeDistance td
+                 
+                 float32 north_pos_rms_err
+                 float32 east_pos_rms_err
+                 float32 down_pos_rms_err
+                 
+                 float32 north_vel_rms_err
+                 float32 east_vel_rms_err
+                 float32 down_vel_rms_err
+                 
+                 float32 roll_rms_err
+                 float32 pitch_rms_err
+                 float32 heading_rms_err
+                 
+                 float32 err_ellipsoid_semi_major
+                 float32 err_ellipsoid_semi_minor
+                 float32 err_ellipsoid_orientation
+                 */
+                var errDeviation = new ROSLIB.Topic({
+                    ros: ros,
+                    name: '/applanix/status/perf',
+                    messageType: 'applanix_msgs/NavigationPerformance'
+                });
+
+                errDeviation.subscribe(function (devMsg) {
+                    //alert('Received message on ' + errDeviation.name + ': ' + msg.altitude + 'lat: ' + msg.latitude);
+                    //errDeviation.unsubscribe();
+                });
+                //gps.unsubscribe();
+                //errDeviation.unsubscribe();
+
+                /*
+                 // Calling a service
+                 // -----------------
+                 
+                 var addTwoIntsClient = new ROSLIB.Service({
+                 ros: ros,
+                 name: '/add_two_ints',
+                 serviceType: 'rospy_tutorials/AddTwoInts'
+                 });
+                 
+                 var request = new ROSLIB.ServiceRequest({
+                 a: 1,
+                 b: 2
+                 });
+                 
+                 addTwoIntsClient.callService(request, function (result) {
+                 console.log('Result for service call on '
+                 + addTwoIntsClient.name
+                 + ': '
+                 + result.sum);
+                 });
+                 
+                 Getting and setting a param value
+                 // ---------------------------------
+                 
+                 ros.getParams(function (params) {
+                 console.log(params);
+                 });
+                 
+                 var maxVelX = new ROSLIB.Param({
+                 ros: ros,
+                 name: 'max_vel_y'
+                 });
+                 
+                 maxVelX.set(0.8);
+                 maxVelX.get(function (value) {
+                 console.log('MAX VAL: ' + value);
+                 });
+                 
+                 */
+            }
+
+            /* function addLatLng(event) {
+             var path = poly.getPath();
+             distance = google.maps.geometry.spherical.computeDistanceBetween(lastPos, event.latLng);
+             //alert(distance);
+             document.getElementById("dist").innerHTML = distance;
+             dstTot += distance;
+             document.getElementById("distTot").innerHTML = dstTot / 1000;
+             path.push(event.latLng);
+             // Add a new marker at the new plotted point on the polyline.
+             var marker = new google.maps.Marker({position: event.latLng, title: '#' + path.getLength(), map: map, animation: google.maps.Animation.DROP, icon: dotImg});
+             map.setCenter(marker.position);
+             lastPos = marker.position;
+             if (distance < 30)
+             map.setZoom(20);
+             else if (distance < 50)
+             map.setZoom(19);
+             else if (distance < 100)
+             map.setZoom(18);
+             else if (distance < 200)
+             map.setZoom(17);
+             else
+             map.setZoom(16);
+             }
+             
+             function connect2() {
+             var PORT = 33333;
+             var HOST = '127.0.0.1';
+             
+             var dgram = require('dgram');
+             var server = dgram.createSocket('udp4');
+             alert("Waiting Socket...");
+             server.on('listening', function () {
+             var address = server.address();
+             alert('UDP Server listening on ' + address.address + ":" + address.port);
+             });
+             
+             server.on('message', function (message, remote) {
+             alert(remote.address + ':' + remote.port + ' - ' + message);
+             
+             });
+             
+             server.bind(PORT, HOST);
+             }
+             
+             function getDist() {
+             getElementById("myBtn").distance.toString();
+             }
+             */
+            function toggleBounce() {
+                if (marker.getAnimation() != null) {
+                    marker.setAnimation(null);
+                } else {
+                    marker.setAnimation(google.maps.Animation.BOUNCE);
+                }
+            }
+
+            function processSVData(data, status) {
+                if (status == google.maps.StreetViewStatus.OK) {
+                    /*var marker = new google.maps.Marker({
+                     position: data.location.latLng,
+                     map: map,
+                     title: data.location.description
+                     });
+                     */
+                    panorama.setPano(data.location.pano);
+                    panorama.setPov({
+                        heading: 270,
+                        pitch: 0
+                    });
+                    panorama.setVisible(true);
+                    google.maps.event.addListener(marker, 'click', function () {
+                        var markerPanoID = data.location.pano;
+                        // Set the Pano to use the passed panoID
+                        panorama.setPano(markerPanoID);
+                        panorama.setPov({
+                            heading: 270,
+                            pitch: 0
+                        });
+                        panorama.setVisible(true);
+                    });
+                } else {
+                    alert('Street View data not found for this location.');
+                }
+            }
+
+            google.maps.event.addDomListener(window, 'load', initialize);
+
+        </script>
+    </head>
+    <body>
+        <header>
+            <h1> <a href="http://www.epfl.ch" title="EPFL homepage"><img class="top" src="resource/epfl_small.png"></a> Real time GPS - Car location tool </h1>
+        </header>
+
+    <headerReceive>
+        Receive data... <button id="rosBtn" value="Connect..." onclick="connectROS()">ROS</button><button id="rawBtn" value="Connect..." onclick="connectRaw()">Raw</button><button id="udpBtn" value="Connect..." onclick="connectTCP()">TCP</button><button id="tcpBtn" value="Connect..." onclick="connectUDP()">UDP</button> <hr>
+        Distance: <button id="dist" value="Distance here..." >Dst</button>   [m]<br>
+        Dist Tot: <button id="distTot" value="Distance here..." >DstTot</button>  [km]
+    </headerReceive>        
+
+    <header3>
+        <a href= "http://people.epfl.ch/guillermo.sierra?lang=en" ><img src="http://jezland.com/wp-content/themes/focus/images/icons/icon_cv.png" style="width:20px;height:20px"></a> Guillermo SIERRA AIELLO<hr>
+        <a href= "http://people.epfl.ch/inaki.navarro?lang=en" ><img src="http://jezland.com/wp-content/themes/focus/images/icons/icon_cv.png" style="width:20px;height:20px"></a> Iñaki NAVARRO OIZA  <br>
+        <a href= "http://people.epfl.ch/milos.vasic?lang=en" ><img src="http://jezland.com/wp-content/themes/focus/images/icons/icon_cv.png" style="width:20px;height:20px"></a> Milos VASIC 
+    </header3>
+
+    <header2>
+        Contact: 
+        <br><br>
+        Co-Supervised by: 
+    </header2>
+
+    <div id="map-canvas" style="width: 100%; height: 45%;float:down"></div>
+    <hr>
+    <div id="pano" style="width: 100%; height: 40%;float:up"></div>
+
+    <footer>
+        <div>
+            Copyright © 
+    </footer>
+</body>
+</html>

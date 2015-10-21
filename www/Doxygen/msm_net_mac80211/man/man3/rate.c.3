@@ -1,0 +1,106 @@
+.TH "/home/guille/msm/net/mac80211/rate.c" 3 "Sun Jun 1 2014" "Version 1.0" "net_mac80211" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+/home/guille/msm/net/mac80211/rate.c \- 
+.SH SYNOPSIS
+.br
+.PP
+\fC#include <linux/kernel\&.h>\fP
+.br
+\fC#include <linux/rtnetlink\&.h>\fP
+.br
+\fC#include <linux/slab\&.h>\fP
+.br
+\fC#include <linux/module\&.h>\fP
+.br
+\fC#include 'rate\&.h'\fP
+.br
+\fC#include 'ieee80211_i\&.h'\fP
+.br
+\fC#include 'debugfs\&.h'\fP
+.br
+
+.SS "Data Structures"
+
+.in +1c
+.ti -1c
+.RI "struct \fBrate_control_alg\fP"
+.br
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBmodule_param\fP (ieee80211_default_rc_algo, charp, 0644)"
+.br
+.ti -1c
+.RI "\fBMODULE_PARM_DESC\fP (ieee80211_default_rc_algo,'Default rate control algorithm for mac80211 to use')"
+.br
+.ti -1c
+.RI "int \fBieee80211_rate_control_register\fP (struct rate_control_ops *ops)"
+.br
+.ti -1c
+.RI "\fBEXPORT_SYMBOL\fP (\fBieee80211_rate_control_register\fP)"
+.br
+.ti -1c
+.RI "void \fBieee80211_rate_control_unregister\fP (struct rate_control_ops *ops)"
+.br
+.ti -1c
+.RI "\fBEXPORT_SYMBOL\fP (\fBieee80211_rate_control_unregister\fP)"
+.br
+.ti -1c
+.RI "bool \fBrate_control_send_low\fP (struct ieee80211_sta *sta, void *priv_sta, struct ieee80211_tx_rate_control *txrc)"
+.br
+.ti -1c
+.RI "\fBEXPORT_SYMBOL\fP (\fBrate_control_send_low\fP)"
+.br
+.ti -1c
+.RI "void \fBrate_control_get_rate\fP (struct \fBieee80211_sub_if_data\fP *sdata, struct \fBsta_info\fP *sta, struct ieee80211_tx_rate_control *txrc)"
+.br
+.ti -1c
+.RI "int \fBieee80211_init_rate_ctrl_alg\fP (struct \fBieee80211_local\fP *local, const char *name)"
+.br
+.ti -1c
+.RI "void \fBrate_control_deinitialize\fP (struct \fBieee80211_local\fP *local)"
+.br
+.in -1c
+.SH "Function Documentation"
+.PP 
+.SS "EXPORT_SYMBOL (\fBieee80211_rate_control_register\fP)"
+
+.SS "EXPORT_SYMBOL (\fBieee80211_rate_control_unregister\fP)"
+
+.SS "EXPORT_SYMBOL (\fBrate_control_send_low\fP)"
+
+.SS "int ieee80211_init_rate_ctrl_alg (struct \fBieee80211_local\fP *local, const char *name)"
+
+.PP
+Definition at line 490 of file rate\&.c\&.
+.SS "int ieee80211_rate_control_register (struct rate_control_ops *ops)"
+
+.PP
+Definition at line 32 of file rate\&.c\&.
+.SS "void ieee80211_rate_control_unregister (struct rate_control_ops *ops)"
+
+.PP
+Definition at line 63 of file rate\&.c\&.
+.SS "module_param (ieee80211_default_rc_algo, charp, 0644)"
+
+.SS "MODULE_PARM_DESC (ieee80211_default_rc_algo, 'Default rate control algorithm for mac80211 to use')"
+
+.SS "void rate_control_deinitialize (struct \fBieee80211_local\fP *local)"
+
+.PP
+Definition at line 522 of file rate\&.c\&.
+.SS "void rate_control_get_rate (struct \fBieee80211_sub_if_data\fP *sdata, struct \fBsta_info\fP *sta, struct ieee80211_tx_rate_control *txrc)"
+
+.PP
+Definition at line 430 of file rate\&.c\&.
+.SS "bool rate_control_send_low (struct ieee80211_sta *sta, void *priv_sta, struct ieee80211_tx_rate_control *txrc)"
+
+.PP
+Definition at line 256 of file rate\&.c\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for net_mac80211 from the source code\&.

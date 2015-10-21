@@ -1,0 +1,62 @@
+.TH "/home/guille/msm/net/mac80211/aes_ccm.c" 3 "Sun Jun 1 2014" "Version 1.0" "net_mac80211" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+/home/guille/msm/net/mac80211/aes_ccm.c \- 
+.SH SYNOPSIS
+.br
+.PP
+\fC#include <linux/kernel\&.h>\fP
+.br
+\fC#include <linux/types\&.h>\fP
+.br
+\fC#include <linux/crypto\&.h>\fP
+.br
+\fC#include <linux/err\&.h>\fP
+.br
+\fC#include <crypto/aes\&.h>\fP
+.br
+\fC#include <net/mac80211\&.h>\fP
+.br
+\fC#include 'key\&.h'\fP
+.br
+\fC#include 'aes_ccm\&.h'\fP
+.br
+
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBieee80211_aes_ccm_encrypt\fP (struct crypto_cipher *tfm, u8 *scratch, u8 *data, size_t data_len, u8 *cdata, u8 *mic)"
+.br
+.ti -1c
+.RI "int \fBieee80211_aes_ccm_decrypt\fP (struct crypto_cipher *tfm, u8 *scratch, u8 *cdata, size_t data_len, u8 *mic, u8 *data)"
+.br
+.ti -1c
+.RI "struct crypto_cipher * \fBieee80211_aes_key_setup_encrypt\fP (const u8 key[])"
+.br
+.ti -1c
+.RI "void \fBieee80211_aes_key_free\fP (struct crypto_cipher *tfm)"
+.br
+.in -1c
+.SH "Function Documentation"
+.PP 
+.SS "int ieee80211_aes_ccm_decrypt (struct crypto_cipher *tfm, u8 *scratch, u8 *cdata, size_tdata_len, u8 *mic, u8 *data)"
+
+.PP
+Definition at line 93 of file aes_ccm\&.c\&.
+.SS "void ieee80211_aes_ccm_encrypt (struct crypto_cipher *tfm, u8 *scratch, u8 *data, size_tdata_len, u8 *cdata, u8 *mic)"
+
+.PP
+Definition at line 53 of file aes_ccm\&.c\&.
+.SS "void ieee80211_aes_key_free (struct crypto_cipher *tfm)"
+
+.PP
+Definition at line 147 of file aes_ccm\&.c\&.
+.SS "struct crypto_cipher* ieee80211_aes_key_setup_encrypt (const u8key[])"
+
+.PP
+Definition at line 135 of file aes_ccm\&.c\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for net_mac80211 from the source code\&.

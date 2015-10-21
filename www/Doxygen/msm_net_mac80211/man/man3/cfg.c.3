@@ -1,0 +1,103 @@
+.TH "/home/guille/msm/net/mac80211/cfg.c" 3 "Sun Jun 1 2014" "Version 1.0" "net_mac80211" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+/home/guille/msm/net/mac80211/cfg.c \- 
+.SH SYNOPSIS
+.br
+.PP
+\fC#include <linux/ieee80211\&.h>\fP
+.br
+\fC#include <linux/nl80211\&.h>\fP
+.br
+\fC#include <linux/rtnetlink\&.h>\fP
+.br
+\fC#include <linux/slab\&.h>\fP
+.br
+\fC#include <net/net_namespace\&.h>\fP
+.br
+\fC#include <linux/rcupdate\&.h>\fP
+.br
+\fC#include <linux/if_ether\&.h>\fP
+.br
+\fC#include <net/cfg80211\&.h>\fP
+.br
+\fC#include 'ieee80211_i\&.h'\fP
+.br
+\fC#include 'driver-ops\&.h'\fP
+.br
+\fC#include 'cfg\&.h'\fP
+.br
+\fC#include 'rate\&.h'\fP
+.br
+\fC#include 'mesh\&.h'\fP
+.br
+
+.SS "Data Structures"
+
+.in +1c
+.ti -1c
+.RI "struct \fBiapp_layer2_update\fP"
+.br
+.in -1c
+.SS "Macros"
+
+.in +1c
+.ti -1c
+.RI "#define \fBieee80211_suspend\fP   NULL"
+.br
+.ti -1c
+.RI "#define \fBieee80211_resume\fP   NULL"
+.br
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBsta_set_rate_info_tx\fP (struct \fBsta_info\fP *sta, const struct ieee80211_tx_rate *rate, struct rate_info *rinfo)"
+.br
+.ti -1c
+.RI "int \fB__ieee80211_request_smps\fP (struct \fBieee80211_sub_if_data\fP *sdata, enum ieee80211_smps_mode smps_mode)"
+.br
+.in -1c
+.SS "Variables"
+
+.in +1c
+.ti -1c
+.RI "struct \fBiapp_layer2_update\fP \fB__packed\fP"
+.br
+.ti -1c
+.RI "struct cfg80211_ops \fBmac80211_config_ops\fP"
+.br
+.in -1c
+.SH "Macro Definition Documentation"
+.PP 
+.SS "#define ieee80211_resume   NULL"
+
+.PP
+Definition at line 1530 of file cfg\&.c\&.
+.SS "#define ieee80211_suspend   NULL"
+
+.PP
+Definition at line 1529 of file cfg\&.c\&.
+.SH "Function Documentation"
+.PP 
+.SS "int __ieee80211_request_smps (struct \fBieee80211_sub_if_data\fP *sdata, enum ieee80211_smps_modesmps_mode)"
+
+.PP
+Definition at line 1774 of file cfg\&.c\&.
+.SS "void sta_set_rate_info_tx (struct \fBsta_info\fP *sta, const struct ieee80211_tx_rate *rate, struct rate_info *rinfo)"
+
+.PP
+Definition at line 339 of file cfg\&.c\&.
+.SH "Variable Documentation"
+.PP 
+.SS "struct \fBiapp_layer2_update\fP  __packed"
+
+.SS "struct cfg80211_ops mac80211_config_ops"
+
+.PP
+Definition at line 2678 of file cfg\&.c\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for net_mac80211 from the source code\&.

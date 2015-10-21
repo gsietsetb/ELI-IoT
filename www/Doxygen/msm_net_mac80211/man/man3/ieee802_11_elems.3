@@ -1,0 +1,415 @@
+.TH "ieee802_11_elems" 3 "Sun Jun 1 2014" "Version 1.0" "net_mac80211" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+ieee802_11_elems \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <ieee80211_i\&.h>\fP
+.SS "Data Fields"
+
+.in +1c
+.ti -1c
+.RI "u8 * \fBie_start\fP"
+.br
+.ti -1c
+.RI "size_t \fBtotal_len\fP"
+.br
+.ti -1c
+.RI "u8 * \fBssid\fP"
+.br
+.ti -1c
+.RI "u8 * \fBsupp_rates\fP"
+.br
+.ti -1c
+.RI "u8 * \fBfh_params\fP"
+.br
+.ti -1c
+.RI "u8 * \fBds_params\fP"
+.br
+.ti -1c
+.RI "u8 * \fBcf_params\fP"
+.br
+.ti -1c
+.RI "struct ieee80211_tim_ie * \fBtim\fP"
+.br
+.ti -1c
+.RI "u8 * \fBibss_params\fP"
+.br
+.ti -1c
+.RI "u8 * \fBchallenge\fP"
+.br
+.ti -1c
+.RI "u8 * \fBwpa\fP"
+.br
+.ti -1c
+.RI "u8 * \fBrsn\fP"
+.br
+.ti -1c
+.RI "u8 * \fBerp_info\fP"
+.br
+.ti -1c
+.RI "u8 * \fBext_supp_rates\fP"
+.br
+.ti -1c
+.RI "u8 * \fBwmm_info\fP"
+.br
+.ti -1c
+.RI "u8 * \fBwmm_param\fP"
+.br
+.ti -1c
+.RI "struct ieee80211_ht_cap * \fBht_cap_elem\fP"
+.br
+.ti -1c
+.RI "struct ieee80211_ht_info * \fBht_info_elem\fP"
+.br
+.ti -1c
+.RI "struct ieee80211_meshconf_ie * \fBmesh_config\fP"
+.br
+.ti -1c
+.RI "u8 * \fBmesh_id\fP"
+.br
+.ti -1c
+.RI "u8 * \fBpeering\fP"
+.br
+.ti -1c
+.RI "u8 * \fBpreq\fP"
+.br
+.ti -1c
+.RI "u8 * \fBprep\fP"
+.br
+.ti -1c
+.RI "u8 * \fBperr\fP"
+.br
+.ti -1c
+.RI "struct ieee80211_rann_ie * \fBrann\fP"
+.br
+.ti -1c
+.RI "u8 * \fBch_switch_elem\fP"
+.br
+.ti -1c
+.RI "u8 * \fBcountry_elem\fP"
+.br
+.ti -1c
+.RI "u8 * \fBpwr_constr_elem\fP"
+.br
+.ti -1c
+.RI "u8 * \fBquiet_elem\fP"
+.br
+.ti -1c
+.RI "u8 * \fBtimeout_int\fP"
+.br
+.ti -1c
+.RI "u8 \fBssid_len\fP"
+.br
+.ti -1c
+.RI "u8 \fBsupp_rates_len\fP"
+.br
+.ti -1c
+.RI "u8 \fBfh_params_len\fP"
+.br
+.ti -1c
+.RI "u8 \fBds_params_len\fP"
+.br
+.ti -1c
+.RI "u8 \fBcf_params_len\fP"
+.br
+.ti -1c
+.RI "u8 \fBtim_len\fP"
+.br
+.ti -1c
+.RI "u8 \fBibss_params_len\fP"
+.br
+.ti -1c
+.RI "u8 \fBchallenge_len\fP"
+.br
+.ti -1c
+.RI "u8 \fBwpa_len\fP"
+.br
+.ti -1c
+.RI "u8 \fBrsn_len\fP"
+.br
+.ti -1c
+.RI "u8 \fBerp_info_len\fP"
+.br
+.ti -1c
+.RI "u8 \fBext_supp_rates_len\fP"
+.br
+.ti -1c
+.RI "u8 \fBwmm_info_len\fP"
+.br
+.ti -1c
+.RI "u8 \fBwmm_param_len\fP"
+.br
+.ti -1c
+.RI "u8 \fBmesh_id_len\fP"
+.br
+.ti -1c
+.RI "u8 \fBpeering_len\fP"
+.br
+.ti -1c
+.RI "u8 \fBpreq_len\fP"
+.br
+.ti -1c
+.RI "u8 \fBprep_len\fP"
+.br
+.ti -1c
+.RI "u8 \fBperr_len\fP"
+.br
+.ti -1c
+.RI "u8 \fBch_switch_elem_len\fP"
+.br
+.ti -1c
+.RI "u8 \fBcountry_elem_len\fP"
+.br
+.ti -1c
+.RI "u8 \fBpwr_constr_elem_len\fP"
+.br
+.ti -1c
+.RI "u8 \fBquiet_elem_len\fP"
+.br
+.ti -1c
+.RI "u8 \fBnum_of_quiet_elem\fP"
+.br
+.ti -1c
+.RI "u8 \fBtimeout_int_len\fP"
+.br
+.ti -1c
+.RI "bool \fBparse_error\fP"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Definition at line 1101 of file ieee80211_i\&.h\&.
+.SH "Field Documentation"
+.PP 
+.SS "u8* cf_params"
+
+.PP
+Definition at line 1110 of file ieee80211_i\&.h\&.
+.SS "u8 cf_params_len"
+
+.PP
+Definition at line 1140 of file ieee80211_i\&.h\&.
+.SS "u8* ch_switch_elem"
+
+.PP
+Definition at line 1129 of file ieee80211_i\&.h\&.
+.SS "u8 ch_switch_elem_len"
+
+.PP
+Definition at line 1155 of file ieee80211_i\&.h\&.
+.SS "u8* challenge"
+
+.PP
+Definition at line 1113 of file ieee80211_i\&.h\&.
+.SS "u8 challenge_len"
+
+.PP
+Definition at line 1143 of file ieee80211_i\&.h\&.
+.SS "u8* country_elem"
+
+.PP
+Definition at line 1130 of file ieee80211_i\&.h\&.
+.SS "u8 country_elem_len"
+
+.PP
+Definition at line 1156 of file ieee80211_i\&.h\&.
+.SS "u8* ds_params"
+
+.PP
+Definition at line 1109 of file ieee80211_i\&.h\&.
+.SS "u8 ds_params_len"
+
+.PP
+Definition at line 1139 of file ieee80211_i\&.h\&.
+.SS "u8* erp_info"
+
+.PP
+Definition at line 1116 of file ieee80211_i\&.h\&.
+.SS "u8 erp_info_len"
+
+.PP
+Definition at line 1146 of file ieee80211_i\&.h\&.
+.SS "u8* ext_supp_rates"
+
+.PP
+Definition at line 1117 of file ieee80211_i\&.h\&.
+.SS "u8 ext_supp_rates_len"
+
+.PP
+Definition at line 1147 of file ieee80211_i\&.h\&.
+.SS "u8* fh_params"
+
+.PP
+Definition at line 1108 of file ieee80211_i\&.h\&.
+.SS "u8 fh_params_len"
+
+.PP
+Definition at line 1138 of file ieee80211_i\&.h\&.
+.SS "struct ieee80211_ht_cap* ht_cap_elem"
+
+.PP
+Definition at line 1120 of file ieee80211_i\&.h\&.
+.SS "struct ieee80211_ht_info* ht_info_elem"
+
+.PP
+Definition at line 1121 of file ieee80211_i\&.h\&.
+.SS "u8* ibss_params"
+
+.PP
+Definition at line 1112 of file ieee80211_i\&.h\&.
+.SS "u8 ibss_params_len"
+
+.PP
+Definition at line 1142 of file ieee80211_i\&.h\&.
+.SS "u8* ie_start"
+
+.PP
+Definition at line 1102 of file ieee80211_i\&.h\&.
+.SS "struct ieee80211_meshconf_ie* mesh_config"
+
+.PP
+Definition at line 1122 of file ieee80211_i\&.h\&.
+.SS "u8* mesh_id"
+
+.PP
+Definition at line 1123 of file ieee80211_i\&.h\&.
+.SS "u8 mesh_id_len"
+
+.PP
+Definition at line 1150 of file ieee80211_i\&.h\&.
+.SS "u8 num_of_quiet_elem"
+
+.PP
+Definition at line 1159 of file ieee80211_i\&.h\&.
+.SS "bool parse_error"
+
+.PP
+Definition at line 1163 of file ieee80211_i\&.h\&.
+.SS "u8* peering"
+
+.PP
+Definition at line 1124 of file ieee80211_i\&.h\&.
+.SS "u8 peering_len"
+
+.PP
+Definition at line 1151 of file ieee80211_i\&.h\&.
+.SS "u8* perr"
+
+.PP
+Definition at line 1127 of file ieee80211_i\&.h\&.
+.SS "u8 perr_len"
+
+.PP
+Definition at line 1154 of file ieee80211_i\&.h\&.
+.SS "u8* prep"
+
+.PP
+Definition at line 1126 of file ieee80211_i\&.h\&.
+.SS "u8 prep_len"
+
+.PP
+Definition at line 1153 of file ieee80211_i\&.h\&.
+.SS "u8* preq"
+
+.PP
+Definition at line 1125 of file ieee80211_i\&.h\&.
+.SS "u8 preq_len"
+
+.PP
+Definition at line 1152 of file ieee80211_i\&.h\&.
+.SS "u8* pwr_constr_elem"
+
+.PP
+Definition at line 1131 of file ieee80211_i\&.h\&.
+.SS "u8 pwr_constr_elem_len"
+
+.PP
+Definition at line 1157 of file ieee80211_i\&.h\&.
+.SS "u8* quiet_elem"
+
+.PP
+Definition at line 1132 of file ieee80211_i\&.h\&.
+.SS "u8 quiet_elem_len"
+
+.PP
+Definition at line 1158 of file ieee80211_i\&.h\&.
+.SS "struct ieee80211_rann_ie* rann"
+
+.PP
+Definition at line 1128 of file ieee80211_i\&.h\&.
+.SS "u8* rsn"
+
+.PP
+Definition at line 1115 of file ieee80211_i\&.h\&.
+.SS "u8 rsn_len"
+
+.PP
+Definition at line 1145 of file ieee80211_i\&.h\&.
+.SS "u8* ssid"
+
+.PP
+Definition at line 1106 of file ieee80211_i\&.h\&.
+.SS "u8 ssid_len"
+
+.PP
+Definition at line 1136 of file ieee80211_i\&.h\&.
+.SS "u8* supp_rates"
+
+.PP
+Definition at line 1107 of file ieee80211_i\&.h\&.
+.SS "u8 supp_rates_len"
+
+.PP
+Definition at line 1137 of file ieee80211_i\&.h\&.
+.SS "struct ieee80211_tim_ie* tim"
+
+.PP
+Definition at line 1111 of file ieee80211_i\&.h\&.
+.SS "u8 tim_len"
+
+.PP
+Definition at line 1141 of file ieee80211_i\&.h\&.
+.SS "u8* timeout_int"
+
+.PP
+Definition at line 1133 of file ieee80211_i\&.h\&.
+.SS "u8 timeout_int_len"
+
+.PP
+Definition at line 1160 of file ieee80211_i\&.h\&.
+.SS "size_t total_len"
+
+.PP
+Definition at line 1103 of file ieee80211_i\&.h\&.
+.SS "u8* wmm_info"
+
+.PP
+Definition at line 1118 of file ieee80211_i\&.h\&.
+.SS "u8 wmm_info_len"
+
+.PP
+Definition at line 1148 of file ieee80211_i\&.h\&.
+.SS "u8* wmm_param"
+
+.PP
+Definition at line 1119 of file ieee80211_i\&.h\&.
+.SS "u8 wmm_param_len"
+
+.PP
+Definition at line 1149 of file ieee80211_i\&.h\&.
+.SS "u8* wpa"
+
+.PP
+Definition at line 1114 of file ieee80211_i\&.h\&.
+.SS "u8 wpa_len"
+
+.PP
+Definition at line 1144 of file ieee80211_i\&.h\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for net_mac80211 from the source code\&.

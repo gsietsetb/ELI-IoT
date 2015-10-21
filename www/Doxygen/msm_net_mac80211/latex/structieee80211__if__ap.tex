@@ -1,0 +1,116 @@
+\hypertarget{structieee80211__if__ap}{\section{ieee80211\-\_\-if\-\_\-ap Struct Reference}
+\label{structieee80211__if__ap}\index{ieee80211\-\_\-if\-\_\-ap@{ieee80211\-\_\-if\-\_\-ap}}
+}
+
+
+{\ttfamily \#include $<$ieee80211\-\_\-i.\-h$>$}
+
+
+
+Collaboration diagram for ieee80211\-\_\-if\-\_\-ap\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=192pt]{structieee80211__if__ap__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structbeacon__data}{beacon\-\_\-data} \-\_\-\-\_\-rcu $\ast$ \hyperlink{structieee80211__if__ap_af423343a66559cac968f55f903c1cf3b}{beacon}
+\item 
+struct sk\-\_\-buff \-\_\-\-\_\-rcu $\ast$ \hyperlink{structieee80211__if__ap_ab6e788ecb6d5a607e56fcd97d0996d69}{probe\-\_\-resp}
+\item 
+struct list\-\_\-head \hyperlink{structieee80211__if__ap_ad647c724f4509c4bb97a527552b6497a}{vlans}
+\item 
+u8 \hyperlink{structieee80211__if__ap_ac8921d232cd7bc324ccfe9d22525d030}{tim} \mbox{[}sizeof(unsigned long)$\ast$B\-I\-T\-S\-\_\-\-T\-O\-\_\-\-L\-O\-N\-G\-S(I\-E\-E\-E80211\-\_\-\-M\-A\-X\-\_\-\-A\-I\-D+1)\mbox{]}
+\item 
+struct sk\-\_\-buff\-\_\-head \hyperlink{structieee80211__if__ap_ae1cfc557eb8683f9cb993a0e3c0003bb}{ps\-\_\-bc\-\_\-buf}
+\item 
+atomic\-\_\-t \hyperlink{structieee80211__if__ap_a5c58afde586c58d4b830915b47015999}{num\-\_\-sta\-\_\-ps}
+\item 
+atomic\-\_\-t \hyperlink{structieee80211__if__ap_a129987b49661f0799553c40659a8e807}{num\-\_\-sta\-\_\-authorized}
+\item 
+int \hyperlink{structieee80211__if__ap_abcc08bb90309210ff5688fff800cd7f1}{dtim\-\_\-count}
+\item 
+bool \hyperlink{structieee80211__if__ap_a7c2f6d7ac8d776b7b6238ab915f3b0f6}{dtim\-\_\-bc\-\_\-mc}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+
+
+Definition at line 272 of file ieee80211\-\_\-i.\-h.
+
+
+
+\subsection{Field Documentation}
+\hypertarget{structieee80211__if__ap_af423343a66559cac968f55f903c1cf3b}{\index{ieee80211\-\_\-if\-\_\-ap@{ieee80211\-\_\-if\-\_\-ap}!beacon@{beacon}}
+\index{beacon@{beacon}!ieee80211_if_ap@{ieee80211\-\_\-if\-\_\-ap}}
+\subsubsection[{beacon}]{\setlength{\rightskip}{0pt plus 5cm}struct {\bf beacon\-\_\-data} \-\_\-\-\_\-rcu$\ast$ beacon}}\label{structieee80211__if__ap_af423343a66559cac968f55f903c1cf3b}
+
+
+Definition at line 273 of file ieee80211\-\_\-i.\-h.
+
+\hypertarget{structieee80211__if__ap_a7c2f6d7ac8d776b7b6238ab915f3b0f6}{\index{ieee80211\-\_\-if\-\_\-ap@{ieee80211\-\_\-if\-\_\-ap}!dtim\-\_\-bc\-\_\-mc@{dtim\-\_\-bc\-\_\-mc}}
+\index{dtim\-\_\-bc\-\_\-mc@{dtim\-\_\-bc\-\_\-mc}!ieee80211_if_ap@{ieee80211\-\_\-if\-\_\-ap}}
+\subsubsection[{dtim\-\_\-bc\-\_\-mc}]{\setlength{\rightskip}{0pt plus 5cm}bool dtim\-\_\-bc\-\_\-mc}}\label{structieee80211__if__ap_a7c2f6d7ac8d776b7b6238ab915f3b0f6}
+
+
+Definition at line 286 of file ieee80211\-\_\-i.\-h.
+
+\hypertarget{structieee80211__if__ap_abcc08bb90309210ff5688fff800cd7f1}{\index{ieee80211\-\_\-if\-\_\-ap@{ieee80211\-\_\-if\-\_\-ap}!dtim\-\_\-count@{dtim\-\_\-count}}
+\index{dtim\-\_\-count@{dtim\-\_\-count}!ieee80211_if_ap@{ieee80211\-\_\-if\-\_\-ap}}
+\subsubsection[{dtim\-\_\-count}]{\setlength{\rightskip}{0pt plus 5cm}int dtim\-\_\-count}}\label{structieee80211__if__ap_abcc08bb90309210ff5688fff800cd7f1}
+
+
+Definition at line 285 of file ieee80211\-\_\-i.\-h.
+
+\hypertarget{structieee80211__if__ap_a129987b49661f0799553c40659a8e807}{\index{ieee80211\-\_\-if\-\_\-ap@{ieee80211\-\_\-if\-\_\-ap}!num\-\_\-sta\-\_\-authorized@{num\-\_\-sta\-\_\-authorized}}
+\index{num\-\_\-sta\-\_\-authorized@{num\-\_\-sta\-\_\-authorized}!ieee80211_if_ap@{ieee80211\-\_\-if\-\_\-ap}}
+\subsubsection[{num\-\_\-sta\-\_\-authorized}]{\setlength{\rightskip}{0pt plus 5cm}atomic\-\_\-t num\-\_\-sta\-\_\-authorized}}\label{structieee80211__if__ap_a129987b49661f0799553c40659a8e807}
+
+
+Definition at line 284 of file ieee80211\-\_\-i.\-h.
+
+\hypertarget{structieee80211__if__ap_a5c58afde586c58d4b830915b47015999}{\index{ieee80211\-\_\-if\-\_\-ap@{ieee80211\-\_\-if\-\_\-ap}!num\-\_\-sta\-\_\-ps@{num\-\_\-sta\-\_\-ps}}
+\index{num\-\_\-sta\-\_\-ps@{num\-\_\-sta\-\_\-ps}!ieee80211_if_ap@{ieee80211\-\_\-if\-\_\-ap}}
+\subsubsection[{num\-\_\-sta\-\_\-ps}]{\setlength{\rightskip}{0pt plus 5cm}atomic\-\_\-t num\-\_\-sta\-\_\-ps}}\label{structieee80211__if__ap_a5c58afde586c58d4b830915b47015999}
+
+
+Definition at line 283 of file ieee80211\-\_\-i.\-h.
+
+\hypertarget{structieee80211__if__ap_ab6e788ecb6d5a607e56fcd97d0996d69}{\index{ieee80211\-\_\-if\-\_\-ap@{ieee80211\-\_\-if\-\_\-ap}!probe\-\_\-resp@{probe\-\_\-resp}}
+\index{probe\-\_\-resp@{probe\-\_\-resp}!ieee80211_if_ap@{ieee80211\-\_\-if\-\_\-ap}}
+\subsubsection[{probe\-\_\-resp}]{\setlength{\rightskip}{0pt plus 5cm}struct sk\-\_\-buff \-\_\-\-\_\-rcu$\ast$ probe\-\_\-resp}}\label{structieee80211__if__ap_ab6e788ecb6d5a607e56fcd97d0996d69}
+
+
+Definition at line 274 of file ieee80211\-\_\-i.\-h.
+
+\hypertarget{structieee80211__if__ap_ae1cfc557eb8683f9cb993a0e3c0003bb}{\index{ieee80211\-\_\-if\-\_\-ap@{ieee80211\-\_\-if\-\_\-ap}!ps\-\_\-bc\-\_\-buf@{ps\-\_\-bc\-\_\-buf}}
+\index{ps\-\_\-bc\-\_\-buf@{ps\-\_\-bc\-\_\-buf}!ieee80211_if_ap@{ieee80211\-\_\-if\-\_\-ap}}
+\subsubsection[{ps\-\_\-bc\-\_\-buf}]{\setlength{\rightskip}{0pt plus 5cm}struct sk\-\_\-buff\-\_\-head ps\-\_\-bc\-\_\-buf}}\label{structieee80211__if__ap_ae1cfc557eb8683f9cb993a0e3c0003bb}
+
+
+Definition at line 282 of file ieee80211\-\_\-i.\-h.
+
+\hypertarget{structieee80211__if__ap_ac8921d232cd7bc324ccfe9d22525d030}{\index{ieee80211\-\_\-if\-\_\-ap@{ieee80211\-\_\-if\-\_\-ap}!tim@{tim}}
+\index{tim@{tim}!ieee80211_if_ap@{ieee80211\-\_\-if\-\_\-ap}}
+\subsubsection[{tim}]{\setlength{\rightskip}{0pt plus 5cm}u8 tim\mbox{[}sizeof(unsigned long)$\ast$B\-I\-T\-S\-\_\-\-T\-O\-\_\-\-L\-O\-N\-G\-S(I\-E\-E\-E80211\-\_\-\-M\-A\-X\-\_\-\-A\-I\-D+1)\mbox{]}}}\label{structieee80211__if__ap_ac8921d232cd7bc324ccfe9d22525d030}
+
+
+Definition at line 281 of file ieee80211\-\_\-i.\-h.
+
+\hypertarget{structieee80211__if__ap_ad647c724f4509c4bb97a527552b6497a}{\index{ieee80211\-\_\-if\-\_\-ap@{ieee80211\-\_\-if\-\_\-ap}!vlans@{vlans}}
+\index{vlans@{vlans}!ieee80211_if_ap@{ieee80211\-\_\-if\-\_\-ap}}
+\subsubsection[{vlans}]{\setlength{\rightskip}{0pt plus 5cm}struct list\-\_\-head vlans}}\label{structieee80211__if__ap_ad647c724f4509c4bb97a527552b6497a}
+
+
+Definition at line 276 of file ieee80211\-\_\-i.\-h.
+
+
+
+The documentation for this struct was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+/home/guille/msm/net/mac80211/\hyperlink{ieee80211__i_8h}{ieee80211\-\_\-i.\-h}\end{DoxyCompactItemize}

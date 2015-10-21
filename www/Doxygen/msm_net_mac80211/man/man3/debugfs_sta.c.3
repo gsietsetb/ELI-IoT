@@ -1,0 +1,227 @@
+.TH "/home/guille/msm/net/mac80211/debugfs_sta.c" 3 "Sun Jun 1 2014" "Version 1.0" "net_mac80211" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+/home/guille/msm/net/mac80211/debugfs_sta.c \- 
+.SH SYNOPSIS
+.br
+.PP
+\fC#include <linux/debugfs\&.h>\fP
+.br
+\fC#include <linux/ieee80211\&.h>\fP
+.br
+\fC#include 'ieee80211_i\&.h'\fP
+.br
+\fC#include 'debugfs\&.h'\fP
+.br
+\fC#include 'debugfs_sta\&.h'\fP
+.br
+\fC#include 'sta_info\&.h'\fP
+.br
+
+.SS "Macros"
+
+.in +1c
+.ti -1c
+.RI "#define \fBSTA_READ\fP(name, field, format_string)"
+.br
+.ti -1c
+.RI "#define \fBSTA_READ_D\fP(name, field)   \fBSTA_READ\fP(name, field, '%d\\n')"
+.br
+.ti -1c
+.RI "#define \fBSTA_READ_U\fP(name, field)   \fBSTA_READ\fP(name, field, '%u\\n')"
+.br
+.ti -1c
+.RI "#define \fBSTA_READ_S\fP(name, field)   \fBSTA_READ\fP(name, field, '%s\\n')"
+.br
+.ti -1c
+.RI "#define \fBSTA_OPS\fP(name)"
+.br
+.ti -1c
+.RI "#define \fBSTA_OPS_RW\fP(name)"
+.br
+.ti -1c
+.RI "#define \fBSTA_FILE\fP(name, field, format)"
+.br
+.ti -1c
+.RI "#define \fBTEST\fP(flg)   test_sta_flag(sta, WLAN_STA_##flg) ? #flg '\\n' : ''"
+.br
+.ti -1c
+.RI "#define \fBPRINT_HT_CAP\fP(_cond, _str)"
+.br
+.ti -1c
+.RI "#define \fBDEBUGFS_ADD\fP(name)"
+.br
+.ti -1c
+.RI "#define \fBDEBUGFS_ADD_COUNTER\fP(name, field)"
+.br
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBSTA_FILE\fP (aid, sta\&.aid, D)"
+.br
+.ti -1c
+.RI "\fBSTA_FILE\fP (dev, sdata->name, S)"
+.br
+.ti -1c
+.RI "\fBSTA_FILE\fP (last_signal, last_signal, D)"
+.br
+.ti -1c
+.RI "\fBSTA_OPS\fP (flags)"
+.br
+.ti -1c
+.RI "\fBSTA_OPS\fP (num_ps_buf_frames)"
+.br
+.ti -1c
+.RI "\fBSTA_OPS\fP (inactive_ms)"
+.br
+.ti -1c
+.RI "\fBSTA_OPS\fP (connected_time)"
+.br
+.ti -1c
+.RI "\fBSTA_OPS\fP (last_seq_ctrl)"
+.br
+.ti -1c
+.RI "\fBSTA_OPS_RW\fP (agg_status)"
+.br
+.ti -1c
+.RI "\fBSTA_OPS\fP (ht_capa)"
+.br
+.ti -1c
+.RI "void \fBieee80211_sta_debugfs_add\fP (struct \fBsta_info\fP *sta)"
+.br
+.ti -1c
+.RI "void \fBieee80211_sta_debugfs_remove\fP (struct \fBsta_info\fP *sta)"
+.br
+.in -1c
+.SH "Macro Definition Documentation"
+.PP 
+.SS "#define DEBUGFS_ADD(name)"
+\fBValue:\fP
+.PP
+.nf
+debugfs_create_file(#name, 0400, \
+        sta->debugfs\&.dir, sta, &sta_ ##name## _ops);
+.fi
+.PP
+Definition at line 322 of file debugfs_sta\&.c\&.
+.SS "#define DEBUGFS_ADD_COUNTER(name, field)"
+\fBValue:\fP
+.PP
+.nf
+if (sizeof(sta->field) == sizeof(u32))               \
+        debugfs_create_u32(#name, 0400, sta->debugfs\&.dir,    \
+            (u32 *) &sta->field);               \
+    else                                \
+        debugfs_create_u64(#name, 0400, sta->debugfs\&.dir,    \
+            (u64 *) &sta->field);
+.fi
+.PP
+Definition at line 326 of file debugfs_sta\&.c\&.
+.SS "#define PRINT_HT_CAP(_cond, _str)"
+\fBValue:\fP
+.PP
+.nf
+do { \
+    if (_cond) \
+            p += scnprintf(p, sizeof(buf)+buf-p, "\t" _str "\n"); \
+    } while (0)
+.fi
+.SS "#define STA_FILE(name, field, format)"
+\fBValue:\fP
+.PP
+.nf
+STA_READ_##format(name, field)             \
+        STA_OPS(name)
+.fi
+.PP
+Definition at line 48 of file debugfs_sta\&.c\&.
+.SS "#define STA_OPS(name)"
+\fBValue:\fP
+.PP
+.nf
+static const struct file_operations sta_ ##name## _ops = {       \
+    \&.read = sta_##name##_read,                   \
+    \&.open = simple_open,                     \
+    \&.llseek = generic_file_llseek,                   \
+}
+.fi
+.PP
+Definition at line 33 of file debugfs_sta\&.c\&.
+.SS "#define STA_OPS_RW(name)"
+\fBValue:\fP
+.PP
+.nf
+static const struct file_operations sta_ ##name## _ops = {        \
+    \&.read = sta_##name##_read,                   \
+    \&.write = sta_##name##_write,                 \
+    \&.open = simple_open,                     \
+    \&.llseek = generic_file_llseek,                   \
+}
+.fi
+.PP
+Definition at line 40 of file debugfs_sta\&.c\&.
+.SS "#define STA_READ(name, field, format_string)"
+\fBValue:\fP
+.PP
+.nf
+static ssize_t sta_ ##name## _read(struct file *file,         \
+                   char __user *userbuf,        \
+                   size_t count, loff_t *ppos)      \
+{                                   \
+    struct sta_info *sta = file->private_data;          \
+    return mac80211_format_buffer(userbuf, count, ppos,         \
+                      format_string, sta->field);   \
+}
+.fi
+.PP
+Definition at line 20 of file debugfs_sta\&.c\&.
+.SS "#define STA_READ_D(name, field)   \fBSTA_READ\fP(name, field, '%d\\n')"
+
+.PP
+Definition at line 29 of file debugfs_sta\&.c\&.
+.SS "#define STA_READ_S(name, field)   \fBSTA_READ\fP(name, field, '%s\\n')"
+
+.PP
+Definition at line 31 of file debugfs_sta\&.c\&.
+.SS "#define STA_READ_U(name, field)   \fBSTA_READ\fP(name, field, '%u\\n')"
+
+.PP
+Definition at line 30 of file debugfs_sta\&.c\&.
+.SS "#define TEST(flg)   test_sta_flag(sta, WLAN_STA_##flg) ? #flg '\\n' : ''"
+
+.SH "Function Documentation"
+.PP 
+.SS "void ieee80211_sta_debugfs_add (struct \fBsta_info\fP *sta)"
+
+.PP
+Definition at line 334 of file debugfs_sta\&.c\&.
+.SS "void ieee80211_sta_debugfs_remove (struct \fBsta_info\fP *sta)"
+
+.PP
+Definition at line 383 of file debugfs_sta\&.c\&.
+.SS "STA_FILE (aid, sta\&.aid, D)"
+
+.SS "STA_FILE (dev, sdata->name, S)"
+
+.SS "STA_FILE (last_signal, last_signal, D)"
+
+.SS "STA_OPS (flags)"
+
+.SS "STA_OPS (num_ps_buf_frames)"
+
+.SS "STA_OPS (inactive_ms)"
+
+.SS "STA_OPS (connected_time)"
+
+.SS "STA_OPS (last_seq_ctrl)"
+
+.SS "STA_OPS (ht_capa)"
+
+.SS "STA_OPS_RW (agg_status)"
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for net_mac80211 from the source code\&.

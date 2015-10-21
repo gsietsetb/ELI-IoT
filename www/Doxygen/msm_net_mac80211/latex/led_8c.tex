@@ -1,0 +1,315 @@
+\hypertarget{led_8c}{\section{/home/guille/msm/net/mac80211/led.c File Reference}
+\label{led_8c}\index{/home/guille/msm/net/mac80211/led.\-c@{/home/guille/msm/net/mac80211/led.\-c}}
+}
+{\ttfamily \#include $<$linux/if.\-h$>$}\\*
+{\ttfamily \#include $<$linux/slab.\-h$>$}\\*
+{\ttfamily \#include $<$linux/export.\-h$>$}\\*
+{\ttfamily \#include \char`\"{}led.\-h\char`\"{}}\\*
+Include dependency graph for led.\-c\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{led_8c__incl}
+\end{center}
+\end{figure}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{led_8c_a2e831f95ffb85822fccf7b09bc44aab5}{ieee80211\-\_\-led\-\_\-rx} (struct \hyperlink{structieee80211__local}{ieee80211\-\_\-local} $\ast$local)
+\item 
+void \hyperlink{led_8c_aaa63c8dea269487491a4d128adfdebbb}{ieee80211\-\_\-led\-\_\-tx} (struct \hyperlink{structieee80211__local}{ieee80211\-\_\-local} $\ast$local, int q)
+\item 
+void \hyperlink{led_8c_a5c7e65ee8139d09a393c34d3fd30ed7e}{ieee80211\-\_\-led\-\_\-assoc} (struct \hyperlink{structieee80211__local}{ieee80211\-\_\-local} $\ast$local, bool associated)
+\item 
+void \hyperlink{led_8c_a120b6c73b51adea037e5a9a83de9942d}{ieee80211\-\_\-led\-\_\-radio} (struct \hyperlink{structieee80211__local}{ieee80211\-\_\-local} $\ast$local, bool enabled)
+\item 
+void \hyperlink{led_8c_a0cd61895fcb137d433db46205ccf19a7}{ieee80211\-\_\-led\-\_\-names} (struct \hyperlink{structieee80211__local}{ieee80211\-\_\-local} $\ast$local)
+\item 
+void \hyperlink{led_8c_a00d10158b9b5580be97f06307d443f33}{ieee80211\-\_\-led\-\_\-init} (struct \hyperlink{structieee80211__local}{ieee80211\-\_\-local} $\ast$local)
+\item 
+void \hyperlink{led_8c_a45b92696eaf723c6764bce08faeb4a3b}{ieee80211\-\_\-led\-\_\-exit} (struct \hyperlink{structieee80211__local}{ieee80211\-\_\-local} $\ast$local)
+\item 
+char $\ast$ \hyperlink{led_8c_adc3f4c17378d4092e5c1eed609b9e2ed}{\-\_\-\-\_\-ieee80211\-\_\-get\-\_\-radio\-\_\-led\-\_\-name} (struct ieee80211\-\_\-hw $\ast$hw)
+\item 
+\hyperlink{led_8c_a88c06b83720a3d2677bd99a8376a71c8}{E\-X\-P\-O\-R\-T\-\_\-\-S\-Y\-M\-B\-O\-L} (\hyperlink{led_8c_adc3f4c17378d4092e5c1eed609b9e2ed}{\-\_\-\-\_\-ieee80211\-\_\-get\-\_\-radio\-\_\-led\-\_\-name})
+\item 
+char $\ast$ \hyperlink{led_8c_aefdf02edd2be9e808dd85fe41c9ae649}{\-\_\-\-\_\-ieee80211\-\_\-get\-\_\-assoc\-\_\-led\-\_\-name} (struct ieee80211\-\_\-hw $\ast$hw)
+\item 
+\hyperlink{led_8c_a4f6105dd0908f46c8e97f5a3a9128594}{E\-X\-P\-O\-R\-T\-\_\-\-S\-Y\-M\-B\-O\-L} (\hyperlink{led_8c_aefdf02edd2be9e808dd85fe41c9ae649}{\-\_\-\-\_\-ieee80211\-\_\-get\-\_\-assoc\-\_\-led\-\_\-name})
+\item 
+char $\ast$ \hyperlink{led_8c_a186554aa170da59060e017b723a5329a}{\-\_\-\-\_\-ieee80211\-\_\-get\-\_\-tx\-\_\-led\-\_\-name} (struct ieee80211\-\_\-hw $\ast$hw)
+\item 
+\hyperlink{led_8c_a4d765f8f999e1bfef564fafd878e9e44}{E\-X\-P\-O\-R\-T\-\_\-\-S\-Y\-M\-B\-O\-L} (\hyperlink{led_8c_a186554aa170da59060e017b723a5329a}{\-\_\-\-\_\-ieee80211\-\_\-get\-\_\-tx\-\_\-led\-\_\-name})
+\item 
+char $\ast$ \hyperlink{led_8c_ad6fe5060c7b0266cd81d50d3ec999438}{\-\_\-\-\_\-ieee80211\-\_\-get\-\_\-rx\-\_\-led\-\_\-name} (struct ieee80211\-\_\-hw $\ast$hw)
+\item 
+\hyperlink{led_8c_a7e81ce82de8a519307e048719bc5c81a}{E\-X\-P\-O\-R\-T\-\_\-\-S\-Y\-M\-B\-O\-L} (\hyperlink{led_8c_ad6fe5060c7b0266cd81d50d3ec999438}{\-\_\-\-\_\-ieee80211\-\_\-get\-\_\-rx\-\_\-led\-\_\-name})
+\item 
+char $\ast$ \hyperlink{led_8c_a0c5ae41cc41698b8876c4b0f2741ba63}{\-\_\-\-\_\-ieee80211\-\_\-create\-\_\-tpt\-\_\-led\-\_\-trigger} (struct ieee80211\-\_\-hw $\ast$hw, unsigned int flags, const struct ieee80211\-\_\-tpt\-\_\-blink $\ast$blink\-\_\-table, unsigned int blink\-\_\-table\-\_\-len)
+\item 
+\hyperlink{led_8c_a8368a9bd20d1169f3a83b439ea47fd0f}{E\-X\-P\-O\-R\-T\-\_\-\-S\-Y\-M\-B\-O\-L} (\hyperlink{led_8c_a0c5ae41cc41698b8876c4b0f2741ba63}{\-\_\-\-\_\-ieee80211\-\_\-create\-\_\-tpt\-\_\-led\-\_\-trigger})
+\item 
+void \hyperlink{led_8c_a03c499fa13436d5bedf1f264ffa60413}{ieee80211\-\_\-mod\-\_\-tpt\-\_\-led\-\_\-trig} (struct \hyperlink{structieee80211__local}{ieee80211\-\_\-local} $\ast$local, unsigned int types\-\_\-on, unsigned int types\-\_\-off)
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\hypertarget{led_8c_a0c5ae41cc41698b8876c4b0f2741ba63}{\index{led.\-c@{led.\-c}!\-\_\-\-\_\-ieee80211\-\_\-create\-\_\-tpt\-\_\-led\-\_\-trigger@{\-\_\-\-\_\-ieee80211\-\_\-create\-\_\-tpt\-\_\-led\-\_\-trigger}}
+\index{\-\_\-\-\_\-ieee80211\-\_\-create\-\_\-tpt\-\_\-led\-\_\-trigger@{\-\_\-\-\_\-ieee80211\-\_\-create\-\_\-tpt\-\_\-led\-\_\-trigger}!led.c@{led.\-c}}
+\subsubsection[{\-\_\-\-\_\-ieee80211\-\_\-create\-\_\-tpt\-\_\-led\-\_\-trigger}]{\setlength{\rightskip}{0pt plus 5cm}char$\ast$ \-\_\-\-\_\-ieee80211\-\_\-create\-\_\-tpt\-\_\-led\-\_\-trigger (
+\begin{DoxyParamCaption}
+\item[{struct ieee80211\-\_\-hw $\ast$}]{hw, }
+\item[{unsigned int}]{flags, }
+\item[{const struct ieee80211\-\_\-tpt\-\_\-blink $\ast$}]{blink\-\_\-table, }
+\item[{unsigned int}]{blink\-\_\-table\-\_\-len}
+\end{DoxyParamCaption}
+)}}\label{led_8c_a0c5ae41cc41698b8876c4b0f2741ba63}
+
+
+Definition at line 219 of file led.\-c.
+
+\hypertarget{led_8c_aefdf02edd2be9e808dd85fe41c9ae649}{\index{led.\-c@{led.\-c}!\-\_\-\-\_\-ieee80211\-\_\-get\-\_\-assoc\-\_\-led\-\_\-name@{\-\_\-\-\_\-ieee80211\-\_\-get\-\_\-assoc\-\_\-led\-\_\-name}}
+\index{\-\_\-\-\_\-ieee80211\-\_\-get\-\_\-assoc\-\_\-led\-\_\-name@{\-\_\-\-\_\-ieee80211\-\_\-get\-\_\-assoc\-\_\-led\-\_\-name}!led.c@{led.\-c}}
+\subsubsection[{\-\_\-\-\_\-ieee80211\-\_\-get\-\_\-assoc\-\_\-led\-\_\-name}]{\setlength{\rightskip}{0pt plus 5cm}char$\ast$ \-\_\-\-\_\-ieee80211\-\_\-get\-\_\-assoc\-\_\-led\-\_\-name (
+\begin{DoxyParamCaption}
+\item[{struct ieee80211\-\_\-hw $\ast$}]{hw}
+\end{DoxyParamCaption}
+)}}\label{led_8c_aefdf02edd2be9e808dd85fe41c9ae649}
+
+
+Definition at line 149 of file led.\-c.
+
+\hypertarget{led_8c_adc3f4c17378d4092e5c1eed609b9e2ed}{\index{led.\-c@{led.\-c}!\-\_\-\-\_\-ieee80211\-\_\-get\-\_\-radio\-\_\-led\-\_\-name@{\-\_\-\-\_\-ieee80211\-\_\-get\-\_\-radio\-\_\-led\-\_\-name}}
+\index{\-\_\-\-\_\-ieee80211\-\_\-get\-\_\-radio\-\_\-led\-\_\-name@{\-\_\-\-\_\-ieee80211\-\_\-get\-\_\-radio\-\_\-led\-\_\-name}!led.c@{led.\-c}}
+\subsubsection[{\-\_\-\-\_\-ieee80211\-\_\-get\-\_\-radio\-\_\-led\-\_\-name}]{\setlength{\rightskip}{0pt plus 5cm}char$\ast$ \-\_\-\-\_\-ieee80211\-\_\-get\-\_\-radio\-\_\-led\-\_\-name (
+\begin{DoxyParamCaption}
+\item[{struct ieee80211\-\_\-hw $\ast$}]{hw}
+\end{DoxyParamCaption}
+)}}\label{led_8c_adc3f4c17378d4092e5c1eed609b9e2ed}
+
+
+Definition at line 141 of file led.\-c.
+
+\hypertarget{led_8c_ad6fe5060c7b0266cd81d50d3ec999438}{\index{led.\-c@{led.\-c}!\-\_\-\-\_\-ieee80211\-\_\-get\-\_\-rx\-\_\-led\-\_\-name@{\-\_\-\-\_\-ieee80211\-\_\-get\-\_\-rx\-\_\-led\-\_\-name}}
+\index{\-\_\-\-\_\-ieee80211\-\_\-get\-\_\-rx\-\_\-led\-\_\-name@{\-\_\-\-\_\-ieee80211\-\_\-get\-\_\-rx\-\_\-led\-\_\-name}!led.c@{led.\-c}}
+\subsubsection[{\-\_\-\-\_\-ieee80211\-\_\-get\-\_\-rx\-\_\-led\-\_\-name}]{\setlength{\rightskip}{0pt plus 5cm}char$\ast$ \-\_\-\-\_\-ieee80211\-\_\-get\-\_\-rx\-\_\-led\-\_\-name (
+\begin{DoxyParamCaption}
+\item[{struct ieee80211\-\_\-hw $\ast$}]{hw}
+\end{DoxyParamCaption}
+)}}\label{led_8c_ad6fe5060c7b0266cd81d50d3ec999438}
+
+
+Definition at line 165 of file led.\-c.
+
+\hypertarget{led_8c_a186554aa170da59060e017b723a5329a}{\index{led.\-c@{led.\-c}!\-\_\-\-\_\-ieee80211\-\_\-get\-\_\-tx\-\_\-led\-\_\-name@{\-\_\-\-\_\-ieee80211\-\_\-get\-\_\-tx\-\_\-led\-\_\-name}}
+\index{\-\_\-\-\_\-ieee80211\-\_\-get\-\_\-tx\-\_\-led\-\_\-name@{\-\_\-\-\_\-ieee80211\-\_\-get\-\_\-tx\-\_\-led\-\_\-name}!led.c@{led.\-c}}
+\subsubsection[{\-\_\-\-\_\-ieee80211\-\_\-get\-\_\-tx\-\_\-led\-\_\-name}]{\setlength{\rightskip}{0pt plus 5cm}char$\ast$ \-\_\-\-\_\-ieee80211\-\_\-get\-\_\-tx\-\_\-led\-\_\-name (
+\begin{DoxyParamCaption}
+\item[{struct ieee80211\-\_\-hw $\ast$}]{hw}
+\end{DoxyParamCaption}
+)}}\label{led_8c_a186554aa170da59060e017b723a5329a}
+
+
+Definition at line 157 of file led.\-c.
+
+\hypertarget{led_8c_a88c06b83720a3d2677bd99a8376a71c8}{\index{led.\-c@{led.\-c}!E\-X\-P\-O\-R\-T\-\_\-\-S\-Y\-M\-B\-O\-L@{E\-X\-P\-O\-R\-T\-\_\-\-S\-Y\-M\-B\-O\-L}}
+\index{E\-X\-P\-O\-R\-T\-\_\-\-S\-Y\-M\-B\-O\-L@{E\-X\-P\-O\-R\-T\-\_\-\-S\-Y\-M\-B\-O\-L}!led.c@{led.\-c}}
+\subsubsection[{E\-X\-P\-O\-R\-T\-\_\-\-S\-Y\-M\-B\-O\-L}]{\setlength{\rightskip}{0pt plus 5cm}E\-X\-P\-O\-R\-T\-\_\-\-S\-Y\-M\-B\-O\-L (
+\begin{DoxyParamCaption}
+\item[{{\bf \-\_\-\-\_\-ieee80211\-\_\-get\-\_\-radio\-\_\-led\-\_\-name}}]{}
+\end{DoxyParamCaption}
+)}}\label{led_8c_a88c06b83720a3d2677bd99a8376a71c8}
+\hypertarget{led_8c_a4f6105dd0908f46c8e97f5a3a9128594}{\index{led.\-c@{led.\-c}!E\-X\-P\-O\-R\-T\-\_\-\-S\-Y\-M\-B\-O\-L@{E\-X\-P\-O\-R\-T\-\_\-\-S\-Y\-M\-B\-O\-L}}
+\index{E\-X\-P\-O\-R\-T\-\_\-\-S\-Y\-M\-B\-O\-L@{E\-X\-P\-O\-R\-T\-\_\-\-S\-Y\-M\-B\-O\-L}!led.c@{led.\-c}}
+\subsubsection[{E\-X\-P\-O\-R\-T\-\_\-\-S\-Y\-M\-B\-O\-L}]{\setlength{\rightskip}{0pt plus 5cm}E\-X\-P\-O\-R\-T\-\_\-\-S\-Y\-M\-B\-O\-L (
+\begin{DoxyParamCaption}
+\item[{{\bf \-\_\-\-\_\-ieee80211\-\_\-get\-\_\-assoc\-\_\-led\-\_\-name}}]{}
+\end{DoxyParamCaption}
+)}}\label{led_8c_a4f6105dd0908f46c8e97f5a3a9128594}
+\hypertarget{led_8c_a4d765f8f999e1bfef564fafd878e9e44}{\index{led.\-c@{led.\-c}!E\-X\-P\-O\-R\-T\-\_\-\-S\-Y\-M\-B\-O\-L@{E\-X\-P\-O\-R\-T\-\_\-\-S\-Y\-M\-B\-O\-L}}
+\index{E\-X\-P\-O\-R\-T\-\_\-\-S\-Y\-M\-B\-O\-L@{E\-X\-P\-O\-R\-T\-\_\-\-S\-Y\-M\-B\-O\-L}!led.c@{led.\-c}}
+\subsubsection[{E\-X\-P\-O\-R\-T\-\_\-\-S\-Y\-M\-B\-O\-L}]{\setlength{\rightskip}{0pt plus 5cm}E\-X\-P\-O\-R\-T\-\_\-\-S\-Y\-M\-B\-O\-L (
+\begin{DoxyParamCaption}
+\item[{{\bf \-\_\-\-\_\-ieee80211\-\_\-get\-\_\-tx\-\_\-led\-\_\-name}}]{}
+\end{DoxyParamCaption}
+)}}\label{led_8c_a4d765f8f999e1bfef564fafd878e9e44}
+\hypertarget{led_8c_a7e81ce82de8a519307e048719bc5c81a}{\index{led.\-c@{led.\-c}!E\-X\-P\-O\-R\-T\-\_\-\-S\-Y\-M\-B\-O\-L@{E\-X\-P\-O\-R\-T\-\_\-\-S\-Y\-M\-B\-O\-L}}
+\index{E\-X\-P\-O\-R\-T\-\_\-\-S\-Y\-M\-B\-O\-L@{E\-X\-P\-O\-R\-T\-\_\-\-S\-Y\-M\-B\-O\-L}!led.c@{led.\-c}}
+\subsubsection[{E\-X\-P\-O\-R\-T\-\_\-\-S\-Y\-M\-B\-O\-L}]{\setlength{\rightskip}{0pt plus 5cm}E\-X\-P\-O\-R\-T\-\_\-\-S\-Y\-M\-B\-O\-L (
+\begin{DoxyParamCaption}
+\item[{{\bf \-\_\-\-\_\-ieee80211\-\_\-get\-\_\-rx\-\_\-led\-\_\-name}}]{}
+\end{DoxyParamCaption}
+)}}\label{led_8c_a7e81ce82de8a519307e048719bc5c81a}
+\hypertarget{led_8c_a8368a9bd20d1169f3a83b439ea47fd0f}{\index{led.\-c@{led.\-c}!E\-X\-P\-O\-R\-T\-\_\-\-S\-Y\-M\-B\-O\-L@{E\-X\-P\-O\-R\-T\-\_\-\-S\-Y\-M\-B\-O\-L}}
+\index{E\-X\-P\-O\-R\-T\-\_\-\-S\-Y\-M\-B\-O\-L@{E\-X\-P\-O\-R\-T\-\_\-\-S\-Y\-M\-B\-O\-L}!led.c@{led.\-c}}
+\subsubsection[{E\-X\-P\-O\-R\-T\-\_\-\-S\-Y\-M\-B\-O\-L}]{\setlength{\rightskip}{0pt plus 5cm}E\-X\-P\-O\-R\-T\-\_\-\-S\-Y\-M\-B\-O\-L (
+\begin{DoxyParamCaption}
+\item[{{\bf \-\_\-\-\_\-ieee80211\-\_\-create\-\_\-tpt\-\_\-led\-\_\-trigger}}]{}
+\end{DoxyParamCaption}
+)}}\label{led_8c_a8368a9bd20d1169f3a83b439ea47fd0f}
+\hypertarget{led_8c_a5c7e65ee8139d09a393c34d3fd30ed7e}{\index{led.\-c@{led.\-c}!ieee80211\-\_\-led\-\_\-assoc@{ieee80211\-\_\-led\-\_\-assoc}}
+\index{ieee80211\-\_\-led\-\_\-assoc@{ieee80211\-\_\-led\-\_\-assoc}!led.c@{led.\-c}}
+\subsubsection[{ieee80211\-\_\-led\-\_\-assoc}]{\setlength{\rightskip}{0pt plus 5cm}void ieee80211\-\_\-led\-\_\-assoc (
+\begin{DoxyParamCaption}
+\item[{struct {\bf ieee80211\-\_\-local} $\ast$}]{local, }
+\item[{bool}]{associated}
+\end{DoxyParamCaption}
+)}}\label{led_8c_a5c7e65ee8139d09a393c34d3fd30ed7e}
+
+
+Definition at line 38 of file led.\-c.
+
+\hypertarget{led_8c_a45b92696eaf723c6764bce08faeb4a3b}{\index{led.\-c@{led.\-c}!ieee80211\-\_\-led\-\_\-exit@{ieee80211\-\_\-led\-\_\-exit}}
+\index{ieee80211\-\_\-led\-\_\-exit@{ieee80211\-\_\-led\-\_\-exit}!led.c@{led.\-c}}
+\subsubsection[{ieee80211\-\_\-led\-\_\-exit}]{\setlength{\rightskip}{0pt plus 5cm}void ieee80211\-\_\-led\-\_\-exit (
+\begin{DoxyParamCaption}
+\item[{struct {\bf ieee80211\-\_\-local} $\ast$}]{local}
+\end{DoxyParamCaption}
+)}}\label{led_8c_a45b92696eaf723c6764bce08faeb4a3b}
+
+
+Definition at line 116 of file led.\-c.
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=344pt]{led_8c_a45b92696eaf723c6764bce08faeb4a3b_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{led_8c_a00d10158b9b5580be97f06307d443f33}{\index{led.\-c@{led.\-c}!ieee80211\-\_\-led\-\_\-init@{ieee80211\-\_\-led\-\_\-init}}
+\index{ieee80211\-\_\-led\-\_\-init@{ieee80211\-\_\-led\-\_\-init}!led.c@{led.\-c}}
+\subsubsection[{ieee80211\-\_\-led\-\_\-init}]{\setlength{\rightskip}{0pt plus 5cm}void ieee80211\-\_\-led\-\_\-init (
+\begin{DoxyParamCaption}
+\item[{struct {\bf ieee80211\-\_\-local} $\ast$}]{local}
+\end{DoxyParamCaption}
+)}}\label{led_8c_a00d10158b9b5580be97f06307d443f33}
+
+
+Definition at line 70 of file led.\-c.
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=330pt]{led_8c_a00d10158b9b5580be97f06307d443f33_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{led_8c_a0cd61895fcb137d433db46205ccf19a7}{\index{led.\-c@{led.\-c}!ieee80211\-\_\-led\-\_\-names@{ieee80211\-\_\-led\-\_\-names}}
+\index{ieee80211\-\_\-led\-\_\-names@{ieee80211\-\_\-led\-\_\-names}!led.c@{led.\-c}}
+\subsubsection[{ieee80211\-\_\-led\-\_\-names}]{\setlength{\rightskip}{0pt plus 5cm}void ieee80211\-\_\-led\-\_\-names (
+\begin{DoxyParamCaption}
+\item[{struct {\bf ieee80211\-\_\-local} $\ast$}]{local}
+\end{DoxyParamCaption}
+)}}\label{led_8c_a0cd61895fcb137d433db46205ccf19a7}
+
+
+Definition at line 58 of file led.\-c.
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=334pt]{led_8c_a0cd61895fcb137d433db46205ccf19a7_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{led_8c_a120b6c73b51adea037e5a9a83de9942d}{\index{led.\-c@{led.\-c}!ieee80211\-\_\-led\-\_\-radio@{ieee80211\-\_\-led\-\_\-radio}}
+\index{ieee80211\-\_\-led\-\_\-radio@{ieee80211\-\_\-led\-\_\-radio}!led.c@{led.\-c}}
+\subsubsection[{ieee80211\-\_\-led\-\_\-radio}]{\setlength{\rightskip}{0pt plus 5cm}void ieee80211\-\_\-led\-\_\-radio (
+\begin{DoxyParamCaption}
+\item[{struct {\bf ieee80211\-\_\-local} $\ast$}]{local, }
+\item[{bool}]{enabled}
+\end{DoxyParamCaption}
+)}}\label{led_8c_a120b6c73b51adea037e5a9a83de9942d}
+
+
+Definition at line 48 of file led.\-c.
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{led_8c_a120b6c73b51adea037e5a9a83de9942d_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{led_8c_a2e831f95ffb85822fccf7b09bc44aab5}{\index{led.\-c@{led.\-c}!ieee80211\-\_\-led\-\_\-rx@{ieee80211\-\_\-led\-\_\-rx}}
+\index{ieee80211\-\_\-led\-\_\-rx@{ieee80211\-\_\-led\-\_\-rx}!led.c@{led.\-c}}
+\subsubsection[{ieee80211\-\_\-led\-\_\-rx}]{\setlength{\rightskip}{0pt plus 5cm}void ieee80211\-\_\-led\-\_\-rx (
+\begin{DoxyParamCaption}
+\item[{struct {\bf ieee80211\-\_\-local} $\ast$}]{local}
+\end{DoxyParamCaption}
+)}}\label{led_8c_a2e831f95ffb85822fccf7b09bc44aab5}
+
+
+Definition at line 15 of file led.\-c.
+
+\hypertarget{led_8c_aaa63c8dea269487491a4d128adfdebbb}{\index{led.\-c@{led.\-c}!ieee80211\-\_\-led\-\_\-tx@{ieee80211\-\_\-led\-\_\-tx}}
+\index{ieee80211\-\_\-led\-\_\-tx@{ieee80211\-\_\-led\-\_\-tx}!led.c@{led.\-c}}
+\subsubsection[{ieee80211\-\_\-led\-\_\-tx}]{\setlength{\rightskip}{0pt plus 5cm}void ieee80211\-\_\-led\-\_\-tx (
+\begin{DoxyParamCaption}
+\item[{struct {\bf ieee80211\-\_\-local} $\ast$}]{local, }
+\item[{int}]{q}
+\end{DoxyParamCaption}
+)}}\label{led_8c_aaa63c8dea269487491a4d128adfdebbb}
+
+
+Definition at line 26 of file led.\-c.
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=316pt]{led_8c_aaa63c8dea269487491a4d128adfdebbb_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{led_8c_a03c499fa13436d5bedf1f264ffa60413}{\index{led.\-c@{led.\-c}!ieee80211\-\_\-mod\-\_\-tpt\-\_\-led\-\_\-trig@{ieee80211\-\_\-mod\-\_\-tpt\-\_\-led\-\_\-trig}}
+\index{ieee80211\-\_\-mod\-\_\-tpt\-\_\-led\-\_\-trig@{ieee80211\-\_\-mod\-\_\-tpt\-\_\-led\-\_\-trig}!led.c@{led.\-c}}
+\subsubsection[{ieee80211\-\_\-mod\-\_\-tpt\-\_\-led\-\_\-trig}]{\setlength{\rightskip}{0pt plus 5cm}void ieee80211\-\_\-mod\-\_\-tpt\-\_\-led\-\_\-trig (
+\begin{DoxyParamCaption}
+\item[{struct {\bf ieee80211\-\_\-local} $\ast$}]{local, }
+\item[{unsigned int}]{types\-\_\-on, }
+\item[{unsigned int}]{types\-\_\-off}
+\end{DoxyParamCaption}
+)}}\label{led_8c_a03c499fa13436d5bedf1f264ffa60413}
+
+
+Definition at line 283 of file led.\-c.
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{led_8c_a03c499fa13436d5bedf1f264ffa60413_icgraph}
+\end{center}
+\end{figure}
+
+

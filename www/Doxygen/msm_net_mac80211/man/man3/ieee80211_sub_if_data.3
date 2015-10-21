@@ -1,0 +1,290 @@
+.TH "ieee80211_sub_if_data" 3 "Sun Jun 1 2014" "Version 1.0" "net_mac80211" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+ieee80211_sub_if_data \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <ieee80211_i\&.h>\fP
+.SS "Data Fields"
+
+.in +1c
+.ti -1c
+.RI "struct list_head \fBlist\fP"
+.br
+.ti -1c
+.RI "struct wireless_dev \fBwdev\fP"
+.br
+.ti -1c
+.RI "struct list_head \fBkey_list\fP"
+.br
+.ti -1c
+.RI "int \fBcrypto_tx_tailroom_needed_cnt\fP"
+.br
+.ti -1c
+.RI "struct net_device * \fBdev\fP"
+.br
+.ti -1c
+.RI "struct \fBieee80211_local\fP * \fBlocal\fP"
+.br
+.ti -1c
+.RI "unsigned int \fBflags\fP"
+.br
+.ti -1c
+.RI "unsigned long \fBstate\fP"
+.br
+.ti -1c
+.RI "int \fBdrop_unencrypted\fP"
+.br
+.ti -1c
+.RI "char \fBname\fP [IFNAMSIZ]"
+.br
+.ti -1c
+.RI "bool \fBht_opmode_valid\fP"
+.br
+.ti -1c
+.RI "bool \fBold_idle\fP"
+.br
+.ti -1c
+.RI "struct \fBieee80211_fragment_entry\fP \fBfragments\fP [\fBIEEE80211_FRAGMENT_MAX\fP]"
+.br
+.ti -1c
+.RI "unsigned int \fBfragment_next\fP"
+.br
+.ti -1c
+.RI "u16 \fBnoack_map\fP"
+.br
+.ti -1c
+.RI "struct \fBieee80211_key\fP __rcu * \fBkeys\fP [\fBNUM_DEFAULT_KEYS\fP+\fBNUM_DEFAULT_MGMT_KEYS\fP]"
+.br
+.ti -1c
+.RI "struct \fBieee80211_key\fP __rcu * \fBdefault_unicast_key\fP"
+.br
+.ti -1c
+.RI "struct \fBieee80211_key\fP __rcu * \fBdefault_multicast_key\fP"
+.br
+.ti -1c
+.RI "struct \fBieee80211_key\fP __rcu * \fBdefault_mgmt_key\fP"
+.br
+.ti -1c
+.RI "u16 \fBsequence_number\fP"
+.br
+.ti -1c
+.RI "__be16 \fBcontrol_port_protocol\fP"
+.br
+.ti -1c
+.RI "bool \fBcontrol_port_no_encrypt\fP"
+.br
+.ti -1c
+.RI "struct ieee80211_tx_queue_params \fBtx_conf\fP [IEEE80211_MAX_QUEUES]"
+.br
+.ti -1c
+.RI "struct work_struct \fBwork\fP"
+.br
+.ti -1c
+.RI "struct sk_buff_head \fBskb_queue\fP"
+.br
+.ti -1c
+.RI "bool \fBarp_filter_state\fP"
+.br
+.ti -1c
+.RI "struct \fBieee80211_if_ap\fP * \fBbss\fP"
+.br
+.ti -1c
+.RI "u32 \fBrc_rateidx_mask\fP [IEEE80211_NUM_BANDS]"
+.br
+.ti -1c
+.RI "u8 \fBrc_rateidx_mcs_mask\fP [IEEE80211_NUM_BANDS][IEEE80211_HT_MCS_MASK_LEN]"
+.br
+.ti -1c
+.RI "union {"
+.br
+.ti -1c
+.RI "   struct \fBieee80211_if_ap\fP \fBap\fP"
+.br
+.ti -1c
+.RI "   struct \fBieee80211_if_wds\fP \fBwds\fP"
+.br
+.ti -1c
+.RI "   struct \fBieee80211_if_vlan\fP \fBvlan\fP"
+.br
+.ti -1c
+.RI "   struct \fBieee80211_if_managed\fP \fBmgd\fP"
+.br
+.ti -1c
+.RI "   struct \fBieee80211_if_ibss\fP \fBibss\fP"
+.br
+.ti -1c
+.RI "   struct \fBieee80211_if_mesh\fP \fBmesh\fP"
+.br
+.ti -1c
+.RI "   u32 \fBmntr_flags\fP"
+.br
+.ti -1c
+.RI "} \fBu\fP"
+.br
+.ti -1c
+.RI "struct ieee80211_vif \fBvif\fP"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Definition at line 648 of file ieee80211_i\&.h\&.
+.SH "Field Documentation"
+.PP 
+.SS "struct \fBieee80211_if_ap\fP ap"
+
+.PP
+Definition at line 714 of file ieee80211_i\&.h\&.
+.SS "bool arp_filter_state"
+
+.PP
+Definition at line 700 of file ieee80211_i\&.h\&.
+.SS "struct \fBieee80211_if_ap\fP* bss"
+
+.PP
+Definition at line 707 of file ieee80211_i\&.h\&.
+.SS "bool control_port_no_encrypt"
+
+.PP
+Definition at line 693 of file ieee80211_i\&.h\&.
+.SS "__be16 control_port_protocol"
+
+.PP
+Definition at line 692 of file ieee80211_i\&.h\&.
+.SS "int crypto_tx_tailroom_needed_cnt"
+
+.PP
+Definition at line 657 of file ieee80211_i\&.h\&.
+.SS "struct \fBieee80211_key\fP __rcu* default_mgmt_key"
+
+.PP
+Definition at line 689 of file ieee80211_i\&.h\&.
+.SS "struct \fBieee80211_key\fP __rcu* default_multicast_key"
+
+.PP
+Definition at line 688 of file ieee80211_i\&.h\&.
+.SS "struct \fBieee80211_key\fP __rcu* default_unicast_key"
+
+.PP
+Definition at line 687 of file ieee80211_i\&.h\&.
+.SS "struct net_device* dev"
+
+.PP
+Definition at line 659 of file ieee80211_i\&.h\&.
+.SS "int drop_unencrypted"
+
+.PP
+Definition at line 666 of file ieee80211_i\&.h\&.
+.SS "unsigned int flags"
+
+.PP
+Definition at line 662 of file ieee80211_i\&.h\&.
+.SS "unsigned int fragment_next"
+
+.PP
+Definition at line 681 of file ieee80211_i\&.h\&.
+.SS "struct \fBieee80211_fragment_entry\fP fragments[\fBIEEE80211_FRAGMENT_MAX\fP]"
+
+.PP
+Definition at line 680 of file ieee80211_i\&.h\&.
+.SS "bool ht_opmode_valid"
+
+.PP
+Definition at line 674 of file ieee80211_i\&.h\&.
+.SS "struct \fBieee80211_if_ibss\fP ibss"
+
+.PP
+Definition at line 718 of file ieee80211_i\&.h\&.
+.SS "struct list_head key_list"
+
+.PP
+Definition at line 654 of file ieee80211_i\&.h\&.
+.SS "struct \fBieee80211_key\fP __rcu* keys[\fBNUM_DEFAULT_KEYS\fP+\fBNUM_DEFAULT_MGMT_KEYS\fP]"
+
+.PP
+Definition at line 686 of file ieee80211_i\&.h\&.
+.SS "struct list_head list"
+
+.PP
+Definition at line 649 of file ieee80211_i\&.h\&.
+.SS "struct \fBieee80211_local\fP* local"
+
+.PP
+Definition at line 660 of file ieee80211_i\&.h\&.
+.SS "struct \fBieee80211_if_mesh\fP mesh"
+
+.PP
+Definition at line 719 of file ieee80211_i\&.h\&.
+.SS "struct \fBieee80211_if_managed\fP mgd"
+
+.PP
+Definition at line 717 of file ieee80211_i\&.h\&.
+.SS "u32 mntr_flags"
+
+.PP
+Definition at line 720 of file ieee80211_i\&.h\&.
+.SS "char name[IFNAMSIZ]"
+
+.PP
+Definition at line 668 of file ieee80211_i\&.h\&.
+.SS "u16 noack_map"
+
+.PP
+Definition at line 684 of file ieee80211_i\&.h\&.
+.SS "bool old_idle"
+
+.PP
+Definition at line 677 of file ieee80211_i\&.h\&.
+.SS "u32 rc_rateidx_mask[IEEE80211_NUM_BANDS]"
+
+.PP
+Definition at line 710 of file ieee80211_i\&.h\&.
+.SS "u8 rc_rateidx_mcs_mask[IEEE80211_NUM_BANDS][IEEE80211_HT_MCS_MASK_LEN]"
+
+.PP
+Definition at line 711 of file ieee80211_i\&.h\&.
+.SS "u16 sequence_number"
+
+.PP
+Definition at line 691 of file ieee80211_i\&.h\&.
+.SS "struct sk_buff_head skb_queue"
+
+.PP
+Definition at line 698 of file ieee80211_i\&.h\&.
+.SS "unsigned long state"
+
+.PP
+Definition at line 664 of file ieee80211_i\&.h\&.
+.SS "struct ieee80211_tx_queue_params tx_conf[IEEE80211_MAX_QUEUES]"
+
+.PP
+Definition at line 695 of file ieee80211_i\&.h\&.
+.SS "union { \&.\&.\&. }   u"
+
+.SS "struct ieee80211_vif vif"
+
+.PP
+Definition at line 733 of file ieee80211_i\&.h\&.
+.SS "struct \fBieee80211_if_vlan\fP vlan"
+
+.PP
+Definition at line 716 of file ieee80211_i\&.h\&.
+.SS "struct wireless_dev wdev"
+
+.PP
+Definition at line 651 of file ieee80211_i\&.h\&.
+.SS "struct \fBieee80211_if_wds\fP wds"
+
+.PP
+Definition at line 715 of file ieee80211_i\&.h\&.
+.SS "struct work_struct work"
+
+.PP
+Definition at line 697 of file ieee80211_i\&.h\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for net_mac80211 from the source code\&.

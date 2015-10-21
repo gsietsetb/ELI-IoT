@@ -1,0 +1,316 @@
+.TH "/home/guille/msm/net/mac80211/mesh_pathtbl.c" 3 "Sun Jun 1 2014" "Version 1.0" "net_mac80211" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+/home/guille/msm/net/mac80211/mesh_pathtbl.c \- 
+.SH SYNOPSIS
+.br
+.PP
+\fC#include <linux/etherdevice\&.h>\fP
+.br
+\fC#include <linux/list\&.h>\fP
+.br
+\fC#include <linux/random\&.h>\fP
+.br
+\fC#include <linux/slab\&.h>\fP
+.br
+\fC#include <linux/spinlock\&.h>\fP
+.br
+\fC#include <linux/string\&.h>\fP
+.br
+\fC#include <net/mac80211\&.h>\fP
+.br
+\fC#include 'wme\&.h'\fP
+.br
+\fC#include 'ieee80211_i\&.h'\fP
+.br
+\fC#include 'mesh\&.h'\fP
+.br
+
+.SS "Data Structures"
+
+.in +1c
+.ti -1c
+.RI "struct \fBmpath_node\fP"
+.br
+.in -1c
+.SS "Macros"
+
+.in +1c
+.ti -1c
+.RI "#define \fBmpath_dbg\fP(fmt, args\&.\&.\&.)   do { (void)(0); } while (0)"
+.br
+.ti -1c
+.RI "#define \fBINIT_PATHS_SIZE_ORDER\fP   2"
+.br
+.ti -1c
+.RI "#define \fBMEAN_CHAIN_LEN\fP   2"
+.br
+.ti -1c
+.RI "#define \fBMPATH_EXPIRED\fP(mpath)"
+.br
+.ti -1c
+.RI "#define \fBfor_each_mesh_entry\fP(tbl, p, node, i)"
+.br
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBmesh_path_assign_nexthop\fP (struct \fBmesh_path\fP *mpath, struct \fBsta_info\fP *sta)"
+.br
+.ti -1c
+.RI "struct \fBmesh_path\fP * \fBmesh_path_lookup\fP (u8 *dst, struct \fBieee80211_sub_if_data\fP *sdata)"
+.br
+.ti -1c
+.RI "struct \fBmesh_path\fP * \fBmpp_path_lookup\fP (u8 *dst, struct \fBieee80211_sub_if_data\fP *sdata)"
+.br
+.ti -1c
+.RI "struct \fBmesh_path\fP * \fBmesh_path_lookup_by_idx\fP (int idx, struct \fBieee80211_sub_if_data\fP *sdata)"
+.br
+.ti -1c
+.RI "int \fBmesh_path_add_gate\fP (struct \fBmesh_path\fP *mpath)"
+.br
+.ti -1c
+.RI "int \fBmesh_gate_num\fP (struct \fBieee80211_sub_if_data\fP *sdata)"
+.br
+.ti -1c
+.RI "int \fBmesh_path_add\fP (u8 *dst, struct \fBieee80211_sub_if_data\fP *sdata)"
+.br
+.ti -1c
+.RI "void \fBmesh_mpath_table_grow\fP (void)"
+.br
+.ti -1c
+.RI "void \fBmesh_mpp_table_grow\fP (void)"
+.br
+.ti -1c
+.RI "int \fBmpp_path_add\fP (u8 *dst, u8 *mpp, struct \fBieee80211_sub_if_data\fP *sdata)"
+.br
+.ti -1c
+.RI "void \fBmesh_plink_broken\fP (struct \fBsta_info\fP *sta)"
+.br
+.ti -1c
+.RI "void \fBmesh_path_flush_by_nexthop\fP (struct \fBsta_info\fP *sta)"
+.br
+.ti -1c
+.RI "void \fBmesh_path_flush_by_iface\fP (struct \fBieee80211_sub_if_data\fP *sdata)"
+.br
+.ti -1c
+.RI "int \fBmesh_path_del\fP (u8 *addr, struct \fBieee80211_sub_if_data\fP *sdata)"
+.br
+.ti -1c
+.RI "void \fBmesh_path_tx_pending\fP (struct \fBmesh_path\fP *mpath)"
+.br
+.ti -1c
+.RI "int \fBmesh_path_send_to_gates\fP (struct \fBmesh_path\fP *mpath)"
+.br
+.ti -1c
+.RI "void \fBmesh_path_discard_frame\fP (struct sk_buff *skb, struct \fBieee80211_sub_if_data\fP *sdata)"
+.br
+.ti -1c
+.RI "void \fBmesh_path_flush_pending\fP (struct \fBmesh_path\fP *mpath)"
+.br
+.ti -1c
+.RI "void \fBmesh_path_fix_nexthop\fP (struct \fBmesh_path\fP *mpath, struct \fBsta_info\fP *next_hop)"
+.br
+.ti -1c
+.RI "int \fBmesh_pathtbl_init\fP (void)"
+.br
+.ti -1c
+.RI "void \fBmesh_path_expire\fP (struct \fBieee80211_sub_if_data\fP *sdata)"
+.br
+.ti -1c
+.RI "void \fBmesh_pathtbl_unregister\fP (void)"
+.br
+.in -1c
+.SS "Variables"
+
+.in +1c
+.ti -1c
+.RI "int \fBmesh_paths_generation\fP"
+.br
+.in -1c
+.SH "Macro Definition Documentation"
+.PP 
+.SS "#define for_each_mesh_entry(tbl, p, node, i)"
+\fBValue:\fP
+.PP
+.nf
+for (i = 0; i <= tbl->hash_mask; i++) \
+        hlist_for_each_entry_rcu(node, p, &tbl->hash_buckets[i], list)
+.fi
+.PP
+Definition at line 78 of file mesh_pathtbl\&.c\&.
+.SS "#define INIT_PATHS_SIZE_ORDER   2"
+
+.PP
+Definition at line 28 of file mesh_pathtbl\&.c\&.
+.SS "#define MEAN_CHAIN_LEN   2"
+
+.PP
+Definition at line 31 of file mesh_pathtbl\&.c\&.
+.SS "#define mpath_dbg(fmt, args\&.\&.\&.)   do { (void)(0); } while (0)"
+
+.PP
+Definition at line 24 of file mesh_pathtbl\&.c\&.
+.SS "#define MPATH_EXPIRED(mpath)"
+\fBValue:\fP
+.PP
+.nf
+((mpath->flags & MESH_PATH_ACTIVE) && \
+                time_after(jiffies, mpath->exp_time) && \
+                !(mpath->flags & MESH_PATH_FIXED))
+.fi
+.PP
+Definition at line 33 of file mesh_pathtbl\&.c\&.
+.SH "Function Documentation"
+.PP 
+.SS "int mesh_gate_num (struct \fBieee80211_sub_if_data\fP *sdata)"
+mesh_gate_num - number of gates known to this interface : subif data 
+.PP
+Definition at line 493 of file mesh_pathtbl\&.c\&.
+.SS "void mesh_mpath_table_grow (void)"
+
+.PP
+Definition at line 599 of file mesh_pathtbl\&.c\&.
+.SS "void mesh_mpp_table_grow (void)"
+
+.PP
+Definition at line 620 of file mesh_pathtbl\&.c\&.
+.SS "int mesh_path_add (u8 *dst, struct \fBieee80211_sub_if_data\fP *sdata)"
+mesh_path_add - allocate and add a new path to the mesh path table : destination address of the path (ETH_ALEN length) : local subif
+.PP
+Returns: 0 on success
+.PP
+State: the initial state of the new path is set to 0 
+.PP
+Definition at line 507 of file mesh_pathtbl\&.c\&.
+.SS "int mesh_path_add_gate (struct \fBmesh_path\fP *mpath)"
+mesh_path_add_gate - add the given mpath to a mesh gate to our path table : gate path to add to table 
+.PP
+Definition at line 420 of file mesh_pathtbl\&.c\&.
+.SS "void mesh_path_assign_nexthop (struct \fBmesh_path\fP *mpath, struct \fBsta_info\fP *sta)"
+mesh_path_assign_nexthop - update mesh path next hop
+.PP
+: mesh path to update : next hop to assign
+.PP
+Locking: mpath->state_lock must be held when calling this function 
+.PP
+Definition at line 208 of file mesh_pathtbl\&.c\&.
+.SS "int mesh_path_del (u8 *addr, struct \fBieee80211_sub_if_data\fP *sdata)"
+mesh_path_del - delete a mesh path from the table
+.PP
+: dst address (ETH_ALEN length) : local subif
+.PP
+Returns: 0 if successful 
+.PP
+Definition at line 866 of file mesh_pathtbl\&.c\&.
+.SS "void mesh_path_discard_frame (struct sk_buff *skb, struct \fBieee80211_sub_if_data\fP *sdata)"
+mesh_path_discard_frame - discard a frame whose path could not be resolved
+.PP
+: frame to discard : network subif the frame was to be sent through
+.PP
+Locking: the function must me called within a rcu_read_lock region 
+.PP
+Definition at line 974 of file mesh_pathtbl\&.c\&.
+.SS "void mesh_path_expire (struct \fBieee80211_sub_if_data\fP *sdata)"
+
+.PP
+Definition at line 1097 of file mesh_pathtbl\&.c\&.
+.SS "void mesh_path_fix_nexthop (struct \fBmesh_path\fP *mpath, struct \fBsta_info\fP *next_hop)"
+mesh_path_fix_nexthop - force a specific next hop for a mesh path
+.PP
+: the mesh path to modify : the next hop to force
+.PP
+Locking: this function must be called holding mpath->state_lock 
+.PP
+Definition at line 1004 of file mesh_pathtbl\&.c\&.
+.SS "void mesh_path_flush_by_iface (struct \fBieee80211_sub_if_data\fP *sdata)"
+mesh_path_flush_by_iface - Deletes all mesh paths associated with a given iface
+.PP
+This function deletes both mesh paths as well as mesh portal paths\&.
+.PP
+- interface data to match 
+.PP
+Definition at line 844 of file mesh_pathtbl\&.c\&.
+.SS "void mesh_path_flush_by_nexthop (struct \fBsta_info\fP *sta)"
+mesh_path_flush_by_nexthop - Deletes mesh paths if their next hop matches
+.PP
+- mesh peer to match
+.PP
+RCU notes: this function is called when a mesh plink transitions from PLINK_ESTAB to any other state, since PLINK_ESTAB state is the only one that allows path creation\&. This will happen before the sta can be freed (because sta_info_destroy() calls this) so any reader in a rcu read block will be protected against the plink disappearing\&. 
+.PP
+Definition at line 794 of file mesh_pathtbl\&.c\&.
+.SS "void mesh_path_flush_pending (struct \fBmesh_path\fP *mpath)"
+mesh_path_flush_pending - free the pending queue of a mesh path
+.PP
+: mesh path whose queue has to be freed
+.PP
+Locking: the function must me called within a rcu_read_lock region 
+.PP
+Definition at line 988 of file mesh_pathtbl\&.c\&.
+.SS "struct \fBmesh_path\fP* mesh_path_lookup (u8 *dst, struct \fBieee80211_sub_if_data\fP *sdata)"
+mesh_path_lookup - look up a path in the mesh path table : hardware address (ETH_ALEN length) of destination : local subif
+.PP
+Returns: pointer to the mesh path structure, or NULL if not found
+.PP
+Locking: must be called within a read rcu section\&. 
+.PP
+Definition at line 372 of file mesh_pathtbl\&.c\&.
+.SS "struct \fBmesh_path\fP* mesh_path_lookup_by_idx (intidx, struct \fBieee80211_sub_if_data\fP *sdata)"
+mesh_path_lookup_by_idx - look up a path in the mesh path table by its index : index : local subif, or NULL for all entries
+.PP
+Returns: pointer to the mesh path structure, or NULL if not found\&.
+.PP
+Locking: must be called within a read rcu section\&. 
+.PP
+Definition at line 392 of file mesh_pathtbl\&.c\&.
+.SS "int mesh_path_send_to_gates (struct \fBmesh_path\fP *mpath)"
+mesh_path_send_to_gates - sends pending frames to all known mesh gates
+.PP
+: mesh path whose queue will be emptied
+.PP
+If there is only one gate, the frames are transferred from the failed mpath queue to that gate's queue\&. If there are more than one gates, the frames are copied from each gate to the next\&. After frames are copied, the mpath queues are emptied onto the transmission queue\&. 
+.PP
+Definition at line 924 of file mesh_pathtbl\&.c\&.
+.SS "void mesh_path_tx_pending (struct \fBmesh_path\fP *mpath)"
+mesh_path_tx_pending - sends pending frames in a mesh path queue
+.PP
+: mesh path to activate
+.PP
+Locking: the state_lock of the mpath structure must NOT be held when calling this function\&. 
+.PP
+Definition at line 907 of file mesh_pathtbl\&.c\&.
+.SS "int mesh_pathtbl_init (void)"
+
+.PP
+Definition at line 1050 of file mesh_pathtbl\&.c\&.
+.SS "void mesh_pathtbl_unregister (void)"
+
+.PP
+Definition at line 1119 of file mesh_pathtbl\&.c\&.
+.SS "void mesh_plink_broken (struct \fBsta_info\fP *sta)"
+mesh_plink_broken - deactivates paths and sends perr when a link breaks
+.PP
+: broken peer link
+.PP
+This function must be called from the rate control algorithm if enough delivery errors suggest that a peer link is no longer usable\&. 
+.PP
+Definition at line 727 of file mesh_pathtbl\&.c\&.
+.SS "int mpp_path_add (u8 *dst, u8 *mpp, struct \fBieee80211_sub_if_data\fP *sdata)"
+
+.PP
+Definition at line 640 of file mesh_pathtbl\&.c\&.
+.SS "struct \fBmesh_path\fP* mpp_path_lookup (u8 *dst, struct \fBieee80211_sub_if_data\fP *sdata)"
+
+.PP
+Definition at line 377 of file mesh_pathtbl\&.c\&.
+.SH "Variable Documentation"
+.PP 
+.SS "int mesh_paths_generation"
+
+.PP
+Definition at line 49 of file mesh_pathtbl\&.c\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for net_mac80211 from the source code\&.

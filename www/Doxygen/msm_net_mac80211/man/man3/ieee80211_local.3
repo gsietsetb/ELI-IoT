@@ -1,0 +1,835 @@
+.TH "ieee80211_local" 3 "Sun Jun 1 2014" "Version 1.0" "net_mac80211" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+ieee80211_local \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <ieee80211_i\&.h>\fP
+.SS "Data Fields"
+
+.in +1c
+.ti -1c
+.RI "struct ieee80211_hw \fBhw\fP"
+.br
+.ti -1c
+.RI "struct ieee80211_ops * \fBops\fP"
+.br
+.ti -1c
+.RI "struct list_head \fBwork_list\fP"
+.br
+.ti -1c
+.RI "struct timer_list \fBwork_timer\fP"
+.br
+.ti -1c
+.RI "struct work_struct \fBwork_work\fP"
+.br
+.ti -1c
+.RI "struct workqueue_struct * \fBworkqueue\fP"
+.br
+.ti -1c
+.RI "unsigned long \fBqueue_stop_reasons\fP [IEEE80211_MAX_QUEUES]"
+.br
+.ti -1c
+.RI "spinlock_t \fBqueue_stop_reason_lock\fP"
+.br
+.ti -1c
+.RI "int \fBopen_count\fP"
+.br
+.ti -1c
+.RI "int \fBmonitors\fP"
+.br
+.ti -1c
+.RI "int \fBcooked_mntrs\fP"
+.br
+.ti -1c
+.RI "int \fBfif_fcsfail\fP"
+.br
+.ti -1c
+.RI "int \fBfif_plcpfail\fP"
+.br
+.ti -1c
+.RI "int \fBfif_control\fP"
+.br
+.ti -1c
+.RI "int \fBfif_other_bss\fP"
+.br
+.ti -1c
+.RI "int \fBfif_pspoll\fP"
+.br
+.ti -1c
+.RI "int \fBfif_probe_req\fP"
+.br
+.ti -1c
+.RI "int \fBprobe_req_reg\fP"
+.br
+.ti -1c
+.RI "unsigned int \fBfilter_flags\fP"
+.br
+.ti -1c
+.RI "bool \fBwiphy_ciphers_allocated\fP"
+.br
+.ti -1c
+.RI "spinlock_t \fBfilter_lock\fP"
+.br
+.ti -1c
+.RI "struct work_struct \fBreconfig_filter\fP"
+.br
+.ti -1c
+.RI "struct work_struct \fBrecalc_smps\fP"
+.br
+.ti -1c
+.RI "struct netdev_hw_addr_list \fBmc_list\fP"
+.br
+.ti -1c
+.RI "bool \fBtim_in_locked_section\fP"
+.br
+.ti -1c
+.RI "bool \fBsuspended\fP"
+.br
+.ti -1c
+.RI "bool \fBresuming\fP"
+.br
+.ti -1c
+.RI "bool \fBquiescing\fP"
+.br
+.ti -1c
+.RI "bool \fBstarted\fP"
+.br
+.ti -1c
+.RI "bool \fBwowlan\fP"
+.br
+.ti -1c
+.RI "int \fBtx_headroom\fP"
+.br
+.ti -1c
+.RI "struct tasklet_struct \fBtasklet\fP"
+.br
+.ti -1c
+.RI "struct sk_buff_head \fBskb_queue\fP"
+.br
+.ti -1c
+.RI "struct sk_buff_head \fBskb_queue_unreliable\fP"
+.br
+.ti -1c
+.RI "struct sk_buff_head \fBrx_skb_queue\fP"
+.br
+.ti -1c
+.RI "bool \fBrunning_rx_handler\fP"
+.br
+.ti -1c
+.RI "struct mutex \fBsta_mtx\fP"
+.br
+.ti -1c
+.RI "spinlock_t \fBtim_lock\fP"
+.br
+.ti -1c
+.RI "unsigned long \fBnum_sta\fP"
+.br
+.ti -1c
+.RI "struct list_head \fBsta_list\fP"
+.br
+.ti -1c
+.RI "struct \fBsta_info\fP __rcu * \fBsta_hash\fP [\fBSTA_HASH_SIZE\fP]"
+.br
+.ti -1c
+.RI "struct timer_list \fBsta_cleanup\fP"
+.br
+.ti -1c
+.RI "int \fBsta_generation\fP"
+.br
+.ti -1c
+.RI "struct sk_buff_head \fBpending\fP [IEEE80211_MAX_QUEUES]"
+.br
+.ti -1c
+.RI "struct tasklet_struct \fBtx_pending_tasklet\fP"
+.br
+.ti -1c
+.RI "atomic_t \fBagg_queue_stop\fP [IEEE80211_MAX_QUEUES]"
+.br
+.ti -1c
+.RI "atomic_t \fBiff_allmultis\fP"
+.br
+.ti -1c
+.RI "atomic_t \fBiff_promiscs\fP"
+.br
+.ti -1c
+.RI "struct \fBrate_control_ref\fP * \fBrate_ctrl\fP"
+.br
+.ti -1c
+.RI "struct crypto_cipher * \fBwep_tx_tfm\fP"
+.br
+.ti -1c
+.RI "struct crypto_cipher * \fBwep_rx_tfm\fP"
+.br
+.ti -1c
+.RI "u32 \fBwep_iv\fP"
+.br
+.ti -1c
+.RI "struct list_head \fBinterfaces\fP"
+.br
+.ti -1c
+.RI "struct mutex \fBiflist_mtx\fP"
+.br
+.ti -1c
+.RI "struct mutex \fBkey_mtx\fP"
+.br
+.ti -1c
+.RI "struct mutex \fBmtx\fP"
+.br
+.ti -1c
+.RI "unsigned long \fBscanning\fP"
+.br
+.ti -1c
+.RI "struct cfg80211_ssid \fBscan_ssid\fP"
+.br
+.ti -1c
+.RI "struct cfg80211_scan_request * \fBint_scan_req\fP"
+.br
+.ti -1c
+.RI "struct cfg80211_scan_request * \fBscan_req\fP"
+.br
+.ti -1c
+.RI "struct cfg80211_scan_request * \fBhw_scan_req\fP"
+.br
+.ti -1c
+.RI "struct ieee80211_channel * \fBscan_channel\fP"
+.br
+.ti -1c
+.RI "enum ieee80211_band \fBhw_scan_band\fP"
+.br
+.ti -1c
+.RI "int \fBscan_channel_idx\fP"
+.br
+.ti -1c
+.RI "int \fBscan_ies_len\fP"
+.br
+.ti -1c
+.RI "bool \fBsched_scanning\fP"
+.br
+.ti -1c
+.RI "struct ieee80211_sched_scan_ies \fBsched_scan_ies\fP"
+.br
+.ti -1c
+.RI "struct work_struct \fBsched_scan_stopped_work\fP"
+.br
+.ti -1c
+.RI "unsigned long \fBleave_oper_channel_time\fP"
+.br
+.ti -1c
+.RI "enum \fBmac80211_scan_state\fP \fBnext_scan_state\fP"
+.br
+.ti -1c
+.RI "struct delayed_work \fBscan_work\fP"
+.br
+.ti -1c
+.RI "struct \fBieee80211_sub_if_data\fP * \fBscan_sdata\fP"
+.br
+.ti -1c
+.RI "enum nl80211_channel_type \fB_oper_channel_type\fP"
+.br
+.ti -1c
+.RI "struct ieee80211_channel * \fBoper_channel\fP"
+.br
+.ti -1c
+.RI "struct ieee80211_channel * \fBcsa_channel\fP"
+.br
+.ti -1c
+.RI "struct ieee80211_channel * \fBtmp_channel\fP"
+.br
+.ti -1c
+.RI "enum nl80211_channel_type \fBtmp_channel_type\fP"
+.br
+.ti -1c
+.RI "u32 \fBdot11TransmittedFragmentCount\fP"
+.br
+.ti -1c
+.RI "u32 \fBdot11MulticastTransmittedFrameCount\fP"
+.br
+.ti -1c
+.RI "u32 \fBdot11FailedCount\fP"
+.br
+.ti -1c
+.RI "u32 \fBdot11RetryCount\fP"
+.br
+.ti -1c
+.RI "u32 \fBdot11MultipleRetryCount\fP"
+.br
+.ti -1c
+.RI "u32 \fBdot11FrameDuplicateCount\fP"
+.br
+.ti -1c
+.RI "u32 \fBdot11ReceivedFragmentCount\fP"
+.br
+.ti -1c
+.RI "u32 \fBdot11MulticastReceivedFrameCount\fP"
+.br
+.ti -1c
+.RI "u32 \fBdot11TransmittedFrameCount\fP"
+.br
+.ti -1c
+.RI "int \fBtotal_ps_buffered\fP"
+.br
+.ti -1c
+.RI "unsigned int \fBwmm_acm\fP"
+.br
+.ti -1c
+.RI "bool \fBpspolling\fP"
+.br
+.ti -1c
+.RI "bool \fBoffchannel_ps_enabled\fP"
+.br
+.ti -1c
+.RI "struct \fBieee80211_sub_if_data\fP * \fBps_sdata\fP"
+.br
+.ti -1c
+.RI "struct work_struct \fBdynamic_ps_enable_work\fP"
+.br
+.ti -1c
+.RI "struct work_struct \fBdynamic_ps_disable_work\fP"
+.br
+.ti -1c
+.RI "struct timer_list \fBdynamic_ps_timer\fP"
+.br
+.ti -1c
+.RI "struct notifier_block \fBnetwork_latency_notifier\fP"
+.br
+.ti -1c
+.RI "struct notifier_block \fBifa_notifier\fP"
+.br
+.ti -1c
+.RI "int \fBdynamic_ps_forced_timeout\fP"
+.br
+.ti -1c
+.RI "int \fBdynamic_ps_user_timeout\fP"
+.br
+.ti -1c
+.RI "bool \fBdisable_dynamic_ps\fP"
+.br
+.ti -1c
+.RI "int \fBuser_power_level\fP"
+.br
+.ti -1c
+.RI "int \fBpower_constr_level\fP"
+.br
+.ti -1c
+.RI "enum ieee80211_smps_mode \fBsmps_mode\fP"
+.br
+.ti -1c
+.RI "struct work_struct \fBrestart_work\fP"
+.br
+.ti -1c
+.RI "struct ieee80211_channel * \fBhw_roc_channel\fP"
+.br
+.ti -1c
+.RI "struct net_device * \fBhw_roc_dev\fP"
+.br
+.ti -1c
+.RI "struct sk_buff * \fBhw_roc_skb\fP"
+.br
+.ti -1c
+.RI "struct sk_buff * \fBhw_roc_skb_for_status\fP"
+.br
+.ti -1c
+.RI "struct work_struct hw_roc_start \fBhw_roc_done\fP"
+.br
+.ti -1c
+.RI "enum nl80211_channel_type \fBhw_roc_channel_type\fP"
+.br
+.ti -1c
+.RI "unsigned int \fBhw_roc_duration\fP"
+.br
+.ti -1c
+.RI "u32 \fBhw_roc_cookie\fP"
+.br
+.ti -1c
+.RI "bool \fBhw_roc_for_tx\fP"
+.br
+.ti -1c
+.RI "struct idr \fBack_status_frames\fP"
+.br
+.ti -1c
+.RI "spinlock_t \fBack_status_lock\fP"
+.br
+.ti -1c
+.RI "struct net_device \fBnapi_dev\fP"
+.br
+.ti -1c
+.RI "struct napi_struct \fBnapi\fP"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Definition at line 821 of file ieee80211_i\&.h\&.
+.SH "Field Documentation"
+.PP 
+.SS "enum nl80211_channel_type _oper_channel_type"
+
+.PP
+Definition at line 976 of file ieee80211_i\&.h\&.
+.SS "struct idr ack_status_frames"
+
+.PP
+Definition at line 1079 of file ieee80211_i\&.h\&.
+.SS "spinlock_t ack_status_lock"
+
+.PP
+Definition at line 1080 of file ieee80211_i\&.h\&.
+.SS "atomic_t agg_queue_stop[IEEE80211_MAX_QUEUES]"
+
+.PP
+Definition at line 934 of file ieee80211_i\&.h\&.
+.SS "int cooked_mntrs"
+
+.PP
+Definition at line 847 of file ieee80211_i\&.h\&.
+.SS "struct ieee80211_channel * csa_channel"
+
+.PP
+Definition at line 977 of file ieee80211_i\&.h\&.
+.SS "bool disable_dynamic_ps"
+
+.PP
+Definition at line 1054 of file ieee80211_i\&.h\&.
+.SS "u32 dot11FailedCount"
+
+.PP
+Definition at line 987 of file ieee80211_i\&.h\&.
+.SS "u32 dot11FrameDuplicateCount"
+
+.PP
+Definition at line 990 of file ieee80211_i\&.h\&.
+.SS "u32 dot11MulticastReceivedFrameCount"
+
+.PP
+Definition at line 992 of file ieee80211_i\&.h\&.
+.SS "u32 dot11MulticastTransmittedFrameCount"
+
+.PP
+Definition at line 986 of file ieee80211_i\&.h\&.
+.SS "u32 dot11MultipleRetryCount"
+
+.PP
+Definition at line 989 of file ieee80211_i\&.h\&.
+.SS "u32 dot11ReceivedFragmentCount"
+
+.PP
+Definition at line 991 of file ieee80211_i\&.h\&.
+.SS "u32 dot11RetryCount"
+
+.PP
+Definition at line 988 of file ieee80211_i\&.h\&.
+.SS "u32 dot11TransmittedFragmentCount"
+
+.PP
+Definition at line 985 of file ieee80211_i\&.h\&.
+.SS "u32 dot11TransmittedFrameCount"
+
+.PP
+Definition at line 993 of file ieee80211_i\&.h\&.
+.SS "struct work_struct dynamic_ps_disable_work"
+
+.PP
+Definition at line 1043 of file ieee80211_i\&.h\&.
+.SS "struct work_struct dynamic_ps_enable_work"
+
+.PP
+Definition at line 1042 of file ieee80211_i\&.h\&.
+.SS "int dynamic_ps_forced_timeout"
+
+.PP
+Definition at line 1052 of file ieee80211_i\&.h\&.
+.SS "struct timer_list dynamic_ps_timer"
+
+.PP
+Definition at line 1044 of file ieee80211_i\&.h\&.
+.SS "int dynamic_ps_user_timeout"
+
+.PP
+Definition at line 1053 of file ieee80211_i\&.h\&.
+.SS "int fif_control"
+
+.PP
+Definition at line 849 of file ieee80211_i\&.h\&.
+.SS "int fif_fcsfail"
+
+.PP
+Definition at line 849 of file ieee80211_i\&.h\&.
+.SS "int fif_other_bss"
+
+.PP
+Definition at line 849 of file ieee80211_i\&.h\&.
+.SS "int fif_plcpfail"
+
+.PP
+Definition at line 849 of file ieee80211_i\&.h\&.
+.SS "int fif_probe_req"
+
+.PP
+Definition at line 849 of file ieee80211_i\&.h\&.
+.SS "int fif_pspoll"
+
+.PP
+Definition at line 849 of file ieee80211_i\&.h\&.
+.SS "unsigned int filter_flags"
+
+.PP
+Definition at line 852 of file ieee80211_i\&.h\&.
+.SS "spinlock_t filter_lock"
+
+.PP
+Definition at line 857 of file ieee80211_i\&.h\&.
+.SS "struct ieee80211_hw hw"
+
+.PP
+Definition at line 825 of file ieee80211_i\&.h\&.
+.SS "struct ieee80211_channel* hw_roc_channel"
+
+.PP
+Definition at line 1070 of file ieee80211_i\&.h\&.
+.SS "enum nl80211_channel_type hw_roc_channel_type"
+
+.PP
+Definition at line 1074 of file ieee80211_i\&.h\&.
+.SS "u32 hw_roc_cookie"
+
+.PP
+Definition at line 1076 of file ieee80211_i\&.h\&.
+.SS "struct net_device* hw_roc_dev"
+
+.PP
+Definition at line 1071 of file ieee80211_i\&.h\&.
+.SS "struct work_struct hw_roc_start hw_roc_done"
+
+.PP
+Definition at line 1073 of file ieee80211_i\&.h\&.
+.SS "unsigned int hw_roc_duration"
+
+.PP
+Definition at line 1075 of file ieee80211_i\&.h\&.
+.SS "bool hw_roc_for_tx"
+
+.PP
+Definition at line 1077 of file ieee80211_i\&.h\&.
+.SS "struct sk_buff* hw_roc_skb"
+
+.PP
+Definition at line 1072 of file ieee80211_i\&.h\&.
+.SS "struct sk_buff * hw_roc_skb_for_status"
+
+.PP
+Definition at line 1072 of file ieee80211_i\&.h\&.
+.SS "enum ieee80211_band hw_scan_band"
+
+.PP
+Definition at line 964 of file ieee80211_i\&.h\&.
+.SS "struct cfg80211_scan_request * hw_scan_req"
+
+.PP
+Definition at line 962 of file ieee80211_i\&.h\&.
+.SS "struct notifier_block ifa_notifier"
+
+.PP
+Definition at line 1046 of file ieee80211_i\&.h\&.
+.SS "atomic_t iff_allmultis"
+
+.PP
+Definition at line 937 of file ieee80211_i\&.h\&.
+.SS "atomic_t iff_promiscs"
+
+.PP
+Definition at line 937 of file ieee80211_i\&.h\&.
+.SS "struct mutex iflist_mtx"
+
+.PP
+Definition at line 947 of file ieee80211_i\&.h\&.
+.SS "struct cfg80211_scan_request* int_scan_req"
+
+.PP
+Definition at line 961 of file ieee80211_i\&.h\&.
+.SS "struct list_head interfaces"
+
+.PP
+Definition at line 946 of file ieee80211_i\&.h\&.
+.SS "struct mutex key_mtx"
+
+.PP
+Definition at line 953 of file ieee80211_i\&.h\&.
+.SS "unsigned long leave_oper_channel_time"
+
+.PP
+Definition at line 972 of file ieee80211_i\&.h\&.
+.SS "struct netdev_hw_addr_list mc_list"
+
+.PP
+Definition at line 866 of file ieee80211_i\&.h\&.
+.SS "int monitors"
+
+.PP
+Definition at line 847 of file ieee80211_i\&.h\&.
+.SS "struct mutex mtx"
+
+.PP
+Definition at line 956 of file ieee80211_i\&.h\&.
+.SS "struct napi_struct napi"
+
+.PP
+Definition at line 1085 of file ieee80211_i\&.h\&.
+.SS "struct net_device napi_dev"
+
+.PP
+Definition at line 1083 of file ieee80211_i\&.h\&.
+.SS "struct notifier_block network_latency_notifier"
+
+.PP
+Definition at line 1045 of file ieee80211_i\&.h\&.
+.SS "enum \fBmac80211_scan_state\fP next_scan_state"
+
+.PP
+Definition at line 973 of file ieee80211_i\&.h\&.
+.SS "unsigned long num_sta"
+
+.PP
+Definition at line 925 of file ieee80211_i\&.h\&.
+.SS "bool offchannel_ps_enabled"
+
+.PP
+Definition at line 1036 of file ieee80211_i\&.h\&.
+.SS "int open_count"
+
+.PP
+Definition at line 846 of file ieee80211_i\&.h\&.
+.SS "struct ieee80211_channel* oper_channel"
+
+.PP
+Definition at line 977 of file ieee80211_i\&.h\&.
+.SS "struct ieee80211_ops* ops"
+
+.PP
+Definition at line 827 of file ieee80211_i\&.h\&.
+.SS "struct sk_buff_head pending[IEEE80211_MAX_QUEUES]"
+
+.PP
+Definition at line 931 of file ieee80211_i\&.h\&.
+.SS "int power_constr_level"
+
+.PP
+Definition at line 1057 of file ieee80211_i\&.h\&.
+.SS "int probe_req_reg"
+
+.PP
+Definition at line 851 of file ieee80211_i\&.h\&.
+.SS "struct \fBieee80211_sub_if_data\fP* ps_sdata"
+
+.PP
+Definition at line 1041 of file ieee80211_i\&.h\&.
+.SS "bool pspolling"
+
+.PP
+Definition at line 1035 of file ieee80211_i\&.h\&.
+.SS "spinlock_t queue_stop_reason_lock"
+
+.PP
+Definition at line 844 of file ieee80211_i\&.h\&.
+.SS "unsigned long queue_stop_reasons[IEEE80211_MAX_QUEUES]"
+
+.PP
+Definition at line 842 of file ieee80211_i\&.h\&.
+.SS "bool quiescing"
+
+.PP
+Definition at line 890 of file ieee80211_i\&.h\&.
+.SS "struct \fBrate_control_ref\fP* rate_ctrl"
+
+.PP
+Definition at line 939 of file ieee80211_i\&.h\&.
+.SS "struct work_struct recalc_smps"
+
+.PP
+Definition at line 863 of file ieee80211_i\&.h\&.
+.SS "struct work_struct reconfig_filter"
+
+.PP
+Definition at line 860 of file ieee80211_i\&.h\&.
+.SS "struct work_struct restart_work"
+
+.PP
+Definition at line 1061 of file ieee80211_i\&.h\&.
+.SS "bool resuming"
+
+.PP
+Definition at line 884 of file ieee80211_i\&.h\&.
+.SS "bool running_rx_handler"
+
+.PP
+Definition at line 916 of file ieee80211_i\&.h\&.
+.SS "struct sk_buff_head rx_skb_queue"
+
+.PP
+Definition at line 915 of file ieee80211_i\&.h\&.
+.SS "struct ieee80211_channel* scan_channel"
+
+.PP
+Definition at line 963 of file ieee80211_i\&.h\&.
+.SS "int scan_channel_idx"
+
+.PP
+Definition at line 965 of file ieee80211_i\&.h\&.
+.SS "int scan_ies_len"
+
+.PP
+Definition at line 966 of file ieee80211_i\&.h\&.
+.SS "struct cfg80211_scan_request* scan_req"
+
+.PP
+Definition at line 962 of file ieee80211_i\&.h\&.
+.SS "struct \fBieee80211_sub_if_data\fP* scan_sdata"
+
+.PP
+Definition at line 975 of file ieee80211_i\&.h\&.
+.SS "struct cfg80211_ssid scan_ssid"
+
+.PP
+Definition at line 960 of file ieee80211_i\&.h\&.
+.SS "struct delayed_work scan_work"
+
+.PP
+Definition at line 974 of file ieee80211_i\&.h\&.
+.SS "unsigned long scanning"
+
+.PP
+Definition at line 959 of file ieee80211_i\&.h\&.
+.SS "struct ieee80211_sched_scan_ies sched_scan_ies"
+
+.PP
+Definition at line 969 of file ieee80211_i\&.h\&.
+.SS "struct work_struct sched_scan_stopped_work"
+
+.PP
+Definition at line 970 of file ieee80211_i\&.h\&.
+.SS "bool sched_scanning"
+
+.PP
+Definition at line 968 of file ieee80211_i\&.h\&.
+.SS "struct sk_buff_head skb_queue"
+
+.PP
+Definition at line 906 of file ieee80211_i\&.h\&.
+.SS "struct sk_buff_head skb_queue_unreliable"
+
+.PP
+Definition at line 907 of file ieee80211_i\&.h\&.
+.SS "enum ieee80211_smps_mode smps_mode"
+
+.PP
+Definition at line 1059 of file ieee80211_i\&.h\&.
+.SS "struct timer_list sta_cleanup"
+
+.PP
+Definition at line 928 of file ieee80211_i\&.h\&.
+.SS "int sta_generation"
+
+.PP
+Definition at line 929 of file ieee80211_i\&.h\&.
+.SS "struct \fBsta_info\fP __rcu* sta_hash[\fBSTA_HASH_SIZE\fP]"
+
+.PP
+Definition at line 927 of file ieee80211_i\&.h\&.
+.SS "struct list_head sta_list"
+
+.PP
+Definition at line 926 of file ieee80211_i\&.h\&.
+.SS "struct mutex sta_mtx"
+
+.PP
+Definition at line 923 of file ieee80211_i\&.h\&.
+.SS "bool started"
+
+.PP
+Definition at line 893 of file ieee80211_i\&.h\&.
+.SS "bool suspended"
+
+.PP
+Definition at line 876 of file ieee80211_i\&.h\&.
+.SS "struct tasklet_struct tasklet"
+
+.PP
+Definition at line 905 of file ieee80211_i\&.h\&.
+.SS "bool tim_in_locked_section"
+
+.PP
+Definition at line 868 of file ieee80211_i\&.h\&.
+.SS "spinlock_t tim_lock"
+
+.PP
+Definition at line 924 of file ieee80211_i\&.h\&.
+.SS "struct ieee80211_channel* tmp_channel"
+
+.PP
+Definition at line 980 of file ieee80211_i\&.h\&.
+.SS "enum nl80211_channel_type tmp_channel_type"
+
+.PP
+Definition at line 981 of file ieee80211_i\&.h\&.
+.SS "int total_ps_buffered"
+
+.PP
+Definition at line 1030 of file ieee80211_i\&.h\&.
+.SS "int tx_headroom"
+
+.PP
+Definition at line 898 of file ieee80211_i\&.h\&.
+.SS "struct tasklet_struct tx_pending_tasklet"
+
+.PP
+Definition at line 932 of file ieee80211_i\&.h\&.
+.SS "int user_power_level"
+
+.PP
+Definition at line 1056 of file ieee80211_i\&.h\&.
+.SS "u32 wep_iv"
+
+.PP
+Definition at line 943 of file ieee80211_i\&.h\&.
+.SS "struct crypto_cipher* wep_rx_tfm"
+
+.PP
+Definition at line 942 of file ieee80211_i\&.h\&.
+.SS "struct crypto_cipher* wep_tx_tfm"
+
+.PP
+Definition at line 941 of file ieee80211_i\&.h\&.
+.SS "bool wiphy_ciphers_allocated"
+
+.PP
+Definition at line 854 of file ieee80211_i\&.h\&.
+.SS "unsigned int wmm_acm"
+
+.PP
+Definition at line 1033 of file ieee80211_i\&.h\&.
+.SS "struct list_head work_list"
+
+.PP
+Definition at line 832 of file ieee80211_i\&.h\&.
+.SS "struct timer_list work_timer"
+
+.PP
+Definition at line 833 of file ieee80211_i\&.h\&.
+.SS "struct work_struct work_work"
+
+.PP
+Definition at line 834 of file ieee80211_i\&.h\&.
+.SS "struct workqueue_struct* workqueue"
+
+.PP
+Definition at line 840 of file ieee80211_i\&.h\&.
+.SS "bool wowlan"
+
+.PP
+Definition at line 896 of file ieee80211_i\&.h\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for net_mac80211 from the source code\&.

@@ -1,0 +1,102 @@
+.TH "/home/guille/msm/net/mac80211/rc80211_minstrel.c" 3 "Sun Jun 1 2014" "Version 1.0" "net_mac80211" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+/home/guille/msm/net/mac80211/rc80211_minstrel.c \- 
+.SH SYNOPSIS
+.br
+.PP
+\fC#include <linux/netdevice\&.h>\fP
+.br
+\fC#include <linux/types\&.h>\fP
+.br
+\fC#include <linux/skbuff\&.h>\fP
+.br
+\fC#include <linux/debugfs\&.h>\fP
+.br
+\fC#include <linux/random\&.h>\fP
+.br
+\fC#include <linux/ieee80211\&.h>\fP
+.br
+\fC#include <linux/slab\&.h>\fP
+.br
+\fC#include <net/mac80211\&.h>\fP
+.br
+\fC#include 'rate\&.h'\fP
+.br
+\fC#include 'rc80211_minstrel\&.h'\fP
+.br
+
+.SS "Macros"
+
+.in +1c
+.ti -1c
+.RI "#define \fBSAMPLE_COLUMNS\fP   10"
+.br
+.ti -1c
+.RI "#define \fBSAMPLE_TBL\fP(_mi, _idx, _col)   _mi->sample_table[(_idx * \fBSAMPLE_COLUMNS\fP) + _col]"
+.br
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "int __init \fBrc80211_minstrel_init\fP (void)"
+.br
+.ti -1c
+.RI "void \fBrc80211_minstrel_exit\fP (void)"
+.br
+.in -1c
+.SS "Variables"
+
+.in +1c
+.ti -1c
+.RI "struct rate_control_ops \fBmac80211_minstrel\fP"
+.br
+.in -1c
+.SH "Macro Definition Documentation"
+.PP 
+.SS "#define SAMPLE_COLUMNS   10"
+
+.PP
+Definition at line 58 of file rc80211_minstrel\&.c\&.
+.SS "#define SAMPLE_TBL(_mi, _idx, _col)   _mi->sample_table[(_idx * \fBSAMPLE_COLUMNS\fP) + _col]"
+
+.PP
+Definition at line 59 of file rc80211_minstrel\&.c\&.
+.SH "Function Documentation"
+.PP 
+.SS "void rc80211_minstrel_exit (void)"
+
+.PP
+Definition at line 574 of file rc80211_minstrel\&.c\&.
+.SS "int __init rc80211_minstrel_init (void)"
+
+.PP
+Definition at line 568 of file rc80211_minstrel\&.c\&.
+.SH "Variable Documentation"
+.PP 
+.SS "struct rate_control_ops mac80211_minstrel"
+\fBInitial value:\fP
+.PP
+.nf
+= {
+    \&.name = "minstrel",
+    \&.tx_status = minstrel_tx_status,
+    \&.get_rate = minstrel_get_rate,
+    \&.rate_init = minstrel_rate_init,
+    \&.alloc = minstrel_alloc,
+    \&.free = minstrel_free,
+    \&.alloc_sta = minstrel_alloc_sta,
+    \&.free_sta = minstrel_free_sta,
+
+
+
+
+}
+.fi
+.PP
+Definition at line 552 of file rc80211_minstrel\&.c\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for net_mac80211 from the source code\&.

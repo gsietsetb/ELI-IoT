@@ -1,0 +1,86 @@
+.TH "ieee80211_if_ap" 3 "Sun Jun 1 2014" "Version 1.0" "net_mac80211" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+ieee80211_if_ap \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <ieee80211_i\&.h>\fP
+.SS "Data Fields"
+
+.in +1c
+.ti -1c
+.RI "struct \fBbeacon_data\fP __rcu * \fBbeacon\fP"
+.br
+.ti -1c
+.RI "struct sk_buff __rcu * \fBprobe_resp\fP"
+.br
+.ti -1c
+.RI "struct list_head \fBvlans\fP"
+.br
+.ti -1c
+.RI "u8 \fBtim\fP [sizeof(unsigned long)*BITS_TO_LONGS(IEEE80211_MAX_AID+1)]"
+.br
+.ti -1c
+.RI "struct sk_buff_head \fBps_bc_buf\fP"
+.br
+.ti -1c
+.RI "atomic_t \fBnum_sta_ps\fP"
+.br
+.ti -1c
+.RI "atomic_t \fBnum_sta_authorized\fP"
+.br
+.ti -1c
+.RI "int \fBdtim_count\fP"
+.br
+.ti -1c
+.RI "bool \fBdtim_bc_mc\fP"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Definition at line 272 of file ieee80211_i\&.h\&.
+.SH "Field Documentation"
+.PP 
+.SS "struct \fBbeacon_data\fP __rcu* beacon"
+
+.PP
+Definition at line 273 of file ieee80211_i\&.h\&.
+.SS "bool dtim_bc_mc"
+
+.PP
+Definition at line 286 of file ieee80211_i\&.h\&.
+.SS "int dtim_count"
+
+.PP
+Definition at line 285 of file ieee80211_i\&.h\&.
+.SS "atomic_t num_sta_authorized"
+
+.PP
+Definition at line 284 of file ieee80211_i\&.h\&.
+.SS "atomic_t num_sta_ps"
+
+.PP
+Definition at line 283 of file ieee80211_i\&.h\&.
+.SS "struct sk_buff __rcu* probe_resp"
+
+.PP
+Definition at line 274 of file ieee80211_i\&.h\&.
+.SS "struct sk_buff_head ps_bc_buf"
+
+.PP
+Definition at line 282 of file ieee80211_i\&.h\&.
+.SS "u8 tim[sizeof(unsigned long)*BITS_TO_LONGS(IEEE80211_MAX_AID+1)]"
+
+.PP
+Definition at line 281 of file ieee80211_i\&.h\&.
+.SS "struct list_head vlans"
+
+.PP
+Definition at line 276 of file ieee80211_i\&.h\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for net_mac80211 from the source code\&.

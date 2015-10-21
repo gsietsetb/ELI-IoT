@@ -1,0 +1,183 @@
+\hypertarget{structieee80211__work}{\section{ieee80211\-\_\-work Struct Reference}
+\label{structieee80211__work}\index{ieee80211\-\_\-work@{ieee80211\-\_\-work}}
+}
+
+
+{\ttfamily \#include $<$ieee80211\-\_\-i.\-h$>$}
+
+
+
+Collaboration diagram for ieee80211\-\_\-work\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=550pt]{structieee80211__work__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+struct list\-\_\-head \hyperlink{structieee80211__work_a1f00f18b91d5a820f2c43064243aa86e}{list}
+\item 
+struct rcu\-\_\-head \hyperlink{structieee80211__work_ab698383409a24791490f962fe6990655}{rcu\-\_\-head}
+\item 
+struct \hyperlink{structieee80211__sub__if__data}{ieee80211\-\_\-sub\-\_\-if\-\_\-data} $\ast$ \hyperlink{structieee80211__work_ad829d8d33f06a7245cc303f924f259ac}{sdata}
+\item 
+enum \hyperlink{ieee80211__i_8h_a1d4a98716f0e0c48900c8d144ae73774}{work\-\_\-done\-\_\-result}($\ast$ \hyperlink{structieee80211__work_a8cafc3e050dcbac4c13d42bbed5da146}{done} )(struct \hyperlink{structieee80211__work}{ieee80211\-\_\-work} $\ast$wk, struct sk\-\_\-buff $\ast$skb)
+\item 
+struct ieee80211\-\_\-channel $\ast$ \hyperlink{structieee80211__work_ad695b849e189aedbc929a30c616fbfc7}{chan}
+\item 
+enum nl80211\-\_\-channel\-\_\-type \hyperlink{structieee80211__work_a82a2bcb2ebd1e6187c8057f98ce6bd3f}{chan\-\_\-type}
+\item 
+unsigned long \hyperlink{structieee80211__work_a639e65bbd749de17060d658eb233f72b}{timeout}
+\item 
+enum \hyperlink{ieee80211__i_8h_acbd73c3a23cb430f27ef21fe6d81d795}{ieee80211\-\_\-work\-\_\-type} \hyperlink{structieee80211__work_abf1dbe34cf79d583ad1c34c2fe8bbaec}{type}
+\item 
+bool \hyperlink{structieee80211__work_a43c08d193d555a2b2a61c53d2a4e5a63}{started}
+\item 
+\begin{tabbing}
+xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=\kill
+union \{\\
+\>struct \{\\
+\>\>u32 \hyperlink{structieee80211__work_ae0565e8bbc0bf97f0747e1e4757fc5a0}{duration}\\
+\>\} \hyperlink{structieee80211__work_a848f56cbf44ec6114e7da4547b616fb1}{remain}\\
+\>struct \{\\
+\>\>struct sk\_buff $\ast$ \hyperlink{structieee80211__work_a7ddb066bb78029e2130c2ccb2bf3ac08}{frame}\\
+\>\>u32 \hyperlink{structieee80211__work_ad656a22cd7138c32438d6fff315a9611}{wait}\\
+\>\>bool \hyperlink{structieee80211__work_ad1f0bff7112206922c9d5a87adad6f2b}{status}\\
+\>\} \hyperlink{structieee80211__work_ab765c48f0901d818729d7a4031f0a284}{offchan\_tx}\\
+\}; \\
+
+\end{tabbing}\item 
+size\-\_\-t \hyperlink{structieee80211__work_ace1c2e33b74df8973a7d9a19c935af80}{data\-\_\-len}
+\item 
+u8 \hyperlink{structieee80211__work_a6dc95797421616e7833cb107fee9d17f}{data} \mbox{[}$\,$\mbox{]}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+
+
+Definition at line 337 of file ieee80211\-\_\-i.\-h.
+
+
+
+\subsection{Field Documentation}
+\hypertarget{structieee80211__work_a4b97c6d84b14925ea9f396a098ca6421}{\subsubsection[{"@3}]{\setlength{\rightskip}{0pt plus 5cm}union \{ ... \} }}\label{structieee80211__work_a4b97c6d84b14925ea9f396a098ca6421}
+\hypertarget{structieee80211__work_ad695b849e189aedbc929a30c616fbfc7}{\index{ieee80211\-\_\-work@{ieee80211\-\_\-work}!chan@{chan}}
+\index{chan@{chan}!ieee80211_work@{ieee80211\-\_\-work}}
+\subsubsection[{chan}]{\setlength{\rightskip}{0pt plus 5cm}struct ieee80211\-\_\-channel$\ast$ chan}}\label{structieee80211__work_ad695b849e189aedbc929a30c616fbfc7}
+
+
+Definition at line 347 of file ieee80211\-\_\-i.\-h.
+
+\hypertarget{structieee80211__work_a82a2bcb2ebd1e6187c8057f98ce6bd3f}{\index{ieee80211\-\_\-work@{ieee80211\-\_\-work}!chan\-\_\-type@{chan\-\_\-type}}
+\index{chan\-\_\-type@{chan\-\_\-type}!ieee80211_work@{ieee80211\-\_\-work}}
+\subsubsection[{chan\-\_\-type}]{\setlength{\rightskip}{0pt plus 5cm}enum nl80211\-\_\-channel\-\_\-type chan\-\_\-type}}\label{structieee80211__work_a82a2bcb2ebd1e6187c8057f98ce6bd3f}
+
+
+Definition at line 348 of file ieee80211\-\_\-i.\-h.
+
+\hypertarget{structieee80211__work_a6dc95797421616e7833cb107fee9d17f}{\index{ieee80211\-\_\-work@{ieee80211\-\_\-work}!data@{data}}
+\index{data@{data}!ieee80211_work@{ieee80211\-\_\-work}}
+\subsubsection[{data}]{\setlength{\rightskip}{0pt plus 5cm}u8 data\mbox{[}$\,$\mbox{]}}}\label{structieee80211__work_a6dc95797421616e7833cb107fee9d17f}
+
+
+Definition at line 367 of file ieee80211\-\_\-i.\-h.
+
+\hypertarget{structieee80211__work_ace1c2e33b74df8973a7d9a19c935af80}{\index{ieee80211\-\_\-work@{ieee80211\-\_\-work}!data\-\_\-len@{data\-\_\-len}}
+\index{data\-\_\-len@{data\-\_\-len}!ieee80211_work@{ieee80211\-\_\-work}}
+\subsubsection[{data\-\_\-len}]{\setlength{\rightskip}{0pt plus 5cm}size\-\_\-t data\-\_\-len}}\label{structieee80211__work_ace1c2e33b74df8973a7d9a19c935af80}
+
+
+Definition at line 366 of file ieee80211\-\_\-i.\-h.
+
+\hypertarget{structieee80211__work_a8cafc3e050dcbac4c13d42bbed5da146}{\index{ieee80211\-\_\-work@{ieee80211\-\_\-work}!done@{done}}
+\index{done@{done}!ieee80211_work@{ieee80211\-\_\-work}}
+\subsubsection[{done}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf work\-\_\-done\-\_\-result}($\ast$ done)(struct {\bf ieee80211\-\_\-work} $\ast$wk, struct sk\-\_\-buff $\ast$skb)}}\label{structieee80211__work_a8cafc3e050dcbac4c13d42bbed5da146}
+
+
+Definition at line 344 of file ieee80211\-\_\-i.\-h.
+
+\hypertarget{structieee80211__work_ae0565e8bbc0bf97f0747e1e4757fc5a0}{\index{ieee80211\-\_\-work@{ieee80211\-\_\-work}!duration@{duration}}
+\index{duration@{duration}!ieee80211_work@{ieee80211\-\_\-work}}
+\subsubsection[{duration}]{\setlength{\rightskip}{0pt plus 5cm}u32 duration}}\label{structieee80211__work_ae0565e8bbc0bf97f0747e1e4757fc5a0}
+
+
+Definition at line 357 of file ieee80211\-\_\-i.\-h.
+
+\hypertarget{structieee80211__work_a7ddb066bb78029e2130c2ccb2bf3ac08}{\index{ieee80211\-\_\-work@{ieee80211\-\_\-work}!frame@{frame}}
+\index{frame@{frame}!ieee80211_work@{ieee80211\-\_\-work}}
+\subsubsection[{frame}]{\setlength{\rightskip}{0pt plus 5cm}struct sk\-\_\-buff$\ast$ frame}}\label{structieee80211__work_a7ddb066bb78029e2130c2ccb2bf3ac08}
+
+
+Definition at line 360 of file ieee80211\-\_\-i.\-h.
+
+\hypertarget{structieee80211__work_a1f00f18b91d5a820f2c43064243aa86e}{\index{ieee80211\-\_\-work@{ieee80211\-\_\-work}!list@{list}}
+\index{list@{list}!ieee80211_work@{ieee80211\-\_\-work}}
+\subsubsection[{list}]{\setlength{\rightskip}{0pt plus 5cm}struct list\-\_\-head list}}\label{structieee80211__work_a1f00f18b91d5a820f2c43064243aa86e}
+
+
+Definition at line 338 of file ieee80211\-\_\-i.\-h.
+
+\hypertarget{structieee80211__work_ab765c48f0901d818729d7a4031f0a284}{\index{ieee80211\-\_\-work@{ieee80211\-\_\-work}!offchan\-\_\-tx@{offchan\-\_\-tx}}
+\index{offchan\-\_\-tx@{offchan\-\_\-tx}!ieee80211_work@{ieee80211\-\_\-work}}
+\subsubsection[{offchan\-\_\-tx}]{\setlength{\rightskip}{0pt plus 5cm}struct \{ ... \}   offchan\-\_\-tx}}\label{structieee80211__work_ab765c48f0901d818729d7a4031f0a284}
+\hypertarget{structieee80211__work_ab698383409a24791490f962fe6990655}{\index{ieee80211\-\_\-work@{ieee80211\-\_\-work}!rcu\-\_\-head@{rcu\-\_\-head}}
+\index{rcu\-\_\-head@{rcu\-\_\-head}!ieee80211_work@{ieee80211\-\_\-work}}
+\subsubsection[{rcu\-\_\-head}]{\setlength{\rightskip}{0pt plus 5cm}struct rcu\-\_\-head rcu\-\_\-head}}\label{structieee80211__work_ab698383409a24791490f962fe6990655}
+
+
+Definition at line 340 of file ieee80211\-\_\-i.\-h.
+
+\hypertarget{structieee80211__work_a848f56cbf44ec6114e7da4547b616fb1}{\index{ieee80211\-\_\-work@{ieee80211\-\_\-work}!remain@{remain}}
+\index{remain@{remain}!ieee80211_work@{ieee80211\-\_\-work}}
+\subsubsection[{remain}]{\setlength{\rightskip}{0pt plus 5cm}struct \{ ... \}   remain}}\label{structieee80211__work_a848f56cbf44ec6114e7da4547b616fb1}
+\hypertarget{structieee80211__work_ad829d8d33f06a7245cc303f924f259ac}{\index{ieee80211\-\_\-work@{ieee80211\-\_\-work}!sdata@{sdata}}
+\index{sdata@{sdata}!ieee80211_work@{ieee80211\-\_\-work}}
+\subsubsection[{sdata}]{\setlength{\rightskip}{0pt plus 5cm}struct {\bf ieee80211\-\_\-sub\-\_\-if\-\_\-data}$\ast$ sdata}}\label{structieee80211__work_ad829d8d33f06a7245cc303f924f259ac}
+
+
+Definition at line 342 of file ieee80211\-\_\-i.\-h.
+
+\hypertarget{structieee80211__work_a43c08d193d555a2b2a61c53d2a4e5a63}{\index{ieee80211\-\_\-work@{ieee80211\-\_\-work}!started@{started}}
+\index{started@{started}!ieee80211_work@{ieee80211\-\_\-work}}
+\subsubsection[{started}]{\setlength{\rightskip}{0pt plus 5cm}bool started}}\label{structieee80211__work_a43c08d193d555a2b2a61c53d2a4e5a63}
+
+
+Definition at line 353 of file ieee80211\-\_\-i.\-h.
+
+\hypertarget{structieee80211__work_ad1f0bff7112206922c9d5a87adad6f2b}{\index{ieee80211\-\_\-work@{ieee80211\-\_\-work}!status@{status}}
+\index{status@{status}!ieee80211_work@{ieee80211\-\_\-work}}
+\subsubsection[{status}]{\setlength{\rightskip}{0pt plus 5cm}bool status}}\label{structieee80211__work_ad1f0bff7112206922c9d5a87adad6f2b}
+
+
+Definition at line 362 of file ieee80211\-\_\-i.\-h.
+
+\hypertarget{structieee80211__work_a639e65bbd749de17060d658eb233f72b}{\index{ieee80211\-\_\-work@{ieee80211\-\_\-work}!timeout@{timeout}}
+\index{timeout@{timeout}!ieee80211_work@{ieee80211\-\_\-work}}
+\subsubsection[{timeout}]{\setlength{\rightskip}{0pt plus 5cm}unsigned long timeout}}\label{structieee80211__work_a639e65bbd749de17060d658eb233f72b}
+
+
+Definition at line 350 of file ieee80211\-\_\-i.\-h.
+
+\hypertarget{structieee80211__work_abf1dbe34cf79d583ad1c34c2fe8bbaec}{\index{ieee80211\-\_\-work@{ieee80211\-\_\-work}!type@{type}}
+\index{type@{type}!ieee80211_work@{ieee80211\-\_\-work}}
+\subsubsection[{type}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf ieee80211\-\_\-work\-\_\-type} type}}\label{structieee80211__work_abf1dbe34cf79d583ad1c34c2fe8bbaec}
+
+
+Definition at line 351 of file ieee80211\-\_\-i.\-h.
+
+\hypertarget{structieee80211__work_ad656a22cd7138c32438d6fff315a9611}{\index{ieee80211\-\_\-work@{ieee80211\-\_\-work}!wait@{wait}}
+\index{wait@{wait}!ieee80211_work@{ieee80211\-\_\-work}}
+\subsubsection[{wait}]{\setlength{\rightskip}{0pt plus 5cm}u32 wait}}\label{structieee80211__work_ad656a22cd7138c32438d6fff315a9611}
+
+
+Definition at line 361 of file ieee80211\-\_\-i.\-h.
+
+
+
+The documentation for this struct was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+/home/guille/msm/net/mac80211/\hyperlink{ieee80211__i_8h}{ieee80211\-\_\-i.\-h}\end{DoxyCompactItemize}

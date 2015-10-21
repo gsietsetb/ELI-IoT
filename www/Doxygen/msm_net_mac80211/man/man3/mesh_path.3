@@ -1,0 +1,155 @@
+.TH "mesh_path" 3 "Sun Jun 1 2014" "Version 1.0" "net_mac80211" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+mesh_path \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <mesh\&.h>\fP
+.SS "Data Fields"
+
+.in +1c
+.ti -1c
+.RI "u8 \fBdst\fP [ETH_ALEN]"
+.br
+.ti -1c
+.RI "u8 \fBmpp\fP [ETH_ALEN]"
+.br
+.ti -1c
+.RI "struct \fBieee80211_sub_if_data\fP * \fBsdata\fP"
+.br
+.ti -1c
+.RI "struct \fBsta_info\fP __rcu * \fBnext_hop\fP"
+.br
+.ti -1c
+.RI "struct timer_list \fBtimer\fP"
+.br
+.ti -1c
+.RI "struct sk_buff_head \fBframe_queue\fP"
+.br
+.ti -1c
+.RI "struct rcu_head \fBrcu\fP"
+.br
+.ti -1c
+.RI "u32 \fBsn\fP"
+.br
+.ti -1c
+.RI "u32 \fBmetric\fP"
+.br
+.ti -1c
+.RI "u8 \fBhop_count\fP"
+.br
+.ti -1c
+.RI "unsigned long \fBexp_time\fP"
+.br
+.ti -1c
+.RI "u32 \fBdiscovery_timeout\fP"
+.br
+.ti -1c
+.RI "u8 \fBdiscovery_retries\fP"
+.br
+.ti -1c
+.RI "enum \fBmesh_path_flags\fP \fBflags\fP"
+.br
+.ti -1c
+.RI "spinlock_t \fBstate_lock\fP"
+.br
+.ti -1c
+.RI "u8 \fBrann_snd_addr\fP [ETH_ALEN]"
+.br
+.ti -1c
+.RI "bool \fBis_root\fP"
+.br
+.ti -1c
+.RI "bool \fBis_gate\fP"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+struct \fBmesh_path\fP - mac80211 mesh path structure
+.PP
+: mesh path destination mac address : mesh subif : mesh neighbor to which frames for this destination will be forwarded : mesh path discovery timer : pending queue for frames sent to this destination while the path is unresolved : target sequence number : current metric to this destination : hops to destination : in jiffies, when the path will expire or when it expired : timeout (lapse in jiffies) used for the last discovery retry : number of discovery retries : mesh path flags, as specified on &enum mesh_path_flags : mesh path state lock used to protect changes to the mpath itself\&. No need to take this lock when adding or removing an mpath to a hash bucket on a path table\&. : the RANN sender address : the destination station of this path is a root node : the destination station of this path is a mesh gate
+.PP
+The combination of dst and sdata is unique in the mesh path table\&. Since the next_hop STA is only protected by RCU as well, deleting the STA must also remove/substitute the \fBmesh_path\fP structure and wait until that is no longer reachable before destroying the STA completely\&. 
+.PP
+Definition at line 98 of file mesh\&.h\&.
+.SH "Field Documentation"
+.PP 
+.SS "u8 discovery_retries"
+
+.PP
+Definition at line 111 of file mesh\&.h\&.
+.SS "u32 discovery_timeout"
+
+.PP
+Definition at line 110 of file mesh\&.h\&.
+.SS "u8 dst[ETH_ALEN]"
+
+.PP
+Definition at line 99 of file mesh\&.h\&.
+.SS "unsigned long exp_time"
+
+.PP
+Definition at line 109 of file mesh\&.h\&.
+.SS "enum \fBmesh_path_flags\fP flags"
+
+.PP
+Definition at line 112 of file mesh\&.h\&.
+.SS "struct sk_buff_head frame_queue"
+
+.PP
+Definition at line 104 of file mesh\&.h\&.
+.SS "u8 hop_count"
+
+.PP
+Definition at line 108 of file mesh\&.h\&.
+.SS "bool is_gate"
+
+.PP
+Definition at line 116 of file mesh\&.h\&.
+.SS "bool is_root"
+
+.PP
+Definition at line 115 of file mesh\&.h\&.
+.SS "u32 metric"
+
+.PP
+Definition at line 107 of file mesh\&.h\&.
+.SS "u8 mpp[ETH_ALEN]"
+
+.PP
+Definition at line 100 of file mesh\&.h\&.
+.SS "struct \fBsta_info\fP __rcu* next_hop"
+
+.PP
+Definition at line 102 of file mesh\&.h\&.
+.SS "u8 rann_snd_addr[ETH_ALEN]"
+
+.PP
+Definition at line 114 of file mesh\&.h\&.
+.SS "struct rcu_head rcu"
+
+.PP
+Definition at line 105 of file mesh\&.h\&.
+.SS "struct \fBieee80211_sub_if_data\fP* sdata"
+
+.PP
+Definition at line 101 of file mesh\&.h\&.
+.SS "u32 sn"
+
+.PP
+Definition at line 106 of file mesh\&.h\&.
+.SS "spinlock_t state_lock"
+
+.PP
+Definition at line 113 of file mesh\&.h\&.
+.SS "struct timer_list timer"
+
+.PP
+Definition at line 103 of file mesh\&.h\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for net_mac80211 from the source code\&.

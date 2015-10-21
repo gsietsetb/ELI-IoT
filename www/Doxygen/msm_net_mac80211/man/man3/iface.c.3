@@ -1,0 +1,129 @@
+.TH "/home/guille/msm/net/mac80211/iface.c" 3 "Sun Jun 1 2014" "Version 1.0" "net_mac80211" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+/home/guille/msm/net/mac80211/iface.c \- 
+.SH SYNOPSIS
+.br
+.PP
+\fC#include <linux/slab\&.h>\fP
+.br
+\fC#include <linux/kernel\&.h>\fP
+.br
+\fC#include <linux/if_arp\&.h>\fP
+.br
+\fC#include <linux/netdevice\&.h>\fP
+.br
+\fC#include <linux/rtnetlink\&.h>\fP
+.br
+\fC#include <net/mac80211\&.h>\fP
+.br
+\fC#include <net/ieee80211_radiotap\&.h>\fP
+.br
+\fC#include 'ieee80211_i\&.h'\fP
+.br
+\fC#include 'sta_info\&.h'\fP
+.br
+\fC#include 'debugfs_netdev\&.h'\fP
+.br
+\fC#include 'mesh\&.h'\fP
+.br
+\fC#include 'led\&.h'\fP
+.br
+\fC#include 'driver-ops\&.h'\fP
+.br
+\fC#include 'wme\&.h'\fP
+.br
+\fC#include 'rate\&.h'\fP
+.br
+
+.SS "Macros"
+
+.in +1c
+.ti -1c
+.RI "#define \fBADJUST\fP(_f, _s)"
+.br
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBieee80211_adjust_monitor_flags\fP (struct \fBieee80211_sub_if_data\fP *sdata, const int offset)"
+.br
+.ti -1c
+.RI "int \fBieee80211_if_change_type\fP (struct \fBieee80211_sub_if_data\fP *sdata, enum nl80211_iftype type)"
+.br
+.ti -1c
+.RI "int \fBieee80211_if_add\fP (struct \fBieee80211_local\fP *local, const char *name, struct net_device **new_dev, enum nl80211_iftype type, struct vif_params *params)"
+.br
+.ti -1c
+.RI "void \fBieee80211_if_remove\fP (struct \fBieee80211_sub_if_data\fP *sdata)"
+.br
+.ti -1c
+.RI "void \fBieee80211_remove_interfaces\fP (struct \fBieee80211_local\fP *local)"
+.br
+.ti -1c
+.RI "u32 \fB__ieee80211_recalc_idle\fP (struct \fBieee80211_local\fP *local)"
+.br
+.ti -1c
+.RI "void \fBieee80211_recalc_idle\fP (struct \fBieee80211_local\fP *local)"
+.br
+.ti -1c
+.RI "int \fBieee80211_iface_init\fP (void)"
+.br
+.ti -1c
+.RI "void \fBieee80211_iface_exit\fP (void)"
+.br
+.in -1c
+.SH "Macro Definition Documentation"
+.PP 
+.SS "#define ADJUST(_f, _s)"
+\fBValue:\fP
+.PP
+.nf
+do {                    \
+    if (flags & MONITOR_FLAG_##_f)              \
+        local->fif_##_s += offset;          \
+    } while (0)
+.fi
+.SH "Function Documentation"
+.PP 
+.SS "u32 __ieee80211_recalc_idle (struct \fBieee80211_local\fP *local)"
+
+.PP
+Definition at line 1291 of file iface\&.c\&.
+.SS "void ieee80211_adjust_monitor_flags (struct \fBieee80211_sub_if_data\fP *sdata, const intoffset)"
+
+.PP
+Definition at line 152 of file iface\&.c\&.
+.SS "int ieee80211_if_add (struct \fBieee80211_local\fP *local, const char *name, struct net_device **new_dev, enum nl80211_iftypetype, struct vif_params *params)"
+
+.PP
+Definition at line 1129 of file iface\&.c\&.
+.SS "int ieee80211_if_change_type (struct \fBieee80211_sub_if_data\fP *sdata, enum nl80211_iftypetype)"
+
+.PP
+Definition at line 981 of file iface\&.c\&.
+.SS "void ieee80211_if_remove (struct \fBieee80211_sub_if_data\fP *sdata)"
+
+.PP
+Definition at line 1222 of file iface\&.c\&.
+.SS "void ieee80211_iface_exit (void)"
+
+.PP
+Definition at line 1427 of file iface\&.c\&.
+.SS "int ieee80211_iface_init (void)"
+
+.PP
+Definition at line 1422 of file iface\&.c\&.
+.SS "void ieee80211_recalc_idle (struct \fBieee80211_local\fP *local)"
+
+.PP
+Definition at line 1383 of file iface\&.c\&.
+.SS "void ieee80211_remove_interfaces (struct \fBieee80211_local\fP *local)"
+
+.PP
+Definition at line 1241 of file iface\&.c\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for net_mac80211 from the source code\&.

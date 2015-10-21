@@ -1,0 +1,127 @@
+\hypertarget{structsta__ampdu__mlme}{\section{sta\-\_\-ampdu\-\_\-mlme Struct Reference}
+\label{structsta__ampdu__mlme}\index{sta\-\_\-ampdu\-\_\-mlme@{sta\-\_\-ampdu\-\_\-mlme}}
+}
+
+
+{\ttfamily \#include $<$sta\-\_\-info.\-h$>$}
+
+
+
+Collaboration diagram for sta\-\_\-ampdu\-\_\-mlme\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=306pt]{structsta__ampdu__mlme__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+struct mutex \hyperlink{structsta__ampdu__mlme_a06f637951b74c996f2e4987a7be1dbdd}{mtx}
+\item 
+struct \hyperlink{structtid__ampdu__rx}{tid\-\_\-ampdu\-\_\-rx} \-\_\-\-\_\-rcu $\ast$ \hyperlink{structsta__ampdu__mlme_a9f02b8e803c3fad3c7f746477739b6c3}{tid\-\_\-rx} \mbox{[}\hyperlink{sta__info_8h_a8376226f35c3c806965ac03355cc1a00}{S\-T\-A\-\_\-\-T\-I\-D\-\_\-\-N\-U\-M}\mbox{]}
+\item 
+unsigned long \hyperlink{structsta__ampdu__mlme_a53e1819c9e1189bae325027254946f53}{tid\-\_\-rx\-\_\-timer\-\_\-expired} \mbox{[}B\-I\-T\-S\-\_\-\-T\-O\-\_\-\-L\-O\-N\-G\-S(\hyperlink{sta__info_8h_a8376226f35c3c806965ac03355cc1a00}{S\-T\-A\-\_\-\-T\-I\-D\-\_\-\-N\-U\-M})\mbox{]}
+\item 
+unsigned long \hyperlink{structsta__ampdu__mlme_aa9b2d44581dfa6af54bea5ad684e8b5f}{tid\-\_\-rx\-\_\-stop\-\_\-requested} \mbox{[}B\-I\-T\-S\-\_\-\-T\-O\-\_\-\-L\-O\-N\-G\-S(\hyperlink{sta__info_8h_a8376226f35c3c806965ac03355cc1a00}{S\-T\-A\-\_\-\-T\-I\-D\-\_\-\-N\-U\-M})\mbox{]}
+\item 
+struct work\-\_\-struct \hyperlink{structsta__ampdu__mlme_a623997e11b94d7c467ce26627cc488a2}{work}
+\item 
+struct \hyperlink{structtid__ampdu__tx}{tid\-\_\-ampdu\-\_\-tx} \-\_\-\-\_\-rcu $\ast$ \hyperlink{structsta__ampdu__mlme_acc2de99b986d5fa4b83081a609014228}{tid\-\_\-tx} \mbox{[}\hyperlink{sta__info_8h_a8376226f35c3c806965ac03355cc1a00}{S\-T\-A\-\_\-\-T\-I\-D\-\_\-\-N\-U\-M}\mbox{]}
+\item 
+struct \hyperlink{structtid__ampdu__tx}{tid\-\_\-ampdu\-\_\-tx} $\ast$ \hyperlink{structsta__ampdu__mlme_a11dbf950521d406406f6689d3db802fa}{tid\-\_\-start\-\_\-tx} \mbox{[}\hyperlink{sta__info_8h_a8376226f35c3c806965ac03355cc1a00}{S\-T\-A\-\_\-\-T\-I\-D\-\_\-\-N\-U\-M}\mbox{]}
+\item 
+unsigned long \hyperlink{structsta__ampdu__mlme_a811661f4c9a6505bfa7d3f74771e3157}{last\-\_\-addba\-\_\-req\-\_\-time} \mbox{[}\hyperlink{sta__info_8h_a8376226f35c3c806965ac03355cc1a00}{S\-T\-A\-\_\-\-T\-I\-D\-\_\-\-N\-U\-M}\mbox{]}
+\item 
+u8 \hyperlink{structsta__ampdu__mlme_a87d5e7167b24cc6e336ecf08e9e15d06}{addba\-\_\-req\-\_\-num} \mbox{[}\hyperlink{sta__info_8h_a8376226f35c3c806965ac03355cc1a00}{S\-T\-A\-\_\-\-T\-I\-D\-\_\-\-N\-U\-M}\mbox{]}
+\item 
+u8 \hyperlink{structsta__ampdu__mlme_a8dd4efd8eb6b5f60ae2295f55a4600a4}{dialog\-\_\-token\-\_\-allocator}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+struct \hyperlink{structsta__ampdu__mlme}{sta\-\_\-ampdu\-\_\-mlme} -\/ S\-T\-A aggregation information.
+
+\-: aggregation info for Rx per T\-I\-D -- R\-C\-U protected \-: aggregation info for Tx per T\-I\-D \-: sessions where start was requested \-: number of times add\-B\-A request has been sent. \-: timestamp of the last add\-B\-A request. \-: dialog token enumerator for each new session; \-: work struct for starting/stopping aggregation \-: bitmap indicating on which T\-I\-Ds the R\-X timer expired until the work for it runs \-: bitmap indicating which B\-A sessions per T\-I\-D the driver requested to close until the work for it runs \-: mutex to protect all T\-X data (except non-\/\-N\-U\-L\-L assignments to tid\-\_\-tx\mbox{[}idx\mbox{]}, which are protected by the sta spinlock) 
+
+Definition at line 191 of file sta\-\_\-info.\-h.
+
+
+
+\subsection{Field Documentation}
+\hypertarget{structsta__ampdu__mlme_a87d5e7167b24cc6e336ecf08e9e15d06}{\index{sta\-\_\-ampdu\-\_\-mlme@{sta\-\_\-ampdu\-\_\-mlme}!addba\-\_\-req\-\_\-num@{addba\-\_\-req\-\_\-num}}
+\index{addba\-\_\-req\-\_\-num@{addba\-\_\-req\-\_\-num}!sta_ampdu_mlme@{sta\-\_\-ampdu\-\_\-mlme}}
+\subsubsection[{addba\-\_\-req\-\_\-num}]{\setlength{\rightskip}{0pt plus 5cm}u8 addba\-\_\-req\-\_\-num\mbox{[}{\bf S\-T\-A\-\_\-\-T\-I\-D\-\_\-\-N\-U\-M}\mbox{]}}}\label{structsta__ampdu__mlme_a87d5e7167b24cc6e336ecf08e9e15d06}
+
+
+Definition at line 202 of file sta\-\_\-info.\-h.
+
+\hypertarget{structsta__ampdu__mlme_a8dd4efd8eb6b5f60ae2295f55a4600a4}{\index{sta\-\_\-ampdu\-\_\-mlme@{sta\-\_\-ampdu\-\_\-mlme}!dialog\-\_\-token\-\_\-allocator@{dialog\-\_\-token\-\_\-allocator}}
+\index{dialog\-\_\-token\-\_\-allocator@{dialog\-\_\-token\-\_\-allocator}!sta_ampdu_mlme@{sta\-\_\-ampdu\-\_\-mlme}}
+\subsubsection[{dialog\-\_\-token\-\_\-allocator}]{\setlength{\rightskip}{0pt plus 5cm}u8 dialog\-\_\-token\-\_\-allocator}}\label{structsta__ampdu__mlme_a8dd4efd8eb6b5f60ae2295f55a4600a4}
+
+
+Definition at line 203 of file sta\-\_\-info.\-h.
+
+\hypertarget{structsta__ampdu__mlme_a811661f4c9a6505bfa7d3f74771e3157}{\index{sta\-\_\-ampdu\-\_\-mlme@{sta\-\_\-ampdu\-\_\-mlme}!last\-\_\-addba\-\_\-req\-\_\-time@{last\-\_\-addba\-\_\-req\-\_\-time}}
+\index{last\-\_\-addba\-\_\-req\-\_\-time@{last\-\_\-addba\-\_\-req\-\_\-time}!sta_ampdu_mlme@{sta\-\_\-ampdu\-\_\-mlme}}
+\subsubsection[{last\-\_\-addba\-\_\-req\-\_\-time}]{\setlength{\rightskip}{0pt plus 5cm}unsigned long last\-\_\-addba\-\_\-req\-\_\-time\mbox{[}{\bf S\-T\-A\-\_\-\-T\-I\-D\-\_\-\-N\-U\-M}\mbox{]}}}\label{structsta__ampdu__mlme_a811661f4c9a6505bfa7d3f74771e3157}
+
+
+Definition at line 201 of file sta\-\_\-info.\-h.
+
+\hypertarget{structsta__ampdu__mlme_a06f637951b74c996f2e4987a7be1dbdd}{\index{sta\-\_\-ampdu\-\_\-mlme@{sta\-\_\-ampdu\-\_\-mlme}!mtx@{mtx}}
+\index{mtx@{mtx}!sta_ampdu_mlme@{sta\-\_\-ampdu\-\_\-mlme}}
+\subsubsection[{mtx}]{\setlength{\rightskip}{0pt plus 5cm}struct mutex mtx}}\label{structsta__ampdu__mlme_a06f637951b74c996f2e4987a7be1dbdd}
+
+
+Definition at line 192 of file sta\-\_\-info.\-h.
+
+\hypertarget{structsta__ampdu__mlme_a9f02b8e803c3fad3c7f746477739b6c3}{\index{sta\-\_\-ampdu\-\_\-mlme@{sta\-\_\-ampdu\-\_\-mlme}!tid\-\_\-rx@{tid\-\_\-rx}}
+\index{tid\-\_\-rx@{tid\-\_\-rx}!sta_ampdu_mlme@{sta\-\_\-ampdu\-\_\-mlme}}
+\subsubsection[{tid\-\_\-rx}]{\setlength{\rightskip}{0pt plus 5cm}struct {\bf tid\-\_\-ampdu\-\_\-rx} \-\_\-\-\_\-rcu$\ast$ tid\-\_\-rx\mbox{[}{\bf S\-T\-A\-\_\-\-T\-I\-D\-\_\-\-N\-U\-M}\mbox{]}}}\label{structsta__ampdu__mlme_a9f02b8e803c3fad3c7f746477739b6c3}
+
+
+Definition at line 194 of file sta\-\_\-info.\-h.
+
+\hypertarget{structsta__ampdu__mlme_aa9b2d44581dfa6af54bea5ad684e8b5f}{\index{sta\-\_\-ampdu\-\_\-mlme@{sta\-\_\-ampdu\-\_\-mlme}!tid\-\_\-rx\-\_\-stop\-\_\-requested@{tid\-\_\-rx\-\_\-stop\-\_\-requested}}
+\index{tid\-\_\-rx\-\_\-stop\-\_\-requested@{tid\-\_\-rx\-\_\-stop\-\_\-requested}!sta_ampdu_mlme@{sta\-\_\-ampdu\-\_\-mlme}}
+\subsubsection[{tid\-\_\-rx\-\_\-stop\-\_\-requested}]{\setlength{\rightskip}{0pt plus 5cm}unsigned long tid\-\_\-rx\-\_\-stop\-\_\-requested\mbox{[}B\-I\-T\-S\-\_\-\-T\-O\-\_\-\-L\-O\-N\-G\-S({\bf S\-T\-A\-\_\-\-T\-I\-D\-\_\-\-N\-U\-M})\mbox{]}}}\label{structsta__ampdu__mlme_aa9b2d44581dfa6af54bea5ad684e8b5f}
+
+
+Definition at line 196 of file sta\-\_\-info.\-h.
+
+\hypertarget{structsta__ampdu__mlme_a53e1819c9e1189bae325027254946f53}{\index{sta\-\_\-ampdu\-\_\-mlme@{sta\-\_\-ampdu\-\_\-mlme}!tid\-\_\-rx\-\_\-timer\-\_\-expired@{tid\-\_\-rx\-\_\-timer\-\_\-expired}}
+\index{tid\-\_\-rx\-\_\-timer\-\_\-expired@{tid\-\_\-rx\-\_\-timer\-\_\-expired}!sta_ampdu_mlme@{sta\-\_\-ampdu\-\_\-mlme}}
+\subsubsection[{tid\-\_\-rx\-\_\-timer\-\_\-expired}]{\setlength{\rightskip}{0pt plus 5cm}unsigned long tid\-\_\-rx\-\_\-timer\-\_\-expired\mbox{[}B\-I\-T\-S\-\_\-\-T\-O\-\_\-\-L\-O\-N\-G\-S({\bf S\-T\-A\-\_\-\-T\-I\-D\-\_\-\-N\-U\-M})\mbox{]}}}\label{structsta__ampdu__mlme_a53e1819c9e1189bae325027254946f53}
+
+
+Definition at line 195 of file sta\-\_\-info.\-h.
+
+\hypertarget{structsta__ampdu__mlme_a11dbf950521d406406f6689d3db802fa}{\index{sta\-\_\-ampdu\-\_\-mlme@{sta\-\_\-ampdu\-\_\-mlme}!tid\-\_\-start\-\_\-tx@{tid\-\_\-start\-\_\-tx}}
+\index{tid\-\_\-start\-\_\-tx@{tid\-\_\-start\-\_\-tx}!sta_ampdu_mlme@{sta\-\_\-ampdu\-\_\-mlme}}
+\subsubsection[{tid\-\_\-start\-\_\-tx}]{\setlength{\rightskip}{0pt plus 5cm}struct {\bf tid\-\_\-ampdu\-\_\-tx}$\ast$ tid\-\_\-start\-\_\-tx\mbox{[}{\bf S\-T\-A\-\_\-\-T\-I\-D\-\_\-\-N\-U\-M}\mbox{]}}}\label{structsta__ampdu__mlme_a11dbf950521d406406f6689d3db802fa}
+
+
+Definition at line 200 of file sta\-\_\-info.\-h.
+
+\hypertarget{structsta__ampdu__mlme_acc2de99b986d5fa4b83081a609014228}{\index{sta\-\_\-ampdu\-\_\-mlme@{sta\-\_\-ampdu\-\_\-mlme}!tid\-\_\-tx@{tid\-\_\-tx}}
+\index{tid\-\_\-tx@{tid\-\_\-tx}!sta_ampdu_mlme@{sta\-\_\-ampdu\-\_\-mlme}}
+\subsubsection[{tid\-\_\-tx}]{\setlength{\rightskip}{0pt plus 5cm}struct {\bf tid\-\_\-ampdu\-\_\-tx} \-\_\-\-\_\-rcu$\ast$ tid\-\_\-tx\mbox{[}{\bf S\-T\-A\-\_\-\-T\-I\-D\-\_\-\-N\-U\-M}\mbox{]}}}\label{structsta__ampdu__mlme_acc2de99b986d5fa4b83081a609014228}
+
+
+Definition at line 199 of file sta\-\_\-info.\-h.
+
+\hypertarget{structsta__ampdu__mlme_a623997e11b94d7c467ce26627cc488a2}{\index{sta\-\_\-ampdu\-\_\-mlme@{sta\-\_\-ampdu\-\_\-mlme}!work@{work}}
+\index{work@{work}!sta_ampdu_mlme@{sta\-\_\-ampdu\-\_\-mlme}}
+\subsubsection[{work}]{\setlength{\rightskip}{0pt plus 5cm}struct work\-\_\-struct work}}\label{structsta__ampdu__mlme_a623997e11b94d7c467ce26627cc488a2}
+
+
+Definition at line 198 of file sta\-\_\-info.\-h.
+
+
+
+The documentation for this struct was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+/home/guille/msm/net/mac80211/\hyperlink{sta__info_8h}{sta\-\_\-info.\-h}\end{DoxyCompactItemize}

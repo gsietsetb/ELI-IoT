@@ -1,0 +1,367 @@
+\hypertarget{debugfs_8c}{\section{/home/guille/msm/net/mac80211/debugfs.c File Reference}
+\label{debugfs_8c}\index{/home/guille/msm/net/mac80211/debugfs.\-c@{/home/guille/msm/net/mac80211/debugfs.\-c}}
+}
+{\ttfamily \#include $<$linux/debugfs.\-h$>$}\\*
+{\ttfamily \#include $<$linux/rtnetlink.\-h$>$}\\*
+{\ttfamily \#include \char`\"{}ieee80211\-\_\-i.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}driver-\/ops.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}rate.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}debugfs.\-h\char`\"{}}\\*
+Include dependency graph for debugfs.\-c\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{debugfs_8c__incl}
+\end{center}
+\end{figure}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{debugfs_8c_a47cf6dc6f0fcae9ad29464cfd49bfc0b}{D\-E\-B\-U\-G\-F\-S\-\_\-\-F\-O\-R\-M\-A\-T\-\_\-\-B\-U\-F\-F\-E\-R\-\_\-\-S\-I\-Z\-E}~100
+\item 
+\#define \hyperlink{debugfs_8c_a1a9f7cd1299f30f74d5dd29552f75738}{D\-E\-B\-U\-G\-F\-S\-\_\-\-R\-E\-A\-D\-O\-N\-L\-Y\-\_\-\-F\-I\-L\-E\-\_\-\-F\-N}(name, fmt, value...)
+\item 
+\#define \hyperlink{debugfs_8c_aa81bfe9e63b56f02bc372dc280fb588f}{D\-E\-B\-U\-G\-F\-S\-\_\-\-R\-E\-A\-D\-O\-N\-L\-Y\-\_\-\-F\-I\-L\-E\-\_\-\-O\-P\-S}(name)
+\item 
+\#define \hyperlink{debugfs_8c_a10f41eaa03af1aac51f08a65cc11a6a2}{D\-E\-B\-U\-G\-F\-S\-\_\-\-R\-E\-A\-D\-O\-N\-L\-Y\-\_\-\-F\-I\-L\-E}(name, fmt, value...)
+\item 
+\#define \hyperlink{debugfs_8c_aaa5cfecf9f180f02b137f46f60dffd55}{D\-E\-B\-U\-G\-F\-S\-\_\-\-A\-D\-D}(name)~debugfs\-\_\-create\-\_\-file(\#name, 0400, phyd, local, \&name\#\# \-\_\-ops);
+\item 
+\#define \hyperlink{debugfs_8c_a535829d3dcf2e1d8d26f9d332bb901be}{D\-E\-B\-U\-G\-F\-S\-\_\-\-A\-D\-D\-\_\-\-M\-O\-D\-E}(name, mode)~debugfs\-\_\-create\-\_\-file(\#name, mode, phyd, local, \&name\#\# \-\_\-ops);
+\item 
+\#define \hyperlink{debugfs_8c_ae245b8ab49cbb7139738c183c4cdd593}{D\-E\-B\-U\-G\-F\-S\-\_\-\-D\-E\-V\-S\-T\-A\-T\-S\-\_\-\-F\-I\-L\-E}(name)
+\item 
+\#define \hyperlink{debugfs_8c_a37ad4ee6786da6f07dfcf01cbd400a62}{D\-E\-B\-U\-G\-F\-S\-\_\-\-S\-T\-A\-T\-S\-\_\-\-A\-D\-D}(name, field)~debugfs\-\_\-create\-\_\-u32(\#name, 0400, statsd, (u32 $\ast$) \&field);
+\item 
+\#define \hyperlink{debugfs_8c_a5dc279cdd9940a6032fdfab43eeb5252}{D\-E\-B\-U\-G\-F\-S\-\_\-\-D\-E\-V\-S\-T\-A\-T\-S\-\_\-\-A\-D\-D}(name)~debugfs\-\_\-create\-\_\-file(\#name, 0400, statsd, local, \&stats\-\_\- \#\#name\#\# \-\_\-ops);
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{debugfs_8c_a26d590d85cfb413a28a43ff674bcd8d2}{mac80211\-\_\-format\-\_\-buffer} (char \-\_\-\-\_\-user $\ast$userbuf, size\-\_\-t count, loff\-\_\-t $\ast$ppos, char $\ast$fmt,...)
+\item 
+\hyperlink{debugfs_8c_ae472efc792fe6dd1c7955cc750388f1e}{D\-E\-B\-U\-G\-F\-S\-\_\-\-R\-E\-A\-D\-O\-N\-L\-Y\-\_\-\-F\-I\-L\-E} (user\-\_\-power,\char`\"{}\%d\char`\"{}, local-\/$>$user\-\_\-power\-\_\-level)
+\item 
+\hyperlink{debugfs_8c_a12ed456bbcdc374859799320d3d50e60}{D\-E\-B\-U\-G\-F\-S\-\_\-\-R\-E\-A\-D\-O\-N\-L\-Y\-\_\-\-F\-I\-L\-E} (power,\char`\"{}\%d\char`\"{}, local-\/$>$hw.\-conf.\-power\-\_\-level)
+\item 
+\hyperlink{debugfs_8c_ac0b50c1a97a973e4901edf4a91052afd}{D\-E\-B\-U\-G\-F\-S\-\_\-\-R\-E\-A\-D\-O\-N\-L\-Y\-\_\-\-F\-I\-L\-E} (frequency,\char`\"{}\%d\char`\"{}, local-\/$>$hw.\-conf.\-channel-\/$>$center\-\_\-freq)
+\item 
+\hyperlink{debugfs_8c_a30cd29ec90066eb98bd4ce32b9495b4f}{D\-E\-B\-U\-G\-F\-S\-\_\-\-R\-E\-A\-D\-O\-N\-L\-Y\-\_\-\-F\-I\-L\-E} (total\-\_\-ps\-\_\-buffered,\char`\"{}\%d\char`\"{}, local-\/$>$total\-\_\-ps\-\_\-buffered)
+\item 
+\hyperlink{debugfs_8c_a79d68ee8df528410292130bc3fabd267}{D\-E\-B\-U\-G\-F\-S\-\_\-\-R\-E\-A\-D\-O\-N\-L\-Y\-\_\-\-F\-I\-L\-E} (wep\-\_\-iv,\char`\"{}\%\#08x\char`\"{}, local-\/$>$wep\-\_\-iv \&0xffffff)
+\item 
+\hyperlink{debugfs_8c_abe139779ff1bb732ddc6d7d5271e54a9}{D\-E\-B\-U\-G\-F\-S\-\_\-\-R\-E\-A\-D\-O\-N\-L\-Y\-\_\-\-F\-I\-L\-E} (rate\-\_\-ctrl\-\_\-alg,\char`\"{}\%s\char`\"{}, local-\/$>$rate\-\_\-ctrl?local-\/$>$rate\-\_\-ctrl-\/$>$ops-\/$>$name\-:\char`\"{}hw/driver\char`\"{})
+\item 
+\hyperlink{debugfs_8c_a6cc7015d6ec2368a38c079055605703c}{D\-E\-B\-U\-G\-F\-S\-\_\-\-R\-E\-A\-D\-O\-N\-L\-Y\-\_\-\-F\-I\-L\-E\-\_\-\-O\-P\-S} (hwflags)
+\item 
+\hyperlink{debugfs_8c_ab8c22daf813fdb0135aa6e018be435f7}{D\-E\-B\-U\-G\-F\-S\-\_\-\-R\-E\-A\-D\-O\-N\-L\-Y\-\_\-\-F\-I\-L\-E\-\_\-\-O\-P\-S} (channel\-\_\-type)
+\item 
+\hyperlink{debugfs_8c_a4e2f8285a1ff1abbf5a78ceecb2b9913}{D\-E\-B\-U\-G\-F\-S\-\_\-\-R\-E\-A\-D\-O\-N\-L\-Y\-\_\-\-F\-I\-L\-E\-\_\-\-O\-P\-S} (queues)
+\item 
+\hyperlink{debugfs_8c_a6075c832cce2aadaa2488ade49805bda}{D\-E\-B\-U\-G\-F\-S\-\_\-\-D\-E\-V\-S\-T\-A\-T\-S\-\_\-\-F\-I\-L\-E} (dot11\-A\-C\-K\-Failure\-Count)
+\item 
+\hyperlink{debugfs_8c_af380824243f70b68981d949064a12886}{D\-E\-B\-U\-G\-F\-S\-\_\-\-D\-E\-V\-S\-T\-A\-T\-S\-\_\-\-F\-I\-L\-E} (dot11\-R\-T\-S\-Failure\-Count)
+\item 
+\hyperlink{debugfs_8c_aca68b48952e1403f7d932cecc11a1401}{D\-E\-B\-U\-G\-F\-S\-\_\-\-D\-E\-V\-S\-T\-A\-T\-S\-\_\-\-F\-I\-L\-E} (dot11\-F\-C\-S\-Error\-Count)
+\item 
+\hyperlink{debugfs_8c_ac3d785b91bb9d9fdf77a9c910e88d4c3}{D\-E\-B\-U\-G\-F\-S\-\_\-\-D\-E\-V\-S\-T\-A\-T\-S\-\_\-\-F\-I\-L\-E} (dot11\-R\-T\-S\-Success\-Count)
+\item 
+void \hyperlink{debugfs_8c_a6981de2385568e8a3014e3656152c24d}{debugfs\-\_\-hw\-\_\-add} (struct \hyperlink{structieee80211__local}{ieee80211\-\_\-local} $\ast$local)
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{debugfs_8c_aaa5cfecf9f180f02b137f46f60dffd55}{\index{debugfs.\-c@{debugfs.\-c}!D\-E\-B\-U\-G\-F\-S\-\_\-\-A\-D\-D@{D\-E\-B\-U\-G\-F\-S\-\_\-\-A\-D\-D}}
+\index{D\-E\-B\-U\-G\-F\-S\-\_\-\-A\-D\-D@{D\-E\-B\-U\-G\-F\-S\-\_\-\-A\-D\-D}!debugfs.c@{debugfs.\-c}}
+\subsubsection[{D\-E\-B\-U\-G\-F\-S\-\_\-\-A\-D\-D}]{\setlength{\rightskip}{0pt plus 5cm}\#define D\-E\-B\-U\-G\-F\-S\-\_\-\-A\-D\-D(
+\begin{DoxyParamCaption}
+\item[{}]{name}
+\end{DoxyParamCaption}
+)~debugfs\-\_\-create\-\_\-file(\#name, 0400, phyd, local, \&name\#\# \-\_\-ops);}}\label{debugfs_8c_aaa5cfecf9f180f02b137f46f60dffd55}
+
+
+Definition at line 55 of file debugfs.\-c.
+
+\hypertarget{debugfs_8c_a535829d3dcf2e1d8d26f9d332bb901be}{\index{debugfs.\-c@{debugfs.\-c}!D\-E\-B\-U\-G\-F\-S\-\_\-\-A\-D\-D\-\_\-\-M\-O\-D\-E@{D\-E\-B\-U\-G\-F\-S\-\_\-\-A\-D\-D\-\_\-\-M\-O\-D\-E}}
+\index{D\-E\-B\-U\-G\-F\-S\-\_\-\-A\-D\-D\-\_\-\-M\-O\-D\-E@{D\-E\-B\-U\-G\-F\-S\-\_\-\-A\-D\-D\-\_\-\-M\-O\-D\-E}!debugfs.c@{debugfs.\-c}}
+\subsubsection[{D\-E\-B\-U\-G\-F\-S\-\_\-\-A\-D\-D\-\_\-\-M\-O\-D\-E}]{\setlength{\rightskip}{0pt plus 5cm}\#define D\-E\-B\-U\-G\-F\-S\-\_\-\-A\-D\-D\-\_\-\-M\-O\-D\-E(
+\begin{DoxyParamCaption}
+\item[{}]{name, }
+\item[{}]{mode}
+\end{DoxyParamCaption}
+)~debugfs\-\_\-create\-\_\-file(\#name, mode, phyd, local, \&name\#\# \-\_\-ops);}}\label{debugfs_8c_a535829d3dcf2e1d8d26f9d332bb901be}
+
+
+Definition at line 58 of file debugfs.\-c.
+
+\hypertarget{debugfs_8c_a5dc279cdd9940a6032fdfab43eeb5252}{\index{debugfs.\-c@{debugfs.\-c}!D\-E\-B\-U\-G\-F\-S\-\_\-\-D\-E\-V\-S\-T\-A\-T\-S\-\_\-\-A\-D\-D@{D\-E\-B\-U\-G\-F\-S\-\_\-\-D\-E\-V\-S\-T\-A\-T\-S\-\_\-\-A\-D\-D}}
+\index{D\-E\-B\-U\-G\-F\-S\-\_\-\-D\-E\-V\-S\-T\-A\-T\-S\-\_\-\-A\-D\-D@{D\-E\-B\-U\-G\-F\-S\-\_\-\-D\-E\-V\-S\-T\-A\-T\-S\-\_\-\-A\-D\-D}!debugfs.c@{debugfs.\-c}}
+\subsubsection[{D\-E\-B\-U\-G\-F\-S\-\_\-\-D\-E\-V\-S\-T\-A\-T\-S\-\_\-\-A\-D\-D}]{\setlength{\rightskip}{0pt plus 5cm}\#define D\-E\-B\-U\-G\-F\-S\-\_\-\-D\-E\-V\-S\-T\-A\-T\-S\-\_\-\-A\-D\-D(
+\begin{DoxyParamCaption}
+\item[{}]{name}
+\end{DoxyParamCaption}
+)~debugfs\-\_\-create\-\_\-file(\#name, 0400, statsd, local, \&stats\-\_\- \#\#name\#\# \-\_\-ops);}}\label{debugfs_8c_a5dc279cdd9940a6032fdfab43eeb5252}
+
+
+Definition at line 257 of file debugfs.\-c.
+
+\hypertarget{debugfs_8c_ae245b8ab49cbb7139738c183c4cdd593}{\index{debugfs.\-c@{debugfs.\-c}!D\-E\-B\-U\-G\-F\-S\-\_\-\-D\-E\-V\-S\-T\-A\-T\-S\-\_\-\-F\-I\-L\-E@{D\-E\-B\-U\-G\-F\-S\-\_\-\-D\-E\-V\-S\-T\-A\-T\-S\-\_\-\-F\-I\-L\-E}}
+\index{D\-E\-B\-U\-G\-F\-S\-\_\-\-D\-E\-V\-S\-T\-A\-T\-S\-\_\-\-F\-I\-L\-E@{D\-E\-B\-U\-G\-F\-S\-\_\-\-D\-E\-V\-S\-T\-A\-T\-S\-\_\-\-F\-I\-L\-E}!debugfs.c@{debugfs.\-c}}
+\subsubsection[{D\-E\-B\-U\-G\-F\-S\-\_\-\-D\-E\-V\-S\-T\-A\-T\-S\-\_\-\-F\-I\-L\-E}]{\setlength{\rightskip}{0pt plus 5cm}\#define D\-E\-B\-U\-G\-F\-S\-\_\-\-D\-E\-V\-S\-T\-A\-T\-S\-\_\-\-F\-I\-L\-E(
+\begin{DoxyParamCaption}
+\item[{}]{name}
+\end{DoxyParamCaption}
+)}}\label{debugfs_8c_ae245b8ab49cbb7139738c183c4cdd593}
+{\bfseries Value\-:}
+\begin{DoxyCode}
+\textcolor{keyword}{static} \textcolor{keywordtype}{int} print\_devstats\_##name(\textcolor{keyword}{struct} ieee80211\_low\_level\_stats *stats,\(\backslash\)
+                 \textcolor{keywordtype}{char} *buf, \textcolor{keywordtype}{int} buflen)         \(\backslash\)
+\{                                   \(\backslash\)
+    return scnprintf(buf, buflen, \textcolor{stringliteral}{"%u\(\backslash\)n"}, stats->name);     \(\backslash\)
+\}                                   \(\backslash\)
+static ssize\_t stats\_ ##name## \_read(\textcolor{keyword}{struct} file *file,         \(\backslash\)
+                     \textcolor{keywordtype}{char} \_\_user *userbuf,      \(\backslash\)
+                     \textcolor{keywordtype}{size\_t} count, loff\_t *ppos)    \(\backslash\)
+\{                                   \(\backslash\)
+    return format\_devstat\_counter(file->private\_data,       \(\backslash\)
+                      userbuf,              \(\backslash\)
+                      count,                \(\backslash\)
+                      ppos,             \(\backslash\)
+                      print\_devstats\_##name);       \(\backslash\)
+\}                                   \(\backslash\)
+                                    \(\backslash\)
+static \textcolor{keyword}{const} \textcolor{keyword}{struct }file\_operations stats\_ ##name## \_ops = \{        \(\backslash\)
+    .read = stats\_ ##name## \_read,                  \(\backslash\)
+    .open = simple\_open,                        \(\backslash\)
+    .llseek = generic\_file\_llseek,                  \(\backslash\)
+\};
+\end{DoxyCode}
+
+
+Definition at line 232 of file debugfs.\-c.
+
+\hypertarget{debugfs_8c_a47cf6dc6f0fcae9ad29464cfd49bfc0b}{\index{debugfs.\-c@{debugfs.\-c}!D\-E\-B\-U\-G\-F\-S\-\_\-\-F\-O\-R\-M\-A\-T\-\_\-\-B\-U\-F\-F\-E\-R\-\_\-\-S\-I\-Z\-E@{D\-E\-B\-U\-G\-F\-S\-\_\-\-F\-O\-R\-M\-A\-T\-\_\-\-B\-U\-F\-F\-E\-R\-\_\-\-S\-I\-Z\-E}}
+\index{D\-E\-B\-U\-G\-F\-S\-\_\-\-F\-O\-R\-M\-A\-T\-\_\-\-B\-U\-F\-F\-E\-R\-\_\-\-S\-I\-Z\-E@{D\-E\-B\-U\-G\-F\-S\-\_\-\-F\-O\-R\-M\-A\-T\-\_\-\-B\-U\-F\-F\-E\-R\-\_\-\-S\-I\-Z\-E}!debugfs.c@{debugfs.\-c}}
+\subsubsection[{D\-E\-B\-U\-G\-F\-S\-\_\-\-F\-O\-R\-M\-A\-T\-\_\-\-B\-U\-F\-F\-E\-R\-\_\-\-S\-I\-Z\-E}]{\setlength{\rightskip}{0pt plus 5cm}\#define D\-E\-B\-U\-G\-F\-S\-\_\-\-F\-O\-R\-M\-A\-T\-\_\-\-B\-U\-F\-F\-E\-R\-\_\-\-S\-I\-Z\-E~100}}\label{debugfs_8c_a47cf6dc6f0fcae9ad29464cfd49bfc0b}
+
+
+Definition at line 18 of file debugfs.\-c.
+
+\hypertarget{debugfs_8c_a10f41eaa03af1aac51f08a65cc11a6a2}{\index{debugfs.\-c@{debugfs.\-c}!D\-E\-B\-U\-G\-F\-S\-\_\-\-R\-E\-A\-D\-O\-N\-L\-Y\-\_\-\-F\-I\-L\-E@{D\-E\-B\-U\-G\-F\-S\-\_\-\-R\-E\-A\-D\-O\-N\-L\-Y\-\_\-\-F\-I\-L\-E}}
+\index{D\-E\-B\-U\-G\-F\-S\-\_\-\-R\-E\-A\-D\-O\-N\-L\-Y\-\_\-\-F\-I\-L\-E@{D\-E\-B\-U\-G\-F\-S\-\_\-\-R\-E\-A\-D\-O\-N\-L\-Y\-\_\-\-F\-I\-L\-E}!debugfs.c@{debugfs.\-c}}
+\subsubsection[{D\-E\-B\-U\-G\-F\-S\-\_\-\-R\-E\-A\-D\-O\-N\-L\-Y\-\_\-\-F\-I\-L\-E}]{\setlength{\rightskip}{0pt plus 5cm}\#define D\-E\-B\-U\-G\-F\-S\-\_\-\-R\-E\-A\-D\-O\-N\-L\-Y\-\_\-\-F\-I\-L\-E(
+\begin{DoxyParamCaption}
+\item[{}]{name, }
+\item[{}]{fmt, }
+\item[{}]{value...}
+\end{DoxyParamCaption}
+)}}\label{debugfs_8c_a10f41eaa03af1aac51f08a65cc11a6a2}
+{\bfseries Value\-:}
+\begin{DoxyCode}
+\hyperlink{debugfs_8c_a1a9f7cd1299f30f74d5dd29552f75738}{DEBUGFS\_READONLY\_FILE\_FN}(name, fmt, value)      \(\backslash\)
+    DEBUGFS\_READONLY\_FILE\_OPS(name)
+\end{DoxyCode}
+
+
+Definition at line 51 of file debugfs.\-c.
+
+\hypertarget{debugfs_8c_a1a9f7cd1299f30f74d5dd29552f75738}{\index{debugfs.\-c@{debugfs.\-c}!D\-E\-B\-U\-G\-F\-S\-\_\-\-R\-E\-A\-D\-O\-N\-L\-Y\-\_\-\-F\-I\-L\-E\-\_\-\-F\-N@{D\-E\-B\-U\-G\-F\-S\-\_\-\-R\-E\-A\-D\-O\-N\-L\-Y\-\_\-\-F\-I\-L\-E\-\_\-\-F\-N}}
+\index{D\-E\-B\-U\-G\-F\-S\-\_\-\-R\-E\-A\-D\-O\-N\-L\-Y\-\_\-\-F\-I\-L\-E\-\_\-\-F\-N@{D\-E\-B\-U\-G\-F\-S\-\_\-\-R\-E\-A\-D\-O\-N\-L\-Y\-\_\-\-F\-I\-L\-E\-\_\-\-F\-N}!debugfs.c@{debugfs.\-c}}
+\subsubsection[{D\-E\-B\-U\-G\-F\-S\-\_\-\-R\-E\-A\-D\-O\-N\-L\-Y\-\_\-\-F\-I\-L\-E\-\_\-\-F\-N}]{\setlength{\rightskip}{0pt plus 5cm}\#define D\-E\-B\-U\-G\-F\-S\-\_\-\-R\-E\-A\-D\-O\-N\-L\-Y\-\_\-\-F\-I\-L\-E\-\_\-\-F\-N(
+\begin{DoxyParamCaption}
+\item[{}]{name, }
+\item[{}]{fmt, }
+\item[{}]{value...}
+\end{DoxyParamCaption}
+)}}\label{debugfs_8c_a1a9f7cd1299f30f74d5dd29552f75738}
+{\bfseries Value\-:}
+\begin{DoxyCode}
+\textcolor{keyword}{static} ssize\_t name## \_read(\textcolor{keyword}{struct} file *file, \textcolor{keywordtype}{char} \_\_user *userbuf,    \(\backslash\)
+                \textcolor{keywordtype}{size\_t} count, loff\_t *ppos)         \(\backslash\)
+\{                                   \(\backslash\)
+    struct \hyperlink{structieee80211__local}{ieee80211\_local} *local = file->private\_data;      \(\backslash\)
+                                    \(\backslash\)
+    return \hyperlink{debugfs_8c_a26d590d85cfb413a28a43ff674bcd8d2}{mac80211\_format\_buffer}(userbuf, count, ppos,       \(\backslash\)
+                      fmt \textcolor{stringliteral}{"\(\backslash\)n"}, ##value);       \(\backslash\)
+\}
+\end{DoxyCode}
+
+
+Definition at line 34 of file debugfs.\-c.
+
+\hypertarget{debugfs_8c_aa81bfe9e63b56f02bc372dc280fb588f}{\index{debugfs.\-c@{debugfs.\-c}!D\-E\-B\-U\-G\-F\-S\-\_\-\-R\-E\-A\-D\-O\-N\-L\-Y\-\_\-\-F\-I\-L\-E\-\_\-\-O\-P\-S@{D\-E\-B\-U\-G\-F\-S\-\_\-\-R\-E\-A\-D\-O\-N\-L\-Y\-\_\-\-F\-I\-L\-E\-\_\-\-O\-P\-S}}
+\index{D\-E\-B\-U\-G\-F\-S\-\_\-\-R\-E\-A\-D\-O\-N\-L\-Y\-\_\-\-F\-I\-L\-E\-\_\-\-O\-P\-S@{D\-E\-B\-U\-G\-F\-S\-\_\-\-R\-E\-A\-D\-O\-N\-L\-Y\-\_\-\-F\-I\-L\-E\-\_\-\-O\-P\-S}!debugfs.c@{debugfs.\-c}}
+\subsubsection[{D\-E\-B\-U\-G\-F\-S\-\_\-\-R\-E\-A\-D\-O\-N\-L\-Y\-\_\-\-F\-I\-L\-E\-\_\-\-O\-P\-S}]{\setlength{\rightskip}{0pt plus 5cm}\#define D\-E\-B\-U\-G\-F\-S\-\_\-\-R\-E\-A\-D\-O\-N\-L\-Y\-\_\-\-F\-I\-L\-E\-\_\-\-O\-P\-S(
+\begin{DoxyParamCaption}
+\item[{}]{name}
+\end{DoxyParamCaption}
+)}}\label{debugfs_8c_aa81bfe9e63b56f02bc372dc280fb588f}
+{\bfseries Value\-:}
+\begin{DoxyCode}
+\textcolor{keyword}{static} \textcolor{keyword}{const} \textcolor{keyword}{struct }file\_operations name## \_ops = \{         \(\backslash\)
+    .read = name## \_read,                       \(\backslash\)
+    .open = simple\_open,                        \(\backslash\)
+    .llseek = generic\_file\_llseek,                  \(\backslash\)
+\};
+\end{DoxyCode}
+
+
+Definition at line 44 of file debugfs.\-c.
+
+\hypertarget{debugfs_8c_a37ad4ee6786da6f07dfcf01cbd400a62}{\index{debugfs.\-c@{debugfs.\-c}!D\-E\-B\-U\-G\-F\-S\-\_\-\-S\-T\-A\-T\-S\-\_\-\-A\-D\-D@{D\-E\-B\-U\-G\-F\-S\-\_\-\-S\-T\-A\-T\-S\-\_\-\-A\-D\-D}}
+\index{D\-E\-B\-U\-G\-F\-S\-\_\-\-S\-T\-A\-T\-S\-\_\-\-A\-D\-D@{D\-E\-B\-U\-G\-F\-S\-\_\-\-S\-T\-A\-T\-S\-\_\-\-A\-D\-D}!debugfs.c@{debugfs.\-c}}
+\subsubsection[{D\-E\-B\-U\-G\-F\-S\-\_\-\-S\-T\-A\-T\-S\-\_\-\-A\-D\-D}]{\setlength{\rightskip}{0pt plus 5cm}\#define D\-E\-B\-U\-G\-F\-S\-\_\-\-S\-T\-A\-T\-S\-\_\-\-A\-D\-D(
+\begin{DoxyParamCaption}
+\item[{}]{name, }
+\item[{}]{field}
+\end{DoxyParamCaption}
+)~debugfs\-\_\-create\-\_\-u32(\#name, 0400, statsd, (u32 $\ast$) \&field);}}\label{debugfs_8c_a37ad4ee6786da6f07dfcf01cbd400a62}
+
+
+Definition at line 255 of file debugfs.\-c.
+
+
+
+\subsection{Function Documentation}
+\hypertarget{debugfs_8c_a6075c832cce2aadaa2488ade49805bda}{\index{debugfs.\-c@{debugfs.\-c}!D\-E\-B\-U\-G\-F\-S\-\_\-\-D\-E\-V\-S\-T\-A\-T\-S\-\_\-\-F\-I\-L\-E@{D\-E\-B\-U\-G\-F\-S\-\_\-\-D\-E\-V\-S\-T\-A\-T\-S\-\_\-\-F\-I\-L\-E}}
+\index{D\-E\-B\-U\-G\-F\-S\-\_\-\-D\-E\-V\-S\-T\-A\-T\-S\-\_\-\-F\-I\-L\-E@{D\-E\-B\-U\-G\-F\-S\-\_\-\-D\-E\-V\-S\-T\-A\-T\-S\-\_\-\-F\-I\-L\-E}!debugfs.c@{debugfs.\-c}}
+\subsubsection[{D\-E\-B\-U\-G\-F\-S\-\_\-\-D\-E\-V\-S\-T\-A\-T\-S\-\_\-\-F\-I\-L\-E}]{\setlength{\rightskip}{0pt plus 5cm}D\-E\-B\-U\-G\-F\-S\-\_\-\-D\-E\-V\-S\-T\-A\-T\-S\-\_\-\-F\-I\-L\-E (
+\begin{DoxyParamCaption}
+\item[{dot11\-A\-C\-K\-Failure\-Count}]{}
+\end{DoxyParamCaption}
+)}}\label{debugfs_8c_a6075c832cce2aadaa2488ade49805bda}
+\hypertarget{debugfs_8c_af380824243f70b68981d949064a12886}{\index{debugfs.\-c@{debugfs.\-c}!D\-E\-B\-U\-G\-F\-S\-\_\-\-D\-E\-V\-S\-T\-A\-T\-S\-\_\-\-F\-I\-L\-E@{D\-E\-B\-U\-G\-F\-S\-\_\-\-D\-E\-V\-S\-T\-A\-T\-S\-\_\-\-F\-I\-L\-E}}
+\index{D\-E\-B\-U\-G\-F\-S\-\_\-\-D\-E\-V\-S\-T\-A\-T\-S\-\_\-\-F\-I\-L\-E@{D\-E\-B\-U\-G\-F\-S\-\_\-\-D\-E\-V\-S\-T\-A\-T\-S\-\_\-\-F\-I\-L\-E}!debugfs.c@{debugfs.\-c}}
+\subsubsection[{D\-E\-B\-U\-G\-F\-S\-\_\-\-D\-E\-V\-S\-T\-A\-T\-S\-\_\-\-F\-I\-L\-E}]{\setlength{\rightskip}{0pt plus 5cm}D\-E\-B\-U\-G\-F\-S\-\_\-\-D\-E\-V\-S\-T\-A\-T\-S\-\_\-\-F\-I\-L\-E (
+\begin{DoxyParamCaption}
+\item[{dot11\-R\-T\-S\-Failure\-Count}]{}
+\end{DoxyParamCaption}
+)}}\label{debugfs_8c_af380824243f70b68981d949064a12886}
+\hypertarget{debugfs_8c_aca68b48952e1403f7d932cecc11a1401}{\index{debugfs.\-c@{debugfs.\-c}!D\-E\-B\-U\-G\-F\-S\-\_\-\-D\-E\-V\-S\-T\-A\-T\-S\-\_\-\-F\-I\-L\-E@{D\-E\-B\-U\-G\-F\-S\-\_\-\-D\-E\-V\-S\-T\-A\-T\-S\-\_\-\-F\-I\-L\-E}}
+\index{D\-E\-B\-U\-G\-F\-S\-\_\-\-D\-E\-V\-S\-T\-A\-T\-S\-\_\-\-F\-I\-L\-E@{D\-E\-B\-U\-G\-F\-S\-\_\-\-D\-E\-V\-S\-T\-A\-T\-S\-\_\-\-F\-I\-L\-E}!debugfs.c@{debugfs.\-c}}
+\subsubsection[{D\-E\-B\-U\-G\-F\-S\-\_\-\-D\-E\-V\-S\-T\-A\-T\-S\-\_\-\-F\-I\-L\-E}]{\setlength{\rightskip}{0pt plus 5cm}D\-E\-B\-U\-G\-F\-S\-\_\-\-D\-E\-V\-S\-T\-A\-T\-S\-\_\-\-F\-I\-L\-E (
+\begin{DoxyParamCaption}
+\item[{dot11\-F\-C\-S\-Error\-Count}]{}
+\end{DoxyParamCaption}
+)}}\label{debugfs_8c_aca68b48952e1403f7d932cecc11a1401}
+\hypertarget{debugfs_8c_ac3d785b91bb9d9fdf77a9c910e88d4c3}{\index{debugfs.\-c@{debugfs.\-c}!D\-E\-B\-U\-G\-F\-S\-\_\-\-D\-E\-V\-S\-T\-A\-T\-S\-\_\-\-F\-I\-L\-E@{D\-E\-B\-U\-G\-F\-S\-\_\-\-D\-E\-V\-S\-T\-A\-T\-S\-\_\-\-F\-I\-L\-E}}
+\index{D\-E\-B\-U\-G\-F\-S\-\_\-\-D\-E\-V\-S\-T\-A\-T\-S\-\_\-\-F\-I\-L\-E@{D\-E\-B\-U\-G\-F\-S\-\_\-\-D\-E\-V\-S\-T\-A\-T\-S\-\_\-\-F\-I\-L\-E}!debugfs.c@{debugfs.\-c}}
+\subsubsection[{D\-E\-B\-U\-G\-F\-S\-\_\-\-D\-E\-V\-S\-T\-A\-T\-S\-\_\-\-F\-I\-L\-E}]{\setlength{\rightskip}{0pt plus 5cm}D\-E\-B\-U\-G\-F\-S\-\_\-\-D\-E\-V\-S\-T\-A\-T\-S\-\_\-\-F\-I\-L\-E (
+\begin{DoxyParamCaption}
+\item[{dot11\-R\-T\-S\-Success\-Count}]{}
+\end{DoxyParamCaption}
+)}}\label{debugfs_8c_ac3d785b91bb9d9fdf77a9c910e88d4c3}
+\hypertarget{debugfs_8c_a6981de2385568e8a3014e3656152c24d}{\index{debugfs.\-c@{debugfs.\-c}!debugfs\-\_\-hw\-\_\-add@{debugfs\-\_\-hw\-\_\-add}}
+\index{debugfs\-\_\-hw\-\_\-add@{debugfs\-\_\-hw\-\_\-add}!debugfs.c@{debugfs.\-c}}
+\subsubsection[{debugfs\-\_\-hw\-\_\-add}]{\setlength{\rightskip}{0pt plus 5cm}void debugfs\-\_\-hw\-\_\-add (
+\begin{DoxyParamCaption}
+\item[{struct {\bf ieee80211\-\_\-local} $\ast$}]{local}
+\end{DoxyParamCaption}
+)}}\label{debugfs_8c_a6981de2385568e8a3014e3656152c24d}
+
+
+Definition at line 265 of file debugfs.\-c.
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=322pt]{debugfs_8c_a6981de2385568e8a3014e3656152c24d_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{debugfs_8c_ae472efc792fe6dd1c7955cc750388f1e}{\index{debugfs.\-c@{debugfs.\-c}!D\-E\-B\-U\-G\-F\-S\-\_\-\-R\-E\-A\-D\-O\-N\-L\-Y\-\_\-\-F\-I\-L\-E@{D\-E\-B\-U\-G\-F\-S\-\_\-\-R\-E\-A\-D\-O\-N\-L\-Y\-\_\-\-F\-I\-L\-E}}
+\index{D\-E\-B\-U\-G\-F\-S\-\_\-\-R\-E\-A\-D\-O\-N\-L\-Y\-\_\-\-F\-I\-L\-E@{D\-E\-B\-U\-G\-F\-S\-\_\-\-R\-E\-A\-D\-O\-N\-L\-Y\-\_\-\-F\-I\-L\-E}!debugfs.c@{debugfs.\-c}}
+\subsubsection[{D\-E\-B\-U\-G\-F\-S\-\_\-\-R\-E\-A\-D\-O\-N\-L\-Y\-\_\-\-F\-I\-L\-E}]{\setlength{\rightskip}{0pt plus 5cm}D\-E\-B\-U\-G\-F\-S\-\_\-\-R\-E\-A\-D\-O\-N\-L\-Y\-\_\-\-F\-I\-L\-E (
+\begin{DoxyParamCaption}
+\item[{user\-\_\-power}]{, }
+\item[{\char`\"{}\%d\char`\"{}}]{, }
+\item[{local-\/$>$}]{user\-\_\-power\-\_\-level}
+\end{DoxyParamCaption}
+)}}\label{debugfs_8c_ae472efc792fe6dd1c7955cc750388f1e}
+\hypertarget{debugfs_8c_a12ed456bbcdc374859799320d3d50e60}{\index{debugfs.\-c@{debugfs.\-c}!D\-E\-B\-U\-G\-F\-S\-\_\-\-R\-E\-A\-D\-O\-N\-L\-Y\-\_\-\-F\-I\-L\-E@{D\-E\-B\-U\-G\-F\-S\-\_\-\-R\-E\-A\-D\-O\-N\-L\-Y\-\_\-\-F\-I\-L\-E}}
+\index{D\-E\-B\-U\-G\-F\-S\-\_\-\-R\-E\-A\-D\-O\-N\-L\-Y\-\_\-\-F\-I\-L\-E@{D\-E\-B\-U\-G\-F\-S\-\_\-\-R\-E\-A\-D\-O\-N\-L\-Y\-\_\-\-F\-I\-L\-E}!debugfs.c@{debugfs.\-c}}
+\subsubsection[{D\-E\-B\-U\-G\-F\-S\-\_\-\-R\-E\-A\-D\-O\-N\-L\-Y\-\_\-\-F\-I\-L\-E}]{\setlength{\rightskip}{0pt plus 5cm}D\-E\-B\-U\-G\-F\-S\-\_\-\-R\-E\-A\-D\-O\-N\-L\-Y\-\_\-\-F\-I\-L\-E (
+\begin{DoxyParamCaption}
+\item[{power}]{, }
+\item[{\char`\"{}\%d\char`\"{}}]{, }
+\item[{local-\/$>$hw.\-conf.}]{power\-\_\-level}
+\end{DoxyParamCaption}
+)}}\label{debugfs_8c_a12ed456bbcdc374859799320d3d50e60}
+\hypertarget{debugfs_8c_ac0b50c1a97a973e4901edf4a91052afd}{\index{debugfs.\-c@{debugfs.\-c}!D\-E\-B\-U\-G\-F\-S\-\_\-\-R\-E\-A\-D\-O\-N\-L\-Y\-\_\-\-F\-I\-L\-E@{D\-E\-B\-U\-G\-F\-S\-\_\-\-R\-E\-A\-D\-O\-N\-L\-Y\-\_\-\-F\-I\-L\-E}}
+\index{D\-E\-B\-U\-G\-F\-S\-\_\-\-R\-E\-A\-D\-O\-N\-L\-Y\-\_\-\-F\-I\-L\-E@{D\-E\-B\-U\-G\-F\-S\-\_\-\-R\-E\-A\-D\-O\-N\-L\-Y\-\_\-\-F\-I\-L\-E}!debugfs.c@{debugfs.\-c}}
+\subsubsection[{D\-E\-B\-U\-G\-F\-S\-\_\-\-R\-E\-A\-D\-O\-N\-L\-Y\-\_\-\-F\-I\-L\-E}]{\setlength{\rightskip}{0pt plus 5cm}D\-E\-B\-U\-G\-F\-S\-\_\-\-R\-E\-A\-D\-O\-N\-L\-Y\-\_\-\-F\-I\-L\-E (
+\begin{DoxyParamCaption}
+\item[{frequency}]{, }
+\item[{\char`\"{}\%d\char`\"{}}]{, }
+\item[{local-\/$>$hw.\-conf.\-channel-\/$>$}]{center\-\_\-freq}
+\end{DoxyParamCaption}
+)}}\label{debugfs_8c_ac0b50c1a97a973e4901edf4a91052afd}
+\hypertarget{debugfs_8c_a30cd29ec90066eb98bd4ce32b9495b4f}{\index{debugfs.\-c@{debugfs.\-c}!D\-E\-B\-U\-G\-F\-S\-\_\-\-R\-E\-A\-D\-O\-N\-L\-Y\-\_\-\-F\-I\-L\-E@{D\-E\-B\-U\-G\-F\-S\-\_\-\-R\-E\-A\-D\-O\-N\-L\-Y\-\_\-\-F\-I\-L\-E}}
+\index{D\-E\-B\-U\-G\-F\-S\-\_\-\-R\-E\-A\-D\-O\-N\-L\-Y\-\_\-\-F\-I\-L\-E@{D\-E\-B\-U\-G\-F\-S\-\_\-\-R\-E\-A\-D\-O\-N\-L\-Y\-\_\-\-F\-I\-L\-E}!debugfs.c@{debugfs.\-c}}
+\subsubsection[{D\-E\-B\-U\-G\-F\-S\-\_\-\-R\-E\-A\-D\-O\-N\-L\-Y\-\_\-\-F\-I\-L\-E}]{\setlength{\rightskip}{0pt plus 5cm}D\-E\-B\-U\-G\-F\-S\-\_\-\-R\-E\-A\-D\-O\-N\-L\-Y\-\_\-\-F\-I\-L\-E (
+\begin{DoxyParamCaption}
+\item[{total\-\_\-ps\-\_\-buffered}]{, }
+\item[{\char`\"{}\%d\char`\"{}}]{, }
+\item[{local-\/$>$}]{total\-\_\-ps\-\_\-buffered}
+\end{DoxyParamCaption}
+)}}\label{debugfs_8c_a30cd29ec90066eb98bd4ce32b9495b4f}
+\hypertarget{debugfs_8c_a79d68ee8df528410292130bc3fabd267}{\index{debugfs.\-c@{debugfs.\-c}!D\-E\-B\-U\-G\-F\-S\-\_\-\-R\-E\-A\-D\-O\-N\-L\-Y\-\_\-\-F\-I\-L\-E@{D\-E\-B\-U\-G\-F\-S\-\_\-\-R\-E\-A\-D\-O\-N\-L\-Y\-\_\-\-F\-I\-L\-E}}
+\index{D\-E\-B\-U\-G\-F\-S\-\_\-\-R\-E\-A\-D\-O\-N\-L\-Y\-\_\-\-F\-I\-L\-E@{D\-E\-B\-U\-G\-F\-S\-\_\-\-R\-E\-A\-D\-O\-N\-L\-Y\-\_\-\-F\-I\-L\-E}!debugfs.c@{debugfs.\-c}}
+\subsubsection[{D\-E\-B\-U\-G\-F\-S\-\_\-\-R\-E\-A\-D\-O\-N\-L\-Y\-\_\-\-F\-I\-L\-E}]{\setlength{\rightskip}{0pt plus 5cm}D\-E\-B\-U\-G\-F\-S\-\_\-\-R\-E\-A\-D\-O\-N\-L\-Y\-\_\-\-F\-I\-L\-E (
+\begin{DoxyParamCaption}
+\item[{wep\-\_\-iv}]{, }
+\item[{\char`\"{}\%\#08x\char`\"{}}]{, }
+\item[{local-\/$>$wep\-\_\-iv \&}]{0xffffff}
+\end{DoxyParamCaption}
+)}}\label{debugfs_8c_a79d68ee8df528410292130bc3fabd267}
+\hypertarget{debugfs_8c_abe139779ff1bb732ddc6d7d5271e54a9}{\index{debugfs.\-c@{debugfs.\-c}!D\-E\-B\-U\-G\-F\-S\-\_\-\-R\-E\-A\-D\-O\-N\-L\-Y\-\_\-\-F\-I\-L\-E@{D\-E\-B\-U\-G\-F\-S\-\_\-\-R\-E\-A\-D\-O\-N\-L\-Y\-\_\-\-F\-I\-L\-E}}
+\index{D\-E\-B\-U\-G\-F\-S\-\_\-\-R\-E\-A\-D\-O\-N\-L\-Y\-\_\-\-F\-I\-L\-E@{D\-E\-B\-U\-G\-F\-S\-\_\-\-R\-E\-A\-D\-O\-N\-L\-Y\-\_\-\-F\-I\-L\-E}!debugfs.c@{debugfs.\-c}}
+\subsubsection[{D\-E\-B\-U\-G\-F\-S\-\_\-\-R\-E\-A\-D\-O\-N\-L\-Y\-\_\-\-F\-I\-L\-E}]{\setlength{\rightskip}{0pt plus 5cm}D\-E\-B\-U\-G\-F\-S\-\_\-\-R\-E\-A\-D\-O\-N\-L\-Y\-\_\-\-F\-I\-L\-E (
+\begin{DoxyParamCaption}
+\item[{rate\-\_\-ctrl\-\_\-alg}]{, }
+\item[{\char`\"{}\%s\char`\"{}}]{, }
+\item[{local-\/$>$rate\-\_\-ctrl?local-\/$>$rate\-\_\-ctrl-\/$>$ops-\/$>$name\-:\char`\"{}hw/driver\char`\"{}}]{}
+\end{DoxyParamCaption}
+)}}\label{debugfs_8c_abe139779ff1bb732ddc6d7d5271e54a9}
+\hypertarget{debugfs_8c_a6cc7015d6ec2368a38c079055605703c}{\index{debugfs.\-c@{debugfs.\-c}!D\-E\-B\-U\-G\-F\-S\-\_\-\-R\-E\-A\-D\-O\-N\-L\-Y\-\_\-\-F\-I\-L\-E\-\_\-\-O\-P\-S@{D\-E\-B\-U\-G\-F\-S\-\_\-\-R\-E\-A\-D\-O\-N\-L\-Y\-\_\-\-F\-I\-L\-E\-\_\-\-O\-P\-S}}
+\index{D\-E\-B\-U\-G\-F\-S\-\_\-\-R\-E\-A\-D\-O\-N\-L\-Y\-\_\-\-F\-I\-L\-E\-\_\-\-O\-P\-S@{D\-E\-B\-U\-G\-F\-S\-\_\-\-R\-E\-A\-D\-O\-N\-L\-Y\-\_\-\-F\-I\-L\-E\-\_\-\-O\-P\-S}!debugfs.c@{debugfs.\-c}}
+\subsubsection[{D\-E\-B\-U\-G\-F\-S\-\_\-\-R\-E\-A\-D\-O\-N\-L\-Y\-\_\-\-F\-I\-L\-E\-\_\-\-O\-P\-S}]{\setlength{\rightskip}{0pt plus 5cm}D\-E\-B\-U\-G\-F\-S\-\_\-\-R\-E\-A\-D\-O\-N\-L\-Y\-\_\-\-F\-I\-L\-E\-\_\-\-O\-P\-S (
+\begin{DoxyParamCaption}
+\item[{hwflags}]{}
+\end{DoxyParamCaption}
+)}}\label{debugfs_8c_a6cc7015d6ec2368a38c079055605703c}
+\hypertarget{debugfs_8c_ab8c22daf813fdb0135aa6e018be435f7}{\index{debugfs.\-c@{debugfs.\-c}!D\-E\-B\-U\-G\-F\-S\-\_\-\-R\-E\-A\-D\-O\-N\-L\-Y\-\_\-\-F\-I\-L\-E\-\_\-\-O\-P\-S@{D\-E\-B\-U\-G\-F\-S\-\_\-\-R\-E\-A\-D\-O\-N\-L\-Y\-\_\-\-F\-I\-L\-E\-\_\-\-O\-P\-S}}
+\index{D\-E\-B\-U\-G\-F\-S\-\_\-\-R\-E\-A\-D\-O\-N\-L\-Y\-\_\-\-F\-I\-L\-E\-\_\-\-O\-P\-S@{D\-E\-B\-U\-G\-F\-S\-\_\-\-R\-E\-A\-D\-O\-N\-L\-Y\-\_\-\-F\-I\-L\-E\-\_\-\-O\-P\-S}!debugfs.c@{debugfs.\-c}}
+\subsubsection[{D\-E\-B\-U\-G\-F\-S\-\_\-\-R\-E\-A\-D\-O\-N\-L\-Y\-\_\-\-F\-I\-L\-E\-\_\-\-O\-P\-S}]{\setlength{\rightskip}{0pt plus 5cm}D\-E\-B\-U\-G\-F\-S\-\_\-\-R\-E\-A\-D\-O\-N\-L\-Y\-\_\-\-F\-I\-L\-E\-\_\-\-O\-P\-S (
+\begin{DoxyParamCaption}
+\item[{channel\-\_\-type}]{}
+\end{DoxyParamCaption}
+)}}\label{debugfs_8c_ab8c22daf813fdb0135aa6e018be435f7}
+\hypertarget{debugfs_8c_a4e2f8285a1ff1abbf5a78ceecb2b9913}{\index{debugfs.\-c@{debugfs.\-c}!D\-E\-B\-U\-G\-F\-S\-\_\-\-R\-E\-A\-D\-O\-N\-L\-Y\-\_\-\-F\-I\-L\-E\-\_\-\-O\-P\-S@{D\-E\-B\-U\-G\-F\-S\-\_\-\-R\-E\-A\-D\-O\-N\-L\-Y\-\_\-\-F\-I\-L\-E\-\_\-\-O\-P\-S}}
+\index{D\-E\-B\-U\-G\-F\-S\-\_\-\-R\-E\-A\-D\-O\-N\-L\-Y\-\_\-\-F\-I\-L\-E\-\_\-\-O\-P\-S@{D\-E\-B\-U\-G\-F\-S\-\_\-\-R\-E\-A\-D\-O\-N\-L\-Y\-\_\-\-F\-I\-L\-E\-\_\-\-O\-P\-S}!debugfs.c@{debugfs.\-c}}
+\subsubsection[{D\-E\-B\-U\-G\-F\-S\-\_\-\-R\-E\-A\-D\-O\-N\-L\-Y\-\_\-\-F\-I\-L\-E\-\_\-\-O\-P\-S}]{\setlength{\rightskip}{0pt plus 5cm}D\-E\-B\-U\-G\-F\-S\-\_\-\-R\-E\-A\-D\-O\-N\-L\-Y\-\_\-\-F\-I\-L\-E\-\_\-\-O\-P\-S (
+\begin{DoxyParamCaption}
+\item[{queues}]{}
+\end{DoxyParamCaption}
+)}}\label{debugfs_8c_a4e2f8285a1ff1abbf5a78ceecb2b9913}
+\hypertarget{debugfs_8c_a26d590d85cfb413a28a43ff674bcd8d2}{\index{debugfs.\-c@{debugfs.\-c}!mac80211\-\_\-format\-\_\-buffer@{mac80211\-\_\-format\-\_\-buffer}}
+\index{mac80211\-\_\-format\-\_\-buffer@{mac80211\-\_\-format\-\_\-buffer}!debugfs.c@{debugfs.\-c}}
+\subsubsection[{mac80211\-\_\-format\-\_\-buffer}]{\setlength{\rightskip}{0pt plus 5cm}int mac80211\-\_\-format\-\_\-buffer (
+\begin{DoxyParamCaption}
+\item[{char \-\_\-\-\_\-user $\ast$}]{userbuf, }
+\item[{size\-\_\-t}]{count, }
+\item[{loff\-\_\-t $\ast$}]{ppos, }
+\item[{char $\ast$}]{fmt, }
+\item[{}]{...}
+\end{DoxyParamCaption}
+)}}\label{debugfs_8c_a26d590d85cfb413a28a43ff674bcd8d2}
+
+
+Definition at line 20 of file debugfs.\-c.
+

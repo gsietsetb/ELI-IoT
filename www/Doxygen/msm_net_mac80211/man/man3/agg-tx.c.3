@@ -1,0 +1,141 @@
+.TH "/home/guille/msm/net/mac80211/agg-tx.c" 3 "Sun Jun 1 2014" "Version 1.0" "net_mac80211" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+/home/guille/msm/net/mac80211/agg-tx.c \- 
+.SH SYNOPSIS
+.br
+.PP
+\fC#include <linux/ieee80211\&.h>\fP
+.br
+\fC#include <linux/slab\&.h>\fP
+.br
+\fC#include <linux/export\&.h>\fP
+.br
+\fC#include <net/mac80211\&.h>\fP
+.br
+\fC#include 'ieee80211_i\&.h'\fP
+.br
+\fC#include 'driver-ops\&.h'\fP
+.br
+\fC#include 'wme\&.h'\fP
+.br
+
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBieee80211_send_bar\fP (struct ieee80211_vif *vif, u8 *ra, u16 tid, u16 ssn)"
+.br
+.ti -1c
+.RI "\fBEXPORT_SYMBOL\fP (\fBieee80211_send_bar\fP)"
+.br
+.ti -1c
+.RI "void \fBieee80211_assign_tid_tx\fP (struct \fBsta_info\fP *sta, int tid, struct \fBtid_ampdu_tx\fP *tid_tx)"
+.br
+.ti -1c
+.RI "int \fB___ieee80211_stop_tx_ba_session\fP (struct \fBsta_info\fP *sta, u16 tid, enum ieee80211_back_parties initiator, bool tx)"
+.br
+.ti -1c
+.RI "void \fBieee80211_tx_ba_session_handle_start\fP (struct \fBsta_info\fP *sta, int tid)"
+.br
+.ti -1c
+.RI "int \fBieee80211_start_tx_ba_session\fP (struct ieee80211_sta *pubsta, u16 tid, u16 timeout)"
+.br
+.ti -1c
+.RI "\fBEXPORT_SYMBOL\fP (\fBieee80211_start_tx_ba_session\fP)"
+.br
+.ti -1c
+.RI "void \fBieee80211_start_tx_ba_cb\fP (struct ieee80211_vif *vif, u8 *ra, u16 tid)"
+.br
+.ti -1c
+.RI "void \fBieee80211_start_tx_ba_cb_irqsafe\fP (struct ieee80211_vif *vif, const u8 *ra, u16 tid)"
+.br
+.ti -1c
+.RI "\fBEXPORT_SYMBOL\fP (\fBieee80211_start_tx_ba_cb_irqsafe\fP)"
+.br
+.ti -1c
+.RI "int \fB__ieee80211_stop_tx_ba_session\fP (struct \fBsta_info\fP *sta, u16 tid, enum ieee80211_back_parties initiator, bool tx)"
+.br
+.ti -1c
+.RI "int \fBieee80211_stop_tx_ba_session\fP (struct ieee80211_sta *pubsta, u16 tid)"
+.br
+.ti -1c
+.RI "\fBEXPORT_SYMBOL\fP (\fBieee80211_stop_tx_ba_session\fP)"
+.br
+.ti -1c
+.RI "void \fBieee80211_stop_tx_ba_cb\fP (struct ieee80211_vif *vif, u8 *ra, u8 tid)"
+.br
+.ti -1c
+.RI "void \fBieee80211_stop_tx_ba_cb_irqsafe\fP (struct ieee80211_vif *vif, const u8 *ra, u16 tid)"
+.br
+.ti -1c
+.RI "\fBEXPORT_SYMBOL\fP (\fBieee80211_stop_tx_ba_cb_irqsafe\fP)"
+.br
+.ti -1c
+.RI "void \fBieee80211_process_addba_resp\fP (struct \fBieee80211_local\fP *local, struct \fBsta_info\fP *sta, struct ieee80211_mgmt *mgmt, size_t len)"
+.br
+.in -1c
+.SH "Function Documentation"
+.PP 
+.SS "int ___ieee80211_stop_tx_ba_session (struct \fBsta_info\fP *sta, u16tid, enum ieee80211_back_partiesinitiator, booltx)"
+
+.PP
+Definition at line 151 of file agg-tx\&.c\&.
+.SS "int __ieee80211_stop_tx_ba_session (struct \fBsta_info\fP *sta, u16tid, enum ieee80211_back_partiesinitiator, booltx)"
+
+.PP
+Definition at line 670 of file agg-tx\&.c\&.
+.SS "EXPORT_SYMBOL (\fBieee80211_send_bar\fP)"
+
+.SS "EXPORT_SYMBOL (\fBieee80211_start_tx_ba_session\fP)"
+
+.SS "EXPORT_SYMBOL (\fBieee80211_start_tx_ba_cb_irqsafe\fP)"
+
+.SS "EXPORT_SYMBOL (\fBieee80211_stop_tx_ba_session\fP)"
+
+.SS "EXPORT_SYMBOL (\fBieee80211_stop_tx_ba_cb_irqsafe\fP)"
+
+.SS "void ieee80211_assign_tid_tx (struct \fBsta_info\fP *sta, inttid, struct \fBtid_ampdu_tx\fP *tid_tx)"
+
+.PP
+Definition at line 143 of file agg-tx\&.c\&.
+.SS "void ieee80211_process_addba_resp (struct \fBieee80211_local\fP *local, struct \fBsta_info\fP *sta, struct ieee80211_mgmt *mgmt, size_tlen)"
+
+.PP
+Definition at line 819 of file agg-tx\&.c\&.
+.SS "void ieee80211_send_bar (struct ieee80211_vif *vif, u8 *ra, u16tid, u16ssn)"
+
+.PP
+Definition at line 113 of file agg-tx\&.c\&.
+.SS "void ieee80211_start_tx_ba_cb (struct ieee80211_vif *vif, u8 *ra, u16tid)"
+
+.PP
+Definition at line 601 of file agg-tx\&.c\&.
+.SS "void ieee80211_start_tx_ba_cb_irqsafe (struct ieee80211_vif *vif, const u8 *ra, u16tid)"
+
+.PP
+Definition at line 649 of file agg-tx\&.c\&.
+.SS "int ieee80211_start_tx_ba_session (struct ieee80211_sta *pubsta, u16tid, u16timeout)"
+
+.PP
+Definition at line 428 of file agg-tx\&.c\&.
+.SS "void ieee80211_stop_tx_ba_cb (struct ieee80211_vif *vif, u8 *ra, u8tid)"
+
+.PP
+Definition at line 724 of file agg-tx\&.c\&.
+.SS "void ieee80211_stop_tx_ba_cb_irqsafe (struct ieee80211_vif *vif, const u8 *ra, u16tid)"
+
+.PP
+Definition at line 797 of file agg-tx\&.c\&.
+.SS "int ieee80211_stop_tx_ba_session (struct ieee80211_sta *pubsta, u16tid)"
+
+.PP
+Definition at line 685 of file agg-tx\&.c\&.
+.SS "void ieee80211_tx_ba_session_handle_start (struct \fBsta_info\fP *sta, inttid)"
+
+.PP
+Definition at line 344 of file agg-tx\&.c\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for net_mac80211 from the source code\&.

@@ -1,0 +1,160 @@
+\hypertarget{wme_8c}{\section{/home/guille/msm/net/mac80211/wme.c File Reference}
+\label{wme_8c}\index{/home/guille/msm/net/mac80211/wme.\-c@{/home/guille/msm/net/mac80211/wme.\-c}}
+}
+{\ttfamily \#include $<$linux/netdevice.\-h$>$}\\*
+{\ttfamily \#include $<$linux/skbuff.\-h$>$}\\*
+{\ttfamily \#include $<$linux/module.\-h$>$}\\*
+{\ttfamily \#include $<$linux/if\-\_\-arp.\-h$>$}\\*
+{\ttfamily \#include $<$linux/types.\-h$>$}\\*
+{\ttfamily \#include $<$net/ip.\-h$>$}\\*
+{\ttfamily \#include $<$net/pkt\-\_\-sched.\-h$>$}\\*
+{\ttfamily \#include $<$net/mac80211.\-h$>$}\\*
+{\ttfamily \#include \char`\"{}ieee80211\-\_\-i.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}wme.\-h\char`\"{}}\\*
+Include dependency graph for wme.\-c\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{wme_8c__incl}
+\end{center}
+\end{figure}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+u16 \hyperlink{wme_8c_aaf993f36b6a84925904c3c5d221f2f27}{ieee80211\-\_\-select\-\_\-queue\-\_\-80211} (struct \hyperlink{structieee80211__local}{ieee80211\-\_\-local} $\ast$local, struct sk\-\_\-buff $\ast$skb, struct ieee80211\-\_\-hdr $\ast$hdr)
+\item 
+u16 \hyperlink{wme_8c_aa2010379a25ff7c63d51e646e609a4b7}{ieee80211\-\_\-select\-\_\-queue} (struct \hyperlink{structieee80211__sub__if__data}{ieee80211\-\_\-sub\-\_\-if\-\_\-data} $\ast$sdata, struct sk\-\_\-buff $\ast$skb)
+\item 
+u16 \hyperlink{wme_8c_aece568484b48999248e36d0a1125ab39}{ieee80211\-\_\-downgrade\-\_\-queue} (struct \hyperlink{structieee80211__local}{ieee80211\-\_\-local} $\ast$local, struct sk\-\_\-buff $\ast$skb)
+\item 
+void \hyperlink{wme_8c_a88a021e3eededcb9da0bffca0450a0b0}{ieee80211\-\_\-set\-\_\-qos\-\_\-hdr} (struct \hyperlink{structieee80211__sub__if__data}{ieee80211\-\_\-sub\-\_\-if\-\_\-data} $\ast$sdata, struct sk\-\_\-buff $\ast$skb)
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+const int \hyperlink{wme_8c_a91ea00b3e6acf3b022a6c586c3f15e3f}{ieee802\-\_\-1d\-\_\-to\-\_\-ac} \mbox{[}8\mbox{]}
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\hypertarget{wme_8c_aece568484b48999248e36d0a1125ab39}{\index{wme.\-c@{wme.\-c}!ieee80211\-\_\-downgrade\-\_\-queue@{ieee80211\-\_\-downgrade\-\_\-queue}}
+\index{ieee80211\-\_\-downgrade\-\_\-queue@{ieee80211\-\_\-downgrade\-\_\-queue}!wme.c@{wme.\-c}}
+\subsubsection[{ieee80211\-\_\-downgrade\-\_\-queue}]{\setlength{\rightskip}{0pt plus 5cm}u16 ieee80211\-\_\-downgrade\-\_\-queue (
+\begin{DoxyParamCaption}
+\item[{struct {\bf ieee80211\-\_\-local} $\ast$}]{local, }
+\item[{struct sk\-\_\-buff $\ast$}]{skb}
+\end{DoxyParamCaption}
+)}}\label{wme_8c_aece568484b48999248e36d0a1125ab39}
+
+
+Definition at line 142 of file wme.\-c.
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{wme_8c_aece568484b48999248e36d0a1125ab39_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{wme_8c_aa2010379a25ff7c63d51e646e609a4b7}{\index{wme.\-c@{wme.\-c}!ieee80211\-\_\-select\-\_\-queue@{ieee80211\-\_\-select\-\_\-queue}}
+\index{ieee80211\-\_\-select\-\_\-queue@{ieee80211\-\_\-select\-\_\-queue}!wme.c@{wme.\-c}}
+\subsubsection[{ieee80211\-\_\-select\-\_\-queue}]{\setlength{\rightskip}{0pt plus 5cm}u16 ieee80211\-\_\-select\-\_\-queue (
+\begin{DoxyParamCaption}
+\item[{struct {\bf ieee80211\-\_\-sub\-\_\-if\-\_\-data} $\ast$}]{sdata, }
+\item[{struct sk\-\_\-buff $\ast$}]{skb}
+\end{DoxyParamCaption}
+)}}\label{wme_8c_aa2010379a25ff7c63d51e646e609a4b7}
+
+
+Definition at line 81 of file wme.\-c.
+
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{wme_8c_aa2010379a25ff7c63d51e646e609a4b7_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{wme_8c_aaf993f36b6a84925904c3c5d221f2f27}{\index{wme.\-c@{wme.\-c}!ieee80211\-\_\-select\-\_\-queue\-\_\-80211@{ieee80211\-\_\-select\-\_\-queue\-\_\-80211}}
+\index{ieee80211\-\_\-select\-\_\-queue\-\_\-80211@{ieee80211\-\_\-select\-\_\-queue\-\_\-80211}!wme.c@{wme.\-c}}
+\subsubsection[{ieee80211\-\_\-select\-\_\-queue\-\_\-80211}]{\setlength{\rightskip}{0pt plus 5cm}u16 ieee80211\-\_\-select\-\_\-queue\-\_\-80211 (
+\begin{DoxyParamCaption}
+\item[{struct {\bf ieee80211\-\_\-local} $\ast$}]{local, }
+\item[{struct sk\-\_\-buff $\ast$}]{skb, }
+\item[{struct ieee80211\-\_\-hdr $\ast$}]{hdr}
+\end{DoxyParamCaption}
+)}}\label{wme_8c_aaf993f36b6a84925904c3c5d221f2f27}
+
+
+Definition at line 56 of file wme.\-c.
+
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{wme_8c_aaf993f36b6a84925904c3c5d221f2f27_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{wme_8c_a88a021e3eededcb9da0bffca0450a0b0}{\index{wme.\-c@{wme.\-c}!ieee80211\-\_\-set\-\_\-qos\-\_\-hdr@{ieee80211\-\_\-set\-\_\-qos\-\_\-hdr}}
+\index{ieee80211\-\_\-set\-\_\-qos\-\_\-hdr@{ieee80211\-\_\-set\-\_\-qos\-\_\-hdr}!wme.c@{wme.\-c}}
+\subsubsection[{ieee80211\-\_\-set\-\_\-qos\-\_\-hdr}]{\setlength{\rightskip}{0pt plus 5cm}void ieee80211\-\_\-set\-\_\-qos\-\_\-hdr (
+\begin{DoxyParamCaption}
+\item[{struct {\bf ieee80211\-\_\-sub\-\_\-if\-\_\-data} $\ast$}]{sdata, }
+\item[{struct sk\-\_\-buff $\ast$}]{skb}
+\end{DoxyParamCaption}
+)}}\label{wme_8c_a88a021e3eededcb9da0bffca0450a0b0}
+
+
+Definition at line 162 of file wme.\-c.
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{wme_8c_a88a021e3eededcb9da0bffca0450a0b0_icgraph}
+\end{center}
+\end{figure}
+
+
+
+
+\subsection{Variable Documentation}
+\hypertarget{wme_8c_a91ea00b3e6acf3b022a6c586c3f15e3f}{\index{wme.\-c@{wme.\-c}!ieee802\-\_\-1d\-\_\-to\-\_\-ac@{ieee802\-\_\-1d\-\_\-to\-\_\-ac}}
+\index{ieee802\-\_\-1d\-\_\-to\-\_\-ac@{ieee802\-\_\-1d\-\_\-to\-\_\-ac}!wme.c@{wme.\-c}}
+\subsubsection[{ieee802\-\_\-1d\-\_\-to\-\_\-ac}]{\setlength{\rightskip}{0pt plus 5cm}const int ieee802\-\_\-1d\-\_\-to\-\_\-ac\mbox{[}8\mbox{]}}}\label{wme_8c_a91ea00b3e6acf3b022a6c586c3f15e3f}
+{\bfseries Initial value\-:}
+\begin{DoxyCode}
+= \{
+    IEEE80211\_AC\_BE,
+    IEEE80211\_AC\_BK,
+    IEEE80211\_AC\_BK,
+    IEEE80211\_AC\_BE,
+    IEEE80211\_AC\_VI,
+    IEEE80211\_AC\_VI,
+    IEEE80211\_AC\_VO,
+    IEEE80211\_AC\_VO
+\}
+\end{DoxyCode}
+
+
+Definition at line 24 of file wme.\-c.
+

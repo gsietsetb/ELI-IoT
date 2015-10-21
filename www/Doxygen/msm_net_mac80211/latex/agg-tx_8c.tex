@@ -1,0 +1,443 @@
+\hypertarget{agg-tx_8c}{\section{/home/guille/msm/net/mac80211/agg-\/tx.c File Reference}
+\label{agg-tx_8c}\index{/home/guille/msm/net/mac80211/agg-\/tx.\-c@{/home/guille/msm/net/mac80211/agg-\/tx.\-c}}
+}
+{\ttfamily \#include $<$linux/ieee80211.\-h$>$}\\*
+{\ttfamily \#include $<$linux/slab.\-h$>$}\\*
+{\ttfamily \#include $<$linux/export.\-h$>$}\\*
+{\ttfamily \#include $<$net/mac80211.\-h$>$}\\*
+{\ttfamily \#include \char`\"{}ieee80211\-\_\-i.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}driver-\/ops.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}wme.\-h\char`\"{}}\\*
+Include dependency graph for agg-\/tx.c\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{agg-tx_8c__incl}
+\end{center}
+\end{figure}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{agg-tx_8c_a325d08db621f94aaf004ab00c95a84c0}{ieee80211\-\_\-send\-\_\-bar} (struct ieee80211\-\_\-vif $\ast$vif, u8 $\ast$ra, u16 tid, u16 ssn)
+\item 
+\hyperlink{agg-tx_8c_af595cdb6a5d3ec1dfadf2537645b8e24}{E\-X\-P\-O\-R\-T\-\_\-\-S\-Y\-M\-B\-O\-L} (\hyperlink{agg-tx_8c_a325d08db621f94aaf004ab00c95a84c0}{ieee80211\-\_\-send\-\_\-bar})
+\item 
+void \hyperlink{agg-tx_8c_a82539db85e814b802eb8127cb430565c}{ieee80211\-\_\-assign\-\_\-tid\-\_\-tx} (struct \hyperlink{structsta__info}{sta\-\_\-info} $\ast$sta, int tid, struct \hyperlink{structtid__ampdu__tx}{tid\-\_\-ampdu\-\_\-tx} $\ast$tid\-\_\-tx)
+\item 
+int \hyperlink{agg-tx_8c_a68ee93272e5342075143e403c64a3707}{\-\_\-\-\_\-\-\_\-ieee80211\-\_\-stop\-\_\-tx\-\_\-ba\-\_\-session} (struct \hyperlink{structsta__info}{sta\-\_\-info} $\ast$sta, u16 tid, enum ieee80211\-\_\-back\-\_\-parties initiator, bool tx)
+\item 
+void \hyperlink{agg-tx_8c_a85db32e08200e990e87a163b84505277}{ieee80211\-\_\-tx\-\_\-ba\-\_\-session\-\_\-handle\-\_\-start} (struct \hyperlink{structsta__info}{sta\-\_\-info} $\ast$sta, int tid)
+\item 
+int \hyperlink{agg-tx_8c_aec405fe32dc4aea0cf1ee7685427490c}{ieee80211\-\_\-start\-\_\-tx\-\_\-ba\-\_\-session} (struct ieee80211\-\_\-sta $\ast$pubsta, u16 tid, u16 timeout)
+\item 
+\hyperlink{agg-tx_8c_a367b814b4cbb7756b409860f90c79d1a}{E\-X\-P\-O\-R\-T\-\_\-\-S\-Y\-M\-B\-O\-L} (\hyperlink{agg-tx_8c_aec405fe32dc4aea0cf1ee7685427490c}{ieee80211\-\_\-start\-\_\-tx\-\_\-ba\-\_\-session})
+\item 
+void \hyperlink{agg-tx_8c_a5660c00056871426ddbd3e338f6a7f1c}{ieee80211\-\_\-start\-\_\-tx\-\_\-ba\-\_\-cb} (struct ieee80211\-\_\-vif $\ast$vif, u8 $\ast$ra, u16 tid)
+\item 
+void \hyperlink{agg-tx_8c_a8a606b32f4d3f0848c68705196e32e86}{ieee80211\-\_\-start\-\_\-tx\-\_\-ba\-\_\-cb\-\_\-irqsafe} (struct ieee80211\-\_\-vif $\ast$vif, const u8 $\ast$ra, u16 tid)
+\item 
+\hyperlink{agg-tx_8c_affce7c6c97496ce29d5a89f4a29baa96}{E\-X\-P\-O\-R\-T\-\_\-\-S\-Y\-M\-B\-O\-L} (\hyperlink{agg-tx_8c_a8a606b32f4d3f0848c68705196e32e86}{ieee80211\-\_\-start\-\_\-tx\-\_\-ba\-\_\-cb\-\_\-irqsafe})
+\item 
+int \hyperlink{agg-tx_8c_a515f5c1cee515484ce3b26ae657b8873}{\-\_\-\-\_\-ieee80211\-\_\-stop\-\_\-tx\-\_\-ba\-\_\-session} (struct \hyperlink{structsta__info}{sta\-\_\-info} $\ast$sta, u16 tid, enum ieee80211\-\_\-back\-\_\-parties initiator, bool tx)
+\item 
+int \hyperlink{agg-tx_8c_afe61732813b7482c321ed267c69f8b44}{ieee80211\-\_\-stop\-\_\-tx\-\_\-ba\-\_\-session} (struct ieee80211\-\_\-sta $\ast$pubsta, u16 tid)
+\item 
+\hyperlink{agg-tx_8c_af2bce836b1761826862da998e220782c}{E\-X\-P\-O\-R\-T\-\_\-\-S\-Y\-M\-B\-O\-L} (\hyperlink{agg-tx_8c_afe61732813b7482c321ed267c69f8b44}{ieee80211\-\_\-stop\-\_\-tx\-\_\-ba\-\_\-session})
+\item 
+void \hyperlink{agg-tx_8c_a863731e7ca24b91601e4ef0fa7776a60}{ieee80211\-\_\-stop\-\_\-tx\-\_\-ba\-\_\-cb} (struct ieee80211\-\_\-vif $\ast$vif, u8 $\ast$ra, u8 tid)
+\item 
+void \hyperlink{agg-tx_8c_a5329260e3dcb4a6595bcd8ac3f1a5b16}{ieee80211\-\_\-stop\-\_\-tx\-\_\-ba\-\_\-cb\-\_\-irqsafe} (struct ieee80211\-\_\-vif $\ast$vif, const u8 $\ast$ra, u16 tid)
+\item 
+\hyperlink{agg-tx_8c_a509da822e336fca2eafc9ad3dd4a7d7d}{E\-X\-P\-O\-R\-T\-\_\-\-S\-Y\-M\-B\-O\-L} (\hyperlink{agg-tx_8c_a5329260e3dcb4a6595bcd8ac3f1a5b16}{ieee80211\-\_\-stop\-\_\-tx\-\_\-ba\-\_\-cb\-\_\-irqsafe})
+\item 
+void \hyperlink{agg-tx_8c_a186f5f6a44f76c9723f750fd640f3d66}{ieee80211\-\_\-process\-\_\-addba\-\_\-resp} (struct \hyperlink{structieee80211__local}{ieee80211\-\_\-local} $\ast$local, struct \hyperlink{structsta__info}{sta\-\_\-info} $\ast$sta, struct ieee80211\-\_\-mgmt $\ast$mgmt, size\-\_\-t len)
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\hypertarget{agg-tx_8c_a68ee93272e5342075143e403c64a3707}{\index{agg-\/tx.\-c@{agg-\/tx.\-c}!\-\_\-\-\_\-\-\_\-ieee80211\-\_\-stop\-\_\-tx\-\_\-ba\-\_\-session@{\-\_\-\-\_\-\-\_\-ieee80211\-\_\-stop\-\_\-tx\-\_\-ba\-\_\-session}}
+\index{\-\_\-\-\_\-\-\_\-ieee80211\-\_\-stop\-\_\-tx\-\_\-ba\-\_\-session@{\-\_\-\-\_\-\-\_\-ieee80211\-\_\-stop\-\_\-tx\-\_\-ba\-\_\-session}!agg-tx.c@{agg-\/tx.\-c}}
+\subsubsection[{\-\_\-\-\_\-\-\_\-ieee80211\-\_\-stop\-\_\-tx\-\_\-ba\-\_\-session}]{\setlength{\rightskip}{0pt plus 5cm}int \-\_\-\-\_\-\-\_\-ieee80211\-\_\-stop\-\_\-tx\-\_\-ba\-\_\-session (
+\begin{DoxyParamCaption}
+\item[{struct {\bf sta\-\_\-info} $\ast$}]{sta, }
+\item[{u16}]{tid, }
+\item[{enum ieee80211\-\_\-back\-\_\-parties}]{initiator, }
+\item[{bool}]{tx}
+\end{DoxyParamCaption}
+)}}\label{agg-tx_8c_a68ee93272e5342075143e403c64a3707}
+
+
+Definition at line 151 of file agg-\/tx.\-c.
+
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{agg-tx_8c_a68ee93272e5342075143e403c64a3707_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{agg-tx_8c_a68ee93272e5342075143e403c64a3707_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{agg-tx_8c_a515f5c1cee515484ce3b26ae657b8873}{\index{agg-\/tx.\-c@{agg-\/tx.\-c}!\-\_\-\-\_\-ieee80211\-\_\-stop\-\_\-tx\-\_\-ba\-\_\-session@{\-\_\-\-\_\-ieee80211\-\_\-stop\-\_\-tx\-\_\-ba\-\_\-session}}
+\index{\-\_\-\-\_\-ieee80211\-\_\-stop\-\_\-tx\-\_\-ba\-\_\-session@{\-\_\-\-\_\-ieee80211\-\_\-stop\-\_\-tx\-\_\-ba\-\_\-session}!agg-tx.c@{agg-\/tx.\-c}}
+\subsubsection[{\-\_\-\-\_\-ieee80211\-\_\-stop\-\_\-tx\-\_\-ba\-\_\-session}]{\setlength{\rightskip}{0pt plus 5cm}int \-\_\-\-\_\-ieee80211\-\_\-stop\-\_\-tx\-\_\-ba\-\_\-session (
+\begin{DoxyParamCaption}
+\item[{struct {\bf sta\-\_\-info} $\ast$}]{sta, }
+\item[{u16}]{tid, }
+\item[{enum ieee80211\-\_\-back\-\_\-parties}]{initiator, }
+\item[{bool}]{tx}
+\end{DoxyParamCaption}
+)}}\label{agg-tx_8c_a515f5c1cee515484ce3b26ae657b8873}
+
+
+Definition at line 670 of file agg-\/tx.\-c.
+
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{agg-tx_8c_a515f5c1cee515484ce3b26ae657b8873_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{agg-tx_8c_a515f5c1cee515484ce3b26ae657b8873_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{agg-tx_8c_af595cdb6a5d3ec1dfadf2537645b8e24}{\index{agg-\/tx.\-c@{agg-\/tx.\-c}!E\-X\-P\-O\-R\-T\-\_\-\-S\-Y\-M\-B\-O\-L@{E\-X\-P\-O\-R\-T\-\_\-\-S\-Y\-M\-B\-O\-L}}
+\index{E\-X\-P\-O\-R\-T\-\_\-\-S\-Y\-M\-B\-O\-L@{E\-X\-P\-O\-R\-T\-\_\-\-S\-Y\-M\-B\-O\-L}!agg-tx.c@{agg-\/tx.\-c}}
+\subsubsection[{E\-X\-P\-O\-R\-T\-\_\-\-S\-Y\-M\-B\-O\-L}]{\setlength{\rightskip}{0pt plus 5cm}E\-X\-P\-O\-R\-T\-\_\-\-S\-Y\-M\-B\-O\-L (
+\begin{DoxyParamCaption}
+\item[{{\bf ieee80211\-\_\-send\-\_\-bar}}]{}
+\end{DoxyParamCaption}
+)}}\label{agg-tx_8c_af595cdb6a5d3ec1dfadf2537645b8e24}
+\hypertarget{agg-tx_8c_a367b814b4cbb7756b409860f90c79d1a}{\index{agg-\/tx.\-c@{agg-\/tx.\-c}!E\-X\-P\-O\-R\-T\-\_\-\-S\-Y\-M\-B\-O\-L@{E\-X\-P\-O\-R\-T\-\_\-\-S\-Y\-M\-B\-O\-L}}
+\index{E\-X\-P\-O\-R\-T\-\_\-\-S\-Y\-M\-B\-O\-L@{E\-X\-P\-O\-R\-T\-\_\-\-S\-Y\-M\-B\-O\-L}!agg-tx.c@{agg-\/tx.\-c}}
+\subsubsection[{E\-X\-P\-O\-R\-T\-\_\-\-S\-Y\-M\-B\-O\-L}]{\setlength{\rightskip}{0pt plus 5cm}E\-X\-P\-O\-R\-T\-\_\-\-S\-Y\-M\-B\-O\-L (
+\begin{DoxyParamCaption}
+\item[{{\bf ieee80211\-\_\-start\-\_\-tx\-\_\-ba\-\_\-session}}]{}
+\end{DoxyParamCaption}
+)}}\label{agg-tx_8c_a367b814b4cbb7756b409860f90c79d1a}
+\hypertarget{agg-tx_8c_affce7c6c97496ce29d5a89f4a29baa96}{\index{agg-\/tx.\-c@{agg-\/tx.\-c}!E\-X\-P\-O\-R\-T\-\_\-\-S\-Y\-M\-B\-O\-L@{E\-X\-P\-O\-R\-T\-\_\-\-S\-Y\-M\-B\-O\-L}}
+\index{E\-X\-P\-O\-R\-T\-\_\-\-S\-Y\-M\-B\-O\-L@{E\-X\-P\-O\-R\-T\-\_\-\-S\-Y\-M\-B\-O\-L}!agg-tx.c@{agg-\/tx.\-c}}
+\subsubsection[{E\-X\-P\-O\-R\-T\-\_\-\-S\-Y\-M\-B\-O\-L}]{\setlength{\rightskip}{0pt plus 5cm}E\-X\-P\-O\-R\-T\-\_\-\-S\-Y\-M\-B\-O\-L (
+\begin{DoxyParamCaption}
+\item[{{\bf ieee80211\-\_\-start\-\_\-tx\-\_\-ba\-\_\-cb\-\_\-irqsafe}}]{}
+\end{DoxyParamCaption}
+)}}\label{agg-tx_8c_affce7c6c97496ce29d5a89f4a29baa96}
+\hypertarget{agg-tx_8c_af2bce836b1761826862da998e220782c}{\index{agg-\/tx.\-c@{agg-\/tx.\-c}!E\-X\-P\-O\-R\-T\-\_\-\-S\-Y\-M\-B\-O\-L@{E\-X\-P\-O\-R\-T\-\_\-\-S\-Y\-M\-B\-O\-L}}
+\index{E\-X\-P\-O\-R\-T\-\_\-\-S\-Y\-M\-B\-O\-L@{E\-X\-P\-O\-R\-T\-\_\-\-S\-Y\-M\-B\-O\-L}!agg-tx.c@{agg-\/tx.\-c}}
+\subsubsection[{E\-X\-P\-O\-R\-T\-\_\-\-S\-Y\-M\-B\-O\-L}]{\setlength{\rightskip}{0pt plus 5cm}E\-X\-P\-O\-R\-T\-\_\-\-S\-Y\-M\-B\-O\-L (
+\begin{DoxyParamCaption}
+\item[{{\bf ieee80211\-\_\-stop\-\_\-tx\-\_\-ba\-\_\-session}}]{}
+\end{DoxyParamCaption}
+)}}\label{agg-tx_8c_af2bce836b1761826862da998e220782c}
+\hypertarget{agg-tx_8c_a509da822e336fca2eafc9ad3dd4a7d7d}{\index{agg-\/tx.\-c@{agg-\/tx.\-c}!E\-X\-P\-O\-R\-T\-\_\-\-S\-Y\-M\-B\-O\-L@{E\-X\-P\-O\-R\-T\-\_\-\-S\-Y\-M\-B\-O\-L}}
+\index{E\-X\-P\-O\-R\-T\-\_\-\-S\-Y\-M\-B\-O\-L@{E\-X\-P\-O\-R\-T\-\_\-\-S\-Y\-M\-B\-O\-L}!agg-tx.c@{agg-\/tx.\-c}}
+\subsubsection[{E\-X\-P\-O\-R\-T\-\_\-\-S\-Y\-M\-B\-O\-L}]{\setlength{\rightskip}{0pt plus 5cm}E\-X\-P\-O\-R\-T\-\_\-\-S\-Y\-M\-B\-O\-L (
+\begin{DoxyParamCaption}
+\item[{{\bf ieee80211\-\_\-stop\-\_\-tx\-\_\-ba\-\_\-cb\-\_\-irqsafe}}]{}
+\end{DoxyParamCaption}
+)}}\label{agg-tx_8c_a509da822e336fca2eafc9ad3dd4a7d7d}
+\hypertarget{agg-tx_8c_a82539db85e814b802eb8127cb430565c}{\index{agg-\/tx.\-c@{agg-\/tx.\-c}!ieee80211\-\_\-assign\-\_\-tid\-\_\-tx@{ieee80211\-\_\-assign\-\_\-tid\-\_\-tx}}
+\index{ieee80211\-\_\-assign\-\_\-tid\-\_\-tx@{ieee80211\-\_\-assign\-\_\-tid\-\_\-tx}!agg-tx.c@{agg-\/tx.\-c}}
+\subsubsection[{ieee80211\-\_\-assign\-\_\-tid\-\_\-tx}]{\setlength{\rightskip}{0pt plus 5cm}void ieee80211\-\_\-assign\-\_\-tid\-\_\-tx (
+\begin{DoxyParamCaption}
+\item[{struct {\bf sta\-\_\-info} $\ast$}]{sta, }
+\item[{int}]{tid, }
+\item[{struct {\bf tid\-\_\-ampdu\-\_\-tx} $\ast$}]{tid\-\_\-tx}
+\end{DoxyParamCaption}
+)}}\label{agg-tx_8c_a82539db85e814b802eb8127cb430565c}
+
+
+Definition at line 143 of file agg-\/tx.\-c.
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{agg-tx_8c_a82539db85e814b802eb8127cb430565c_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{agg-tx_8c_a186f5f6a44f76c9723f750fd640f3d66}{\index{agg-\/tx.\-c@{agg-\/tx.\-c}!ieee80211\-\_\-process\-\_\-addba\-\_\-resp@{ieee80211\-\_\-process\-\_\-addba\-\_\-resp}}
+\index{ieee80211\-\_\-process\-\_\-addba\-\_\-resp@{ieee80211\-\_\-process\-\_\-addba\-\_\-resp}!agg-tx.c@{agg-\/tx.\-c}}
+\subsubsection[{ieee80211\-\_\-process\-\_\-addba\-\_\-resp}]{\setlength{\rightskip}{0pt plus 5cm}void ieee80211\-\_\-process\-\_\-addba\-\_\-resp (
+\begin{DoxyParamCaption}
+\item[{struct {\bf ieee80211\-\_\-local} $\ast$}]{local, }
+\item[{struct {\bf sta\-\_\-info} $\ast$}]{sta, }
+\item[{struct ieee80211\-\_\-mgmt $\ast$}]{mgmt, }
+\item[{size\-\_\-t}]{len}
+\end{DoxyParamCaption}
+)}}\label{agg-tx_8c_a186f5f6a44f76c9723f750fd640f3d66}
+
+
+Definition at line 819 of file agg-\/tx.\-c.
+
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{agg-tx_8c_a186f5f6a44f76c9723f750fd640f3d66_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{agg-tx_8c_a325d08db621f94aaf004ab00c95a84c0}{\index{agg-\/tx.\-c@{agg-\/tx.\-c}!ieee80211\-\_\-send\-\_\-bar@{ieee80211\-\_\-send\-\_\-bar}}
+\index{ieee80211\-\_\-send\-\_\-bar@{ieee80211\-\_\-send\-\_\-bar}!agg-tx.c@{agg-\/tx.\-c}}
+\subsubsection[{ieee80211\-\_\-send\-\_\-bar}]{\setlength{\rightskip}{0pt plus 5cm}void ieee80211\-\_\-send\-\_\-bar (
+\begin{DoxyParamCaption}
+\item[{struct ieee80211\-\_\-vif $\ast$}]{vif, }
+\item[{u8 $\ast$}]{ra, }
+\item[{u16}]{tid, }
+\item[{u16}]{ssn}
+\end{DoxyParamCaption}
+)}}\label{agg-tx_8c_a325d08db621f94aaf004ab00c95a84c0}
+
+
+Definition at line 113 of file agg-\/tx.\-c.
+
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{agg-tx_8c_a325d08db621f94aaf004ab00c95a84c0_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=330pt]{agg-tx_8c_a325d08db621f94aaf004ab00c95a84c0_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{agg-tx_8c_a5660c00056871426ddbd3e338f6a7f1c}{\index{agg-\/tx.\-c@{agg-\/tx.\-c}!ieee80211\-\_\-start\-\_\-tx\-\_\-ba\-\_\-cb@{ieee80211\-\_\-start\-\_\-tx\-\_\-ba\-\_\-cb}}
+\index{ieee80211\-\_\-start\-\_\-tx\-\_\-ba\-\_\-cb@{ieee80211\-\_\-start\-\_\-tx\-\_\-ba\-\_\-cb}!agg-tx.c@{agg-\/tx.\-c}}
+\subsubsection[{ieee80211\-\_\-start\-\_\-tx\-\_\-ba\-\_\-cb}]{\setlength{\rightskip}{0pt plus 5cm}void ieee80211\-\_\-start\-\_\-tx\-\_\-ba\-\_\-cb (
+\begin{DoxyParamCaption}
+\item[{struct ieee80211\-\_\-vif $\ast$}]{vif, }
+\item[{u8 $\ast$}]{ra, }
+\item[{u16}]{tid}
+\end{DoxyParamCaption}
+)}}\label{agg-tx_8c_a5660c00056871426ddbd3e338f6a7f1c}
+
+
+Definition at line 601 of file agg-\/tx.\-c.
+
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=308pt]{agg-tx_8c_a5660c00056871426ddbd3e338f6a7f1c_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{agg-tx_8c_a8a606b32f4d3f0848c68705196e32e86}{\index{agg-\/tx.\-c@{agg-\/tx.\-c}!ieee80211\-\_\-start\-\_\-tx\-\_\-ba\-\_\-cb\-\_\-irqsafe@{ieee80211\-\_\-start\-\_\-tx\-\_\-ba\-\_\-cb\-\_\-irqsafe}}
+\index{ieee80211\-\_\-start\-\_\-tx\-\_\-ba\-\_\-cb\-\_\-irqsafe@{ieee80211\-\_\-start\-\_\-tx\-\_\-ba\-\_\-cb\-\_\-irqsafe}!agg-tx.c@{agg-\/tx.\-c}}
+\subsubsection[{ieee80211\-\_\-start\-\_\-tx\-\_\-ba\-\_\-cb\-\_\-irqsafe}]{\setlength{\rightskip}{0pt plus 5cm}void ieee80211\-\_\-start\-\_\-tx\-\_\-ba\-\_\-cb\-\_\-irqsafe (
+\begin{DoxyParamCaption}
+\item[{struct ieee80211\-\_\-vif $\ast$}]{vif, }
+\item[{const u8 $\ast$}]{ra, }
+\item[{u16}]{tid}
+\end{DoxyParamCaption}
+)}}\label{agg-tx_8c_a8a606b32f4d3f0848c68705196e32e86}
+
+
+Definition at line 649 of file agg-\/tx.\-c.
+
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=336pt]{agg-tx_8c_a8a606b32f4d3f0848c68705196e32e86_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{agg-tx_8c_aec405fe32dc4aea0cf1ee7685427490c}{\index{agg-\/tx.\-c@{agg-\/tx.\-c}!ieee80211\-\_\-start\-\_\-tx\-\_\-ba\-\_\-session@{ieee80211\-\_\-start\-\_\-tx\-\_\-ba\-\_\-session}}
+\index{ieee80211\-\_\-start\-\_\-tx\-\_\-ba\-\_\-session@{ieee80211\-\_\-start\-\_\-tx\-\_\-ba\-\_\-session}!agg-tx.c@{agg-\/tx.\-c}}
+\subsubsection[{ieee80211\-\_\-start\-\_\-tx\-\_\-ba\-\_\-session}]{\setlength{\rightskip}{0pt plus 5cm}int ieee80211\-\_\-start\-\_\-tx\-\_\-ba\-\_\-session (
+\begin{DoxyParamCaption}
+\item[{struct ieee80211\-\_\-sta $\ast$}]{pubsta, }
+\item[{u16}]{tid, }
+\item[{u16}]{timeout}
+\end{DoxyParamCaption}
+)}}\label{agg-tx_8c_aec405fe32dc4aea0cf1ee7685427490c}
+
+
+Definition at line 428 of file agg-\/tx.\-c.
+
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=336pt]{agg-tx_8c_aec405fe32dc4aea0cf1ee7685427490c_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{agg-tx_8c_a863731e7ca24b91601e4ef0fa7776a60}{\index{agg-\/tx.\-c@{agg-\/tx.\-c}!ieee80211\-\_\-stop\-\_\-tx\-\_\-ba\-\_\-cb@{ieee80211\-\_\-stop\-\_\-tx\-\_\-ba\-\_\-cb}}
+\index{ieee80211\-\_\-stop\-\_\-tx\-\_\-ba\-\_\-cb@{ieee80211\-\_\-stop\-\_\-tx\-\_\-ba\-\_\-cb}!agg-tx.c@{agg-\/tx.\-c}}
+\subsubsection[{ieee80211\-\_\-stop\-\_\-tx\-\_\-ba\-\_\-cb}]{\setlength{\rightskip}{0pt plus 5cm}void ieee80211\-\_\-stop\-\_\-tx\-\_\-ba\-\_\-cb (
+\begin{DoxyParamCaption}
+\item[{struct ieee80211\-\_\-vif $\ast$}]{vif, }
+\item[{u8 $\ast$}]{ra, }
+\item[{u8}]{tid}
+\end{DoxyParamCaption}
+)}}\label{agg-tx_8c_a863731e7ca24b91601e4ef0fa7776a60}
+
+
+Definition at line 724 of file agg-\/tx.\-c.
+
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{agg-tx_8c_a863731e7ca24b91601e4ef0fa7776a60_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{agg-tx_8c_a5329260e3dcb4a6595bcd8ac3f1a5b16}{\index{agg-\/tx.\-c@{agg-\/tx.\-c}!ieee80211\-\_\-stop\-\_\-tx\-\_\-ba\-\_\-cb\-\_\-irqsafe@{ieee80211\-\_\-stop\-\_\-tx\-\_\-ba\-\_\-cb\-\_\-irqsafe}}
+\index{ieee80211\-\_\-stop\-\_\-tx\-\_\-ba\-\_\-cb\-\_\-irqsafe@{ieee80211\-\_\-stop\-\_\-tx\-\_\-ba\-\_\-cb\-\_\-irqsafe}!agg-tx.c@{agg-\/tx.\-c}}
+\subsubsection[{ieee80211\-\_\-stop\-\_\-tx\-\_\-ba\-\_\-cb\-\_\-irqsafe}]{\setlength{\rightskip}{0pt plus 5cm}void ieee80211\-\_\-stop\-\_\-tx\-\_\-ba\-\_\-cb\-\_\-irqsafe (
+\begin{DoxyParamCaption}
+\item[{struct ieee80211\-\_\-vif $\ast$}]{vif, }
+\item[{const u8 $\ast$}]{ra, }
+\item[{u16}]{tid}
+\end{DoxyParamCaption}
+)}}\label{agg-tx_8c_a5329260e3dcb4a6595bcd8ac3f1a5b16}
+
+
+Definition at line 797 of file agg-\/tx.\-c.
+
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{agg-tx_8c_a5329260e3dcb4a6595bcd8ac3f1a5b16_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{agg-tx_8c_afe61732813b7482c321ed267c69f8b44}{\index{agg-\/tx.\-c@{agg-\/tx.\-c}!ieee80211\-\_\-stop\-\_\-tx\-\_\-ba\-\_\-session@{ieee80211\-\_\-stop\-\_\-tx\-\_\-ba\-\_\-session}}
+\index{ieee80211\-\_\-stop\-\_\-tx\-\_\-ba\-\_\-session@{ieee80211\-\_\-stop\-\_\-tx\-\_\-ba\-\_\-session}!agg-tx.c@{agg-\/tx.\-c}}
+\subsubsection[{ieee80211\-\_\-stop\-\_\-tx\-\_\-ba\-\_\-session}]{\setlength{\rightskip}{0pt plus 5cm}int ieee80211\-\_\-stop\-\_\-tx\-\_\-ba\-\_\-session (
+\begin{DoxyParamCaption}
+\item[{struct ieee80211\-\_\-sta $\ast$}]{pubsta, }
+\item[{u16}]{tid}
+\end{DoxyParamCaption}
+)}}\label{agg-tx_8c_afe61732813b7482c321ed267c69f8b44}
+
+
+Definition at line 685 of file agg-\/tx.\-c.
+
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{agg-tx_8c_afe61732813b7482c321ed267c69f8b44_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{agg-tx_8c_a85db32e08200e990e87a163b84505277}{\index{agg-\/tx.\-c@{agg-\/tx.\-c}!ieee80211\-\_\-tx\-\_\-ba\-\_\-session\-\_\-handle\-\_\-start@{ieee80211\-\_\-tx\-\_\-ba\-\_\-session\-\_\-handle\-\_\-start}}
+\index{ieee80211\-\_\-tx\-\_\-ba\-\_\-session\-\_\-handle\-\_\-start@{ieee80211\-\_\-tx\-\_\-ba\-\_\-session\-\_\-handle\-\_\-start}!agg-tx.c@{agg-\/tx.\-c}}
+\subsubsection[{ieee80211\-\_\-tx\-\_\-ba\-\_\-session\-\_\-handle\-\_\-start}]{\setlength{\rightskip}{0pt plus 5cm}void ieee80211\-\_\-tx\-\_\-ba\-\_\-session\-\_\-handle\-\_\-start (
+\begin{DoxyParamCaption}
+\item[{struct {\bf sta\-\_\-info} $\ast$}]{sta, }
+\item[{int}]{tid}
+\end{DoxyParamCaption}
+)}}\label{agg-tx_8c_a85db32e08200e990e87a163b84505277}
+
+
+Definition at line 344 of file agg-\/tx.\-c.
+
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{agg-tx_8c_a85db32e08200e990e87a163b84505277_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{agg-tx_8c_a85db32e08200e990e87a163b84505277_icgraph}
+\end{center}
+\end{figure}
+
+

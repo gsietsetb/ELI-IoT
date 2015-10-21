@@ -1,0 +1,87 @@
+.TH "/home/guille/msm/net/mac80211/wpa.h" 3 "Sun Jun 1 2014" "Version 1.0" "net_mac80211" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+/home/guille/msm/net/mac80211/wpa.h \- 
+.SH SYNOPSIS
+.br
+.PP
+\fC#include <linux/skbuff\&.h>\fP
+.br
+\fC#include <linux/types\&.h>\fP
+.br
+\fC#include 'ieee80211_i\&.h'\fP
+.br
+
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBieee80211_tx_result\fP \fBieee80211_tx_h_michael_mic_add\fP (struct \fBieee80211_tx_data\fP *tx)"
+.br
+.ti -1c
+.RI "\fBieee80211_rx_result\fP \fBieee80211_rx_h_michael_mic_verify\fP (struct \fBieee80211_rx_data\fP *rx)"
+.br
+.ti -1c
+.RI "\fBieee80211_tx_result\fP \fBieee80211_crypto_tkip_encrypt\fP (struct \fBieee80211_tx_data\fP *tx)"
+.br
+.ti -1c
+.RI "\fBieee80211_rx_result\fP \fBieee80211_crypto_tkip_decrypt\fP (struct \fBieee80211_rx_data\fP *rx)"
+.br
+.ti -1c
+.RI "\fBieee80211_tx_result\fP \fBieee80211_crypto_ccmp_encrypt\fP (struct \fBieee80211_tx_data\fP *tx)"
+.br
+.ti -1c
+.RI "\fBieee80211_rx_result\fP \fBieee80211_crypto_ccmp_decrypt\fP (struct \fBieee80211_rx_data\fP *rx)"
+.br
+.ti -1c
+.RI "\fBieee80211_tx_result\fP \fBieee80211_crypto_aes_cmac_encrypt\fP (struct \fBieee80211_tx_data\fP *tx)"
+.br
+.ti -1c
+.RI "\fBieee80211_rx_result\fP \fBieee80211_crypto_aes_cmac_decrypt\fP (struct \fBieee80211_rx_data\fP *rx)"
+.br
+.ti -1c
+.RI "\fBieee80211_tx_result\fP \fBieee80211_crypto_hw_encrypt\fP (struct \fBieee80211_tx_data\fP *tx)"
+.br
+.in -1c
+.SH "Function Documentation"
+.PP 
+.SS "\fBieee80211_rx_result\fP ieee80211_crypto_aes_cmac_decrypt (struct \fBieee80211_rx_data\fP *rx)"
+
+.PP
+Definition at line 618 of file wpa\&.c\&.
+.SS "\fBieee80211_tx_result\fP ieee80211_crypto_aes_cmac_encrypt (struct \fBieee80211_tx_data\fP *tx)"
+
+.PP
+Definition at line 573 of file wpa\&.c\&.
+.SS "\fBieee80211_rx_result\fP ieee80211_crypto_ccmp_decrypt (struct \fBieee80211_rx_data\fP *rx)"
+
+.PP
+Definition at line 475 of file wpa\&.c\&.
+.SS "\fBieee80211_tx_result\fP ieee80211_crypto_ccmp_encrypt (struct \fBieee80211_tx_data\fP *tx)"
+
+.PP
+Definition at line 459 of file wpa\&.c\&.
+.SS "\fBieee80211_tx_result\fP ieee80211_crypto_hw_encrypt (struct \fBieee80211_tx_data\fP *tx)"
+
+.PP
+Definition at line 668 of file wpa\&.c\&.
+.SS "\fBieee80211_rx_result\fP ieee80211_crypto_tkip_decrypt (struct \fBieee80211_rx_data\fP *rx)"
+
+.PP
+Definition at line 244 of file wpa\&.c\&.
+.SS "\fBieee80211_tx_result\fP ieee80211_crypto_tkip_encrypt (struct \fBieee80211_tx_data\fP *tx)"
+
+.PP
+Definition at line 228 of file wpa\&.c\&.
+.SS "\fBieee80211_rx_result\fP ieee80211_rx_h_michael_mic_verify (struct \fBieee80211_rx_data\fP *rx)"
+
+.PP
+Definition at line 82 of file wpa\&.c\&.
+.SS "\fBieee80211_tx_result\fP ieee80211_tx_h_michael_mic_add (struct \fBieee80211_tx_data\fP *tx)"
+
+.PP
+Definition at line 28 of file wpa\&.c\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for net_mac80211 from the source code\&.

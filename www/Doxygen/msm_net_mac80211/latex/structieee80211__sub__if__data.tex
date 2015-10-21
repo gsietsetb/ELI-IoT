@@ -1,0 +1,370 @@
+\hypertarget{structieee80211__sub__if__data}{\section{ieee80211\-\_\-sub\-\_\-if\-\_\-data Struct Reference}
+\label{structieee80211__sub__if__data}\index{ieee80211\-\_\-sub\-\_\-if\-\_\-data@{ieee80211\-\_\-sub\-\_\-if\-\_\-data}}
+}
+
+
+{\ttfamily \#include $<$ieee80211\-\_\-i.\-h$>$}
+
+
+
+Collaboration diagram for ieee80211\-\_\-sub\-\_\-if\-\_\-data\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=550pt]{structieee80211__sub__if__data__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+struct list\-\_\-head \hyperlink{structieee80211__sub__if__data_a1f00f18b91d5a820f2c43064243aa86e}{list}
+\item 
+struct wireless\-\_\-dev \hyperlink{structieee80211__sub__if__data_adff11b1d40a62f52e85ded7d6428fab3}{wdev}
+\item 
+struct list\-\_\-head \hyperlink{structieee80211__sub__if__data_a173cf05f7d6b8bf98fc09f1bb95bfe7e}{key\-\_\-list}
+\item 
+int \hyperlink{structieee80211__sub__if__data_aa7af642ddb25d678f33953eaaddcb0d8}{crypto\-\_\-tx\-\_\-tailroom\-\_\-needed\-\_\-cnt}
+\item 
+struct net\-\_\-device $\ast$ \hyperlink{structieee80211__sub__if__data_abf690dbcccc005ba94a1ce16864ccdc9}{dev}
+\item 
+struct \hyperlink{structieee80211__local}{ieee80211\-\_\-local} $\ast$ \hyperlink{structieee80211__sub__if__data_ad436a024f420f219c4fe2eebce7e4ab2}{local}
+\item 
+unsigned int \hyperlink{structieee80211__sub__if__data_ac92588540e8c1d014a08cd8a45462b19}{flags}
+\item 
+unsigned long \hyperlink{structieee80211__sub__if__data_af7504fc0e249186b115eb5f51a297878}{state}
+\item 
+int \hyperlink{structieee80211__sub__if__data_a33cb37aebf5eb2cdb7b07dffd48e9a92}{drop\-\_\-unencrypted}
+\item 
+char \hyperlink{structieee80211__sub__if__data_a9ea12d6fc5b2c586092468ee1a86162a}{name} \mbox{[}I\-F\-N\-A\-M\-S\-I\-Z\mbox{]}
+\item 
+bool \hyperlink{structieee80211__sub__if__data_a1e7e518fe4dd44b1cb51205645f7c8e9}{ht\-\_\-opmode\-\_\-valid}
+\item 
+bool \hyperlink{structieee80211__sub__if__data_a3bf326db8dc3ffdc0338743371dfc65b}{old\-\_\-idle}
+\item 
+struct \hyperlink{structieee80211__fragment__entry}{ieee80211\-\_\-fragment\-\_\-entry} \hyperlink{structieee80211__sub__if__data_a9dabb064f92940c0ae438c43f2e7d3a3}{fragments} \mbox{[}\hyperlink{ieee80211__i_8h_a32100053624b6475db2038cace00b40f}{I\-E\-E\-E80211\-\_\-\-F\-R\-A\-G\-M\-E\-N\-T\-\_\-\-M\-A\-X}\mbox{]}
+\item 
+unsigned int \hyperlink{structieee80211__sub__if__data_ab09b05e01b312174ceac7542e54c060a}{fragment\-\_\-next}
+\item 
+u16 \hyperlink{structieee80211__sub__if__data_a151051cbbca12c85e61578f27ae99ced}{noack\-\_\-map}
+\item 
+struct \hyperlink{structieee80211__key}{ieee80211\-\_\-key} \-\_\-\-\_\-rcu $\ast$ \hyperlink{structieee80211__sub__if__data_ad9d8249bd02068d887fd83a256bd0549}{keys} \mbox{[}\hyperlink{key_8h_afc56a6aebd37a90bca92708898c4e80a}{N\-U\-M\-\_\-\-D\-E\-F\-A\-U\-L\-T\-\_\-\-K\-E\-Y\-S}+\hyperlink{key_8h_a7cb10042c995311e0b4dfa6a8cabdd11}{N\-U\-M\-\_\-\-D\-E\-F\-A\-U\-L\-T\-\_\-\-M\-G\-M\-T\-\_\-\-K\-E\-Y\-S}\mbox{]}
+\item 
+struct \hyperlink{structieee80211__key}{ieee80211\-\_\-key} \-\_\-\-\_\-rcu $\ast$ \hyperlink{structieee80211__sub__if__data_a44b1d9794b9cb6b73af38c8c6258cfcf}{default\-\_\-unicast\-\_\-key}
+\item 
+struct \hyperlink{structieee80211__key}{ieee80211\-\_\-key} \-\_\-\-\_\-rcu $\ast$ \hyperlink{structieee80211__sub__if__data_a3b14deb6e926750564314ff8a32147ba}{default\-\_\-multicast\-\_\-key}
+\item 
+struct \hyperlink{structieee80211__key}{ieee80211\-\_\-key} \-\_\-\-\_\-rcu $\ast$ \hyperlink{structieee80211__sub__if__data_a2919f5df0fee1d8bbeac082c448c77c3}{default\-\_\-mgmt\-\_\-key}
+\item 
+u16 \hyperlink{structieee80211__sub__if__data_ac171f7c2d4f67742e044f800ce3ca592}{sequence\-\_\-number}
+\item 
+\-\_\-\-\_\-be16 \hyperlink{structieee80211__sub__if__data_a9d1f464ce348d7d7e6852ac8e32e0d0f}{control\-\_\-port\-\_\-protocol}
+\item 
+bool \hyperlink{structieee80211__sub__if__data_a5ac2427ee669706bf98a29fc82ed9666}{control\-\_\-port\-\_\-no\-\_\-encrypt}
+\item 
+struct ieee80211\-\_\-tx\-\_\-queue\-\_\-params \hyperlink{structieee80211__sub__if__data_aa80252c8fcedef0fef3d580c68867c84}{tx\-\_\-conf} \mbox{[}I\-E\-E\-E80211\-\_\-\-M\-A\-X\-\_\-\-Q\-U\-E\-U\-E\-S\mbox{]}
+\item 
+struct work\-\_\-struct \hyperlink{structieee80211__sub__if__data_a623997e11b94d7c467ce26627cc488a2}{work}
+\item 
+struct sk\-\_\-buff\-\_\-head \hyperlink{structieee80211__sub__if__data_a6eeb93345e21d69a77a7c2c571bd0000}{skb\-\_\-queue}
+\item 
+bool \hyperlink{structieee80211__sub__if__data_a0216068b0f336a8922737d055a92e4cd}{arp\-\_\-filter\-\_\-state}
+\item 
+struct \hyperlink{structieee80211__if__ap}{ieee80211\-\_\-if\-\_\-ap} $\ast$ \hyperlink{structieee80211__sub__if__data_a45b3472e16d1f1a8c58e64b338d4e946}{bss}
+\item 
+u32 \hyperlink{structieee80211__sub__if__data_a4291130d4a0d651a69780340ad638ce2}{rc\-\_\-rateidx\-\_\-mask} \mbox{[}I\-E\-E\-E80211\-\_\-\-N\-U\-M\-\_\-\-B\-A\-N\-D\-S\mbox{]}
+\item 
+u8 \hyperlink{structieee80211__sub__if__data_af3f2e32024ff5987cf20338a95ecc35f}{rc\-\_\-rateidx\-\_\-mcs\-\_\-mask} \mbox{[}I\-E\-E\-E80211\-\_\-\-N\-U\-M\-\_\-\-B\-A\-N\-D\-S\mbox{]}\mbox{[}I\-E\-E\-E80211\-\_\-\-H\-T\-\_\-\-M\-C\-S\-\_\-\-M\-A\-S\-K\-\_\-\-L\-E\-N\mbox{]}
+\item 
+\begin{tabbing}
+xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=\kill
+union \{\\
+\>struct \hyperlink{structieee80211__if__ap}{ieee80211\_if\_ap} \hyperlink{structieee80211__sub__if__data_aa7802c0ad2f6a05610aea467f294ebd2}{ap}\\
+\>struct \hyperlink{structieee80211__if__wds}{ieee80211\_if\_wds} \hyperlink{structieee80211__sub__if__data_a09671aeb534ab76414be89358eb296cd}{wds}\\
+\>struct \hyperlink{structieee80211__if__vlan}{ieee80211\_if\_vlan} \hyperlink{structieee80211__sub__if__data_a0306ac04b10e73aa887c6d5a96332fa2}{vlan}\\
+\>struct \hyperlink{structieee80211__if__managed}{ieee80211\_if\_managed} \hyperlink{structieee80211__sub__if__data_ac43070ed59c628dcab245dc2dbaa0fd7}{mgd}\\
+\>struct \hyperlink{structieee80211__if__ibss}{ieee80211\_if\_ibss} \hyperlink{structieee80211__sub__if__data_ac62d9e6d8045efd0110b40c2ce341b56}{ibss}\\
+\>struct \hyperlink{structieee80211__if__mesh}{ieee80211\_if\_mesh} \hyperlink{structieee80211__sub__if__data_aa9083f90f4d38afa13c9d233a07a6d9d}{mesh}\\
+\>u32 \hyperlink{structieee80211__sub__if__data_a65a8ca3269e0e7023f6f265ee9ad1535}{mntr\_flags}\\
+\} \hyperlink{structieee80211__sub__if__data_a369ec3436f600c083e559d7909a206ea}{u}\\
+
+\end{tabbing}\item 
+struct ieee80211\-\_\-vif \hyperlink{structieee80211__sub__if__data_a32ff3992b201e6f0a8af4c4a0e09fd4c}{vif}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+
+
+Definition at line 648 of file ieee80211\-\_\-i.\-h.
+
+
+
+\subsection{Field Documentation}
+\hypertarget{structieee80211__sub__if__data_aa7802c0ad2f6a05610aea467f294ebd2}{\index{ieee80211\-\_\-sub\-\_\-if\-\_\-data@{ieee80211\-\_\-sub\-\_\-if\-\_\-data}!ap@{ap}}
+\index{ap@{ap}!ieee80211_sub_if_data@{ieee80211\-\_\-sub\-\_\-if\-\_\-data}}
+\subsubsection[{ap}]{\setlength{\rightskip}{0pt plus 5cm}struct {\bf ieee80211\-\_\-if\-\_\-ap} ap}}\label{structieee80211__sub__if__data_aa7802c0ad2f6a05610aea467f294ebd2}
+
+
+Definition at line 714 of file ieee80211\-\_\-i.\-h.
+
+\hypertarget{structieee80211__sub__if__data_a0216068b0f336a8922737d055a92e4cd}{\index{ieee80211\-\_\-sub\-\_\-if\-\_\-data@{ieee80211\-\_\-sub\-\_\-if\-\_\-data}!arp\-\_\-filter\-\_\-state@{arp\-\_\-filter\-\_\-state}}
+\index{arp\-\_\-filter\-\_\-state@{arp\-\_\-filter\-\_\-state}!ieee80211_sub_if_data@{ieee80211\-\_\-sub\-\_\-if\-\_\-data}}
+\subsubsection[{arp\-\_\-filter\-\_\-state}]{\setlength{\rightskip}{0pt plus 5cm}bool arp\-\_\-filter\-\_\-state}}\label{structieee80211__sub__if__data_a0216068b0f336a8922737d055a92e4cd}
+
+
+Definition at line 700 of file ieee80211\-\_\-i.\-h.
+
+\hypertarget{structieee80211__sub__if__data_a45b3472e16d1f1a8c58e64b338d4e946}{\index{ieee80211\-\_\-sub\-\_\-if\-\_\-data@{ieee80211\-\_\-sub\-\_\-if\-\_\-data}!bss@{bss}}
+\index{bss@{bss}!ieee80211_sub_if_data@{ieee80211\-\_\-sub\-\_\-if\-\_\-data}}
+\subsubsection[{bss}]{\setlength{\rightskip}{0pt plus 5cm}struct {\bf ieee80211\-\_\-if\-\_\-ap}$\ast$ bss}}\label{structieee80211__sub__if__data_a45b3472e16d1f1a8c58e64b338d4e946}
+
+
+Definition at line 707 of file ieee80211\-\_\-i.\-h.
+
+\hypertarget{structieee80211__sub__if__data_a5ac2427ee669706bf98a29fc82ed9666}{\index{ieee80211\-\_\-sub\-\_\-if\-\_\-data@{ieee80211\-\_\-sub\-\_\-if\-\_\-data}!control\-\_\-port\-\_\-no\-\_\-encrypt@{control\-\_\-port\-\_\-no\-\_\-encrypt}}
+\index{control\-\_\-port\-\_\-no\-\_\-encrypt@{control\-\_\-port\-\_\-no\-\_\-encrypt}!ieee80211_sub_if_data@{ieee80211\-\_\-sub\-\_\-if\-\_\-data}}
+\subsubsection[{control\-\_\-port\-\_\-no\-\_\-encrypt}]{\setlength{\rightskip}{0pt plus 5cm}bool control\-\_\-port\-\_\-no\-\_\-encrypt}}\label{structieee80211__sub__if__data_a5ac2427ee669706bf98a29fc82ed9666}
+
+
+Definition at line 693 of file ieee80211\-\_\-i.\-h.
+
+\hypertarget{structieee80211__sub__if__data_a9d1f464ce348d7d7e6852ac8e32e0d0f}{\index{ieee80211\-\_\-sub\-\_\-if\-\_\-data@{ieee80211\-\_\-sub\-\_\-if\-\_\-data}!control\-\_\-port\-\_\-protocol@{control\-\_\-port\-\_\-protocol}}
+\index{control\-\_\-port\-\_\-protocol@{control\-\_\-port\-\_\-protocol}!ieee80211_sub_if_data@{ieee80211\-\_\-sub\-\_\-if\-\_\-data}}
+\subsubsection[{control\-\_\-port\-\_\-protocol}]{\setlength{\rightskip}{0pt plus 5cm}\-\_\-\-\_\-be16 control\-\_\-port\-\_\-protocol}}\label{structieee80211__sub__if__data_a9d1f464ce348d7d7e6852ac8e32e0d0f}
+
+
+Definition at line 692 of file ieee80211\-\_\-i.\-h.
+
+\hypertarget{structieee80211__sub__if__data_aa7af642ddb25d678f33953eaaddcb0d8}{\index{ieee80211\-\_\-sub\-\_\-if\-\_\-data@{ieee80211\-\_\-sub\-\_\-if\-\_\-data}!crypto\-\_\-tx\-\_\-tailroom\-\_\-needed\-\_\-cnt@{crypto\-\_\-tx\-\_\-tailroom\-\_\-needed\-\_\-cnt}}
+\index{crypto\-\_\-tx\-\_\-tailroom\-\_\-needed\-\_\-cnt@{crypto\-\_\-tx\-\_\-tailroom\-\_\-needed\-\_\-cnt}!ieee80211_sub_if_data@{ieee80211\-\_\-sub\-\_\-if\-\_\-data}}
+\subsubsection[{crypto\-\_\-tx\-\_\-tailroom\-\_\-needed\-\_\-cnt}]{\setlength{\rightskip}{0pt plus 5cm}int crypto\-\_\-tx\-\_\-tailroom\-\_\-needed\-\_\-cnt}}\label{structieee80211__sub__if__data_aa7af642ddb25d678f33953eaaddcb0d8}
+
+
+Definition at line 657 of file ieee80211\-\_\-i.\-h.
+
+\hypertarget{structieee80211__sub__if__data_a2919f5df0fee1d8bbeac082c448c77c3}{\index{ieee80211\-\_\-sub\-\_\-if\-\_\-data@{ieee80211\-\_\-sub\-\_\-if\-\_\-data}!default\-\_\-mgmt\-\_\-key@{default\-\_\-mgmt\-\_\-key}}
+\index{default\-\_\-mgmt\-\_\-key@{default\-\_\-mgmt\-\_\-key}!ieee80211_sub_if_data@{ieee80211\-\_\-sub\-\_\-if\-\_\-data}}
+\subsubsection[{default\-\_\-mgmt\-\_\-key}]{\setlength{\rightskip}{0pt plus 5cm}struct {\bf ieee80211\-\_\-key} \-\_\-\-\_\-rcu$\ast$ default\-\_\-mgmt\-\_\-key}}\label{structieee80211__sub__if__data_a2919f5df0fee1d8bbeac082c448c77c3}
+
+
+Definition at line 689 of file ieee80211\-\_\-i.\-h.
+
+\hypertarget{structieee80211__sub__if__data_a3b14deb6e926750564314ff8a32147ba}{\index{ieee80211\-\_\-sub\-\_\-if\-\_\-data@{ieee80211\-\_\-sub\-\_\-if\-\_\-data}!default\-\_\-multicast\-\_\-key@{default\-\_\-multicast\-\_\-key}}
+\index{default\-\_\-multicast\-\_\-key@{default\-\_\-multicast\-\_\-key}!ieee80211_sub_if_data@{ieee80211\-\_\-sub\-\_\-if\-\_\-data}}
+\subsubsection[{default\-\_\-multicast\-\_\-key}]{\setlength{\rightskip}{0pt plus 5cm}struct {\bf ieee80211\-\_\-key} \-\_\-\-\_\-rcu$\ast$ default\-\_\-multicast\-\_\-key}}\label{structieee80211__sub__if__data_a3b14deb6e926750564314ff8a32147ba}
+
+
+Definition at line 688 of file ieee80211\-\_\-i.\-h.
+
+\hypertarget{structieee80211__sub__if__data_a44b1d9794b9cb6b73af38c8c6258cfcf}{\index{ieee80211\-\_\-sub\-\_\-if\-\_\-data@{ieee80211\-\_\-sub\-\_\-if\-\_\-data}!default\-\_\-unicast\-\_\-key@{default\-\_\-unicast\-\_\-key}}
+\index{default\-\_\-unicast\-\_\-key@{default\-\_\-unicast\-\_\-key}!ieee80211_sub_if_data@{ieee80211\-\_\-sub\-\_\-if\-\_\-data}}
+\subsubsection[{default\-\_\-unicast\-\_\-key}]{\setlength{\rightskip}{0pt plus 5cm}struct {\bf ieee80211\-\_\-key} \-\_\-\-\_\-rcu$\ast$ default\-\_\-unicast\-\_\-key}}\label{structieee80211__sub__if__data_a44b1d9794b9cb6b73af38c8c6258cfcf}
+
+
+Definition at line 687 of file ieee80211\-\_\-i.\-h.
+
+\hypertarget{structieee80211__sub__if__data_abf690dbcccc005ba94a1ce16864ccdc9}{\index{ieee80211\-\_\-sub\-\_\-if\-\_\-data@{ieee80211\-\_\-sub\-\_\-if\-\_\-data}!dev@{dev}}
+\index{dev@{dev}!ieee80211_sub_if_data@{ieee80211\-\_\-sub\-\_\-if\-\_\-data}}
+\subsubsection[{dev}]{\setlength{\rightskip}{0pt plus 5cm}struct net\-\_\-device$\ast$ dev}}\label{structieee80211__sub__if__data_abf690dbcccc005ba94a1ce16864ccdc9}
+
+
+Definition at line 659 of file ieee80211\-\_\-i.\-h.
+
+\hypertarget{structieee80211__sub__if__data_a33cb37aebf5eb2cdb7b07dffd48e9a92}{\index{ieee80211\-\_\-sub\-\_\-if\-\_\-data@{ieee80211\-\_\-sub\-\_\-if\-\_\-data}!drop\-\_\-unencrypted@{drop\-\_\-unencrypted}}
+\index{drop\-\_\-unencrypted@{drop\-\_\-unencrypted}!ieee80211_sub_if_data@{ieee80211\-\_\-sub\-\_\-if\-\_\-data}}
+\subsubsection[{drop\-\_\-unencrypted}]{\setlength{\rightskip}{0pt plus 5cm}int drop\-\_\-unencrypted}}\label{structieee80211__sub__if__data_a33cb37aebf5eb2cdb7b07dffd48e9a92}
+
+
+Definition at line 666 of file ieee80211\-\_\-i.\-h.
+
+\hypertarget{structieee80211__sub__if__data_ac92588540e8c1d014a08cd8a45462b19}{\index{ieee80211\-\_\-sub\-\_\-if\-\_\-data@{ieee80211\-\_\-sub\-\_\-if\-\_\-data}!flags@{flags}}
+\index{flags@{flags}!ieee80211_sub_if_data@{ieee80211\-\_\-sub\-\_\-if\-\_\-data}}
+\subsubsection[{flags}]{\setlength{\rightskip}{0pt plus 5cm}unsigned int flags}}\label{structieee80211__sub__if__data_ac92588540e8c1d014a08cd8a45462b19}
+
+
+Definition at line 662 of file ieee80211\-\_\-i.\-h.
+
+\hypertarget{structieee80211__sub__if__data_ab09b05e01b312174ceac7542e54c060a}{\index{ieee80211\-\_\-sub\-\_\-if\-\_\-data@{ieee80211\-\_\-sub\-\_\-if\-\_\-data}!fragment\-\_\-next@{fragment\-\_\-next}}
+\index{fragment\-\_\-next@{fragment\-\_\-next}!ieee80211_sub_if_data@{ieee80211\-\_\-sub\-\_\-if\-\_\-data}}
+\subsubsection[{fragment\-\_\-next}]{\setlength{\rightskip}{0pt plus 5cm}unsigned int fragment\-\_\-next}}\label{structieee80211__sub__if__data_ab09b05e01b312174ceac7542e54c060a}
+
+
+Definition at line 681 of file ieee80211\-\_\-i.\-h.
+
+\hypertarget{structieee80211__sub__if__data_a9dabb064f92940c0ae438c43f2e7d3a3}{\index{ieee80211\-\_\-sub\-\_\-if\-\_\-data@{ieee80211\-\_\-sub\-\_\-if\-\_\-data}!fragments@{fragments}}
+\index{fragments@{fragments}!ieee80211_sub_if_data@{ieee80211\-\_\-sub\-\_\-if\-\_\-data}}
+\subsubsection[{fragments}]{\setlength{\rightskip}{0pt plus 5cm}struct {\bf ieee80211\-\_\-fragment\-\_\-entry} fragments\mbox{[}{\bf I\-E\-E\-E80211\-\_\-\-F\-R\-A\-G\-M\-E\-N\-T\-\_\-\-M\-A\-X}\mbox{]}}}\label{structieee80211__sub__if__data_a9dabb064f92940c0ae438c43f2e7d3a3}
+
+
+Definition at line 680 of file ieee80211\-\_\-i.\-h.
+
+\hypertarget{structieee80211__sub__if__data_a1e7e518fe4dd44b1cb51205645f7c8e9}{\index{ieee80211\-\_\-sub\-\_\-if\-\_\-data@{ieee80211\-\_\-sub\-\_\-if\-\_\-data}!ht\-\_\-opmode\-\_\-valid@{ht\-\_\-opmode\-\_\-valid}}
+\index{ht\-\_\-opmode\-\_\-valid@{ht\-\_\-opmode\-\_\-valid}!ieee80211_sub_if_data@{ieee80211\-\_\-sub\-\_\-if\-\_\-data}}
+\subsubsection[{ht\-\_\-opmode\-\_\-valid}]{\setlength{\rightskip}{0pt plus 5cm}bool ht\-\_\-opmode\-\_\-valid}}\label{structieee80211__sub__if__data_a1e7e518fe4dd44b1cb51205645f7c8e9}
+
+
+Definition at line 674 of file ieee80211\-\_\-i.\-h.
+
+\hypertarget{structieee80211__sub__if__data_ac62d9e6d8045efd0110b40c2ce341b56}{\index{ieee80211\-\_\-sub\-\_\-if\-\_\-data@{ieee80211\-\_\-sub\-\_\-if\-\_\-data}!ibss@{ibss}}
+\index{ibss@{ibss}!ieee80211_sub_if_data@{ieee80211\-\_\-sub\-\_\-if\-\_\-data}}
+\subsubsection[{ibss}]{\setlength{\rightskip}{0pt plus 5cm}struct {\bf ieee80211\-\_\-if\-\_\-ibss} ibss}}\label{structieee80211__sub__if__data_ac62d9e6d8045efd0110b40c2ce341b56}
+
+
+Definition at line 718 of file ieee80211\-\_\-i.\-h.
+
+\hypertarget{structieee80211__sub__if__data_a173cf05f7d6b8bf98fc09f1bb95bfe7e}{\index{ieee80211\-\_\-sub\-\_\-if\-\_\-data@{ieee80211\-\_\-sub\-\_\-if\-\_\-data}!key\-\_\-list@{key\-\_\-list}}
+\index{key\-\_\-list@{key\-\_\-list}!ieee80211_sub_if_data@{ieee80211\-\_\-sub\-\_\-if\-\_\-data}}
+\subsubsection[{key\-\_\-list}]{\setlength{\rightskip}{0pt plus 5cm}struct list\-\_\-head key\-\_\-list}}\label{structieee80211__sub__if__data_a173cf05f7d6b8bf98fc09f1bb95bfe7e}
+
+
+Definition at line 654 of file ieee80211\-\_\-i.\-h.
+
+\hypertarget{structieee80211__sub__if__data_ad9d8249bd02068d887fd83a256bd0549}{\index{ieee80211\-\_\-sub\-\_\-if\-\_\-data@{ieee80211\-\_\-sub\-\_\-if\-\_\-data}!keys@{keys}}
+\index{keys@{keys}!ieee80211_sub_if_data@{ieee80211\-\_\-sub\-\_\-if\-\_\-data}}
+\subsubsection[{keys}]{\setlength{\rightskip}{0pt plus 5cm}struct {\bf ieee80211\-\_\-key} \-\_\-\-\_\-rcu$\ast$ keys\mbox{[}{\bf N\-U\-M\-\_\-\-D\-E\-F\-A\-U\-L\-T\-\_\-\-K\-E\-Y\-S}+{\bf N\-U\-M\-\_\-\-D\-E\-F\-A\-U\-L\-T\-\_\-\-M\-G\-M\-T\-\_\-\-K\-E\-Y\-S}\mbox{]}}}\label{structieee80211__sub__if__data_ad9d8249bd02068d887fd83a256bd0549}
+
+
+Definition at line 686 of file ieee80211\-\_\-i.\-h.
+
+\hypertarget{structieee80211__sub__if__data_a1f00f18b91d5a820f2c43064243aa86e}{\index{ieee80211\-\_\-sub\-\_\-if\-\_\-data@{ieee80211\-\_\-sub\-\_\-if\-\_\-data}!list@{list}}
+\index{list@{list}!ieee80211_sub_if_data@{ieee80211\-\_\-sub\-\_\-if\-\_\-data}}
+\subsubsection[{list}]{\setlength{\rightskip}{0pt plus 5cm}struct list\-\_\-head list}}\label{structieee80211__sub__if__data_a1f00f18b91d5a820f2c43064243aa86e}
+
+
+Definition at line 649 of file ieee80211\-\_\-i.\-h.
+
+\hypertarget{structieee80211__sub__if__data_ad436a024f420f219c4fe2eebce7e4ab2}{\index{ieee80211\-\_\-sub\-\_\-if\-\_\-data@{ieee80211\-\_\-sub\-\_\-if\-\_\-data}!local@{local}}
+\index{local@{local}!ieee80211_sub_if_data@{ieee80211\-\_\-sub\-\_\-if\-\_\-data}}
+\subsubsection[{local}]{\setlength{\rightskip}{0pt plus 5cm}struct {\bf ieee80211\-\_\-local}$\ast$ local}}\label{structieee80211__sub__if__data_ad436a024f420f219c4fe2eebce7e4ab2}
+
+
+Definition at line 660 of file ieee80211\-\_\-i.\-h.
+
+\hypertarget{structieee80211__sub__if__data_aa9083f90f4d38afa13c9d233a07a6d9d}{\index{ieee80211\-\_\-sub\-\_\-if\-\_\-data@{ieee80211\-\_\-sub\-\_\-if\-\_\-data}!mesh@{mesh}}
+\index{mesh@{mesh}!ieee80211_sub_if_data@{ieee80211\-\_\-sub\-\_\-if\-\_\-data}}
+\subsubsection[{mesh}]{\setlength{\rightskip}{0pt plus 5cm}struct {\bf ieee80211\-\_\-if\-\_\-mesh} mesh}}\label{structieee80211__sub__if__data_aa9083f90f4d38afa13c9d233a07a6d9d}
+
+
+Definition at line 719 of file ieee80211\-\_\-i.\-h.
+
+\hypertarget{structieee80211__sub__if__data_ac43070ed59c628dcab245dc2dbaa0fd7}{\index{ieee80211\-\_\-sub\-\_\-if\-\_\-data@{ieee80211\-\_\-sub\-\_\-if\-\_\-data}!mgd@{mgd}}
+\index{mgd@{mgd}!ieee80211_sub_if_data@{ieee80211\-\_\-sub\-\_\-if\-\_\-data}}
+\subsubsection[{mgd}]{\setlength{\rightskip}{0pt plus 5cm}struct {\bf ieee80211\-\_\-if\-\_\-managed} mgd}}\label{structieee80211__sub__if__data_ac43070ed59c628dcab245dc2dbaa0fd7}
+
+
+Definition at line 717 of file ieee80211\-\_\-i.\-h.
+
+\hypertarget{structieee80211__sub__if__data_a65a8ca3269e0e7023f6f265ee9ad1535}{\index{ieee80211\-\_\-sub\-\_\-if\-\_\-data@{ieee80211\-\_\-sub\-\_\-if\-\_\-data}!mntr\-\_\-flags@{mntr\-\_\-flags}}
+\index{mntr\-\_\-flags@{mntr\-\_\-flags}!ieee80211_sub_if_data@{ieee80211\-\_\-sub\-\_\-if\-\_\-data}}
+\subsubsection[{mntr\-\_\-flags}]{\setlength{\rightskip}{0pt plus 5cm}u32 mntr\-\_\-flags}}\label{structieee80211__sub__if__data_a65a8ca3269e0e7023f6f265ee9ad1535}
+
+
+Definition at line 720 of file ieee80211\-\_\-i.\-h.
+
+\hypertarget{structieee80211__sub__if__data_a9ea12d6fc5b2c586092468ee1a86162a}{\index{ieee80211\-\_\-sub\-\_\-if\-\_\-data@{ieee80211\-\_\-sub\-\_\-if\-\_\-data}!name@{name}}
+\index{name@{name}!ieee80211_sub_if_data@{ieee80211\-\_\-sub\-\_\-if\-\_\-data}}
+\subsubsection[{name}]{\setlength{\rightskip}{0pt plus 5cm}char name\mbox{[}I\-F\-N\-A\-M\-S\-I\-Z\mbox{]}}}\label{structieee80211__sub__if__data_a9ea12d6fc5b2c586092468ee1a86162a}
+
+
+Definition at line 668 of file ieee80211\-\_\-i.\-h.
+
+\hypertarget{structieee80211__sub__if__data_a151051cbbca12c85e61578f27ae99ced}{\index{ieee80211\-\_\-sub\-\_\-if\-\_\-data@{ieee80211\-\_\-sub\-\_\-if\-\_\-data}!noack\-\_\-map@{noack\-\_\-map}}
+\index{noack\-\_\-map@{noack\-\_\-map}!ieee80211_sub_if_data@{ieee80211\-\_\-sub\-\_\-if\-\_\-data}}
+\subsubsection[{noack\-\_\-map}]{\setlength{\rightskip}{0pt plus 5cm}u16 noack\-\_\-map}}\label{structieee80211__sub__if__data_a151051cbbca12c85e61578f27ae99ced}
+
+
+Definition at line 684 of file ieee80211\-\_\-i.\-h.
+
+\hypertarget{structieee80211__sub__if__data_a3bf326db8dc3ffdc0338743371dfc65b}{\index{ieee80211\-\_\-sub\-\_\-if\-\_\-data@{ieee80211\-\_\-sub\-\_\-if\-\_\-data}!old\-\_\-idle@{old\-\_\-idle}}
+\index{old\-\_\-idle@{old\-\_\-idle}!ieee80211_sub_if_data@{ieee80211\-\_\-sub\-\_\-if\-\_\-data}}
+\subsubsection[{old\-\_\-idle}]{\setlength{\rightskip}{0pt plus 5cm}bool old\-\_\-idle}}\label{structieee80211__sub__if__data_a3bf326db8dc3ffdc0338743371dfc65b}
+
+
+Definition at line 677 of file ieee80211\-\_\-i.\-h.
+
+\hypertarget{structieee80211__sub__if__data_a4291130d4a0d651a69780340ad638ce2}{\index{ieee80211\-\_\-sub\-\_\-if\-\_\-data@{ieee80211\-\_\-sub\-\_\-if\-\_\-data}!rc\-\_\-rateidx\-\_\-mask@{rc\-\_\-rateidx\-\_\-mask}}
+\index{rc\-\_\-rateidx\-\_\-mask@{rc\-\_\-rateidx\-\_\-mask}!ieee80211_sub_if_data@{ieee80211\-\_\-sub\-\_\-if\-\_\-data}}
+\subsubsection[{rc\-\_\-rateidx\-\_\-mask}]{\setlength{\rightskip}{0pt plus 5cm}u32 rc\-\_\-rateidx\-\_\-mask\mbox{[}I\-E\-E\-E80211\-\_\-\-N\-U\-M\-\_\-\-B\-A\-N\-D\-S\mbox{]}}}\label{structieee80211__sub__if__data_a4291130d4a0d651a69780340ad638ce2}
+
+
+Definition at line 710 of file ieee80211\-\_\-i.\-h.
+
+\hypertarget{structieee80211__sub__if__data_af3f2e32024ff5987cf20338a95ecc35f}{\index{ieee80211\-\_\-sub\-\_\-if\-\_\-data@{ieee80211\-\_\-sub\-\_\-if\-\_\-data}!rc\-\_\-rateidx\-\_\-mcs\-\_\-mask@{rc\-\_\-rateidx\-\_\-mcs\-\_\-mask}}
+\index{rc\-\_\-rateidx\-\_\-mcs\-\_\-mask@{rc\-\_\-rateidx\-\_\-mcs\-\_\-mask}!ieee80211_sub_if_data@{ieee80211\-\_\-sub\-\_\-if\-\_\-data}}
+\subsubsection[{rc\-\_\-rateidx\-\_\-mcs\-\_\-mask}]{\setlength{\rightskip}{0pt plus 5cm}u8 rc\-\_\-rateidx\-\_\-mcs\-\_\-mask\mbox{[}I\-E\-E\-E80211\-\_\-\-N\-U\-M\-\_\-\-B\-A\-N\-D\-S\mbox{]}\mbox{[}I\-E\-E\-E80211\-\_\-\-H\-T\-\_\-\-M\-C\-S\-\_\-\-M\-A\-S\-K\-\_\-\-L\-E\-N\mbox{]}}}\label{structieee80211__sub__if__data_af3f2e32024ff5987cf20338a95ecc35f}
+
+
+Definition at line 711 of file ieee80211\-\_\-i.\-h.
+
+\hypertarget{structieee80211__sub__if__data_ac171f7c2d4f67742e044f800ce3ca592}{\index{ieee80211\-\_\-sub\-\_\-if\-\_\-data@{ieee80211\-\_\-sub\-\_\-if\-\_\-data}!sequence\-\_\-number@{sequence\-\_\-number}}
+\index{sequence\-\_\-number@{sequence\-\_\-number}!ieee80211_sub_if_data@{ieee80211\-\_\-sub\-\_\-if\-\_\-data}}
+\subsubsection[{sequence\-\_\-number}]{\setlength{\rightskip}{0pt plus 5cm}u16 sequence\-\_\-number}}\label{structieee80211__sub__if__data_ac171f7c2d4f67742e044f800ce3ca592}
+
+
+Definition at line 691 of file ieee80211\-\_\-i.\-h.
+
+\hypertarget{structieee80211__sub__if__data_a6eeb93345e21d69a77a7c2c571bd0000}{\index{ieee80211\-\_\-sub\-\_\-if\-\_\-data@{ieee80211\-\_\-sub\-\_\-if\-\_\-data}!skb\-\_\-queue@{skb\-\_\-queue}}
+\index{skb\-\_\-queue@{skb\-\_\-queue}!ieee80211_sub_if_data@{ieee80211\-\_\-sub\-\_\-if\-\_\-data}}
+\subsubsection[{skb\-\_\-queue}]{\setlength{\rightskip}{0pt plus 5cm}struct sk\-\_\-buff\-\_\-head skb\-\_\-queue}}\label{structieee80211__sub__if__data_a6eeb93345e21d69a77a7c2c571bd0000}
+
+
+Definition at line 698 of file ieee80211\-\_\-i.\-h.
+
+\hypertarget{structieee80211__sub__if__data_af7504fc0e249186b115eb5f51a297878}{\index{ieee80211\-\_\-sub\-\_\-if\-\_\-data@{ieee80211\-\_\-sub\-\_\-if\-\_\-data}!state@{state}}
+\index{state@{state}!ieee80211_sub_if_data@{ieee80211\-\_\-sub\-\_\-if\-\_\-data}}
+\subsubsection[{state}]{\setlength{\rightskip}{0pt plus 5cm}unsigned long state}}\label{structieee80211__sub__if__data_af7504fc0e249186b115eb5f51a297878}
+
+
+Definition at line 664 of file ieee80211\-\_\-i.\-h.
+
+\hypertarget{structieee80211__sub__if__data_aa80252c8fcedef0fef3d580c68867c84}{\index{ieee80211\-\_\-sub\-\_\-if\-\_\-data@{ieee80211\-\_\-sub\-\_\-if\-\_\-data}!tx\-\_\-conf@{tx\-\_\-conf}}
+\index{tx\-\_\-conf@{tx\-\_\-conf}!ieee80211_sub_if_data@{ieee80211\-\_\-sub\-\_\-if\-\_\-data}}
+\subsubsection[{tx\-\_\-conf}]{\setlength{\rightskip}{0pt plus 5cm}struct ieee80211\-\_\-tx\-\_\-queue\-\_\-params tx\-\_\-conf\mbox{[}I\-E\-E\-E80211\-\_\-\-M\-A\-X\-\_\-\-Q\-U\-E\-U\-E\-S\mbox{]}}}\label{structieee80211__sub__if__data_aa80252c8fcedef0fef3d580c68867c84}
+
+
+Definition at line 695 of file ieee80211\-\_\-i.\-h.
+
+\hypertarget{structieee80211__sub__if__data_a369ec3436f600c083e559d7909a206ea}{\index{ieee80211\-\_\-sub\-\_\-if\-\_\-data@{ieee80211\-\_\-sub\-\_\-if\-\_\-data}!u@{u}}
+\index{u@{u}!ieee80211_sub_if_data@{ieee80211\-\_\-sub\-\_\-if\-\_\-data}}
+\subsubsection[{u}]{\setlength{\rightskip}{0pt plus 5cm}union \{ ... \}   u}}\label{structieee80211__sub__if__data_a369ec3436f600c083e559d7909a206ea}
+\hypertarget{structieee80211__sub__if__data_a32ff3992b201e6f0a8af4c4a0e09fd4c}{\index{ieee80211\-\_\-sub\-\_\-if\-\_\-data@{ieee80211\-\_\-sub\-\_\-if\-\_\-data}!vif@{vif}}
+\index{vif@{vif}!ieee80211_sub_if_data@{ieee80211\-\_\-sub\-\_\-if\-\_\-data}}
+\subsubsection[{vif}]{\setlength{\rightskip}{0pt plus 5cm}struct ieee80211\-\_\-vif vif}}\label{structieee80211__sub__if__data_a32ff3992b201e6f0a8af4c4a0e09fd4c}
+
+
+Definition at line 733 of file ieee80211\-\_\-i.\-h.
+
+\hypertarget{structieee80211__sub__if__data_a0306ac04b10e73aa887c6d5a96332fa2}{\index{ieee80211\-\_\-sub\-\_\-if\-\_\-data@{ieee80211\-\_\-sub\-\_\-if\-\_\-data}!vlan@{vlan}}
+\index{vlan@{vlan}!ieee80211_sub_if_data@{ieee80211\-\_\-sub\-\_\-if\-\_\-data}}
+\subsubsection[{vlan}]{\setlength{\rightskip}{0pt plus 5cm}struct {\bf ieee80211\-\_\-if\-\_\-vlan} vlan}}\label{structieee80211__sub__if__data_a0306ac04b10e73aa887c6d5a96332fa2}
+
+
+Definition at line 716 of file ieee80211\-\_\-i.\-h.
+
+\hypertarget{structieee80211__sub__if__data_adff11b1d40a62f52e85ded7d6428fab3}{\index{ieee80211\-\_\-sub\-\_\-if\-\_\-data@{ieee80211\-\_\-sub\-\_\-if\-\_\-data}!wdev@{wdev}}
+\index{wdev@{wdev}!ieee80211_sub_if_data@{ieee80211\-\_\-sub\-\_\-if\-\_\-data}}
+\subsubsection[{wdev}]{\setlength{\rightskip}{0pt plus 5cm}struct wireless\-\_\-dev wdev}}\label{structieee80211__sub__if__data_adff11b1d40a62f52e85ded7d6428fab3}
+
+
+Definition at line 651 of file ieee80211\-\_\-i.\-h.
+
+\hypertarget{structieee80211__sub__if__data_a09671aeb534ab76414be89358eb296cd}{\index{ieee80211\-\_\-sub\-\_\-if\-\_\-data@{ieee80211\-\_\-sub\-\_\-if\-\_\-data}!wds@{wds}}
+\index{wds@{wds}!ieee80211_sub_if_data@{ieee80211\-\_\-sub\-\_\-if\-\_\-data}}
+\subsubsection[{wds}]{\setlength{\rightskip}{0pt plus 5cm}struct {\bf ieee80211\-\_\-if\-\_\-wds} wds}}\label{structieee80211__sub__if__data_a09671aeb534ab76414be89358eb296cd}
+
+
+Definition at line 715 of file ieee80211\-\_\-i.\-h.
+
+\hypertarget{structieee80211__sub__if__data_a623997e11b94d7c467ce26627cc488a2}{\index{ieee80211\-\_\-sub\-\_\-if\-\_\-data@{ieee80211\-\_\-sub\-\_\-if\-\_\-data}!work@{work}}
+\index{work@{work}!ieee80211_sub_if_data@{ieee80211\-\_\-sub\-\_\-if\-\_\-data}}
+\subsubsection[{work}]{\setlength{\rightskip}{0pt plus 5cm}struct work\-\_\-struct work}}\label{structieee80211__sub__if__data_a623997e11b94d7c467ce26627cc488a2}
+
+
+Definition at line 697 of file ieee80211\-\_\-i.\-h.
+
+
+
+The documentation for this struct was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+/home/guille/msm/net/mac80211/\hyperlink{ieee80211__i_8h}{ieee80211\-\_\-i.\-h}\end{DoxyCompactItemize}

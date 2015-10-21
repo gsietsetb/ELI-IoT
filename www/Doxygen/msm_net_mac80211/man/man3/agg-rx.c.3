@@ -1,0 +1,63 @@
+.TH "/home/guille/msm/net/mac80211/agg-rx.c" 3 "Sun Jun 1 2014" "Version 1.0" "net_mac80211" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+/home/guille/msm/net/mac80211/agg-rx.c \- 
+.SH SYNOPSIS
+.br
+.PP
+\fC#include <linux/ieee80211\&.h>\fP
+.br
+\fC#include <linux/slab\&.h>\fP
+.br
+\fC#include <linux/export\&.h>\fP
+.br
+\fC#include <net/mac80211\&.h>\fP
+.br
+\fC#include 'ieee80211_i\&.h'\fP
+.br
+\fC#include 'driver-ops\&.h'\fP
+.br
+
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fB___ieee80211_stop_rx_ba_session\fP (struct \fBsta_info\fP *sta, u16 tid, u16 initiator, u16 reason, bool tx)"
+.br
+.ti -1c
+.RI "void \fB__ieee80211_stop_rx_ba_session\fP (struct \fBsta_info\fP *sta, u16 tid, u16 initiator, u16 reason, bool tx)"
+.br
+.ti -1c
+.RI "void \fBieee80211_stop_rx_ba_session\fP (struct ieee80211_vif *vif, u16 ba_rx_bitmap, const u8 *addr)"
+.br
+.ti -1c
+.RI "\fBEXPORT_SYMBOL\fP (\fBieee80211_stop_rx_ba_session\fP)"
+.br
+.ti -1c
+.RI "void \fBieee80211_process_addba_request\fP (struct \fBieee80211_local\fP *local, struct \fBsta_info\fP *sta, struct ieee80211_mgmt *mgmt, size_t len)"
+.br
+.in -1c
+.SH "Function Documentation"
+.PP 
+.SS "void ___ieee80211_stop_rx_ba_session (struct \fBsta_info\fP *sta, u16tid, u16initiator, u16reason, booltx)"
+
+.PP
+Definition at line 61 of file agg-rx\&.c\&.
+.SS "void __ieee80211_stop_rx_ba_session (struct \fBsta_info\fP *sta, u16tid, u16initiator, u16reason, booltx)"
+
+.PP
+Definition at line 100 of file agg-rx\&.c\&.
+.SS "EXPORT_SYMBOL (\fBieee80211_stop_rx_ba_session\fP)"
+
+.SS "void ieee80211_process_addba_request (struct \fBieee80211_local\fP *local, struct \fBsta_info\fP *sta, struct ieee80211_mgmt *mgmt, size_tlen)"
+
+.PP
+Definition at line 211 of file agg-rx\&.c\&.
+.SS "void ieee80211_stop_rx_ba_session (struct ieee80211_vif *vif, u16ba_rx_bitmap, const u8 *addr)"
+
+.PP
+Definition at line 108 of file agg-rx\&.c\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for net_mac80211 from the source code\&.

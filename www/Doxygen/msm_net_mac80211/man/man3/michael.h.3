@@ -1,0 +1,47 @@
+.TH "/home/guille/msm/net/mac80211/michael.h" 3 "Sun Jun 1 2014" "Version 1.0" "net_mac80211" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+/home/guille/msm/net/mac80211/michael.h \- 
+.SH SYNOPSIS
+.br
+.PP
+\fC#include <linux/types\&.h>\fP
+.br
+
+.SS "Data Structures"
+
+.in +1c
+.ti -1c
+.RI "struct \fBmichael_mic_ctx\fP"
+.br
+.in -1c
+.SS "Macros"
+
+.in +1c
+.ti -1c
+.RI "#define \fBMICHAEL_MIC_LEN\fP   8"
+.br
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBmichael_mic\fP (const u8 *key, struct ieee80211_hdr *hdr, const u8 *data, size_t data_len, u8 *mic)"
+.br
+.in -1c
+.SH "Macro Definition Documentation"
+.PP 
+.SS "#define MICHAEL_MIC_LEN   8"
+
+.PP
+Definition at line 15 of file michael\&.h\&.
+.SH "Function Documentation"
+.PP 
+.SS "void michael_mic (const u8 *key, struct ieee80211_hdr *hdr, const u8 *data, size_tdata_len, u8 *mic)"
+
+.PP
+Definition at line 56 of file michael\&.c\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for net_mac80211 from the source code\&.

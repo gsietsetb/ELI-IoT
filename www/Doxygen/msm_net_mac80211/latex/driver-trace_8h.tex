@@ -1,0 +1,1256 @@
+\hypertarget{driver-trace_8h}{\section{/home/guille/msm/net/mac80211/driver-\/trace.h File Reference}
+\label{driver-trace_8h}\index{/home/guille/msm/net/mac80211/driver-\/trace.\-h@{/home/guille/msm/net/mac80211/driver-\/trace.\-h}}
+}
+{\ttfamily \#include $<$linux/tracepoint.\-h$>$}\\*
+{\ttfamily \#include $<$net/mac80211.\-h$>$}\\*
+{\ttfamily \#include \char`\"{}ieee80211\-\_\-i.\-h\char`\"{}}\\*
+{\ttfamily \#include $<$trace/define\-\_\-trace.\-h$>$}\\*
+Include dependency graph for driver-\/trace.h\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{driver-trace_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{driver-trace_8h__dep__incl}
+\end{center}
+\end{figure}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{driver-trace_8h_af0133dcc68c991c92720fdb90ee75d3b}{\-\_\-\-\_\-\-M\-A\-C80211\-\_\-\-D\-R\-I\-V\-E\-R\-\_\-\-T\-R\-A\-C\-E}
+\item 
+\#define \hyperlink{driver-trace_8h_a975ccf160f8e752c8162e389690b0961}{T\-R\-A\-C\-E\-\_\-\-S\-Y\-S\-T\-E\-M}~mac80211
+\item 
+\#define \hyperlink{driver-trace_8h_ac881f02a50b29d3ffa5b1f4a0e4f9568}{M\-A\-X\-N\-A\-M\-E}~32
+\item 
+\#define \hyperlink{driver-trace_8h_a70464a6fcf42a8540b6e5b4b5530437f}{L\-O\-C\-A\-L\-\_\-\-E\-N\-T\-R\-Y}~\-\_\-\-\_\-array(char, wiphy\-\_\-name, 32)
+\item 
+\#define \hyperlink{driver-trace_8h_ab19d9141887ea92ef9640df06a51e0a1}{L\-O\-C\-A\-L\-\_\-\-A\-S\-S\-I\-G\-N}~strlcpy(\-\_\-\-\_\-entry-\/$>$wiphy\-\_\-name, wiphy\-\_\-name(local-\/$>$hw.\-wiphy), \hyperlink{driver-trace_8h_ac881f02a50b29d3ffa5b1f4a0e4f9568}{M\-A\-X\-N\-A\-M\-E})
+\item 
+\#define \hyperlink{driver-trace_8h_a09833af423135e21ffe99a59ae088cf1}{L\-O\-C\-A\-L\-\_\-\-P\-R\-\_\-\-F\-M\-T}~\char`\"{}\%s\char`\"{}
+\item 
+\#define \hyperlink{driver-trace_8h_aa2a77a17621ecb4f0b3926fec90a5538}{L\-O\-C\-A\-L\-\_\-\-P\-R\-\_\-\-A\-R\-G}~\-\_\-\-\_\-entry-\/$>$wiphy\-\_\-name
+\item 
+\#define \hyperlink{driver-trace_8h_a8e20dfda2de8535eb923ec3900c01034}{S\-T\-A\-\_\-\-E\-N\-T\-R\-Y}~\-\_\-\-\_\-array(char, sta\-\_\-addr, E\-T\-H\-\_\-\-A\-L\-E\-N)
+\item 
+\#define \hyperlink{driver-trace_8h_abbd837b5fc444c0cb48b5954f8ad068a}{S\-T\-A\-\_\-\-A\-S\-S\-I\-G\-N}~(sta ? memcpy(\-\_\-\-\_\-entry-\/$>$sta\-\_\-addr, sta-\/$>$addr, E\-T\-H\-\_\-\-A\-L\-E\-N) \-: memset(\-\_\-\-\_\-entry-\/$>$sta\-\_\-addr, 0, E\-T\-H\-\_\-\-A\-L\-E\-N))
+\item 
+\#define \hyperlink{driver-trace_8h_a73d0cd445b999888e3f21698b769c843}{S\-T\-A\-\_\-\-P\-R\-\_\-\-F\-M\-T}~\char`\"{} sta\-:\%p\-M\char`\"{}
+\item 
+\#define \hyperlink{driver-trace_8h_a3b71cc34bae124028f19970a4220d4ab}{S\-T\-A\-\_\-\-P\-R\-\_\-\-A\-R\-G}~\-\_\-\-\_\-entry-\/$>$sta\-\_\-addr
+\item 
+\#define \hyperlink{driver-trace_8h_af9528f0b6f59f04b6c6ab283b1b65d9d}{V\-I\-F\-\_\-\-E\-N\-T\-R\-Y}
+\item 
+\#define \hyperlink{driver-trace_8h_af5ede80f04ffcb3f644f68837b1d252c}{V\-I\-F\-\_\-\-A\-S\-S\-I\-G\-N}
+\item 
+\#define \hyperlink{driver-trace_8h_a50711161ccfc99a73b43b988149a61a5}{V\-I\-F\-\_\-\-P\-R\-\_\-\-F\-M\-T}~\char`\"{} vif\-:\%s(\%d\%s)\char`\"{}
+\item 
+\#define \hyperlink{driver-trace_8h_a12c9f3afcd1c461f7ae2f86fd8503977}{V\-I\-F\-\_\-\-P\-R\-\_\-\-A\-R\-G}~\-\_\-\-\_\-get\-\_\-str(vif\-\_\-name), \-\_\-\-\_\-entry-\/$>$vif\-\_\-type, \-\_\-\-\_\-entry-\/$>$p2p ? \char`\"{}/p2p\char`\"{} \-: \char`\"{}\char`\"{}
+\item 
+\#define \hyperlink{driver-trace_8h_ac6a9ac061dda1a2beb782b3c9b44e77a}{T\-R\-A\-C\-E\-\_\-\-I\-N\-C\-L\-U\-D\-E\-\_\-\-P\-A\-T\-H}~.
+\item 
+\#define \hyperlink{driver-trace_8h_a1d5647dfae4ac3375129dfe95a164965}{T\-R\-A\-C\-E\-\_\-\-I\-N\-C\-L\-U\-D\-E\-\_\-\-F\-I\-L\-E}~driver-\/trace
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{driver-trace_8h_a8e4625fa1c8f4b327f53426b64b498f2}{D\-E\-C\-L\-A\-R\-E\-\_\-\-E\-V\-E\-N\-T\-\_\-\-C\-L\-A\-S\-S} (local\-\_\-only\-\_\-evt, T\-P\-\_\-\-P\-R\-O\-T\-O(struct \hyperlink{structieee80211__local}{ieee80211\-\_\-local} $\ast$local), T\-P\-\_\-\-A\-R\-G\-S(local), T\-P\-\_\-\-S\-T\-R\-U\-C\-T\-\_\-\-\_\-entry(\hyperlink{driver-trace_8h_a70464a6fcf42a8540b6e5b4b5530437f}{L\-O\-C\-A\-L\-\_\-\-E\-N\-T\-R\-Y}), T\-P\-\_\-fast\-\_\-assign(\hyperlink{driver-trace_8h_ab19d9141887ea92ef9640df06a51e0a1}{L\-O\-C\-A\-L\-\_\-\-A\-S\-S\-I\-G\-N};), T\-P\-\_\-printk(\hyperlink{driver-trace_8h_a09833af423135e21ffe99a59ae088cf1}{L\-O\-C\-A\-L\-\_\-\-P\-R\-\_\-\-F\-M\-T}, \hyperlink{driver-trace_8h_aa2a77a17621ecb4f0b3926fec90a5538}{L\-O\-C\-A\-L\-\_\-\-P\-R\-\_\-\-A\-R\-G}))
+\item 
+\hyperlink{driver-trace_8h_a0aa98c54ec31af8ffe950121705a2629}{D\-E\-C\-L\-A\-R\-E\-\_\-\-E\-V\-E\-N\-T\-\_\-\-C\-L\-A\-S\-S} (local\-\_\-sdata\-\_\-addr\-\_\-evt, T\-P\-\_\-\-P\-R\-O\-T\-O(struct \hyperlink{structieee80211__local}{ieee80211\-\_\-local} $\ast$local, struct \hyperlink{structieee80211__sub__if__data}{ieee80211\-\_\-sub\-\_\-if\-\_\-data} $\ast$sdata), T\-P\-\_\-\-A\-R\-G\-S(local, sdata), T\-P\-\_\-\-S\-T\-R\-U\-C\-T\-\_\-\-\_\-entry(L\-O\-C\-A\-L\-\_\-\-E\-N\-T\-R\-Y\-V\-I\-F\-\_\-\-E\-N\-T\-R\-Y\-\_\-\-\_\-array(char, addr, 6)), T\-P\-\_\-fast\-\_\-assign(\hyperlink{driver-trace_8h_ab19d9141887ea92ef9640df06a51e0a1}{L\-O\-C\-A\-L\-\_\-\-A\-S\-S\-I\-G\-N};\hyperlink{driver-trace_8h_af5ede80f04ffcb3f644f68837b1d252c}{V\-I\-F\-\_\-\-A\-S\-S\-I\-G\-N};memcpy(\-\_\-\-\_\-entry-\/$>$addr, sdata-\/$>$vif.\-addr, 6);), T\-P\-\_\-printk(L\-O\-C\-A\-L\-\_\-\-P\-R\-\_\-\-F\-M\-T\-V\-I\-F\-\_\-\-P\-R\-\_\-\-F\-M\-T\char`\"{} addr\-:\%p\-M\char`\"{}, L\-O\-C\-A\-L\-\_\-\-P\-R\-\_\-\-A\-R\-G, \hyperlink{driver-trace_8h_a12c9f3afcd1c461f7ae2f86fd8503977}{V\-I\-F\-\_\-\-P\-R\-\_\-\-A\-R\-G}, \-\_\-\-\_\-entry-\/$>$addr))
+\item 
+\hyperlink{driver-trace_8h_a26030c762c752b1ac47c3f6933f19730}{D\-E\-C\-L\-A\-R\-E\-\_\-\-E\-V\-E\-N\-T\-\_\-\-C\-L\-A\-S\-S} (local\-\_\-u32\-\_\-evt, T\-P\-\_\-\-P\-R\-O\-T\-O(struct \hyperlink{structieee80211__local}{ieee80211\-\_\-local} $\ast$local, u32 value), T\-P\-\_\-\-A\-R\-G\-S(local, value), T\-P\-\_\-\-S\-T\-R\-U\-C\-T\-\_\-\-\_\-entry(L\-O\-C\-A\-L\-\_\-\-E\-N\-T\-R\-Y\-\_\-\-\_\-field(u32, value)), T\-P\-\_\-fast\-\_\-assign(\hyperlink{driver-trace_8h_ab19d9141887ea92ef9640df06a51e0a1}{L\-O\-C\-A\-L\-\_\-\-A\-S\-S\-I\-G\-N};\-\_\-\-\_\-entry-\/$>$value=value;), T\-P\-\_\-printk(\hyperlink{driver-trace_8h_a09833af423135e21ffe99a59ae088cf1}{L\-O\-C\-A\-L\-\_\-\-P\-R\-\_\-\-F\-M\-T}\char`\"{} value\-:\%d\char`\"{}, L\-O\-C\-A\-L\-\_\-\-P\-R\-\_\-\-A\-R\-G, \-\_\-\-\_\-entry-\/$>$value))
+\item 
+\hyperlink{driver-trace_8h_acee5359c141a6404226903b2fa5ea080}{D\-E\-C\-L\-A\-R\-E\-\_\-\-E\-V\-E\-N\-T\-\_\-\-C\-L\-A\-S\-S} (local\-\_\-sdata\-\_\-evt, T\-P\-\_\-\-P\-R\-O\-T\-O(struct \hyperlink{structieee80211__local}{ieee80211\-\_\-local} $\ast$local, struct \hyperlink{structieee80211__sub__if__data}{ieee80211\-\_\-sub\-\_\-if\-\_\-data} $\ast$sdata), T\-P\-\_\-\-A\-R\-G\-S(local, sdata), T\-P\-\_\-\-S\-T\-R\-U\-C\-T\-\_\-\-\_\-entry(L\-O\-C\-A\-L\-\_\-\-E\-N\-T\-R\-Y\-V\-I\-F\-\_\-\-E\-N\-T\-R\-Y), T\-P\-\_\-fast\-\_\-assign(\hyperlink{driver-trace_8h_ab19d9141887ea92ef9640df06a51e0a1}{L\-O\-C\-A\-L\-\_\-\-A\-S\-S\-I\-G\-N};\hyperlink{driver-trace_8h_af5ede80f04ffcb3f644f68837b1d252c}{V\-I\-F\-\_\-\-A\-S\-S\-I\-G\-N};), T\-P\-\_\-printk(\hyperlink{driver-trace_8h_a09833af423135e21ffe99a59ae088cf1}{L\-O\-C\-A\-L\-\_\-\-P\-R\-\_\-\-F\-M\-T} \hyperlink{driver-trace_8h_a50711161ccfc99a73b43b988149a61a5}{V\-I\-F\-\_\-\-P\-R\-\_\-\-F\-M\-T}, \hyperlink{driver-trace_8h_aa2a77a17621ecb4f0b3926fec90a5538}{L\-O\-C\-A\-L\-\_\-\-P\-R\-\_\-\-A\-R\-G}, \hyperlink{driver-trace_8h_a12c9f3afcd1c461f7ae2f86fd8503977}{V\-I\-F\-\_\-\-P\-R\-\_\-\-A\-R\-G}))
+\item 
+\hyperlink{driver-trace_8h_af1b87c2aba758abbb02630082bd84f3d}{D\-E\-F\-I\-N\-E\-\_\-\-E\-V\-E\-N\-T} (local\-\_\-only\-\_\-evt, drv\-\_\-return\-\_\-void, T\-P\-\_\-\-P\-R\-O\-T\-O(struct \hyperlink{structieee80211__local}{ieee80211\-\_\-local} $\ast$local),)
+\item 
+\hyperlink{driver-trace_8h_a67f8d60e55de4b5c8a8b0332c231120f}{T\-R\-A\-C\-E\-\_\-\-E\-V\-E\-N\-T} (drv\-\_\-return\-\_\-int, T\-P\-\_\-\-P\-R\-O\-T\-O(struct \hyperlink{structieee80211__local}{ieee80211\-\_\-local} $\ast$local, int ret), T\-P\-\_\-\-A\-R\-G\-S(local, ret), T\-P\-\_\-\-S\-T\-R\-U\-C\-T\-\_\-\-\_\-entry(L\-O\-C\-A\-L\-\_\-\-E\-N\-T\-R\-Y\-\_\-\-\_\-field(int, ret)), T\-P\-\_\-fast\-\_\-assign(\hyperlink{driver-trace_8h_ab19d9141887ea92ef9640df06a51e0a1}{L\-O\-C\-A\-L\-\_\-\-A\-S\-S\-I\-G\-N};\-\_\-\-\_\-entry-\/$>$ret=ret;), T\-P\-\_\-printk(\hyperlink{driver-trace_8h_a09833af423135e21ffe99a59ae088cf1}{L\-O\-C\-A\-L\-\_\-\-P\-R\-\_\-\-F\-M\-T}\char`\"{} -\/ \%d\char`\"{}, L\-O\-C\-A\-L\-\_\-\-P\-R\-\_\-\-A\-R\-G, \-\_\-\-\_\-entry-\/$>$ret))
+\item 
+\hyperlink{driver-trace_8h_a455ef0884f95cf030d56a4264ae6b650}{T\-R\-A\-C\-E\-\_\-\-E\-V\-E\-N\-T} (drv\-\_\-return\-\_\-bool, T\-P\-\_\-\-P\-R\-O\-T\-O(struct \hyperlink{structieee80211__local}{ieee80211\-\_\-local} $\ast$local, bool ret), T\-P\-\_\-\-A\-R\-G\-S(local, ret), T\-P\-\_\-\-S\-T\-R\-U\-C\-T\-\_\-\-\_\-entry(L\-O\-C\-A\-L\-\_\-\-E\-N\-T\-R\-Y\-\_\-\-\_\-field(bool, ret)), T\-P\-\_\-fast\-\_\-assign(\hyperlink{driver-trace_8h_ab19d9141887ea92ef9640df06a51e0a1}{L\-O\-C\-A\-L\-\_\-\-A\-S\-S\-I\-G\-N};\-\_\-\-\_\-entry-\/$>$ret=ret;), T\-P\-\_\-printk(\hyperlink{driver-trace_8h_a09833af423135e21ffe99a59ae088cf1}{L\-O\-C\-A\-L\-\_\-\-P\-R\-\_\-\-F\-M\-T}\char`\"{} -\/ \%s\char`\"{}, L\-O\-C\-A\-L\-\_\-\-P\-R\-\_\-\-A\-R\-G,(\-\_\-\-\_\-entry-\/$>$ret)?\char`\"{}true\char`\"{}\-:\char`\"{}false\char`\"{}))
+\item 
+\hyperlink{driver-trace_8h_a64ee57f1a21f47020d47396e9e9de6fc}{T\-R\-A\-C\-E\-\_\-\-E\-V\-E\-N\-T} (drv\-\_\-return\-\_\-u64, T\-P\-\_\-\-P\-R\-O\-T\-O(struct \hyperlink{structieee80211__local}{ieee80211\-\_\-local} $\ast$local, u64 ret), T\-P\-\_\-\-A\-R\-G\-S(local, ret), T\-P\-\_\-\-S\-T\-R\-U\-C\-T\-\_\-\-\_\-entry(L\-O\-C\-A\-L\-\_\-\-E\-N\-T\-R\-Y\-\_\-\-\_\-field(u64, ret)), T\-P\-\_\-fast\-\_\-assign(\hyperlink{driver-trace_8h_ab19d9141887ea92ef9640df06a51e0a1}{L\-O\-C\-A\-L\-\_\-\-A\-S\-S\-I\-G\-N};\-\_\-\-\_\-entry-\/$>$ret=ret;), T\-P\-\_\-printk(\hyperlink{driver-trace_8h_a09833af423135e21ffe99a59ae088cf1}{L\-O\-C\-A\-L\-\_\-\-P\-R\-\_\-\-F\-M\-T}\char`\"{} -\/ \%llu\char`\"{}, L\-O\-C\-A\-L\-\_\-\-P\-R\-\_\-\-A\-R\-G, \-\_\-\-\_\-entry-\/$>$ret))
+\item 
+\hyperlink{driver-trace_8h_abe7821f60c9623fc2923f35a791b37fc}{D\-E\-F\-I\-N\-E\-\_\-\-E\-V\-E\-N\-T} (local\-\_\-only\-\_\-evt, drv\-\_\-start, T\-P\-\_\-\-P\-R\-O\-T\-O(struct \hyperlink{structieee80211__local}{ieee80211\-\_\-local} $\ast$local),)
+\item 
+\hyperlink{driver-trace_8h_a769bdbbd944e8cab146934c472591525}{D\-E\-F\-I\-N\-E\-\_\-\-E\-V\-E\-N\-T} (local\-\_\-only\-\_\-evt, drv\-\_\-suspend, T\-P\-\_\-\-P\-R\-O\-T\-O(struct \hyperlink{structieee80211__local}{ieee80211\-\_\-local} $\ast$local),)
+\item 
+\hyperlink{driver-trace_8h_ac5e83fed704cad7790ebe310a8164027}{D\-E\-F\-I\-N\-E\-\_\-\-E\-V\-E\-N\-T} (local\-\_\-only\-\_\-evt, drv\-\_\-resume, T\-P\-\_\-\-P\-R\-O\-T\-O(struct \hyperlink{structieee80211__local}{ieee80211\-\_\-local} $\ast$local),)
+\item 
+\hyperlink{driver-trace_8h_a6f04814a3b7909ae1c72264d395dfe97}{D\-E\-F\-I\-N\-E\-\_\-\-E\-V\-E\-N\-T} (local\-\_\-only\-\_\-evt, drv\-\_\-stop, T\-P\-\_\-\-P\-R\-O\-T\-O(struct \hyperlink{structieee80211__local}{ieee80211\-\_\-local} $\ast$local),)
+\item 
+\hyperlink{driver-trace_8h_a0942846f56df5f2e18c0d394ac3f1feb}{D\-E\-F\-I\-N\-E\-\_\-\-E\-V\-E\-N\-T} (local\-\_\-sdata\-\_\-addr\-\_\-evt, drv\-\_\-add\-\_\-interface, T\-P\-\_\-\-P\-R\-O\-T\-O(struct \hyperlink{structieee80211__local}{ieee80211\-\_\-local} $\ast$local, struct \hyperlink{structieee80211__sub__if__data}{ieee80211\-\_\-sub\-\_\-if\-\_\-data} $\ast$sdata),)
+\item 
+\hyperlink{driver-trace_8h_abab974f7d1d6ac5ada7f8810fc7ae859}{T\-R\-A\-C\-E\-\_\-\-E\-V\-E\-N\-T} (drv\-\_\-change\-\_\-interface, T\-P\-\_\-\-P\-R\-O\-T\-O(struct \hyperlink{structieee80211__local}{ieee80211\-\_\-local} $\ast$local, struct \hyperlink{structieee80211__sub__if__data}{ieee80211\-\_\-sub\-\_\-if\-\_\-data} $\ast$sdata, enum nl80211\-\_\-iftype type, bool p2p), T\-P\-\_\-\-A\-R\-G\-S(local, sdata, type, p2p), T\-P\-\_\-\-S\-T\-R\-U\-C\-T\-\_\-\-\_\-entry(L\-O\-C\-A\-L\-\_\-\-E\-N\-T\-R\-Y\-V\-I\-F\-\_\-\-E\-N\-T\-R\-Y\-\_\-\-\_\-field(u32, new\-\_\-type) \-\_\-\-\_\-field(bool, new\-\_\-p2p)), T\-P\-\_\-fast\-\_\-assign(\hyperlink{driver-trace_8h_ab19d9141887ea92ef9640df06a51e0a1}{L\-O\-C\-A\-L\-\_\-\-A\-S\-S\-I\-G\-N};\hyperlink{driver-trace_8h_af5ede80f04ffcb3f644f68837b1d252c}{V\-I\-F\-\_\-\-A\-S\-S\-I\-G\-N};\-\_\-\-\_\-entry-\/$>$new\-\_\-type=type;\-\_\-\-\_\-entry-\/$>$new\-\_\-p2p=p2p;), T\-P\-\_\-printk(L\-O\-C\-A\-L\-\_\-\-P\-R\-\_\-\-F\-M\-T\-V\-I\-F\-\_\-\-P\-R\-\_\-\-F\-M\-T\char`\"{} new type\-:\%d\%s\char`\"{}, L\-O\-C\-A\-L\-\_\-\-P\-R\-\_\-\-A\-R\-G, \hyperlink{driver-trace_8h_a12c9f3afcd1c461f7ae2f86fd8503977}{V\-I\-F\-\_\-\-P\-R\-\_\-\-A\-R\-G}, \-\_\-\-\_\-entry-\/$>$new\-\_\-type, \-\_\-\-\_\-entry-\/$>$new\-\_\-p2p?\char`\"{}/p2p\char`\"{}\-:\char`\"{}\char`\"{}))
+\item 
+\hyperlink{driver-trace_8h_a658149dd42f7cc5008b0afca92fc0b21}{D\-E\-F\-I\-N\-E\-\_\-\-E\-V\-E\-N\-T} (local\-\_\-sdata\-\_\-addr\-\_\-evt, drv\-\_\-remove\-\_\-interface, T\-P\-\_\-\-P\-R\-O\-T\-O(struct \hyperlink{structieee80211__local}{ieee80211\-\_\-local} $\ast$local, struct \hyperlink{structieee80211__sub__if__data}{ieee80211\-\_\-sub\-\_\-if\-\_\-data} $\ast$sdata),)
+\item 
+\hyperlink{driver-trace_8h_a21cf637e632516dc22503ba541f561d9}{T\-R\-A\-C\-E\-\_\-\-E\-V\-E\-N\-T} (drv\-\_\-config, T\-P\-\_\-\-P\-R\-O\-T\-O(struct \hyperlink{structieee80211__local}{ieee80211\-\_\-local} $\ast$local, u32 changed), T\-P\-\_\-\-A\-R\-G\-S(local, changed), T\-P\-\_\-\-S\-T\-R\-U\-C\-T\-\_\-\-\_\-entry(L\-O\-C\-A\-L\-\_\-\-E\-N\-T\-R\-Y\-\_\-\-\_\-field(u32, changed) \-\_\-\-\_\-field(u32, flags) \-\_\-\-\_\-field(int, power\-\_\-level) \-\_\-\-\_\-field(int, dynamic\-\_\-ps\-\_\-timeout) \-\_\-\-\_\-field(int, max\-\_\-sleep\-\_\-period) \-\_\-\-\_\-field(u16, listen\-\_\-interval) \-\_\-\-\_\-field(u8, long\-\_\-frame\-\_\-max\-\_\-tx\-\_\-count) \-\_\-\-\_\-field(u8, short\-\_\-frame\-\_\-max\-\_\-tx\-\_\-count) \-\_\-\-\_\-field(int, center\-\_\-freq) \-\_\-\-\_\-field(int, channel\-\_\-type) \-\_\-\-\_\-field(int, smps)), T\-P\-\_\-fast\-\_\-assign(\hyperlink{driver-trace_8h_ab19d9141887ea92ef9640df06a51e0a1}{L\-O\-C\-A\-L\-\_\-\-A\-S\-S\-I\-G\-N};\-\_\-\-\_\-entry-\/$>$changed=changed;\-\_\-\-\_\-entry-\/$>$flags=local-\/$>$hw.\-conf.\-flags;\-\_\-\-\_\-entry-\/$>$power\-\_\-level=local-\/$>$hw.\-conf.\-power\-\_\-level;\-\_\-\-\_\-entry-\/$>$dynamic\-\_\-ps\-\_\-timeout=local-\/$>$hw.\-conf.\-dynamic\-\_\-ps\-\_\-timeout;\-\_\-\-\_\-entry-\/$>$max\-\_\-sleep\-\_\-period=local-\/$>$hw.\-conf.\-max\-\_\-sleep\-\_\-period;\-\_\-\-\_\-entry-\/$>$listen\-\_\-interval=local-\/$>$hw.\-conf.\-listen\-\_\-interval;\-\_\-\-\_\-entry-\/$>$long\-\_\-frame\-\_\-max\-\_\-tx\-\_\-count=local-\/$>$hw.\-conf.\-long\-\_\-frame\-\_\-max\-\_\-tx\-\_\-count;\-\_\-\-\_\-entry-\/$>$short\-\_\-frame\-\_\-max\-\_\-tx\-\_\-count=local-\/$>$hw.\-conf.\-short\-\_\-frame\-\_\-max\-\_\-tx\-\_\-count;\-\_\-\-\_\-entry-\/$>$center\-\_\-freq=local-\/$>$hw.\-conf.\-channel-\/$>$center\-\_\-freq;\-\_\-\-\_\-entry-\/$>$channel\-\_\-type=local-\/$>$hw.\-conf.\-channel\-\_\-type;\-\_\-\-\_\-entry-\/$>$smps=local-\/$>$hw.\-conf.\-smps\-\_\-mode;), T\-P\-\_\-printk(\hyperlink{driver-trace_8h_a09833af423135e21ffe99a59ae088cf1}{L\-O\-C\-A\-L\-\_\-\-P\-R\-\_\-\-F\-M\-T}\char`\"{} ch\-:\%\#x freq\-:\%d\char`\"{}, L\-O\-C\-A\-L\-\_\-\-P\-R\-\_\-\-A\-R\-G, \-\_\-\-\_\-entry-\/$>$changed, \-\_\-\-\_\-entry-\/$>$center\-\_\-freq))
+\item 
+\hyperlink{driver-trace_8h_aa4c84623c0a4ec38ce4781da7df644cd}{T\-R\-A\-C\-E\-\_\-\-E\-V\-E\-N\-T} (drv\-\_\-bss\-\_\-info\-\_\-changed, T\-P\-\_\-\-P\-R\-O\-T\-O(struct \hyperlink{structieee80211__local}{ieee80211\-\_\-local} $\ast$local, struct \hyperlink{structieee80211__sub__if__data}{ieee80211\-\_\-sub\-\_\-if\-\_\-data} $\ast$sdata, struct ieee80211\-\_\-bss\-\_\-conf $\ast$info, u32 changed), T\-P\-\_\-\-A\-R\-G\-S(local, sdata, info, changed), T\-P\-\_\-\-S\-T\-R\-U\-C\-T\-\_\-\-\_\-entry(L\-O\-C\-A\-L\-\_\-\-E\-N\-T\-R\-Y\-V\-I\-F\-\_\-\-E\-N\-T\-R\-Y\-\_\-\-\_\-field(bool, assoc) \-\_\-\-\_\-field(u16, aid) \-\_\-\-\_\-field(bool, cts) \-\_\-\-\_\-field(bool, shortpre) \-\_\-\-\_\-field(bool, shortslot) \-\_\-\-\_\-field(u8, dtimper) \-\_\-\-\_\-field(u16, bcnint) \-\_\-\-\_\-field(u16, assoc\-\_\-cap) \-\_\-\-\_\-field(u64, timestamp) \-\_\-\-\_\-field(u32, basic\-\_\-rates) \-\_\-\-\_\-field(u32, changed) \-\_\-\-\_\-field(bool, enable\-\_\-beacon) \-\_\-\-\_\-field(u16, ht\-\_\-operation\-\_\-mode)), T\-P\-\_\-fast\-\_\-assign(\hyperlink{driver-trace_8h_ab19d9141887ea92ef9640df06a51e0a1}{L\-O\-C\-A\-L\-\_\-\-A\-S\-S\-I\-G\-N};\hyperlink{driver-trace_8h_af5ede80f04ffcb3f644f68837b1d252c}{V\-I\-F\-\_\-\-A\-S\-S\-I\-G\-N};\-\_\-\-\_\-entry-\/$>$changed=changed;\-\_\-\-\_\-entry-\/$>$aid=info-\/$>$aid;\-\_\-\-\_\-entry-\/$>$assoc=info-\/$>$assoc;\-\_\-\-\_\-entry-\/$>$shortpre=info-\/$>$use\-\_\-short\-\_\-preamble;\-\_\-\-\_\-entry-\/$>$cts=info-\/$>$use\-\_\-cts\-\_\-prot;\-\_\-\-\_\-entry-\/$>$shortslot=info-\/$>$use\-\_\-short\-\_\-slot;\-\_\-\-\_\-entry-\/$>$dtimper=info-\/$>$dtim\-\_\-period;\-\_\-\-\_\-entry-\/$>$bcnint=info-\/$>$beacon\-\_\-int;\-\_\-\-\_\-entry-\/$>$assoc\-\_\-cap=info-\/$>$assoc\-\_\-capability;\-\_\-\-\_\-entry-\/$>$timestamp=info-\/$>$last\-\_\-tsf;\-\_\-\-\_\-entry-\/$>$basic\-\_\-rates=info-\/$>$basic\-\_\-rates;\-\_\-\-\_\-entry-\/$>$enable\-\_\-beacon=info-\/$>$enable\-\_\-beacon;\-\_\-\-\_\-entry-\/$>$ht\-\_\-operation\-\_\-mode=info-\/$>$ht\-\_\-operation\-\_\-mode;), T\-P\-\_\-printk(L\-O\-C\-A\-L\-\_\-\-P\-R\-\_\-\-F\-M\-T\-V\-I\-F\-\_\-\-P\-R\-\_\-\-F\-M\-T\char`\"{} changed\-:\%\#x\char`\"{}, L\-O\-C\-A\-L\-\_\-\-P\-R\-\_\-\-A\-R\-G, \hyperlink{driver-trace_8h_a12c9f3afcd1c461f7ae2f86fd8503977}{V\-I\-F\-\_\-\-P\-R\-\_\-\-A\-R\-G}, \-\_\-\-\_\-entry-\/$>$changed))
+\item 
+\hyperlink{driver-trace_8h_abb0d6e229cadfa0fbe54ab6a2655e107}{T\-R\-A\-C\-E\-\_\-\-E\-V\-E\-N\-T} (drv\-\_\-prepare\-\_\-multicast, T\-P\-\_\-\-P\-R\-O\-T\-O(struct \hyperlink{structieee80211__local}{ieee80211\-\_\-local} $\ast$local, int mc\-\_\-count), T\-P\-\_\-\-A\-R\-G\-S(local, mc\-\_\-count), T\-P\-\_\-\-S\-T\-R\-U\-C\-T\-\_\-\-\_\-entry(L\-O\-C\-A\-L\-\_\-\-E\-N\-T\-R\-Y\-\_\-\-\_\-field(int, mc\-\_\-count)), T\-P\-\_\-fast\-\_\-assign(\hyperlink{driver-trace_8h_ab19d9141887ea92ef9640df06a51e0a1}{L\-O\-C\-A\-L\-\_\-\-A\-S\-S\-I\-G\-N};\-\_\-\-\_\-entry-\/$>$mc\-\_\-count=mc\-\_\-count;), T\-P\-\_\-printk(\hyperlink{driver-trace_8h_a09833af423135e21ffe99a59ae088cf1}{L\-O\-C\-A\-L\-\_\-\-P\-R\-\_\-\-F\-M\-T}\char`\"{} prepare mc (\%d)\char`\"{}, L\-O\-C\-A\-L\-\_\-\-P\-R\-\_\-\-A\-R\-G, \-\_\-\-\_\-entry-\/$>$mc\-\_\-count))
+\item 
+\hyperlink{driver-trace_8h_aa75bea48274d005ac08e0c50ad93fbf8}{T\-R\-A\-C\-E\-\_\-\-E\-V\-E\-N\-T} (drv\-\_\-configure\-\_\-filter, T\-P\-\_\-\-P\-R\-O\-T\-O(struct \hyperlink{structieee80211__local}{ieee80211\-\_\-local} $\ast$local, unsigned int changed\-\_\-flags, unsigned int $\ast$total\-\_\-flags, u64 multicast), T\-P\-\_\-\-A\-R\-G\-S(local, changed\-\_\-flags, total\-\_\-flags, multicast), T\-P\-\_\-\-S\-T\-R\-U\-C\-T\-\_\-\-\_\-entry(L\-O\-C\-A\-L\-\_\-\-E\-N\-T\-R\-Y\-\_\-\-\_\-field(unsigned int, changed) \-\_\-\-\_\-field(unsigned int, total) \-\_\-\-\_\-field(u64, multicast)), T\-P\-\_\-fast\-\_\-assign(\hyperlink{driver-trace_8h_ab19d9141887ea92ef9640df06a51e0a1}{L\-O\-C\-A\-L\-\_\-\-A\-S\-S\-I\-G\-N};\-\_\-\-\_\-entry-\/$>$changed=changed\-\_\-flags;\-\_\-\-\_\-entry-\/$>$total=$\ast$total\-\_\-flags;\-\_\-\-\_\-entry-\/$>$multicast=multicast;), T\-P\-\_\-printk(\hyperlink{driver-trace_8h_a09833af423135e21ffe99a59ae088cf1}{L\-O\-C\-A\-L\-\_\-\-P\-R\-\_\-\-F\-M\-T}\char`\"{} changed\-:\%\#x total\-:\%\#x\char`\"{}, L\-O\-C\-A\-L\-\_\-\-P\-R\-\_\-\-A\-R\-G, \-\_\-\-\_\-entry-\/$>$changed, \-\_\-\-\_\-entry-\/$>$total))
+\item 
+\hyperlink{driver-trace_8h_af1a68e2e4d5b3a392ef649bb575700d6}{T\-R\-A\-C\-E\-\_\-\-E\-V\-E\-N\-T} (drv\-\_\-set\-\_\-tim, T\-P\-\_\-\-P\-R\-O\-T\-O(struct \hyperlink{structieee80211__local}{ieee80211\-\_\-local} $\ast$local, struct ieee80211\-\_\-sta $\ast$sta, bool set), T\-P\-\_\-\-A\-R\-G\-S(local, sta, set), T\-P\-\_\-\-S\-T\-R\-U\-C\-T\-\_\-\-\_\-entry(L\-O\-C\-A\-L\-\_\-\-E\-N\-T\-R\-Y\-S\-T\-A\-\_\-\-E\-N\-T\-R\-Y\-\_\-\-\_\-field(bool, set)), T\-P\-\_\-fast\-\_\-assign(\hyperlink{driver-trace_8h_ab19d9141887ea92ef9640df06a51e0a1}{L\-O\-C\-A\-L\-\_\-\-A\-S\-S\-I\-G\-N};\hyperlink{driver-trace_8h_abbd837b5fc444c0cb48b5954f8ad068a}{S\-T\-A\-\_\-\-A\-S\-S\-I\-G\-N};\-\_\-\-\_\-entry-\/$>$set=set;), T\-P\-\_\-printk(\hyperlink{driver-trace_8h_a09833af423135e21ffe99a59ae088cf1}{L\-O\-C\-A\-L\-\_\-\-P\-R\-\_\-\-F\-M\-T} \hyperlink{driver-trace_8h_a73d0cd445b999888e3f21698b769c843}{S\-T\-A\-\_\-\-P\-R\-\_\-\-F\-M\-T}\char`\"{} set\-:\%d\char`\"{}, L\-O\-C\-A\-L\-\_\-\-P\-R\-\_\-\-A\-R\-G, \hyperlink{driver-trace_8h_a73d0cd445b999888e3f21698b769c843}{S\-T\-A\-\_\-\-P\-R\-\_\-\-F\-M\-T}, \-\_\-\-\_\-entry-\/$>$set))
+\item 
+\hyperlink{driver-trace_8h_af0b53933573d19e1fcead14636a628dd}{T\-R\-A\-C\-E\-\_\-\-E\-V\-E\-N\-T} (drv\-\_\-set\-\_\-key, T\-P\-\_\-\-P\-R\-O\-T\-O(struct \hyperlink{structieee80211__local}{ieee80211\-\_\-local} $\ast$local, enum set\-\_\-key\-\_\-cmd cmd, struct \hyperlink{structieee80211__sub__if__data}{ieee80211\-\_\-sub\-\_\-if\-\_\-data} $\ast$sdata, struct ieee80211\-\_\-sta $\ast$sta, struct ieee80211\-\_\-key\-\_\-conf $\ast$key), T\-P\-\_\-\-A\-R\-G\-S(local, cmd, sdata, sta, key), T\-P\-\_\-\-S\-T\-R\-U\-C\-T\-\_\-\-\_\-entry(L\-O\-C\-A\-L\-\_\-\-E\-N\-T\-R\-Y\-V\-I\-F\-\_\-\-E\-N\-T\-R\-Y\-S\-T\-A\-\_\-\-E\-N\-T\-R\-Y\-\_\-\-\_\-field(u32, cipher) \-\_\-\-\_\-field(u8, hw\-\_\-key\-\_\-idx) \-\_\-\-\_\-field(u8, flags) \-\_\-\-\_\-field(s8, keyidx)), T\-P\-\_\-fast\-\_\-assign(\hyperlink{driver-trace_8h_ab19d9141887ea92ef9640df06a51e0a1}{L\-O\-C\-A\-L\-\_\-\-A\-S\-S\-I\-G\-N};\hyperlink{driver-trace_8h_af5ede80f04ffcb3f644f68837b1d252c}{V\-I\-F\-\_\-\-A\-S\-S\-I\-G\-N};\hyperlink{driver-trace_8h_abbd837b5fc444c0cb48b5954f8ad068a}{S\-T\-A\-\_\-\-A\-S\-S\-I\-G\-N};\-\_\-\-\_\-entry-\/$>$cipher=key-\/$>$cipher;\-\_\-\-\_\-entry-\/$>$flags=key-\/$>$flags;\-\_\-\-\_\-entry-\/$>$keyidx=key-\/$>$keyidx;\-\_\-\-\_\-entry-\/$>$hw\-\_\-key\-\_\-idx=key-\/$>$hw\-\_\-key\-\_\-idx;), T\-P\-\_\-printk(L\-O\-C\-A\-L\-\_\-\-P\-R\-\_\-\-F\-M\-T\-V\-I\-F\-\_\-\-P\-R\-\_\-\-F\-M\-T\-S\-T\-A\-\_\-\-P\-R\-\_\-\-F\-M\-T, \hyperlink{driver-trace_8h_aa2a77a17621ecb4f0b3926fec90a5538}{L\-O\-C\-A\-L\-\_\-\-P\-R\-\_\-\-A\-R\-G}, \hyperlink{driver-trace_8h_a12c9f3afcd1c461f7ae2f86fd8503977}{V\-I\-F\-\_\-\-P\-R\-\_\-\-A\-R\-G}, \hyperlink{driver-trace_8h_a3b71cc34bae124028f19970a4220d4ab}{S\-T\-A\-\_\-\-P\-R\-\_\-\-A\-R\-G}))
+\item 
+\hyperlink{driver-trace_8h_af3c41742ab97e1e469523541b416c437}{T\-R\-A\-C\-E\-\_\-\-E\-V\-E\-N\-T} (drv\-\_\-update\-\_\-tkip\-\_\-key, T\-P\-\_\-\-P\-R\-O\-T\-O(struct \hyperlink{structieee80211__local}{ieee80211\-\_\-local} $\ast$local, struct \hyperlink{structieee80211__sub__if__data}{ieee80211\-\_\-sub\-\_\-if\-\_\-data} $\ast$sdata, struct ieee80211\-\_\-key\-\_\-conf $\ast$conf, struct ieee80211\-\_\-sta $\ast$sta, u32 iv32), T\-P\-\_\-\-A\-R\-G\-S(local, sdata, conf, sta, iv32), T\-P\-\_\-\-S\-T\-R\-U\-C\-T\-\_\-\-\_\-entry(L\-O\-C\-A\-L\-\_\-\-E\-N\-T\-R\-Y\-V\-I\-F\-\_\-\-E\-N\-T\-R\-Y\-S\-T\-A\-\_\-\-E\-N\-T\-R\-Y\-\_\-\-\_\-field(u32, iv32)), T\-P\-\_\-fast\-\_\-assign(\hyperlink{driver-trace_8h_ab19d9141887ea92ef9640df06a51e0a1}{L\-O\-C\-A\-L\-\_\-\-A\-S\-S\-I\-G\-N};\hyperlink{driver-trace_8h_af5ede80f04ffcb3f644f68837b1d252c}{V\-I\-F\-\_\-\-A\-S\-S\-I\-G\-N};\hyperlink{driver-trace_8h_abbd837b5fc444c0cb48b5954f8ad068a}{S\-T\-A\-\_\-\-A\-S\-S\-I\-G\-N};\-\_\-\-\_\-entry-\/$>$iv32=iv32;), T\-P\-\_\-printk(\hyperlink{driver-trace_8h_a09833af423135e21ffe99a59ae088cf1}{L\-O\-C\-A\-L\-\_\-\-P\-R\-\_\-\-F\-M\-T} \hyperlink{driver-trace_8h_a50711161ccfc99a73b43b988149a61a5}{V\-I\-F\-\_\-\-P\-R\-\_\-\-F\-M\-T} \hyperlink{driver-trace_8h_a73d0cd445b999888e3f21698b769c843}{S\-T\-A\-\_\-\-P\-R\-\_\-\-F\-M\-T}\char`\"{} iv32\-:\%\#x\char`\"{}, L\-O\-C\-A\-L\-\_\-\-P\-R\-\_\-\-A\-R\-G, \hyperlink{driver-trace_8h_a12c9f3afcd1c461f7ae2f86fd8503977}{V\-I\-F\-\_\-\-P\-R\-\_\-\-A\-R\-G}, \hyperlink{driver-trace_8h_a3b71cc34bae124028f19970a4220d4ab}{S\-T\-A\-\_\-\-P\-R\-\_\-\-A\-R\-G}, \-\_\-\-\_\-entry-\/$>$iv32))
+\item 
+\hyperlink{driver-trace_8h_a5ac6d2350379fbff31d80abd5f33bac5}{D\-E\-F\-I\-N\-E\-\_\-\-E\-V\-E\-N\-T} (local\-\_\-sdata\-\_\-evt, drv\-\_\-hw\-\_\-scan, T\-P\-\_\-\-P\-R\-O\-T\-O(struct \hyperlink{structieee80211__local}{ieee80211\-\_\-local} $\ast$local, struct \hyperlink{structieee80211__sub__if__data}{ieee80211\-\_\-sub\-\_\-if\-\_\-data} $\ast$sdata),)
+\item 
+\hyperlink{driver-trace_8h_ae88f34193a58d6a01ef516b063867332}{D\-E\-F\-I\-N\-E\-\_\-\-E\-V\-E\-N\-T} (local\-\_\-sdata\-\_\-evt, drv\-\_\-cancel\-\_\-hw\-\_\-scan, T\-P\-\_\-\-P\-R\-O\-T\-O(struct \hyperlink{structieee80211__local}{ieee80211\-\_\-local} $\ast$local, struct \hyperlink{structieee80211__sub__if__data}{ieee80211\-\_\-sub\-\_\-if\-\_\-data} $\ast$sdata),)
+\item 
+\hyperlink{driver-trace_8h_a72d73261eb16b1c953748a8b05157d1d}{D\-E\-F\-I\-N\-E\-\_\-\-E\-V\-E\-N\-T} (local\-\_\-sdata\-\_\-evt, drv\-\_\-sched\-\_\-scan\-\_\-start, T\-P\-\_\-\-P\-R\-O\-T\-O(struct \hyperlink{structieee80211__local}{ieee80211\-\_\-local} $\ast$local, struct \hyperlink{structieee80211__sub__if__data}{ieee80211\-\_\-sub\-\_\-if\-\_\-data} $\ast$sdata),)
+\item 
+\hyperlink{driver-trace_8h_a6a57e9a64a0d01342ec91f9ba70e06de}{D\-E\-F\-I\-N\-E\-\_\-\-E\-V\-E\-N\-T} (local\-\_\-sdata\-\_\-evt, drv\-\_\-sched\-\_\-scan\-\_\-stop, T\-P\-\_\-\-P\-R\-O\-T\-O(struct \hyperlink{structieee80211__local}{ieee80211\-\_\-local} $\ast$local, struct \hyperlink{structieee80211__sub__if__data}{ieee80211\-\_\-sub\-\_\-if\-\_\-data} $\ast$sdata),)
+\item 
+\hyperlink{driver-trace_8h_a3b885b33c68e022f28d09c2527806623}{D\-E\-F\-I\-N\-E\-\_\-\-E\-V\-E\-N\-T} (local\-\_\-only\-\_\-evt, drv\-\_\-sw\-\_\-scan\-\_\-start, T\-P\-\_\-\-P\-R\-O\-T\-O(struct \hyperlink{structieee80211__local}{ieee80211\-\_\-local} $\ast$local),)
+\item 
+\hyperlink{driver-trace_8h_a5c73a444bf78891327e7ae8bb23d1db8}{D\-E\-F\-I\-N\-E\-\_\-\-E\-V\-E\-N\-T} (local\-\_\-only\-\_\-evt, drv\-\_\-sw\-\_\-scan\-\_\-complete, T\-P\-\_\-\-P\-R\-O\-T\-O(struct \hyperlink{structieee80211__local}{ieee80211\-\_\-local} $\ast$local),)
+\item 
+\hyperlink{driver-trace_8h_a83aec7e1c4c25ae4e838d2d859391975}{T\-R\-A\-C\-E\-\_\-\-E\-V\-E\-N\-T} (drv\-\_\-get\-\_\-stats, T\-P\-\_\-\-P\-R\-O\-T\-O(struct \hyperlink{structieee80211__local}{ieee80211\-\_\-local} $\ast$local, struct ieee80211\-\_\-low\-\_\-level\-\_\-stats $\ast$stats, int ret), T\-P\-\_\-\-A\-R\-G\-S(local, stats, ret), T\-P\-\_\-\-S\-T\-R\-U\-C\-T\-\_\-\-\_\-entry(L\-O\-C\-A\-L\-\_\-\-E\-N\-T\-R\-Y\-\_\-\-\_\-field(int, ret) \-\_\-\-\_\-field(unsigned int, ackfail) \-\_\-\-\_\-field(unsigned int, rtsfail) \-\_\-\-\_\-field(unsigned int, fcserr) \-\_\-\-\_\-field(unsigned int, rtssucc)), T\-P\-\_\-fast\-\_\-assign(\hyperlink{driver-trace_8h_ab19d9141887ea92ef9640df06a51e0a1}{L\-O\-C\-A\-L\-\_\-\-A\-S\-S\-I\-G\-N};\-\_\-\-\_\-entry-\/$>$ret=ret;\-\_\-\-\_\-entry-\/$>$ackfail=stats-\/$>$dot11\-A\-C\-K\-Failure\-Count;\-\_\-\-\_\-entry-\/$>$rtsfail=stats-\/$>$dot11\-R\-T\-S\-Failure\-Count;\-\_\-\-\_\-entry-\/$>$fcserr=stats-\/$>$dot11\-F\-C\-S\-Error\-Count;\-\_\-\-\_\-entry-\/$>$rtssucc=stats-\/$>$dot11\-R\-T\-S\-Success\-Count;), T\-P\-\_\-printk(\hyperlink{driver-trace_8h_a09833af423135e21ffe99a59ae088cf1}{L\-O\-C\-A\-L\-\_\-\-P\-R\-\_\-\-F\-M\-T}\char`\"{} ret\-:\%d\char`\"{}, L\-O\-C\-A\-L\-\_\-\-P\-R\-\_\-\-A\-R\-G, \-\_\-\-\_\-entry-\/$>$ret))
+\item 
+\hyperlink{driver-trace_8h_ac48913afdbea944199169c365490011c}{T\-R\-A\-C\-E\-\_\-\-E\-V\-E\-N\-T} (drv\-\_\-get\-\_\-tkip\-\_\-seq, T\-P\-\_\-\-P\-R\-O\-T\-O(struct \hyperlink{structieee80211__local}{ieee80211\-\_\-local} $\ast$local, u8 hw\-\_\-key\-\_\-idx, u32 $\ast$iv32, u16 $\ast$iv16), T\-P\-\_\-\-A\-R\-G\-S(local, hw\-\_\-key\-\_\-idx, iv32, iv16), T\-P\-\_\-\-S\-T\-R\-U\-C\-T\-\_\-\-\_\-entry(L\-O\-C\-A\-L\-\_\-\-E\-N\-T\-R\-Y\-\_\-\-\_\-field(u8, hw\-\_\-key\-\_\-idx) \-\_\-\-\_\-field(u32, iv32) \-\_\-\-\_\-field(u16, iv16)), T\-P\-\_\-fast\-\_\-assign(\hyperlink{driver-trace_8h_ab19d9141887ea92ef9640df06a51e0a1}{L\-O\-C\-A\-L\-\_\-\-A\-S\-S\-I\-G\-N};\-\_\-\-\_\-entry-\/$>$hw\-\_\-key\-\_\-idx=hw\-\_\-key\-\_\-idx;\-\_\-\-\_\-entry-\/$>$iv32=$\ast$iv32;\-\_\-\-\_\-entry-\/$>$iv16=$\ast$iv16;), T\-P\-\_\-printk(\hyperlink{driver-trace_8h_a09833af423135e21ffe99a59ae088cf1}{L\-O\-C\-A\-L\-\_\-\-P\-R\-\_\-\-F\-M\-T}, \hyperlink{driver-trace_8h_aa2a77a17621ecb4f0b3926fec90a5538}{L\-O\-C\-A\-L\-\_\-\-P\-R\-\_\-\-A\-R\-G}))
+\item 
+\hyperlink{driver-trace_8h_a70af3456dd0193a333983989235daf9a}{D\-E\-F\-I\-N\-E\-\_\-\-E\-V\-E\-N\-T} (local\-\_\-u32\-\_\-evt, drv\-\_\-set\-\_\-frag\-\_\-threshold, T\-P\-\_\-\-P\-R\-O\-T\-O(struct \hyperlink{structieee80211__local}{ieee80211\-\_\-local} $\ast$local, u32 value),)
+\item 
+\hyperlink{driver-trace_8h_a66f2bf5b77669870b1037094be04d8b5}{D\-E\-F\-I\-N\-E\-\_\-\-E\-V\-E\-N\-T} (local\-\_\-u32\-\_\-evt, drv\-\_\-set\-\_\-rts\-\_\-threshold, T\-P\-\_\-\-P\-R\-O\-T\-O(struct \hyperlink{structieee80211__local}{ieee80211\-\_\-local} $\ast$local, u32 value),)
+\item 
+\hyperlink{driver-trace_8h_a318d2673b310d387380a894450631834}{T\-R\-A\-C\-E\-\_\-\-E\-V\-E\-N\-T} (drv\-\_\-set\-\_\-coverage\-\_\-class, T\-P\-\_\-\-P\-R\-O\-T\-O(struct \hyperlink{structieee80211__local}{ieee80211\-\_\-local} $\ast$local, u8 value), T\-P\-\_\-\-A\-R\-G\-S(local, value), T\-P\-\_\-\-S\-T\-R\-U\-C\-T\-\_\-\-\_\-entry(L\-O\-C\-A\-L\-\_\-\-E\-N\-T\-R\-Y\-\_\-\-\_\-field(u8, value)), T\-P\-\_\-fast\-\_\-assign(\hyperlink{driver-trace_8h_ab19d9141887ea92ef9640df06a51e0a1}{L\-O\-C\-A\-L\-\_\-\-A\-S\-S\-I\-G\-N};\-\_\-\-\_\-entry-\/$>$value=value;), T\-P\-\_\-printk(\hyperlink{driver-trace_8h_a09833af423135e21ffe99a59ae088cf1}{L\-O\-C\-A\-L\-\_\-\-P\-R\-\_\-\-F\-M\-T}\char`\"{} value\-:\%d\char`\"{}, L\-O\-C\-A\-L\-\_\-\-P\-R\-\_\-\-A\-R\-G, \-\_\-\-\_\-entry-\/$>$value))
+\item 
+\hyperlink{driver-trace_8h_a62a94d0e279adeda22804423e2db7839}{T\-R\-A\-C\-E\-\_\-\-E\-V\-E\-N\-T} (drv\-\_\-sta\-\_\-notify, T\-P\-\_\-\-P\-R\-O\-T\-O(struct \hyperlink{structieee80211__local}{ieee80211\-\_\-local} $\ast$local, struct \hyperlink{structieee80211__sub__if__data}{ieee80211\-\_\-sub\-\_\-if\-\_\-data} $\ast$sdata, enum sta\-\_\-notify\-\_\-cmd cmd, struct ieee80211\-\_\-sta $\ast$sta), T\-P\-\_\-\-A\-R\-G\-S(local, sdata, cmd, sta), T\-P\-\_\-\-S\-T\-R\-U\-C\-T\-\_\-\-\_\-entry(L\-O\-C\-A\-L\-\_\-\-E\-N\-T\-R\-Y\-V\-I\-F\-\_\-\-E\-N\-T\-R\-Y\-S\-T\-A\-\_\-\-E\-N\-T\-R\-Y\-\_\-\-\_\-field(u32, cmd)), T\-P\-\_\-fast\-\_\-assign(\hyperlink{driver-trace_8h_ab19d9141887ea92ef9640df06a51e0a1}{L\-O\-C\-A\-L\-\_\-\-A\-S\-S\-I\-G\-N};\hyperlink{driver-trace_8h_af5ede80f04ffcb3f644f68837b1d252c}{V\-I\-F\-\_\-\-A\-S\-S\-I\-G\-N};\hyperlink{driver-trace_8h_abbd837b5fc444c0cb48b5954f8ad068a}{S\-T\-A\-\_\-\-A\-S\-S\-I\-G\-N};\-\_\-\-\_\-entry-\/$>$cmd=cmd;), T\-P\-\_\-printk(L\-O\-C\-A\-L\-\_\-\-P\-R\-\_\-\-F\-M\-T\-V\-I\-F\-\_\-\-P\-R\-\_\-\-F\-M\-T\-S\-T\-A\-\_\-\-P\-R\-\_\-\-F\-M\-T\char`\"{} cmd\-:\%d\char`\"{}, L\-O\-C\-A\-L\-\_\-\-P\-R\-\_\-\-A\-R\-G, \hyperlink{driver-trace_8h_a12c9f3afcd1c461f7ae2f86fd8503977}{V\-I\-F\-\_\-\-P\-R\-\_\-\-A\-R\-G}, \hyperlink{driver-trace_8h_a3b71cc34bae124028f19970a4220d4ab}{S\-T\-A\-\_\-\-P\-R\-\_\-\-A\-R\-G}, \-\_\-\-\_\-entry-\/$>$cmd))
+\item 
+\hyperlink{driver-trace_8h_aaaf1a6bc82ebb83e06418afa27819efa}{T\-R\-A\-C\-E\-\_\-\-E\-V\-E\-N\-T} (drv\-\_\-sta\-\_\-state, T\-P\-\_\-\-P\-R\-O\-T\-O(struct \hyperlink{structieee80211__local}{ieee80211\-\_\-local} $\ast$local, struct \hyperlink{structieee80211__sub__if__data}{ieee80211\-\_\-sub\-\_\-if\-\_\-data} $\ast$sdata, struct ieee80211\-\_\-sta $\ast$sta, enum ieee80211\-\_\-sta\-\_\-state old\-\_\-state, enum ieee80211\-\_\-sta\-\_\-state new\-\_\-state), T\-P\-\_\-\-A\-R\-G\-S(local, sdata, sta, old\-\_\-state, new\-\_\-state), T\-P\-\_\-\-S\-T\-R\-U\-C\-T\-\_\-\-\_\-entry(L\-O\-C\-A\-L\-\_\-\-E\-N\-T\-R\-Y\-V\-I\-F\-\_\-\-E\-N\-T\-R\-Y\-S\-T\-A\-\_\-\-E\-N\-T\-R\-Y\-\_\-\-\_\-field(u32, old\-\_\-state) \-\_\-\-\_\-field(u32, new\-\_\-state)), T\-P\-\_\-fast\-\_\-assign(\hyperlink{driver-trace_8h_ab19d9141887ea92ef9640df06a51e0a1}{L\-O\-C\-A\-L\-\_\-\-A\-S\-S\-I\-G\-N};\hyperlink{driver-trace_8h_af5ede80f04ffcb3f644f68837b1d252c}{V\-I\-F\-\_\-\-A\-S\-S\-I\-G\-N};\hyperlink{driver-trace_8h_abbd837b5fc444c0cb48b5954f8ad068a}{S\-T\-A\-\_\-\-A\-S\-S\-I\-G\-N};\-\_\-\-\_\-entry-\/$>$old\-\_\-state=old\-\_\-state;\-\_\-\-\_\-entry-\/$>$new\-\_\-state=new\-\_\-state;), T\-P\-\_\-printk(L\-O\-C\-A\-L\-\_\-\-P\-R\-\_\-\-F\-M\-T\-V\-I\-F\-\_\-\-P\-R\-\_\-\-F\-M\-T\-S\-T\-A\-\_\-\-P\-R\-\_\-\-F\-M\-T\char`\"{} state\-: \%d-\/$>$\%d\char`\"{}, L\-O\-C\-A\-L\-\_\-\-P\-R\-\_\-\-A\-R\-G, \hyperlink{driver-trace_8h_a12c9f3afcd1c461f7ae2f86fd8503977}{V\-I\-F\-\_\-\-P\-R\-\_\-\-A\-R\-G}, \hyperlink{driver-trace_8h_a3b71cc34bae124028f19970a4220d4ab}{S\-T\-A\-\_\-\-P\-R\-\_\-\-A\-R\-G}, \-\_\-\-\_\-entry-\/$>$old\-\_\-state, \-\_\-\-\_\-entry-\/$>$new\-\_\-state))
+\item 
+\hyperlink{driver-trace_8h_a9ad991ec5ffa3b7c68a490dcf2170532}{T\-R\-A\-C\-E\-\_\-\-E\-V\-E\-N\-T} (drv\-\_\-sta\-\_\-add, T\-P\-\_\-\-P\-R\-O\-T\-O(struct \hyperlink{structieee80211__local}{ieee80211\-\_\-local} $\ast$local, struct \hyperlink{structieee80211__sub__if__data}{ieee80211\-\_\-sub\-\_\-if\-\_\-data} $\ast$sdata, struct ieee80211\-\_\-sta $\ast$sta), T\-P\-\_\-\-A\-R\-G\-S(local, sdata, sta), T\-P\-\_\-\-S\-T\-R\-U\-C\-T\-\_\-\-\_\-entry(L\-O\-C\-A\-L\-\_\-\-E\-N\-T\-R\-Y\-V\-I\-F\-\_\-\-E\-N\-T\-R\-Y\-S\-T\-A\-\_\-\-E\-N\-T\-R\-Y), T\-P\-\_\-fast\-\_\-assign(\hyperlink{driver-trace_8h_ab19d9141887ea92ef9640df06a51e0a1}{L\-O\-C\-A\-L\-\_\-\-A\-S\-S\-I\-G\-N};\hyperlink{driver-trace_8h_af5ede80f04ffcb3f644f68837b1d252c}{V\-I\-F\-\_\-\-A\-S\-S\-I\-G\-N};\hyperlink{driver-trace_8h_abbd837b5fc444c0cb48b5954f8ad068a}{S\-T\-A\-\_\-\-A\-S\-S\-I\-G\-N};), T\-P\-\_\-printk(L\-O\-C\-A\-L\-\_\-\-P\-R\-\_\-\-F\-M\-T\-V\-I\-F\-\_\-\-P\-R\-\_\-\-F\-M\-T\-S\-T\-A\-\_\-\-P\-R\-\_\-\-F\-M\-T, \hyperlink{driver-trace_8h_aa2a77a17621ecb4f0b3926fec90a5538}{L\-O\-C\-A\-L\-\_\-\-P\-R\-\_\-\-A\-R\-G}, \hyperlink{driver-trace_8h_a12c9f3afcd1c461f7ae2f86fd8503977}{V\-I\-F\-\_\-\-P\-R\-\_\-\-A\-R\-G}, \hyperlink{driver-trace_8h_a3b71cc34bae124028f19970a4220d4ab}{S\-T\-A\-\_\-\-P\-R\-\_\-\-A\-R\-G}))
+\item 
+\hyperlink{driver-trace_8h_a595ece6ce37c8e2a3284d14397af0385}{T\-R\-A\-C\-E\-\_\-\-E\-V\-E\-N\-T} (drv\-\_\-sta\-\_\-remove, T\-P\-\_\-\-P\-R\-O\-T\-O(struct \hyperlink{structieee80211__local}{ieee80211\-\_\-local} $\ast$local, struct \hyperlink{structieee80211__sub__if__data}{ieee80211\-\_\-sub\-\_\-if\-\_\-data} $\ast$sdata, struct ieee80211\-\_\-sta $\ast$sta), T\-P\-\_\-\-A\-R\-G\-S(local, sdata, sta), T\-P\-\_\-\-S\-T\-R\-U\-C\-T\-\_\-\-\_\-entry(L\-O\-C\-A\-L\-\_\-\-E\-N\-T\-R\-Y\-V\-I\-F\-\_\-\-E\-N\-T\-R\-Y\-S\-T\-A\-\_\-\-E\-N\-T\-R\-Y), T\-P\-\_\-fast\-\_\-assign(\hyperlink{driver-trace_8h_ab19d9141887ea92ef9640df06a51e0a1}{L\-O\-C\-A\-L\-\_\-\-A\-S\-S\-I\-G\-N};\hyperlink{driver-trace_8h_af5ede80f04ffcb3f644f68837b1d252c}{V\-I\-F\-\_\-\-A\-S\-S\-I\-G\-N};\hyperlink{driver-trace_8h_abbd837b5fc444c0cb48b5954f8ad068a}{S\-T\-A\-\_\-\-A\-S\-S\-I\-G\-N};), T\-P\-\_\-printk(L\-O\-C\-A\-L\-\_\-\-P\-R\-\_\-\-F\-M\-T\-V\-I\-F\-\_\-\-P\-R\-\_\-\-F\-M\-T\-S\-T\-A\-\_\-\-P\-R\-\_\-\-F\-M\-T, \hyperlink{driver-trace_8h_aa2a77a17621ecb4f0b3926fec90a5538}{L\-O\-C\-A\-L\-\_\-\-P\-R\-\_\-\-A\-R\-G}, \hyperlink{driver-trace_8h_a12c9f3afcd1c461f7ae2f86fd8503977}{V\-I\-F\-\_\-\-P\-R\-\_\-\-A\-R\-G}, \hyperlink{driver-trace_8h_a3b71cc34bae124028f19970a4220d4ab}{S\-T\-A\-\_\-\-P\-R\-\_\-\-A\-R\-G}))
+\item 
+\hyperlink{driver-trace_8h_a265d8e79b7ac25833ed08a37b9bf0966}{T\-R\-A\-C\-E\-\_\-\-E\-V\-E\-N\-T} (drv\-\_\-conf\-\_\-tx, T\-P\-\_\-\-P\-R\-O\-T\-O(struct \hyperlink{structieee80211__local}{ieee80211\-\_\-local} $\ast$local, struct \hyperlink{structieee80211__sub__if__data}{ieee80211\-\_\-sub\-\_\-if\-\_\-data} $\ast$sdata, u16 queue, const struct ieee80211\-\_\-tx\-\_\-queue\-\_\-params $\ast$params), T\-P\-\_\-\-A\-R\-G\-S(local, sdata, queue, params), T\-P\-\_\-\-S\-T\-R\-U\-C\-T\-\_\-\-\_\-entry(L\-O\-C\-A\-L\-\_\-\-E\-N\-T\-R\-Y\-V\-I\-F\-\_\-\-E\-N\-T\-R\-Y\-\_\-\-\_\-field(u16, queue) \-\_\-\-\_\-field(u16, txop) \-\_\-\-\_\-field(u16, cw\-\_\-min) \-\_\-\-\_\-field(u16, cw\-\_\-max) \-\_\-\-\_\-field(u8, aifs) \-\_\-\-\_\-field(bool, uapsd)), T\-P\-\_\-fast\-\_\-assign(\hyperlink{driver-trace_8h_ab19d9141887ea92ef9640df06a51e0a1}{L\-O\-C\-A\-L\-\_\-\-A\-S\-S\-I\-G\-N};\hyperlink{driver-trace_8h_af5ede80f04ffcb3f644f68837b1d252c}{V\-I\-F\-\_\-\-A\-S\-S\-I\-G\-N};\-\_\-\-\_\-entry-\/$>$queue=queue;\-\_\-\-\_\-entry-\/$>$txop=params-\/$>$txop;\-\_\-\-\_\-entry-\/$>$cw\-\_\-max=params-\/$>$cw\-\_\-max;\-\_\-\-\_\-entry-\/$>$cw\-\_\-min=params-\/$>$cw\-\_\-min;\-\_\-\-\_\-entry-\/$>$aifs=params-\/$>$aifs;\-\_\-\-\_\-entry-\/$>$uapsd=params-\/$>$uapsd;), T\-P\-\_\-printk(L\-O\-C\-A\-L\-\_\-\-P\-R\-\_\-\-F\-M\-T\-V\-I\-F\-\_\-\-P\-R\-\_\-\-F\-M\-T\char`\"{} queue\-:\%d\char`\"{}, L\-O\-C\-A\-L\-\_\-\-P\-R\-\_\-\-A\-R\-G, \hyperlink{driver-trace_8h_a12c9f3afcd1c461f7ae2f86fd8503977}{V\-I\-F\-\_\-\-P\-R\-\_\-\-A\-R\-G}, \-\_\-\-\_\-entry-\/$>$queue))
+\item 
+\hyperlink{driver-trace_8h_ae6e1a3e3d22b2d68d7fc06995184e8b7}{D\-E\-F\-I\-N\-E\-\_\-\-E\-V\-E\-N\-T} (local\-\_\-sdata\-\_\-evt, drv\-\_\-get\-\_\-tsf, T\-P\-\_\-\-P\-R\-O\-T\-O(struct \hyperlink{structieee80211__local}{ieee80211\-\_\-local} $\ast$local, struct \hyperlink{structieee80211__sub__if__data}{ieee80211\-\_\-sub\-\_\-if\-\_\-data} $\ast$sdata),)
+\item 
+\hyperlink{driver-trace_8h_a750f24e8bcbbeb7ae5d18da826edb7b0}{T\-R\-A\-C\-E\-\_\-\-E\-V\-E\-N\-T} (drv\-\_\-set\-\_\-tsf, T\-P\-\_\-\-P\-R\-O\-T\-O(struct \hyperlink{structieee80211__local}{ieee80211\-\_\-local} $\ast$local, struct \hyperlink{structieee80211__sub__if__data}{ieee80211\-\_\-sub\-\_\-if\-\_\-data} $\ast$sdata, u64 tsf), T\-P\-\_\-\-A\-R\-G\-S(local, sdata, tsf), T\-P\-\_\-\-S\-T\-R\-U\-C\-T\-\_\-\-\_\-entry(L\-O\-C\-A\-L\-\_\-\-E\-N\-T\-R\-Y\-V\-I\-F\-\_\-\-E\-N\-T\-R\-Y\-\_\-\-\_\-field(u64, tsf)), T\-P\-\_\-fast\-\_\-assign(\hyperlink{driver-trace_8h_ab19d9141887ea92ef9640df06a51e0a1}{L\-O\-C\-A\-L\-\_\-\-A\-S\-S\-I\-G\-N};\hyperlink{driver-trace_8h_af5ede80f04ffcb3f644f68837b1d252c}{V\-I\-F\-\_\-\-A\-S\-S\-I\-G\-N};\-\_\-\-\_\-entry-\/$>$tsf=tsf;), T\-P\-\_\-printk(L\-O\-C\-A\-L\-\_\-\-P\-R\-\_\-\-F\-M\-T\-V\-I\-F\-\_\-\-P\-R\-\_\-\-F\-M\-T\char`\"{} tsf\-:\%llu\char`\"{}, L\-O\-C\-A\-L\-\_\-\-P\-R\-\_\-\-A\-R\-G, \hyperlink{driver-trace_8h_a12c9f3afcd1c461f7ae2f86fd8503977}{V\-I\-F\-\_\-\-P\-R\-\_\-\-A\-R\-G},(unsigned long long) \-\_\-\-\_\-entry-\/$>$tsf))
+\item 
+\hyperlink{driver-trace_8h_a0f45fa7be481c86c711b8d91eeb1a297}{D\-E\-F\-I\-N\-E\-\_\-\-E\-V\-E\-N\-T} (local\-\_\-sdata\-\_\-evt, drv\-\_\-reset\-\_\-tsf, T\-P\-\_\-\-P\-R\-O\-T\-O(struct \hyperlink{structieee80211__local}{ieee80211\-\_\-local} $\ast$local, struct \hyperlink{structieee80211__sub__if__data}{ieee80211\-\_\-sub\-\_\-if\-\_\-data} $\ast$sdata),)
+\item 
+\hyperlink{driver-trace_8h_afeb41ae576d7d149146afb31c7c82e5c}{D\-E\-F\-I\-N\-E\-\_\-\-E\-V\-E\-N\-T} (local\-\_\-only\-\_\-evt, drv\-\_\-tx\-\_\-last\-\_\-beacon, T\-P\-\_\-\-P\-R\-O\-T\-O(struct \hyperlink{structieee80211__local}{ieee80211\-\_\-local} $\ast$local),)
+\item 
+\hyperlink{driver-trace_8h_a1a8593b0845b954a713eb9c08f067904}{T\-R\-A\-C\-E\-\_\-\-E\-V\-E\-N\-T} (drv\-\_\-ampdu\-\_\-action, T\-P\-\_\-\-P\-R\-O\-T\-O(struct \hyperlink{structieee80211__local}{ieee80211\-\_\-local} $\ast$local, struct \hyperlink{structieee80211__sub__if__data}{ieee80211\-\_\-sub\-\_\-if\-\_\-data} $\ast$sdata, enum ieee80211\-\_\-ampdu\-\_\-mlme\-\_\-action action, struct ieee80211\-\_\-sta $\ast$sta, u16 tid, u16 $\ast$ssn, u8 buf\-\_\-size), T\-P\-\_\-\-A\-R\-G\-S(local, sdata, action, sta, tid, ssn, buf\-\_\-size), T\-P\-\_\-\-S\-T\-R\-U\-C\-T\-\_\-\-\_\-entry(L\-O\-C\-A\-L\-\_\-\-E\-N\-T\-R\-Y\-S\-T\-A\-\_\-\-E\-N\-T\-R\-Y\-\_\-\-\_\-field(u32, action) \-\_\-\-\_\-field(u16, tid) \-\_\-\-\_\-field(u16, ssn) \-\_\-\-\_\-field(u8, buf\-\_\-size) \hyperlink{driver-trace_8h_af9528f0b6f59f04b6c6ab283b1b65d9d}{V\-I\-F\-\_\-\-E\-N\-T\-R\-Y}), T\-P\-\_\-fast\-\_\-assign(\hyperlink{driver-trace_8h_ab19d9141887ea92ef9640df06a51e0a1}{L\-O\-C\-A\-L\-\_\-\-A\-S\-S\-I\-G\-N};\hyperlink{driver-trace_8h_af5ede80f04ffcb3f644f68837b1d252c}{V\-I\-F\-\_\-\-A\-S\-S\-I\-G\-N};\hyperlink{driver-trace_8h_abbd837b5fc444c0cb48b5954f8ad068a}{S\-T\-A\-\_\-\-A\-S\-S\-I\-G\-N};\-\_\-\-\_\-entry-\/$>$action=action;\-\_\-\-\_\-entry-\/$>$tid=tid;\-\_\-\-\_\-entry-\/$>$ssn=ssn?$\ast$ssn\-:0;\-\_\-\-\_\-entry-\/$>$buf\-\_\-size=buf\-\_\-size;), T\-P\-\_\-printk(\hyperlink{driver-trace_8h_a09833af423135e21ffe99a59ae088cf1}{L\-O\-C\-A\-L\-\_\-\-P\-R\-\_\-\-F\-M\-T} \hyperlink{driver-trace_8h_a50711161ccfc99a73b43b988149a61a5}{V\-I\-F\-\_\-\-P\-R\-\_\-\-F\-M\-T} \hyperlink{driver-trace_8h_a73d0cd445b999888e3f21698b769c843}{S\-T\-A\-\_\-\-P\-R\-\_\-\-F\-M\-T}\char`\"{} action\-:\%d tid\-:\%d buf\-:\%d\char`\"{}, L\-O\-C\-A\-L\-\_\-\-P\-R\-\_\-\-A\-R\-G, \hyperlink{driver-trace_8h_a12c9f3afcd1c461f7ae2f86fd8503977}{V\-I\-F\-\_\-\-P\-R\-\_\-\-A\-R\-G}, \hyperlink{driver-trace_8h_a3b71cc34bae124028f19970a4220d4ab}{S\-T\-A\-\_\-\-P\-R\-\_\-\-A\-R\-G}, \-\_\-\-\_\-entry-\/$>$action, \-\_\-\-\_\-entry-\/$>$tid, \-\_\-\-\_\-entry-\/$>$buf\-\_\-size))
+\item 
+\hyperlink{driver-trace_8h_a77d0be7f5c8f98b46b95c9045964f6cf}{T\-R\-A\-C\-E\-\_\-\-E\-V\-E\-N\-T} (drv\-\_\-get\-\_\-survey, T\-P\-\_\-\-P\-R\-O\-T\-O(struct \hyperlink{structieee80211__local}{ieee80211\-\_\-local} $\ast$local, int idx, struct survey\-\_\-info $\ast$survey), T\-P\-\_\-\-A\-R\-G\-S(local, idx, survey), T\-P\-\_\-\-S\-T\-R\-U\-C\-T\-\_\-\-\_\-entry(L\-O\-C\-A\-L\-\_\-\-E\-N\-T\-R\-Y\-\_\-\-\_\-field(int, idx)), T\-P\-\_\-fast\-\_\-assign(\hyperlink{driver-trace_8h_ab19d9141887ea92ef9640df06a51e0a1}{L\-O\-C\-A\-L\-\_\-\-A\-S\-S\-I\-G\-N};\-\_\-\-\_\-entry-\/$>$idx=idx;), T\-P\-\_\-printk(\hyperlink{driver-trace_8h_a09833af423135e21ffe99a59ae088cf1}{L\-O\-C\-A\-L\-\_\-\-P\-R\-\_\-\-F\-M\-T}\char`\"{} idx\-:\%d\char`\"{}, L\-O\-C\-A\-L\-\_\-\-P\-R\-\_\-\-A\-R\-G, \-\_\-\-\_\-entry-\/$>$idx))
+\item 
+\hyperlink{driver-trace_8h_a1412feb2dcfea66357de2829d5acc061}{T\-R\-A\-C\-E\-\_\-\-E\-V\-E\-N\-T} (drv\-\_\-flush, T\-P\-\_\-\-P\-R\-O\-T\-O(struct \hyperlink{structieee80211__local}{ieee80211\-\_\-local} $\ast$local, bool drop), T\-P\-\_\-\-A\-R\-G\-S(local, drop), T\-P\-\_\-\-S\-T\-R\-U\-C\-T\-\_\-\-\_\-entry(L\-O\-C\-A\-L\-\_\-\-E\-N\-T\-R\-Y\-\_\-\-\_\-field(bool, drop)), T\-P\-\_\-fast\-\_\-assign(\hyperlink{driver-trace_8h_ab19d9141887ea92ef9640df06a51e0a1}{L\-O\-C\-A\-L\-\_\-\-A\-S\-S\-I\-G\-N};\-\_\-\-\_\-entry-\/$>$drop=drop;), T\-P\-\_\-printk(\hyperlink{driver-trace_8h_a09833af423135e21ffe99a59ae088cf1}{L\-O\-C\-A\-L\-\_\-\-P\-R\-\_\-\-F\-M\-T}\char`\"{} drop\-:\%d\char`\"{}, L\-O\-C\-A\-L\-\_\-\-P\-R\-\_\-\-A\-R\-G, \-\_\-\-\_\-entry-\/$>$drop))
+\item 
+\hyperlink{driver-trace_8h_a47eb198b2d9b480d7a1a83bd7883f1d0}{T\-R\-A\-C\-E\-\_\-\-E\-V\-E\-N\-T} (drv\-\_\-channel\-\_\-switch, T\-P\-\_\-\-P\-R\-O\-T\-O(struct \hyperlink{structieee80211__local}{ieee80211\-\_\-local} $\ast$local, struct ieee80211\-\_\-channel\-\_\-switch $\ast$ch\-\_\-switch), T\-P\-\_\-\-A\-R\-G\-S(local, ch\-\_\-switch), T\-P\-\_\-\-S\-T\-R\-U\-C\-T\-\_\-\-\_\-entry(L\-O\-C\-A\-L\-\_\-\-E\-N\-T\-R\-Y\-\_\-\-\_\-field(u64, timestamp) \-\_\-\-\_\-field(bool, block\-\_\-tx) \-\_\-\-\_\-field(u16, freq) \-\_\-\-\_\-field(u8, count)), T\-P\-\_\-fast\-\_\-assign(\hyperlink{driver-trace_8h_ab19d9141887ea92ef9640df06a51e0a1}{L\-O\-C\-A\-L\-\_\-\-A\-S\-S\-I\-G\-N};\-\_\-\-\_\-entry-\/$>$timestamp=ch\-\_\-switch-\/$>$timestamp;\-\_\-\-\_\-entry-\/$>$block\-\_\-tx=ch\-\_\-switch-\/$>$block\-\_\-tx;\-\_\-\-\_\-entry-\/$>$freq=ch\-\_\-switch-\/$>$channel-\/$>$center\-\_\-freq;\-\_\-\-\_\-entry-\/$>$count=ch\-\_\-switch-\/$>$count;), T\-P\-\_\-printk(\hyperlink{driver-trace_8h_a09833af423135e21ffe99a59ae088cf1}{L\-O\-C\-A\-L\-\_\-\-P\-R\-\_\-\-F\-M\-T}\char`\"{} new freq\-:\%u count\-:\%d\char`\"{}, L\-O\-C\-A\-L\-\_\-\-P\-R\-\_\-\-A\-R\-G, \-\_\-\-\_\-entry-\/$>$freq, \-\_\-\-\_\-entry-\/$>$count))
+\item 
+\hyperlink{driver-trace_8h_a5529e34e6f21cb65a2f3ec7987fab66c}{T\-R\-A\-C\-E\-\_\-\-E\-V\-E\-N\-T} (drv\-\_\-set\-\_\-antenna, T\-P\-\_\-\-P\-R\-O\-T\-O(struct \hyperlink{structieee80211__local}{ieee80211\-\_\-local} $\ast$local, u32 tx\-\_\-ant, u32 rx\-\_\-ant, int ret), T\-P\-\_\-\-A\-R\-G\-S(local, tx\-\_\-ant, rx\-\_\-ant, ret), T\-P\-\_\-\-S\-T\-R\-U\-C\-T\-\_\-\-\_\-entry(L\-O\-C\-A\-L\-\_\-\-E\-N\-T\-R\-Y\-\_\-\-\_\-field(u32, tx\-\_\-ant) \-\_\-\-\_\-field(u32, rx\-\_\-ant) \-\_\-\-\_\-field(int, ret)), T\-P\-\_\-fast\-\_\-assign(\hyperlink{driver-trace_8h_ab19d9141887ea92ef9640df06a51e0a1}{L\-O\-C\-A\-L\-\_\-\-A\-S\-S\-I\-G\-N};\-\_\-\-\_\-entry-\/$>$tx\-\_\-ant=tx\-\_\-ant;\-\_\-\-\_\-entry-\/$>$rx\-\_\-ant=rx\-\_\-ant;\-\_\-\-\_\-entry-\/$>$ret=ret;), T\-P\-\_\-printk(\hyperlink{driver-trace_8h_a09833af423135e21ffe99a59ae088cf1}{L\-O\-C\-A\-L\-\_\-\-P\-R\-\_\-\-F\-M\-T}\char`\"{} tx\-\_\-ant\-:\%d rx\-\_\-ant\-:\%d ret\-:\%d\char`\"{}, L\-O\-C\-A\-L\-\_\-\-P\-R\-\_\-\-A\-R\-G, \-\_\-\-\_\-entry-\/$>$tx\-\_\-ant, \-\_\-\-\_\-entry-\/$>$rx\-\_\-ant, \-\_\-\-\_\-entry-\/$>$ret))
+\item 
+\hyperlink{driver-trace_8h_a5052e3a868bfecb016ab42b97330d005}{T\-R\-A\-C\-E\-\_\-\-E\-V\-E\-N\-T} (drv\-\_\-get\-\_\-antenna, T\-P\-\_\-\-P\-R\-O\-T\-O(struct \hyperlink{structieee80211__local}{ieee80211\-\_\-local} $\ast$local, u32 tx\-\_\-ant, u32 rx\-\_\-ant, int ret), T\-P\-\_\-\-A\-R\-G\-S(local, tx\-\_\-ant, rx\-\_\-ant, ret), T\-P\-\_\-\-S\-T\-R\-U\-C\-T\-\_\-\-\_\-entry(L\-O\-C\-A\-L\-\_\-\-E\-N\-T\-R\-Y\-\_\-\-\_\-field(u32, tx\-\_\-ant) \-\_\-\-\_\-field(u32, rx\-\_\-ant) \-\_\-\-\_\-field(int, ret)), T\-P\-\_\-fast\-\_\-assign(\hyperlink{driver-trace_8h_ab19d9141887ea92ef9640df06a51e0a1}{L\-O\-C\-A\-L\-\_\-\-A\-S\-S\-I\-G\-N};\-\_\-\-\_\-entry-\/$>$tx\-\_\-ant=tx\-\_\-ant;\-\_\-\-\_\-entry-\/$>$rx\-\_\-ant=rx\-\_\-ant;\-\_\-\-\_\-entry-\/$>$ret=ret;), T\-P\-\_\-printk(\hyperlink{driver-trace_8h_a09833af423135e21ffe99a59ae088cf1}{L\-O\-C\-A\-L\-\_\-\-P\-R\-\_\-\-F\-M\-T}\char`\"{} tx\-\_\-ant\-:\%d rx\-\_\-ant\-:\%d ret\-:\%d\char`\"{}, L\-O\-C\-A\-L\-\_\-\-P\-R\-\_\-\-A\-R\-G, \-\_\-\-\_\-entry-\/$>$tx\-\_\-ant, \-\_\-\-\_\-entry-\/$>$rx\-\_\-ant, \-\_\-\-\_\-entry-\/$>$ret))
+\item 
+\hyperlink{driver-trace_8h_ae53eeee8d20ebb9a4abe9cce48bc7302}{T\-R\-A\-C\-E\-\_\-\-E\-V\-E\-N\-T} (drv\-\_\-remain\-\_\-on\-\_\-channel, T\-P\-\_\-\-P\-R\-O\-T\-O(struct \hyperlink{structieee80211__local}{ieee80211\-\_\-local} $\ast$local, struct ieee80211\-\_\-channel $\ast$chan, enum nl80211\-\_\-channel\-\_\-type chantype, unsigned int duration), T\-P\-\_\-\-A\-R\-G\-S(local, chan, chantype, duration), T\-P\-\_\-\-S\-T\-R\-U\-C\-T\-\_\-\-\_\-entry(L\-O\-C\-A\-L\-\_\-\-E\-N\-T\-R\-Y\-\_\-\-\_\-field(int, center\-\_\-freq) \-\_\-\-\_\-field(int, channel\-\_\-type) \-\_\-\-\_\-field(unsigned int, duration)), T\-P\-\_\-fast\-\_\-assign(\hyperlink{driver-trace_8h_ab19d9141887ea92ef9640df06a51e0a1}{L\-O\-C\-A\-L\-\_\-\-A\-S\-S\-I\-G\-N};\-\_\-\-\_\-entry-\/$>$center\-\_\-freq=chan-\/$>$center\-\_\-freq;\-\_\-\-\_\-entry-\/$>$channel\-\_\-type=chantype;\-\_\-\-\_\-entry-\/$>$duration=duration;), T\-P\-\_\-printk(\hyperlink{driver-trace_8h_a09833af423135e21ffe99a59ae088cf1}{L\-O\-C\-A\-L\-\_\-\-P\-R\-\_\-\-F\-M\-T}\char`\"{} freq\-:\%d\-M\-Hz duration\-:\%dms\char`\"{}, L\-O\-C\-A\-L\-\_\-\-P\-R\-\_\-\-A\-R\-G, \-\_\-\-\_\-entry-\/$>$center\-\_\-freq, \-\_\-\-\_\-entry-\/$>$duration))
+\item 
+\hyperlink{driver-trace_8h_aeb2919b1c7eb03065e8bd5fc61853b12}{D\-E\-F\-I\-N\-E\-\_\-\-E\-V\-E\-N\-T} (local\-\_\-only\-\_\-evt, drv\-\_\-cancel\-\_\-remain\-\_\-on\-\_\-channel, T\-P\-\_\-\-P\-R\-O\-T\-O(struct \hyperlink{structieee80211__local}{ieee80211\-\_\-local} $\ast$local),)
+\item 
+\hyperlink{driver-trace_8h_ac3e1c420c7845de47f0d487e5a655fa0}{T\-R\-A\-C\-E\-\_\-\-E\-V\-E\-N\-T} (drv\-\_\-offchannel\-\_\-tx, T\-P\-\_\-\-P\-R\-O\-T\-O(struct \hyperlink{structieee80211__local}{ieee80211\-\_\-local} $\ast$local, struct sk\-\_\-buff $\ast$skb, struct ieee80211\-\_\-channel $\ast$chan, enum nl80211\-\_\-channel\-\_\-type channel\-\_\-type, unsigned int wait), T\-P\-\_\-\-A\-R\-G\-S(local, skb, chan, channel\-\_\-type, wait), T\-P\-\_\-\-S\-T\-R\-U\-C\-T\-\_\-\-\_\-entry(L\-O\-C\-A\-L\-\_\-\-E\-N\-T\-R\-Y\-\_\-\-\_\-field(int, center\-\_\-freq) \-\_\-\-\_\-field(int, channel\-\_\-type) \-\_\-\-\_\-field(unsigned int, wait)), T\-P\-\_\-fast\-\_\-assign(\hyperlink{driver-trace_8h_ab19d9141887ea92ef9640df06a51e0a1}{L\-O\-C\-A\-L\-\_\-\-A\-S\-S\-I\-G\-N};\-\_\-\-\_\-entry-\/$>$center\-\_\-freq=chan-\/$>$center\-\_\-freq;\-\_\-\-\_\-entry-\/$>$channel\-\_\-type=channel\-\_\-type;\-\_\-\-\_\-entry-\/$>$wait=wait;), T\-P\-\_\-printk(\hyperlink{driver-trace_8h_a09833af423135e21ffe99a59ae088cf1}{L\-O\-C\-A\-L\-\_\-\-P\-R\-\_\-\-F\-M\-T}\char`\"{} freq\-:\%d\-M\-Hz, wait\-:\%dms\char`\"{}, L\-O\-C\-A\-L\-\_\-\-P\-R\-\_\-\-A\-R\-G, \-\_\-\-\_\-entry-\/$>$center\-\_\-freq, \-\_\-\-\_\-entry-\/$>$wait))
+\item 
+\hyperlink{driver-trace_8h_ae0398765985cff2bbe819fb63d8a165a}{T\-R\-A\-C\-E\-\_\-\-E\-V\-E\-N\-T} (drv\-\_\-set\-\_\-ringparam, T\-P\-\_\-\-P\-R\-O\-T\-O(struct \hyperlink{structieee80211__local}{ieee80211\-\_\-local} $\ast$local, u32 tx, u32 rx), T\-P\-\_\-\-A\-R\-G\-S(local, tx, rx), T\-P\-\_\-\-S\-T\-R\-U\-C\-T\-\_\-\-\_\-entry(L\-O\-C\-A\-L\-\_\-\-E\-N\-T\-R\-Y\-\_\-\-\_\-field(u32, tx) \-\_\-\-\_\-field(u32, rx)), T\-P\-\_\-fast\-\_\-assign(\hyperlink{driver-trace_8h_ab19d9141887ea92ef9640df06a51e0a1}{L\-O\-C\-A\-L\-\_\-\-A\-S\-S\-I\-G\-N};\-\_\-\-\_\-entry-\/$>$tx=tx;\-\_\-\-\_\-entry-\/$>$rx=rx;), T\-P\-\_\-printk(\hyperlink{driver-trace_8h_a09833af423135e21ffe99a59ae088cf1}{L\-O\-C\-A\-L\-\_\-\-P\-R\-\_\-\-F\-M\-T}\char`\"{} tx\-:\%d rx \%d\char`\"{}, L\-O\-C\-A\-L\-\_\-\-P\-R\-\_\-\-A\-R\-G, \-\_\-\-\_\-entry-\/$>$tx, \-\_\-\-\_\-entry-\/$>$rx))
+\item 
+\hyperlink{driver-trace_8h_a294dca820b93f64b716823759cfbcc83}{T\-R\-A\-C\-E\-\_\-\-E\-V\-E\-N\-T} (drv\-\_\-get\-\_\-ringparam, T\-P\-\_\-\-P\-R\-O\-T\-O(struct \hyperlink{structieee80211__local}{ieee80211\-\_\-local} $\ast$local, u32 $\ast$tx, u32 $\ast$tx\-\_\-max, u32 $\ast$rx, u32 $\ast$rx\-\_\-max), T\-P\-\_\-\-A\-R\-G\-S(local, tx, tx\-\_\-max, rx, rx\-\_\-max), T\-P\-\_\-\-S\-T\-R\-U\-C\-T\-\_\-\-\_\-entry(L\-O\-C\-A\-L\-\_\-\-E\-N\-T\-R\-Y\-\_\-\-\_\-field(u32, tx) \-\_\-\-\_\-field(u32, tx\-\_\-max) \-\_\-\-\_\-field(u32, rx) \-\_\-\-\_\-field(u32, rx\-\_\-max)), T\-P\-\_\-fast\-\_\-assign(\hyperlink{driver-trace_8h_ab19d9141887ea92ef9640df06a51e0a1}{L\-O\-C\-A\-L\-\_\-\-A\-S\-S\-I\-G\-N};\-\_\-\-\_\-entry-\/$>$tx=$\ast$tx;\-\_\-\-\_\-entry-\/$>$tx\-\_\-max=$\ast$tx\-\_\-max;\-\_\-\-\_\-entry-\/$>$rx=$\ast$rx;\-\_\-\-\_\-entry-\/$>$rx\-\_\-max=$\ast$rx\-\_\-max;), T\-P\-\_\-printk(\hyperlink{driver-trace_8h_a09833af423135e21ffe99a59ae088cf1}{L\-O\-C\-A\-L\-\_\-\-P\-R\-\_\-\-F\-M\-T}\char`\"{} tx\-:\%d tx\-\_\-max \%d rx \%d rx\-\_\-max \%d\char`\"{}, L\-O\-C\-A\-L\-\_\-\-P\-R\-\_\-\-A\-R\-G, \-\_\-\-\_\-entry-\/$>$tx, \-\_\-\-\_\-entry-\/$>$tx\-\_\-max, \-\_\-\-\_\-entry-\/$>$rx, \-\_\-\-\_\-entry-\/$>$rx\-\_\-max))
+\item 
+\hyperlink{driver-trace_8h_a7fca84363a5c6eb9c583c0e58d705297}{D\-E\-F\-I\-N\-E\-\_\-\-E\-V\-E\-N\-T} (local\-\_\-only\-\_\-evt, drv\-\_\-tx\-\_\-frames\-\_\-pending, T\-P\-\_\-\-P\-R\-O\-T\-O(struct \hyperlink{structieee80211__local}{ieee80211\-\_\-local} $\ast$local),)
+\item 
+\hyperlink{driver-trace_8h_a4db53223cf380ec47370ea511f75ccc5}{D\-E\-F\-I\-N\-E\-\_\-\-E\-V\-E\-N\-T} (local\-\_\-only\-\_\-evt, drv\-\_\-offchannel\-\_\-tx\-\_\-cancel\-\_\-wait, T\-P\-\_\-\-P\-R\-O\-T\-O(struct \hyperlink{structieee80211__local}{ieee80211\-\_\-local} $\ast$local),)
+\item 
+\hyperlink{driver-trace_8h_a2acf93e539fcb96cec827c3eb59efd7c}{T\-R\-A\-C\-E\-\_\-\-E\-V\-E\-N\-T} (drv\-\_\-set\-\_\-bitrate\-\_\-mask, T\-P\-\_\-\-P\-R\-O\-T\-O(struct \hyperlink{structieee80211__local}{ieee80211\-\_\-local} $\ast$local, struct \hyperlink{structieee80211__sub__if__data}{ieee80211\-\_\-sub\-\_\-if\-\_\-data} $\ast$sdata, const struct cfg80211\-\_\-bitrate\-\_\-mask $\ast$mask), T\-P\-\_\-\-A\-R\-G\-S(local, sdata, mask), T\-P\-\_\-\-S\-T\-R\-U\-C\-T\-\_\-\-\_\-entry(L\-O\-C\-A\-L\-\_\-\-E\-N\-T\-R\-Y\-V\-I\-F\-\_\-\-E\-N\-T\-R\-Y\-\_\-\-\_\-field(u32, legacy\-\_\-2g) \-\_\-\-\_\-field(u32, legacy\-\_\-5g)), T\-P\-\_\-fast\-\_\-assign(\hyperlink{driver-trace_8h_ab19d9141887ea92ef9640df06a51e0a1}{L\-O\-C\-A\-L\-\_\-\-A\-S\-S\-I\-G\-N};\hyperlink{driver-trace_8h_af5ede80f04ffcb3f644f68837b1d252c}{V\-I\-F\-\_\-\-A\-S\-S\-I\-G\-N};\-\_\-\-\_\-entry-\/$>$legacy\-\_\-2g=mask-\/$>$control\mbox{[}I\-E\-E\-E80211\-\_\-\-B\-A\-N\-D\-\_\-2\-G\-H\-Z\mbox{]}.legacy;\-\_\-\-\_\-entry-\/$>$legacy\-\_\-5g=mask-\/$>$control\mbox{[}I\-E\-E\-E80211\-\_\-\-B\-A\-N\-D\-\_\-5\-G\-H\-Z\mbox{]}.legacy;), T\-P\-\_\-printk(L\-O\-C\-A\-L\-\_\-\-P\-R\-\_\-\-F\-M\-T\-V\-I\-F\-\_\-\-P\-R\-\_\-\-F\-M\-T\char`\"{} 2\-G Mask\-:0x\%x 5\-G Mask\-:0x\%x\char`\"{}, L\-O\-C\-A\-L\-\_\-\-P\-R\-\_\-\-A\-R\-G, V\-I\-F\-\_\-\-P\-R\-\_\-\-A\-R\-G, \-\_\-\-\_\-entry-\/$>$legacy\-\_\-2g, \-\_\-\-\_\-entry-\/$>$legacy\-\_\-5g))
+\item 
+\hyperlink{driver-trace_8h_aa5ce13be22a5cb7fcf9c2258aee581b7}{T\-R\-A\-C\-E\-\_\-\-E\-V\-E\-N\-T} (drv\-\_\-set\-\_\-rekey\-\_\-data, T\-P\-\_\-\-P\-R\-O\-T\-O(struct \hyperlink{structieee80211__local}{ieee80211\-\_\-local} $\ast$local, struct \hyperlink{structieee80211__sub__if__data}{ieee80211\-\_\-sub\-\_\-if\-\_\-data} $\ast$sdata, struct cfg80211\-\_\-gtk\-\_\-rekey\-\_\-data $\ast$data), T\-P\-\_\-\-A\-R\-G\-S(local, sdata, data), T\-P\-\_\-\-S\-T\-R\-U\-C\-T\-\_\-\-\_\-entry(L\-O\-C\-A\-L\-\_\-\-E\-N\-T\-R\-Y\-V\-I\-F\-\_\-\-E\-N\-T\-R\-Y\-\_\-\-\_\-array(u8, kek, N\-L80211\-\_\-\-K\-E\-K\-\_\-\-L\-E\-N) \-\_\-\-\_\-array(u8, kck, N\-L80211\-\_\-\-K\-C\-K\-\_\-\-L\-E\-N) \-\_\-\-\_\-array(u8, replay\-\_\-ctr, N\-L80211\-\_\-\-R\-E\-P\-L\-A\-Y\-\_\-\-C\-T\-R\-\_\-\-L\-E\-N)), T\-P\-\_\-fast\-\_\-assign(\hyperlink{driver-trace_8h_ab19d9141887ea92ef9640df06a51e0a1}{L\-O\-C\-A\-L\-\_\-\-A\-S\-S\-I\-G\-N};\hyperlink{driver-trace_8h_af5ede80f04ffcb3f644f68837b1d252c}{V\-I\-F\-\_\-\-A\-S\-S\-I\-G\-N};memcpy(\-\_\-\-\_\-entry-\/$>$kek, data-\/$>$kek, N\-L80211\-\_\-\-K\-E\-K\-\_\-\-L\-E\-N);memcpy(\-\_\-\-\_\-entry-\/$>$kck, data-\/$>$kck, N\-L80211\-\_\-\-K\-C\-K\-\_\-\-L\-E\-N);memcpy(\-\_\-\-\_\-entry-\/$>$replay\-\_\-ctr, data-\/$>$replay\-\_\-ctr, N\-L80211\-\_\-\-R\-E\-P\-L\-A\-Y\-\_\-\-C\-T\-R\-\_\-\-L\-E\-N);), T\-P\-\_\-printk(\hyperlink{driver-trace_8h_a09833af423135e21ffe99a59ae088cf1}{L\-O\-C\-A\-L\-\_\-\-P\-R\-\_\-\-F\-M\-T} \hyperlink{driver-trace_8h_a50711161ccfc99a73b43b988149a61a5}{V\-I\-F\-\_\-\-P\-R\-\_\-\-F\-M\-T}, \hyperlink{driver-trace_8h_aa2a77a17621ecb4f0b3926fec90a5538}{L\-O\-C\-A\-L\-\_\-\-P\-R\-\_\-\-A\-R\-G}, \hyperlink{driver-trace_8h_a12c9f3afcd1c461f7ae2f86fd8503977}{V\-I\-F\-\_\-\-P\-R\-\_\-\-A\-R\-G}))
+\item 
+\hyperlink{driver-trace_8h_a03c96d1c6e068b95abe4ae39cd6719ed}{T\-R\-A\-C\-E\-\_\-\-E\-V\-E\-N\-T} (drv\-\_\-rssi\-\_\-callback, T\-P\-\_\-\-P\-R\-O\-T\-O(struct \hyperlink{structieee80211__local}{ieee80211\-\_\-local} $\ast$local, enum ieee80211\-\_\-rssi\-\_\-event rssi\-\_\-event), T\-P\-\_\-\-A\-R\-G\-S(local, rssi\-\_\-event), T\-P\-\_\-\-S\-T\-R\-U\-C\-T\-\_\-\-\_\-entry(L\-O\-C\-A\-L\-\_\-\-E\-N\-T\-R\-Y\-\_\-\-\_\-field(u32, rssi\-\_\-event)), T\-P\-\_\-fast\-\_\-assign(\hyperlink{driver-trace_8h_ab19d9141887ea92ef9640df06a51e0a1}{L\-O\-C\-A\-L\-\_\-\-A\-S\-S\-I\-G\-N};\-\_\-\-\_\-entry-\/$>$rssi\-\_\-event=rssi\-\_\-event;), T\-P\-\_\-printk(\hyperlink{driver-trace_8h_a09833af423135e21ffe99a59ae088cf1}{L\-O\-C\-A\-L\-\_\-\-P\-R\-\_\-\-F\-M\-T}\char`\"{} rssi\-\_\-event\-:\%d\char`\"{}, L\-O\-C\-A\-L\-\_\-\-P\-R\-\_\-\-A\-R\-G, \-\_\-\-\_\-entry-\/$>$rssi\-\_\-event))
+\item 
+\hyperlink{driver-trace_8h_a2ba1e0adc875d9d790a47fc1bc6f5346}{D\-E\-C\-L\-A\-R\-E\-\_\-\-E\-V\-E\-N\-T\-\_\-\-C\-L\-A\-S\-S} (release\-\_\-evt, T\-P\-\_\-\-P\-R\-O\-T\-O(struct \hyperlink{structieee80211__local}{ieee80211\-\_\-local} $\ast$local, struct ieee80211\-\_\-sta $\ast$sta, u16 tids, int num\-\_\-frames, enum ieee80211\-\_\-frame\-\_\-release\-\_\-type reason, bool more\-\_\-data), T\-P\-\_\-\-A\-R\-G\-S(local, sta, tids, num\-\_\-frames, reason, more\-\_\-data), T\-P\-\_\-\-S\-T\-R\-U\-C\-T\-\_\-\-\_\-entry(L\-O\-C\-A\-L\-\_\-\-E\-N\-T\-R\-Y\-S\-T\-A\-\_\-\-E\-N\-T\-R\-Y\-\_\-\-\_\-field(u16, tids) \-\_\-\-\_\-field(int, num\-\_\-frames) \-\_\-\-\_\-field(int, reason) \-\_\-\-\_\-field(bool, more\-\_\-data)), T\-P\-\_\-fast\-\_\-assign(\hyperlink{driver-trace_8h_ab19d9141887ea92ef9640df06a51e0a1}{L\-O\-C\-A\-L\-\_\-\-A\-S\-S\-I\-G\-N};\hyperlink{driver-trace_8h_abbd837b5fc444c0cb48b5954f8ad068a}{S\-T\-A\-\_\-\-A\-S\-S\-I\-G\-N};\-\_\-\-\_\-entry-\/$>$tids=tids;\-\_\-\-\_\-entry-\/$>$num\-\_\-frames=num\-\_\-frames;\-\_\-\-\_\-entry-\/$>$reason=reason;\-\_\-\-\_\-entry-\/$>$more\-\_\-data=more\-\_\-data;), T\-P\-\_\-printk(\hyperlink{driver-trace_8h_a09833af423135e21ffe99a59ae088cf1}{L\-O\-C\-A\-L\-\_\-\-P\-R\-\_\-\-F\-M\-T} \hyperlink{driver-trace_8h_a73d0cd445b999888e3f21698b769c843}{S\-T\-A\-\_\-\-P\-R\-\_\-\-F\-M\-T}\char`\"{} T\-I\-Ds\-:0x\%.\-4x frames\-:\%d reason\-:\%d more\-:\%d\char`\"{}, L\-O\-C\-A\-L\-\_\-\-P\-R\-\_\-\-A\-R\-G, S\-T\-A\-\_\-\-P\-R\-\_\-\-A\-R\-G, \-\_\-\-\_\-entry-\/$>$tids, \-\_\-\-\_\-entry-\/$>$num\-\_\-frames, \-\_\-\-\_\-entry-\/$>$reason, \-\_\-\-\_\-entry-\/$>$more\-\_\-data))
+\item 
+\hyperlink{driver-trace_8h_ab5a0a16c9f012708f2b3367201a4a44a}{D\-E\-F\-I\-N\-E\-\_\-\-E\-V\-E\-N\-T} (release\-\_\-evt, drv\-\_\-release\-\_\-buffered\-\_\-frames, T\-P\-\_\-\-P\-R\-O\-T\-O(struct \hyperlink{structieee80211__local}{ieee80211\-\_\-local} $\ast$local, struct ieee80211\-\_\-sta $\ast$sta, u16 tids, int num\-\_\-frames, enum ieee80211\-\_\-frame\-\_\-release\-\_\-type reason, bool more\-\_\-data),)
+\item 
+\hyperlink{driver-trace_8h_a63d5a24aaee5e934697d4826747755f5}{D\-E\-F\-I\-N\-E\-\_\-\-E\-V\-E\-N\-T} (release\-\_\-evt, drv\-\_\-allow\-\_\-buffered\-\_\-frames, T\-P\-\_\-\-P\-R\-O\-T\-O(struct \hyperlink{structieee80211__local}{ieee80211\-\_\-local} $\ast$local, struct ieee80211\-\_\-sta $\ast$sta, u16 tids, int num\-\_\-frames, enum ieee80211\-\_\-frame\-\_\-release\-\_\-type reason, bool more\-\_\-data),)
+\item 
+\hyperlink{driver-trace_8h_a11b39de21ba24eb63ee9717802983b07}{T\-R\-A\-C\-E\-\_\-\-E\-V\-E\-N\-T} (api\-\_\-start\-\_\-tx\-\_\-ba\-\_\-session, T\-P\-\_\-\-P\-R\-O\-T\-O(struct ieee80211\-\_\-sta $\ast$sta, u16 tid), T\-P\-\_\-\-A\-R\-G\-S(sta, tid), T\-P\-\_\-\-S\-T\-R\-U\-C\-T\-\_\-\-\_\-entry(S\-T\-A\-\_\-\-E\-N\-T\-R\-Y\-\_\-\-\_\-field(u16, tid)), T\-P\-\_\-fast\-\_\-assign(\hyperlink{driver-trace_8h_abbd837b5fc444c0cb48b5954f8ad068a}{S\-T\-A\-\_\-\-A\-S\-S\-I\-G\-N};\-\_\-\-\_\-entry-\/$>$tid=tid;), T\-P\-\_\-printk(\hyperlink{driver-trace_8h_a73d0cd445b999888e3f21698b769c843}{S\-T\-A\-\_\-\-P\-R\-\_\-\-F\-M\-T}\char`\"{} tid\-:\%d\char`\"{}, S\-T\-A\-\_\-\-P\-R\-\_\-\-A\-R\-G, \-\_\-\-\_\-entry-\/$>$tid))
+\item 
+\hyperlink{driver-trace_8h_a180c624fc94c41ef80cfb88c353bffb0}{T\-R\-A\-C\-E\-\_\-\-E\-V\-E\-N\-T} (api\-\_\-start\-\_\-tx\-\_\-ba\-\_\-cb, T\-P\-\_\-\-P\-R\-O\-T\-O(struct \hyperlink{structieee80211__sub__if__data}{ieee80211\-\_\-sub\-\_\-if\-\_\-data} $\ast$sdata, const u8 $\ast$ra, u16 tid), T\-P\-\_\-\-A\-R\-G\-S(sdata, ra, tid), T\-P\-\_\-\-S\-T\-R\-U\-C\-T\-\_\-\-\_\-entry(V\-I\-F\-\_\-\-E\-N\-T\-R\-Y\-\_\-\-\_\-array(u8, ra, E\-T\-H\-\_\-\-A\-L\-E\-N) \-\_\-\-\_\-field(u16, tid)), T\-P\-\_\-fast\-\_\-assign(\hyperlink{driver-trace_8h_af5ede80f04ffcb3f644f68837b1d252c}{V\-I\-F\-\_\-\-A\-S\-S\-I\-G\-N};memcpy(\-\_\-\-\_\-entry-\/$>$ra, ra, E\-T\-H\-\_\-\-A\-L\-E\-N);\-\_\-\-\_\-entry-\/$>$tid=tid;), T\-P\-\_\-printk(\hyperlink{driver-trace_8h_a50711161ccfc99a73b43b988149a61a5}{V\-I\-F\-\_\-\-P\-R\-\_\-\-F\-M\-T}\char`\"{} ra\-:\%p\-M tid\-:\%d\char`\"{}, V\-I\-F\-\_\-\-P\-R\-\_\-\-A\-R\-G, \-\_\-\-\_\-entry-\/$>$ra, \-\_\-\-\_\-entry-\/$>$tid))
+\item 
+\hyperlink{driver-trace_8h_a28abbcaaad8582ac5ea9adf03455cf05}{T\-R\-A\-C\-E\-\_\-\-E\-V\-E\-N\-T} (api\-\_\-stop\-\_\-tx\-\_\-ba\-\_\-session, T\-P\-\_\-\-P\-R\-O\-T\-O(struct ieee80211\-\_\-sta $\ast$sta, u16 tid), T\-P\-\_\-\-A\-R\-G\-S(sta, tid), T\-P\-\_\-\-S\-T\-R\-U\-C\-T\-\_\-\-\_\-entry(S\-T\-A\-\_\-\-E\-N\-T\-R\-Y\-\_\-\-\_\-field(u16, tid)), T\-P\-\_\-fast\-\_\-assign(\hyperlink{driver-trace_8h_abbd837b5fc444c0cb48b5954f8ad068a}{S\-T\-A\-\_\-\-A\-S\-S\-I\-G\-N};\-\_\-\-\_\-entry-\/$>$tid=tid;), T\-P\-\_\-printk(\hyperlink{driver-trace_8h_a73d0cd445b999888e3f21698b769c843}{S\-T\-A\-\_\-\-P\-R\-\_\-\-F\-M\-T}\char`\"{} tid\-:\%d\char`\"{}, S\-T\-A\-\_\-\-P\-R\-\_\-\-A\-R\-G, \-\_\-\-\_\-entry-\/$>$tid))
+\item 
+\hyperlink{driver-trace_8h_af47d5cd6edab5c635184d77ed2442084}{T\-R\-A\-C\-E\-\_\-\-E\-V\-E\-N\-T} (api\-\_\-stop\-\_\-tx\-\_\-ba\-\_\-cb, T\-P\-\_\-\-P\-R\-O\-T\-O(struct \hyperlink{structieee80211__sub__if__data}{ieee80211\-\_\-sub\-\_\-if\-\_\-data} $\ast$sdata, const u8 $\ast$ra, u16 tid), T\-P\-\_\-\-A\-R\-G\-S(sdata, ra, tid), T\-P\-\_\-\-S\-T\-R\-U\-C\-T\-\_\-\-\_\-entry(V\-I\-F\-\_\-\-E\-N\-T\-R\-Y\-\_\-\-\_\-array(u8, ra, E\-T\-H\-\_\-\-A\-L\-E\-N) \-\_\-\-\_\-field(u16, tid)), T\-P\-\_\-fast\-\_\-assign(\hyperlink{driver-trace_8h_af5ede80f04ffcb3f644f68837b1d252c}{V\-I\-F\-\_\-\-A\-S\-S\-I\-G\-N};memcpy(\-\_\-\-\_\-entry-\/$>$ra, ra, E\-T\-H\-\_\-\-A\-L\-E\-N);\-\_\-\-\_\-entry-\/$>$tid=tid;), T\-P\-\_\-printk(\hyperlink{driver-trace_8h_a50711161ccfc99a73b43b988149a61a5}{V\-I\-F\-\_\-\-P\-R\-\_\-\-F\-M\-T}\char`\"{} ra\-:\%p\-M tid\-:\%d\char`\"{}, V\-I\-F\-\_\-\-P\-R\-\_\-\-A\-R\-G, \-\_\-\-\_\-entry-\/$>$ra, \-\_\-\-\_\-entry-\/$>$tid))
+\item 
+\hyperlink{driver-trace_8h_a8b68e8652601951d2577ac9f0ca9d594}{D\-E\-F\-I\-N\-E\-\_\-\-E\-V\-E\-N\-T} (local\-\_\-only\-\_\-evt, api\-\_\-restart\-\_\-hw, T\-P\-\_\-\-P\-R\-O\-T\-O(struct \hyperlink{structieee80211__local}{ieee80211\-\_\-local} $\ast$local),)
+\item 
+\hyperlink{driver-trace_8h_a887d2b934134e4a5b051f9840613fae4}{T\-R\-A\-C\-E\-\_\-\-E\-V\-E\-N\-T} (api\-\_\-beacon\-\_\-loss, T\-P\-\_\-\-P\-R\-O\-T\-O(struct \hyperlink{structieee80211__sub__if__data}{ieee80211\-\_\-sub\-\_\-if\-\_\-data} $\ast$sdata), T\-P\-\_\-\-A\-R\-G\-S(sdata), T\-P\-\_\-\-S\-T\-R\-U\-C\-T\-\_\-\-\_\-entry(\hyperlink{driver-trace_8h_af9528f0b6f59f04b6c6ab283b1b65d9d}{V\-I\-F\-\_\-\-E\-N\-T\-R\-Y}), T\-P\-\_\-fast\-\_\-assign(\hyperlink{driver-trace_8h_af5ede80f04ffcb3f644f68837b1d252c}{V\-I\-F\-\_\-\-A\-S\-S\-I\-G\-N};), T\-P\-\_\-printk(\hyperlink{driver-trace_8h_a50711161ccfc99a73b43b988149a61a5}{V\-I\-F\-\_\-\-P\-R\-\_\-\-F\-M\-T}, \hyperlink{driver-trace_8h_a12c9f3afcd1c461f7ae2f86fd8503977}{V\-I\-F\-\_\-\-P\-R\-\_\-\-A\-R\-G}))
+\item 
+\hyperlink{driver-trace_8h_a06d325afd22ef8e91117d952351e410a}{T\-R\-A\-C\-E\-\_\-\-E\-V\-E\-N\-T} (api\-\_\-connection\-\_\-loss, T\-P\-\_\-\-P\-R\-O\-T\-O(struct \hyperlink{structieee80211__sub__if__data}{ieee80211\-\_\-sub\-\_\-if\-\_\-data} $\ast$sdata), T\-P\-\_\-\-A\-R\-G\-S(sdata), T\-P\-\_\-\-S\-T\-R\-U\-C\-T\-\_\-\-\_\-entry(\hyperlink{driver-trace_8h_af9528f0b6f59f04b6c6ab283b1b65d9d}{V\-I\-F\-\_\-\-E\-N\-T\-R\-Y}), T\-P\-\_\-fast\-\_\-assign(\hyperlink{driver-trace_8h_af5ede80f04ffcb3f644f68837b1d252c}{V\-I\-F\-\_\-\-A\-S\-S\-I\-G\-N};), T\-P\-\_\-printk(\hyperlink{driver-trace_8h_a50711161ccfc99a73b43b988149a61a5}{V\-I\-F\-\_\-\-P\-R\-\_\-\-F\-M\-T}, \hyperlink{driver-trace_8h_a12c9f3afcd1c461f7ae2f86fd8503977}{V\-I\-F\-\_\-\-P\-R\-\_\-\-A\-R\-G}))
+\item 
+\hyperlink{driver-trace_8h_a6e5431e7f099ab22fd431c64db9dfa29}{T\-R\-A\-C\-E\-\_\-\-E\-V\-E\-N\-T} (api\-\_\-cqm\-\_\-rssi\-\_\-notify, T\-P\-\_\-\-P\-R\-O\-T\-O(struct \hyperlink{structieee80211__sub__if__data}{ieee80211\-\_\-sub\-\_\-if\-\_\-data} $\ast$sdata, enum nl80211\-\_\-cqm\-\_\-rssi\-\_\-threshold\-\_\-event rssi\-\_\-event), T\-P\-\_\-\-A\-R\-G\-S(sdata, rssi\-\_\-event), T\-P\-\_\-\-S\-T\-R\-U\-C\-T\-\_\-\-\_\-entry(V\-I\-F\-\_\-\-E\-N\-T\-R\-Y\-\_\-\-\_\-field(u32, rssi\-\_\-event)), T\-P\-\_\-fast\-\_\-assign(\hyperlink{driver-trace_8h_af5ede80f04ffcb3f644f68837b1d252c}{V\-I\-F\-\_\-\-A\-S\-S\-I\-G\-N};\-\_\-\-\_\-entry-\/$>$rssi\-\_\-event=rssi\-\_\-event;), T\-P\-\_\-printk(\hyperlink{driver-trace_8h_a50711161ccfc99a73b43b988149a61a5}{V\-I\-F\-\_\-\-P\-R\-\_\-\-F\-M\-T}\char`\"{} event\-:\%d\char`\"{}, V\-I\-F\-\_\-\-P\-R\-\_\-\-A\-R\-G, \-\_\-\-\_\-entry-\/$>$rssi\-\_\-event))
+\item 
+\hyperlink{driver-trace_8h_ae33fdca968b0ead0256960e64028d421}{T\-R\-A\-C\-E\-\_\-\-E\-V\-E\-N\-T} (api\-\_\-scan\-\_\-completed, T\-P\-\_\-\-P\-R\-O\-T\-O(struct \hyperlink{structieee80211__local}{ieee80211\-\_\-local} $\ast$local, bool aborted), T\-P\-\_\-\-A\-R\-G\-S(local, aborted), T\-P\-\_\-\-S\-T\-R\-U\-C\-T\-\_\-\-\_\-entry(L\-O\-C\-A\-L\-\_\-\-E\-N\-T\-R\-Y\-\_\-\-\_\-field(bool, aborted)), T\-P\-\_\-fast\-\_\-assign(\hyperlink{driver-trace_8h_ab19d9141887ea92ef9640df06a51e0a1}{L\-O\-C\-A\-L\-\_\-\-A\-S\-S\-I\-G\-N};\-\_\-\-\_\-entry-\/$>$aborted=aborted;), T\-P\-\_\-printk(\hyperlink{driver-trace_8h_a09833af423135e21ffe99a59ae088cf1}{L\-O\-C\-A\-L\-\_\-\-P\-R\-\_\-\-F\-M\-T}\char`\"{} aborted\-:\%d\char`\"{}, L\-O\-C\-A\-L\-\_\-\-P\-R\-\_\-\-A\-R\-G, \-\_\-\-\_\-entry-\/$>$aborted))
+\item 
+\hyperlink{driver-trace_8h_a092d29134a8ac934242375c8f146a1ba}{T\-R\-A\-C\-E\-\_\-\-E\-V\-E\-N\-T} (api\-\_\-sched\-\_\-scan\-\_\-results, T\-P\-\_\-\-P\-R\-O\-T\-O(struct \hyperlink{structieee80211__local}{ieee80211\-\_\-local} $\ast$local), T\-P\-\_\-\-A\-R\-G\-S(local), T\-P\-\_\-\-S\-T\-R\-U\-C\-T\-\_\-\-\_\-entry(\hyperlink{driver-trace_8h_a70464a6fcf42a8540b6e5b4b5530437f}{L\-O\-C\-A\-L\-\_\-\-E\-N\-T\-R\-Y}), T\-P\-\_\-fast\-\_\-assign(\hyperlink{driver-trace_8h_ab19d9141887ea92ef9640df06a51e0a1}{L\-O\-C\-A\-L\-\_\-\-A\-S\-S\-I\-G\-N};), T\-P\-\_\-printk(\hyperlink{driver-trace_8h_a09833af423135e21ffe99a59ae088cf1}{L\-O\-C\-A\-L\-\_\-\-P\-R\-\_\-\-F\-M\-T}, \hyperlink{driver-trace_8h_aa2a77a17621ecb4f0b3926fec90a5538}{L\-O\-C\-A\-L\-\_\-\-P\-R\-\_\-\-A\-R\-G}))
+\item 
+\hyperlink{driver-trace_8h_aff2e748442cb64181b77000c86bd652f}{T\-R\-A\-C\-E\-\_\-\-E\-V\-E\-N\-T} (api\-\_\-sched\-\_\-scan\-\_\-stopped, T\-P\-\_\-\-P\-R\-O\-T\-O(struct \hyperlink{structieee80211__local}{ieee80211\-\_\-local} $\ast$local), T\-P\-\_\-\-A\-R\-G\-S(local), T\-P\-\_\-\-S\-T\-R\-U\-C\-T\-\_\-\-\_\-entry(\hyperlink{driver-trace_8h_a70464a6fcf42a8540b6e5b4b5530437f}{L\-O\-C\-A\-L\-\_\-\-E\-N\-T\-R\-Y}), T\-P\-\_\-fast\-\_\-assign(\hyperlink{driver-trace_8h_ab19d9141887ea92ef9640df06a51e0a1}{L\-O\-C\-A\-L\-\_\-\-A\-S\-S\-I\-G\-N};), T\-P\-\_\-printk(\hyperlink{driver-trace_8h_a09833af423135e21ffe99a59ae088cf1}{L\-O\-C\-A\-L\-\_\-\-P\-R\-\_\-\-F\-M\-T}, \hyperlink{driver-trace_8h_aa2a77a17621ecb4f0b3926fec90a5538}{L\-O\-C\-A\-L\-\_\-\-P\-R\-\_\-\-A\-R\-G}))
+\item 
+\hyperlink{driver-trace_8h_a63770dcb8f073c4d9df3979a925aadfe}{T\-R\-A\-C\-E\-\_\-\-E\-V\-E\-N\-T} (api\-\_\-sta\-\_\-block\-\_\-awake, T\-P\-\_\-\-P\-R\-O\-T\-O(struct \hyperlink{structieee80211__local}{ieee80211\-\_\-local} $\ast$local, struct ieee80211\-\_\-sta $\ast$sta, bool block), T\-P\-\_\-\-A\-R\-G\-S(local, sta, block), T\-P\-\_\-\-S\-T\-R\-U\-C\-T\-\_\-\-\_\-entry(L\-O\-C\-A\-L\-\_\-\-E\-N\-T\-R\-Y\-S\-T\-A\-\_\-\-E\-N\-T\-R\-Y\-\_\-\-\_\-field(bool, block)), T\-P\-\_\-fast\-\_\-assign(\hyperlink{driver-trace_8h_ab19d9141887ea92ef9640df06a51e0a1}{L\-O\-C\-A\-L\-\_\-\-A\-S\-S\-I\-G\-N};\hyperlink{driver-trace_8h_abbd837b5fc444c0cb48b5954f8ad068a}{S\-T\-A\-\_\-\-A\-S\-S\-I\-G\-N};\-\_\-\-\_\-entry-\/$>$block=block;), T\-P\-\_\-printk(\hyperlink{driver-trace_8h_a09833af423135e21ffe99a59ae088cf1}{L\-O\-C\-A\-L\-\_\-\-P\-R\-\_\-\-F\-M\-T} \hyperlink{driver-trace_8h_a73d0cd445b999888e3f21698b769c843}{S\-T\-A\-\_\-\-P\-R\-\_\-\-F\-M\-T}\char`\"{} block\-:\%d\char`\"{}, L\-O\-C\-A\-L\-\_\-\-P\-R\-\_\-\-A\-R\-G, \hyperlink{driver-trace_8h_a73d0cd445b999888e3f21698b769c843}{S\-T\-A\-\_\-\-P\-R\-\_\-\-F\-M\-T}, \-\_\-\-\_\-entry-\/$>$block))
+\item 
+\hyperlink{driver-trace_8h_a6f5c84df6b12860bf8eb69dc156dea86}{T\-R\-A\-C\-E\-\_\-\-E\-V\-E\-N\-T} (api\-\_\-chswitch\-\_\-done, T\-P\-\_\-\-P\-R\-O\-T\-O(struct \hyperlink{structieee80211__sub__if__data}{ieee80211\-\_\-sub\-\_\-if\-\_\-data} $\ast$sdata, bool success), T\-P\-\_\-\-A\-R\-G\-S(sdata, success), T\-P\-\_\-\-S\-T\-R\-U\-C\-T\-\_\-\-\_\-entry(V\-I\-F\-\_\-\-E\-N\-T\-R\-Y\-\_\-\-\_\-field(bool, success)), T\-P\-\_\-fast\-\_\-assign(\hyperlink{driver-trace_8h_af5ede80f04ffcb3f644f68837b1d252c}{V\-I\-F\-\_\-\-A\-S\-S\-I\-G\-N};\-\_\-\-\_\-entry-\/$>$success=success;), T\-P\-\_\-printk(\hyperlink{driver-trace_8h_a50711161ccfc99a73b43b988149a61a5}{V\-I\-F\-\_\-\-P\-R\-\_\-\-F\-M\-T}\char`\"{} success=\%d\char`\"{}, V\-I\-F\-\_\-\-P\-R\-\_\-\-A\-R\-G, \-\_\-\-\_\-entry-\/$>$success))
+\item 
+\hyperlink{driver-trace_8h_a2626a0f88175be75dd9d32be5cf917cb}{D\-E\-F\-I\-N\-E\-\_\-\-E\-V\-E\-N\-T} (local\-\_\-only\-\_\-evt, api\-\_\-ready\-\_\-on\-\_\-channel, T\-P\-\_\-\-P\-R\-O\-T\-O(struct \hyperlink{structieee80211__local}{ieee80211\-\_\-local} $\ast$local),)
+\item 
+\hyperlink{driver-trace_8h_a6a9acbc9aeb95a144d0f2ec4f2a0adc0}{D\-E\-F\-I\-N\-E\-\_\-\-E\-V\-E\-N\-T} (local\-\_\-only\-\_\-evt, api\-\_\-remain\-\_\-on\-\_\-channel\-\_\-expired, T\-P\-\_\-\-P\-R\-O\-T\-O(struct \hyperlink{structieee80211__local}{ieee80211\-\_\-local} $\ast$local),)
+\item 
+\hyperlink{driver-trace_8h_a918645dca1f6488ecb2cb1616e4e311d}{T\-R\-A\-C\-E\-\_\-\-E\-V\-E\-N\-T} (api\-\_\-gtk\-\_\-rekey\-\_\-notify, T\-P\-\_\-\-P\-R\-O\-T\-O(struct \hyperlink{structieee80211__sub__if__data}{ieee80211\-\_\-sub\-\_\-if\-\_\-data} $\ast$sdata, const u8 $\ast$bssid, const u8 $\ast$replay\-\_\-ctr), T\-P\-\_\-\-A\-R\-G\-S(sdata, bssid, replay\-\_\-ctr), T\-P\-\_\-\-S\-T\-R\-U\-C\-T\-\_\-\-\_\-entry(V\-I\-F\-\_\-\-E\-N\-T\-R\-Y\-\_\-\-\_\-array(u8, bssid, E\-T\-H\-\_\-\-A\-L\-E\-N) \-\_\-\-\_\-array(u8, replay\-\_\-ctr, N\-L80211\-\_\-\-R\-E\-P\-L\-A\-Y\-\_\-\-C\-T\-R\-\_\-\-L\-E\-N)), T\-P\-\_\-fast\-\_\-assign(\hyperlink{driver-trace_8h_af5ede80f04ffcb3f644f68837b1d252c}{V\-I\-F\-\_\-\-A\-S\-S\-I\-G\-N};memcpy(\-\_\-\-\_\-entry-\/$>$bssid, bssid, E\-T\-H\-\_\-\-A\-L\-E\-N);memcpy(\-\_\-\-\_\-entry-\/$>$replay\-\_\-ctr, replay\-\_\-ctr, N\-L80211\-\_\-\-R\-E\-P\-L\-A\-Y\-\_\-\-C\-T\-R\-\_\-\-L\-E\-N);), T\-P\-\_\-printk(\hyperlink{driver-trace_8h_a50711161ccfc99a73b43b988149a61a5}{V\-I\-F\-\_\-\-P\-R\-\_\-\-F\-M\-T}, \hyperlink{driver-trace_8h_a12c9f3afcd1c461f7ae2f86fd8503977}{V\-I\-F\-\_\-\-P\-R\-\_\-\-A\-R\-G}))
+\item 
+\hyperlink{driver-trace_8h_a127024ae0810a79a83c49b8a87db4e2c}{T\-R\-A\-C\-E\-\_\-\-E\-V\-E\-N\-T} (api\-\_\-enable\-\_\-rssi\-\_\-reports, T\-P\-\_\-\-P\-R\-O\-T\-O(struct \hyperlink{structieee80211__sub__if__data}{ieee80211\-\_\-sub\-\_\-if\-\_\-data} $\ast$sdata, int rssi\-\_\-min\-\_\-thold, int rssi\-\_\-max\-\_\-thold), T\-P\-\_\-\-A\-R\-G\-S(sdata, rssi\-\_\-min\-\_\-thold, rssi\-\_\-max\-\_\-thold), T\-P\-\_\-\-S\-T\-R\-U\-C\-T\-\_\-\-\_\-entry(V\-I\-F\-\_\-\-E\-N\-T\-R\-Y\-\_\-\-\_\-field(int, rssi\-\_\-min\-\_\-thold) \-\_\-\-\_\-field(int, rssi\-\_\-max\-\_\-thold)), T\-P\-\_\-fast\-\_\-assign(\hyperlink{driver-trace_8h_af5ede80f04ffcb3f644f68837b1d252c}{V\-I\-F\-\_\-\-A\-S\-S\-I\-G\-N};\-\_\-\-\_\-entry-\/$>$rssi\-\_\-min\-\_\-thold=rssi\-\_\-min\-\_\-thold;\-\_\-\-\_\-entry-\/$>$rssi\-\_\-max\-\_\-thold=rssi\-\_\-max\-\_\-thold;), T\-P\-\_\-printk(\hyperlink{driver-trace_8h_a50711161ccfc99a73b43b988149a61a5}{V\-I\-F\-\_\-\-P\-R\-\_\-\-F\-M\-T}\char`\"{} rssi\-\_\-min\-\_\-thold =\%d, rssi\-\_\-max\-\_\-thold = \%d\char`\"{}, V\-I\-F\-\_\-\-P\-R\-\_\-\-A\-R\-G, \-\_\-\-\_\-entry-\/$>$rssi\-\_\-min\-\_\-thold, \-\_\-\-\_\-entry-\/$>$rssi\-\_\-max\-\_\-thold))
+\item 
+\hyperlink{driver-trace_8h_a0a6fb63e81d42767a656a27c5ebb7b0d}{T\-R\-A\-C\-E\-\_\-\-E\-V\-E\-N\-T} (api\-\_\-eosp, T\-P\-\_\-\-P\-R\-O\-T\-O(struct \hyperlink{structieee80211__local}{ieee80211\-\_\-local} $\ast$local, struct ieee80211\-\_\-sta $\ast$sta), T\-P\-\_\-\-A\-R\-G\-S(local, sta), T\-P\-\_\-\-S\-T\-R\-U\-C\-T\-\_\-\-\_\-entry(L\-O\-C\-A\-L\-\_\-\-E\-N\-T\-R\-Y\-S\-T\-A\-\_\-\-E\-N\-T\-R\-Y), T\-P\-\_\-fast\-\_\-assign(\hyperlink{driver-trace_8h_ab19d9141887ea92ef9640df06a51e0a1}{L\-O\-C\-A\-L\-\_\-\-A\-S\-S\-I\-G\-N};\hyperlink{driver-trace_8h_abbd837b5fc444c0cb48b5954f8ad068a}{S\-T\-A\-\_\-\-A\-S\-S\-I\-G\-N};), T\-P\-\_\-printk(\hyperlink{driver-trace_8h_a09833af423135e21ffe99a59ae088cf1}{L\-O\-C\-A\-L\-\_\-\-P\-R\-\_\-\-F\-M\-T} \hyperlink{driver-trace_8h_a73d0cd445b999888e3f21698b769c843}{S\-T\-A\-\_\-\-P\-R\-\_\-\-F\-M\-T}, \hyperlink{driver-trace_8h_aa2a77a17621ecb4f0b3926fec90a5538}{L\-O\-C\-A\-L\-\_\-\-P\-R\-\_\-\-A\-R\-G}, \hyperlink{driver-trace_8h_a73d0cd445b999888e3f21698b769c843}{S\-T\-A\-\_\-\-P\-R\-\_\-\-F\-M\-T}))
+\item 
+\hyperlink{driver-trace_8h_ada71346e4ff7d3d56a8ea528309184c7}{T\-R\-A\-C\-E\-\_\-\-E\-V\-E\-N\-T} (wake\-\_\-queue, T\-P\-\_\-\-P\-R\-O\-T\-O(struct \hyperlink{structieee80211__local}{ieee80211\-\_\-local} $\ast$local, u16 queue, enum \hyperlink{ieee80211__i_8h_a4460446e58caf1e68958b737910a5c48}{queue\-\_\-stop\-\_\-reason} reason), T\-P\-\_\-\-A\-R\-G\-S(local, queue, reason), T\-P\-\_\-\-S\-T\-R\-U\-C\-T\-\_\-\-\_\-entry(L\-O\-C\-A\-L\-\_\-\-E\-N\-T\-R\-Y\-\_\-\-\_\-field(u16, queue) \-\_\-\-\_\-field(u32, reason)), T\-P\-\_\-fast\-\_\-assign(\hyperlink{driver-trace_8h_ab19d9141887ea92ef9640df06a51e0a1}{L\-O\-C\-A\-L\-\_\-\-A\-S\-S\-I\-G\-N};\-\_\-\-\_\-entry-\/$>$queue=queue;\-\_\-\-\_\-entry-\/$>$reason=reason;), T\-P\-\_\-printk(\hyperlink{driver-trace_8h_a09833af423135e21ffe99a59ae088cf1}{L\-O\-C\-A\-L\-\_\-\-P\-R\-\_\-\-F\-M\-T}\char`\"{} queue\-:\%d, reason\-:\%d\char`\"{}, L\-O\-C\-A\-L\-\_\-\-P\-R\-\_\-\-A\-R\-G, \-\_\-\-\_\-entry-\/$>$queue, \-\_\-\-\_\-entry-\/$>$reason))
+\item 
+\hyperlink{driver-trace_8h_ad1b961e7a105be9259f51d1c6ed2c549}{T\-R\-A\-C\-E\-\_\-\-E\-V\-E\-N\-T} (stop\-\_\-queue, T\-P\-\_\-\-P\-R\-O\-T\-O(struct \hyperlink{structieee80211__local}{ieee80211\-\_\-local} $\ast$local, u16 queue, enum \hyperlink{ieee80211__i_8h_a4460446e58caf1e68958b737910a5c48}{queue\-\_\-stop\-\_\-reason} reason), T\-P\-\_\-\-A\-R\-G\-S(local, queue, reason), T\-P\-\_\-\-S\-T\-R\-U\-C\-T\-\_\-\-\_\-entry(L\-O\-C\-A\-L\-\_\-\-E\-N\-T\-R\-Y\-\_\-\-\_\-field(u16, queue) \-\_\-\-\_\-field(u32, reason)), T\-P\-\_\-fast\-\_\-assign(\hyperlink{driver-trace_8h_ab19d9141887ea92ef9640df06a51e0a1}{L\-O\-C\-A\-L\-\_\-\-A\-S\-S\-I\-G\-N};\-\_\-\-\_\-entry-\/$>$queue=queue;\-\_\-\-\_\-entry-\/$>$reason=reason;), T\-P\-\_\-printk(\hyperlink{driver-trace_8h_a09833af423135e21ffe99a59ae088cf1}{L\-O\-C\-A\-L\-\_\-\-P\-R\-\_\-\-F\-M\-T}\char`\"{} queue\-:\%d, reason\-:\%d\char`\"{}, L\-O\-C\-A\-L\-\_\-\-P\-R\-\_\-\-A\-R\-G, \-\_\-\-\_\-entry-\/$>$queue, \-\_\-\-\_\-entry-\/$>$reason))
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{driver-trace_8h_af0133dcc68c991c92720fdb90ee75d3b}{\index{driver-\/trace.\-h@{driver-\/trace.\-h}!\-\_\-\-\_\-\-M\-A\-C80211\-\_\-\-D\-R\-I\-V\-E\-R\-\_\-\-T\-R\-A\-C\-E@{\-\_\-\-\_\-\-M\-A\-C80211\-\_\-\-D\-R\-I\-V\-E\-R\-\_\-\-T\-R\-A\-C\-E}}
+\index{\-\_\-\-\_\-\-M\-A\-C80211\-\_\-\-D\-R\-I\-V\-E\-R\-\_\-\-T\-R\-A\-C\-E@{\-\_\-\-\_\-\-M\-A\-C80211\-\_\-\-D\-R\-I\-V\-E\-R\-\_\-\-T\-R\-A\-C\-E}!driver-trace.h@{driver-\/trace.\-h}}
+\subsubsection[{\-\_\-\-\_\-\-M\-A\-C80211\-\_\-\-D\-R\-I\-V\-E\-R\-\_\-\-T\-R\-A\-C\-E}]{\setlength{\rightskip}{0pt plus 5cm}\#define \-\_\-\-\_\-\-M\-A\-C80211\-\_\-\-D\-R\-I\-V\-E\-R\-\_\-\-T\-R\-A\-C\-E}}\label{driver-trace_8h_af0133dcc68c991c92720fdb90ee75d3b}
+
+
+Definition at line 2 of file driver-\/trace.\-h.
+
+\hypertarget{driver-trace_8h_ab19d9141887ea92ef9640df06a51e0a1}{\index{driver-\/trace.\-h@{driver-\/trace.\-h}!L\-O\-C\-A\-L\-\_\-\-A\-S\-S\-I\-G\-N@{L\-O\-C\-A\-L\-\_\-\-A\-S\-S\-I\-G\-N}}
+\index{L\-O\-C\-A\-L\-\_\-\-A\-S\-S\-I\-G\-N@{L\-O\-C\-A\-L\-\_\-\-A\-S\-S\-I\-G\-N}!driver-trace.h@{driver-\/trace.\-h}}
+\subsubsection[{L\-O\-C\-A\-L\-\_\-\-A\-S\-S\-I\-G\-N}]{\setlength{\rightskip}{0pt plus 5cm}\#define L\-O\-C\-A\-L\-\_\-\-A\-S\-S\-I\-G\-N~strlcpy(\-\_\-\-\_\-entry-\/$>$wiphy\-\_\-name, wiphy\-\_\-name(local-\/$>$hw.\-wiphy), {\bf M\-A\-X\-N\-A\-M\-E})}}\label{driver-trace_8h_ab19d9141887ea92ef9640df06a51e0a1}
+
+
+Definition at line 13 of file driver-\/trace.\-h.
+
+\hypertarget{driver-trace_8h_a70464a6fcf42a8540b6e5b4b5530437f}{\index{driver-\/trace.\-h@{driver-\/trace.\-h}!L\-O\-C\-A\-L\-\_\-\-E\-N\-T\-R\-Y@{L\-O\-C\-A\-L\-\_\-\-E\-N\-T\-R\-Y}}
+\index{L\-O\-C\-A\-L\-\_\-\-E\-N\-T\-R\-Y@{L\-O\-C\-A\-L\-\_\-\-E\-N\-T\-R\-Y}!driver-trace.h@{driver-\/trace.\-h}}
+\subsubsection[{L\-O\-C\-A\-L\-\_\-\-E\-N\-T\-R\-Y}]{\setlength{\rightskip}{0pt plus 5cm}\#define L\-O\-C\-A\-L\-\_\-\-E\-N\-T\-R\-Y~\-\_\-\-\_\-array(char, wiphy\-\_\-name, 32)}}\label{driver-trace_8h_a70464a6fcf42a8540b6e5b4b5530437f}
+
+
+Definition at line 12 of file driver-\/trace.\-h.
+
+\hypertarget{driver-trace_8h_aa2a77a17621ecb4f0b3926fec90a5538}{\index{driver-\/trace.\-h@{driver-\/trace.\-h}!L\-O\-C\-A\-L\-\_\-\-P\-R\-\_\-\-A\-R\-G@{L\-O\-C\-A\-L\-\_\-\-P\-R\-\_\-\-A\-R\-G}}
+\index{L\-O\-C\-A\-L\-\_\-\-P\-R\-\_\-\-A\-R\-G@{L\-O\-C\-A\-L\-\_\-\-P\-R\-\_\-\-A\-R\-G}!driver-trace.h@{driver-\/trace.\-h}}
+\subsubsection[{L\-O\-C\-A\-L\-\_\-\-P\-R\-\_\-\-A\-R\-G}]{\setlength{\rightskip}{0pt plus 5cm}\#define L\-O\-C\-A\-L\-\_\-\-P\-R\-\_\-\-A\-R\-G~\-\_\-\-\_\-entry-\/$>$wiphy\-\_\-name}}\label{driver-trace_8h_aa2a77a17621ecb4f0b3926fec90a5538}
+
+
+Definition at line 15 of file driver-\/trace.\-h.
+
+\hypertarget{driver-trace_8h_a09833af423135e21ffe99a59ae088cf1}{\index{driver-\/trace.\-h@{driver-\/trace.\-h}!L\-O\-C\-A\-L\-\_\-\-P\-R\-\_\-\-F\-M\-T@{L\-O\-C\-A\-L\-\_\-\-P\-R\-\_\-\-F\-M\-T}}
+\index{L\-O\-C\-A\-L\-\_\-\-P\-R\-\_\-\-F\-M\-T@{L\-O\-C\-A\-L\-\_\-\-P\-R\-\_\-\-F\-M\-T}!driver-trace.h@{driver-\/trace.\-h}}
+\subsubsection[{L\-O\-C\-A\-L\-\_\-\-P\-R\-\_\-\-F\-M\-T}]{\setlength{\rightskip}{0pt plus 5cm}\#define L\-O\-C\-A\-L\-\_\-\-P\-R\-\_\-\-F\-M\-T~\char`\"{}\%s\char`\"{}}}\label{driver-trace_8h_a09833af423135e21ffe99a59ae088cf1}
+
+
+Definition at line 14 of file driver-\/trace.\-h.
+
+\hypertarget{driver-trace_8h_ac881f02a50b29d3ffa5b1f4a0e4f9568}{\index{driver-\/trace.\-h@{driver-\/trace.\-h}!M\-A\-X\-N\-A\-M\-E@{M\-A\-X\-N\-A\-M\-E}}
+\index{M\-A\-X\-N\-A\-M\-E@{M\-A\-X\-N\-A\-M\-E}!driver-trace.h@{driver-\/trace.\-h}}
+\subsubsection[{M\-A\-X\-N\-A\-M\-E}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\-A\-X\-N\-A\-M\-E~32}}\label{driver-trace_8h_ac881f02a50b29d3ffa5b1f4a0e4f9568}
+
+
+Definition at line 11 of file driver-\/trace.\-h.
+
+\hypertarget{driver-trace_8h_abbd837b5fc444c0cb48b5954f8ad068a}{\index{driver-\/trace.\-h@{driver-\/trace.\-h}!S\-T\-A\-\_\-\-A\-S\-S\-I\-G\-N@{S\-T\-A\-\_\-\-A\-S\-S\-I\-G\-N}}
+\index{S\-T\-A\-\_\-\-A\-S\-S\-I\-G\-N@{S\-T\-A\-\_\-\-A\-S\-S\-I\-G\-N}!driver-trace.h@{driver-\/trace.\-h}}
+\subsubsection[{S\-T\-A\-\_\-\-A\-S\-S\-I\-G\-N}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\-T\-A\-\_\-\-A\-S\-S\-I\-G\-N~(sta ? memcpy(\-\_\-\-\_\-entry-\/$>$sta\-\_\-addr, sta-\/$>$addr, E\-T\-H\-\_\-\-A\-L\-E\-N) \-: memset(\-\_\-\-\_\-entry-\/$>$sta\-\_\-addr, 0, E\-T\-H\-\_\-\-A\-L\-E\-N))}}\label{driver-trace_8h_abbd837b5fc444c0cb48b5954f8ad068a}
+
+
+Definition at line 18 of file driver-\/trace.\-h.
+
+\hypertarget{driver-trace_8h_a8e20dfda2de8535eb923ec3900c01034}{\index{driver-\/trace.\-h@{driver-\/trace.\-h}!S\-T\-A\-\_\-\-E\-N\-T\-R\-Y@{S\-T\-A\-\_\-\-E\-N\-T\-R\-Y}}
+\index{S\-T\-A\-\_\-\-E\-N\-T\-R\-Y@{S\-T\-A\-\_\-\-E\-N\-T\-R\-Y}!driver-trace.h@{driver-\/trace.\-h}}
+\subsubsection[{S\-T\-A\-\_\-\-E\-N\-T\-R\-Y}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\-T\-A\-\_\-\-E\-N\-T\-R\-Y~\-\_\-\-\_\-array(char, sta\-\_\-addr, E\-T\-H\-\_\-\-A\-L\-E\-N)}}\label{driver-trace_8h_a8e20dfda2de8535eb923ec3900c01034}
+
+
+Definition at line 17 of file driver-\/trace.\-h.
+
+\hypertarget{driver-trace_8h_a3b71cc34bae124028f19970a4220d4ab}{\index{driver-\/trace.\-h@{driver-\/trace.\-h}!S\-T\-A\-\_\-\-P\-R\-\_\-\-A\-R\-G@{S\-T\-A\-\_\-\-P\-R\-\_\-\-A\-R\-G}}
+\index{S\-T\-A\-\_\-\-P\-R\-\_\-\-A\-R\-G@{S\-T\-A\-\_\-\-P\-R\-\_\-\-A\-R\-G}!driver-trace.h@{driver-\/trace.\-h}}
+\subsubsection[{S\-T\-A\-\_\-\-P\-R\-\_\-\-A\-R\-G}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\-T\-A\-\_\-\-P\-R\-\_\-\-A\-R\-G~\-\_\-\-\_\-entry-\/$>$sta\-\_\-addr}}\label{driver-trace_8h_a3b71cc34bae124028f19970a4220d4ab}
+
+
+Definition at line 20 of file driver-\/trace.\-h.
+
+\hypertarget{driver-trace_8h_a73d0cd445b999888e3f21698b769c843}{\index{driver-\/trace.\-h@{driver-\/trace.\-h}!S\-T\-A\-\_\-\-P\-R\-\_\-\-F\-M\-T@{S\-T\-A\-\_\-\-P\-R\-\_\-\-F\-M\-T}}
+\index{S\-T\-A\-\_\-\-P\-R\-\_\-\-F\-M\-T@{S\-T\-A\-\_\-\-P\-R\-\_\-\-F\-M\-T}!driver-trace.h@{driver-\/trace.\-h}}
+\subsubsection[{S\-T\-A\-\_\-\-P\-R\-\_\-\-F\-M\-T}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\-T\-A\-\_\-\-P\-R\-\_\-\-F\-M\-T~\char`\"{} sta\-:\%p\-M\char`\"{}}}\label{driver-trace_8h_a73d0cd445b999888e3f21698b769c843}
+
+
+Definition at line 19 of file driver-\/trace.\-h.
+
+\hypertarget{driver-trace_8h_a1d5647dfae4ac3375129dfe95a164965}{\index{driver-\/trace.\-h@{driver-\/trace.\-h}!T\-R\-A\-C\-E\-\_\-\-I\-N\-C\-L\-U\-D\-E\-\_\-\-F\-I\-L\-E@{T\-R\-A\-C\-E\-\_\-\-I\-N\-C\-L\-U\-D\-E\-\_\-\-F\-I\-L\-E}}
+\index{T\-R\-A\-C\-E\-\_\-\-I\-N\-C\-L\-U\-D\-E\-\_\-\-F\-I\-L\-E@{T\-R\-A\-C\-E\-\_\-\-I\-N\-C\-L\-U\-D\-E\-\_\-\-F\-I\-L\-E}!driver-trace.h@{driver-\/trace.\-h}}
+\subsubsection[{T\-R\-A\-C\-E\-\_\-\-I\-N\-C\-L\-U\-D\-E\-\_\-\-F\-I\-L\-E}]{\setlength{\rightskip}{0pt plus 5cm}\#define T\-R\-A\-C\-E\-\_\-\-I\-N\-C\-L\-U\-D\-E\-\_\-\-F\-I\-L\-E~driver-\/trace}}\label{driver-trace_8h_a1d5647dfae4ac3375129dfe95a164965}
+
+
+Definition at line 1558 of file driver-\/trace.\-h.
+
+\hypertarget{driver-trace_8h_ac6a9ac061dda1a2beb782b3c9b44e77a}{\index{driver-\/trace.\-h@{driver-\/trace.\-h}!T\-R\-A\-C\-E\-\_\-\-I\-N\-C\-L\-U\-D\-E\-\_\-\-P\-A\-T\-H@{T\-R\-A\-C\-E\-\_\-\-I\-N\-C\-L\-U\-D\-E\-\_\-\-P\-A\-T\-H}}
+\index{T\-R\-A\-C\-E\-\_\-\-I\-N\-C\-L\-U\-D\-E\-\_\-\-P\-A\-T\-H@{T\-R\-A\-C\-E\-\_\-\-I\-N\-C\-L\-U\-D\-E\-\_\-\-P\-A\-T\-H}!driver-trace.h@{driver-\/trace.\-h}}
+\subsubsection[{T\-R\-A\-C\-E\-\_\-\-I\-N\-C\-L\-U\-D\-E\-\_\-\-P\-A\-T\-H}]{\setlength{\rightskip}{0pt plus 5cm}\#define T\-R\-A\-C\-E\-\_\-\-I\-N\-C\-L\-U\-D\-E\-\_\-\-P\-A\-T\-H~.}}\label{driver-trace_8h_ac6a9ac061dda1a2beb782b3c9b44e77a}
+
+
+Definition at line 1556 of file driver-\/trace.\-h.
+
+\hypertarget{driver-trace_8h_a975ccf160f8e752c8162e389690b0961}{\index{driver-\/trace.\-h@{driver-\/trace.\-h}!T\-R\-A\-C\-E\-\_\-\-S\-Y\-S\-T\-E\-M@{T\-R\-A\-C\-E\-\_\-\-S\-Y\-S\-T\-E\-M}}
+\index{T\-R\-A\-C\-E\-\_\-\-S\-Y\-S\-T\-E\-M@{T\-R\-A\-C\-E\-\_\-\-S\-Y\-S\-T\-E\-M}!driver-trace.h@{driver-\/trace.\-h}}
+\subsubsection[{T\-R\-A\-C\-E\-\_\-\-S\-Y\-S\-T\-E\-M}]{\setlength{\rightskip}{0pt plus 5cm}\#define T\-R\-A\-C\-E\-\_\-\-S\-Y\-S\-T\-E\-M~mac80211}}\label{driver-trace_8h_a975ccf160f8e752c8162e389690b0961}
+
+
+Definition at line 9 of file driver-\/trace.\-h.
+
+\hypertarget{driver-trace_8h_af5ede80f04ffcb3f644f68837b1d252c}{\index{driver-\/trace.\-h@{driver-\/trace.\-h}!V\-I\-F\-\_\-\-A\-S\-S\-I\-G\-N@{V\-I\-F\-\_\-\-A\-S\-S\-I\-G\-N}}
+\index{V\-I\-F\-\_\-\-A\-S\-S\-I\-G\-N@{V\-I\-F\-\_\-\-A\-S\-S\-I\-G\-N}!driver-trace.h@{driver-\/trace.\-h}}
+\subsubsection[{V\-I\-F\-\_\-\-A\-S\-S\-I\-G\-N}]{\setlength{\rightskip}{0pt plus 5cm}\#define V\-I\-F\-\_\-\-A\-S\-S\-I\-G\-N}}\label{driver-trace_8h_af5ede80f04ffcb3f644f68837b1d252c}
+{\bfseries Value\-:}
+\begin{DoxyCode}
+\_\_entry->vif\_type = sdata->vif.type; \_\_entry->sdata = sdata;    \(\backslash\)
+            \_\_entry->p2p = sdata->vif.p2p;                  \(\backslash\)
+            \_\_assign\_str(vif\_name, sdata->dev ? sdata->dev->name : \textcolor{stringliteral}{"<nodev>"})
+\end{DoxyCode}
+
+
+Definition at line 25 of file driver-\/trace.\-h.
+
+\hypertarget{driver-trace_8h_af9528f0b6f59f04b6c6ab283b1b65d9d}{\index{driver-\/trace.\-h@{driver-\/trace.\-h}!V\-I\-F\-\_\-\-E\-N\-T\-R\-Y@{V\-I\-F\-\_\-\-E\-N\-T\-R\-Y}}
+\index{V\-I\-F\-\_\-\-E\-N\-T\-R\-Y@{V\-I\-F\-\_\-\-E\-N\-T\-R\-Y}!driver-trace.h@{driver-\/trace.\-h}}
+\subsubsection[{V\-I\-F\-\_\-\-E\-N\-T\-R\-Y}]{\setlength{\rightskip}{0pt plus 5cm}\#define V\-I\-F\-\_\-\-E\-N\-T\-R\-Y}}\label{driver-trace_8h_af9528f0b6f59f04b6c6ab283b1b65d9d}
+{\bfseries Value\-:}
+\begin{DoxyCode}
+\_\_field(\textcolor{keyword}{enum} nl80211\_iftype, vif\_type) \_\_field(\textcolor{keywordtype}{void} *, sdata)   \(\backslash\)
+            \_\_field(\textcolor{keywordtype}{bool}, p2p)                      \(\backslash\)
+            \_\_string(vif\_name, sdata->dev ? sdata->dev->name : "<nodev>")
+\end{DoxyCode}
+
+
+Definition at line 22 of file driver-\/trace.\-h.
+
+\hypertarget{driver-trace_8h_a12c9f3afcd1c461f7ae2f86fd8503977}{\index{driver-\/trace.\-h@{driver-\/trace.\-h}!V\-I\-F\-\_\-\-P\-R\-\_\-\-A\-R\-G@{V\-I\-F\-\_\-\-P\-R\-\_\-\-A\-R\-G}}
+\index{V\-I\-F\-\_\-\-P\-R\-\_\-\-A\-R\-G@{V\-I\-F\-\_\-\-P\-R\-\_\-\-A\-R\-G}!driver-trace.h@{driver-\/trace.\-h}}
+\subsubsection[{V\-I\-F\-\_\-\-P\-R\-\_\-\-A\-R\-G}]{\setlength{\rightskip}{0pt plus 5cm}\#define V\-I\-F\-\_\-\-P\-R\-\_\-\-A\-R\-G~\-\_\-\-\_\-get\-\_\-str(vif\-\_\-name), \-\_\-\-\_\-entry-\/$>$vif\-\_\-type, \-\_\-\-\_\-entry-\/$>$p2p ? \char`\"{}/p2p\char`\"{} \-: \char`\"{}\char`\"{}}}\label{driver-trace_8h_a12c9f3afcd1c461f7ae2f86fd8503977}
+
+
+Definition at line 29 of file driver-\/trace.\-h.
+
+\hypertarget{driver-trace_8h_a50711161ccfc99a73b43b988149a61a5}{\index{driver-\/trace.\-h@{driver-\/trace.\-h}!V\-I\-F\-\_\-\-P\-R\-\_\-\-F\-M\-T@{V\-I\-F\-\_\-\-P\-R\-\_\-\-F\-M\-T}}
+\index{V\-I\-F\-\_\-\-P\-R\-\_\-\-F\-M\-T@{V\-I\-F\-\_\-\-P\-R\-\_\-\-F\-M\-T}!driver-trace.h@{driver-\/trace.\-h}}
+\subsubsection[{V\-I\-F\-\_\-\-P\-R\-\_\-\-F\-M\-T}]{\setlength{\rightskip}{0pt plus 5cm}\#define V\-I\-F\-\_\-\-P\-R\-\_\-\-F\-M\-T~\char`\"{} vif\-:\%s(\%d\%s)\char`\"{}}}\label{driver-trace_8h_a50711161ccfc99a73b43b988149a61a5}
+
+
+Definition at line 28 of file driver-\/trace.\-h.
+
+
+
+\subsection{Function Documentation}
+\hypertarget{driver-trace_8h_a8e4625fa1c8f4b327f53426b64b498f2}{\index{driver-\/trace.\-h@{driver-\/trace.\-h}!D\-E\-C\-L\-A\-R\-E\-\_\-\-E\-V\-E\-N\-T\-\_\-\-C\-L\-A\-S\-S@{D\-E\-C\-L\-A\-R\-E\-\_\-\-E\-V\-E\-N\-T\-\_\-\-C\-L\-A\-S\-S}}
+\index{D\-E\-C\-L\-A\-R\-E\-\_\-\-E\-V\-E\-N\-T\-\_\-\-C\-L\-A\-S\-S@{D\-E\-C\-L\-A\-R\-E\-\_\-\-E\-V\-E\-N\-T\-\_\-\-C\-L\-A\-S\-S}!driver-trace.h@{driver-\/trace.\-h}}
+\subsubsection[{D\-E\-C\-L\-A\-R\-E\-\_\-\-E\-V\-E\-N\-T\-\_\-\-C\-L\-A\-S\-S}]{\setlength{\rightskip}{0pt plus 5cm}D\-E\-C\-L\-A\-R\-E\-\_\-\-E\-V\-E\-N\-T\-\_\-\-C\-L\-A\-S\-S (
+\begin{DoxyParamCaption}
+\item[{local\-\_\-only\-\_\-evt}]{, }
+\item[{T\-P\-\_\-\-P\-R\-O\-T\-O(struct {\bf ieee80211\-\_\-local} $\ast$local)}]{, }
+\item[{T\-P\-\_\-\-A\-R\-G\-S(local)}]{, }
+\item[{T\-P\-\_\-\-S\-T\-R\-U\-C\-T\-\_\-\-\_\-entry({\bf L\-O\-C\-A\-L\-\_\-\-E\-N\-T\-R\-Y})}]{, }
+\item[{T\-P\-\_\-fast\-\_\-assign({\bf L\-O\-C\-A\-L\-\_\-\-A\-S\-S\-I\-G\-N};)}]{, }
+\item[{T\-P\-\_\-printk({\bf L\-O\-C\-A\-L\-\_\-\-P\-R\-\_\-\-F\-M\-T}, {\bf L\-O\-C\-A\-L\-\_\-\-P\-R\-\_\-\-A\-R\-G})}]{}
+\end{DoxyParamCaption}
+)}}\label{driver-trace_8h_a8e4625fa1c8f4b327f53426b64b498f2}
+\hypertarget{driver-trace_8h_a0aa98c54ec31af8ffe950121705a2629}{\index{driver-\/trace.\-h@{driver-\/trace.\-h}!D\-E\-C\-L\-A\-R\-E\-\_\-\-E\-V\-E\-N\-T\-\_\-\-C\-L\-A\-S\-S@{D\-E\-C\-L\-A\-R\-E\-\_\-\-E\-V\-E\-N\-T\-\_\-\-C\-L\-A\-S\-S}}
+\index{D\-E\-C\-L\-A\-R\-E\-\_\-\-E\-V\-E\-N\-T\-\_\-\-C\-L\-A\-S\-S@{D\-E\-C\-L\-A\-R\-E\-\_\-\-E\-V\-E\-N\-T\-\_\-\-C\-L\-A\-S\-S}!driver-trace.h@{driver-\/trace.\-h}}
+\subsubsection[{D\-E\-C\-L\-A\-R\-E\-\_\-\-E\-V\-E\-N\-T\-\_\-\-C\-L\-A\-S\-S}]{\setlength{\rightskip}{0pt plus 5cm}D\-E\-C\-L\-A\-R\-E\-\_\-\-E\-V\-E\-N\-T\-\_\-\-C\-L\-A\-S\-S (
+\begin{DoxyParamCaption}
+\item[{local\-\_\-sdata\-\_\-addr\-\_\-evt}]{, }
+\item[{T\-P\-\_\-\-P\-R\-O\-T\-O(struct {\bf ieee80211\-\_\-local} $\ast$local, struct {\bf ieee80211\-\_\-sub\-\_\-if\-\_\-data} $\ast$sdata)}]{, }
+\item[{T\-P\-\_\-\-A\-R\-G\-S(local, sdata)}]{, }
+\item[{T\-P\-\_\-\-S\-T\-R\-U\-C\-T\-\_\-\-\_\-entry(L\-O\-C\-A\-L\-\_\-\-E\-N\-T\-R\-Y\-V\-I\-F\-\_\-\-E\-N\-T\-R\-Y\-\_\-\-\_\-array(char, addr, 6))}]{, }
+\item[{T\-P\-\_\-fast\-\_\-assign({\bf L\-O\-C\-A\-L\-\_\-\-A\-S\-S\-I\-G\-N};{\bf V\-I\-F\-\_\-\-A\-S\-S\-I\-G\-N};memcpy(\-\_\-\-\_\-entry-\/$>$addr, sdata-\/$>$vif.\-addr, 6);)}]{, }
+\item[{T\-P\-\_\-printk(L\-O\-C\-A\-L\-\_\-\-P\-R\-\_\-\-F\-M\-T\-V\-I\-F\-\_\-\-P\-R\-\_\-\-F\-M\-T\char`\"{} addr\-:\%p\-M\char`\"{}, L\-O\-C\-A\-L\-\_\-\-P\-R\-\_\-\-A\-R\-G, {\bf V\-I\-F\-\_\-\-P\-R\-\_\-\-A\-R\-G}, \-\_\-\-\_\-entry-\/$>$addr)}]{}
+\end{DoxyParamCaption}
+)}}\label{driver-trace_8h_a0aa98c54ec31af8ffe950121705a2629}
+\hypertarget{driver-trace_8h_a26030c762c752b1ac47c3f6933f19730}{\index{driver-\/trace.\-h@{driver-\/trace.\-h}!D\-E\-C\-L\-A\-R\-E\-\_\-\-E\-V\-E\-N\-T\-\_\-\-C\-L\-A\-S\-S@{D\-E\-C\-L\-A\-R\-E\-\_\-\-E\-V\-E\-N\-T\-\_\-\-C\-L\-A\-S\-S}}
+\index{D\-E\-C\-L\-A\-R\-E\-\_\-\-E\-V\-E\-N\-T\-\_\-\-C\-L\-A\-S\-S@{D\-E\-C\-L\-A\-R\-E\-\_\-\-E\-V\-E\-N\-T\-\_\-\-C\-L\-A\-S\-S}!driver-trace.h@{driver-\/trace.\-h}}
+\subsubsection[{D\-E\-C\-L\-A\-R\-E\-\_\-\-E\-V\-E\-N\-T\-\_\-\-C\-L\-A\-S\-S}]{\setlength{\rightskip}{0pt plus 5cm}D\-E\-C\-L\-A\-R\-E\-\_\-\-E\-V\-E\-N\-T\-\_\-\-C\-L\-A\-S\-S (
+\begin{DoxyParamCaption}
+\item[{local\-\_\-u32\-\_\-evt}]{, }
+\item[{T\-P\-\_\-\-P\-R\-O\-T\-O(struct {\bf ieee80211\-\_\-local} $\ast$local, u32 value)}]{, }
+\item[{T\-P\-\_\-\-A\-R\-G\-S(local, value)}]{, }
+\item[{T\-P\-\_\-\-S\-T\-R\-U\-C\-T\-\_\-\-\_\-entry(L\-O\-C\-A\-L\-\_\-\-E\-N\-T\-R\-Y\-\_\-\-\_\-field(u32, value))}]{, }
+\item[{T\-P\-\_\-fast\-\_\-assign({\bf L\-O\-C\-A\-L\-\_\-\-A\-S\-S\-I\-G\-N};\-\_\-\-\_\-entry-\/$>$value=value;)}]{, }
+\item[{T\-P\-\_\-printk({\bf L\-O\-C\-A\-L\-\_\-\-P\-R\-\_\-\-F\-M\-T}\char`\"{} value\-:\%d\char`\"{}, L\-O\-C\-A\-L\-\_\-\-P\-R\-\_\-\-A\-R\-G, \-\_\-\-\_\-entry-\/$>$value)}]{}
+\end{DoxyParamCaption}
+)}}\label{driver-trace_8h_a26030c762c752b1ac47c3f6933f19730}
+\hypertarget{driver-trace_8h_acee5359c141a6404226903b2fa5ea080}{\index{driver-\/trace.\-h@{driver-\/trace.\-h}!D\-E\-C\-L\-A\-R\-E\-\_\-\-E\-V\-E\-N\-T\-\_\-\-C\-L\-A\-S\-S@{D\-E\-C\-L\-A\-R\-E\-\_\-\-E\-V\-E\-N\-T\-\_\-\-C\-L\-A\-S\-S}}
+\index{D\-E\-C\-L\-A\-R\-E\-\_\-\-E\-V\-E\-N\-T\-\_\-\-C\-L\-A\-S\-S@{D\-E\-C\-L\-A\-R\-E\-\_\-\-E\-V\-E\-N\-T\-\_\-\-C\-L\-A\-S\-S}!driver-trace.h@{driver-\/trace.\-h}}
+\subsubsection[{D\-E\-C\-L\-A\-R\-E\-\_\-\-E\-V\-E\-N\-T\-\_\-\-C\-L\-A\-S\-S}]{\setlength{\rightskip}{0pt plus 5cm}D\-E\-C\-L\-A\-R\-E\-\_\-\-E\-V\-E\-N\-T\-\_\-\-C\-L\-A\-S\-S (
+\begin{DoxyParamCaption}
+\item[{local\-\_\-sdata\-\_\-evt}]{, }
+\item[{T\-P\-\_\-\-P\-R\-O\-T\-O(struct {\bf ieee80211\-\_\-local} $\ast$local, struct {\bf ieee80211\-\_\-sub\-\_\-if\-\_\-data} $\ast$sdata)}]{, }
+\item[{T\-P\-\_\-\-A\-R\-G\-S(local, sdata)}]{, }
+\item[{T\-P\-\_\-\-S\-T\-R\-U\-C\-T\-\_\-\-\_\-entry(L\-O\-C\-A\-L\-\_\-\-E\-N\-T\-R\-Y\-V\-I\-F\-\_\-\-E\-N\-T\-R\-Y)}]{, }
+\item[{T\-P\-\_\-fast\-\_\-assign({\bf L\-O\-C\-A\-L\-\_\-\-A\-S\-S\-I\-G\-N};{\bf V\-I\-F\-\_\-\-A\-S\-S\-I\-G\-N};)}]{, }
+\item[{T\-P\-\_\-printk({\bf L\-O\-C\-A\-L\-\_\-\-P\-R\-\_\-\-F\-M\-T} {\bf V\-I\-F\-\_\-\-P\-R\-\_\-\-F\-M\-T}, {\bf L\-O\-C\-A\-L\-\_\-\-P\-R\-\_\-\-A\-R\-G}, {\bf V\-I\-F\-\_\-\-P\-R\-\_\-\-A\-R\-G})}]{}
+\end{DoxyParamCaption}
+)}}\label{driver-trace_8h_acee5359c141a6404226903b2fa5ea080}
+\hypertarget{driver-trace_8h_a2ba1e0adc875d9d790a47fc1bc6f5346}{\index{driver-\/trace.\-h@{driver-\/trace.\-h}!D\-E\-C\-L\-A\-R\-E\-\_\-\-E\-V\-E\-N\-T\-\_\-\-C\-L\-A\-S\-S@{D\-E\-C\-L\-A\-R\-E\-\_\-\-E\-V\-E\-N\-T\-\_\-\-C\-L\-A\-S\-S}}
+\index{D\-E\-C\-L\-A\-R\-E\-\_\-\-E\-V\-E\-N\-T\-\_\-\-C\-L\-A\-S\-S@{D\-E\-C\-L\-A\-R\-E\-\_\-\-E\-V\-E\-N\-T\-\_\-\-C\-L\-A\-S\-S}!driver-trace.h@{driver-\/trace.\-h}}
+\subsubsection[{D\-E\-C\-L\-A\-R\-E\-\_\-\-E\-V\-E\-N\-T\-\_\-\-C\-L\-A\-S\-S}]{\setlength{\rightskip}{0pt plus 5cm}D\-E\-C\-L\-A\-R\-E\-\_\-\-E\-V\-E\-N\-T\-\_\-\-C\-L\-A\-S\-S (
+\begin{DoxyParamCaption}
+\item[{release\-\_\-evt}]{, }
+\item[{T\-P\-\_\-\-P\-R\-O\-T\-O(struct {\bf ieee80211\-\_\-local} $\ast$local, struct ieee80211\-\_\-sta $\ast$sta, u16 tids, int num\-\_\-frames, enum ieee80211\-\_\-frame\-\_\-release\-\_\-type reason, bool more\-\_\-data)}]{, }
+\item[{T\-P\-\_\-\-A\-R\-G\-S(local, sta, tids, num\-\_\-frames, reason, more\-\_\-data)}]{, }
+\item[{T\-P\-\_\-\-S\-T\-R\-U\-C\-T\-\_\-\-\_\-entry(L\-O\-C\-A\-L\-\_\-\-E\-N\-T\-R\-Y\-S\-T\-A\-\_\-\-E\-N\-T\-R\-Y\-\_\-\-\_\-field(u16, tids) \-\_\-\-\_\-field(int, num\-\_\-frames) \-\_\-\-\_\-field(int, reason) \-\_\-\-\_\-field(bool, more\-\_\-data))}]{, }
+\item[{T\-P\-\_\-fast\-\_\-assign({\bf L\-O\-C\-A\-L\-\_\-\-A\-S\-S\-I\-G\-N};{\bf S\-T\-A\-\_\-\-A\-S\-S\-I\-G\-N};\-\_\-\-\_\-entry-\/$>$tids=tids;\-\_\-\-\_\-entry-\/$>$num\-\_\-frames=num\-\_\-frames;\-\_\-\-\_\-entry-\/$>$reason=reason;\-\_\-\-\_\-entry-\/$>$more\-\_\-data=more\-\_\-data;)}]{, }
+\item[{T\-P\-\_\-printk({\bf L\-O\-C\-A\-L\-\_\-\-P\-R\-\_\-\-F\-M\-T} {\bf S\-T\-A\-\_\-\-P\-R\-\_\-\-F\-M\-T}\char`\"{} T\-I\-Ds\-:0x\%.\-4x frames\-:\%d reason\-:\%d more\-:\%d\char`\"{}, L\-O\-C\-A\-L\-\_\-\-P\-R\-\_\-\-A\-R\-G, S\-T\-A\-\_\-\-P\-R\-\_\-\-A\-R\-G, \-\_\-\-\_\-entry-\/$>$tids, \-\_\-\-\_\-entry-\/$>$num\-\_\-frames, \-\_\-\-\_\-entry-\/$>$reason, \-\_\-\-\_\-entry-\/$>$more\-\_\-data)}]{}
+\end{DoxyParamCaption}
+)}}\label{driver-trace_8h_a2ba1e0adc875d9d790a47fc1bc6f5346}
+\hypertarget{driver-trace_8h_af1b87c2aba758abbb02630082bd84f3d}{\index{driver-\/trace.\-h@{driver-\/trace.\-h}!D\-E\-F\-I\-N\-E\-\_\-\-E\-V\-E\-N\-T@{D\-E\-F\-I\-N\-E\-\_\-\-E\-V\-E\-N\-T}}
+\index{D\-E\-F\-I\-N\-E\-\_\-\-E\-V\-E\-N\-T@{D\-E\-F\-I\-N\-E\-\_\-\-E\-V\-E\-N\-T}!driver-trace.h@{driver-\/trace.\-h}}
+\subsubsection[{D\-E\-F\-I\-N\-E\-\_\-\-E\-V\-E\-N\-T}]{\setlength{\rightskip}{0pt plus 5cm}D\-E\-F\-I\-N\-E\-\_\-\-E\-V\-E\-N\-T (
+\begin{DoxyParamCaption}
+\item[{local\-\_\-only\-\_\-evt}]{, }
+\item[{drv\-\_\-return\-\_\-void}]{, }
+\item[{T\-P\-\_\-\-P\-R\-O\-T\-O(struct {\bf ieee80211\-\_\-local} $\ast$local)}]{}
+\end{DoxyParamCaption}
+)}}\label{driver-trace_8h_af1b87c2aba758abbb02630082bd84f3d}
+\hypertarget{driver-trace_8h_abe7821f60c9623fc2923f35a791b37fc}{\index{driver-\/trace.\-h@{driver-\/trace.\-h}!D\-E\-F\-I\-N\-E\-\_\-\-E\-V\-E\-N\-T@{D\-E\-F\-I\-N\-E\-\_\-\-E\-V\-E\-N\-T}}
+\index{D\-E\-F\-I\-N\-E\-\_\-\-E\-V\-E\-N\-T@{D\-E\-F\-I\-N\-E\-\_\-\-E\-V\-E\-N\-T}!driver-trace.h@{driver-\/trace.\-h}}
+\subsubsection[{D\-E\-F\-I\-N\-E\-\_\-\-E\-V\-E\-N\-T}]{\setlength{\rightskip}{0pt plus 5cm}D\-E\-F\-I\-N\-E\-\_\-\-E\-V\-E\-N\-T (
+\begin{DoxyParamCaption}
+\item[{local\-\_\-only\-\_\-evt}]{, }
+\item[{drv\-\_\-start}]{, }
+\item[{T\-P\-\_\-\-P\-R\-O\-T\-O(struct {\bf ieee80211\-\_\-local} $\ast$local)}]{}
+\end{DoxyParamCaption}
+)}}\label{driver-trace_8h_abe7821f60c9623fc2923f35a791b37fc}
+\hypertarget{driver-trace_8h_a769bdbbd944e8cab146934c472591525}{\index{driver-\/trace.\-h@{driver-\/trace.\-h}!D\-E\-F\-I\-N\-E\-\_\-\-E\-V\-E\-N\-T@{D\-E\-F\-I\-N\-E\-\_\-\-E\-V\-E\-N\-T}}
+\index{D\-E\-F\-I\-N\-E\-\_\-\-E\-V\-E\-N\-T@{D\-E\-F\-I\-N\-E\-\_\-\-E\-V\-E\-N\-T}!driver-trace.h@{driver-\/trace.\-h}}
+\subsubsection[{D\-E\-F\-I\-N\-E\-\_\-\-E\-V\-E\-N\-T}]{\setlength{\rightskip}{0pt plus 5cm}D\-E\-F\-I\-N\-E\-\_\-\-E\-V\-E\-N\-T (
+\begin{DoxyParamCaption}
+\item[{local\-\_\-only\-\_\-evt}]{, }
+\item[{drv\-\_\-suspend}]{, }
+\item[{T\-P\-\_\-\-P\-R\-O\-T\-O(struct {\bf ieee80211\-\_\-local} $\ast$local)}]{}
+\end{DoxyParamCaption}
+)}}\label{driver-trace_8h_a769bdbbd944e8cab146934c472591525}
+\hypertarget{driver-trace_8h_ac5e83fed704cad7790ebe310a8164027}{\index{driver-\/trace.\-h@{driver-\/trace.\-h}!D\-E\-F\-I\-N\-E\-\_\-\-E\-V\-E\-N\-T@{D\-E\-F\-I\-N\-E\-\_\-\-E\-V\-E\-N\-T}}
+\index{D\-E\-F\-I\-N\-E\-\_\-\-E\-V\-E\-N\-T@{D\-E\-F\-I\-N\-E\-\_\-\-E\-V\-E\-N\-T}!driver-trace.h@{driver-\/trace.\-h}}
+\subsubsection[{D\-E\-F\-I\-N\-E\-\_\-\-E\-V\-E\-N\-T}]{\setlength{\rightskip}{0pt plus 5cm}D\-E\-F\-I\-N\-E\-\_\-\-E\-V\-E\-N\-T (
+\begin{DoxyParamCaption}
+\item[{local\-\_\-only\-\_\-evt}]{, }
+\item[{drv\-\_\-resume}]{, }
+\item[{T\-P\-\_\-\-P\-R\-O\-T\-O(struct {\bf ieee80211\-\_\-local} $\ast$local)}]{}
+\end{DoxyParamCaption}
+)}}\label{driver-trace_8h_ac5e83fed704cad7790ebe310a8164027}
+\hypertarget{driver-trace_8h_a6f04814a3b7909ae1c72264d395dfe97}{\index{driver-\/trace.\-h@{driver-\/trace.\-h}!D\-E\-F\-I\-N\-E\-\_\-\-E\-V\-E\-N\-T@{D\-E\-F\-I\-N\-E\-\_\-\-E\-V\-E\-N\-T}}
+\index{D\-E\-F\-I\-N\-E\-\_\-\-E\-V\-E\-N\-T@{D\-E\-F\-I\-N\-E\-\_\-\-E\-V\-E\-N\-T}!driver-trace.h@{driver-\/trace.\-h}}
+\subsubsection[{D\-E\-F\-I\-N\-E\-\_\-\-E\-V\-E\-N\-T}]{\setlength{\rightskip}{0pt plus 5cm}D\-E\-F\-I\-N\-E\-\_\-\-E\-V\-E\-N\-T (
+\begin{DoxyParamCaption}
+\item[{local\-\_\-only\-\_\-evt}]{, }
+\item[{drv\-\_\-stop}]{, }
+\item[{T\-P\-\_\-\-P\-R\-O\-T\-O(struct {\bf ieee80211\-\_\-local} $\ast$local)}]{}
+\end{DoxyParamCaption}
+)}}\label{driver-trace_8h_a6f04814a3b7909ae1c72264d395dfe97}
+\hypertarget{driver-trace_8h_a0942846f56df5f2e18c0d394ac3f1feb}{\index{driver-\/trace.\-h@{driver-\/trace.\-h}!D\-E\-F\-I\-N\-E\-\_\-\-E\-V\-E\-N\-T@{D\-E\-F\-I\-N\-E\-\_\-\-E\-V\-E\-N\-T}}
+\index{D\-E\-F\-I\-N\-E\-\_\-\-E\-V\-E\-N\-T@{D\-E\-F\-I\-N\-E\-\_\-\-E\-V\-E\-N\-T}!driver-trace.h@{driver-\/trace.\-h}}
+\subsubsection[{D\-E\-F\-I\-N\-E\-\_\-\-E\-V\-E\-N\-T}]{\setlength{\rightskip}{0pt plus 5cm}D\-E\-F\-I\-N\-E\-\_\-\-E\-V\-E\-N\-T (
+\begin{DoxyParamCaption}
+\item[{local\-\_\-sdata\-\_\-addr\-\_\-evt}]{, }
+\item[{drv\-\_\-add\-\_\-interface}]{, }
+\item[{T\-P\-\_\-\-P\-R\-O\-T\-O(struct {\bf ieee80211\-\_\-local} $\ast$local, struct {\bf ieee80211\-\_\-sub\-\_\-if\-\_\-data} $\ast$sdata)}]{}
+\end{DoxyParamCaption}
+)}}\label{driver-trace_8h_a0942846f56df5f2e18c0d394ac3f1feb}
+\hypertarget{driver-trace_8h_a658149dd42f7cc5008b0afca92fc0b21}{\index{driver-\/trace.\-h@{driver-\/trace.\-h}!D\-E\-F\-I\-N\-E\-\_\-\-E\-V\-E\-N\-T@{D\-E\-F\-I\-N\-E\-\_\-\-E\-V\-E\-N\-T}}
+\index{D\-E\-F\-I\-N\-E\-\_\-\-E\-V\-E\-N\-T@{D\-E\-F\-I\-N\-E\-\_\-\-E\-V\-E\-N\-T}!driver-trace.h@{driver-\/trace.\-h}}
+\subsubsection[{D\-E\-F\-I\-N\-E\-\_\-\-E\-V\-E\-N\-T}]{\setlength{\rightskip}{0pt plus 5cm}D\-E\-F\-I\-N\-E\-\_\-\-E\-V\-E\-N\-T (
+\begin{DoxyParamCaption}
+\item[{local\-\_\-sdata\-\_\-addr\-\_\-evt}]{, }
+\item[{drv\-\_\-remove\-\_\-interface}]{, }
+\item[{T\-P\-\_\-\-P\-R\-O\-T\-O(struct {\bf ieee80211\-\_\-local} $\ast$local, struct {\bf ieee80211\-\_\-sub\-\_\-if\-\_\-data} $\ast$sdata)}]{}
+\end{DoxyParamCaption}
+)}}\label{driver-trace_8h_a658149dd42f7cc5008b0afca92fc0b21}
+\hypertarget{driver-trace_8h_a5ac6d2350379fbff31d80abd5f33bac5}{\index{driver-\/trace.\-h@{driver-\/trace.\-h}!D\-E\-F\-I\-N\-E\-\_\-\-E\-V\-E\-N\-T@{D\-E\-F\-I\-N\-E\-\_\-\-E\-V\-E\-N\-T}}
+\index{D\-E\-F\-I\-N\-E\-\_\-\-E\-V\-E\-N\-T@{D\-E\-F\-I\-N\-E\-\_\-\-E\-V\-E\-N\-T}!driver-trace.h@{driver-\/trace.\-h}}
+\subsubsection[{D\-E\-F\-I\-N\-E\-\_\-\-E\-V\-E\-N\-T}]{\setlength{\rightskip}{0pt plus 5cm}D\-E\-F\-I\-N\-E\-\_\-\-E\-V\-E\-N\-T (
+\begin{DoxyParamCaption}
+\item[{local\-\_\-sdata\-\_\-evt}]{, }
+\item[{drv\-\_\-hw\-\_\-scan}]{, }
+\item[{T\-P\-\_\-\-P\-R\-O\-T\-O(struct {\bf ieee80211\-\_\-local} $\ast$local, struct {\bf ieee80211\-\_\-sub\-\_\-if\-\_\-data} $\ast$sdata)}]{}
+\end{DoxyParamCaption}
+)}}\label{driver-trace_8h_a5ac6d2350379fbff31d80abd5f33bac5}
+\hypertarget{driver-trace_8h_ae88f34193a58d6a01ef516b063867332}{\index{driver-\/trace.\-h@{driver-\/trace.\-h}!D\-E\-F\-I\-N\-E\-\_\-\-E\-V\-E\-N\-T@{D\-E\-F\-I\-N\-E\-\_\-\-E\-V\-E\-N\-T}}
+\index{D\-E\-F\-I\-N\-E\-\_\-\-E\-V\-E\-N\-T@{D\-E\-F\-I\-N\-E\-\_\-\-E\-V\-E\-N\-T}!driver-trace.h@{driver-\/trace.\-h}}
+\subsubsection[{D\-E\-F\-I\-N\-E\-\_\-\-E\-V\-E\-N\-T}]{\setlength{\rightskip}{0pt plus 5cm}D\-E\-F\-I\-N\-E\-\_\-\-E\-V\-E\-N\-T (
+\begin{DoxyParamCaption}
+\item[{local\-\_\-sdata\-\_\-evt}]{, }
+\item[{drv\-\_\-cancel\-\_\-hw\-\_\-scan}]{, }
+\item[{T\-P\-\_\-\-P\-R\-O\-T\-O(struct {\bf ieee80211\-\_\-local} $\ast$local, struct {\bf ieee80211\-\_\-sub\-\_\-if\-\_\-data} $\ast$sdata)}]{}
+\end{DoxyParamCaption}
+)}}\label{driver-trace_8h_ae88f34193a58d6a01ef516b063867332}
+\hypertarget{driver-trace_8h_a72d73261eb16b1c953748a8b05157d1d}{\index{driver-\/trace.\-h@{driver-\/trace.\-h}!D\-E\-F\-I\-N\-E\-\_\-\-E\-V\-E\-N\-T@{D\-E\-F\-I\-N\-E\-\_\-\-E\-V\-E\-N\-T}}
+\index{D\-E\-F\-I\-N\-E\-\_\-\-E\-V\-E\-N\-T@{D\-E\-F\-I\-N\-E\-\_\-\-E\-V\-E\-N\-T}!driver-trace.h@{driver-\/trace.\-h}}
+\subsubsection[{D\-E\-F\-I\-N\-E\-\_\-\-E\-V\-E\-N\-T}]{\setlength{\rightskip}{0pt plus 5cm}D\-E\-F\-I\-N\-E\-\_\-\-E\-V\-E\-N\-T (
+\begin{DoxyParamCaption}
+\item[{local\-\_\-sdata\-\_\-evt}]{, }
+\item[{drv\-\_\-sched\-\_\-scan\-\_\-start}]{, }
+\item[{T\-P\-\_\-\-P\-R\-O\-T\-O(struct {\bf ieee80211\-\_\-local} $\ast$local, struct {\bf ieee80211\-\_\-sub\-\_\-if\-\_\-data} $\ast$sdata)}]{}
+\end{DoxyParamCaption}
+)}}\label{driver-trace_8h_a72d73261eb16b1c953748a8b05157d1d}
+\hypertarget{driver-trace_8h_a6a57e9a64a0d01342ec91f9ba70e06de}{\index{driver-\/trace.\-h@{driver-\/trace.\-h}!D\-E\-F\-I\-N\-E\-\_\-\-E\-V\-E\-N\-T@{D\-E\-F\-I\-N\-E\-\_\-\-E\-V\-E\-N\-T}}
+\index{D\-E\-F\-I\-N\-E\-\_\-\-E\-V\-E\-N\-T@{D\-E\-F\-I\-N\-E\-\_\-\-E\-V\-E\-N\-T}!driver-trace.h@{driver-\/trace.\-h}}
+\subsubsection[{D\-E\-F\-I\-N\-E\-\_\-\-E\-V\-E\-N\-T}]{\setlength{\rightskip}{0pt plus 5cm}D\-E\-F\-I\-N\-E\-\_\-\-E\-V\-E\-N\-T (
+\begin{DoxyParamCaption}
+\item[{local\-\_\-sdata\-\_\-evt}]{, }
+\item[{drv\-\_\-sched\-\_\-scan\-\_\-stop}]{, }
+\item[{T\-P\-\_\-\-P\-R\-O\-T\-O(struct {\bf ieee80211\-\_\-local} $\ast$local, struct {\bf ieee80211\-\_\-sub\-\_\-if\-\_\-data} $\ast$sdata)}]{}
+\end{DoxyParamCaption}
+)}}\label{driver-trace_8h_a6a57e9a64a0d01342ec91f9ba70e06de}
+\hypertarget{driver-trace_8h_a3b885b33c68e022f28d09c2527806623}{\index{driver-\/trace.\-h@{driver-\/trace.\-h}!D\-E\-F\-I\-N\-E\-\_\-\-E\-V\-E\-N\-T@{D\-E\-F\-I\-N\-E\-\_\-\-E\-V\-E\-N\-T}}
+\index{D\-E\-F\-I\-N\-E\-\_\-\-E\-V\-E\-N\-T@{D\-E\-F\-I\-N\-E\-\_\-\-E\-V\-E\-N\-T}!driver-trace.h@{driver-\/trace.\-h}}
+\subsubsection[{D\-E\-F\-I\-N\-E\-\_\-\-E\-V\-E\-N\-T}]{\setlength{\rightskip}{0pt plus 5cm}D\-E\-F\-I\-N\-E\-\_\-\-E\-V\-E\-N\-T (
+\begin{DoxyParamCaption}
+\item[{local\-\_\-only\-\_\-evt}]{, }
+\item[{drv\-\_\-sw\-\_\-scan\-\_\-start}]{, }
+\item[{T\-P\-\_\-\-P\-R\-O\-T\-O(struct {\bf ieee80211\-\_\-local} $\ast$local)}]{}
+\end{DoxyParamCaption}
+)}}\label{driver-trace_8h_a3b885b33c68e022f28d09c2527806623}
+\hypertarget{driver-trace_8h_a5c73a444bf78891327e7ae8bb23d1db8}{\index{driver-\/trace.\-h@{driver-\/trace.\-h}!D\-E\-F\-I\-N\-E\-\_\-\-E\-V\-E\-N\-T@{D\-E\-F\-I\-N\-E\-\_\-\-E\-V\-E\-N\-T}}
+\index{D\-E\-F\-I\-N\-E\-\_\-\-E\-V\-E\-N\-T@{D\-E\-F\-I\-N\-E\-\_\-\-E\-V\-E\-N\-T}!driver-trace.h@{driver-\/trace.\-h}}
+\subsubsection[{D\-E\-F\-I\-N\-E\-\_\-\-E\-V\-E\-N\-T}]{\setlength{\rightskip}{0pt plus 5cm}D\-E\-F\-I\-N\-E\-\_\-\-E\-V\-E\-N\-T (
+\begin{DoxyParamCaption}
+\item[{local\-\_\-only\-\_\-evt}]{, }
+\item[{drv\-\_\-sw\-\_\-scan\-\_\-complete}]{, }
+\item[{T\-P\-\_\-\-P\-R\-O\-T\-O(struct {\bf ieee80211\-\_\-local} $\ast$local)}]{}
+\end{DoxyParamCaption}
+)}}\label{driver-trace_8h_a5c73a444bf78891327e7ae8bb23d1db8}
+\hypertarget{driver-trace_8h_a70af3456dd0193a333983989235daf9a}{\index{driver-\/trace.\-h@{driver-\/trace.\-h}!D\-E\-F\-I\-N\-E\-\_\-\-E\-V\-E\-N\-T@{D\-E\-F\-I\-N\-E\-\_\-\-E\-V\-E\-N\-T}}
+\index{D\-E\-F\-I\-N\-E\-\_\-\-E\-V\-E\-N\-T@{D\-E\-F\-I\-N\-E\-\_\-\-E\-V\-E\-N\-T}!driver-trace.h@{driver-\/trace.\-h}}
+\subsubsection[{D\-E\-F\-I\-N\-E\-\_\-\-E\-V\-E\-N\-T}]{\setlength{\rightskip}{0pt plus 5cm}D\-E\-F\-I\-N\-E\-\_\-\-E\-V\-E\-N\-T (
+\begin{DoxyParamCaption}
+\item[{local\-\_\-u32\-\_\-evt}]{, }
+\item[{drv\-\_\-set\-\_\-frag\-\_\-threshold}]{, }
+\item[{T\-P\-\_\-\-P\-R\-O\-T\-O(struct {\bf ieee80211\-\_\-local} $\ast$local, u32 value)}]{}
+\end{DoxyParamCaption}
+)}}\label{driver-trace_8h_a70af3456dd0193a333983989235daf9a}
+\hypertarget{driver-trace_8h_a66f2bf5b77669870b1037094be04d8b5}{\index{driver-\/trace.\-h@{driver-\/trace.\-h}!D\-E\-F\-I\-N\-E\-\_\-\-E\-V\-E\-N\-T@{D\-E\-F\-I\-N\-E\-\_\-\-E\-V\-E\-N\-T}}
+\index{D\-E\-F\-I\-N\-E\-\_\-\-E\-V\-E\-N\-T@{D\-E\-F\-I\-N\-E\-\_\-\-E\-V\-E\-N\-T}!driver-trace.h@{driver-\/trace.\-h}}
+\subsubsection[{D\-E\-F\-I\-N\-E\-\_\-\-E\-V\-E\-N\-T}]{\setlength{\rightskip}{0pt plus 5cm}D\-E\-F\-I\-N\-E\-\_\-\-E\-V\-E\-N\-T (
+\begin{DoxyParamCaption}
+\item[{local\-\_\-u32\-\_\-evt}]{, }
+\item[{drv\-\_\-set\-\_\-rts\-\_\-threshold}]{, }
+\item[{T\-P\-\_\-\-P\-R\-O\-T\-O(struct {\bf ieee80211\-\_\-local} $\ast$local, u32 value)}]{}
+\end{DoxyParamCaption}
+)}}\label{driver-trace_8h_a66f2bf5b77669870b1037094be04d8b5}
+\hypertarget{driver-trace_8h_ae6e1a3e3d22b2d68d7fc06995184e8b7}{\index{driver-\/trace.\-h@{driver-\/trace.\-h}!D\-E\-F\-I\-N\-E\-\_\-\-E\-V\-E\-N\-T@{D\-E\-F\-I\-N\-E\-\_\-\-E\-V\-E\-N\-T}}
+\index{D\-E\-F\-I\-N\-E\-\_\-\-E\-V\-E\-N\-T@{D\-E\-F\-I\-N\-E\-\_\-\-E\-V\-E\-N\-T}!driver-trace.h@{driver-\/trace.\-h}}
+\subsubsection[{D\-E\-F\-I\-N\-E\-\_\-\-E\-V\-E\-N\-T}]{\setlength{\rightskip}{0pt plus 5cm}D\-E\-F\-I\-N\-E\-\_\-\-E\-V\-E\-N\-T (
+\begin{DoxyParamCaption}
+\item[{local\-\_\-sdata\-\_\-evt}]{, }
+\item[{drv\-\_\-get\-\_\-tsf}]{, }
+\item[{T\-P\-\_\-\-P\-R\-O\-T\-O(struct {\bf ieee80211\-\_\-local} $\ast$local, struct {\bf ieee80211\-\_\-sub\-\_\-if\-\_\-data} $\ast$sdata)}]{}
+\end{DoxyParamCaption}
+)}}\label{driver-trace_8h_ae6e1a3e3d22b2d68d7fc06995184e8b7}
+\hypertarget{driver-trace_8h_a0f45fa7be481c86c711b8d91eeb1a297}{\index{driver-\/trace.\-h@{driver-\/trace.\-h}!D\-E\-F\-I\-N\-E\-\_\-\-E\-V\-E\-N\-T@{D\-E\-F\-I\-N\-E\-\_\-\-E\-V\-E\-N\-T}}
+\index{D\-E\-F\-I\-N\-E\-\_\-\-E\-V\-E\-N\-T@{D\-E\-F\-I\-N\-E\-\_\-\-E\-V\-E\-N\-T}!driver-trace.h@{driver-\/trace.\-h}}
+\subsubsection[{D\-E\-F\-I\-N\-E\-\_\-\-E\-V\-E\-N\-T}]{\setlength{\rightskip}{0pt plus 5cm}D\-E\-F\-I\-N\-E\-\_\-\-E\-V\-E\-N\-T (
+\begin{DoxyParamCaption}
+\item[{local\-\_\-sdata\-\_\-evt}]{, }
+\item[{drv\-\_\-reset\-\_\-tsf}]{, }
+\item[{T\-P\-\_\-\-P\-R\-O\-T\-O(struct {\bf ieee80211\-\_\-local} $\ast$local, struct {\bf ieee80211\-\_\-sub\-\_\-if\-\_\-data} $\ast$sdata)}]{}
+\end{DoxyParamCaption}
+)}}\label{driver-trace_8h_a0f45fa7be481c86c711b8d91eeb1a297}
+\hypertarget{driver-trace_8h_afeb41ae576d7d149146afb31c7c82e5c}{\index{driver-\/trace.\-h@{driver-\/trace.\-h}!D\-E\-F\-I\-N\-E\-\_\-\-E\-V\-E\-N\-T@{D\-E\-F\-I\-N\-E\-\_\-\-E\-V\-E\-N\-T}}
+\index{D\-E\-F\-I\-N\-E\-\_\-\-E\-V\-E\-N\-T@{D\-E\-F\-I\-N\-E\-\_\-\-E\-V\-E\-N\-T}!driver-trace.h@{driver-\/trace.\-h}}
+\subsubsection[{D\-E\-F\-I\-N\-E\-\_\-\-E\-V\-E\-N\-T}]{\setlength{\rightskip}{0pt plus 5cm}D\-E\-F\-I\-N\-E\-\_\-\-E\-V\-E\-N\-T (
+\begin{DoxyParamCaption}
+\item[{local\-\_\-only\-\_\-evt}]{, }
+\item[{drv\-\_\-tx\-\_\-last\-\_\-beacon}]{, }
+\item[{T\-P\-\_\-\-P\-R\-O\-T\-O(struct {\bf ieee80211\-\_\-local} $\ast$local)}]{}
+\end{DoxyParamCaption}
+)}}\label{driver-trace_8h_afeb41ae576d7d149146afb31c7c82e5c}
+\hypertarget{driver-trace_8h_aeb2919b1c7eb03065e8bd5fc61853b12}{\index{driver-\/trace.\-h@{driver-\/trace.\-h}!D\-E\-F\-I\-N\-E\-\_\-\-E\-V\-E\-N\-T@{D\-E\-F\-I\-N\-E\-\_\-\-E\-V\-E\-N\-T}}
+\index{D\-E\-F\-I\-N\-E\-\_\-\-E\-V\-E\-N\-T@{D\-E\-F\-I\-N\-E\-\_\-\-E\-V\-E\-N\-T}!driver-trace.h@{driver-\/trace.\-h}}
+\subsubsection[{D\-E\-F\-I\-N\-E\-\_\-\-E\-V\-E\-N\-T}]{\setlength{\rightskip}{0pt plus 5cm}D\-E\-F\-I\-N\-E\-\_\-\-E\-V\-E\-N\-T (
+\begin{DoxyParamCaption}
+\item[{local\-\_\-only\-\_\-evt}]{, }
+\item[{drv\-\_\-cancel\-\_\-remain\-\_\-on\-\_\-channel}]{, }
+\item[{T\-P\-\_\-\-P\-R\-O\-T\-O(struct {\bf ieee80211\-\_\-local} $\ast$local)}]{}
+\end{DoxyParamCaption}
+)}}\label{driver-trace_8h_aeb2919b1c7eb03065e8bd5fc61853b12}
+\hypertarget{driver-trace_8h_a7fca84363a5c6eb9c583c0e58d705297}{\index{driver-\/trace.\-h@{driver-\/trace.\-h}!D\-E\-F\-I\-N\-E\-\_\-\-E\-V\-E\-N\-T@{D\-E\-F\-I\-N\-E\-\_\-\-E\-V\-E\-N\-T}}
+\index{D\-E\-F\-I\-N\-E\-\_\-\-E\-V\-E\-N\-T@{D\-E\-F\-I\-N\-E\-\_\-\-E\-V\-E\-N\-T}!driver-trace.h@{driver-\/trace.\-h}}
+\subsubsection[{D\-E\-F\-I\-N\-E\-\_\-\-E\-V\-E\-N\-T}]{\setlength{\rightskip}{0pt plus 5cm}D\-E\-F\-I\-N\-E\-\_\-\-E\-V\-E\-N\-T (
+\begin{DoxyParamCaption}
+\item[{local\-\_\-only\-\_\-evt}]{, }
+\item[{drv\-\_\-tx\-\_\-frames\-\_\-pending}]{, }
+\item[{T\-P\-\_\-\-P\-R\-O\-T\-O(struct {\bf ieee80211\-\_\-local} $\ast$local)}]{}
+\end{DoxyParamCaption}
+)}}\label{driver-trace_8h_a7fca84363a5c6eb9c583c0e58d705297}
+\hypertarget{driver-trace_8h_a4db53223cf380ec47370ea511f75ccc5}{\index{driver-\/trace.\-h@{driver-\/trace.\-h}!D\-E\-F\-I\-N\-E\-\_\-\-E\-V\-E\-N\-T@{D\-E\-F\-I\-N\-E\-\_\-\-E\-V\-E\-N\-T}}
+\index{D\-E\-F\-I\-N\-E\-\_\-\-E\-V\-E\-N\-T@{D\-E\-F\-I\-N\-E\-\_\-\-E\-V\-E\-N\-T}!driver-trace.h@{driver-\/trace.\-h}}
+\subsubsection[{D\-E\-F\-I\-N\-E\-\_\-\-E\-V\-E\-N\-T}]{\setlength{\rightskip}{0pt plus 5cm}D\-E\-F\-I\-N\-E\-\_\-\-E\-V\-E\-N\-T (
+\begin{DoxyParamCaption}
+\item[{local\-\_\-only\-\_\-evt}]{, }
+\item[{drv\-\_\-offchannel\-\_\-tx\-\_\-cancel\-\_\-wait}]{, }
+\item[{T\-P\-\_\-\-P\-R\-O\-T\-O(struct {\bf ieee80211\-\_\-local} $\ast$local)}]{}
+\end{DoxyParamCaption}
+)}}\label{driver-trace_8h_a4db53223cf380ec47370ea511f75ccc5}
+\hypertarget{driver-trace_8h_ab5a0a16c9f012708f2b3367201a4a44a}{\index{driver-\/trace.\-h@{driver-\/trace.\-h}!D\-E\-F\-I\-N\-E\-\_\-\-E\-V\-E\-N\-T@{D\-E\-F\-I\-N\-E\-\_\-\-E\-V\-E\-N\-T}}
+\index{D\-E\-F\-I\-N\-E\-\_\-\-E\-V\-E\-N\-T@{D\-E\-F\-I\-N\-E\-\_\-\-E\-V\-E\-N\-T}!driver-trace.h@{driver-\/trace.\-h}}
+\subsubsection[{D\-E\-F\-I\-N\-E\-\_\-\-E\-V\-E\-N\-T}]{\setlength{\rightskip}{0pt plus 5cm}D\-E\-F\-I\-N\-E\-\_\-\-E\-V\-E\-N\-T (
+\begin{DoxyParamCaption}
+\item[{release\-\_\-evt}]{, }
+\item[{drv\-\_\-release\-\_\-buffered\-\_\-frames}]{, }
+\item[{T\-P\-\_\-\-P\-R\-O\-T\-O(struct {\bf ieee80211\-\_\-local} $\ast$local, struct ieee80211\-\_\-sta $\ast$sta, u16 tids, int num\-\_\-frames, enum ieee80211\-\_\-frame\-\_\-release\-\_\-type reason, bool more\-\_\-data)}]{}
+\end{DoxyParamCaption}
+)}}\label{driver-trace_8h_ab5a0a16c9f012708f2b3367201a4a44a}
+\hypertarget{driver-trace_8h_a63d5a24aaee5e934697d4826747755f5}{\index{driver-\/trace.\-h@{driver-\/trace.\-h}!D\-E\-F\-I\-N\-E\-\_\-\-E\-V\-E\-N\-T@{D\-E\-F\-I\-N\-E\-\_\-\-E\-V\-E\-N\-T}}
+\index{D\-E\-F\-I\-N\-E\-\_\-\-E\-V\-E\-N\-T@{D\-E\-F\-I\-N\-E\-\_\-\-E\-V\-E\-N\-T}!driver-trace.h@{driver-\/trace.\-h}}
+\subsubsection[{D\-E\-F\-I\-N\-E\-\_\-\-E\-V\-E\-N\-T}]{\setlength{\rightskip}{0pt plus 5cm}D\-E\-F\-I\-N\-E\-\_\-\-E\-V\-E\-N\-T (
+\begin{DoxyParamCaption}
+\item[{release\-\_\-evt}]{, }
+\item[{drv\-\_\-allow\-\_\-buffered\-\_\-frames}]{, }
+\item[{T\-P\-\_\-\-P\-R\-O\-T\-O(struct {\bf ieee80211\-\_\-local} $\ast$local, struct ieee80211\-\_\-sta $\ast$sta, u16 tids, int num\-\_\-frames, enum ieee80211\-\_\-frame\-\_\-release\-\_\-type reason, bool more\-\_\-data)}]{}
+\end{DoxyParamCaption}
+)}}\label{driver-trace_8h_a63d5a24aaee5e934697d4826747755f5}
+\hypertarget{driver-trace_8h_a8b68e8652601951d2577ac9f0ca9d594}{\index{driver-\/trace.\-h@{driver-\/trace.\-h}!D\-E\-F\-I\-N\-E\-\_\-\-E\-V\-E\-N\-T@{D\-E\-F\-I\-N\-E\-\_\-\-E\-V\-E\-N\-T}}
+\index{D\-E\-F\-I\-N\-E\-\_\-\-E\-V\-E\-N\-T@{D\-E\-F\-I\-N\-E\-\_\-\-E\-V\-E\-N\-T}!driver-trace.h@{driver-\/trace.\-h}}
+\subsubsection[{D\-E\-F\-I\-N\-E\-\_\-\-E\-V\-E\-N\-T}]{\setlength{\rightskip}{0pt plus 5cm}D\-E\-F\-I\-N\-E\-\_\-\-E\-V\-E\-N\-T (
+\begin{DoxyParamCaption}
+\item[{local\-\_\-only\-\_\-evt}]{, }
+\item[{api\-\_\-restart\-\_\-hw}]{, }
+\item[{T\-P\-\_\-\-P\-R\-O\-T\-O(struct {\bf ieee80211\-\_\-local} $\ast$local)}]{}
+\end{DoxyParamCaption}
+)}}\label{driver-trace_8h_a8b68e8652601951d2577ac9f0ca9d594}
+\hypertarget{driver-trace_8h_a2626a0f88175be75dd9d32be5cf917cb}{\index{driver-\/trace.\-h@{driver-\/trace.\-h}!D\-E\-F\-I\-N\-E\-\_\-\-E\-V\-E\-N\-T@{D\-E\-F\-I\-N\-E\-\_\-\-E\-V\-E\-N\-T}}
+\index{D\-E\-F\-I\-N\-E\-\_\-\-E\-V\-E\-N\-T@{D\-E\-F\-I\-N\-E\-\_\-\-E\-V\-E\-N\-T}!driver-trace.h@{driver-\/trace.\-h}}
+\subsubsection[{D\-E\-F\-I\-N\-E\-\_\-\-E\-V\-E\-N\-T}]{\setlength{\rightskip}{0pt plus 5cm}D\-E\-F\-I\-N\-E\-\_\-\-E\-V\-E\-N\-T (
+\begin{DoxyParamCaption}
+\item[{local\-\_\-only\-\_\-evt}]{, }
+\item[{api\-\_\-ready\-\_\-on\-\_\-channel}]{, }
+\item[{T\-P\-\_\-\-P\-R\-O\-T\-O(struct {\bf ieee80211\-\_\-local} $\ast$local)}]{}
+\end{DoxyParamCaption}
+)}}\label{driver-trace_8h_a2626a0f88175be75dd9d32be5cf917cb}
+\hypertarget{driver-trace_8h_a6a9acbc9aeb95a144d0f2ec4f2a0adc0}{\index{driver-\/trace.\-h@{driver-\/trace.\-h}!D\-E\-F\-I\-N\-E\-\_\-\-E\-V\-E\-N\-T@{D\-E\-F\-I\-N\-E\-\_\-\-E\-V\-E\-N\-T}}
+\index{D\-E\-F\-I\-N\-E\-\_\-\-E\-V\-E\-N\-T@{D\-E\-F\-I\-N\-E\-\_\-\-E\-V\-E\-N\-T}!driver-trace.h@{driver-\/trace.\-h}}
+\subsubsection[{D\-E\-F\-I\-N\-E\-\_\-\-E\-V\-E\-N\-T}]{\setlength{\rightskip}{0pt plus 5cm}D\-E\-F\-I\-N\-E\-\_\-\-E\-V\-E\-N\-T (
+\begin{DoxyParamCaption}
+\item[{local\-\_\-only\-\_\-evt}]{, }
+\item[{api\-\_\-remain\-\_\-on\-\_\-channel\-\_\-expired}]{, }
+\item[{T\-P\-\_\-\-P\-R\-O\-T\-O(struct {\bf ieee80211\-\_\-local} $\ast$local)}]{}
+\end{DoxyParamCaption}
+)}}\label{driver-trace_8h_a6a9acbc9aeb95a144d0f2ec4f2a0adc0}
+\hypertarget{driver-trace_8h_a67f8d60e55de4b5c8a8b0332c231120f}{\index{driver-\/trace.\-h@{driver-\/trace.\-h}!T\-R\-A\-C\-E\-\_\-\-E\-V\-E\-N\-T@{T\-R\-A\-C\-E\-\_\-\-E\-V\-E\-N\-T}}
+\index{T\-R\-A\-C\-E\-\_\-\-E\-V\-E\-N\-T@{T\-R\-A\-C\-E\-\_\-\-E\-V\-E\-N\-T}!driver-trace.h@{driver-\/trace.\-h}}
+\subsubsection[{T\-R\-A\-C\-E\-\_\-\-E\-V\-E\-N\-T}]{\setlength{\rightskip}{0pt plus 5cm}T\-R\-A\-C\-E\-\_\-\-E\-V\-E\-N\-T (
+\begin{DoxyParamCaption}
+\item[{drv\-\_\-return\-\_\-int}]{, }
+\item[{T\-P\-\_\-\-P\-R\-O\-T\-O(struct {\bf ieee80211\-\_\-local} $\ast$local, int ret)}]{, }
+\item[{T\-P\-\_\-\-A\-R\-G\-S(local, ret)}]{, }
+\item[{T\-P\-\_\-\-S\-T\-R\-U\-C\-T\-\_\-\-\_\-entry(L\-O\-C\-A\-L\-\_\-\-E\-N\-T\-R\-Y\-\_\-\-\_\-field(int, ret))}]{, }
+\item[{T\-P\-\_\-fast\-\_\-assign({\bf L\-O\-C\-A\-L\-\_\-\-A\-S\-S\-I\-G\-N};\-\_\-\-\_\-entry-\/$>$ret=ret;)}]{, }
+\item[{T\-P\-\_\-printk({\bf L\-O\-C\-A\-L\-\_\-\-P\-R\-\_\-\-F\-M\-T}\char`\"{} -\/ \%d\char`\"{}, L\-O\-C\-A\-L\-\_\-\-P\-R\-\_\-\-A\-R\-G, \-\_\-\-\_\-entry-\/$>$ret)}]{}
+\end{DoxyParamCaption}
+)}}\label{driver-trace_8h_a67f8d60e55de4b5c8a8b0332c231120f}
+\hypertarget{driver-trace_8h_a455ef0884f95cf030d56a4264ae6b650}{\index{driver-\/trace.\-h@{driver-\/trace.\-h}!T\-R\-A\-C\-E\-\_\-\-E\-V\-E\-N\-T@{T\-R\-A\-C\-E\-\_\-\-E\-V\-E\-N\-T}}
+\index{T\-R\-A\-C\-E\-\_\-\-E\-V\-E\-N\-T@{T\-R\-A\-C\-E\-\_\-\-E\-V\-E\-N\-T}!driver-trace.h@{driver-\/trace.\-h}}
+\subsubsection[{T\-R\-A\-C\-E\-\_\-\-E\-V\-E\-N\-T}]{\setlength{\rightskip}{0pt plus 5cm}T\-R\-A\-C\-E\-\_\-\-E\-V\-E\-N\-T (
+\begin{DoxyParamCaption}
+\item[{drv\-\_\-return\-\_\-bool}]{, }
+\item[{T\-P\-\_\-\-P\-R\-O\-T\-O(struct {\bf ieee80211\-\_\-local} $\ast$local, bool ret)}]{, }
+\item[{T\-P\-\_\-\-A\-R\-G\-S(local, ret)}]{, }
+\item[{T\-P\-\_\-\-S\-T\-R\-U\-C\-T\-\_\-\-\_\-entry(L\-O\-C\-A\-L\-\_\-\-E\-N\-T\-R\-Y\-\_\-\-\_\-field(bool, ret))}]{, }
+\item[{T\-P\-\_\-fast\-\_\-assign({\bf L\-O\-C\-A\-L\-\_\-\-A\-S\-S\-I\-G\-N};\-\_\-\-\_\-entry-\/$>$ret=ret;)}]{, }
+\item[{T\-P\-\_\-printk({\bf L\-O\-C\-A\-L\-\_\-\-P\-R\-\_\-\-F\-M\-T}\char`\"{} -\/ \%s\char`\"{}, L\-O\-C\-A\-L\-\_\-\-P\-R\-\_\-\-A\-R\-G,(\-\_\-\-\_\-entry-\/$>$ret)?\char`\"{}true\char`\"{}\-:\char`\"{}false\char`\"{})}]{}
+\end{DoxyParamCaption}
+)}}\label{driver-trace_8h_a455ef0884f95cf030d56a4264ae6b650}
+\hypertarget{driver-trace_8h_a64ee57f1a21f47020d47396e9e9de6fc}{\index{driver-\/trace.\-h@{driver-\/trace.\-h}!T\-R\-A\-C\-E\-\_\-\-E\-V\-E\-N\-T@{T\-R\-A\-C\-E\-\_\-\-E\-V\-E\-N\-T}}
+\index{T\-R\-A\-C\-E\-\_\-\-E\-V\-E\-N\-T@{T\-R\-A\-C\-E\-\_\-\-E\-V\-E\-N\-T}!driver-trace.h@{driver-\/trace.\-h}}
+\subsubsection[{T\-R\-A\-C\-E\-\_\-\-E\-V\-E\-N\-T}]{\setlength{\rightskip}{0pt plus 5cm}T\-R\-A\-C\-E\-\_\-\-E\-V\-E\-N\-T (
+\begin{DoxyParamCaption}
+\item[{drv\-\_\-return\-\_\-u64}]{, }
+\item[{T\-P\-\_\-\-P\-R\-O\-T\-O(struct {\bf ieee80211\-\_\-local} $\ast$local, u64 ret)}]{, }
+\item[{T\-P\-\_\-\-A\-R\-G\-S(local, ret)}]{, }
+\item[{T\-P\-\_\-\-S\-T\-R\-U\-C\-T\-\_\-\-\_\-entry(L\-O\-C\-A\-L\-\_\-\-E\-N\-T\-R\-Y\-\_\-\-\_\-field(u64, ret))}]{, }
+\item[{T\-P\-\_\-fast\-\_\-assign({\bf L\-O\-C\-A\-L\-\_\-\-A\-S\-S\-I\-G\-N};\-\_\-\-\_\-entry-\/$>$ret=ret;)}]{, }
+\item[{T\-P\-\_\-printk({\bf L\-O\-C\-A\-L\-\_\-\-P\-R\-\_\-\-F\-M\-T}\char`\"{} -\/ \%llu\char`\"{}, L\-O\-C\-A\-L\-\_\-\-P\-R\-\_\-\-A\-R\-G, \-\_\-\-\_\-entry-\/$>$ret)}]{}
+\end{DoxyParamCaption}
+)}}\label{driver-trace_8h_a64ee57f1a21f47020d47396e9e9de6fc}
+\hypertarget{driver-trace_8h_abab974f7d1d6ac5ada7f8810fc7ae859}{\index{driver-\/trace.\-h@{driver-\/trace.\-h}!T\-R\-A\-C\-E\-\_\-\-E\-V\-E\-N\-T@{T\-R\-A\-C\-E\-\_\-\-E\-V\-E\-N\-T}}
+\index{T\-R\-A\-C\-E\-\_\-\-E\-V\-E\-N\-T@{T\-R\-A\-C\-E\-\_\-\-E\-V\-E\-N\-T}!driver-trace.h@{driver-\/trace.\-h}}
+\subsubsection[{T\-R\-A\-C\-E\-\_\-\-E\-V\-E\-N\-T}]{\setlength{\rightskip}{0pt plus 5cm}T\-R\-A\-C\-E\-\_\-\-E\-V\-E\-N\-T (
+\begin{DoxyParamCaption}
+\item[{drv\-\_\-change\-\_\-interface}]{, }
+\item[{T\-P\-\_\-\-P\-R\-O\-T\-O(struct {\bf ieee80211\-\_\-local} $\ast$local, struct {\bf ieee80211\-\_\-sub\-\_\-if\-\_\-data} $\ast$sdata, enum nl80211\-\_\-iftype type, bool p2p)}]{, }
+\item[{T\-P\-\_\-\-A\-R\-G\-S(local, sdata, type, p2p)}]{, }
+\item[{T\-P\-\_\-\-S\-T\-R\-U\-C\-T\-\_\-\-\_\-entry(L\-O\-C\-A\-L\-\_\-\-E\-N\-T\-R\-Y\-V\-I\-F\-\_\-\-E\-N\-T\-R\-Y\-\_\-\-\_\-field(u32, new\-\_\-type) \-\_\-\-\_\-field(bool, new\-\_\-p2p))}]{, }
+\item[{T\-P\-\_\-fast\-\_\-assign({\bf L\-O\-C\-A\-L\-\_\-\-A\-S\-S\-I\-G\-N};{\bf V\-I\-F\-\_\-\-A\-S\-S\-I\-G\-N};\-\_\-\-\_\-entry-\/$>$new\-\_\-type=type;\-\_\-\-\_\-entry-\/$>$new\-\_\-p2p=p2p;)}]{, }
+\item[{T\-P\-\_\-printk(L\-O\-C\-A\-L\-\_\-\-P\-R\-\_\-\-F\-M\-T\-V\-I\-F\-\_\-\-P\-R\-\_\-\-F\-M\-T\char`\"{} new type\-:\%d\%s\char`\"{}, L\-O\-C\-A\-L\-\_\-\-P\-R\-\_\-\-A\-R\-G, {\bf V\-I\-F\-\_\-\-P\-R\-\_\-\-A\-R\-G}, \-\_\-\-\_\-entry-\/$>$new\-\_\-type, \-\_\-\-\_\-entry-\/$>$new\-\_\-p2p?\char`\"{}/p2p\char`\"{}\-:\char`\"{}\char`\"{})}]{}
+\end{DoxyParamCaption}
+)}}\label{driver-trace_8h_abab974f7d1d6ac5ada7f8810fc7ae859}
+\hypertarget{driver-trace_8h_a21cf637e632516dc22503ba541f561d9}{\index{driver-\/trace.\-h@{driver-\/trace.\-h}!T\-R\-A\-C\-E\-\_\-\-E\-V\-E\-N\-T@{T\-R\-A\-C\-E\-\_\-\-E\-V\-E\-N\-T}}
+\index{T\-R\-A\-C\-E\-\_\-\-E\-V\-E\-N\-T@{T\-R\-A\-C\-E\-\_\-\-E\-V\-E\-N\-T}!driver-trace.h@{driver-\/trace.\-h}}
+\subsubsection[{T\-R\-A\-C\-E\-\_\-\-E\-V\-E\-N\-T}]{\setlength{\rightskip}{0pt plus 5cm}T\-R\-A\-C\-E\-\_\-\-E\-V\-E\-N\-T (
+\begin{DoxyParamCaption}
+\item[{drv\-\_\-config}]{, }
+\item[{T\-P\-\_\-\-P\-R\-O\-T\-O(struct {\bf ieee80211\-\_\-local} $\ast$local, u32 changed)}]{, }
+\item[{T\-P\-\_\-\-A\-R\-G\-S(local, changed)}]{, }
+\item[{T\-P\-\_\-\-S\-T\-R\-U\-C\-T\-\_\-\-\_\-entry(L\-O\-C\-A\-L\-\_\-\-E\-N\-T\-R\-Y\-\_\-\-\_\-field(u32, changed) \-\_\-\-\_\-field(u32, flags) \-\_\-\-\_\-field(int, power\-\_\-level) \-\_\-\-\_\-field(int, dynamic\-\_\-ps\-\_\-timeout) \-\_\-\-\_\-field(int, max\-\_\-sleep\-\_\-period) \-\_\-\-\_\-field(u16, listen\-\_\-interval) \-\_\-\-\_\-field(u8, long\-\_\-frame\-\_\-max\-\_\-tx\-\_\-count) \-\_\-\-\_\-field(u8, short\-\_\-frame\-\_\-max\-\_\-tx\-\_\-count) \-\_\-\-\_\-field(int, center\-\_\-freq) \-\_\-\-\_\-field(int, channel\-\_\-type) \-\_\-\-\_\-field(int, smps))}]{, }
+\item[{T\-P\-\_\-fast\-\_\-assign({\bf L\-O\-C\-A\-L\-\_\-\-A\-S\-S\-I\-G\-N};\-\_\-\-\_\-entry-\/$>$changed=changed;\-\_\-\-\_\-entry-\/$>$flags=local-\/$>$hw.\-conf.\-flags;\-\_\-\-\_\-entry-\/$>$power\-\_\-level=local-\/$>$hw.\-conf.\-power\-\_\-level;\-\_\-\-\_\-entry-\/$>$dynamic\-\_\-ps\-\_\-timeout=local-\/$>$hw.\-conf.\-dynamic\-\_\-ps\-\_\-timeout;\-\_\-\-\_\-entry-\/$>$max\-\_\-sleep\-\_\-period=local-\/$>$hw.\-conf.\-max\-\_\-sleep\-\_\-period;\-\_\-\-\_\-entry-\/$>$listen\-\_\-interval=local-\/$>$hw.\-conf.\-listen\-\_\-interval;\-\_\-\-\_\-entry-\/$>$long\-\_\-frame\-\_\-max\-\_\-tx\-\_\-count=local-\/$>$hw.\-conf.\-long\-\_\-frame\-\_\-max\-\_\-tx\-\_\-count;\-\_\-\-\_\-entry-\/$>$short\-\_\-frame\-\_\-max\-\_\-tx\-\_\-count=local-\/$>$hw.\-conf.\-short\-\_\-frame\-\_\-max\-\_\-tx\-\_\-count;\-\_\-\-\_\-entry-\/$>$center\-\_\-freq=local-\/$>$hw.\-conf.\-channel-\/$>$center\-\_\-freq;\-\_\-\-\_\-entry-\/$>$channel\-\_\-type=local-\/$>$hw.\-conf.\-channel\-\_\-type;\-\_\-\-\_\-entry-\/$>$smps=local-\/$>$hw.\-conf.\-smps\-\_\-mode;)}]{, }
+\item[{T\-P\-\_\-printk({\bf L\-O\-C\-A\-L\-\_\-\-P\-R\-\_\-\-F\-M\-T}\char`\"{} ch\-:\%\#x freq\-:\%d\char`\"{}, L\-O\-C\-A\-L\-\_\-\-P\-R\-\_\-\-A\-R\-G, \-\_\-\-\_\-entry-\/$>$changed, \-\_\-\-\_\-entry-\/$>$center\-\_\-freq)}]{}
+\end{DoxyParamCaption}
+)}}\label{driver-trace_8h_a21cf637e632516dc22503ba541f561d9}
+\hypertarget{driver-trace_8h_aa4c84623c0a4ec38ce4781da7df644cd}{\index{driver-\/trace.\-h@{driver-\/trace.\-h}!T\-R\-A\-C\-E\-\_\-\-E\-V\-E\-N\-T@{T\-R\-A\-C\-E\-\_\-\-E\-V\-E\-N\-T}}
+\index{T\-R\-A\-C\-E\-\_\-\-E\-V\-E\-N\-T@{T\-R\-A\-C\-E\-\_\-\-E\-V\-E\-N\-T}!driver-trace.h@{driver-\/trace.\-h}}
+\subsubsection[{T\-R\-A\-C\-E\-\_\-\-E\-V\-E\-N\-T}]{\setlength{\rightskip}{0pt plus 5cm}T\-R\-A\-C\-E\-\_\-\-E\-V\-E\-N\-T (
+\begin{DoxyParamCaption}
+\item[{drv\-\_\-bss\-\_\-info\-\_\-changed}]{, }
+\item[{T\-P\-\_\-\-P\-R\-O\-T\-O(struct {\bf ieee80211\-\_\-local} $\ast$local, struct {\bf ieee80211\-\_\-sub\-\_\-if\-\_\-data} $\ast$sdata, struct ieee80211\-\_\-bss\-\_\-conf $\ast$info, u32 changed)}]{, }
+\item[{T\-P\-\_\-\-A\-R\-G\-S(local, sdata, info, changed)}]{, }
+\item[{T\-P\-\_\-\-S\-T\-R\-U\-C\-T\-\_\-\-\_\-entry(L\-O\-C\-A\-L\-\_\-\-E\-N\-T\-R\-Y\-V\-I\-F\-\_\-\-E\-N\-T\-R\-Y\-\_\-\-\_\-field(bool, assoc) \-\_\-\-\_\-field(u16, aid) \-\_\-\-\_\-field(bool, cts) \-\_\-\-\_\-field(bool, shortpre) \-\_\-\-\_\-field(bool, shortslot) \-\_\-\-\_\-field(u8, dtimper) \-\_\-\-\_\-field(u16, bcnint) \-\_\-\-\_\-field(u16, assoc\-\_\-cap) \-\_\-\-\_\-field(u64, timestamp) \-\_\-\-\_\-field(u32, basic\-\_\-rates) \-\_\-\-\_\-field(u32, changed) \-\_\-\-\_\-field(bool, enable\-\_\-beacon) \-\_\-\-\_\-field(u16, ht\-\_\-operation\-\_\-mode))}]{, }
+\item[{T\-P\-\_\-fast\-\_\-assign({\bf L\-O\-C\-A\-L\-\_\-\-A\-S\-S\-I\-G\-N};{\bf V\-I\-F\-\_\-\-A\-S\-S\-I\-G\-N};\-\_\-\-\_\-entry-\/$>$changed=changed;\-\_\-\-\_\-entry-\/$>$aid=info-\/$>$aid;\-\_\-\-\_\-entry-\/$>$assoc=info-\/$>$assoc;\-\_\-\-\_\-entry-\/$>$shortpre=info-\/$>$use\-\_\-short\-\_\-preamble;\-\_\-\-\_\-entry-\/$>$cts=info-\/$>$use\-\_\-cts\-\_\-prot;\-\_\-\-\_\-entry-\/$>$shortslot=info-\/$>$use\-\_\-short\-\_\-slot;\-\_\-\-\_\-entry-\/$>$dtimper=info-\/$>$dtim\-\_\-period;\-\_\-\-\_\-entry-\/$>$bcnint=info-\/$>$beacon\-\_\-int;\-\_\-\-\_\-entry-\/$>$assoc\-\_\-cap=info-\/$>$assoc\-\_\-capability;\-\_\-\-\_\-entry-\/$>$timestamp=info-\/$>$last\-\_\-tsf;\-\_\-\-\_\-entry-\/$>$basic\-\_\-rates=info-\/$>$basic\-\_\-rates;\-\_\-\-\_\-entry-\/$>$enable\-\_\-beacon=info-\/$>$enable\-\_\-beacon;\-\_\-\-\_\-entry-\/$>$ht\-\_\-operation\-\_\-mode=info-\/$>$ht\-\_\-operation\-\_\-mode;)}]{, }
+\item[{T\-P\-\_\-printk(L\-O\-C\-A\-L\-\_\-\-P\-R\-\_\-\-F\-M\-T\-V\-I\-F\-\_\-\-P\-R\-\_\-\-F\-M\-T\char`\"{} changed\-:\%\#x\char`\"{}, L\-O\-C\-A\-L\-\_\-\-P\-R\-\_\-\-A\-R\-G, {\bf V\-I\-F\-\_\-\-P\-R\-\_\-\-A\-R\-G}, \-\_\-\-\_\-entry-\/$>$changed)}]{}
+\end{DoxyParamCaption}
+)}}\label{driver-trace_8h_aa4c84623c0a4ec38ce4781da7df644cd}
+\hypertarget{driver-trace_8h_abb0d6e229cadfa0fbe54ab6a2655e107}{\index{driver-\/trace.\-h@{driver-\/trace.\-h}!T\-R\-A\-C\-E\-\_\-\-E\-V\-E\-N\-T@{T\-R\-A\-C\-E\-\_\-\-E\-V\-E\-N\-T}}
+\index{T\-R\-A\-C\-E\-\_\-\-E\-V\-E\-N\-T@{T\-R\-A\-C\-E\-\_\-\-E\-V\-E\-N\-T}!driver-trace.h@{driver-\/trace.\-h}}
+\subsubsection[{T\-R\-A\-C\-E\-\_\-\-E\-V\-E\-N\-T}]{\setlength{\rightskip}{0pt plus 5cm}T\-R\-A\-C\-E\-\_\-\-E\-V\-E\-N\-T (
+\begin{DoxyParamCaption}
+\item[{drv\-\_\-prepare\-\_\-multicast}]{, }
+\item[{T\-P\-\_\-\-P\-R\-O\-T\-O(struct {\bf ieee80211\-\_\-local} $\ast$local, int mc\-\_\-count)}]{, }
+\item[{T\-P\-\_\-\-A\-R\-G\-S(local, mc\-\_\-count)}]{, }
+\item[{T\-P\-\_\-\-S\-T\-R\-U\-C\-T\-\_\-\-\_\-entry(L\-O\-C\-A\-L\-\_\-\-E\-N\-T\-R\-Y\-\_\-\-\_\-field(int, mc\-\_\-count))}]{, }
+\item[{T\-P\-\_\-fast\-\_\-assign({\bf L\-O\-C\-A\-L\-\_\-\-A\-S\-S\-I\-G\-N};\-\_\-\-\_\-entry-\/$>$mc\-\_\-count=mc\-\_\-count;)}]{, }
+\item[{T\-P\-\_\-printk({\bf L\-O\-C\-A\-L\-\_\-\-P\-R\-\_\-\-F\-M\-T}\char`\"{} prepare mc (\%d)\char`\"{}, L\-O\-C\-A\-L\-\_\-\-P\-R\-\_\-\-A\-R\-G, \-\_\-\-\_\-entry-\/$>$mc\-\_\-count)}]{}
+\end{DoxyParamCaption}
+)}}\label{driver-trace_8h_abb0d6e229cadfa0fbe54ab6a2655e107}
+\hypertarget{driver-trace_8h_aa75bea48274d005ac08e0c50ad93fbf8}{\index{driver-\/trace.\-h@{driver-\/trace.\-h}!T\-R\-A\-C\-E\-\_\-\-E\-V\-E\-N\-T@{T\-R\-A\-C\-E\-\_\-\-E\-V\-E\-N\-T}}
+\index{T\-R\-A\-C\-E\-\_\-\-E\-V\-E\-N\-T@{T\-R\-A\-C\-E\-\_\-\-E\-V\-E\-N\-T}!driver-trace.h@{driver-\/trace.\-h}}
+\subsubsection[{T\-R\-A\-C\-E\-\_\-\-E\-V\-E\-N\-T}]{\setlength{\rightskip}{0pt plus 5cm}T\-R\-A\-C\-E\-\_\-\-E\-V\-E\-N\-T (
+\begin{DoxyParamCaption}
+\item[{drv\-\_\-configure\-\_\-filter}]{, }
+\item[{T\-P\-\_\-\-P\-R\-O\-T\-O(struct {\bf ieee80211\-\_\-local} $\ast$local, unsigned int changed\-\_\-flags, unsigned int $\ast$total\-\_\-flags, u64 multicast)}]{, }
+\item[{T\-P\-\_\-\-A\-R\-G\-S(local, changed\-\_\-flags, total\-\_\-flags, multicast)}]{, }
+\item[{T\-P\-\_\-\-S\-T\-R\-U\-C\-T\-\_\-\-\_\-entry(L\-O\-C\-A\-L\-\_\-\-E\-N\-T\-R\-Y\-\_\-\-\_\-field(unsigned int, changed) \-\_\-\-\_\-field(unsigned int, total) \-\_\-\-\_\-field(u64, multicast))}]{, }
+\item[{T\-P\-\_\-fast\-\_\-assign({\bf L\-O\-C\-A\-L\-\_\-\-A\-S\-S\-I\-G\-N};\-\_\-\-\_\-entry-\/$>$changed=changed\-\_\-flags;\-\_\-\-\_\-entry-\/$>$total=$\ast$total\-\_\-flags;\-\_\-\-\_\-entry-\/$>$multicast=multicast;)}]{, }
+\item[{T\-P\-\_\-printk({\bf L\-O\-C\-A\-L\-\_\-\-P\-R\-\_\-\-F\-M\-T}\char`\"{} changed\-:\%\#x total\-:\%\#x\char`\"{}, L\-O\-C\-A\-L\-\_\-\-P\-R\-\_\-\-A\-R\-G, \-\_\-\-\_\-entry-\/$>$changed, \-\_\-\-\_\-entry-\/$>$total)}]{}
+\end{DoxyParamCaption}
+)}}\label{driver-trace_8h_aa75bea48274d005ac08e0c50ad93fbf8}
+\hypertarget{driver-trace_8h_af1a68e2e4d5b3a392ef649bb575700d6}{\index{driver-\/trace.\-h@{driver-\/trace.\-h}!T\-R\-A\-C\-E\-\_\-\-E\-V\-E\-N\-T@{T\-R\-A\-C\-E\-\_\-\-E\-V\-E\-N\-T}}
+\index{T\-R\-A\-C\-E\-\_\-\-E\-V\-E\-N\-T@{T\-R\-A\-C\-E\-\_\-\-E\-V\-E\-N\-T}!driver-trace.h@{driver-\/trace.\-h}}
+\subsubsection[{T\-R\-A\-C\-E\-\_\-\-E\-V\-E\-N\-T}]{\setlength{\rightskip}{0pt plus 5cm}T\-R\-A\-C\-E\-\_\-\-E\-V\-E\-N\-T (
+\begin{DoxyParamCaption}
+\item[{drv\-\_\-set\-\_\-tim}]{, }
+\item[{T\-P\-\_\-\-P\-R\-O\-T\-O(struct {\bf ieee80211\-\_\-local} $\ast$local, struct ieee80211\-\_\-sta $\ast$sta, bool set)}]{, }
+\item[{T\-P\-\_\-\-A\-R\-G\-S(local, sta, set)}]{, }
+\item[{T\-P\-\_\-\-S\-T\-R\-U\-C\-T\-\_\-\-\_\-entry(L\-O\-C\-A\-L\-\_\-\-E\-N\-T\-R\-Y\-S\-T\-A\-\_\-\-E\-N\-T\-R\-Y\-\_\-\-\_\-field(bool, set))}]{, }
+\item[{T\-P\-\_\-fast\-\_\-assign({\bf L\-O\-C\-A\-L\-\_\-\-A\-S\-S\-I\-G\-N};{\bf S\-T\-A\-\_\-\-A\-S\-S\-I\-G\-N};\-\_\-\-\_\-entry-\/$>$set=set;)}]{, }
+\item[{T\-P\-\_\-printk({\bf L\-O\-C\-A\-L\-\_\-\-P\-R\-\_\-\-F\-M\-T} {\bf S\-T\-A\-\_\-\-P\-R\-\_\-\-F\-M\-T}\char`\"{} set\-:\%d\char`\"{}, L\-O\-C\-A\-L\-\_\-\-P\-R\-\_\-\-A\-R\-G, {\bf S\-T\-A\-\_\-\-P\-R\-\_\-\-F\-M\-T}, \-\_\-\-\_\-entry-\/$>$set)}]{}
+\end{DoxyParamCaption}
+)}}\label{driver-trace_8h_af1a68e2e4d5b3a392ef649bb575700d6}
+\hypertarget{driver-trace_8h_af0b53933573d19e1fcead14636a628dd}{\index{driver-\/trace.\-h@{driver-\/trace.\-h}!T\-R\-A\-C\-E\-\_\-\-E\-V\-E\-N\-T@{T\-R\-A\-C\-E\-\_\-\-E\-V\-E\-N\-T}}
+\index{T\-R\-A\-C\-E\-\_\-\-E\-V\-E\-N\-T@{T\-R\-A\-C\-E\-\_\-\-E\-V\-E\-N\-T}!driver-trace.h@{driver-\/trace.\-h}}
+\subsubsection[{T\-R\-A\-C\-E\-\_\-\-E\-V\-E\-N\-T}]{\setlength{\rightskip}{0pt plus 5cm}T\-R\-A\-C\-E\-\_\-\-E\-V\-E\-N\-T (
+\begin{DoxyParamCaption}
+\item[{drv\-\_\-set\-\_\-key}]{, }
+\item[{T\-P\-\_\-\-P\-R\-O\-T\-O(struct {\bf ieee80211\-\_\-local} $\ast$local, enum set\-\_\-key\-\_\-cmd cmd, struct {\bf ieee80211\-\_\-sub\-\_\-if\-\_\-data} $\ast$sdata, struct ieee80211\-\_\-sta $\ast$sta, struct ieee80211\-\_\-key\-\_\-conf $\ast$key)}]{, }
+\item[{T\-P\-\_\-\-A\-R\-G\-S(local, cmd, sdata, sta, key)}]{, }
+\item[{T\-P\-\_\-\-S\-T\-R\-U\-C\-T\-\_\-\-\_\-entry(L\-O\-C\-A\-L\-\_\-\-E\-N\-T\-R\-Y\-V\-I\-F\-\_\-\-E\-N\-T\-R\-Y\-S\-T\-A\-\_\-\-E\-N\-T\-R\-Y\-\_\-\-\_\-field(u32, cipher) \-\_\-\-\_\-field(u8, hw\-\_\-key\-\_\-idx) \-\_\-\-\_\-field(u8, flags) \-\_\-\-\_\-field(s8, keyidx))}]{, }
+\item[{T\-P\-\_\-fast\-\_\-assign({\bf L\-O\-C\-A\-L\-\_\-\-A\-S\-S\-I\-G\-N};{\bf V\-I\-F\-\_\-\-A\-S\-S\-I\-G\-N};{\bf S\-T\-A\-\_\-\-A\-S\-S\-I\-G\-N};\-\_\-\-\_\-entry-\/$>$cipher=key-\/$>$cipher;\-\_\-\-\_\-entry-\/$>$flags=key-\/$>$flags;\-\_\-\-\_\-entry-\/$>$keyidx=key-\/$>$keyidx;\-\_\-\-\_\-entry-\/$>$hw\-\_\-key\-\_\-idx=key-\/$>$hw\-\_\-key\-\_\-idx;)}]{, }
+\item[{T\-P\-\_\-printk(L\-O\-C\-A\-L\-\_\-\-P\-R\-\_\-\-F\-M\-T\-V\-I\-F\-\_\-\-P\-R\-\_\-\-F\-M\-T\-S\-T\-A\-\_\-\-P\-R\-\_\-\-F\-M\-T, {\bf L\-O\-C\-A\-L\-\_\-\-P\-R\-\_\-\-A\-R\-G}, {\bf V\-I\-F\-\_\-\-P\-R\-\_\-\-A\-R\-G}, {\bf S\-T\-A\-\_\-\-P\-R\-\_\-\-A\-R\-G})}]{}
+\end{DoxyParamCaption}
+)}}\label{driver-trace_8h_af0b53933573d19e1fcead14636a628dd}
+\hypertarget{driver-trace_8h_af3c41742ab97e1e469523541b416c437}{\index{driver-\/trace.\-h@{driver-\/trace.\-h}!T\-R\-A\-C\-E\-\_\-\-E\-V\-E\-N\-T@{T\-R\-A\-C\-E\-\_\-\-E\-V\-E\-N\-T}}
+\index{T\-R\-A\-C\-E\-\_\-\-E\-V\-E\-N\-T@{T\-R\-A\-C\-E\-\_\-\-E\-V\-E\-N\-T}!driver-trace.h@{driver-\/trace.\-h}}
+\subsubsection[{T\-R\-A\-C\-E\-\_\-\-E\-V\-E\-N\-T}]{\setlength{\rightskip}{0pt plus 5cm}T\-R\-A\-C\-E\-\_\-\-E\-V\-E\-N\-T (
+\begin{DoxyParamCaption}
+\item[{drv\-\_\-update\-\_\-tkip\-\_\-key}]{, }
+\item[{T\-P\-\_\-\-P\-R\-O\-T\-O(struct {\bf ieee80211\-\_\-local} $\ast$local, struct {\bf ieee80211\-\_\-sub\-\_\-if\-\_\-data} $\ast$sdata, struct ieee80211\-\_\-key\-\_\-conf $\ast$conf, struct ieee80211\-\_\-sta $\ast$sta, u32 iv32)}]{, }
+\item[{T\-P\-\_\-\-A\-R\-G\-S(local, sdata, conf, sta, iv32)}]{, }
+\item[{T\-P\-\_\-\-S\-T\-R\-U\-C\-T\-\_\-\-\_\-entry(L\-O\-C\-A\-L\-\_\-\-E\-N\-T\-R\-Y\-V\-I\-F\-\_\-\-E\-N\-T\-R\-Y\-S\-T\-A\-\_\-\-E\-N\-T\-R\-Y\-\_\-\-\_\-field(u32, iv32))}]{, }
+\item[{T\-P\-\_\-fast\-\_\-assign({\bf L\-O\-C\-A\-L\-\_\-\-A\-S\-S\-I\-G\-N};{\bf V\-I\-F\-\_\-\-A\-S\-S\-I\-G\-N};{\bf S\-T\-A\-\_\-\-A\-S\-S\-I\-G\-N};\-\_\-\-\_\-entry-\/$>$iv32=iv32;)}]{, }
+\item[{T\-P\-\_\-printk({\bf L\-O\-C\-A\-L\-\_\-\-P\-R\-\_\-\-F\-M\-T} {\bf V\-I\-F\-\_\-\-P\-R\-\_\-\-F\-M\-T} {\bf S\-T\-A\-\_\-\-P\-R\-\_\-\-F\-M\-T}\char`\"{} iv32\-:\%\#x\char`\"{}, L\-O\-C\-A\-L\-\_\-\-P\-R\-\_\-\-A\-R\-G, {\bf V\-I\-F\-\_\-\-P\-R\-\_\-\-A\-R\-G}, {\bf S\-T\-A\-\_\-\-P\-R\-\_\-\-A\-R\-G}, \-\_\-\-\_\-entry-\/$>$iv32)}]{}
+\end{DoxyParamCaption}
+)}}\label{driver-trace_8h_af3c41742ab97e1e469523541b416c437}
+\hypertarget{driver-trace_8h_a83aec7e1c4c25ae4e838d2d859391975}{\index{driver-\/trace.\-h@{driver-\/trace.\-h}!T\-R\-A\-C\-E\-\_\-\-E\-V\-E\-N\-T@{T\-R\-A\-C\-E\-\_\-\-E\-V\-E\-N\-T}}
+\index{T\-R\-A\-C\-E\-\_\-\-E\-V\-E\-N\-T@{T\-R\-A\-C\-E\-\_\-\-E\-V\-E\-N\-T}!driver-trace.h@{driver-\/trace.\-h}}
+\subsubsection[{T\-R\-A\-C\-E\-\_\-\-E\-V\-E\-N\-T}]{\setlength{\rightskip}{0pt plus 5cm}T\-R\-A\-C\-E\-\_\-\-E\-V\-E\-N\-T (
+\begin{DoxyParamCaption}
+\item[{drv\-\_\-get\-\_\-stats}]{, }
+\item[{T\-P\-\_\-\-P\-R\-O\-T\-O(struct {\bf ieee80211\-\_\-local} $\ast$local, struct ieee80211\-\_\-low\-\_\-level\-\_\-stats $\ast$stats, int ret)}]{, }
+\item[{T\-P\-\_\-\-A\-R\-G\-S(local, stats, ret)}]{, }
+\item[{T\-P\-\_\-\-S\-T\-R\-U\-C\-T\-\_\-\-\_\-entry(L\-O\-C\-A\-L\-\_\-\-E\-N\-T\-R\-Y\-\_\-\-\_\-field(int, ret) \-\_\-\-\_\-field(unsigned int, ackfail) \-\_\-\-\_\-field(unsigned int, rtsfail) \-\_\-\-\_\-field(unsigned int, fcserr) \-\_\-\-\_\-field(unsigned int, rtssucc))}]{, }
+\item[{T\-P\-\_\-fast\-\_\-assign({\bf L\-O\-C\-A\-L\-\_\-\-A\-S\-S\-I\-G\-N};\-\_\-\-\_\-entry-\/$>$ret=ret;\-\_\-\-\_\-entry-\/$>$ackfail=stats-\/$>$dot11\-A\-C\-K\-Failure\-Count;\-\_\-\-\_\-entry-\/$>$rtsfail=stats-\/$>$dot11\-R\-T\-S\-Failure\-Count;\-\_\-\-\_\-entry-\/$>$fcserr=stats-\/$>$dot11\-F\-C\-S\-Error\-Count;\-\_\-\-\_\-entry-\/$>$rtssucc=stats-\/$>$dot11\-R\-T\-S\-Success\-Count;)}]{, }
+\item[{T\-P\-\_\-printk({\bf L\-O\-C\-A\-L\-\_\-\-P\-R\-\_\-\-F\-M\-T}\char`\"{} ret\-:\%d\char`\"{}, L\-O\-C\-A\-L\-\_\-\-P\-R\-\_\-\-A\-R\-G, \-\_\-\-\_\-entry-\/$>$ret)}]{}
+\end{DoxyParamCaption}
+)}}\label{driver-trace_8h_a83aec7e1c4c25ae4e838d2d859391975}
+\hypertarget{driver-trace_8h_ac48913afdbea944199169c365490011c}{\index{driver-\/trace.\-h@{driver-\/trace.\-h}!T\-R\-A\-C\-E\-\_\-\-E\-V\-E\-N\-T@{T\-R\-A\-C\-E\-\_\-\-E\-V\-E\-N\-T}}
+\index{T\-R\-A\-C\-E\-\_\-\-E\-V\-E\-N\-T@{T\-R\-A\-C\-E\-\_\-\-E\-V\-E\-N\-T}!driver-trace.h@{driver-\/trace.\-h}}
+\subsubsection[{T\-R\-A\-C\-E\-\_\-\-E\-V\-E\-N\-T}]{\setlength{\rightskip}{0pt plus 5cm}T\-R\-A\-C\-E\-\_\-\-E\-V\-E\-N\-T (
+\begin{DoxyParamCaption}
+\item[{drv\-\_\-get\-\_\-tkip\-\_\-seq}]{, }
+\item[{T\-P\-\_\-\-P\-R\-O\-T\-O(struct {\bf ieee80211\-\_\-local} $\ast$local, u8 hw\-\_\-key\-\_\-idx, u32 $\ast$iv32, u16 $\ast$iv16)}]{, }
+\item[{T\-P\-\_\-\-A\-R\-G\-S(local, hw\-\_\-key\-\_\-idx, iv32, iv16)}]{, }
+\item[{T\-P\-\_\-\-S\-T\-R\-U\-C\-T\-\_\-\-\_\-entry(L\-O\-C\-A\-L\-\_\-\-E\-N\-T\-R\-Y\-\_\-\-\_\-field(u8, hw\-\_\-key\-\_\-idx) \-\_\-\-\_\-field(u32, iv32) \-\_\-\-\_\-field(u16, iv16))}]{, }
+\item[{T\-P\-\_\-fast\-\_\-assign({\bf L\-O\-C\-A\-L\-\_\-\-A\-S\-S\-I\-G\-N};\-\_\-\-\_\-entry-\/$>$hw\-\_\-key\-\_\-idx=hw\-\_\-key\-\_\-idx;\-\_\-\-\_\-entry-\/$>$iv32=$\ast$iv32;\-\_\-\-\_\-entry-\/$>$iv16=$\ast$iv16;)}]{, }
+\item[{T\-P\-\_\-printk({\bf L\-O\-C\-A\-L\-\_\-\-P\-R\-\_\-\-F\-M\-T}, {\bf L\-O\-C\-A\-L\-\_\-\-P\-R\-\_\-\-A\-R\-G})}]{}
+\end{DoxyParamCaption}
+)}}\label{driver-trace_8h_ac48913afdbea944199169c365490011c}
+\hypertarget{driver-trace_8h_a318d2673b310d387380a894450631834}{\index{driver-\/trace.\-h@{driver-\/trace.\-h}!T\-R\-A\-C\-E\-\_\-\-E\-V\-E\-N\-T@{T\-R\-A\-C\-E\-\_\-\-E\-V\-E\-N\-T}}
+\index{T\-R\-A\-C\-E\-\_\-\-E\-V\-E\-N\-T@{T\-R\-A\-C\-E\-\_\-\-E\-V\-E\-N\-T}!driver-trace.h@{driver-\/trace.\-h}}
+\subsubsection[{T\-R\-A\-C\-E\-\_\-\-E\-V\-E\-N\-T}]{\setlength{\rightskip}{0pt plus 5cm}T\-R\-A\-C\-E\-\_\-\-E\-V\-E\-N\-T (
+\begin{DoxyParamCaption}
+\item[{drv\-\_\-set\-\_\-coverage\-\_\-class}]{, }
+\item[{T\-P\-\_\-\-P\-R\-O\-T\-O(struct {\bf ieee80211\-\_\-local} $\ast$local, u8 value)}]{, }
+\item[{T\-P\-\_\-\-A\-R\-G\-S(local, value)}]{, }
+\item[{T\-P\-\_\-\-S\-T\-R\-U\-C\-T\-\_\-\-\_\-entry(L\-O\-C\-A\-L\-\_\-\-E\-N\-T\-R\-Y\-\_\-\-\_\-field(u8, value))}]{, }
+\item[{T\-P\-\_\-fast\-\_\-assign({\bf L\-O\-C\-A\-L\-\_\-\-A\-S\-S\-I\-G\-N};\-\_\-\-\_\-entry-\/$>$value=value;)}]{, }
+\item[{T\-P\-\_\-printk({\bf L\-O\-C\-A\-L\-\_\-\-P\-R\-\_\-\-F\-M\-T}\char`\"{} value\-:\%d\char`\"{}, L\-O\-C\-A\-L\-\_\-\-P\-R\-\_\-\-A\-R\-G, \-\_\-\-\_\-entry-\/$>$value)}]{}
+\end{DoxyParamCaption}
+)}}\label{driver-trace_8h_a318d2673b310d387380a894450631834}
+\hypertarget{driver-trace_8h_a62a94d0e279adeda22804423e2db7839}{\index{driver-\/trace.\-h@{driver-\/trace.\-h}!T\-R\-A\-C\-E\-\_\-\-E\-V\-E\-N\-T@{T\-R\-A\-C\-E\-\_\-\-E\-V\-E\-N\-T}}
+\index{T\-R\-A\-C\-E\-\_\-\-E\-V\-E\-N\-T@{T\-R\-A\-C\-E\-\_\-\-E\-V\-E\-N\-T}!driver-trace.h@{driver-\/trace.\-h}}
+\subsubsection[{T\-R\-A\-C\-E\-\_\-\-E\-V\-E\-N\-T}]{\setlength{\rightskip}{0pt plus 5cm}T\-R\-A\-C\-E\-\_\-\-E\-V\-E\-N\-T (
+\begin{DoxyParamCaption}
+\item[{drv\-\_\-sta\-\_\-notify}]{, }
+\item[{T\-P\-\_\-\-P\-R\-O\-T\-O(struct {\bf ieee80211\-\_\-local} $\ast$local, struct {\bf ieee80211\-\_\-sub\-\_\-if\-\_\-data} $\ast$sdata, enum sta\-\_\-notify\-\_\-cmd cmd, struct ieee80211\-\_\-sta $\ast$sta)}]{, }
+\item[{T\-P\-\_\-\-A\-R\-G\-S(local, sdata, cmd, sta)}]{, }
+\item[{T\-P\-\_\-\-S\-T\-R\-U\-C\-T\-\_\-\-\_\-entry(L\-O\-C\-A\-L\-\_\-\-E\-N\-T\-R\-Y\-V\-I\-F\-\_\-\-E\-N\-T\-R\-Y\-S\-T\-A\-\_\-\-E\-N\-T\-R\-Y\-\_\-\-\_\-field(u32, cmd))}]{, }
+\item[{T\-P\-\_\-fast\-\_\-assign({\bf L\-O\-C\-A\-L\-\_\-\-A\-S\-S\-I\-G\-N};{\bf V\-I\-F\-\_\-\-A\-S\-S\-I\-G\-N};{\bf S\-T\-A\-\_\-\-A\-S\-S\-I\-G\-N};\-\_\-\-\_\-entry-\/$>$cmd=cmd;)}]{, }
+\item[{T\-P\-\_\-printk(L\-O\-C\-A\-L\-\_\-\-P\-R\-\_\-\-F\-M\-T\-V\-I\-F\-\_\-\-P\-R\-\_\-\-F\-M\-T\-S\-T\-A\-\_\-\-P\-R\-\_\-\-F\-M\-T\char`\"{} cmd\-:\%d\char`\"{}, L\-O\-C\-A\-L\-\_\-\-P\-R\-\_\-\-A\-R\-G, {\bf V\-I\-F\-\_\-\-P\-R\-\_\-\-A\-R\-G}, {\bf S\-T\-A\-\_\-\-P\-R\-\_\-\-A\-R\-G}, \-\_\-\-\_\-entry-\/$>$cmd)}]{}
+\end{DoxyParamCaption}
+)}}\label{driver-trace_8h_a62a94d0e279adeda22804423e2db7839}
+\hypertarget{driver-trace_8h_aaaf1a6bc82ebb83e06418afa27819efa}{\index{driver-\/trace.\-h@{driver-\/trace.\-h}!T\-R\-A\-C\-E\-\_\-\-E\-V\-E\-N\-T@{T\-R\-A\-C\-E\-\_\-\-E\-V\-E\-N\-T}}
+\index{T\-R\-A\-C\-E\-\_\-\-E\-V\-E\-N\-T@{T\-R\-A\-C\-E\-\_\-\-E\-V\-E\-N\-T}!driver-trace.h@{driver-\/trace.\-h}}
+\subsubsection[{T\-R\-A\-C\-E\-\_\-\-E\-V\-E\-N\-T}]{\setlength{\rightskip}{0pt plus 5cm}T\-R\-A\-C\-E\-\_\-\-E\-V\-E\-N\-T (
+\begin{DoxyParamCaption}
+\item[{drv\-\_\-sta\-\_\-state}]{, }
+\item[{T\-P\-\_\-\-P\-R\-O\-T\-O(struct {\bf ieee80211\-\_\-local} $\ast$local, struct {\bf ieee80211\-\_\-sub\-\_\-if\-\_\-data} $\ast$sdata, struct ieee80211\-\_\-sta $\ast$sta, enum ieee80211\-\_\-sta\-\_\-state old\-\_\-state, enum ieee80211\-\_\-sta\-\_\-state new\-\_\-state)}]{, }
+\item[{T\-P\-\_\-\-A\-R\-G\-S(local, sdata, sta, old\-\_\-state, new\-\_\-state)}]{, }
+\item[{T\-P\-\_\-\-S\-T\-R\-U\-C\-T\-\_\-\-\_\-entry(L\-O\-C\-A\-L\-\_\-\-E\-N\-T\-R\-Y\-V\-I\-F\-\_\-\-E\-N\-T\-R\-Y\-S\-T\-A\-\_\-\-E\-N\-T\-R\-Y\-\_\-\-\_\-field(u32, old\-\_\-state) \-\_\-\-\_\-field(u32, new\-\_\-state))}]{, }
+\item[{T\-P\-\_\-fast\-\_\-assign({\bf L\-O\-C\-A\-L\-\_\-\-A\-S\-S\-I\-G\-N};{\bf V\-I\-F\-\_\-\-A\-S\-S\-I\-G\-N};{\bf S\-T\-A\-\_\-\-A\-S\-S\-I\-G\-N};\-\_\-\-\_\-entry-\/$>$old\-\_\-state=old\-\_\-state;\-\_\-\-\_\-entry-\/$>$new\-\_\-state=new\-\_\-state;)}]{, }
+\item[{T\-P\-\_\-printk(L\-O\-C\-A\-L\-\_\-\-P\-R\-\_\-\-F\-M\-T\-V\-I\-F\-\_\-\-P\-R\-\_\-\-F\-M\-T\-S\-T\-A\-\_\-\-P\-R\-\_\-\-F\-M\-T\char`\"{} state\-: \%d-\/$>$\%d\char`\"{}, L\-O\-C\-A\-L\-\_\-\-P\-R\-\_\-\-A\-R\-G, {\bf V\-I\-F\-\_\-\-P\-R\-\_\-\-A\-R\-G}, {\bf S\-T\-A\-\_\-\-P\-R\-\_\-\-A\-R\-G}, \-\_\-\-\_\-entry-\/$>$old\-\_\-state, \-\_\-\-\_\-entry-\/$>$new\-\_\-state)}]{}
+\end{DoxyParamCaption}
+)}}\label{driver-trace_8h_aaaf1a6bc82ebb83e06418afa27819efa}
+\hypertarget{driver-trace_8h_a9ad991ec5ffa3b7c68a490dcf2170532}{\index{driver-\/trace.\-h@{driver-\/trace.\-h}!T\-R\-A\-C\-E\-\_\-\-E\-V\-E\-N\-T@{T\-R\-A\-C\-E\-\_\-\-E\-V\-E\-N\-T}}
+\index{T\-R\-A\-C\-E\-\_\-\-E\-V\-E\-N\-T@{T\-R\-A\-C\-E\-\_\-\-E\-V\-E\-N\-T}!driver-trace.h@{driver-\/trace.\-h}}
+\subsubsection[{T\-R\-A\-C\-E\-\_\-\-E\-V\-E\-N\-T}]{\setlength{\rightskip}{0pt plus 5cm}T\-R\-A\-C\-E\-\_\-\-E\-V\-E\-N\-T (
+\begin{DoxyParamCaption}
+\item[{drv\-\_\-sta\-\_\-add}]{, }
+\item[{T\-P\-\_\-\-P\-R\-O\-T\-O(struct {\bf ieee80211\-\_\-local} $\ast$local, struct {\bf ieee80211\-\_\-sub\-\_\-if\-\_\-data} $\ast$sdata, struct ieee80211\-\_\-sta $\ast$sta)}]{, }
+\item[{T\-P\-\_\-\-A\-R\-G\-S(local, sdata, sta)}]{, }
+\item[{T\-P\-\_\-\-S\-T\-R\-U\-C\-T\-\_\-\-\_\-entry(L\-O\-C\-A\-L\-\_\-\-E\-N\-T\-R\-Y\-V\-I\-F\-\_\-\-E\-N\-T\-R\-Y\-S\-T\-A\-\_\-\-E\-N\-T\-R\-Y)}]{, }
+\item[{T\-P\-\_\-fast\-\_\-assign({\bf L\-O\-C\-A\-L\-\_\-\-A\-S\-S\-I\-G\-N};{\bf V\-I\-F\-\_\-\-A\-S\-S\-I\-G\-N};{\bf S\-T\-A\-\_\-\-A\-S\-S\-I\-G\-N};)}]{, }
+\item[{T\-P\-\_\-printk(L\-O\-C\-A\-L\-\_\-\-P\-R\-\_\-\-F\-M\-T\-V\-I\-F\-\_\-\-P\-R\-\_\-\-F\-M\-T\-S\-T\-A\-\_\-\-P\-R\-\_\-\-F\-M\-T, {\bf L\-O\-C\-A\-L\-\_\-\-P\-R\-\_\-\-A\-R\-G}, {\bf V\-I\-F\-\_\-\-P\-R\-\_\-\-A\-R\-G}, {\bf S\-T\-A\-\_\-\-P\-R\-\_\-\-A\-R\-G})}]{}
+\end{DoxyParamCaption}
+)}}\label{driver-trace_8h_a9ad991ec5ffa3b7c68a490dcf2170532}
+\hypertarget{driver-trace_8h_a595ece6ce37c8e2a3284d14397af0385}{\index{driver-\/trace.\-h@{driver-\/trace.\-h}!T\-R\-A\-C\-E\-\_\-\-E\-V\-E\-N\-T@{T\-R\-A\-C\-E\-\_\-\-E\-V\-E\-N\-T}}
+\index{T\-R\-A\-C\-E\-\_\-\-E\-V\-E\-N\-T@{T\-R\-A\-C\-E\-\_\-\-E\-V\-E\-N\-T}!driver-trace.h@{driver-\/trace.\-h}}
+\subsubsection[{T\-R\-A\-C\-E\-\_\-\-E\-V\-E\-N\-T}]{\setlength{\rightskip}{0pt plus 5cm}T\-R\-A\-C\-E\-\_\-\-E\-V\-E\-N\-T (
+\begin{DoxyParamCaption}
+\item[{drv\-\_\-sta\-\_\-remove}]{, }
+\item[{T\-P\-\_\-\-P\-R\-O\-T\-O(struct {\bf ieee80211\-\_\-local} $\ast$local, struct {\bf ieee80211\-\_\-sub\-\_\-if\-\_\-data} $\ast$sdata, struct ieee80211\-\_\-sta $\ast$sta)}]{, }
+\item[{T\-P\-\_\-\-A\-R\-G\-S(local, sdata, sta)}]{, }
+\item[{T\-P\-\_\-\-S\-T\-R\-U\-C\-T\-\_\-\-\_\-entry(L\-O\-C\-A\-L\-\_\-\-E\-N\-T\-R\-Y\-V\-I\-F\-\_\-\-E\-N\-T\-R\-Y\-S\-T\-A\-\_\-\-E\-N\-T\-R\-Y)}]{, }
+\item[{T\-P\-\_\-fast\-\_\-assign({\bf L\-O\-C\-A\-L\-\_\-\-A\-S\-S\-I\-G\-N};{\bf V\-I\-F\-\_\-\-A\-S\-S\-I\-G\-N};{\bf S\-T\-A\-\_\-\-A\-S\-S\-I\-G\-N};)}]{, }
+\item[{T\-P\-\_\-printk(L\-O\-C\-A\-L\-\_\-\-P\-R\-\_\-\-F\-M\-T\-V\-I\-F\-\_\-\-P\-R\-\_\-\-F\-M\-T\-S\-T\-A\-\_\-\-P\-R\-\_\-\-F\-M\-T, {\bf L\-O\-C\-A\-L\-\_\-\-P\-R\-\_\-\-A\-R\-G}, {\bf V\-I\-F\-\_\-\-P\-R\-\_\-\-A\-R\-G}, {\bf S\-T\-A\-\_\-\-P\-R\-\_\-\-A\-R\-G})}]{}
+\end{DoxyParamCaption}
+)}}\label{driver-trace_8h_a595ece6ce37c8e2a3284d14397af0385}
+\hypertarget{driver-trace_8h_a265d8e79b7ac25833ed08a37b9bf0966}{\index{driver-\/trace.\-h@{driver-\/trace.\-h}!T\-R\-A\-C\-E\-\_\-\-E\-V\-E\-N\-T@{T\-R\-A\-C\-E\-\_\-\-E\-V\-E\-N\-T}}
+\index{T\-R\-A\-C\-E\-\_\-\-E\-V\-E\-N\-T@{T\-R\-A\-C\-E\-\_\-\-E\-V\-E\-N\-T}!driver-trace.h@{driver-\/trace.\-h}}
+\subsubsection[{T\-R\-A\-C\-E\-\_\-\-E\-V\-E\-N\-T}]{\setlength{\rightskip}{0pt plus 5cm}T\-R\-A\-C\-E\-\_\-\-E\-V\-E\-N\-T (
+\begin{DoxyParamCaption}
+\item[{drv\-\_\-conf\-\_\-tx}]{, }
+\item[{T\-P\-\_\-\-P\-R\-O\-T\-O(struct {\bf ieee80211\-\_\-local} $\ast$local, struct {\bf ieee80211\-\_\-sub\-\_\-if\-\_\-data} $\ast$sdata, u16 queue, const struct ieee80211\-\_\-tx\-\_\-queue\-\_\-params $\ast$params)}]{, }
+\item[{T\-P\-\_\-\-A\-R\-G\-S(local, sdata, queue, params)}]{, }
+\item[{T\-P\-\_\-\-S\-T\-R\-U\-C\-T\-\_\-\-\_\-entry(L\-O\-C\-A\-L\-\_\-\-E\-N\-T\-R\-Y\-V\-I\-F\-\_\-\-E\-N\-T\-R\-Y\-\_\-\-\_\-field(u16, queue) \-\_\-\-\_\-field(u16, txop) \-\_\-\-\_\-field(u16, cw\-\_\-min) \-\_\-\-\_\-field(u16, cw\-\_\-max) \-\_\-\-\_\-field(u8, aifs) \-\_\-\-\_\-field(bool, uapsd))}]{, }
+\item[{T\-P\-\_\-fast\-\_\-assign({\bf L\-O\-C\-A\-L\-\_\-\-A\-S\-S\-I\-G\-N};{\bf V\-I\-F\-\_\-\-A\-S\-S\-I\-G\-N};\-\_\-\-\_\-entry-\/$>$queue=queue;\-\_\-\-\_\-entry-\/$>$txop=params-\/$>$txop;\-\_\-\-\_\-entry-\/$>$cw\-\_\-max=params-\/$>$cw\-\_\-max;\-\_\-\-\_\-entry-\/$>$cw\-\_\-min=params-\/$>$cw\-\_\-min;\-\_\-\-\_\-entry-\/$>$aifs=params-\/$>$aifs;\-\_\-\-\_\-entry-\/$>$uapsd=params-\/$>$uapsd;)}]{, }
+\item[{T\-P\-\_\-printk(L\-O\-C\-A\-L\-\_\-\-P\-R\-\_\-\-F\-M\-T\-V\-I\-F\-\_\-\-P\-R\-\_\-\-F\-M\-T\char`\"{} queue\-:\%d\char`\"{}, L\-O\-C\-A\-L\-\_\-\-P\-R\-\_\-\-A\-R\-G, {\bf V\-I\-F\-\_\-\-P\-R\-\_\-\-A\-R\-G}, \-\_\-\-\_\-entry-\/$>$queue)}]{}
+\end{DoxyParamCaption}
+)}}\label{driver-trace_8h_a265d8e79b7ac25833ed08a37b9bf0966}
+\hypertarget{driver-trace_8h_a750f24e8bcbbeb7ae5d18da826edb7b0}{\index{driver-\/trace.\-h@{driver-\/trace.\-h}!T\-R\-A\-C\-E\-\_\-\-E\-V\-E\-N\-T@{T\-R\-A\-C\-E\-\_\-\-E\-V\-E\-N\-T}}
+\index{T\-R\-A\-C\-E\-\_\-\-E\-V\-E\-N\-T@{T\-R\-A\-C\-E\-\_\-\-E\-V\-E\-N\-T}!driver-trace.h@{driver-\/trace.\-h}}
+\subsubsection[{T\-R\-A\-C\-E\-\_\-\-E\-V\-E\-N\-T}]{\setlength{\rightskip}{0pt plus 5cm}T\-R\-A\-C\-E\-\_\-\-E\-V\-E\-N\-T (
+\begin{DoxyParamCaption}
+\item[{drv\-\_\-set\-\_\-tsf}]{, }
+\item[{T\-P\-\_\-\-P\-R\-O\-T\-O(struct {\bf ieee80211\-\_\-local} $\ast$local, struct {\bf ieee80211\-\_\-sub\-\_\-if\-\_\-data} $\ast$sdata, u64 tsf)}]{, }
+\item[{T\-P\-\_\-\-A\-R\-G\-S(local, sdata, tsf)}]{, }
+\item[{T\-P\-\_\-\-S\-T\-R\-U\-C\-T\-\_\-\-\_\-entry(L\-O\-C\-A\-L\-\_\-\-E\-N\-T\-R\-Y\-V\-I\-F\-\_\-\-E\-N\-T\-R\-Y\-\_\-\-\_\-field(u64, tsf))}]{, }
+\item[{T\-P\-\_\-fast\-\_\-assign({\bf L\-O\-C\-A\-L\-\_\-\-A\-S\-S\-I\-G\-N};{\bf V\-I\-F\-\_\-\-A\-S\-S\-I\-G\-N};\-\_\-\-\_\-entry-\/$>$tsf=tsf;)}]{, }
+\item[{T\-P\-\_\-printk(L\-O\-C\-A\-L\-\_\-\-P\-R\-\_\-\-F\-M\-T\-V\-I\-F\-\_\-\-P\-R\-\_\-\-F\-M\-T\char`\"{} tsf\-:\%llu\char`\"{}, L\-O\-C\-A\-L\-\_\-\-P\-R\-\_\-\-A\-R\-G, {\bf V\-I\-F\-\_\-\-P\-R\-\_\-\-A\-R\-G},(unsigned long long) \-\_\-\-\_\-entry-\/$>$tsf)}]{}
+\end{DoxyParamCaption}
+)}}\label{driver-trace_8h_a750f24e8bcbbeb7ae5d18da826edb7b0}
+\hypertarget{driver-trace_8h_a1a8593b0845b954a713eb9c08f067904}{\index{driver-\/trace.\-h@{driver-\/trace.\-h}!T\-R\-A\-C\-E\-\_\-\-E\-V\-E\-N\-T@{T\-R\-A\-C\-E\-\_\-\-E\-V\-E\-N\-T}}
+\index{T\-R\-A\-C\-E\-\_\-\-E\-V\-E\-N\-T@{T\-R\-A\-C\-E\-\_\-\-E\-V\-E\-N\-T}!driver-trace.h@{driver-\/trace.\-h}}
+\subsubsection[{T\-R\-A\-C\-E\-\_\-\-E\-V\-E\-N\-T}]{\setlength{\rightskip}{0pt plus 5cm}T\-R\-A\-C\-E\-\_\-\-E\-V\-E\-N\-T (
+\begin{DoxyParamCaption}
+\item[{drv\-\_\-ampdu\-\_\-action}]{, }
+\item[{T\-P\-\_\-\-P\-R\-O\-T\-O(struct {\bf ieee80211\-\_\-local} $\ast$local, struct {\bf ieee80211\-\_\-sub\-\_\-if\-\_\-data} $\ast$sdata, enum ieee80211\-\_\-ampdu\-\_\-mlme\-\_\-action action, struct ieee80211\-\_\-sta $\ast$sta, u16 tid, u16 $\ast$ssn, u8 buf\-\_\-size)}]{, }
+\item[{T\-P\-\_\-\-A\-R\-G\-S(local, sdata, action, sta, tid, ssn, buf\-\_\-size)}]{, }
+\item[{T\-P\-\_\-\-S\-T\-R\-U\-C\-T\-\_\-\-\_\-entry(L\-O\-C\-A\-L\-\_\-\-E\-N\-T\-R\-Y\-S\-T\-A\-\_\-\-E\-N\-T\-R\-Y\-\_\-\-\_\-field(u32, action) \-\_\-\-\_\-field(u16, tid) \-\_\-\-\_\-field(u16, ssn) \-\_\-\-\_\-field(u8, buf\-\_\-size) {\bf V\-I\-F\-\_\-\-E\-N\-T\-R\-Y})}]{, }
+\item[{T\-P\-\_\-fast\-\_\-assign({\bf L\-O\-C\-A\-L\-\_\-\-A\-S\-S\-I\-G\-N};{\bf V\-I\-F\-\_\-\-A\-S\-S\-I\-G\-N};{\bf S\-T\-A\-\_\-\-A\-S\-S\-I\-G\-N};\-\_\-\-\_\-entry-\/$>$action=action;\-\_\-\-\_\-entry-\/$>$tid=tid;\-\_\-\-\_\-entry-\/$>$ssn=ssn?$\ast$ssn\-:0;\-\_\-\-\_\-entry-\/$>$buf\-\_\-size=buf\-\_\-size;)}]{, }
+\item[{T\-P\-\_\-printk({\bf L\-O\-C\-A\-L\-\_\-\-P\-R\-\_\-\-F\-M\-T} {\bf V\-I\-F\-\_\-\-P\-R\-\_\-\-F\-M\-T} {\bf S\-T\-A\-\_\-\-P\-R\-\_\-\-F\-M\-T}\char`\"{} action\-:\%d tid\-:\%d buf\-:\%d\char`\"{}, L\-O\-C\-A\-L\-\_\-\-P\-R\-\_\-\-A\-R\-G, {\bf V\-I\-F\-\_\-\-P\-R\-\_\-\-A\-R\-G}, {\bf S\-T\-A\-\_\-\-P\-R\-\_\-\-A\-R\-G}, \-\_\-\-\_\-entry-\/$>$action, \-\_\-\-\_\-entry-\/$>$tid, \-\_\-\-\_\-entry-\/$>$buf\-\_\-size)}]{}
+\end{DoxyParamCaption}
+)}}\label{driver-trace_8h_a1a8593b0845b954a713eb9c08f067904}
+\hypertarget{driver-trace_8h_a77d0be7f5c8f98b46b95c9045964f6cf}{\index{driver-\/trace.\-h@{driver-\/trace.\-h}!T\-R\-A\-C\-E\-\_\-\-E\-V\-E\-N\-T@{T\-R\-A\-C\-E\-\_\-\-E\-V\-E\-N\-T}}
+\index{T\-R\-A\-C\-E\-\_\-\-E\-V\-E\-N\-T@{T\-R\-A\-C\-E\-\_\-\-E\-V\-E\-N\-T}!driver-trace.h@{driver-\/trace.\-h}}
+\subsubsection[{T\-R\-A\-C\-E\-\_\-\-E\-V\-E\-N\-T}]{\setlength{\rightskip}{0pt plus 5cm}T\-R\-A\-C\-E\-\_\-\-E\-V\-E\-N\-T (
+\begin{DoxyParamCaption}
+\item[{drv\-\_\-get\-\_\-survey}]{, }
+\item[{T\-P\-\_\-\-P\-R\-O\-T\-O(struct {\bf ieee80211\-\_\-local} $\ast$local, int idx, struct survey\-\_\-info $\ast$survey)}]{, }
+\item[{T\-P\-\_\-\-A\-R\-G\-S(local, idx, survey)}]{, }
+\item[{T\-P\-\_\-\-S\-T\-R\-U\-C\-T\-\_\-\-\_\-entry(L\-O\-C\-A\-L\-\_\-\-E\-N\-T\-R\-Y\-\_\-\-\_\-field(int, idx))}]{, }
+\item[{T\-P\-\_\-fast\-\_\-assign({\bf L\-O\-C\-A\-L\-\_\-\-A\-S\-S\-I\-G\-N};\-\_\-\-\_\-entry-\/$>$idx=idx;)}]{, }
+\item[{T\-P\-\_\-printk({\bf L\-O\-C\-A\-L\-\_\-\-P\-R\-\_\-\-F\-M\-T}\char`\"{} idx\-:\%d\char`\"{}, L\-O\-C\-A\-L\-\_\-\-P\-R\-\_\-\-A\-R\-G, \-\_\-\-\_\-entry-\/$>$idx)}]{}
+\end{DoxyParamCaption}
+)}}\label{driver-trace_8h_a77d0be7f5c8f98b46b95c9045964f6cf}
+\hypertarget{driver-trace_8h_a1412feb2dcfea66357de2829d5acc061}{\index{driver-\/trace.\-h@{driver-\/trace.\-h}!T\-R\-A\-C\-E\-\_\-\-E\-V\-E\-N\-T@{T\-R\-A\-C\-E\-\_\-\-E\-V\-E\-N\-T}}
+\index{T\-R\-A\-C\-E\-\_\-\-E\-V\-E\-N\-T@{T\-R\-A\-C\-E\-\_\-\-E\-V\-E\-N\-T}!driver-trace.h@{driver-\/trace.\-h}}
+\subsubsection[{T\-R\-A\-C\-E\-\_\-\-E\-V\-E\-N\-T}]{\setlength{\rightskip}{0pt plus 5cm}T\-R\-A\-C\-E\-\_\-\-E\-V\-E\-N\-T (
+\begin{DoxyParamCaption}
+\item[{drv\-\_\-flush}]{, }
+\item[{T\-P\-\_\-\-P\-R\-O\-T\-O(struct {\bf ieee80211\-\_\-local} $\ast$local, bool drop)}]{, }
+\item[{T\-P\-\_\-\-A\-R\-G\-S(local, drop)}]{, }
+\item[{T\-P\-\_\-\-S\-T\-R\-U\-C\-T\-\_\-\-\_\-entry(L\-O\-C\-A\-L\-\_\-\-E\-N\-T\-R\-Y\-\_\-\-\_\-field(bool, drop))}]{, }
+\item[{T\-P\-\_\-fast\-\_\-assign({\bf L\-O\-C\-A\-L\-\_\-\-A\-S\-S\-I\-G\-N};\-\_\-\-\_\-entry-\/$>$drop=drop;)}]{, }
+\item[{T\-P\-\_\-printk({\bf L\-O\-C\-A\-L\-\_\-\-P\-R\-\_\-\-F\-M\-T}\char`\"{} drop\-:\%d\char`\"{}, L\-O\-C\-A\-L\-\_\-\-P\-R\-\_\-\-A\-R\-G, \-\_\-\-\_\-entry-\/$>$drop)}]{}
+\end{DoxyParamCaption}
+)}}\label{driver-trace_8h_a1412feb2dcfea66357de2829d5acc061}
+\hypertarget{driver-trace_8h_a47eb198b2d9b480d7a1a83bd7883f1d0}{\index{driver-\/trace.\-h@{driver-\/trace.\-h}!T\-R\-A\-C\-E\-\_\-\-E\-V\-E\-N\-T@{T\-R\-A\-C\-E\-\_\-\-E\-V\-E\-N\-T}}
+\index{T\-R\-A\-C\-E\-\_\-\-E\-V\-E\-N\-T@{T\-R\-A\-C\-E\-\_\-\-E\-V\-E\-N\-T}!driver-trace.h@{driver-\/trace.\-h}}
+\subsubsection[{T\-R\-A\-C\-E\-\_\-\-E\-V\-E\-N\-T}]{\setlength{\rightskip}{0pt plus 5cm}T\-R\-A\-C\-E\-\_\-\-E\-V\-E\-N\-T (
+\begin{DoxyParamCaption}
+\item[{drv\-\_\-channel\-\_\-switch}]{, }
+\item[{T\-P\-\_\-\-P\-R\-O\-T\-O(struct {\bf ieee80211\-\_\-local} $\ast$local, struct ieee80211\-\_\-channel\-\_\-switch $\ast$ch\-\_\-switch)}]{, }
+\item[{T\-P\-\_\-\-A\-R\-G\-S(local, ch\-\_\-switch)}]{, }
+\item[{T\-P\-\_\-\-S\-T\-R\-U\-C\-T\-\_\-\-\_\-entry(L\-O\-C\-A\-L\-\_\-\-E\-N\-T\-R\-Y\-\_\-\-\_\-field(u64, timestamp) \-\_\-\-\_\-field(bool, block\-\_\-tx) \-\_\-\-\_\-field(u16, freq) \-\_\-\-\_\-field(u8, count))}]{, }
+\item[{T\-P\-\_\-fast\-\_\-assign({\bf L\-O\-C\-A\-L\-\_\-\-A\-S\-S\-I\-G\-N};\-\_\-\-\_\-entry-\/$>$timestamp=ch\-\_\-switch-\/$>$timestamp;\-\_\-\-\_\-entry-\/$>$block\-\_\-tx=ch\-\_\-switch-\/$>$block\-\_\-tx;\-\_\-\-\_\-entry-\/$>$freq=ch\-\_\-switch-\/$>$channel-\/$>$center\-\_\-freq;\-\_\-\-\_\-entry-\/$>$count=ch\-\_\-switch-\/$>$count;)}]{, }
+\item[{T\-P\-\_\-printk({\bf L\-O\-C\-A\-L\-\_\-\-P\-R\-\_\-\-F\-M\-T}\char`\"{} new freq\-:\%u count\-:\%d\char`\"{}, L\-O\-C\-A\-L\-\_\-\-P\-R\-\_\-\-A\-R\-G, \-\_\-\-\_\-entry-\/$>$freq, \-\_\-\-\_\-entry-\/$>$count)}]{}
+\end{DoxyParamCaption}
+)}}\label{driver-trace_8h_a47eb198b2d9b480d7a1a83bd7883f1d0}
+\hypertarget{driver-trace_8h_a5529e34e6f21cb65a2f3ec7987fab66c}{\index{driver-\/trace.\-h@{driver-\/trace.\-h}!T\-R\-A\-C\-E\-\_\-\-E\-V\-E\-N\-T@{T\-R\-A\-C\-E\-\_\-\-E\-V\-E\-N\-T}}
+\index{T\-R\-A\-C\-E\-\_\-\-E\-V\-E\-N\-T@{T\-R\-A\-C\-E\-\_\-\-E\-V\-E\-N\-T}!driver-trace.h@{driver-\/trace.\-h}}
+\subsubsection[{T\-R\-A\-C\-E\-\_\-\-E\-V\-E\-N\-T}]{\setlength{\rightskip}{0pt plus 5cm}T\-R\-A\-C\-E\-\_\-\-E\-V\-E\-N\-T (
+\begin{DoxyParamCaption}
+\item[{drv\-\_\-set\-\_\-antenna}]{, }
+\item[{T\-P\-\_\-\-P\-R\-O\-T\-O(struct {\bf ieee80211\-\_\-local} $\ast$local, u32 tx\-\_\-ant, u32 rx\-\_\-ant, int ret)}]{, }
+\item[{T\-P\-\_\-\-A\-R\-G\-S(local, tx\-\_\-ant, rx\-\_\-ant, ret)}]{, }
+\item[{T\-P\-\_\-\-S\-T\-R\-U\-C\-T\-\_\-\-\_\-entry(L\-O\-C\-A\-L\-\_\-\-E\-N\-T\-R\-Y\-\_\-\-\_\-field(u32, tx\-\_\-ant) \-\_\-\-\_\-field(u32, rx\-\_\-ant) \-\_\-\-\_\-field(int, ret))}]{, }
+\item[{T\-P\-\_\-fast\-\_\-assign({\bf L\-O\-C\-A\-L\-\_\-\-A\-S\-S\-I\-G\-N};\-\_\-\-\_\-entry-\/$>$tx\-\_\-ant=tx\-\_\-ant;\-\_\-\-\_\-entry-\/$>$rx\-\_\-ant=rx\-\_\-ant;\-\_\-\-\_\-entry-\/$>$ret=ret;)}]{, }
+\item[{T\-P\-\_\-printk({\bf L\-O\-C\-A\-L\-\_\-\-P\-R\-\_\-\-F\-M\-T}\char`\"{} tx\-\_\-ant\-:\%d rx\-\_\-ant\-:\%d ret\-:\%d\char`\"{}, L\-O\-C\-A\-L\-\_\-\-P\-R\-\_\-\-A\-R\-G, \-\_\-\-\_\-entry-\/$>$tx\-\_\-ant, \-\_\-\-\_\-entry-\/$>$rx\-\_\-ant, \-\_\-\-\_\-entry-\/$>$ret)}]{}
+\end{DoxyParamCaption}
+)}}\label{driver-trace_8h_a5529e34e6f21cb65a2f3ec7987fab66c}
+\hypertarget{driver-trace_8h_a5052e3a868bfecb016ab42b97330d005}{\index{driver-\/trace.\-h@{driver-\/trace.\-h}!T\-R\-A\-C\-E\-\_\-\-E\-V\-E\-N\-T@{T\-R\-A\-C\-E\-\_\-\-E\-V\-E\-N\-T}}
+\index{T\-R\-A\-C\-E\-\_\-\-E\-V\-E\-N\-T@{T\-R\-A\-C\-E\-\_\-\-E\-V\-E\-N\-T}!driver-trace.h@{driver-\/trace.\-h}}
+\subsubsection[{T\-R\-A\-C\-E\-\_\-\-E\-V\-E\-N\-T}]{\setlength{\rightskip}{0pt plus 5cm}T\-R\-A\-C\-E\-\_\-\-E\-V\-E\-N\-T (
+\begin{DoxyParamCaption}
+\item[{drv\-\_\-get\-\_\-antenna}]{, }
+\item[{T\-P\-\_\-\-P\-R\-O\-T\-O(struct {\bf ieee80211\-\_\-local} $\ast$local, u32 tx\-\_\-ant, u32 rx\-\_\-ant, int ret)}]{, }
+\item[{T\-P\-\_\-\-A\-R\-G\-S(local, tx\-\_\-ant, rx\-\_\-ant, ret)}]{, }
+\item[{T\-P\-\_\-\-S\-T\-R\-U\-C\-T\-\_\-\-\_\-entry(L\-O\-C\-A\-L\-\_\-\-E\-N\-T\-R\-Y\-\_\-\-\_\-field(u32, tx\-\_\-ant) \-\_\-\-\_\-field(u32, rx\-\_\-ant) \-\_\-\-\_\-field(int, ret))}]{, }
+\item[{T\-P\-\_\-fast\-\_\-assign({\bf L\-O\-C\-A\-L\-\_\-\-A\-S\-S\-I\-G\-N};\-\_\-\-\_\-entry-\/$>$tx\-\_\-ant=tx\-\_\-ant;\-\_\-\-\_\-entry-\/$>$rx\-\_\-ant=rx\-\_\-ant;\-\_\-\-\_\-entry-\/$>$ret=ret;)}]{, }
+\item[{T\-P\-\_\-printk({\bf L\-O\-C\-A\-L\-\_\-\-P\-R\-\_\-\-F\-M\-T}\char`\"{} tx\-\_\-ant\-:\%d rx\-\_\-ant\-:\%d ret\-:\%d\char`\"{}, L\-O\-C\-A\-L\-\_\-\-P\-R\-\_\-\-A\-R\-G, \-\_\-\-\_\-entry-\/$>$tx\-\_\-ant, \-\_\-\-\_\-entry-\/$>$rx\-\_\-ant, \-\_\-\-\_\-entry-\/$>$ret)}]{}
+\end{DoxyParamCaption}
+)}}\label{driver-trace_8h_a5052e3a868bfecb016ab42b97330d005}
+\hypertarget{driver-trace_8h_ae53eeee8d20ebb9a4abe9cce48bc7302}{\index{driver-\/trace.\-h@{driver-\/trace.\-h}!T\-R\-A\-C\-E\-\_\-\-E\-V\-E\-N\-T@{T\-R\-A\-C\-E\-\_\-\-E\-V\-E\-N\-T}}
+\index{T\-R\-A\-C\-E\-\_\-\-E\-V\-E\-N\-T@{T\-R\-A\-C\-E\-\_\-\-E\-V\-E\-N\-T}!driver-trace.h@{driver-\/trace.\-h}}
+\subsubsection[{T\-R\-A\-C\-E\-\_\-\-E\-V\-E\-N\-T}]{\setlength{\rightskip}{0pt plus 5cm}T\-R\-A\-C\-E\-\_\-\-E\-V\-E\-N\-T (
+\begin{DoxyParamCaption}
+\item[{drv\-\_\-remain\-\_\-on\-\_\-channel}]{, }
+\item[{T\-P\-\_\-\-P\-R\-O\-T\-O(struct {\bf ieee80211\-\_\-local} $\ast$local, struct ieee80211\-\_\-channel $\ast$chan, enum nl80211\-\_\-channel\-\_\-type chantype, unsigned int duration)}]{, }
+\item[{T\-P\-\_\-\-A\-R\-G\-S(local, chan, chantype, duration)}]{, }
+\item[{T\-P\-\_\-\-S\-T\-R\-U\-C\-T\-\_\-\-\_\-entry(L\-O\-C\-A\-L\-\_\-\-E\-N\-T\-R\-Y\-\_\-\-\_\-field(int, center\-\_\-freq) \-\_\-\-\_\-field(int, channel\-\_\-type) \-\_\-\-\_\-field(unsigned int, duration))}]{, }
+\item[{T\-P\-\_\-fast\-\_\-assign({\bf L\-O\-C\-A\-L\-\_\-\-A\-S\-S\-I\-G\-N};\-\_\-\-\_\-entry-\/$>$center\-\_\-freq=chan-\/$>$center\-\_\-freq;\-\_\-\-\_\-entry-\/$>$channel\-\_\-type=chantype;\-\_\-\-\_\-entry-\/$>$duration=duration;)}]{, }
+\item[{T\-P\-\_\-printk({\bf L\-O\-C\-A\-L\-\_\-\-P\-R\-\_\-\-F\-M\-T}\char`\"{} freq\-:\%d\-M\-Hz duration\-:\%dms\char`\"{}, L\-O\-C\-A\-L\-\_\-\-P\-R\-\_\-\-A\-R\-G, \-\_\-\-\_\-entry-\/$>$center\-\_\-freq, \-\_\-\-\_\-entry-\/$>$duration)}]{}
+\end{DoxyParamCaption}
+)}}\label{driver-trace_8h_ae53eeee8d20ebb9a4abe9cce48bc7302}
+\hypertarget{driver-trace_8h_ac3e1c420c7845de47f0d487e5a655fa0}{\index{driver-\/trace.\-h@{driver-\/trace.\-h}!T\-R\-A\-C\-E\-\_\-\-E\-V\-E\-N\-T@{T\-R\-A\-C\-E\-\_\-\-E\-V\-E\-N\-T}}
+\index{T\-R\-A\-C\-E\-\_\-\-E\-V\-E\-N\-T@{T\-R\-A\-C\-E\-\_\-\-E\-V\-E\-N\-T}!driver-trace.h@{driver-\/trace.\-h}}
+\subsubsection[{T\-R\-A\-C\-E\-\_\-\-E\-V\-E\-N\-T}]{\setlength{\rightskip}{0pt plus 5cm}T\-R\-A\-C\-E\-\_\-\-E\-V\-E\-N\-T (
+\begin{DoxyParamCaption}
+\item[{drv\-\_\-offchannel\-\_\-tx}]{, }
+\item[{T\-P\-\_\-\-P\-R\-O\-T\-O(struct {\bf ieee80211\-\_\-local} $\ast$local, struct sk\-\_\-buff $\ast$skb, struct ieee80211\-\_\-channel $\ast$chan, enum nl80211\-\_\-channel\-\_\-type channel\-\_\-type, unsigned int wait)}]{, }
+\item[{T\-P\-\_\-\-A\-R\-G\-S(local, skb, chan, channel\-\_\-type, wait)}]{, }
+\item[{T\-P\-\_\-\-S\-T\-R\-U\-C\-T\-\_\-\-\_\-entry(L\-O\-C\-A\-L\-\_\-\-E\-N\-T\-R\-Y\-\_\-\-\_\-field(int, center\-\_\-freq) \-\_\-\-\_\-field(int, channel\-\_\-type) \-\_\-\-\_\-field(unsigned int, wait))}]{, }
+\item[{T\-P\-\_\-fast\-\_\-assign({\bf L\-O\-C\-A\-L\-\_\-\-A\-S\-S\-I\-G\-N};\-\_\-\-\_\-entry-\/$>$center\-\_\-freq=chan-\/$>$center\-\_\-freq;\-\_\-\-\_\-entry-\/$>$channel\-\_\-type=channel\-\_\-type;\-\_\-\-\_\-entry-\/$>$wait=wait;)}]{, }
+\item[{T\-P\-\_\-printk({\bf L\-O\-C\-A\-L\-\_\-\-P\-R\-\_\-\-F\-M\-T}\char`\"{} freq\-:\%d\-M\-Hz, wait\-:\%dms\char`\"{}, L\-O\-C\-A\-L\-\_\-\-P\-R\-\_\-\-A\-R\-G, \-\_\-\-\_\-entry-\/$>$center\-\_\-freq, \-\_\-\-\_\-entry-\/$>$wait)}]{}
+\end{DoxyParamCaption}
+)}}\label{driver-trace_8h_ac3e1c420c7845de47f0d487e5a655fa0}
+\hypertarget{driver-trace_8h_ae0398765985cff2bbe819fb63d8a165a}{\index{driver-\/trace.\-h@{driver-\/trace.\-h}!T\-R\-A\-C\-E\-\_\-\-E\-V\-E\-N\-T@{T\-R\-A\-C\-E\-\_\-\-E\-V\-E\-N\-T}}
+\index{T\-R\-A\-C\-E\-\_\-\-E\-V\-E\-N\-T@{T\-R\-A\-C\-E\-\_\-\-E\-V\-E\-N\-T}!driver-trace.h@{driver-\/trace.\-h}}
+\subsubsection[{T\-R\-A\-C\-E\-\_\-\-E\-V\-E\-N\-T}]{\setlength{\rightskip}{0pt plus 5cm}T\-R\-A\-C\-E\-\_\-\-E\-V\-E\-N\-T (
+\begin{DoxyParamCaption}
+\item[{drv\-\_\-set\-\_\-ringparam}]{, }
+\item[{T\-P\-\_\-\-P\-R\-O\-T\-O(struct {\bf ieee80211\-\_\-local} $\ast$local, u32 tx, u32 rx)}]{, }
+\item[{T\-P\-\_\-\-A\-R\-G\-S(local, tx, rx)}]{, }
+\item[{T\-P\-\_\-\-S\-T\-R\-U\-C\-T\-\_\-\-\_\-entry(L\-O\-C\-A\-L\-\_\-\-E\-N\-T\-R\-Y\-\_\-\-\_\-field(u32, tx) \-\_\-\-\_\-field(u32, rx))}]{, }
+\item[{T\-P\-\_\-fast\-\_\-assign({\bf L\-O\-C\-A\-L\-\_\-\-A\-S\-S\-I\-G\-N};\-\_\-\-\_\-entry-\/$>$tx=tx;\-\_\-\-\_\-entry-\/$>$rx=rx;)}]{, }
+\item[{T\-P\-\_\-printk({\bf L\-O\-C\-A\-L\-\_\-\-P\-R\-\_\-\-F\-M\-T}\char`\"{} tx\-:\%d rx \%d\char`\"{}, L\-O\-C\-A\-L\-\_\-\-P\-R\-\_\-\-A\-R\-G, \-\_\-\-\_\-entry-\/$>$tx, \-\_\-\-\_\-entry-\/$>$rx)}]{}
+\end{DoxyParamCaption}
+)}}\label{driver-trace_8h_ae0398765985cff2bbe819fb63d8a165a}
+\hypertarget{driver-trace_8h_a294dca820b93f64b716823759cfbcc83}{\index{driver-\/trace.\-h@{driver-\/trace.\-h}!T\-R\-A\-C\-E\-\_\-\-E\-V\-E\-N\-T@{T\-R\-A\-C\-E\-\_\-\-E\-V\-E\-N\-T}}
+\index{T\-R\-A\-C\-E\-\_\-\-E\-V\-E\-N\-T@{T\-R\-A\-C\-E\-\_\-\-E\-V\-E\-N\-T}!driver-trace.h@{driver-\/trace.\-h}}
+\subsubsection[{T\-R\-A\-C\-E\-\_\-\-E\-V\-E\-N\-T}]{\setlength{\rightskip}{0pt plus 5cm}T\-R\-A\-C\-E\-\_\-\-E\-V\-E\-N\-T (
+\begin{DoxyParamCaption}
+\item[{drv\-\_\-get\-\_\-ringparam}]{, }
+\item[{T\-P\-\_\-\-P\-R\-O\-T\-O(struct {\bf ieee80211\-\_\-local} $\ast$local, u32 $\ast$tx, u32 $\ast$tx\-\_\-max, u32 $\ast$rx, u32 $\ast$rx\-\_\-max)}]{, }
+\item[{T\-P\-\_\-\-A\-R\-G\-S(local, tx, tx\-\_\-max, rx, rx\-\_\-max)}]{, }
+\item[{T\-P\-\_\-\-S\-T\-R\-U\-C\-T\-\_\-\-\_\-entry(L\-O\-C\-A\-L\-\_\-\-E\-N\-T\-R\-Y\-\_\-\-\_\-field(u32, tx) \-\_\-\-\_\-field(u32, tx\-\_\-max) \-\_\-\-\_\-field(u32, rx) \-\_\-\-\_\-field(u32, rx\-\_\-max))}]{, }
+\item[{T\-P\-\_\-fast\-\_\-assign({\bf L\-O\-C\-A\-L\-\_\-\-A\-S\-S\-I\-G\-N};\-\_\-\-\_\-entry-\/$>$tx=$\ast$tx;\-\_\-\-\_\-entry-\/$>$tx\-\_\-max=$\ast$tx\-\_\-max;\-\_\-\-\_\-entry-\/$>$rx=$\ast$rx;\-\_\-\-\_\-entry-\/$>$rx\-\_\-max=$\ast$rx\-\_\-max;)}]{, }
+\item[{T\-P\-\_\-printk({\bf L\-O\-C\-A\-L\-\_\-\-P\-R\-\_\-\-F\-M\-T}\char`\"{} tx\-:\%d tx\-\_\-max \%d rx \%d rx\-\_\-max \%d\char`\"{}, L\-O\-C\-A\-L\-\_\-\-P\-R\-\_\-\-A\-R\-G, \-\_\-\-\_\-entry-\/$>$tx, \-\_\-\-\_\-entry-\/$>$tx\-\_\-max, \-\_\-\-\_\-entry-\/$>$rx, \-\_\-\-\_\-entry-\/$>$rx\-\_\-max)}]{}
+\end{DoxyParamCaption}
+)}}\label{driver-trace_8h_a294dca820b93f64b716823759cfbcc83}
+\hypertarget{driver-trace_8h_a2acf93e539fcb96cec827c3eb59efd7c}{\index{driver-\/trace.\-h@{driver-\/trace.\-h}!T\-R\-A\-C\-E\-\_\-\-E\-V\-E\-N\-T@{T\-R\-A\-C\-E\-\_\-\-E\-V\-E\-N\-T}}
+\index{T\-R\-A\-C\-E\-\_\-\-E\-V\-E\-N\-T@{T\-R\-A\-C\-E\-\_\-\-E\-V\-E\-N\-T}!driver-trace.h@{driver-\/trace.\-h}}
+\subsubsection[{T\-R\-A\-C\-E\-\_\-\-E\-V\-E\-N\-T}]{\setlength{\rightskip}{0pt plus 5cm}T\-R\-A\-C\-E\-\_\-\-E\-V\-E\-N\-T (
+\begin{DoxyParamCaption}
+\item[{drv\-\_\-set\-\_\-bitrate\-\_\-mask}]{, }
+\item[{T\-P\-\_\-\-P\-R\-O\-T\-O(struct {\bf ieee80211\-\_\-local} $\ast$local, struct {\bf ieee80211\-\_\-sub\-\_\-if\-\_\-data} $\ast$sdata, const struct cfg80211\-\_\-bitrate\-\_\-mask $\ast$mask)}]{, }
+\item[{T\-P\-\_\-\-A\-R\-G\-S(local, sdata, mask)}]{, }
+\item[{T\-P\-\_\-\-S\-T\-R\-U\-C\-T\-\_\-\-\_\-entry(L\-O\-C\-A\-L\-\_\-\-E\-N\-T\-R\-Y\-V\-I\-F\-\_\-\-E\-N\-T\-R\-Y\-\_\-\-\_\-field(u32, legacy\-\_\-2g) \-\_\-\-\_\-field(u32, legacy\-\_\-5g))}]{, }
+\item[{T\-P\-\_\-fast\-\_\-assign({\bf L\-O\-C\-A\-L\-\_\-\-A\-S\-S\-I\-G\-N};{\bf V\-I\-F\-\_\-\-A\-S\-S\-I\-G\-N};\-\_\-\-\_\-entry-\/$>$legacy\-\_\-2g=mask-\/$>$control\mbox{[}I\-E\-E\-E80211\-\_\-\-B\-A\-N\-D\-\_\-2\-G\-H\-Z\mbox{]}.legacy;\-\_\-\-\_\-entry-\/$>$legacy\-\_\-5g=mask-\/$>$control\mbox{[}I\-E\-E\-E80211\-\_\-\-B\-A\-N\-D\-\_\-5\-G\-H\-Z\mbox{]}.legacy;)}]{, }
+\item[{T\-P\-\_\-printk(L\-O\-C\-A\-L\-\_\-\-P\-R\-\_\-\-F\-M\-T\-V\-I\-F\-\_\-\-P\-R\-\_\-\-F\-M\-T\char`\"{} 2\-G Mask\-:0x\%x 5\-G Mask\-:0x\%x\char`\"{}, L\-O\-C\-A\-L\-\_\-\-P\-R\-\_\-\-A\-R\-G, V\-I\-F\-\_\-\-P\-R\-\_\-\-A\-R\-G, \-\_\-\-\_\-entry-\/$>$legacy\-\_\-2g, \-\_\-\-\_\-entry-\/$>$legacy\-\_\-5g)}]{}
+\end{DoxyParamCaption}
+)}}\label{driver-trace_8h_a2acf93e539fcb96cec827c3eb59efd7c}
+\hypertarget{driver-trace_8h_aa5ce13be22a5cb7fcf9c2258aee581b7}{\index{driver-\/trace.\-h@{driver-\/trace.\-h}!T\-R\-A\-C\-E\-\_\-\-E\-V\-E\-N\-T@{T\-R\-A\-C\-E\-\_\-\-E\-V\-E\-N\-T}}
+\index{T\-R\-A\-C\-E\-\_\-\-E\-V\-E\-N\-T@{T\-R\-A\-C\-E\-\_\-\-E\-V\-E\-N\-T}!driver-trace.h@{driver-\/trace.\-h}}
+\subsubsection[{T\-R\-A\-C\-E\-\_\-\-E\-V\-E\-N\-T}]{\setlength{\rightskip}{0pt plus 5cm}T\-R\-A\-C\-E\-\_\-\-E\-V\-E\-N\-T (
+\begin{DoxyParamCaption}
+\item[{drv\-\_\-set\-\_\-rekey\-\_\-data}]{, }
+\item[{T\-P\-\_\-\-P\-R\-O\-T\-O(struct {\bf ieee80211\-\_\-local} $\ast$local, struct {\bf ieee80211\-\_\-sub\-\_\-if\-\_\-data} $\ast$sdata, struct cfg80211\-\_\-gtk\-\_\-rekey\-\_\-data $\ast$data)}]{, }
+\item[{T\-P\-\_\-\-A\-R\-G\-S(local, sdata, data)}]{, }
+\item[{T\-P\-\_\-\-S\-T\-R\-U\-C\-T\-\_\-\-\_\-entry(L\-O\-C\-A\-L\-\_\-\-E\-N\-T\-R\-Y\-V\-I\-F\-\_\-\-E\-N\-T\-R\-Y\-\_\-\-\_\-array(u8, kek, N\-L80211\-\_\-\-K\-E\-K\-\_\-\-L\-E\-N) \-\_\-\-\_\-array(u8, kck, N\-L80211\-\_\-\-K\-C\-K\-\_\-\-L\-E\-N) \-\_\-\-\_\-array(u8, replay\-\_\-ctr, N\-L80211\-\_\-\-R\-E\-P\-L\-A\-Y\-\_\-\-C\-T\-R\-\_\-\-L\-E\-N))}]{, }
+\item[{T\-P\-\_\-fast\-\_\-assign({\bf L\-O\-C\-A\-L\-\_\-\-A\-S\-S\-I\-G\-N};{\bf V\-I\-F\-\_\-\-A\-S\-S\-I\-G\-N};memcpy(\-\_\-\-\_\-entry-\/$>$kek, data-\/$>$kek, N\-L80211\-\_\-\-K\-E\-K\-\_\-\-L\-E\-N);memcpy(\-\_\-\-\_\-entry-\/$>$kck, data-\/$>$kck, N\-L80211\-\_\-\-K\-C\-K\-\_\-\-L\-E\-N);memcpy(\-\_\-\-\_\-entry-\/$>$replay\-\_\-ctr, data-\/$>$replay\-\_\-ctr, N\-L80211\-\_\-\-R\-E\-P\-L\-A\-Y\-\_\-\-C\-T\-R\-\_\-\-L\-E\-N);)}]{, }
+\item[{T\-P\-\_\-printk({\bf L\-O\-C\-A\-L\-\_\-\-P\-R\-\_\-\-F\-M\-T} {\bf V\-I\-F\-\_\-\-P\-R\-\_\-\-F\-M\-T}, {\bf L\-O\-C\-A\-L\-\_\-\-P\-R\-\_\-\-A\-R\-G}, {\bf V\-I\-F\-\_\-\-P\-R\-\_\-\-A\-R\-G})}]{}
+\end{DoxyParamCaption}
+)}}\label{driver-trace_8h_aa5ce13be22a5cb7fcf9c2258aee581b7}
+\hypertarget{driver-trace_8h_a03c96d1c6e068b95abe4ae39cd6719ed}{\index{driver-\/trace.\-h@{driver-\/trace.\-h}!T\-R\-A\-C\-E\-\_\-\-E\-V\-E\-N\-T@{T\-R\-A\-C\-E\-\_\-\-E\-V\-E\-N\-T}}
+\index{T\-R\-A\-C\-E\-\_\-\-E\-V\-E\-N\-T@{T\-R\-A\-C\-E\-\_\-\-E\-V\-E\-N\-T}!driver-trace.h@{driver-\/trace.\-h}}
+\subsubsection[{T\-R\-A\-C\-E\-\_\-\-E\-V\-E\-N\-T}]{\setlength{\rightskip}{0pt plus 5cm}T\-R\-A\-C\-E\-\_\-\-E\-V\-E\-N\-T (
+\begin{DoxyParamCaption}
+\item[{drv\-\_\-rssi\-\_\-callback}]{, }
+\item[{T\-P\-\_\-\-P\-R\-O\-T\-O(struct {\bf ieee80211\-\_\-local} $\ast$local, enum ieee80211\-\_\-rssi\-\_\-event rssi\-\_\-event)}]{, }
+\item[{T\-P\-\_\-\-A\-R\-G\-S(local, rssi\-\_\-event)}]{, }
+\item[{T\-P\-\_\-\-S\-T\-R\-U\-C\-T\-\_\-\-\_\-entry(L\-O\-C\-A\-L\-\_\-\-E\-N\-T\-R\-Y\-\_\-\-\_\-field(u32, rssi\-\_\-event))}]{, }
+\item[{T\-P\-\_\-fast\-\_\-assign({\bf L\-O\-C\-A\-L\-\_\-\-A\-S\-S\-I\-G\-N};\-\_\-\-\_\-entry-\/$>$rssi\-\_\-event=rssi\-\_\-event;)}]{, }
+\item[{T\-P\-\_\-printk({\bf L\-O\-C\-A\-L\-\_\-\-P\-R\-\_\-\-F\-M\-T}\char`\"{} rssi\-\_\-event\-:\%d\char`\"{}, L\-O\-C\-A\-L\-\_\-\-P\-R\-\_\-\-A\-R\-G, \-\_\-\-\_\-entry-\/$>$rssi\-\_\-event)}]{}
+\end{DoxyParamCaption}
+)}}\label{driver-trace_8h_a03c96d1c6e068b95abe4ae39cd6719ed}
+\hypertarget{driver-trace_8h_a11b39de21ba24eb63ee9717802983b07}{\index{driver-\/trace.\-h@{driver-\/trace.\-h}!T\-R\-A\-C\-E\-\_\-\-E\-V\-E\-N\-T@{T\-R\-A\-C\-E\-\_\-\-E\-V\-E\-N\-T}}
+\index{T\-R\-A\-C\-E\-\_\-\-E\-V\-E\-N\-T@{T\-R\-A\-C\-E\-\_\-\-E\-V\-E\-N\-T}!driver-trace.h@{driver-\/trace.\-h}}
+\subsubsection[{T\-R\-A\-C\-E\-\_\-\-E\-V\-E\-N\-T}]{\setlength{\rightskip}{0pt plus 5cm}T\-R\-A\-C\-E\-\_\-\-E\-V\-E\-N\-T (
+\begin{DoxyParamCaption}
+\item[{api\-\_\-start\-\_\-tx\-\_\-ba\-\_\-session}]{, }
+\item[{T\-P\-\_\-\-P\-R\-O\-T\-O(struct ieee80211\-\_\-sta $\ast$sta, u16 tid)}]{, }
+\item[{T\-P\-\_\-\-A\-R\-G\-S(sta, tid)}]{, }
+\item[{T\-P\-\_\-\-S\-T\-R\-U\-C\-T\-\_\-\-\_\-entry(S\-T\-A\-\_\-\-E\-N\-T\-R\-Y\-\_\-\-\_\-field(u16, tid))}]{, }
+\item[{T\-P\-\_\-fast\-\_\-assign({\bf S\-T\-A\-\_\-\-A\-S\-S\-I\-G\-N};\-\_\-\-\_\-entry-\/$>$tid=tid;)}]{, }
+\item[{T\-P\-\_\-printk({\bf S\-T\-A\-\_\-\-P\-R\-\_\-\-F\-M\-T}\char`\"{} tid\-:\%d\char`\"{}, S\-T\-A\-\_\-\-P\-R\-\_\-\-A\-R\-G, \-\_\-\-\_\-entry-\/$>$tid)}]{}
+\end{DoxyParamCaption}
+)}}\label{driver-trace_8h_a11b39de21ba24eb63ee9717802983b07}
+\hypertarget{driver-trace_8h_a180c624fc94c41ef80cfb88c353bffb0}{\index{driver-\/trace.\-h@{driver-\/trace.\-h}!T\-R\-A\-C\-E\-\_\-\-E\-V\-E\-N\-T@{T\-R\-A\-C\-E\-\_\-\-E\-V\-E\-N\-T}}
+\index{T\-R\-A\-C\-E\-\_\-\-E\-V\-E\-N\-T@{T\-R\-A\-C\-E\-\_\-\-E\-V\-E\-N\-T}!driver-trace.h@{driver-\/trace.\-h}}
+\subsubsection[{T\-R\-A\-C\-E\-\_\-\-E\-V\-E\-N\-T}]{\setlength{\rightskip}{0pt plus 5cm}T\-R\-A\-C\-E\-\_\-\-E\-V\-E\-N\-T (
+\begin{DoxyParamCaption}
+\item[{api\-\_\-start\-\_\-tx\-\_\-ba\-\_\-cb}]{, }
+\item[{T\-P\-\_\-\-P\-R\-O\-T\-O(struct {\bf ieee80211\-\_\-sub\-\_\-if\-\_\-data} $\ast$sdata, const u8 $\ast$ra, u16 tid)}]{, }
+\item[{T\-P\-\_\-\-A\-R\-G\-S(sdata, ra, tid)}]{, }
+\item[{T\-P\-\_\-\-S\-T\-R\-U\-C\-T\-\_\-\-\_\-entry(V\-I\-F\-\_\-\-E\-N\-T\-R\-Y\-\_\-\-\_\-array(u8, ra, E\-T\-H\-\_\-\-A\-L\-E\-N) \-\_\-\-\_\-field(u16, tid))}]{, }
+\item[{T\-P\-\_\-fast\-\_\-assign({\bf V\-I\-F\-\_\-\-A\-S\-S\-I\-G\-N};memcpy(\-\_\-\-\_\-entry-\/$>$ra, ra, E\-T\-H\-\_\-\-A\-L\-E\-N);\-\_\-\-\_\-entry-\/$>$tid=tid;)}]{, }
+\item[{T\-P\-\_\-printk({\bf V\-I\-F\-\_\-\-P\-R\-\_\-\-F\-M\-T}\char`\"{} ra\-:\%p\-M tid\-:\%d\char`\"{}, V\-I\-F\-\_\-\-P\-R\-\_\-\-A\-R\-G, \-\_\-\-\_\-entry-\/$>$ra, \-\_\-\-\_\-entry-\/$>$tid)}]{}
+\end{DoxyParamCaption}
+)}}\label{driver-trace_8h_a180c624fc94c41ef80cfb88c353bffb0}
+\hypertarget{driver-trace_8h_a28abbcaaad8582ac5ea9adf03455cf05}{\index{driver-\/trace.\-h@{driver-\/trace.\-h}!T\-R\-A\-C\-E\-\_\-\-E\-V\-E\-N\-T@{T\-R\-A\-C\-E\-\_\-\-E\-V\-E\-N\-T}}
+\index{T\-R\-A\-C\-E\-\_\-\-E\-V\-E\-N\-T@{T\-R\-A\-C\-E\-\_\-\-E\-V\-E\-N\-T}!driver-trace.h@{driver-\/trace.\-h}}
+\subsubsection[{T\-R\-A\-C\-E\-\_\-\-E\-V\-E\-N\-T}]{\setlength{\rightskip}{0pt plus 5cm}T\-R\-A\-C\-E\-\_\-\-E\-V\-E\-N\-T (
+\begin{DoxyParamCaption}
+\item[{api\-\_\-stop\-\_\-tx\-\_\-ba\-\_\-session}]{, }
+\item[{T\-P\-\_\-\-P\-R\-O\-T\-O(struct ieee80211\-\_\-sta $\ast$sta, u16 tid)}]{, }
+\item[{T\-P\-\_\-\-A\-R\-G\-S(sta, tid)}]{, }
+\item[{T\-P\-\_\-\-S\-T\-R\-U\-C\-T\-\_\-\-\_\-entry(S\-T\-A\-\_\-\-E\-N\-T\-R\-Y\-\_\-\-\_\-field(u16, tid))}]{, }
+\item[{T\-P\-\_\-fast\-\_\-assign({\bf S\-T\-A\-\_\-\-A\-S\-S\-I\-G\-N};\-\_\-\-\_\-entry-\/$>$tid=tid;)}]{, }
+\item[{T\-P\-\_\-printk({\bf S\-T\-A\-\_\-\-P\-R\-\_\-\-F\-M\-T}\char`\"{} tid\-:\%d\char`\"{}, S\-T\-A\-\_\-\-P\-R\-\_\-\-A\-R\-G, \-\_\-\-\_\-entry-\/$>$tid)}]{}
+\end{DoxyParamCaption}
+)}}\label{driver-trace_8h_a28abbcaaad8582ac5ea9adf03455cf05}
+\hypertarget{driver-trace_8h_af47d5cd6edab5c635184d77ed2442084}{\index{driver-\/trace.\-h@{driver-\/trace.\-h}!T\-R\-A\-C\-E\-\_\-\-E\-V\-E\-N\-T@{T\-R\-A\-C\-E\-\_\-\-E\-V\-E\-N\-T}}
+\index{T\-R\-A\-C\-E\-\_\-\-E\-V\-E\-N\-T@{T\-R\-A\-C\-E\-\_\-\-E\-V\-E\-N\-T}!driver-trace.h@{driver-\/trace.\-h}}
+\subsubsection[{T\-R\-A\-C\-E\-\_\-\-E\-V\-E\-N\-T}]{\setlength{\rightskip}{0pt plus 5cm}T\-R\-A\-C\-E\-\_\-\-E\-V\-E\-N\-T (
+\begin{DoxyParamCaption}
+\item[{api\-\_\-stop\-\_\-tx\-\_\-ba\-\_\-cb}]{, }
+\item[{T\-P\-\_\-\-P\-R\-O\-T\-O(struct {\bf ieee80211\-\_\-sub\-\_\-if\-\_\-data} $\ast$sdata, const u8 $\ast$ra, u16 tid)}]{, }
+\item[{T\-P\-\_\-\-A\-R\-G\-S(sdata, ra, tid)}]{, }
+\item[{T\-P\-\_\-\-S\-T\-R\-U\-C\-T\-\_\-\-\_\-entry(V\-I\-F\-\_\-\-E\-N\-T\-R\-Y\-\_\-\-\_\-array(u8, ra, E\-T\-H\-\_\-\-A\-L\-E\-N) \-\_\-\-\_\-field(u16, tid))}]{, }
+\item[{T\-P\-\_\-fast\-\_\-assign({\bf V\-I\-F\-\_\-\-A\-S\-S\-I\-G\-N};memcpy(\-\_\-\-\_\-entry-\/$>$ra, ra, E\-T\-H\-\_\-\-A\-L\-E\-N);\-\_\-\-\_\-entry-\/$>$tid=tid;)}]{, }
+\item[{T\-P\-\_\-printk({\bf V\-I\-F\-\_\-\-P\-R\-\_\-\-F\-M\-T}\char`\"{} ra\-:\%p\-M tid\-:\%d\char`\"{}, V\-I\-F\-\_\-\-P\-R\-\_\-\-A\-R\-G, \-\_\-\-\_\-entry-\/$>$ra, \-\_\-\-\_\-entry-\/$>$tid)}]{}
+\end{DoxyParamCaption}
+)}}\label{driver-trace_8h_af47d5cd6edab5c635184d77ed2442084}
+\hypertarget{driver-trace_8h_a887d2b934134e4a5b051f9840613fae4}{\index{driver-\/trace.\-h@{driver-\/trace.\-h}!T\-R\-A\-C\-E\-\_\-\-E\-V\-E\-N\-T@{T\-R\-A\-C\-E\-\_\-\-E\-V\-E\-N\-T}}
+\index{T\-R\-A\-C\-E\-\_\-\-E\-V\-E\-N\-T@{T\-R\-A\-C\-E\-\_\-\-E\-V\-E\-N\-T}!driver-trace.h@{driver-\/trace.\-h}}
+\subsubsection[{T\-R\-A\-C\-E\-\_\-\-E\-V\-E\-N\-T}]{\setlength{\rightskip}{0pt plus 5cm}T\-R\-A\-C\-E\-\_\-\-E\-V\-E\-N\-T (
+\begin{DoxyParamCaption}
+\item[{api\-\_\-beacon\-\_\-loss}]{, }
+\item[{T\-P\-\_\-\-P\-R\-O\-T\-O(struct {\bf ieee80211\-\_\-sub\-\_\-if\-\_\-data} $\ast$sdata)}]{, }
+\item[{T\-P\-\_\-\-A\-R\-G\-S(sdata)}]{, }
+\item[{T\-P\-\_\-\-S\-T\-R\-U\-C\-T\-\_\-\-\_\-entry({\bf V\-I\-F\-\_\-\-E\-N\-T\-R\-Y})}]{, }
+\item[{T\-P\-\_\-fast\-\_\-assign({\bf V\-I\-F\-\_\-\-A\-S\-S\-I\-G\-N};)}]{, }
+\item[{T\-P\-\_\-printk({\bf V\-I\-F\-\_\-\-P\-R\-\_\-\-F\-M\-T}, {\bf V\-I\-F\-\_\-\-P\-R\-\_\-\-A\-R\-G})}]{}
+\end{DoxyParamCaption}
+)}}\label{driver-trace_8h_a887d2b934134e4a5b051f9840613fae4}
+\hypertarget{driver-trace_8h_a06d325afd22ef8e91117d952351e410a}{\index{driver-\/trace.\-h@{driver-\/trace.\-h}!T\-R\-A\-C\-E\-\_\-\-E\-V\-E\-N\-T@{T\-R\-A\-C\-E\-\_\-\-E\-V\-E\-N\-T}}
+\index{T\-R\-A\-C\-E\-\_\-\-E\-V\-E\-N\-T@{T\-R\-A\-C\-E\-\_\-\-E\-V\-E\-N\-T}!driver-trace.h@{driver-\/trace.\-h}}
+\subsubsection[{T\-R\-A\-C\-E\-\_\-\-E\-V\-E\-N\-T}]{\setlength{\rightskip}{0pt plus 5cm}T\-R\-A\-C\-E\-\_\-\-E\-V\-E\-N\-T (
+\begin{DoxyParamCaption}
+\item[{api\-\_\-connection\-\_\-loss}]{, }
+\item[{T\-P\-\_\-\-P\-R\-O\-T\-O(struct {\bf ieee80211\-\_\-sub\-\_\-if\-\_\-data} $\ast$sdata)}]{, }
+\item[{T\-P\-\_\-\-A\-R\-G\-S(sdata)}]{, }
+\item[{T\-P\-\_\-\-S\-T\-R\-U\-C\-T\-\_\-\-\_\-entry({\bf V\-I\-F\-\_\-\-E\-N\-T\-R\-Y})}]{, }
+\item[{T\-P\-\_\-fast\-\_\-assign({\bf V\-I\-F\-\_\-\-A\-S\-S\-I\-G\-N};)}]{, }
+\item[{T\-P\-\_\-printk({\bf V\-I\-F\-\_\-\-P\-R\-\_\-\-F\-M\-T}, {\bf V\-I\-F\-\_\-\-P\-R\-\_\-\-A\-R\-G})}]{}
+\end{DoxyParamCaption}
+)}}\label{driver-trace_8h_a06d325afd22ef8e91117d952351e410a}
+\hypertarget{driver-trace_8h_a6e5431e7f099ab22fd431c64db9dfa29}{\index{driver-\/trace.\-h@{driver-\/trace.\-h}!T\-R\-A\-C\-E\-\_\-\-E\-V\-E\-N\-T@{T\-R\-A\-C\-E\-\_\-\-E\-V\-E\-N\-T}}
+\index{T\-R\-A\-C\-E\-\_\-\-E\-V\-E\-N\-T@{T\-R\-A\-C\-E\-\_\-\-E\-V\-E\-N\-T}!driver-trace.h@{driver-\/trace.\-h}}
+\subsubsection[{T\-R\-A\-C\-E\-\_\-\-E\-V\-E\-N\-T}]{\setlength{\rightskip}{0pt plus 5cm}T\-R\-A\-C\-E\-\_\-\-E\-V\-E\-N\-T (
+\begin{DoxyParamCaption}
+\item[{api\-\_\-cqm\-\_\-rssi\-\_\-notify}]{, }
+\item[{T\-P\-\_\-\-P\-R\-O\-T\-O(struct {\bf ieee80211\-\_\-sub\-\_\-if\-\_\-data} $\ast$sdata, enum nl80211\-\_\-cqm\-\_\-rssi\-\_\-threshold\-\_\-event rssi\-\_\-event)}]{, }
+\item[{T\-P\-\_\-\-A\-R\-G\-S(sdata, rssi\-\_\-event)}]{, }
+\item[{T\-P\-\_\-\-S\-T\-R\-U\-C\-T\-\_\-\-\_\-entry(V\-I\-F\-\_\-\-E\-N\-T\-R\-Y\-\_\-\-\_\-field(u32, rssi\-\_\-event))}]{, }
+\item[{T\-P\-\_\-fast\-\_\-assign({\bf V\-I\-F\-\_\-\-A\-S\-S\-I\-G\-N};\-\_\-\-\_\-entry-\/$>$rssi\-\_\-event=rssi\-\_\-event;)}]{, }
+\item[{T\-P\-\_\-printk({\bf V\-I\-F\-\_\-\-P\-R\-\_\-\-F\-M\-T}\char`\"{} event\-:\%d\char`\"{}, V\-I\-F\-\_\-\-P\-R\-\_\-\-A\-R\-G, \-\_\-\-\_\-entry-\/$>$rssi\-\_\-event)}]{}
+\end{DoxyParamCaption}
+)}}\label{driver-trace_8h_a6e5431e7f099ab22fd431c64db9dfa29}
+\hypertarget{driver-trace_8h_ae33fdca968b0ead0256960e64028d421}{\index{driver-\/trace.\-h@{driver-\/trace.\-h}!T\-R\-A\-C\-E\-\_\-\-E\-V\-E\-N\-T@{T\-R\-A\-C\-E\-\_\-\-E\-V\-E\-N\-T}}
+\index{T\-R\-A\-C\-E\-\_\-\-E\-V\-E\-N\-T@{T\-R\-A\-C\-E\-\_\-\-E\-V\-E\-N\-T}!driver-trace.h@{driver-\/trace.\-h}}
+\subsubsection[{T\-R\-A\-C\-E\-\_\-\-E\-V\-E\-N\-T}]{\setlength{\rightskip}{0pt plus 5cm}T\-R\-A\-C\-E\-\_\-\-E\-V\-E\-N\-T (
+\begin{DoxyParamCaption}
+\item[{api\-\_\-scan\-\_\-completed}]{, }
+\item[{T\-P\-\_\-\-P\-R\-O\-T\-O(struct {\bf ieee80211\-\_\-local} $\ast$local, bool aborted)}]{, }
+\item[{T\-P\-\_\-\-A\-R\-G\-S(local, aborted)}]{, }
+\item[{T\-P\-\_\-\-S\-T\-R\-U\-C\-T\-\_\-\-\_\-entry(L\-O\-C\-A\-L\-\_\-\-E\-N\-T\-R\-Y\-\_\-\-\_\-field(bool, aborted))}]{, }
+\item[{T\-P\-\_\-fast\-\_\-assign({\bf L\-O\-C\-A\-L\-\_\-\-A\-S\-S\-I\-G\-N};\-\_\-\-\_\-entry-\/$>$aborted=aborted;)}]{, }
+\item[{T\-P\-\_\-printk({\bf L\-O\-C\-A\-L\-\_\-\-P\-R\-\_\-\-F\-M\-T}\char`\"{} aborted\-:\%d\char`\"{}, L\-O\-C\-A\-L\-\_\-\-P\-R\-\_\-\-A\-R\-G, \-\_\-\-\_\-entry-\/$>$aborted)}]{}
+\end{DoxyParamCaption}
+)}}\label{driver-trace_8h_ae33fdca968b0ead0256960e64028d421}
+\hypertarget{driver-trace_8h_a092d29134a8ac934242375c8f146a1ba}{\index{driver-\/trace.\-h@{driver-\/trace.\-h}!T\-R\-A\-C\-E\-\_\-\-E\-V\-E\-N\-T@{T\-R\-A\-C\-E\-\_\-\-E\-V\-E\-N\-T}}
+\index{T\-R\-A\-C\-E\-\_\-\-E\-V\-E\-N\-T@{T\-R\-A\-C\-E\-\_\-\-E\-V\-E\-N\-T}!driver-trace.h@{driver-\/trace.\-h}}
+\subsubsection[{T\-R\-A\-C\-E\-\_\-\-E\-V\-E\-N\-T}]{\setlength{\rightskip}{0pt plus 5cm}T\-R\-A\-C\-E\-\_\-\-E\-V\-E\-N\-T (
+\begin{DoxyParamCaption}
+\item[{api\-\_\-sched\-\_\-scan\-\_\-results}]{, }
+\item[{T\-P\-\_\-\-P\-R\-O\-T\-O(struct {\bf ieee80211\-\_\-local} $\ast$local)}]{, }
+\item[{T\-P\-\_\-\-A\-R\-G\-S(local)}]{, }
+\item[{T\-P\-\_\-\-S\-T\-R\-U\-C\-T\-\_\-\-\_\-entry({\bf L\-O\-C\-A\-L\-\_\-\-E\-N\-T\-R\-Y})}]{, }
+\item[{T\-P\-\_\-fast\-\_\-assign({\bf L\-O\-C\-A\-L\-\_\-\-A\-S\-S\-I\-G\-N};)}]{, }
+\item[{T\-P\-\_\-printk({\bf L\-O\-C\-A\-L\-\_\-\-P\-R\-\_\-\-F\-M\-T}, {\bf L\-O\-C\-A\-L\-\_\-\-P\-R\-\_\-\-A\-R\-G})}]{}
+\end{DoxyParamCaption}
+)}}\label{driver-trace_8h_a092d29134a8ac934242375c8f146a1ba}
+\hypertarget{driver-trace_8h_aff2e748442cb64181b77000c86bd652f}{\index{driver-\/trace.\-h@{driver-\/trace.\-h}!T\-R\-A\-C\-E\-\_\-\-E\-V\-E\-N\-T@{T\-R\-A\-C\-E\-\_\-\-E\-V\-E\-N\-T}}
+\index{T\-R\-A\-C\-E\-\_\-\-E\-V\-E\-N\-T@{T\-R\-A\-C\-E\-\_\-\-E\-V\-E\-N\-T}!driver-trace.h@{driver-\/trace.\-h}}
+\subsubsection[{T\-R\-A\-C\-E\-\_\-\-E\-V\-E\-N\-T}]{\setlength{\rightskip}{0pt plus 5cm}T\-R\-A\-C\-E\-\_\-\-E\-V\-E\-N\-T (
+\begin{DoxyParamCaption}
+\item[{api\-\_\-sched\-\_\-scan\-\_\-stopped}]{, }
+\item[{T\-P\-\_\-\-P\-R\-O\-T\-O(struct {\bf ieee80211\-\_\-local} $\ast$local)}]{, }
+\item[{T\-P\-\_\-\-A\-R\-G\-S(local)}]{, }
+\item[{T\-P\-\_\-\-S\-T\-R\-U\-C\-T\-\_\-\-\_\-entry({\bf L\-O\-C\-A\-L\-\_\-\-E\-N\-T\-R\-Y})}]{, }
+\item[{T\-P\-\_\-fast\-\_\-assign({\bf L\-O\-C\-A\-L\-\_\-\-A\-S\-S\-I\-G\-N};)}]{, }
+\item[{T\-P\-\_\-printk({\bf L\-O\-C\-A\-L\-\_\-\-P\-R\-\_\-\-F\-M\-T}, {\bf L\-O\-C\-A\-L\-\_\-\-P\-R\-\_\-\-A\-R\-G})}]{}
+\end{DoxyParamCaption}
+)}}\label{driver-trace_8h_aff2e748442cb64181b77000c86bd652f}
+\hypertarget{driver-trace_8h_a63770dcb8f073c4d9df3979a925aadfe}{\index{driver-\/trace.\-h@{driver-\/trace.\-h}!T\-R\-A\-C\-E\-\_\-\-E\-V\-E\-N\-T@{T\-R\-A\-C\-E\-\_\-\-E\-V\-E\-N\-T}}
+\index{T\-R\-A\-C\-E\-\_\-\-E\-V\-E\-N\-T@{T\-R\-A\-C\-E\-\_\-\-E\-V\-E\-N\-T}!driver-trace.h@{driver-\/trace.\-h}}
+\subsubsection[{T\-R\-A\-C\-E\-\_\-\-E\-V\-E\-N\-T}]{\setlength{\rightskip}{0pt plus 5cm}T\-R\-A\-C\-E\-\_\-\-E\-V\-E\-N\-T (
+\begin{DoxyParamCaption}
+\item[{api\-\_\-sta\-\_\-block\-\_\-awake}]{, }
+\item[{T\-P\-\_\-\-P\-R\-O\-T\-O(struct {\bf ieee80211\-\_\-local} $\ast$local, struct ieee80211\-\_\-sta $\ast$sta, bool block)}]{, }
+\item[{T\-P\-\_\-\-A\-R\-G\-S(local, sta, block)}]{, }
+\item[{T\-P\-\_\-\-S\-T\-R\-U\-C\-T\-\_\-\-\_\-entry(L\-O\-C\-A\-L\-\_\-\-E\-N\-T\-R\-Y\-S\-T\-A\-\_\-\-E\-N\-T\-R\-Y\-\_\-\-\_\-field(bool, block))}]{, }
+\item[{T\-P\-\_\-fast\-\_\-assign({\bf L\-O\-C\-A\-L\-\_\-\-A\-S\-S\-I\-G\-N};{\bf S\-T\-A\-\_\-\-A\-S\-S\-I\-G\-N};\-\_\-\-\_\-entry-\/$>$block=block;)}]{, }
+\item[{T\-P\-\_\-printk({\bf L\-O\-C\-A\-L\-\_\-\-P\-R\-\_\-\-F\-M\-T} {\bf S\-T\-A\-\_\-\-P\-R\-\_\-\-F\-M\-T}\char`\"{} block\-:\%d\char`\"{}, L\-O\-C\-A\-L\-\_\-\-P\-R\-\_\-\-A\-R\-G, {\bf S\-T\-A\-\_\-\-P\-R\-\_\-\-F\-M\-T}, \-\_\-\-\_\-entry-\/$>$block)}]{}
+\end{DoxyParamCaption}
+)}}\label{driver-trace_8h_a63770dcb8f073c4d9df3979a925aadfe}
+\hypertarget{driver-trace_8h_a6f5c84df6b12860bf8eb69dc156dea86}{\index{driver-\/trace.\-h@{driver-\/trace.\-h}!T\-R\-A\-C\-E\-\_\-\-E\-V\-E\-N\-T@{T\-R\-A\-C\-E\-\_\-\-E\-V\-E\-N\-T}}
+\index{T\-R\-A\-C\-E\-\_\-\-E\-V\-E\-N\-T@{T\-R\-A\-C\-E\-\_\-\-E\-V\-E\-N\-T}!driver-trace.h@{driver-\/trace.\-h}}
+\subsubsection[{T\-R\-A\-C\-E\-\_\-\-E\-V\-E\-N\-T}]{\setlength{\rightskip}{0pt plus 5cm}T\-R\-A\-C\-E\-\_\-\-E\-V\-E\-N\-T (
+\begin{DoxyParamCaption}
+\item[{api\-\_\-chswitch\-\_\-done}]{, }
+\item[{T\-P\-\_\-\-P\-R\-O\-T\-O(struct {\bf ieee80211\-\_\-sub\-\_\-if\-\_\-data} $\ast$sdata, bool success)}]{, }
+\item[{T\-P\-\_\-\-A\-R\-G\-S(sdata, success)}]{, }
+\item[{T\-P\-\_\-\-S\-T\-R\-U\-C\-T\-\_\-\-\_\-entry(V\-I\-F\-\_\-\-E\-N\-T\-R\-Y\-\_\-\-\_\-field(bool, success))}]{, }
+\item[{T\-P\-\_\-fast\-\_\-assign({\bf V\-I\-F\-\_\-\-A\-S\-S\-I\-G\-N};\-\_\-\-\_\-entry-\/$>$success=success;)}]{, }
+\item[{T\-P\-\_\-printk({\bf V\-I\-F\-\_\-\-P\-R\-\_\-\-F\-M\-T}\char`\"{} success=\%d\char`\"{}, V\-I\-F\-\_\-\-P\-R\-\_\-\-A\-R\-G, \-\_\-\-\_\-entry-\/$>$success)}]{}
+\end{DoxyParamCaption}
+)}}\label{driver-trace_8h_a6f5c84df6b12860bf8eb69dc156dea86}
+\hypertarget{driver-trace_8h_a918645dca1f6488ecb2cb1616e4e311d}{\index{driver-\/trace.\-h@{driver-\/trace.\-h}!T\-R\-A\-C\-E\-\_\-\-E\-V\-E\-N\-T@{T\-R\-A\-C\-E\-\_\-\-E\-V\-E\-N\-T}}
+\index{T\-R\-A\-C\-E\-\_\-\-E\-V\-E\-N\-T@{T\-R\-A\-C\-E\-\_\-\-E\-V\-E\-N\-T}!driver-trace.h@{driver-\/trace.\-h}}
+\subsubsection[{T\-R\-A\-C\-E\-\_\-\-E\-V\-E\-N\-T}]{\setlength{\rightskip}{0pt plus 5cm}T\-R\-A\-C\-E\-\_\-\-E\-V\-E\-N\-T (
+\begin{DoxyParamCaption}
+\item[{api\-\_\-gtk\-\_\-rekey\-\_\-notify}]{, }
+\item[{T\-P\-\_\-\-P\-R\-O\-T\-O(struct {\bf ieee80211\-\_\-sub\-\_\-if\-\_\-data} $\ast$sdata, const u8 $\ast$bssid, const u8 $\ast$replay\-\_\-ctr)}]{, }
+\item[{T\-P\-\_\-\-A\-R\-G\-S(sdata, bssid, replay\-\_\-ctr)}]{, }
+\item[{T\-P\-\_\-\-S\-T\-R\-U\-C\-T\-\_\-\-\_\-entry(V\-I\-F\-\_\-\-E\-N\-T\-R\-Y\-\_\-\-\_\-array(u8, bssid, E\-T\-H\-\_\-\-A\-L\-E\-N) \-\_\-\-\_\-array(u8, replay\-\_\-ctr, N\-L80211\-\_\-\-R\-E\-P\-L\-A\-Y\-\_\-\-C\-T\-R\-\_\-\-L\-E\-N))}]{, }
+\item[{T\-P\-\_\-fast\-\_\-assign({\bf V\-I\-F\-\_\-\-A\-S\-S\-I\-G\-N};memcpy(\-\_\-\-\_\-entry-\/$>$bssid, bssid, E\-T\-H\-\_\-\-A\-L\-E\-N);memcpy(\-\_\-\-\_\-entry-\/$>$replay\-\_\-ctr, replay\-\_\-ctr, N\-L80211\-\_\-\-R\-E\-P\-L\-A\-Y\-\_\-\-C\-T\-R\-\_\-\-L\-E\-N);)}]{, }
+\item[{T\-P\-\_\-printk({\bf V\-I\-F\-\_\-\-P\-R\-\_\-\-F\-M\-T}, {\bf V\-I\-F\-\_\-\-P\-R\-\_\-\-A\-R\-G})}]{}
+\end{DoxyParamCaption}
+)}}\label{driver-trace_8h_a918645dca1f6488ecb2cb1616e4e311d}
+\hypertarget{driver-trace_8h_a127024ae0810a79a83c49b8a87db4e2c}{\index{driver-\/trace.\-h@{driver-\/trace.\-h}!T\-R\-A\-C\-E\-\_\-\-E\-V\-E\-N\-T@{T\-R\-A\-C\-E\-\_\-\-E\-V\-E\-N\-T}}
+\index{T\-R\-A\-C\-E\-\_\-\-E\-V\-E\-N\-T@{T\-R\-A\-C\-E\-\_\-\-E\-V\-E\-N\-T}!driver-trace.h@{driver-\/trace.\-h}}
+\subsubsection[{T\-R\-A\-C\-E\-\_\-\-E\-V\-E\-N\-T}]{\setlength{\rightskip}{0pt plus 5cm}T\-R\-A\-C\-E\-\_\-\-E\-V\-E\-N\-T (
+\begin{DoxyParamCaption}
+\item[{api\-\_\-enable\-\_\-rssi\-\_\-reports}]{, }
+\item[{T\-P\-\_\-\-P\-R\-O\-T\-O(struct {\bf ieee80211\-\_\-sub\-\_\-if\-\_\-data} $\ast$sdata, int rssi\-\_\-min\-\_\-thold, int rssi\-\_\-max\-\_\-thold)}]{, }
+\item[{T\-P\-\_\-\-A\-R\-G\-S(sdata, rssi\-\_\-min\-\_\-thold, rssi\-\_\-max\-\_\-thold)}]{, }
+\item[{T\-P\-\_\-\-S\-T\-R\-U\-C\-T\-\_\-\-\_\-entry(V\-I\-F\-\_\-\-E\-N\-T\-R\-Y\-\_\-\-\_\-field(int, rssi\-\_\-min\-\_\-thold) \-\_\-\-\_\-field(int, rssi\-\_\-max\-\_\-thold))}]{, }
+\item[{T\-P\-\_\-fast\-\_\-assign({\bf V\-I\-F\-\_\-\-A\-S\-S\-I\-G\-N};\-\_\-\-\_\-entry-\/$>$rssi\-\_\-min\-\_\-thold=rssi\-\_\-min\-\_\-thold;\-\_\-\-\_\-entry-\/$>$rssi\-\_\-max\-\_\-thold=rssi\-\_\-max\-\_\-thold;)}]{, }
+\item[{T\-P\-\_\-printk({\bf V\-I\-F\-\_\-\-P\-R\-\_\-\-F\-M\-T}\char`\"{} rssi\-\_\-min\-\_\-thold =\%d, rssi\-\_\-max\-\_\-thold = \%d\char`\"{}, V\-I\-F\-\_\-\-P\-R\-\_\-\-A\-R\-G, \-\_\-\-\_\-entry-\/$>$rssi\-\_\-min\-\_\-thold, \-\_\-\-\_\-entry-\/$>$rssi\-\_\-max\-\_\-thold)}]{}
+\end{DoxyParamCaption}
+)}}\label{driver-trace_8h_a127024ae0810a79a83c49b8a87db4e2c}
+\hypertarget{driver-trace_8h_a0a6fb63e81d42767a656a27c5ebb7b0d}{\index{driver-\/trace.\-h@{driver-\/trace.\-h}!T\-R\-A\-C\-E\-\_\-\-E\-V\-E\-N\-T@{T\-R\-A\-C\-E\-\_\-\-E\-V\-E\-N\-T}}
+\index{T\-R\-A\-C\-E\-\_\-\-E\-V\-E\-N\-T@{T\-R\-A\-C\-E\-\_\-\-E\-V\-E\-N\-T}!driver-trace.h@{driver-\/trace.\-h}}
+\subsubsection[{T\-R\-A\-C\-E\-\_\-\-E\-V\-E\-N\-T}]{\setlength{\rightskip}{0pt plus 5cm}T\-R\-A\-C\-E\-\_\-\-E\-V\-E\-N\-T (
+\begin{DoxyParamCaption}
+\item[{api\-\_\-eosp}]{, }
+\item[{T\-P\-\_\-\-P\-R\-O\-T\-O(struct {\bf ieee80211\-\_\-local} $\ast$local, struct ieee80211\-\_\-sta $\ast$sta)}]{, }
+\item[{T\-P\-\_\-\-A\-R\-G\-S(local, sta)}]{, }
+\item[{T\-P\-\_\-\-S\-T\-R\-U\-C\-T\-\_\-\-\_\-entry(L\-O\-C\-A\-L\-\_\-\-E\-N\-T\-R\-Y\-S\-T\-A\-\_\-\-E\-N\-T\-R\-Y)}]{, }
+\item[{T\-P\-\_\-fast\-\_\-assign({\bf L\-O\-C\-A\-L\-\_\-\-A\-S\-S\-I\-G\-N};{\bf S\-T\-A\-\_\-\-A\-S\-S\-I\-G\-N};)}]{, }
+\item[{T\-P\-\_\-printk({\bf L\-O\-C\-A\-L\-\_\-\-P\-R\-\_\-\-F\-M\-T} {\bf S\-T\-A\-\_\-\-P\-R\-\_\-\-F\-M\-T}, {\bf L\-O\-C\-A\-L\-\_\-\-P\-R\-\_\-\-A\-R\-G}, {\bf S\-T\-A\-\_\-\-P\-R\-\_\-\-F\-M\-T})}]{}
+\end{DoxyParamCaption}
+)}}\label{driver-trace_8h_a0a6fb63e81d42767a656a27c5ebb7b0d}
+\hypertarget{driver-trace_8h_ada71346e4ff7d3d56a8ea528309184c7}{\index{driver-\/trace.\-h@{driver-\/trace.\-h}!T\-R\-A\-C\-E\-\_\-\-E\-V\-E\-N\-T@{T\-R\-A\-C\-E\-\_\-\-E\-V\-E\-N\-T}}
+\index{T\-R\-A\-C\-E\-\_\-\-E\-V\-E\-N\-T@{T\-R\-A\-C\-E\-\_\-\-E\-V\-E\-N\-T}!driver-trace.h@{driver-\/trace.\-h}}
+\subsubsection[{T\-R\-A\-C\-E\-\_\-\-E\-V\-E\-N\-T}]{\setlength{\rightskip}{0pt plus 5cm}T\-R\-A\-C\-E\-\_\-\-E\-V\-E\-N\-T (
+\begin{DoxyParamCaption}
+\item[{wake\-\_\-queue}]{, }
+\item[{T\-P\-\_\-\-P\-R\-O\-T\-O(struct {\bf ieee80211\-\_\-local} $\ast$local, u16 queue, enum {\bf queue\-\_\-stop\-\_\-reason} reason)}]{, }
+\item[{T\-P\-\_\-\-A\-R\-G\-S(local, queue, reason)}]{, }
+\item[{T\-P\-\_\-\-S\-T\-R\-U\-C\-T\-\_\-\-\_\-entry(L\-O\-C\-A\-L\-\_\-\-E\-N\-T\-R\-Y\-\_\-\-\_\-field(u16, queue) \-\_\-\-\_\-field(u32, reason))}]{, }
+\item[{T\-P\-\_\-fast\-\_\-assign({\bf L\-O\-C\-A\-L\-\_\-\-A\-S\-S\-I\-G\-N};\-\_\-\-\_\-entry-\/$>$queue=queue;\-\_\-\-\_\-entry-\/$>$reason=reason;)}]{, }
+\item[{T\-P\-\_\-printk({\bf L\-O\-C\-A\-L\-\_\-\-P\-R\-\_\-\-F\-M\-T}\char`\"{} queue\-:\%d, reason\-:\%d\char`\"{}, L\-O\-C\-A\-L\-\_\-\-P\-R\-\_\-\-A\-R\-G, \-\_\-\-\_\-entry-\/$>$queue, \-\_\-\-\_\-entry-\/$>$reason)}]{}
+\end{DoxyParamCaption}
+)}}\label{driver-trace_8h_ada71346e4ff7d3d56a8ea528309184c7}
+\hypertarget{driver-trace_8h_ad1b961e7a105be9259f51d1c6ed2c549}{\index{driver-\/trace.\-h@{driver-\/trace.\-h}!T\-R\-A\-C\-E\-\_\-\-E\-V\-E\-N\-T@{T\-R\-A\-C\-E\-\_\-\-E\-V\-E\-N\-T}}
+\index{T\-R\-A\-C\-E\-\_\-\-E\-V\-E\-N\-T@{T\-R\-A\-C\-E\-\_\-\-E\-V\-E\-N\-T}!driver-trace.h@{driver-\/trace.\-h}}
+\subsubsection[{T\-R\-A\-C\-E\-\_\-\-E\-V\-E\-N\-T}]{\setlength{\rightskip}{0pt plus 5cm}T\-R\-A\-C\-E\-\_\-\-E\-V\-E\-N\-T (
+\begin{DoxyParamCaption}
+\item[{stop\-\_\-queue}]{, }
+\item[{T\-P\-\_\-\-P\-R\-O\-T\-O(struct {\bf ieee80211\-\_\-local} $\ast$local, u16 queue, enum {\bf queue\-\_\-stop\-\_\-reason} reason)}]{, }
+\item[{T\-P\-\_\-\-A\-R\-G\-S(local, queue, reason)}]{, }
+\item[{T\-P\-\_\-\-S\-T\-R\-U\-C\-T\-\_\-\-\_\-entry(L\-O\-C\-A\-L\-\_\-\-E\-N\-T\-R\-Y\-\_\-\-\_\-field(u16, queue) \-\_\-\-\_\-field(u32, reason))}]{, }
+\item[{T\-P\-\_\-fast\-\_\-assign({\bf L\-O\-C\-A\-L\-\_\-\-A\-S\-S\-I\-G\-N};\-\_\-\-\_\-entry-\/$>$queue=queue;\-\_\-\-\_\-entry-\/$>$reason=reason;)}]{, }
+\item[{T\-P\-\_\-printk({\bf L\-O\-C\-A\-L\-\_\-\-P\-R\-\_\-\-F\-M\-T}\char`\"{} queue\-:\%d, reason\-:\%d\char`\"{}, L\-O\-C\-A\-L\-\_\-\-P\-R\-\_\-\-A\-R\-G, \-\_\-\-\_\-entry-\/$>$queue, \-\_\-\-\_\-entry-\/$>$reason)}]{}
+\end{DoxyParamCaption}
+)}}\label{driver-trace_8h_ad1b961e7a105be9259f51d1c6ed2c549}

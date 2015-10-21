@@ -1,0 +1,107 @@
+.TH "ieee80211_bss" 3 "Sun Jun 1 2014" "Version 1.0" "net_mac80211" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+ieee80211_bss \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <ieee80211_i\&.h>\fP
+.SS "Data Fields"
+
+.in +1c
+.ti -1c
+.RI "size_t \fBssid_len\fP"
+.br
+.ti -1c
+.RI "u8 \fBssid\fP [IEEE80211_MAX_SSID_LEN]"
+.br
+.ti -1c
+.RI "u8 \fBdtim_period\fP"
+.br
+.ti -1c
+.RI "bool \fBwmm_used\fP"
+.br
+.ti -1c
+.RI "bool \fBuapsd_supported\fP"
+.br
+.ti -1c
+.RI "unsigned long \fBlast_probe_resp\fP"
+.br
+.ti -1c
+.RI "u8 \fBsupp_rates\fP [\fBIEEE80211_MAX_SUPP_RATES\fP]"
+.br
+.ti -1c
+.RI "size_t \fBsupp_rates_len\fP"
+.br
+.ti -1c
+.RI "bool \fBhas_erp_value\fP"
+.br
+.ti -1c
+.RI "u8 \fBerp_value\fP"
+.br
+.ti -1c
+.RI "u8 \fBcorrupt_data\fP"
+.br
+.ti -1c
+.RI "u8 \fBvalid_data\fP"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Definition at line 78 of file ieee80211_i\&.h\&.
+.SH "Field Documentation"
+.PP 
+.SS "u8 corrupt_data"
+
+.PP
+Definition at line 110 of file ieee80211_i\&.h\&.
+.SS "u8 dtim_period"
+
+.PP
+Definition at line 83 of file ieee80211_i\&.h\&.
+.SS "u8 erp_value"
+
+.PP
+Definition at line 107 of file ieee80211_i\&.h\&.
+.SS "bool has_erp_value"
+
+.PP
+Definition at line 106 of file ieee80211_i\&.h\&.
+.SS "unsigned long last_probe_resp"
+
+.PP
+Definition at line 88 of file ieee80211_i\&.h\&.
+.SS "u8 ssid[IEEE80211_MAX_SSID_LEN]"
+
+.PP
+Definition at line 81 of file ieee80211_i\&.h\&.
+.SS "size_t ssid_len"
+
+.PP
+Definition at line 80 of file ieee80211_i\&.h\&.
+.SS "u8 supp_rates[\fBIEEE80211_MAX_SUPP_RATES\fP]"
+
+.PP
+Definition at line 97 of file ieee80211_i\&.h\&.
+.SS "size_t supp_rates_len"
+
+.PP
+Definition at line 98 of file ieee80211_i\&.h\&.
+.SS "bool uapsd_supported"
+
+.PP
+Definition at line 86 of file ieee80211_i\&.h\&.
+.SS "u8 valid_data"
+
+.PP
+Definition at line 113 of file ieee80211_i\&.h\&.
+.SS "bool wmm_used"
+
+.PP
+Definition at line 85 of file ieee80211_i\&.h\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for net_mac80211 from the source code\&.

@@ -1,0 +1,402 @@
+.TH "/home/guille/msm/net/mac80211/sta_info.h" 3 "Sun Jun 1 2014" "Version 1.0" "net_mac80211" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+/home/guille/msm/net/mac80211/sta_info.h \- 
+.SH SYNOPSIS
+.br
+.PP
+\fC#include <linux/list\&.h>\fP
+.br
+\fC#include <linux/types\&.h>\fP
+.br
+\fC#include <linux/if_ether\&.h>\fP
+.br
+\fC#include <linux/workqueue\&.h>\fP
+.br
+\fC#include <linux/average\&.h>\fP
+.br
+\fC#include <linux/etherdevice\&.h>\fP
+.br
+\fC#include 'key\&.h'\fP
+.br
+
+.SS "Data Structures"
+
+.in +1c
+.ti -1c
+.RI "struct \fBtid_ampdu_tx\fP"
+.br
+.ti -1c
+.RI "struct \fBtid_ampdu_rx\fP"
+.br
+.ti -1c
+.RI "struct \fBsta_ampdu_mlme\fP"
+.br
+.ti -1c
+.RI "struct \fBsta_info\fP"
+.br
+.in -1c
+.SS "Macros"
+
+.in +1c
+.ti -1c
+.RI "#define \fBSTA_TID_NUM\fP   16"
+.br
+.ti -1c
+.RI "#define \fBADDBA_RESP_INTERVAL\fP   HZ"
+.br
+.ti -1c
+.RI "#define \fBHT_AGG_MAX_RETRIES\fP   15"
+.br
+.ti -1c
+.RI "#define \fBHT_AGG_BURST_RETRIES\fP   3"
+.br
+.ti -1c
+.RI "#define \fBHT_AGG_RETRIES_PERIOD\fP   (15 * HZ)"
+.br
+.ti -1c
+.RI "#define \fBHT_AGG_STATE_DRV_READY\fP   0"
+.br
+.ti -1c
+.RI "#define \fBHT_AGG_STATE_RESPONSE_RECEIVED\fP   1"
+.br
+.ti -1c
+.RI "#define \fBHT_AGG_STATE_OPERATIONAL\fP   2"
+.br
+.ti -1c
+.RI "#define \fBHT_AGG_STATE_STOPPING\fP   3"
+.br
+.ti -1c
+.RI "#define \fBHT_AGG_STATE_WANT_START\fP   4"
+.br
+.ti -1c
+.RI "#define \fBHT_AGG_STATE_WANT_STOP\fP   5"
+.br
+.ti -1c
+.RI "#define \fBSTA_HASH_SIZE\fP   256"
+.br
+.ti -1c
+.RI "#define \fBSTA_HASH\fP(sta)   (sta[5])"
+.br
+.ti -1c
+.RI "#define \fBSTA_MAX_TX_BUFFER\fP   64"
+.br
+.ti -1c
+.RI "#define \fBSTA_TX_BUFFER_EXPIRE\fP   (10 * HZ)"
+.br
+.ti -1c
+.RI "#define \fBSTA_INFO_CLEANUP_INTERVAL\fP   (10 * HZ)"
+.br
+.ti -1c
+.RI "#define \fBfor_each_sta_info\fP(local, _addr, _sta, nxt)"
+.br
+.in -1c
+.SS "Enumerations"
+
+.in +1c
+.ti -1c
+.RI "enum \fBieee80211_sta_info_flags\fP { \fBWLAN_STA_AUTH\fP, \fBWLAN_STA_ASSOC\fP, \fBWLAN_STA_PS_STA\fP, \fBWLAN_STA_AUTHORIZED\fP, \fBWLAN_STA_SHORT_PREAMBLE\fP, \fBWLAN_STA_WME\fP, \fBWLAN_STA_WDS\fP, \fBWLAN_STA_CLEAR_PS_FILT\fP, \fBWLAN_STA_MFP\fP, \fBWLAN_STA_BLOCK_BA\fP, \fBWLAN_STA_PS_DRIVER\fP, \fBWLAN_STA_PSPOLL\fP, \fBWLAN_STA_TDLS_PEER\fP, \fBWLAN_STA_TDLS_PEER_AUTH\fP, \fBWLAN_STA_UAPSD\fP, \fBWLAN_STA_SP\fP, \fBWLAN_STA_4ADDR_EVENT\fP, \fBWLAN_STA_INSERTED\fP, \fBWLAN_STA_RATE_CONTROL\fP }"
+.br
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "int \fBsta_info_move_state\fP (struct \fBsta_info\fP *sta, enum ieee80211_sta_state new_state)"
+.br
+.ti -1c
+.RI "void \fBieee80211_assign_tid_tx\fP (struct \fBsta_info\fP *sta, int tid, struct \fBtid_ampdu_tx\fP *tid_tx)"
+.br
+.ti -1c
+.RI "struct \fBsta_info\fP * \fBsta_info_get\fP (struct \fBieee80211_sub_if_data\fP *sdata, const u8 *addr)"
+.br
+.ti -1c
+.RI "struct \fBsta_info\fP * \fBsta_info_get_bss\fP (struct \fBieee80211_sub_if_data\fP *sdata, const u8 *addr)"
+.br
+.ti -1c
+.RI "struct \fBsta_info\fP * \fBsta_info_get_by_idx\fP (struct \fBieee80211_sub_if_data\fP *sdata, int idx)"
+.br
+.ti -1c
+.RI "struct \fBsta_info\fP * \fBsta_info_alloc\fP (struct \fBieee80211_sub_if_data\fP *sdata, const u8 *addr, gfp_t gfp)"
+.br
+.ti -1c
+.RI "void \fBsta_info_free\fP (struct \fBieee80211_local\fP *local, struct \fBsta_info\fP *sta)"
+.br
+.ti -1c
+.RI "int \fBsta_info_insert\fP (struct \fBsta_info\fP *sta)"
+.br
+.ti -1c
+.RI "int \fBsta_info_insert_rcu\fP (struct \fBsta_info\fP *sta) __acquires(RCU)"
+.br
+.ti -1c
+.RI "int __must_check \fB__sta_info_destroy\fP (struct \fBsta_info\fP *sta)"
+.br
+.ti -1c
+.RI "int \fBsta_info_destroy_addr\fP (struct \fBieee80211_sub_if_data\fP *sdata, const u8 *addr)"
+.br
+.ti -1c
+.RI "int \fBsta_info_destroy_addr_bss\fP (struct \fBieee80211_sub_if_data\fP *sdata, const u8 *addr)"
+.br
+.ti -1c
+.RI "void \fBsta_info_recalc_tim\fP (struct \fBsta_info\fP *sta)"
+.br
+.ti -1c
+.RI "void \fBsta_info_init\fP (struct \fBieee80211_local\fP *local)"
+.br
+.ti -1c
+.RI "void \fBsta_info_stop\fP (struct \fBieee80211_local\fP *local)"
+.br
+.ti -1c
+.RI "int \fBsta_info_flush\fP (struct \fBieee80211_local\fP *local, struct \fBieee80211_sub_if_data\fP *sdata)"
+.br
+.ti -1c
+.RI "void \fBsta_set_rate_info_tx\fP (struct \fBsta_info\fP *sta, const struct ieee80211_tx_rate *rate, struct rate_info *rinfo)"
+.br
+.ti -1c
+.RI "void \fBieee80211_sta_expire\fP (struct \fBieee80211_sub_if_data\fP *sdata, unsigned long exp_time)"
+.br
+.ti -1c
+.RI "void \fBieee80211_sta_ps_deliver_wakeup\fP (struct \fBsta_info\fP *sta)"
+.br
+.ti -1c
+.RI "void \fBieee80211_sta_ps_deliver_poll_response\fP (struct \fBsta_info\fP *sta)"
+.br
+.ti -1c
+.RI "void \fBieee80211_sta_ps_deliver_uapsd\fP (struct \fBsta_info\fP *sta)"
+.br
+.in -1c
+.SH "Macro Definition Documentation"
+.PP 
+.SS "#define ADDBA_RESP_INTERVAL   HZ"
+
+.PP
+Definition at line 82 of file sta_info\&.h\&.
+.SS "#define for_each_sta_info(local, _addr, _sta, nxt)"
+\fBValue:\fP
+.PP
+.nf
+for (    /* initialise loop */                   \
+        _sta = rcu_dereference(local->sta_hash[STA_HASH(_addr)]),\
+        nxt = _sta ? rcu_dereference(_sta->hnext) : NULL;   \
+        /* typecheck */                     \
+        for_each_sta_info_type_check(local, (_addr), _sta, nxt),\
+        /* continue condition */                \
+        _sta;                           \
+        /* advance loop */                  \
+        _sta = nxt,                     \
+        nxt = _sta ? rcu_dereference(_sta->hnext) : NULL    \
+         )                              \
+    /* compare address and run code only if it matches */       \
+    if (compare_ether_addr(_sta->sta\&.addr, (_addr)) == 0)
+.fi
+.PP
+Definition at line 480 of file sta_info\&.h\&.
+.SS "#define HT_AGG_BURST_RETRIES   3"
+
+.PP
+Definition at line 84 of file sta_info\&.h\&.
+.SS "#define HT_AGG_MAX_RETRIES   15"
+
+.PP
+Definition at line 83 of file sta_info\&.h\&.
+.SS "#define HT_AGG_RETRIES_PERIOD   (15 * HZ)"
+
+.PP
+Definition at line 85 of file sta_info\&.h\&.
+.SS "#define HT_AGG_STATE_DRV_READY   0"
+
+.PP
+Definition at line 87 of file sta_info\&.h\&.
+.SS "#define HT_AGG_STATE_OPERATIONAL   2"
+
+.PP
+Definition at line 89 of file sta_info\&.h\&.
+.SS "#define HT_AGG_STATE_RESPONSE_RECEIVED   1"
+
+.PP
+Definition at line 88 of file sta_info\&.h\&.
+.SS "#define HT_AGG_STATE_STOPPING   3"
+
+.PP
+Definition at line 90 of file sta_info\&.h\&.
+.SS "#define HT_AGG_STATE_WANT_START   4"
+
+.PP
+Definition at line 91 of file sta_info\&.h\&.
+.SS "#define HT_AGG_STATE_WANT_STOP   5"
+
+.PP
+Definition at line 92 of file sta_info\&.h\&.
+.SS "#define STA_HASH(sta)   (sta[5])"
+
+.PP
+Definition at line 449 of file sta_info\&.h\&.
+.SS "#define STA_HASH_SIZE   256"
+
+.PP
+Definition at line 448 of file sta_info\&.h\&.
+.SS "#define STA_INFO_CLEANUP_INTERVAL   (10 * HZ)"
+
+.PP
+Definition at line 461 of file sta_info\&.h\&.
+.SS "#define STA_MAX_TX_BUFFER   64"
+
+.PP
+Definition at line 453 of file sta_info\&.h\&.
+.SS "#define STA_TID_NUM   16"
+
+.PP
+Definition at line 81 of file sta_info\&.h\&.
+.SS "#define STA_TX_BUFFER_EXPIRE   (10 * HZ)"
+
+.PP
+Definition at line 457 of file sta_info\&.h\&.
+.SH "Enumeration Type Documentation"
+.PP 
+.SS "enum \fBieee80211_sta_info_flags\fP"
+enum ieee80211_sta_info_flags - Stations flags
+.PP
+These flags are used with &struct \fBsta_info\fP's  member, but only indirectly with set_sta_flag() and friends\&.
+.PP
+: Station is authenticated\&. : Station is associated\&. : Station is in power-save mode : Station is authorized to send/receive traffic\&. This bit is always checked so needs to be enabled for all stations when virtual port control is not in use\&. : Station is capable of receiving short-preamble frames\&. : Station is a QoS-STA\&. : Station is one of our WDS peers\&. : Clear PS filter in hardware (using the IEEE80211_TX_CTL_CLEAR_PS_FILT control flag) when the next frame to this station is transmitted\&. : Management frame protection is used with this STA\&. : Used to deny ADDBA requests (both TX and RX) during suspend/resume and station removal\&. : driver requires keeping this station in power-save mode logically to flush frames that might still be in the queues : Station sent PS-poll while driver was keeping station in power-save mode, reply when the driver unblocks\&. : Station is a TDLS peer\&. : This TDLS peer is authorized to send direct packets\&. This means the link is enabled\&. : Station requested unscheduled SP while driver was keeping station in power-save mode, reply when the driver unblocks the station\&. : Station is in a service period, so don't try to reply to other uAPSD trigger frames or PS-Poll\&. : 4-addr event was already sent for this frame\&. : This station is inserted into the hash table\&. : rate control was initialized for this station\&. 
+.PP
+\fBEnumerator\fP
+.in +1c
+.TP
+\fB\fIWLAN_STA_AUTH \fP\fP
+.TP
+\fB\fIWLAN_STA_ASSOC \fP\fP
+.TP
+\fB\fIWLAN_STA_PS_STA \fP\fP
+.TP
+\fB\fIWLAN_STA_AUTHORIZED \fP\fP
+.TP
+\fB\fIWLAN_STA_SHORT_PREAMBLE \fP\fP
+.TP
+\fB\fIWLAN_STA_WME \fP\fP
+.TP
+\fB\fIWLAN_STA_WDS \fP\fP
+.TP
+\fB\fIWLAN_STA_CLEAR_PS_FILT \fP\fP
+.TP
+\fB\fIWLAN_STA_MFP \fP\fP
+.TP
+\fB\fIWLAN_STA_BLOCK_BA \fP\fP
+.TP
+\fB\fIWLAN_STA_PS_DRIVER \fP\fP
+.TP
+\fB\fIWLAN_STA_PSPOLL \fP\fP
+.TP
+\fB\fIWLAN_STA_TDLS_PEER \fP\fP
+.TP
+\fB\fIWLAN_STA_TDLS_PEER_AUTH \fP\fP
+.TP
+\fB\fIWLAN_STA_UAPSD \fP\fP
+.TP
+\fB\fIWLAN_STA_SP \fP\fP
+.TP
+\fB\fIWLAN_STA_4ADDR_EVENT \fP\fP
+.TP
+\fB\fIWLAN_STA_INSERTED \fP\fP
+.TP
+\fB\fIWLAN_STA_RATE_CONTROL \fP\fP
+.PP
+Definition at line 59 of file sta_info\&.h\&.
+.SH "Function Documentation"
+.PP 
+.SS "int __must_check __sta_info_destroy (struct \fBsta_info\fP *sta)"
+
+.PP
+Definition at line 661 of file sta_info\&.c\&.
+.SS "void ieee80211_assign_tid_tx (struct \fBsta_info\fP *sta, inttid, struct \fBtid_ampdu_tx\fP *tid_tx)"
+
+.PP
+Definition at line 143 of file agg-tx\&.c\&.
+.SS "void ieee80211_sta_expire (struct \fBieee80211_sub_if_data\fP *sdata, unsigned longexp_time)"
+
+.PP
+Definition at line 879 of file sta_info\&.c\&.
+.SS "void ieee80211_sta_ps_deliver_poll_response (struct \fBsta_info\fP *sta)"
+
+.PP
+Definition at line 1245 of file sta_info\&.c\&.
+.SS "void ieee80211_sta_ps_deliver_uapsd (struct \fBsta_info\fP *sta)"
+
+.PP
+Definition at line 1261 of file sta_info\&.c\&.
+.SS "void ieee80211_sta_ps_deliver_wakeup (struct \fBsta_info\fP *sta)"
+
+.PP
+Definition at line 956 of file sta_info\&.c\&.
+.SS "struct \fBsta_info\fP* sta_info_alloc (struct \fBieee80211_sub_if_data\fP *sdata, const u8 *addr, gfp_tgfp)"
+
+.PP
+Definition at line 232 of file sta_info\&.c\&.
+.SS "int sta_info_destroy_addr (struct \fBieee80211_sub_if_data\fP *sdata, const u8 *addr)"
+
+.PP
+Definition at line 786 of file sta_info\&.c\&.
+.SS "int sta_info_destroy_addr_bss (struct \fBieee80211_sub_if_data\fP *sdata, const u8 *addr)"
+
+.PP
+Definition at line 799 of file sta_info\&.c\&.
+.SS "int sta_info_flush (struct \fBieee80211_local\fP *local, struct \fBieee80211_sub_if_data\fP *sdata)"
+sta_info_flush - flush matching STA entries from the STA table
+.PP
+Returns the number of removed STA entries\&.
+.PP
+: local interface data : matching rule for the net device (sta->dev) or NULL to match all STAs 
+.PP
+Definition at line 859 of file sta_info\&.c\&.
+.SS "void sta_info_free (struct \fBieee80211_local\fP *local, struct \fBsta_info\fP *sta)"
+sta_info_free - free STA
+.PP
+: pointer to the global information : STA info to free
+.PP
+This function must undo everything done by \fBsta_info_alloc()\fP that may happen before \fBsta_info_insert()\fP\&. It may only be called when \fBsta_info_insert()\fP has not been attempted (and if that fails, the station is freed anyway\&.) 
+.PP
+Definition at line 167 of file sta_info\&.c\&.
+.SS "struct \fBsta_info\fP* sta_info_get (struct \fBieee80211_sub_if_data\fP *sdata, const u8 *addr)"
+
+.PP
+Definition at line 95 of file sta_info\&.c\&.
+.SS "struct \fBsta_info\fP* sta_info_get_bss (struct \fBieee80211_sub_if_data\fP *sdata, const u8 *addr)"
+
+.PP
+Definition at line 117 of file sta_info\&.c\&.
+.SS "struct \fBsta_info\fP* sta_info_get_by_idx (struct \fBieee80211_sub_if_data\fP *sdata, intidx)"
+
+.PP
+Definition at line 136 of file sta_info\&.c\&.
+.SS "void sta_info_init (struct \fBieee80211_local\fP *local)"
+
+.PP
+Definition at line 835 of file sta_info\&.c\&.
+.SS "int sta_info_insert (struct \fBsta_info\fP *sta)"
+
+.PP
+Definition at line 437 of file sta_info\&.c\&.
+.SS "int sta_info_insert_rcu (struct \fBsta_info\fP *sta)"
+
+.PP
+Definition at line 411 of file sta_info\&.c\&.
+.SS "int sta_info_move_state (struct \fBsta_info\fP *sta, enum ieee80211_sta_statenew_state)"
+
+.PP
+Definition at line 1351 of file sta_info\&.c\&.
+.SS "void sta_info_recalc_tim (struct \fBsta_info\fP *sta)"
+
+.PP
+Definition at line 482 of file sta_info\&.c\&.
+.SS "void sta_info_stop (struct \fBieee80211_local\fP *local)"
+
+.PP
+Definition at line 845 of file sta_info\&.c\&.
+.SS "void sta_set_rate_info_tx (struct \fBsta_info\fP *sta, const struct ieee80211_tx_rate *rate, struct rate_info *rinfo)"
+
+.PP
+Definition at line 339 of file cfg\&.c\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for net_mac80211 from the source code\&.

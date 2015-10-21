@@ -1,0 +1,363 @@
+\hypertarget{key_8c}{\section{/home/guille/msm/net/mac80211/key.c File Reference}
+\label{key_8c}\index{/home/guille/msm/net/mac80211/key.\-c@{/home/guille/msm/net/mac80211/key.\-c}}
+}
+{\ttfamily \#include $<$linux/if\-\_\-ether.\-h$>$}\\*
+{\ttfamily \#include $<$linux/etherdevice.\-h$>$}\\*
+{\ttfamily \#include $<$linux/list.\-h$>$}\\*
+{\ttfamily \#include $<$linux/rcupdate.\-h$>$}\\*
+{\ttfamily \#include $<$linux/rtnetlink.\-h$>$}\\*
+{\ttfamily \#include $<$linux/slab.\-h$>$}\\*
+{\ttfamily \#include $<$linux/export.\-h$>$}\\*
+{\ttfamily \#include $<$net/mac80211.\-h$>$}\\*
+{\ttfamily \#include $<$asm/unaligned.\-h$>$}\\*
+{\ttfamily \#include \char`\"{}ieee80211\-\_\-i.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}driver-\/ops.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}debugfs\-\_\-key.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}aes\-\_\-ccm.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}aes\-\_\-cmac.\-h\char`\"{}}\\*
+Include dependency graph for key.\-c\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{key_8c__incl}
+\end{center}
+\end{figure}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{key_8c_ad906deae1a9095fb069bc53f199f1ffd}{ieee80211\-\_\-key\-\_\-removed} (struct ieee80211\-\_\-key\-\_\-conf $\ast$key\-\_\-conf)
+\item 
+\hyperlink{key_8c_a74b6721a9a32f26fdfa3b45aca994515}{E\-X\-P\-O\-R\-T\-\_\-\-S\-Y\-M\-B\-O\-L\-\_\-\-G\-P\-L} (\hyperlink{key_8c_ad906deae1a9095fb069bc53f199f1ffd}{ieee80211\-\_\-key\-\_\-removed})
+\item 
+void \hyperlink{key_8c_ab5b44405786b71ff99655484698d95c9}{ieee80211\-\_\-set\-\_\-default\-\_\-key} (struct \hyperlink{structieee80211__sub__if__data}{ieee80211\-\_\-sub\-\_\-if\-\_\-data} $\ast$sdata, int idx, bool uni, bool multi)
+\item 
+void \hyperlink{key_8c_abf6cb25e44dc75bbbefbedb577c614f6}{ieee80211\-\_\-set\-\_\-default\-\_\-mgmt\-\_\-key} (struct \hyperlink{structieee80211__sub__if__data}{ieee80211\-\_\-sub\-\_\-if\-\_\-data} $\ast$sdata, int idx)
+\item 
+struct \hyperlink{structieee80211__key}{ieee80211\-\_\-key} $\ast$ \hyperlink{key_8c_a58959115ed74bf08b8f094de23b1ea93}{ieee80211\-\_\-key\-\_\-alloc} (u32 cipher, int idx, size\-\_\-t key\-\_\-len, const u8 $\ast$key\-\_\-data, size\-\_\-t seq\-\_\-len, const u8 $\ast$seq)
+\item 
+int \hyperlink{key_8c_a5cacb561d5b975b5e8ee7fb361355769}{ieee80211\-\_\-key\-\_\-link} (struct \hyperlink{structieee80211__key}{ieee80211\-\_\-key} $\ast$key, struct \hyperlink{structieee80211__sub__if__data}{ieee80211\-\_\-sub\-\_\-if\-\_\-data} $\ast$sdata, struct \hyperlink{structsta__info}{sta\-\_\-info} $\ast$sta)
+\item 
+void \hyperlink{key_8c_a15e105999bc4faab378088bc9835cffe}{\-\_\-\-\_\-ieee80211\-\_\-key\-\_\-free} (struct \hyperlink{structieee80211__key}{ieee80211\-\_\-key} $\ast$key)
+\item 
+void \hyperlink{key_8c_aaaaacc203df176afbd029596914e2b98}{ieee80211\-\_\-key\-\_\-free} (struct \hyperlink{structieee80211__local}{ieee80211\-\_\-local} $\ast$local, struct \hyperlink{structieee80211__key}{ieee80211\-\_\-key} $\ast$key)
+\item 
+void \hyperlink{key_8c_a1e9e1b8f6dc22cfca09794c12751ca4e}{ieee80211\-\_\-enable\-\_\-keys} (struct \hyperlink{structieee80211__sub__if__data}{ieee80211\-\_\-sub\-\_\-if\-\_\-data} $\ast$sdata)
+\item 
+void \hyperlink{key_8c_a8071260f151435a3aae6d93b1830f002}{ieee80211\-\_\-iter\-\_\-keys} (struct ieee80211\-\_\-hw $\ast$hw, struct ieee80211\-\_\-vif $\ast$vif, void($\ast$iter)(struct ieee80211\-\_\-hw $\ast$hw, struct ieee80211\-\_\-vif $\ast$vif, struct ieee80211\-\_\-sta $\ast$sta, struct ieee80211\-\_\-key\-\_\-conf $\ast$key, void $\ast$data), void $\ast$iter\-\_\-data)
+\item 
+\hyperlink{key_8c_a4dee6f916dbf78498ce58078f4bda72c}{E\-X\-P\-O\-R\-T\-\_\-\-S\-Y\-M\-B\-O\-L} (\hyperlink{key_8c_a8071260f151435a3aae6d93b1830f002}{ieee80211\-\_\-iter\-\_\-keys})
+\item 
+void \hyperlink{key_8c_a58789509c473e387070a3620dfeb0ef0}{ieee80211\-\_\-disable\-\_\-keys} (struct \hyperlink{structieee80211__sub__if__data}{ieee80211\-\_\-sub\-\_\-if\-\_\-data} $\ast$sdata)
+\item 
+void \hyperlink{key_8c_a0c945d9b92ade89e585362a884956bb7}{ieee80211\-\_\-free\-\_\-keys} (struct \hyperlink{structieee80211__sub__if__data}{ieee80211\-\_\-sub\-\_\-if\-\_\-data} $\ast$sdata)
+\item 
+void \hyperlink{key_8c_ac61df7b6bce1d7fdee672d8d0e4a7a4f}{ieee80211\-\_\-gtk\-\_\-rekey\-\_\-notify} (struct ieee80211\-\_\-vif $\ast$vif, const u8 $\ast$bssid, const u8 $\ast$replay\-\_\-ctr, gfp\-\_\-t gfp)
+\item 
+\hyperlink{key_8c_a8e6d95e39df571c588c212d7a93ece65}{E\-X\-P\-O\-R\-T\-\_\-\-S\-Y\-M\-B\-O\-L\-\_\-\-G\-P\-L} (\hyperlink{key_8c_ac61df7b6bce1d7fdee672d8d0e4a7a4f}{ieee80211\-\_\-gtk\-\_\-rekey\-\_\-notify})
+\item 
+void \hyperlink{key_8c_ab41d0cff80b9204037e4c0667ca25d1e}{ieee80211\-\_\-get\-\_\-key\-\_\-tx\-\_\-seq} (struct ieee80211\-\_\-key\-\_\-conf $\ast$keyconf, struct ieee80211\-\_\-key\-\_\-seq $\ast$seq)
+\item 
+\hyperlink{key_8c_a58b9bc22b230e2923253f6e409bbf4bc}{E\-X\-P\-O\-R\-T\-\_\-\-S\-Y\-M\-B\-O\-L} (\hyperlink{key_8c_ab41d0cff80b9204037e4c0667ca25d1e}{ieee80211\-\_\-get\-\_\-key\-\_\-tx\-\_\-seq})
+\item 
+void \hyperlink{key_8c_a2f7c6103f66a8842b30dd686f982370f}{ieee80211\-\_\-get\-\_\-key\-\_\-rx\-\_\-seq} (struct ieee80211\-\_\-key\-\_\-conf $\ast$keyconf, int tid, struct ieee80211\-\_\-key\-\_\-seq $\ast$seq)
+\item 
+\hyperlink{key_8c_aa10eba6a56db1bf880dd22780a816ee7}{E\-X\-P\-O\-R\-T\-\_\-\-S\-Y\-M\-B\-O\-L} (\hyperlink{key_8c_a2f7c6103f66a8842b30dd686f982370f}{ieee80211\-\_\-get\-\_\-key\-\_\-rx\-\_\-seq})
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\hypertarget{key_8c_a15e105999bc4faab378088bc9835cffe}{\index{key.\-c@{key.\-c}!\-\_\-\-\_\-ieee80211\-\_\-key\-\_\-free@{\-\_\-\-\_\-ieee80211\-\_\-key\-\_\-free}}
+\index{\-\_\-\-\_\-ieee80211\-\_\-key\-\_\-free@{\-\_\-\-\_\-ieee80211\-\_\-key\-\_\-free}!key.c@{key.\-c}}
+\subsubsection[{\-\_\-\-\_\-ieee80211\-\_\-key\-\_\-free}]{\setlength{\rightskip}{0pt plus 5cm}void \-\_\-\-\_\-ieee80211\-\_\-key\-\_\-free (
+\begin{DoxyParamCaption}
+\item[{struct {\bf ieee80211\-\_\-key} $\ast$}]{key}
+\end{DoxyParamCaption}
+)}}\label{key_8c_a15e105999bc4faab378088bc9835cffe}
+
+
+Definition at line 508 of file key.\-c.
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{key_8c_a15e105999bc4faab378088bc9835cffe_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{key_8c_a4dee6f916dbf78498ce58078f4bda72c}{\index{key.\-c@{key.\-c}!E\-X\-P\-O\-R\-T\-\_\-\-S\-Y\-M\-B\-O\-L@{E\-X\-P\-O\-R\-T\-\_\-\-S\-Y\-M\-B\-O\-L}}
+\index{E\-X\-P\-O\-R\-T\-\_\-\-S\-Y\-M\-B\-O\-L@{E\-X\-P\-O\-R\-T\-\_\-\-S\-Y\-M\-B\-O\-L}!key.c@{key.\-c}}
+\subsubsection[{E\-X\-P\-O\-R\-T\-\_\-\-S\-Y\-M\-B\-O\-L}]{\setlength{\rightskip}{0pt plus 5cm}E\-X\-P\-O\-R\-T\-\_\-\-S\-Y\-M\-B\-O\-L (
+\begin{DoxyParamCaption}
+\item[{{\bf ieee80211\-\_\-iter\-\_\-keys}}]{}
+\end{DoxyParamCaption}
+)}}\label{key_8c_a4dee6f916dbf78498ce58078f4bda72c}
+\hypertarget{key_8c_a58b9bc22b230e2923253f6e409bbf4bc}{\index{key.\-c@{key.\-c}!E\-X\-P\-O\-R\-T\-\_\-\-S\-Y\-M\-B\-O\-L@{E\-X\-P\-O\-R\-T\-\_\-\-S\-Y\-M\-B\-O\-L}}
+\index{E\-X\-P\-O\-R\-T\-\_\-\-S\-Y\-M\-B\-O\-L@{E\-X\-P\-O\-R\-T\-\_\-\-S\-Y\-M\-B\-O\-L}!key.c@{key.\-c}}
+\subsubsection[{E\-X\-P\-O\-R\-T\-\_\-\-S\-Y\-M\-B\-O\-L}]{\setlength{\rightskip}{0pt plus 5cm}E\-X\-P\-O\-R\-T\-\_\-\-S\-Y\-M\-B\-O\-L (
+\begin{DoxyParamCaption}
+\item[{{\bf ieee80211\-\_\-get\-\_\-key\-\_\-tx\-\_\-seq}}]{}
+\end{DoxyParamCaption}
+)}}\label{key_8c_a58b9bc22b230e2923253f6e409bbf4bc}
+\hypertarget{key_8c_aa10eba6a56db1bf880dd22780a816ee7}{\index{key.\-c@{key.\-c}!E\-X\-P\-O\-R\-T\-\_\-\-S\-Y\-M\-B\-O\-L@{E\-X\-P\-O\-R\-T\-\_\-\-S\-Y\-M\-B\-O\-L}}
+\index{E\-X\-P\-O\-R\-T\-\_\-\-S\-Y\-M\-B\-O\-L@{E\-X\-P\-O\-R\-T\-\_\-\-S\-Y\-M\-B\-O\-L}!key.c@{key.\-c}}
+\subsubsection[{E\-X\-P\-O\-R\-T\-\_\-\-S\-Y\-M\-B\-O\-L}]{\setlength{\rightskip}{0pt plus 5cm}E\-X\-P\-O\-R\-T\-\_\-\-S\-Y\-M\-B\-O\-L (
+\begin{DoxyParamCaption}
+\item[{{\bf ieee80211\-\_\-get\-\_\-key\-\_\-rx\-\_\-seq}}]{}
+\end{DoxyParamCaption}
+)}}\label{key_8c_aa10eba6a56db1bf880dd22780a816ee7}
+\hypertarget{key_8c_a74b6721a9a32f26fdfa3b45aca994515}{\index{key.\-c@{key.\-c}!E\-X\-P\-O\-R\-T\-\_\-\-S\-Y\-M\-B\-O\-L\-\_\-\-G\-P\-L@{E\-X\-P\-O\-R\-T\-\_\-\-S\-Y\-M\-B\-O\-L\-\_\-\-G\-P\-L}}
+\index{E\-X\-P\-O\-R\-T\-\_\-\-S\-Y\-M\-B\-O\-L\-\_\-\-G\-P\-L@{E\-X\-P\-O\-R\-T\-\_\-\-S\-Y\-M\-B\-O\-L\-\_\-\-G\-P\-L}!key.c@{key.\-c}}
+\subsubsection[{E\-X\-P\-O\-R\-T\-\_\-\-S\-Y\-M\-B\-O\-L\-\_\-\-G\-P\-L}]{\setlength{\rightskip}{0pt plus 5cm}E\-X\-P\-O\-R\-T\-\_\-\-S\-Y\-M\-B\-O\-L\-\_\-\-G\-P\-L (
+\begin{DoxyParamCaption}
+\item[{{\bf ieee80211\-\_\-key\-\_\-removed}}]{}
+\end{DoxyParamCaption}
+)}}\label{key_8c_a74b6721a9a32f26fdfa3b45aca994515}
+\hypertarget{key_8c_a8e6d95e39df571c588c212d7a93ece65}{\index{key.\-c@{key.\-c}!E\-X\-P\-O\-R\-T\-\_\-\-S\-Y\-M\-B\-O\-L\-\_\-\-G\-P\-L@{E\-X\-P\-O\-R\-T\-\_\-\-S\-Y\-M\-B\-O\-L\-\_\-\-G\-P\-L}}
+\index{E\-X\-P\-O\-R\-T\-\_\-\-S\-Y\-M\-B\-O\-L\-\_\-\-G\-P\-L@{E\-X\-P\-O\-R\-T\-\_\-\-S\-Y\-M\-B\-O\-L\-\_\-\-G\-P\-L}!key.c@{key.\-c}}
+\subsubsection[{E\-X\-P\-O\-R\-T\-\_\-\-S\-Y\-M\-B\-O\-L\-\_\-\-G\-P\-L}]{\setlength{\rightskip}{0pt plus 5cm}E\-X\-P\-O\-R\-T\-\_\-\-S\-Y\-M\-B\-O\-L\-\_\-\-G\-P\-L (
+\begin{DoxyParamCaption}
+\item[{{\bf ieee80211\-\_\-gtk\-\_\-rekey\-\_\-notify}}]{}
+\end{DoxyParamCaption}
+)}}\label{key_8c_a8e6d95e39df571c588c212d7a93ece65}
+\hypertarget{key_8c_a58789509c473e387070a3620dfeb0ef0}{\index{key.\-c@{key.\-c}!ieee80211\-\_\-disable\-\_\-keys@{ieee80211\-\_\-disable\-\_\-keys}}
+\index{ieee80211\-\_\-disable\-\_\-keys@{ieee80211\-\_\-disable\-\_\-keys}!key.c@{key.\-c}}
+\subsubsection[{ieee80211\-\_\-disable\-\_\-keys}]{\setlength{\rightskip}{0pt plus 5cm}void ieee80211\-\_\-disable\-\_\-keys (
+\begin{DoxyParamCaption}
+\item[{struct {\bf ieee80211\-\_\-sub\-\_\-if\-\_\-data} $\ast$}]{sdata}
+\end{DoxyParamCaption}
+)}}\label{key_8c_a58789509c473e387070a3620dfeb0ef0}
+
+
+Definition at line 585 of file key.\-c.
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{key_8c_a58789509c473e387070a3620dfeb0ef0_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{key_8c_a1e9e1b8f6dc22cfca09794c12751ca4e}{\index{key.\-c@{key.\-c}!ieee80211\-\_\-enable\-\_\-keys@{ieee80211\-\_\-enable\-\_\-keys}}
+\index{ieee80211\-\_\-enable\-\_\-keys@{ieee80211\-\_\-enable\-\_\-keys}!key.c@{key.\-c}}
+\subsubsection[{ieee80211\-\_\-enable\-\_\-keys}]{\setlength{\rightskip}{0pt plus 5cm}void ieee80211\-\_\-enable\-\_\-keys (
+\begin{DoxyParamCaption}
+\item[{struct {\bf ieee80211\-\_\-sub\-\_\-if\-\_\-data} $\ast$}]{sdata}
+\end{DoxyParamCaption}
+)}}\label{key_8c_a1e9e1b8f6dc22cfca09794c12751ca4e}
+
+
+Definition at line 531 of file key.\-c.
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=340pt]{key_8c_a1e9e1b8f6dc22cfca09794c12751ca4e_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{key_8c_a0c945d9b92ade89e585362a884956bb7}{\index{key.\-c@{key.\-c}!ieee80211\-\_\-free\-\_\-keys@{ieee80211\-\_\-free\-\_\-keys}}
+\index{ieee80211\-\_\-free\-\_\-keys@{ieee80211\-\_\-free\-\_\-keys}!key.c@{key.\-c}}
+\subsubsection[{ieee80211\-\_\-free\-\_\-keys}]{\setlength{\rightskip}{0pt plus 5cm}void ieee80211\-\_\-free\-\_\-keys (
+\begin{DoxyParamCaption}
+\item[{struct {\bf ieee80211\-\_\-sub\-\_\-if\-\_\-data} $\ast$}]{sdata}
+\end{DoxyParamCaption}
+)}}\label{key_8c_a0c945d9b92ade89e585362a884956bb7}
+
+
+Definition at line 599 of file key.\-c.
+
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=348pt]{key_8c_a0c945d9b92ade89e585362a884956bb7_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{key_8c_a2f7c6103f66a8842b30dd686f982370f}{\index{key.\-c@{key.\-c}!ieee80211\-\_\-get\-\_\-key\-\_\-rx\-\_\-seq@{ieee80211\-\_\-get\-\_\-key\-\_\-rx\-\_\-seq}}
+\index{ieee80211\-\_\-get\-\_\-key\-\_\-rx\-\_\-seq@{ieee80211\-\_\-get\-\_\-key\-\_\-rx\-\_\-seq}!key.c@{key.\-c}}
+\subsubsection[{ieee80211\-\_\-get\-\_\-key\-\_\-rx\-\_\-seq}]{\setlength{\rightskip}{0pt plus 5cm}void ieee80211\-\_\-get\-\_\-key\-\_\-rx\-\_\-seq (
+\begin{DoxyParamCaption}
+\item[{struct ieee80211\-\_\-key\-\_\-conf $\ast$}]{keyconf, }
+\item[{int}]{tid, }
+\item[{struct ieee80211\-\_\-key\-\_\-seq $\ast$}]{seq}
+\end{DoxyParamCaption}
+)}}\label{key_8c_a2f7c6103f66a8842b30dd686f982370f}
+
+
+Definition at line 667 of file key.\-c.
+
+\hypertarget{key_8c_ab41d0cff80b9204037e4c0667ca25d1e}{\index{key.\-c@{key.\-c}!ieee80211\-\_\-get\-\_\-key\-\_\-tx\-\_\-seq@{ieee80211\-\_\-get\-\_\-key\-\_\-tx\-\_\-seq}}
+\index{ieee80211\-\_\-get\-\_\-key\-\_\-tx\-\_\-seq@{ieee80211\-\_\-get\-\_\-key\-\_\-tx\-\_\-seq}!key.c@{key.\-c}}
+\subsubsection[{ieee80211\-\_\-get\-\_\-key\-\_\-tx\-\_\-seq}]{\setlength{\rightskip}{0pt plus 5cm}void ieee80211\-\_\-get\-\_\-key\-\_\-tx\-\_\-seq (
+\begin{DoxyParamCaption}
+\item[{struct ieee80211\-\_\-key\-\_\-conf $\ast$}]{keyconf, }
+\item[{struct ieee80211\-\_\-key\-\_\-seq $\ast$}]{seq}
+\end{DoxyParamCaption}
+)}}\label{key_8c_ab41d0cff80b9204037e4c0667ca25d1e}
+
+
+Definition at line 627 of file key.\-c.
+
+\hypertarget{key_8c_ac61df7b6bce1d7fdee672d8d0e4a7a4f}{\index{key.\-c@{key.\-c}!ieee80211\-\_\-gtk\-\_\-rekey\-\_\-notify@{ieee80211\-\_\-gtk\-\_\-rekey\-\_\-notify}}
+\index{ieee80211\-\_\-gtk\-\_\-rekey\-\_\-notify@{ieee80211\-\_\-gtk\-\_\-rekey\-\_\-notify}!key.c@{key.\-c}}
+\subsubsection[{ieee80211\-\_\-gtk\-\_\-rekey\-\_\-notify}]{\setlength{\rightskip}{0pt plus 5cm}void ieee80211\-\_\-gtk\-\_\-rekey\-\_\-notify (
+\begin{DoxyParamCaption}
+\item[{struct ieee80211\-\_\-vif $\ast$}]{vif, }
+\item[{const u8 $\ast$}]{bssid, }
+\item[{const u8 $\ast$}]{replay\-\_\-ctr, }
+\item[{gfp\-\_\-t}]{gfp}
+\end{DoxyParamCaption}
+)}}\label{key_8c_ac61df7b6bce1d7fdee672d8d0e4a7a4f}
+
+
+Definition at line 616 of file key.\-c.
+
+\hypertarget{key_8c_a8071260f151435a3aae6d93b1830f002}{\index{key.\-c@{key.\-c}!ieee80211\-\_\-iter\-\_\-keys@{ieee80211\-\_\-iter\-\_\-keys}}
+\index{ieee80211\-\_\-iter\-\_\-keys@{ieee80211\-\_\-iter\-\_\-keys}!key.c@{key.\-c}}
+\subsubsection[{ieee80211\-\_\-iter\-\_\-keys}]{\setlength{\rightskip}{0pt plus 5cm}void ieee80211\-\_\-iter\-\_\-keys (
+\begin{DoxyParamCaption}
+\item[{struct ieee80211\-\_\-hw $\ast$}]{hw, }
+\item[{struct ieee80211\-\_\-vif $\ast$}]{vif, }
+\item[{void($\ast$)(struct ieee80211\-\_\-hw $\ast$hw, struct ieee80211\-\_\-vif $\ast$vif, struct ieee80211\-\_\-sta $\ast$sta, struct ieee80211\-\_\-key\-\_\-conf $\ast$key, void $\ast$data)}]{iter, }
+\item[{void $\ast$}]{iter\-\_\-data}
+\end{DoxyParamCaption}
+)}}\label{key_8c_a8071260f151435a3aae6d93b1830f002}
+
+
+Definition at line 552 of file key.\-c.
+
+\hypertarget{key_8c_a58959115ed74bf08b8f094de23b1ea93}{\index{key.\-c@{key.\-c}!ieee80211\-\_\-key\-\_\-alloc@{ieee80211\-\_\-key\-\_\-alloc}}
+\index{ieee80211\-\_\-key\-\_\-alloc@{ieee80211\-\_\-key\-\_\-alloc}!key.c@{key.\-c}}
+\subsubsection[{ieee80211\-\_\-key\-\_\-alloc}]{\setlength{\rightskip}{0pt plus 5cm}struct {\bf ieee80211\-\_\-key}$\ast$ ieee80211\-\_\-key\-\_\-alloc (
+\begin{DoxyParamCaption}
+\item[{u32}]{cipher, }
+\item[{int}]{idx, }
+\item[{size\-\_\-t}]{key\-\_\-len, }
+\item[{const u8 $\ast$}]{key\-\_\-data, }
+\item[{size\-\_\-t}]{seq\-\_\-len, }
+\item[{const u8 $\ast$}]{seq}
+\end{DoxyParamCaption}
+)}}\label{key_8c_a58959115ed74bf08b8f094de23b1ea93}
+
+
+Definition at line 329 of file key.\-c.
+
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{key_8c_a58959115ed74bf08b8f094de23b1ea93_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{key_8c_aaaaacc203df176afbd029596914e2b98}{\index{key.\-c@{key.\-c}!ieee80211\-\_\-key\-\_\-free@{ieee80211\-\_\-key\-\_\-free}}
+\index{ieee80211\-\_\-key\-\_\-free@{ieee80211\-\_\-key\-\_\-free}!key.c@{key.\-c}}
+\subsubsection[{ieee80211\-\_\-key\-\_\-free}]{\setlength{\rightskip}{0pt plus 5cm}void ieee80211\-\_\-key\-\_\-free (
+\begin{DoxyParamCaption}
+\item[{struct {\bf ieee80211\-\_\-local} $\ast$}]{local, }
+\item[{struct {\bf ieee80211\-\_\-key} $\ast$}]{key}
+\end{DoxyParamCaption}
+)}}\label{key_8c_aaaaacc203df176afbd029596914e2b98}
+
+
+Definition at line 523 of file key.\-c.
+
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=334pt]{key_8c_aaaaacc203df176afbd029596914e2b98_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{key_8c_a5cacb561d5b975b5e8ee7fb361355769}{\index{key.\-c@{key.\-c}!ieee80211\-\_\-key\-\_\-link@{ieee80211\-\_\-key\-\_\-link}}
+\index{ieee80211\-\_\-key\-\_\-link@{ieee80211\-\_\-key\-\_\-link}!key.c@{key.\-c}}
+\subsubsection[{ieee80211\-\_\-key\-\_\-link}]{\setlength{\rightskip}{0pt plus 5cm}int ieee80211\-\_\-key\-\_\-link (
+\begin{DoxyParamCaption}
+\item[{struct {\bf ieee80211\-\_\-key} $\ast$}]{key, }
+\item[{struct {\bf ieee80211\-\_\-sub\-\_\-if\-\_\-data} $\ast$}]{sdata, }
+\item[{struct {\bf sta\-\_\-info} $\ast$}]{sta}
+\end{DoxyParamCaption}
+)}}\label{key_8c_a5cacb561d5b975b5e8ee7fb361355769}
+
+
+Definition at line 442 of file key.\-c.
+
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{key_8c_a5cacb561d5b975b5e8ee7fb361355769_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{key_8c_ad906deae1a9095fb069bc53f199f1ffd}{\index{key.\-c@{key.\-c}!ieee80211\-\_\-key\-\_\-removed@{ieee80211\-\_\-key\-\_\-removed}}
+\index{ieee80211\-\_\-key\-\_\-removed@{ieee80211\-\_\-key\-\_\-removed}!key.c@{key.\-c}}
+\subsubsection[{ieee80211\-\_\-key\-\_\-removed}]{\setlength{\rightskip}{0pt plus 5cm}void ieee80211\-\_\-key\-\_\-removed (
+\begin{DoxyParamCaption}
+\item[{struct ieee80211\-\_\-key\-\_\-conf $\ast$}]{key\-\_\-conf}
+\end{DoxyParamCaption}
+)}}\label{key_8c_ad906deae1a9095fb069bc53f199f1ffd}
+
+
+Definition at line 197 of file key.\-c.
+
+\hypertarget{key_8c_ab5b44405786b71ff99655484698d95c9}{\index{key.\-c@{key.\-c}!ieee80211\-\_\-set\-\_\-default\-\_\-key@{ieee80211\-\_\-set\-\_\-default\-\_\-key}}
+\index{ieee80211\-\_\-set\-\_\-default\-\_\-key@{ieee80211\-\_\-set\-\_\-default\-\_\-key}!key.c@{key.\-c}}
+\subsubsection[{ieee80211\-\_\-set\-\_\-default\-\_\-key}]{\setlength{\rightskip}{0pt plus 5cm}void ieee80211\-\_\-set\-\_\-default\-\_\-key (
+\begin{DoxyParamCaption}
+\item[{struct {\bf ieee80211\-\_\-sub\-\_\-if\-\_\-data} $\ast$}]{sdata, }
+\item[{int}]{idx, }
+\item[{bool}]{uni, }
+\item[{bool}]{multi}
+\end{DoxyParamCaption}
+)}}\label{key_8c_ab5b44405786b71ff99655484698d95c9}
+
+
+Definition at line 235 of file key.\-c.
+
+\hypertarget{key_8c_abf6cb25e44dc75bbbefbedb577c614f6}{\index{key.\-c@{key.\-c}!ieee80211\-\_\-set\-\_\-default\-\_\-mgmt\-\_\-key@{ieee80211\-\_\-set\-\_\-default\-\_\-mgmt\-\_\-key}}
+\index{ieee80211\-\_\-set\-\_\-default\-\_\-mgmt\-\_\-key@{ieee80211\-\_\-set\-\_\-default\-\_\-mgmt\-\_\-key}!key.c@{key.\-c}}
+\subsubsection[{ieee80211\-\_\-set\-\_\-default\-\_\-mgmt\-\_\-key}]{\setlength{\rightskip}{0pt plus 5cm}void ieee80211\-\_\-set\-\_\-default\-\_\-mgmt\-\_\-key (
+\begin{DoxyParamCaption}
+\item[{struct {\bf ieee80211\-\_\-sub\-\_\-if\-\_\-data} $\ast$}]{sdata, }
+\item[{int}]{idx}
+\end{DoxyParamCaption}
+)}}\label{key_8c_abf6cb25e44dc75bbbefbedb577c614f6}
+
+
+Definition at line 259 of file key.\-c.
+

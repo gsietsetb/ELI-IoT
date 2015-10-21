@@ -1,0 +1,75 @@
+\hypertarget{chan_8c}{\section{/home/guille/msm/net/mac80211/chan.c File Reference}
+\label{chan_8c}\index{/home/guille/msm/net/mac80211/chan.\-c@{/home/guille/msm/net/mac80211/chan.\-c}}
+}
+{\ttfamily \#include $<$linux/nl80211.\-h$>$}\\*
+{\ttfamily \#include $<$net/cfg80211.\-h$>$}\\*
+{\ttfamily \#include \char`\"{}ieee80211\-\_\-i.\-h\char`\"{}}\\*
+Include dependency graph for chan.\-c\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{chan_8c__incl}
+\end{center}
+\end{figure}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+enum \hyperlink{ieee80211__i_8h_a4812f0c432774b0048ba523b6cf04399}{ieee80211\-\_\-chan\-\_\-mode} \hyperlink{chan_8c_a7787339f4de492f67eb3c210489681ac}{ieee80211\-\_\-get\-\_\-channel\-\_\-mode} (struct \hyperlink{structieee80211__local}{ieee80211\-\_\-local} $\ast$local, struct \hyperlink{structieee80211__sub__if__data}{ieee80211\-\_\-sub\-\_\-if\-\_\-data} $\ast$ignore)
+\item 
+bool \hyperlink{chan_8c_ad41f62bb881b2bd6b24ffbce24d5c563}{ieee80211\-\_\-set\-\_\-channel\-\_\-type} (struct \hyperlink{structieee80211__local}{ieee80211\-\_\-local} $\ast$local, struct \hyperlink{structieee80211__sub__if__data}{ieee80211\-\_\-sub\-\_\-if\-\_\-data} $\ast$sdata, enum nl80211\-\_\-channel\-\_\-type chantype)
+\item 
+enum nl80211\-\_\-channel\-\_\-type \hyperlink{chan_8c_aae2463024e03a144e15c101a4490249a}{ieee80211\-\_\-get\-\_\-tx\-\_\-channel\-\_\-type} (struct \hyperlink{structieee80211__local}{ieee80211\-\_\-local} $\ast$local, enum nl80211\-\_\-channel\-\_\-type channel\-\_\-type)
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\hypertarget{chan_8c_a7787339f4de492f67eb3c210489681ac}{\index{chan.\-c@{chan.\-c}!ieee80211\-\_\-get\-\_\-channel\-\_\-mode@{ieee80211\-\_\-get\-\_\-channel\-\_\-mode}}
+\index{ieee80211\-\_\-get\-\_\-channel\-\_\-mode@{ieee80211\-\_\-get\-\_\-channel\-\_\-mode}!chan.c@{chan.\-c}}
+\subsubsection[{ieee80211\-\_\-get\-\_\-channel\-\_\-mode}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf ieee80211\-\_\-chan\-\_\-mode} ieee80211\-\_\-get\-\_\-channel\-\_\-mode (
+\begin{DoxyParamCaption}
+\item[{struct {\bf ieee80211\-\_\-local} $\ast$}]{local, }
+\item[{struct {\bf ieee80211\-\_\-sub\-\_\-if\-\_\-data} $\ast$}]{ignore}
+\end{DoxyParamCaption}
+)}}\label{chan_8c_a7787339f4de492f67eb3c210489681ac}
+
+
+Definition at line 55 of file chan.\-c.
+
+\hypertarget{chan_8c_aae2463024e03a144e15c101a4490249a}{\index{chan.\-c@{chan.\-c}!ieee80211\-\_\-get\-\_\-tx\-\_\-channel\-\_\-type@{ieee80211\-\_\-get\-\_\-tx\-\_\-channel\-\_\-type}}
+\index{ieee80211\-\_\-get\-\_\-tx\-\_\-channel\-\_\-type@{ieee80211\-\_\-get\-\_\-tx\-\_\-channel\-\_\-type}!chan.c@{chan.\-c}}
+\subsubsection[{ieee80211\-\_\-get\-\_\-tx\-\_\-channel\-\_\-type}]{\setlength{\rightskip}{0pt plus 5cm}enum nl80211\-\_\-channel\-\_\-type ieee80211\-\_\-get\-\_\-tx\-\_\-channel\-\_\-type (
+\begin{DoxyParamCaption}
+\item[{struct {\bf ieee80211\-\_\-local} $\ast$}]{local, }
+\item[{enum nl80211\-\_\-channel\-\_\-type}]{channel\-\_\-type}
+\end{DoxyParamCaption}
+)}}\label{chan_8c_aae2463024e03a144e15c101a4490249a}
+
+
+Definition at line 144 of file chan.\-c.
+
+\hypertarget{chan_8c_ad41f62bb881b2bd6b24ffbce24d5c563}{\index{chan.\-c@{chan.\-c}!ieee80211\-\_\-set\-\_\-channel\-\_\-type@{ieee80211\-\_\-set\-\_\-channel\-\_\-type}}
+\index{ieee80211\-\_\-set\-\_\-channel\-\_\-type@{ieee80211\-\_\-set\-\_\-channel\-\_\-type}!chan.c@{chan.\-c}}
+\subsubsection[{ieee80211\-\_\-set\-\_\-channel\-\_\-type}]{\setlength{\rightskip}{0pt plus 5cm}bool ieee80211\-\_\-set\-\_\-channel\-\_\-type (
+\begin{DoxyParamCaption}
+\item[{struct {\bf ieee80211\-\_\-local} $\ast$}]{local, }
+\item[{struct {\bf ieee80211\-\_\-sub\-\_\-if\-\_\-data} $\ast$}]{sdata, }
+\item[{enum nl80211\-\_\-channel\-\_\-type}]{chantype}
+\end{DoxyParamCaption}
+)}}\label{chan_8c_ad41f62bb881b2bd6b24ffbce24d5c563}
+
+
+Definition at line 67 of file chan.\-c.
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{chan_8c_ad41f62bb881b2bd6b24ffbce24d5c563_icgraph}
+\end{center}
+\end{figure}
+
+

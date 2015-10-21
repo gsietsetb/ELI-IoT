@@ -1,0 +1,318 @@
+.TH "ieee80211_if_managed" 3 "Sun Jun 1 2014" "Version 1.0" "net_mac80211" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+ieee80211_if_managed \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <ieee80211_i\&.h>\fP
+.SS "Public Types"
+
+.in +1c
+.ti -1c
+.RI "enum { \fBIEEE80211_MFP_DISABLED\fP, \fBIEEE80211_MFP_OPTIONAL\fP, \fBIEEE80211_MFP_REQUIRED\fP }"
+.br
+.in -1c
+.SS "Data Fields"
+
+.in +1c
+.ti -1c
+.RI "struct timer_list \fBtimer\fP"
+.br
+.ti -1c
+.RI "struct timer_list \fBconn_mon_timer\fP"
+.br
+.ti -1c
+.RI "struct timer_list \fBbcn_mon_timer\fP"
+.br
+.ti -1c
+.RI "struct timer_list \fBchswitch_timer\fP"
+.br
+.ti -1c
+.RI "struct work_struct \fBmonitor_work\fP"
+.br
+.ti -1c
+.RI "struct work_struct \fBchswitch_work\fP"
+.br
+.ti -1c
+.RI "struct work_struct \fBbeacon_connection_loss_work\fP"
+.br
+.ti -1c
+.RI "unsigned long \fBbeacon_timeout\fP"
+.br
+.ti -1c
+.RI "unsigned long \fBprobe_timeout\fP"
+.br
+.ti -1c
+.RI "int \fBprobe_send_count\fP"
+.br
+.ti -1c
+.RI "bool \fBnullfunc_failed\fP"
+.br
+.ti -1c
+.RI "struct mutex \fBmtx\fP"
+.br
+.ti -1c
+.RI "struct cfg80211_bss * \fBassociated\fP"
+.br
+.ti -1c
+.RI "struct \fBieee80211_mgd_auth_data\fP * \fBauth_data\fP"
+.br
+.ti -1c
+.RI "struct \fBieee80211_mgd_assoc_data\fP * \fBassoc_data\fP"
+.br
+.ti -1c
+.RI "u8 \fBbssid\fP [ETH_ALEN]"
+.br
+.ti -1c
+.RI "u16 \fBaid\fP"
+.br
+.ti -1c
+.RI "unsigned long \fBtimers_running\fP"
+.br
+.ti -1c
+.RI "bool \fBpowersave\fP"
+.br
+.ti -1c
+.RI "bool \fBbroken_ap\fP"
+.br
+.ti -1c
+.RI "enum ieee80211_smps_mode 
+.br
+req_smps ap_smps \fBdriver_smps_mode\fP"
+.br
+.ti -1c
+.RI "struct work_struct \fBrequest_smps_work\fP"
+.br
+.ti -1c
+.RI "unsigned int \fBflags\fP"
+.br
+.ti -1c
+.RI "bool \fBbeacon_crc_valid\fP"
+.br
+.ti -1c
+.RI "u32 \fBbeacon_crc\fP"
+.br
+.ti -1c
+.RI "enum ieee80211_if_managed:: { \&.\&.\&. }  \fBmfp\fP"
+.br
+.ti -1c
+.RI "unsigned int \fBuapsd_queues\fP"
+.br
+.ti -1c
+.RI "unsigned int \fBuapsd_max_sp_len\fP"
+.br
+.ti -1c
+.RI "int \fBwmm_last_param_set\fP"
+.br
+.ti -1c
+.RI "u8 \fBuse_4addr\fP"
+.br
+.ti -1c
+.RI "int \fBlast_beacon_signal\fP"
+.br
+.ti -1c
+.RI "int \fBave_beacon_signal\fP"
+.br
+.ti -1c
+.RI "unsigned int \fBcount_beacon_signal\fP"
+.br
+.ti -1c
+.RI "int \fBlast_cqm_event_signal\fP"
+.br
+.ti -1c
+.RI "int \fBrssi_min_thold\fP"
+.br
+.ti -1c
+.RI "int \fBrssi_max_thold\fP"
+.br
+.ti -1c
+.RI "int \fBlast_ave_beacon_signal\fP"
+.br
+.ti -1c
+.RI "struct ieee80211_ht_cap \fBht_capa\fP"
+.br
+.ti -1c
+.RI "struct ieee80211_ht_cap \fBht_capa_mask\fP"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Definition at line 420 of file ieee80211_i\&.h\&.
+.SH "Member Enumeration Documentation"
+.PP 
+.SS "anonymous enum"
+
+.PP
+\fBEnumerator\fP
+.in +1c
+.TP
+\fB\fIIEEE80211_MFP_DISABLED \fP\fP
+.TP
+\fB\fIIEEE80211_MFP_OPTIONAL \fP\fP
+.TP
+\fB\fIIEEE80211_MFP_REQUIRED \fP\fP
+.PP
+Definition at line 457 of file ieee80211_i\&.h\&.
+.SH "Field Documentation"
+.PP 
+.SS "u16 aid"
+
+.PP
+Definition at line 441 of file ieee80211_i\&.h\&.
+.SS "struct \fBieee80211_mgd_assoc_data\fP* assoc_data"
+
+.PP
+Definition at line 437 of file ieee80211_i\&.h\&.
+.SS "struct cfg80211_bss* associated"
+
+.PP
+Definition at line 435 of file ieee80211_i\&.h\&.
+.SS "struct \fBieee80211_mgd_auth_data\fP* auth_data"
+
+.PP
+Definition at line 436 of file ieee80211_i\&.h\&.
+.SS "int ave_beacon_signal"
+
+.PP
+Definition at line 490 of file ieee80211_i\&.h\&.
+.SS "struct timer_list bcn_mon_timer"
+
+.PP
+Definition at line 423 of file ieee80211_i\&.h\&.
+.SS "struct work_struct beacon_connection_loss_work"
+
+.PP
+Definition at line 427 of file ieee80211_i\&.h\&.
+.SS "u32 beacon_crc"
+
+.PP
+Definition at line 455 of file ieee80211_i\&.h\&.
+.SS "bool beacon_crc_valid"
+
+.PP
+Definition at line 454 of file ieee80211_i\&.h\&.
+.SS "unsigned long beacon_timeout"
+
+.PP
+Definition at line 429 of file ieee80211_i\&.h\&.
+.SS "bool broken_ap"
+
+.PP
+Definition at line 445 of file ieee80211_i\&.h\&.
+.SS "u8 bssid[ETH_ALEN]"
+
+.PP
+Definition at line 439 of file ieee80211_i\&.h\&.
+.SS "struct timer_list chswitch_timer"
+
+.PP
+Definition at line 424 of file ieee80211_i\&.h\&.
+.SS "struct work_struct chswitch_work"
+
+.PP
+Definition at line 426 of file ieee80211_i\&.h\&.
+.SS "struct timer_list conn_mon_timer"
+
+.PP
+Definition at line 422 of file ieee80211_i\&.h\&.
+.SS "unsigned int count_beacon_signal"
+
+.PP
+Definition at line 497 of file ieee80211_i\&.h\&.
+.SS "enum ieee80211_smps_mode req_smps ap_smps driver_smps_mode"
+
+.PP
+Definition at line 446 of file ieee80211_i\&.h\&.
+.SS "unsigned int flags"
+
+.PP
+Definition at line 452 of file ieee80211_i\&.h\&.
+.SS "struct ieee80211_ht_cap ht_capa"
+
+.PP
+Definition at line 514 of file ieee80211_i\&.h\&.
+.SS "struct ieee80211_ht_cap ht_capa_mask"
+
+.PP
+Definition at line 515 of file ieee80211_i\&.h\&.
+.SS "int last_ave_beacon_signal"
+
+.PP
+Definition at line 512 of file ieee80211_i\&.h\&.
+.SS "int last_beacon_signal"
+
+.PP
+Definition at line 482 of file ieee80211_i\&.h\&.
+.SS "int last_cqm_event_signal"
+
+.PP
+Definition at line 504 of file ieee80211_i\&.h\&.
+.SS "enum { \&.\&.\&. }   mfp"
+
+.SS "struct work_struct monitor_work"
+
+.PP
+Definition at line 425 of file ieee80211_i\&.h\&.
+.SS "struct mutex mtx"
+
+.PP
+Definition at line 434 of file ieee80211_i\&.h\&.
+.SS "bool nullfunc_failed"
+
+.PP
+Definition at line 432 of file ieee80211_i\&.h\&.
+.SS "bool powersave"
+
+.PP
+Definition at line 444 of file ieee80211_i\&.h\&.
+.SS "int probe_send_count"
+
+.PP
+Definition at line 431 of file ieee80211_i\&.h\&.
+.SS "unsigned long probe_timeout"
+
+.PP
+Definition at line 430 of file ieee80211_i\&.h\&.
+.SS "struct work_struct request_smps_work"
+
+.PP
+Definition at line 450 of file ieee80211_i\&.h\&.
+.SS "int rssi_max_thold"
+
+.PP
+Definition at line 511 of file ieee80211_i\&.h\&.
+.SS "int rssi_min_thold"
+
+.PP
+Definition at line 511 of file ieee80211_i\&.h\&.
+.SS "struct timer_list timer"
+
+.PP
+Definition at line 421 of file ieee80211_i\&.h\&.
+.SS "unsigned long timers_running"
+
+.PP
+Definition at line 443 of file ieee80211_i\&.h\&.
+.SS "unsigned int uapsd_max_sp_len"
+
+.PP
+Definition at line 475 of file ieee80211_i\&.h\&.
+.SS "unsigned int uapsd_queues"
+
+.PP
+Definition at line 468 of file ieee80211_i\&.h\&.
+.SS "u8 use_4addr"
+
+.PP
+Definition at line 479 of file ieee80211_i\&.h\&.
+.SS "int wmm_last_param_set"
+
+.PP
+Definition at line 477 of file ieee80211_i\&.h\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for net_mac80211 from the source code\&.

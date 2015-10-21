@@ -1,0 +1,215 @@
+.TH "/home/guille/msm/net/mac80211/rc80211_pid.h" 3 "Sun Jun 1 2014" "Version 1.0" "net_mac80211" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+/home/guille/msm/net/mac80211/rc80211_pid.h \- 
+.SH SYNOPSIS
+.br
+.PP
+.SS "Data Structures"
+
+.in +1c
+.ti -1c
+.RI "union \fBrc_pid_event_data\fP"
+.br
+.ti -1c
+.RI "struct \fBrc_pid_event\fP"
+.br
+.ti -1c
+.RI "struct \fBrc_pid_event_buffer\fP"
+.br
+.ti -1c
+.RI "struct \fBrc_pid_events_file_info\fP"
+.br
+.ti -1c
+.RI "struct \fBrc_pid_debugfs_entries\fP"
+.br
+.ti -1c
+.RI "struct \fBrc_pid_sta_info\fP"
+.br
+.ti -1c
+.RI "struct \fBrc_pid_rateinfo\fP"
+.br
+.ti -1c
+.RI "struct \fBrc_pid_info\fP"
+.br
+.in -1c
+.SS "Macros"
+
+.in +1c
+.ti -1c
+.RI "#define \fBRC_PID_INTERVAL\fP   125"
+.br
+.ti -1c
+.RI "#define \fBRC_PID_SMOOTHING_SHIFT\fP   3"
+.br
+.ti -1c
+.RI "#define \fBRC_PID_SMOOTHING\fP   (1 << \fBRC_PID_SMOOTHING_SHIFT\fP)"
+.br
+.ti -1c
+.RI "#define \fBRC_PID_SHARPENING_FACTOR\fP   0"
+.br
+.ti -1c
+.RI "#define \fBRC_PID_SHARPENING_DURATION\fP   0"
+.br
+.ti -1c
+.RI "#define \fBRC_PID_ARITH_SHIFT\fP   8"
+.br
+.ti -1c
+.RI "#define \fBRC_PID_COEFF_P\fP   15"
+.br
+.ti -1c
+.RI "#define \fBRC_PID_COEFF_I\fP   9"
+.br
+.ti -1c
+.RI "#define \fBRC_PID_COEFF_D\fP   15"
+.br
+.ti -1c
+.RI "#define \fBRC_PID_TARGET_PF\fP   14"
+.br
+.ti -1c
+.RI "#define \fBRC_PID_NORM_OFFSET\fP   3"
+.br
+.ti -1c
+.RI "#define \fBRC_PID_FAST_START\fP   0"
+.br
+.ti -1c
+.RI "#define \fBRC_PID_DO_ARITH_RIGHT_SHIFT\fP(x, y)   ((x) < 0 ? -((-(x)) >> (y)) : (x) >> (y))"
+.br
+.ti -1c
+.RI "#define \fBRC_PID_EVENT_RING_SIZE\fP   32"
+.br
+.in -1c
+.SS "Enumerations"
+
+.in +1c
+.ti -1c
+.RI "enum \fBrc_pid_event_type\fP { \fBRC_PID_EVENT_TYPE_TX_STATUS\fP, \fBRC_PID_EVENT_TYPE_RATE_CHANGE\fP, \fBRC_PID_EVENT_TYPE_TX_RATE\fP, \fBRC_PID_EVENT_TYPE_PF_SAMPLE\fP }"
+.br
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBrate_control_pid_event_tx_status\fP (struct \fBrc_pid_event_buffer\fP *buf, struct ieee80211_tx_info *stat)"
+.br
+.ti -1c
+.RI "void \fBrate_control_pid_event_rate_change\fP (struct \fBrc_pid_event_buffer\fP *buf, int index, int rate)"
+.br
+.ti -1c
+.RI "void \fBrate_control_pid_event_tx_rate\fP (struct \fBrc_pid_event_buffer\fP *buf, int index, int rate)"
+.br
+.ti -1c
+.RI "void \fBrate_control_pid_event_pf_sample\fP (struct \fBrc_pid_event_buffer\fP *buf, s32 pf_sample, s32 prop_err, s32 int_err, s32 der_err)"
+.br
+.ti -1c
+.RI "void \fBrate_control_pid_add_sta_debugfs\fP (void *priv, void *priv_sta, struct dentry *dir)"
+.br
+.ti -1c
+.RI "void \fBrate_control_pid_remove_sta_debugfs\fP (void *priv, void *priv_sta)"
+.br
+.in -1c
+.SH "Macro Definition Documentation"
+.PP 
+.SS "#define RC_PID_ARITH_SHIFT   8"
+
+.PP
+Definition at line 25 of file rc80211_pid\&.h\&.
+.SS "#define RC_PID_COEFF_D   15"
+
+.PP
+Definition at line 32 of file rc80211_pid\&.h\&.
+.SS "#define RC_PID_COEFF_I   9"
+
+.PP
+Definition at line 30 of file rc80211_pid\&.h\&.
+.SS "#define RC_PID_COEFF_P   15"
+
+.PP
+Definition at line 28 of file rc80211_pid\&.h\&.
+.SS "#define RC_PID_DO_ARITH_RIGHT_SHIFT(x, y)   ((x) < 0 ? -((-(x)) >> (y)) : (x) >> (y))"
+
+.PP
+Definition at line 48 of file rc80211_pid\&.h\&.
+.SS "#define RC_PID_EVENT_RING_SIZE   32"
+
+.PP
+Definition at line 94 of file rc80211_pid\&.h\&.
+.SS "#define RC_PID_FAST_START   0"
+
+.PP
+Definition at line 45 of file rc80211_pid\&.h\&.
+.SS "#define RC_PID_INTERVAL   125"
+
+.PP
+Definition at line 14 of file rc80211_pid\&.h\&.
+.SS "#define RC_PID_NORM_OFFSET   3"
+
+.PP
+Definition at line 42 of file rc80211_pid\&.h\&.
+.SS "#define RC_PID_SHARPENING_DURATION   0"
+
+.PP
+Definition at line 22 of file rc80211_pid\&.h\&.
+.SS "#define RC_PID_SHARPENING_FACTOR   0"
+
+.PP
+Definition at line 21 of file rc80211_pid\&.h\&.
+.SS "#define RC_PID_SMOOTHING   (1 << \fBRC_PID_SMOOTHING_SHIFT\fP)"
+
+.PP
+Definition at line 18 of file rc80211_pid\&.h\&.
+.SS "#define RC_PID_SMOOTHING_SHIFT   3"
+
+.PP
+Definition at line 17 of file rc80211_pid\&.h\&.
+.SS "#define RC_PID_TARGET_PF   14"
+
+.PP
+Definition at line 39 of file rc80211_pid\&.h\&.
+.SH "Enumeration Type Documentation"
+.PP 
+.SS "enum \fBrc_pid_event_type\fP"
+
+.PP
+\fBEnumerator\fP
+.in +1c
+.TP
+\fB\fIRC_PID_EVENT_TYPE_TX_STATUS \fP\fP
+.TP
+\fB\fIRC_PID_EVENT_TYPE_RATE_CHANGE \fP\fP
+.TP
+\fB\fIRC_PID_EVENT_TYPE_TX_RATE \fP\fP
+.TP
+\fB\fIRC_PID_EVENT_TYPE_PF_SAMPLE \fP\fP
+.PP
+Definition at line 51 of file rc80211_pid\&.h\&.
+.SH "Function Documentation"
+.PP 
+.SS "void rate_control_pid_add_sta_debugfs (void *priv, void *priv_sta, struct dentry *dir)"
+
+.PP
+Definition at line 213 of file rc80211_pid_debugfs\&.c\&.
+.SS "void rate_control_pid_event_pf_sample (struct \fBrc_pid_event_buffer\fP *buf, s32pf_sample, s32prop_err, s32int_err, s32der_err)"
+
+.PP
+Definition at line 74 of file rc80211_pid_debugfs\&.c\&.
+.SS "void rate_control_pid_event_rate_change (struct \fBrc_pid_event_buffer\fP *buf, intindex, intrate)"
+
+.PP
+Definition at line 54 of file rc80211_pid_debugfs\&.c\&.
+.SS "void rate_control_pid_event_tx_rate (struct \fBrc_pid_event_buffer\fP *buf, intindex, intrate)"
+
+.PP
+Definition at line 64 of file rc80211_pid_debugfs\&.c\&.
+.SS "void rate_control_pid_event_tx_status (struct \fBrc_pid_event_buffer\fP *buf, struct ieee80211_tx_info *stat)"
+
+.PP
+Definition at line 44 of file rc80211_pid_debugfs\&.c\&.
+.SS "void rate_control_pid_remove_sta_debugfs (void *priv, void *priv_sta)"
+
+.PP
+Definition at line 223 of file rc80211_pid_debugfs\&.c\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for net_mac80211 from the source code\&.

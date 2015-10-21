@@ -1,0 +1,226 @@
+.TH "/home/guille/msm/net/mac80211/debugfs.c" 3 "Sun Jun 1 2014" "Version 1.0" "net_mac80211" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+/home/guille/msm/net/mac80211/debugfs.c \- 
+.SH SYNOPSIS
+.br
+.PP
+\fC#include <linux/debugfs\&.h>\fP
+.br
+\fC#include <linux/rtnetlink\&.h>\fP
+.br
+\fC#include 'ieee80211_i\&.h'\fP
+.br
+\fC#include 'driver-ops\&.h'\fP
+.br
+\fC#include 'rate\&.h'\fP
+.br
+\fC#include 'debugfs\&.h'\fP
+.br
+
+.SS "Macros"
+
+.in +1c
+.ti -1c
+.RI "#define \fBDEBUGFS_FORMAT_BUFFER_SIZE\fP   100"
+.br
+.ti -1c
+.RI "#define \fBDEBUGFS_READONLY_FILE_FN\fP(name, fmt, value\&.\&.\&.)"
+.br
+.ti -1c
+.RI "#define \fBDEBUGFS_READONLY_FILE_OPS\fP(name)"
+.br
+.ti -1c
+.RI "#define \fBDEBUGFS_READONLY_FILE\fP(name, fmt, value\&.\&.\&.)"
+.br
+.ti -1c
+.RI "#define \fBDEBUGFS_ADD\fP(name)   debugfs_create_file(#name, 0400, phyd, local, &name## _ops);"
+.br
+.ti -1c
+.RI "#define \fBDEBUGFS_ADD_MODE\fP(name, mode)   debugfs_create_file(#name, mode, phyd, local, &name## _ops);"
+.br
+.ti -1c
+.RI "#define \fBDEBUGFS_DEVSTATS_FILE\fP(name)"
+.br
+.ti -1c
+.RI "#define \fBDEBUGFS_STATS_ADD\fP(name, field)   debugfs_create_u32(#name, 0400, statsd, (u32 *) &field);"
+.br
+.ti -1c
+.RI "#define \fBDEBUGFS_DEVSTATS_ADD\fP(name)   debugfs_create_file(#name, 0400, statsd, local, &stats_ ##name## _ops);"
+.br
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "int \fBmac80211_format_buffer\fP (char __user *userbuf, size_t count, loff_t *ppos, char *fmt,\&.\&.\&.)"
+.br
+.ti -1c
+.RI "\fBDEBUGFS_READONLY_FILE\fP (user_power,'%d', local->user_power_level)"
+.br
+.ti -1c
+.RI "\fBDEBUGFS_READONLY_FILE\fP (power,'%d', local->hw\&.conf\&.power_level)"
+.br
+.ti -1c
+.RI "\fBDEBUGFS_READONLY_FILE\fP (frequency,'%d', local->hw\&.conf\&.channel->center_freq)"
+.br
+.ti -1c
+.RI "\fBDEBUGFS_READONLY_FILE\fP (total_ps_buffered,'%d', local->total_ps_buffered)"
+.br
+.ti -1c
+.RI "\fBDEBUGFS_READONLY_FILE\fP (wep_iv,'%#08x', local->wep_iv &0xffffff)"
+.br
+.ti -1c
+.RI "\fBDEBUGFS_READONLY_FILE\fP (rate_ctrl_alg,'%s', local->rate_ctrl?local->rate_ctrl->ops->name:'hw/driver')"
+.br
+.ti -1c
+.RI "\fBDEBUGFS_READONLY_FILE_OPS\fP (hwflags)"
+.br
+.ti -1c
+.RI "\fBDEBUGFS_READONLY_FILE_OPS\fP (channel_type)"
+.br
+.ti -1c
+.RI "\fBDEBUGFS_READONLY_FILE_OPS\fP (queues)"
+.br
+.ti -1c
+.RI "\fBDEBUGFS_DEVSTATS_FILE\fP (dot11ACKFailureCount)"
+.br
+.ti -1c
+.RI "\fBDEBUGFS_DEVSTATS_FILE\fP (dot11RTSFailureCount)"
+.br
+.ti -1c
+.RI "\fBDEBUGFS_DEVSTATS_FILE\fP (dot11FCSErrorCount)"
+.br
+.ti -1c
+.RI "\fBDEBUGFS_DEVSTATS_FILE\fP (dot11RTSSuccessCount)"
+.br
+.ti -1c
+.RI "void \fBdebugfs_hw_add\fP (struct \fBieee80211_local\fP *local)"
+.br
+.in -1c
+.SH "Macro Definition Documentation"
+.PP 
+.SS "#define DEBUGFS_ADD(name)   debugfs_create_file(#name, 0400, phyd, local, &name## _ops);"
+
+.PP
+Definition at line 55 of file debugfs\&.c\&.
+.SS "#define DEBUGFS_ADD_MODE(name, mode)   debugfs_create_file(#name, mode, phyd, local, &name## _ops);"
+
+.PP
+Definition at line 58 of file debugfs\&.c\&.
+.SS "#define DEBUGFS_DEVSTATS_ADD(name)   debugfs_create_file(#name, 0400, statsd, local, &stats_ ##name## _ops);"
+
+.PP
+Definition at line 257 of file debugfs\&.c\&.
+.SS "#define DEBUGFS_DEVSTATS_FILE(name)"
+\fBValue:\fP
+.PP
+.nf
+static int print_devstats_##name(struct ieee80211_low_level_stats *stats,\
+                 char *buf, int buflen)         \
+{                                   \
+    return scnprintf(buf, buflen, "%u\n", stats->name);     \
+}                                   \
+static ssize_t stats_ ##name## _read(struct file *file,         \
+                     char __user *userbuf,      \
+                     size_t count, loff_t *ppos)    \
+{                                   \
+    return format_devstat_counter(file->private_data,       \
+                      userbuf,              \
+                      count,                \
+                      ppos,             \
+                      print_devstats_##name);       \
+}                                   \
+                                    \
+static const struct file_operations stats_ ##name## _ops = {        \
+    \&.read = stats_ ##name## _read,                   \
+    \&.open = simple_open,                     \
+    \&.llseek = generic_file_llseek,                   \
+};
+.fi
+.PP
+Definition at line 232 of file debugfs\&.c\&.
+.SS "#define DEBUGFS_FORMAT_BUFFER_SIZE   100"
+
+.PP
+Definition at line 18 of file debugfs\&.c\&.
+.SS "#define DEBUGFS_READONLY_FILE(name, fmt, value\&.\&.\&.)"
+\fBValue:\fP
+.PP
+.nf
+DEBUGFS_READONLY_FILE_FN(name, fmt, value)     \
+    DEBUGFS_READONLY_FILE_OPS(name)
+.fi
+.PP
+Definition at line 51 of file debugfs\&.c\&.
+.SS "#define DEBUGFS_READONLY_FILE_FN(name, fmt, value\&.\&.\&.)"
+\fBValue:\fP
+.PP
+.nf
+static ssize_t name## _read(struct file *file, char __user *userbuf,    \
+                size_t count, loff_t *ppos)         \
+{                                   \
+    struct ieee80211_local *local = file->private_data;     \
+                                    \
+    return mac80211_format_buffer(userbuf, count, ppos,         \
+                      fmt "\n", ##value);       \
+}
+.fi
+.PP
+Definition at line 34 of file debugfs\&.c\&.
+.SS "#define DEBUGFS_READONLY_FILE_OPS(name)"
+\fBValue:\fP
+.PP
+.nf
+static const struct file_operations name## _ops = {            \
+    \&.read = name## _read,                        \
+    \&.open = simple_open,                     \
+    \&.llseek = generic_file_llseek,                   \
+};
+.fi
+.PP
+Definition at line 44 of file debugfs\&.c\&.
+.SS "#define DEBUGFS_STATS_ADD(name, field)   debugfs_create_u32(#name, 0400, statsd, (u32 *) &field);"
+
+.PP
+Definition at line 255 of file debugfs\&.c\&.
+.SH "Function Documentation"
+.PP 
+.SS "DEBUGFS_DEVSTATS_FILE (dot11ACKFailureCount)"
+
+.SS "DEBUGFS_DEVSTATS_FILE (dot11RTSFailureCount)"
+
+.SS "DEBUGFS_DEVSTATS_FILE (dot11FCSErrorCount)"
+
+.SS "DEBUGFS_DEVSTATS_FILE (dot11RTSSuccessCount)"
+
+.SS "void debugfs_hw_add (struct \fBieee80211_local\fP *local)"
+
+.PP
+Definition at line 265 of file debugfs\&.c\&.
+.SS "DEBUGFS_READONLY_FILE (user_power, '%d', local->user_power_level)"
+
+.SS "DEBUGFS_READONLY_FILE (power, '%d', local->hw\&.conf\&.power_level)"
+
+.SS "DEBUGFS_READONLY_FILE (frequency, '%d', local->hw\&.conf\&.channel->center_freq)"
+
+.SS "DEBUGFS_READONLY_FILE (total_ps_buffered, '%d', local->total_ps_buffered)"
+
+.SS "DEBUGFS_READONLY_FILE (wep_iv, '%#08x', local->wep_iv &0xffffff)"
+
+.SS "DEBUGFS_READONLY_FILE (rate_ctrl_alg, '%s', local->rate_ctrl?local->rate_ctrl->ops->name:'hw/driver')"
+
+.SS "DEBUGFS_READONLY_FILE_OPS (hwflags)"
+
+.SS "DEBUGFS_READONLY_FILE_OPS (channel_type)"
+
+.SS "DEBUGFS_READONLY_FILE_OPS (queues)"
+
+.SS "int mac80211_format_buffer (char __user *userbuf, size_tcount, loff_t *ppos, char *fmt, \&.\&.\&.)"
+
+.PP
+Definition at line 20 of file debugfs\&.c\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for net_mac80211 from the source code\&.

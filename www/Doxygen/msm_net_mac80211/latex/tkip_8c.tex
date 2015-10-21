@@ -1,0 +1,217 @@
+\hypertarget{tkip_8c}{\section{/home/guille/msm/net/mac80211/tkip.c File Reference}
+\label{tkip_8c}\index{/home/guille/msm/net/mac80211/tkip.\-c@{/home/guille/msm/net/mac80211/tkip.\-c}}
+}
+{\ttfamily \#include $<$linux/kernel.\-h$>$}\\*
+{\ttfamily \#include $<$linux/bitops.\-h$>$}\\*
+{\ttfamily \#include $<$linux/types.\-h$>$}\\*
+{\ttfamily \#include $<$linux/netdevice.\-h$>$}\\*
+{\ttfamily \#include $<$linux/export.\-h$>$}\\*
+{\ttfamily \#include $<$asm/unaligned.\-h$>$}\\*
+{\ttfamily \#include $<$net/mac80211.\-h$>$}\\*
+{\ttfamily \#include \char`\"{}driver-\/ops.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}key.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}tkip.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}wep.\-h\char`\"{}}\\*
+Include dependency graph for tkip.\-c\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{tkip_8c__incl}
+\end{center}
+\end{figure}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{tkip_8c_a05222388b52a59fbea84582dfa4eed72}{P\-H\-A\-S\-E1\-\_\-\-L\-O\-O\-P\-\_\-\-C\-O\-U\-N\-T}~8
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+u8 $\ast$ \hyperlink{tkip_8c_a317041e73b0aee4d863a0590dfd8ac47}{ieee80211\-\_\-tkip\-\_\-add\-\_\-iv} (u8 $\ast$pos, struct \hyperlink{structieee80211__key}{ieee80211\-\_\-key} $\ast$key)
+\item 
+void \hyperlink{tkip_8c_a9a96af4426181712cd8dd33c9219a56c}{ieee80211\-\_\-get\-\_\-tkip\-\_\-p1k\-\_\-iv} (struct ieee80211\-\_\-key\-\_\-conf $\ast$keyconf, u32 iv32, u16 $\ast$p1k)
+\item 
+\hyperlink{tkip_8c_a0633c79607190ce216b1409959325e97}{E\-X\-P\-O\-R\-T\-\_\-\-S\-Y\-M\-B\-O\-L} (\hyperlink{tkip_8c_a9a96af4426181712cd8dd33c9219a56c}{ieee80211\-\_\-get\-\_\-tkip\-\_\-p1k\-\_\-iv})
+\item 
+void \hyperlink{tkip_8c_ab2444ea274d0b78279b0629b15f1fc38}{ieee80211\-\_\-get\-\_\-tkip\-\_\-rx\-\_\-p1k} (struct ieee80211\-\_\-key\-\_\-conf $\ast$keyconf, const u8 $\ast$ta, u32 iv32, u16 $\ast$p1k)
+\item 
+\hyperlink{tkip_8c_adc47c30d2b5327864dabf31c49edd382}{E\-X\-P\-O\-R\-T\-\_\-\-S\-Y\-M\-B\-O\-L} (\hyperlink{tkip_8c_ab2444ea274d0b78279b0629b15f1fc38}{ieee80211\-\_\-get\-\_\-tkip\-\_\-rx\-\_\-p1k})
+\item 
+void \hyperlink{tkip_8c_a34e4a098bee3a880b0313daa2c634f31}{ieee80211\-\_\-get\-\_\-tkip\-\_\-p2k} (struct ieee80211\-\_\-key\-\_\-conf $\ast$keyconf, struct sk\-\_\-buff $\ast$skb, u8 $\ast$p2k)
+\item 
+\hyperlink{tkip_8c_a0192b818e364bb1b4b92c88ba21e0df9}{E\-X\-P\-O\-R\-T\-\_\-\-S\-Y\-M\-B\-O\-L} (\hyperlink{tkip_8c_a34e4a098bee3a880b0313daa2c634f31}{ieee80211\-\_\-get\-\_\-tkip\-\_\-p2k})
+\item 
+int \hyperlink{tkip_8c_a45b8735f5ec943d14ef2d29ad9b4fad4}{ieee80211\-\_\-tkip\-\_\-encrypt\-\_\-data} (struct crypto\-\_\-cipher $\ast$tfm, struct \hyperlink{structieee80211__key}{ieee80211\-\_\-key} $\ast$key, struct sk\-\_\-buff $\ast$skb, u8 $\ast$payload, size\-\_\-t payload\-\_\-len)
+\item 
+int \hyperlink{tkip_8c_afa53dc960d57640d2a60b6feedeebe86}{ieee80211\-\_\-tkip\-\_\-decrypt\-\_\-data} (struct crypto\-\_\-cipher $\ast$tfm, struct \hyperlink{structieee80211__key}{ieee80211\-\_\-key} $\ast$key, u8 $\ast$payload, size\-\_\-t payload\-\_\-len, u8 $\ast$ta, u8 $\ast$ra, int only\-\_\-iv, int queue, u32 $\ast$out\-\_\-iv32, u16 $\ast$out\-\_\-iv16)
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{tkip_8c_a05222388b52a59fbea84582dfa4eed72}{\index{tkip.\-c@{tkip.\-c}!P\-H\-A\-S\-E1\-\_\-\-L\-O\-O\-P\-\_\-\-C\-O\-U\-N\-T@{P\-H\-A\-S\-E1\-\_\-\-L\-O\-O\-P\-\_\-\-C\-O\-U\-N\-T}}
+\index{P\-H\-A\-S\-E1\-\_\-\-L\-O\-O\-P\-\_\-\-C\-O\-U\-N\-T@{P\-H\-A\-S\-E1\-\_\-\-L\-O\-O\-P\-\_\-\-C\-O\-U\-N\-T}!tkip.c@{tkip.\-c}}
+\subsubsection[{P\-H\-A\-S\-E1\-\_\-\-L\-O\-O\-P\-\_\-\-C\-O\-U\-N\-T}]{\setlength{\rightskip}{0pt plus 5cm}\#define P\-H\-A\-S\-E1\-\_\-\-L\-O\-O\-P\-\_\-\-C\-O\-U\-N\-T~8}}\label{tkip_8c_a05222388b52a59fbea84582dfa4eed72}
+
+
+Definition at line 22 of file tkip.\-c.
+
+
+
+\subsection{Function Documentation}
+\hypertarget{tkip_8c_a0633c79607190ce216b1409959325e97}{\index{tkip.\-c@{tkip.\-c}!E\-X\-P\-O\-R\-T\-\_\-\-S\-Y\-M\-B\-O\-L@{E\-X\-P\-O\-R\-T\-\_\-\-S\-Y\-M\-B\-O\-L}}
+\index{E\-X\-P\-O\-R\-T\-\_\-\-S\-Y\-M\-B\-O\-L@{E\-X\-P\-O\-R\-T\-\_\-\-S\-Y\-M\-B\-O\-L}!tkip.c@{tkip.\-c}}
+\subsubsection[{E\-X\-P\-O\-R\-T\-\_\-\-S\-Y\-M\-B\-O\-L}]{\setlength{\rightskip}{0pt plus 5cm}E\-X\-P\-O\-R\-T\-\_\-\-S\-Y\-M\-B\-O\-L (
+\begin{DoxyParamCaption}
+\item[{{\bf ieee80211\-\_\-get\-\_\-tkip\-\_\-p1k\-\_\-iv}}]{}
+\end{DoxyParamCaption}
+)}}\label{tkip_8c_a0633c79607190ce216b1409959325e97}
+\hypertarget{tkip_8c_adc47c30d2b5327864dabf31c49edd382}{\index{tkip.\-c@{tkip.\-c}!E\-X\-P\-O\-R\-T\-\_\-\-S\-Y\-M\-B\-O\-L@{E\-X\-P\-O\-R\-T\-\_\-\-S\-Y\-M\-B\-O\-L}}
+\index{E\-X\-P\-O\-R\-T\-\_\-\-S\-Y\-M\-B\-O\-L@{E\-X\-P\-O\-R\-T\-\_\-\-S\-Y\-M\-B\-O\-L}!tkip.c@{tkip.\-c}}
+\subsubsection[{E\-X\-P\-O\-R\-T\-\_\-\-S\-Y\-M\-B\-O\-L}]{\setlength{\rightskip}{0pt plus 5cm}E\-X\-P\-O\-R\-T\-\_\-\-S\-Y\-M\-B\-O\-L (
+\begin{DoxyParamCaption}
+\item[{{\bf ieee80211\-\_\-get\-\_\-tkip\-\_\-rx\-\_\-p1k}}]{}
+\end{DoxyParamCaption}
+)}}\label{tkip_8c_adc47c30d2b5327864dabf31c49edd382}
+\hypertarget{tkip_8c_a0192b818e364bb1b4b92c88ba21e0df9}{\index{tkip.\-c@{tkip.\-c}!E\-X\-P\-O\-R\-T\-\_\-\-S\-Y\-M\-B\-O\-L@{E\-X\-P\-O\-R\-T\-\_\-\-S\-Y\-M\-B\-O\-L}}
+\index{E\-X\-P\-O\-R\-T\-\_\-\-S\-Y\-M\-B\-O\-L@{E\-X\-P\-O\-R\-T\-\_\-\-S\-Y\-M\-B\-O\-L}!tkip.c@{tkip.\-c}}
+\subsubsection[{E\-X\-P\-O\-R\-T\-\_\-\-S\-Y\-M\-B\-O\-L}]{\setlength{\rightskip}{0pt plus 5cm}E\-X\-P\-O\-R\-T\-\_\-\-S\-Y\-M\-B\-O\-L (
+\begin{DoxyParamCaption}
+\item[{{\bf ieee80211\-\_\-get\-\_\-tkip\-\_\-p2k}}]{}
+\end{DoxyParamCaption}
+)}}\label{tkip_8c_a0192b818e364bb1b4b92c88ba21e0df9}
+\hypertarget{tkip_8c_a9a96af4426181712cd8dd33c9219a56c}{\index{tkip.\-c@{tkip.\-c}!ieee80211\-\_\-get\-\_\-tkip\-\_\-p1k\-\_\-iv@{ieee80211\-\_\-get\-\_\-tkip\-\_\-p1k\-\_\-iv}}
+\index{ieee80211\-\_\-get\-\_\-tkip\-\_\-p1k\-\_\-iv@{ieee80211\-\_\-get\-\_\-tkip\-\_\-p1k\-\_\-iv}!tkip.c@{tkip.\-c}}
+\subsubsection[{ieee80211\-\_\-get\-\_\-tkip\-\_\-p1k\-\_\-iv}]{\setlength{\rightskip}{0pt plus 5cm}void ieee80211\-\_\-get\-\_\-tkip\-\_\-p1k\-\_\-iv (
+\begin{DoxyParamCaption}
+\item[{struct ieee80211\-\_\-key\-\_\-conf $\ast$}]{keyconf, }
+\item[{u32}]{iv32, }
+\item[{u16 $\ast$}]{p1k}
+\end{DoxyParamCaption}
+)}}\label{tkip_8c_a9a96af4426181712cd8dd33c9219a56c}
+
+
+Definition at line 174 of file tkip.\-c.
+
+\hypertarget{tkip_8c_a34e4a098bee3a880b0313daa2c634f31}{\index{tkip.\-c@{tkip.\-c}!ieee80211\-\_\-get\-\_\-tkip\-\_\-p2k@{ieee80211\-\_\-get\-\_\-tkip\-\_\-p2k}}
+\index{ieee80211\-\_\-get\-\_\-tkip\-\_\-p2k@{ieee80211\-\_\-get\-\_\-tkip\-\_\-p2k}!tkip.c@{tkip.\-c}}
+\subsubsection[{ieee80211\-\_\-get\-\_\-tkip\-\_\-p2k}]{\setlength{\rightskip}{0pt plus 5cm}void ieee80211\-\_\-get\-\_\-tkip\-\_\-p2k (
+\begin{DoxyParamCaption}
+\item[{struct ieee80211\-\_\-key\-\_\-conf $\ast$}]{keyconf, }
+\item[{struct sk\-\_\-buff $\ast$}]{skb, }
+\item[{u8 $\ast$}]{p2k}
+\end{DoxyParamCaption}
+)}}\label{tkip_8c_a34e4a098bee3a880b0313daa2c634f31}
+
+
+Definition at line 200 of file tkip.\-c.
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{tkip_8c_a34e4a098bee3a880b0313daa2c634f31_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{tkip_8c_ab2444ea274d0b78279b0629b15f1fc38}{\index{tkip.\-c@{tkip.\-c}!ieee80211\-\_\-get\-\_\-tkip\-\_\-rx\-\_\-p1k@{ieee80211\-\_\-get\-\_\-tkip\-\_\-rx\-\_\-p1k}}
+\index{ieee80211\-\_\-get\-\_\-tkip\-\_\-rx\-\_\-p1k@{ieee80211\-\_\-get\-\_\-tkip\-\_\-rx\-\_\-p1k}!tkip.c@{tkip.\-c}}
+\subsubsection[{ieee80211\-\_\-get\-\_\-tkip\-\_\-rx\-\_\-p1k}]{\setlength{\rightskip}{0pt plus 5cm}void ieee80211\-\_\-get\-\_\-tkip\-\_\-rx\-\_\-p1k (
+\begin{DoxyParamCaption}
+\item[{struct ieee80211\-\_\-key\-\_\-conf $\ast$}]{keyconf, }
+\item[{const u8 $\ast$}]{ta, }
+\item[{u32}]{iv32, }
+\item[{u16 $\ast$}]{p1k}
+\end{DoxyParamCaption}
+)}}\label{tkip_8c_ab2444ea274d0b78279b0629b15f1fc38}
+
+
+Definition at line 189 of file tkip.\-c.
+
+\hypertarget{tkip_8c_a317041e73b0aee4d863a0590dfd8ac47}{\index{tkip.\-c@{tkip.\-c}!ieee80211\-\_\-tkip\-\_\-add\-\_\-iv@{ieee80211\-\_\-tkip\-\_\-add\-\_\-iv}}
+\index{ieee80211\-\_\-tkip\-\_\-add\-\_\-iv@{ieee80211\-\_\-tkip\-\_\-add\-\_\-iv}!tkip.c@{tkip.\-c}}
+\subsubsection[{ieee80211\-\_\-tkip\-\_\-add\-\_\-iv}]{\setlength{\rightskip}{0pt plus 5cm}u8$\ast$ ieee80211\-\_\-tkip\-\_\-add\-\_\-iv (
+\begin{DoxyParamCaption}
+\item[{u8 $\ast$}]{pos, }
+\item[{struct {\bf ieee80211\-\_\-key} $\ast$}]{key}
+\end{DoxyParamCaption}
+)}}\label{tkip_8c_a317041e73b0aee4d863a0590dfd8ac47}
+
+
+Definition at line 145 of file tkip.\-c.
+
+\hypertarget{tkip_8c_afa53dc960d57640d2a60b6feedeebe86}{\index{tkip.\-c@{tkip.\-c}!ieee80211\-\_\-tkip\-\_\-decrypt\-\_\-data@{ieee80211\-\_\-tkip\-\_\-decrypt\-\_\-data}}
+\index{ieee80211\-\_\-tkip\-\_\-decrypt\-\_\-data@{ieee80211\-\_\-tkip\-\_\-decrypt\-\_\-data}!tkip.c@{tkip.\-c}}
+\subsubsection[{ieee80211\-\_\-tkip\-\_\-decrypt\-\_\-data}]{\setlength{\rightskip}{0pt plus 5cm}int ieee80211\-\_\-tkip\-\_\-decrypt\-\_\-data (
+\begin{DoxyParamCaption}
+\item[{struct crypto\-\_\-cipher $\ast$}]{tfm, }
+\item[{struct {\bf ieee80211\-\_\-key} $\ast$}]{key, }
+\item[{u8 $\ast$}]{payload, }
+\item[{size\-\_\-t}]{payload\-\_\-len, }
+\item[{u8 $\ast$}]{ta, }
+\item[{u8 $\ast$}]{ra, }
+\item[{int}]{only\-\_\-iv, }
+\item[{int}]{queue, }
+\item[{u32 $\ast$}]{out\-\_\-iv32, }
+\item[{u16 $\ast$}]{out\-\_\-iv16}
+\end{DoxyParamCaption}
+)}}\label{tkip_8c_afa53dc960d57640d2a60b6feedeebe86}
+
+
+Definition at line 244 of file tkip.\-c.
+
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{tkip_8c_afa53dc960d57640d2a60b6feedeebe86_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{tkip_8c_afa53dc960d57640d2a60b6feedeebe86_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{tkip_8c_a45b8735f5ec943d14ef2d29ad9b4fad4}{\index{tkip.\-c@{tkip.\-c}!ieee80211\-\_\-tkip\-\_\-encrypt\-\_\-data@{ieee80211\-\_\-tkip\-\_\-encrypt\-\_\-data}}
+\index{ieee80211\-\_\-tkip\-\_\-encrypt\-\_\-data@{ieee80211\-\_\-tkip\-\_\-encrypt\-\_\-data}!tkip.c@{tkip.\-c}}
+\subsubsection[{ieee80211\-\_\-tkip\-\_\-encrypt\-\_\-data}]{\setlength{\rightskip}{0pt plus 5cm}int ieee80211\-\_\-tkip\-\_\-encrypt\-\_\-data (
+\begin{DoxyParamCaption}
+\item[{struct crypto\-\_\-cipher $\ast$}]{tfm, }
+\item[{struct {\bf ieee80211\-\_\-key} $\ast$}]{key, }
+\item[{struct sk\-\_\-buff $\ast$}]{skb, }
+\item[{u8 $\ast$}]{payload, }
+\item[{size\-\_\-t}]{payload\-\_\-len}
+\end{DoxyParamCaption}
+)}}\label{tkip_8c_a45b8735f5ec943d14ef2d29ad9b4fad4}
+
+
+Definition at line 227 of file tkip.\-c.
+
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{tkip_8c_a45b8735f5ec943d14ef2d29ad9b4fad4_cgraph}
+\end{center}
+\end{figure}
+
+

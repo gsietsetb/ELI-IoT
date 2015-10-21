@@ -1,0 +1,152 @@
+.TH "ieee80211_work" 3 "Sun Jun 1 2014" "Version 1.0" "net_mac80211" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+ieee80211_work \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <ieee80211_i\&.h>\fP
+.SS "Data Fields"
+
+.in +1c
+.ti -1c
+.RI "struct list_head \fBlist\fP"
+.br
+.ti -1c
+.RI "struct rcu_head \fBrcu_head\fP"
+.br
+.ti -1c
+.RI "struct \fBieee80211_sub_if_data\fP * \fBsdata\fP"
+.br
+.ti -1c
+.RI "enum \fBwork_done_result\fP(* \fBdone\fP )(struct \fBieee80211_work\fP *wk, struct sk_buff *skb)"
+.br
+.ti -1c
+.RI "struct ieee80211_channel * \fBchan\fP"
+.br
+.ti -1c
+.RI "enum nl80211_channel_type \fBchan_type\fP"
+.br
+.ti -1c
+.RI "unsigned long \fBtimeout\fP"
+.br
+.ti -1c
+.RI "enum \fBieee80211_work_type\fP \fBtype\fP"
+.br
+.ti -1c
+.RI "bool \fBstarted\fP"
+.br
+.ti -1c
+.RI "union {"
+.br
+.ti -1c
+.RI "   struct {"
+.br
+.ti -1c
+.RI "      u32 \fBduration\fP"
+.br
+.ti -1c
+.RI "   } \fBremain\fP"
+.br
+.ti -1c
+.RI "   struct {"
+.br
+.ti -1c
+.RI "      struct sk_buff * \fBframe\fP"
+.br
+.ti -1c
+.RI "      u32 \fBwait\fP"
+.br
+.ti -1c
+.RI "      bool \fBstatus\fP"
+.br
+.ti -1c
+.RI "   } \fBoffchan_tx\fP"
+.br
+.ti -1c
+.RI "}; "
+.br
+.ti -1c
+.RI "size_t \fBdata_len\fP"
+.br
+.ti -1c
+.RI "u8 \fBdata\fP []"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Definition at line 337 of file ieee80211_i\&.h\&.
+.SH "Field Documentation"
+.PP 
+.SS "union { \&.\&.\&. } "
+
+.SS "struct ieee80211_channel* chan"
+
+.PP
+Definition at line 347 of file ieee80211_i\&.h\&.
+.SS "enum nl80211_channel_type chan_type"
+
+.PP
+Definition at line 348 of file ieee80211_i\&.h\&.
+.SS "u8 data[]"
+
+.PP
+Definition at line 367 of file ieee80211_i\&.h\&.
+.SS "size_t data_len"
+
+.PP
+Definition at line 366 of file ieee80211_i\&.h\&.
+.SS "enum \fBwork_done_result\fP(* done)(struct \fBieee80211_work\fP *wk, struct sk_buff *skb)"
+
+.PP
+Definition at line 344 of file ieee80211_i\&.h\&.
+.SS "u32 duration"
+
+.PP
+Definition at line 357 of file ieee80211_i\&.h\&.
+.SS "struct sk_buff* frame"
+
+.PP
+Definition at line 360 of file ieee80211_i\&.h\&.
+.SS "struct list_head list"
+
+.PP
+Definition at line 338 of file ieee80211_i\&.h\&.
+.SS "struct { \&.\&.\&. }   offchan_tx"
+
+.SS "struct rcu_head rcu_head"
+
+.PP
+Definition at line 340 of file ieee80211_i\&.h\&.
+.SS "struct { \&.\&.\&. }   remain"
+
+.SS "struct \fBieee80211_sub_if_data\fP* sdata"
+
+.PP
+Definition at line 342 of file ieee80211_i\&.h\&.
+.SS "bool started"
+
+.PP
+Definition at line 353 of file ieee80211_i\&.h\&.
+.SS "bool status"
+
+.PP
+Definition at line 362 of file ieee80211_i\&.h\&.
+.SS "unsigned long timeout"
+
+.PP
+Definition at line 350 of file ieee80211_i\&.h\&.
+.SS "enum \fBieee80211_work_type\fP type"
+
+.PP
+Definition at line 351 of file ieee80211_i\&.h\&.
+.SS "u32 wait"
+
+.PP
+Definition at line 361 of file ieee80211_i\&.h\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for net_mac80211 from the source code\&.

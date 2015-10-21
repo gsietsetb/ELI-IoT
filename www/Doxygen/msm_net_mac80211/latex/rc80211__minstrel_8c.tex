@@ -1,0 +1,139 @@
+\hypertarget{rc80211__minstrel_8c}{\section{/home/guille/msm/net/mac80211/rc80211\-\_\-minstrel.c File Reference}
+\label{rc80211__minstrel_8c}\index{/home/guille/msm/net/mac80211/rc80211\-\_\-minstrel.\-c@{/home/guille/msm/net/mac80211/rc80211\-\_\-minstrel.\-c}}
+}
+{\ttfamily \#include $<$linux/netdevice.\-h$>$}\\*
+{\ttfamily \#include $<$linux/types.\-h$>$}\\*
+{\ttfamily \#include $<$linux/skbuff.\-h$>$}\\*
+{\ttfamily \#include $<$linux/debugfs.\-h$>$}\\*
+{\ttfamily \#include $<$linux/random.\-h$>$}\\*
+{\ttfamily \#include $<$linux/ieee80211.\-h$>$}\\*
+{\ttfamily \#include $<$linux/slab.\-h$>$}\\*
+{\ttfamily \#include $<$net/mac80211.\-h$>$}\\*
+{\ttfamily \#include \char`\"{}rate.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}rc80211\-\_\-minstrel.\-h\char`\"{}}\\*
+Include dependency graph for rc80211\-\_\-minstrel.\-c\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{rc80211__minstrel_8c__incl}
+\end{center}
+\end{figure}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{rc80211__minstrel_8c_af271b7ef0f1a13d49d6ecd13ecdc53a5}{S\-A\-M\-P\-L\-E\-\_\-\-C\-O\-L\-U\-M\-N\-S}~10
+\item 
+\#define \hyperlink{rc80211__minstrel_8c_a174a3e8bd890a08b24cec443c7c689c5}{S\-A\-M\-P\-L\-E\-\_\-\-T\-B\-L}(\-\_\-mi, \-\_\-idx, \-\_\-col)~\-\_\-mi-\/$>$sample\-\_\-table\mbox{[}(\-\_\-idx $\ast$ \hyperlink{rc80211__minstrel__ht_8c_af271b7ef0f1a13d49d6ecd13ecdc53a5}{S\-A\-M\-P\-L\-E\-\_\-\-C\-O\-L\-U\-M\-N\-S}) + \-\_\-col\mbox{]}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \-\_\-\-\_\-init \hyperlink{rc80211__minstrel_8c_a0807694f3fd8d854f87b97bea3058088}{rc80211\-\_\-minstrel\-\_\-init} (void)
+\item 
+void \hyperlink{rc80211__minstrel_8c_a7588e73682e8ffecd7071b4664f6caba}{rc80211\-\_\-minstrel\-\_\-exit} (void)
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+struct rate\-\_\-control\-\_\-ops \hyperlink{rc80211__minstrel_8c_a63dc2e0d8bdbe313639b8aa281e893a5}{mac80211\-\_\-minstrel}
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{rc80211__minstrel_8c_af271b7ef0f1a13d49d6ecd13ecdc53a5}{\index{rc80211\-\_\-minstrel.\-c@{rc80211\-\_\-minstrel.\-c}!S\-A\-M\-P\-L\-E\-\_\-\-C\-O\-L\-U\-M\-N\-S@{S\-A\-M\-P\-L\-E\-\_\-\-C\-O\-L\-U\-M\-N\-S}}
+\index{S\-A\-M\-P\-L\-E\-\_\-\-C\-O\-L\-U\-M\-N\-S@{S\-A\-M\-P\-L\-E\-\_\-\-C\-O\-L\-U\-M\-N\-S}!rc80211_minstrel.c@{rc80211\-\_\-minstrel.\-c}}
+\subsubsection[{S\-A\-M\-P\-L\-E\-\_\-\-C\-O\-L\-U\-M\-N\-S}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\-A\-M\-P\-L\-E\-\_\-\-C\-O\-L\-U\-M\-N\-S~10}}\label{rc80211__minstrel_8c_af271b7ef0f1a13d49d6ecd13ecdc53a5}
+
+
+Definition at line 58 of file rc80211\-\_\-minstrel.\-c.
+
+\hypertarget{rc80211__minstrel_8c_a174a3e8bd890a08b24cec443c7c689c5}{\index{rc80211\-\_\-minstrel.\-c@{rc80211\-\_\-minstrel.\-c}!S\-A\-M\-P\-L\-E\-\_\-\-T\-B\-L@{S\-A\-M\-P\-L\-E\-\_\-\-T\-B\-L}}
+\index{S\-A\-M\-P\-L\-E\-\_\-\-T\-B\-L@{S\-A\-M\-P\-L\-E\-\_\-\-T\-B\-L}!rc80211_minstrel.c@{rc80211\-\_\-minstrel.\-c}}
+\subsubsection[{S\-A\-M\-P\-L\-E\-\_\-\-T\-B\-L}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\-A\-M\-P\-L\-E\-\_\-\-T\-B\-L(
+\begin{DoxyParamCaption}
+\item[{}]{\-\_\-mi, }
+\item[{}]{\-\_\-idx, }
+\item[{}]{\-\_\-col}
+\end{DoxyParamCaption}
+)~\-\_\-mi-\/$>$sample\-\_\-table\mbox{[}(\-\_\-idx $\ast$ {\bf S\-A\-M\-P\-L\-E\-\_\-\-C\-O\-L\-U\-M\-N\-S}) + \-\_\-col\mbox{]}}}\label{rc80211__minstrel_8c_a174a3e8bd890a08b24cec443c7c689c5}
+
+
+Definition at line 59 of file rc80211\-\_\-minstrel.\-c.
+
+
+
+\subsection{Function Documentation}
+\hypertarget{rc80211__minstrel_8c_a7588e73682e8ffecd7071b4664f6caba}{\index{rc80211\-\_\-minstrel.\-c@{rc80211\-\_\-minstrel.\-c}!rc80211\-\_\-minstrel\-\_\-exit@{rc80211\-\_\-minstrel\-\_\-exit}}
+\index{rc80211\-\_\-minstrel\-\_\-exit@{rc80211\-\_\-minstrel\-\_\-exit}!rc80211_minstrel.c@{rc80211\-\_\-minstrel.\-c}}
+\subsubsection[{rc80211\-\_\-minstrel\-\_\-exit}]{\setlength{\rightskip}{0pt plus 5cm}void rc80211\-\_\-minstrel\-\_\-exit (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{rc80211__minstrel_8c_a7588e73682e8ffecd7071b4664f6caba}
+
+
+Definition at line 574 of file rc80211\-\_\-minstrel.\-c.
+
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=346pt]{rc80211__minstrel_8c_a7588e73682e8ffecd7071b4664f6caba_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{rc80211__minstrel_8c_a0807694f3fd8d854f87b97bea3058088}{\index{rc80211\-\_\-minstrel.\-c@{rc80211\-\_\-minstrel.\-c}!rc80211\-\_\-minstrel\-\_\-init@{rc80211\-\_\-minstrel\-\_\-init}}
+\index{rc80211\-\_\-minstrel\-\_\-init@{rc80211\-\_\-minstrel\-\_\-init}!rc80211_minstrel.c@{rc80211\-\_\-minstrel.\-c}}
+\subsubsection[{rc80211\-\_\-minstrel\-\_\-init}]{\setlength{\rightskip}{0pt plus 5cm}int \-\_\-\-\_\-init rc80211\-\_\-minstrel\-\_\-init (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{rc80211__minstrel_8c_a0807694f3fd8d854f87b97bea3058088}
+
+
+Definition at line 568 of file rc80211\-\_\-minstrel.\-c.
+
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=344pt]{rc80211__minstrel_8c_a0807694f3fd8d854f87b97bea3058088_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+\subsection{Variable Documentation}
+\hypertarget{rc80211__minstrel_8c_a63dc2e0d8bdbe313639b8aa281e893a5}{\index{rc80211\-\_\-minstrel.\-c@{rc80211\-\_\-minstrel.\-c}!mac80211\-\_\-minstrel@{mac80211\-\_\-minstrel}}
+\index{mac80211\-\_\-minstrel@{mac80211\-\_\-minstrel}!rc80211_minstrel.c@{rc80211\-\_\-minstrel.\-c}}
+\subsubsection[{mac80211\-\_\-minstrel}]{\setlength{\rightskip}{0pt plus 5cm}struct rate\-\_\-control\-\_\-ops mac80211\-\_\-minstrel}}\label{rc80211__minstrel_8c_a63dc2e0d8bdbe313639b8aa281e893a5}
+{\bfseries Initial value\-:}
+\begin{DoxyCode}
+= \{
+    .name = \textcolor{stringliteral}{"minstrel"},
+    .tx\_status = minstrel\_tx\_status,
+    .get\_rate = minstrel\_get\_rate,
+    .rate\_init = minstrel\_rate\_init,
+    .alloc = minstrel\_alloc,
+    .free = minstrel\_free,
+    .alloc\_sta = minstrel\_alloc\_sta,
+    .free\_sta = minstrel\_free\_sta,
+
+
+
+
+\}
+\end{DoxyCode}
+
+
+Definition at line 552 of file rc80211\-\_\-minstrel.\-c.
+

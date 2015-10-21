@@ -1,0 +1,142 @@
+.TH "ieee80211_mgd_assoc_data" 3 "Sun Jun 1 2014" "Version 1.0" "net_mac80211" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+ieee80211_mgd_assoc_data \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <ieee80211_i\&.h>\fP
+.SS "Data Fields"
+
+.in +1c
+.ti -1c
+.RI "struct cfg80211_bss * \fBbss\fP"
+.br
+.ti -1c
+.RI "const u8 * \fBsupp_rates\fP"
+.br
+.ti -1c
+.RI "const u8 * \fBht_information_ie\fP"
+.br
+.ti -1c
+.RI "unsigned long \fBtimeout\fP"
+.br
+.ti -1c
+.RI "int \fBtries\fP"
+.br
+.ti -1c
+.RI "u16 \fBcapability\fP"
+.br
+.ti -1c
+.RI "u8 \fBprev_bssid\fP [ETH_ALEN]"
+.br
+.ti -1c
+.RI "u8 \fBssid\fP [IEEE80211_MAX_SSID_LEN]"
+.br
+.ti -1c
+.RI "u8 \fBssid_len\fP"
+.br
+.ti -1c
+.RI "u8 \fBsupp_rates_len\fP"
+.br
+.ti -1c
+.RI "bool \fBwmm\fP"
+.br
+.ti -1c
+.RI "bool \fBuapsd\fP"
+.br
+.ti -1c
+.RI "bool \fBhave_beacon\fP"
+.br
+.ti -1c
+.RI "bool \fBsent_assoc\fP"
+.br
+.ti -1c
+.RI "bool \fBsynced\fP"
+.br
+.ti -1c
+.RI "size_t \fBie_len\fP"
+.br
+.ti -1c
+.RI "u8 \fBie\fP []"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Definition at line 398 of file ieee80211_i\&.h\&.
+.SH "Field Documentation"
+.PP 
+.SS "struct cfg80211_bss* bss"
+
+.PP
+Definition at line 399 of file ieee80211_i\&.h\&.
+.SS "u16 capability"
+
+.PP
+Definition at line 406 of file ieee80211_i\&.h\&.
+.SS "bool have_beacon"
+
+.PP
+Definition at line 412 of file ieee80211_i\&.h\&.
+.SS "const u8* ht_information_ie"
+
+.PP
+Definition at line 401 of file ieee80211_i\&.h\&.
+.SS "u8 ie[]"
+
+.PP
+Definition at line 417 of file ieee80211_i\&.h\&.
+.SS "size_t ie_len"
+
+.PP
+Definition at line 416 of file ieee80211_i\&.h\&.
+.SS "u8 prev_bssid[ETH_ALEN]"
+
+.PP
+Definition at line 407 of file ieee80211_i\&.h\&.
+.SS "bool sent_assoc"
+
+.PP
+Definition at line 413 of file ieee80211_i\&.h\&.
+.SS "u8 ssid[IEEE80211_MAX_SSID_LEN]"
+
+.PP
+Definition at line 408 of file ieee80211_i\&.h\&.
+.SS "u8 ssid_len"
+
+.PP
+Definition at line 409 of file ieee80211_i\&.h\&.
+.SS "const u8* supp_rates"
+
+.PP
+Definition at line 400 of file ieee80211_i\&.h\&.
+.SS "u8 supp_rates_len"
+
+.PP
+Definition at line 410 of file ieee80211_i\&.h\&.
+.SS "bool synced"
+
+.PP
+Definition at line 414 of file ieee80211_i\&.h\&.
+.SS "unsigned long timeout"
+
+.PP
+Definition at line 403 of file ieee80211_i\&.h\&.
+.SS "int tries"
+
+.PP
+Definition at line 404 of file ieee80211_i\&.h\&.
+.SS "bool uapsd"
+
+.PP
+Definition at line 411 of file ieee80211_i\&.h\&.
+.SS "bool wmm"
+
+.PP
+Definition at line 411 of file ieee80211_i\&.h\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for net_mac80211 from the source code\&.

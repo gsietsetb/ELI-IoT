@@ -1,0 +1,16 @@
+#!/bin/sh
+
+if test $# != 1; then
+    echo "Usage: $0  db_root" >&2
+    exit 1
+fi
+db_root=$1
+
+rm $db_root/dbc:*
+
+if ! rmdir $db_root; then
+    echo "Directory $db_root does not appear a database root directory" >&2
+    exit 1
+fi
+
+

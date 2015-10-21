@@ -1,0 +1,76 @@
+\hypertarget{structrmc__entry}{\section{rmc\-\_\-entry Struct Reference}
+\label{structrmc__entry}\index{rmc\-\_\-entry@{rmc\-\_\-entry}}
+}
+
+
+{\ttfamily \#include $<$mesh.\-h$>$}
+
+
+
+Collaboration diagram for rmc\-\_\-entry\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=144pt]{structrmc__entry__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+struct list\-\_\-head \hyperlink{structrmc__entry_a1f00f18b91d5a820f2c43064243aa86e}{list}
+\item 
+u32 \hyperlink{structrmc__entry_aa1de03f6f57c53b7e53eb6f83507da76}{seqnum}
+\item 
+unsigned long \hyperlink{structrmc__entry_af01b3e5a14761c34e4298e254fb7c094}{exp\-\_\-time}
+\item 
+u8 \hyperlink{structrmc__entry_a1d248d85a9aee0de13f6a2647297e517}{sa} \mbox{[}E\-T\-H\-\_\-\-A\-L\-E\-N\mbox{]}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+struct \hyperlink{structrmc__entry}{rmc\-\_\-entry} -\/ entry in the Recent Multicast Cache
+
+\-: mesh sequence number of the frame \-: expiration time of the entry, in jiffies \begin{DoxySeeAlso}{See Also}
+\-: source address of the frame
+\end{DoxySeeAlso}
+The Recent Multicast Cache keeps track of the latest multicast frames that have been received by a mesh interface and discards received multicast frames that are found in the cache. 
+
+Definition at line 172 of file mesh.\-h.
+
+
+
+\subsection{Field Documentation}
+\hypertarget{structrmc__entry_af01b3e5a14761c34e4298e254fb7c094}{\index{rmc\-\_\-entry@{rmc\-\_\-entry}!exp\-\_\-time@{exp\-\_\-time}}
+\index{exp\-\_\-time@{exp\-\_\-time}!rmc_entry@{rmc\-\_\-entry}}
+\subsubsection[{exp\-\_\-time}]{\setlength{\rightskip}{0pt plus 5cm}unsigned long exp\-\_\-time}}\label{structrmc__entry_af01b3e5a14761c34e4298e254fb7c094}
+
+
+Definition at line 175 of file mesh.\-h.
+
+\hypertarget{structrmc__entry_a1f00f18b91d5a820f2c43064243aa86e}{\index{rmc\-\_\-entry@{rmc\-\_\-entry}!list@{list}}
+\index{list@{list}!rmc_entry@{rmc\-\_\-entry}}
+\subsubsection[{list}]{\setlength{\rightskip}{0pt plus 5cm}struct list\-\_\-head list}}\label{structrmc__entry_a1f00f18b91d5a820f2c43064243aa86e}
+
+
+Definition at line 173 of file mesh.\-h.
+
+\hypertarget{structrmc__entry_a1d248d85a9aee0de13f6a2647297e517}{\index{rmc\-\_\-entry@{rmc\-\_\-entry}!sa@{sa}}
+\index{sa@{sa}!rmc_entry@{rmc\-\_\-entry}}
+\subsubsection[{sa}]{\setlength{\rightskip}{0pt plus 5cm}u8 sa\mbox{[}E\-T\-H\-\_\-\-A\-L\-E\-N\mbox{]}}}\label{structrmc__entry_a1d248d85a9aee0de13f6a2647297e517}
+
+
+Definition at line 176 of file mesh.\-h.
+
+\hypertarget{structrmc__entry_aa1de03f6f57c53b7e53eb6f83507da76}{\index{rmc\-\_\-entry@{rmc\-\_\-entry}!seqnum@{seqnum}}
+\index{seqnum@{seqnum}!rmc_entry@{rmc\-\_\-entry}}
+\subsubsection[{seqnum}]{\setlength{\rightskip}{0pt plus 5cm}u32 seqnum}}\label{structrmc__entry_aa1de03f6f57c53b7e53eb6f83507da76}
+
+
+Definition at line 174 of file mesh.\-h.
+
+
+
+The documentation for this struct was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+/home/guille/msm/net/mac80211/\hyperlink{mesh_8h}{mesh.\-h}\end{DoxyCompactItemize}

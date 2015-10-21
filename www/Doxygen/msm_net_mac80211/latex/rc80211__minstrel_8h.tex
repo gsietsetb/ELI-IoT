@@ -1,0 +1,116 @@
+\hypertarget{rc80211__minstrel_8h}{\section{/home/guille/msm/net/mac80211/rc80211\-\_\-minstrel.h File Reference}
+\label{rc80211__minstrel_8h}\index{/home/guille/msm/net/mac80211/rc80211\-\_\-minstrel.\-h@{/home/guille/msm/net/mac80211/rc80211\-\_\-minstrel.\-h}}
+}
+This graph shows which files directly or indirectly include this file\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{rc80211__minstrel_8h__dep__incl}
+\end{center}
+\end{figure}
+\subsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structminstrel__rate}{minstrel\-\_\-rate}
+\item 
+struct \hyperlink{structminstrel__sta__info}{minstrel\-\_\-sta\-\_\-info}
+\item 
+struct \hyperlink{structminstrel__priv}{minstrel\-\_\-priv}
+\item 
+struct \hyperlink{structminstrel__debugfs__info}{minstrel\-\_\-debugfs\-\_\-info}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{rc80211__minstrel_8h_ac1a9b91ad8ffce575126463d9118bb81}{minstrel\-\_\-add\-\_\-sta\-\_\-debugfs} (void $\ast$priv, void $\ast$priv\-\_\-sta, struct dentry $\ast$dir)
+\item 
+void \hyperlink{rc80211__minstrel_8h_a32a7c8f7a9967e3bb903afb4634f1ec0}{minstrel\-\_\-remove\-\_\-sta\-\_\-debugfs} (void $\ast$priv, void $\ast$priv\-\_\-sta)
+\item 
+int \hyperlink{rc80211__minstrel_8h_a912931adf7328e0f2bddd4a6698faaa0}{minstrel\-\_\-stats\-\_\-open} (struct inode $\ast$inode, struct file $\ast$file)
+\item 
+ssize\-\_\-t \hyperlink{rc80211__minstrel_8h_aee78e1e7554d4dfca669c437001bb9df}{minstrel\-\_\-stats\-\_\-read} (struct file $\ast$file, char \-\_\-\-\_\-user $\ast$buf, size\-\_\-t len, loff\-\_\-t $\ast$ppos)
+\item 
+int \hyperlink{rc80211__minstrel_8h_ac6cb834aa0f8e6bdd50f36718573ae5a}{minstrel\-\_\-stats\-\_\-release} (struct inode $\ast$inode, struct file $\ast$file)
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+struct rate\-\_\-control\-\_\-ops \hyperlink{rc80211__minstrel_8h_a63dc2e0d8bdbe313639b8aa281e893a5}{mac80211\-\_\-minstrel}
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\hypertarget{rc80211__minstrel_8h_ac1a9b91ad8ffce575126463d9118bb81}{\index{rc80211\-\_\-minstrel.\-h@{rc80211\-\_\-minstrel.\-h}!minstrel\-\_\-add\-\_\-sta\-\_\-debugfs@{minstrel\-\_\-add\-\_\-sta\-\_\-debugfs}}
+\index{minstrel\-\_\-add\-\_\-sta\-\_\-debugfs@{minstrel\-\_\-add\-\_\-sta\-\_\-debugfs}!rc80211_minstrel.h@{rc80211\-\_\-minstrel.\-h}}
+\subsubsection[{minstrel\-\_\-add\-\_\-sta\-\_\-debugfs}]{\setlength{\rightskip}{0pt plus 5cm}void minstrel\-\_\-add\-\_\-sta\-\_\-debugfs (
+\begin{DoxyParamCaption}
+\item[{void $\ast$}]{priv, }
+\item[{void $\ast$}]{priv\-\_\-sta, }
+\item[{struct dentry $\ast$}]{dir}
+\end{DoxyParamCaption}
+)}}\label{rc80211__minstrel_8h_ac1a9b91ad8ffce575126463d9118bb81}
+
+
+Definition at line 130 of file rc80211\-\_\-minstrel\-\_\-debugfs.\-c.
+
+\hypertarget{rc80211__minstrel_8h_a32a7c8f7a9967e3bb903afb4634f1ec0}{\index{rc80211\-\_\-minstrel.\-h@{rc80211\-\_\-minstrel.\-h}!minstrel\-\_\-remove\-\_\-sta\-\_\-debugfs@{minstrel\-\_\-remove\-\_\-sta\-\_\-debugfs}}
+\index{minstrel\-\_\-remove\-\_\-sta\-\_\-debugfs@{minstrel\-\_\-remove\-\_\-sta\-\_\-debugfs}!rc80211_minstrel.h@{rc80211\-\_\-minstrel.\-h}}
+\subsubsection[{minstrel\-\_\-remove\-\_\-sta\-\_\-debugfs}]{\setlength{\rightskip}{0pt plus 5cm}void minstrel\-\_\-remove\-\_\-sta\-\_\-debugfs (
+\begin{DoxyParamCaption}
+\item[{void $\ast$}]{priv, }
+\item[{void $\ast$}]{priv\-\_\-sta}
+\end{DoxyParamCaption}
+)}}\label{rc80211__minstrel_8h_a32a7c8f7a9967e3bb903afb4634f1ec0}
+
+
+Definition at line 139 of file rc80211\-\_\-minstrel\-\_\-debugfs.\-c.
+
+\hypertarget{rc80211__minstrel_8h_a912931adf7328e0f2bddd4a6698faaa0}{\index{rc80211\-\_\-minstrel.\-h@{rc80211\-\_\-minstrel.\-h}!minstrel\-\_\-stats\-\_\-open@{minstrel\-\_\-stats\-\_\-open}}
+\index{minstrel\-\_\-stats\-\_\-open@{minstrel\-\_\-stats\-\_\-open}!rc80211_minstrel.h@{rc80211\-\_\-minstrel.\-h}}
+\subsubsection[{minstrel\-\_\-stats\-\_\-open}]{\setlength{\rightskip}{0pt plus 5cm}int minstrel\-\_\-stats\-\_\-open (
+\begin{DoxyParamCaption}
+\item[{struct inode $\ast$}]{inode, }
+\item[{struct file $\ast$}]{file}
+\end{DoxyParamCaption}
+)}}\label{rc80211__minstrel_8h_a912931adf7328e0f2bddd4a6698faaa0}
+
+
+Definition at line 58 of file rc80211\-\_\-minstrel\-\_\-debugfs.\-c.
+
+\hypertarget{rc80211__minstrel_8h_aee78e1e7554d4dfca669c437001bb9df}{\index{rc80211\-\_\-minstrel.\-h@{rc80211\-\_\-minstrel.\-h}!minstrel\-\_\-stats\-\_\-read@{minstrel\-\_\-stats\-\_\-read}}
+\index{minstrel\-\_\-stats\-\_\-read@{minstrel\-\_\-stats\-\_\-read}!rc80211_minstrel.h@{rc80211\-\_\-minstrel.\-h}}
+\subsubsection[{minstrel\-\_\-stats\-\_\-read}]{\setlength{\rightskip}{0pt plus 5cm}ssize\-\_\-t minstrel\-\_\-stats\-\_\-read (
+\begin{DoxyParamCaption}
+\item[{struct file $\ast$}]{file, }
+\item[{char \-\_\-\-\_\-user $\ast$}]{buf, }
+\item[{size\-\_\-t}]{len, }
+\item[{loff\-\_\-t $\ast$}]{ppos}
+\end{DoxyParamCaption}
+)}}\label{rc80211__minstrel_8h_aee78e1e7554d4dfca669c437001bb9df}
+
+
+Definition at line 106 of file rc80211\-\_\-minstrel\-\_\-debugfs.\-c.
+
+\hypertarget{rc80211__minstrel_8h_ac6cb834aa0f8e6bdd50f36718573ae5a}{\index{rc80211\-\_\-minstrel.\-h@{rc80211\-\_\-minstrel.\-h}!minstrel\-\_\-stats\-\_\-release@{minstrel\-\_\-stats\-\_\-release}}
+\index{minstrel\-\_\-stats\-\_\-release@{minstrel\-\_\-stats\-\_\-release}!rc80211_minstrel.h@{rc80211\-\_\-minstrel.\-h}}
+\subsubsection[{minstrel\-\_\-stats\-\_\-release}]{\setlength{\rightskip}{0pt plus 5cm}int minstrel\-\_\-stats\-\_\-release (
+\begin{DoxyParamCaption}
+\item[{struct inode $\ast$}]{inode, }
+\item[{struct file $\ast$}]{file}
+\end{DoxyParamCaption}
+)}}\label{rc80211__minstrel_8h_ac6cb834aa0f8e6bdd50f36718573ae5a}
+
+
+Definition at line 115 of file rc80211\-\_\-minstrel\-\_\-debugfs.\-c.
+
+
+
+\subsection{Variable Documentation}
+\hypertarget{rc80211__minstrel_8h_a63dc2e0d8bdbe313639b8aa281e893a5}{\index{rc80211\-\_\-minstrel.\-h@{rc80211\-\_\-minstrel.\-h}!mac80211\-\_\-minstrel@{mac80211\-\_\-minstrel}}
+\index{mac80211\-\_\-minstrel@{mac80211\-\_\-minstrel}!rc80211_minstrel.h@{rc80211\-\_\-minstrel.\-h}}
+\subsubsection[{mac80211\-\_\-minstrel}]{\setlength{\rightskip}{0pt plus 5cm}struct rate\-\_\-control\-\_\-ops mac80211\-\_\-minstrel}}\label{rc80211__minstrel_8h_a63dc2e0d8bdbe313639b8aa281e893a5}
+
+
+Definition at line 552 of file rc80211\-\_\-minstrel.\-c.
+

@@ -1,0 +1,80 @@
+\hypertarget{structrc__pid__event__buffer}{\section{rc\-\_\-pid\-\_\-event\-\_\-buffer Struct Reference}
+\label{structrc__pid__event__buffer}\index{rc\-\_\-pid\-\_\-event\-\_\-buffer@{rc\-\_\-pid\-\_\-event\-\_\-buffer}}
+}
+
+
+{\ttfamily \#include $<$rc80211\-\_\-pid.\-h$>$}
+
+
+
+Collaboration diagram for rc\-\_\-pid\-\_\-event\-\_\-buffer\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=550pt]{structrc__pid__event__buffer__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+unsigned int \hyperlink{structrc__pid__event__buffer_aafefaa6538709caeb21b4566c91f8936}{ev\-\_\-count}
+\item 
+struct \hyperlink{structrc__pid__event}{rc\-\_\-pid\-\_\-event} \hyperlink{structrc__pid__event__buffer_ac15c562561ecad08ac70a1b809622c66}{ring} \mbox{[}\hyperlink{rc80211__pid_8h_afa197c57381c9b4287a15f41f0700f75}{R\-C\-\_\-\-P\-I\-D\-\_\-\-E\-V\-E\-N\-T\-\_\-\-R\-I\-N\-G\-\_\-\-S\-I\-Z\-E}\mbox{]}
+\item 
+unsigned int \hyperlink{structrc__pid__event__buffer_a504ce2058dfc4cdd4cf89d9e63c34b89}{next\-\_\-entry}
+\item 
+spinlock\-\_\-t \hyperlink{structrc__pid__event__buffer_a79cda015c79ff2b4c1444e3070f0bb5d}{lock}
+\item 
+wait\-\_\-queue\-\_\-head\-\_\-t \hyperlink{structrc__pid__event__buffer_a24489217320b81c842b7d32aa13ff863}{waitqueue}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+
+
+Definition at line 96 of file rc80211\-\_\-pid.\-h.
+
+
+
+\subsection{Field Documentation}
+\hypertarget{structrc__pid__event__buffer_aafefaa6538709caeb21b4566c91f8936}{\index{rc\-\_\-pid\-\_\-event\-\_\-buffer@{rc\-\_\-pid\-\_\-event\-\_\-buffer}!ev\-\_\-count@{ev\-\_\-count}}
+\index{ev\-\_\-count@{ev\-\_\-count}!rc_pid_event_buffer@{rc\-\_\-pid\-\_\-event\-\_\-buffer}}
+\subsubsection[{ev\-\_\-count}]{\setlength{\rightskip}{0pt plus 5cm}unsigned int ev\-\_\-count}}\label{structrc__pid__event__buffer_aafefaa6538709caeb21b4566c91f8936}
+
+
+Definition at line 98 of file rc80211\-\_\-pid.\-h.
+
+\hypertarget{structrc__pid__event__buffer_a79cda015c79ff2b4c1444e3070f0bb5d}{\index{rc\-\_\-pid\-\_\-event\-\_\-buffer@{rc\-\_\-pid\-\_\-event\-\_\-buffer}!lock@{lock}}
+\index{lock@{lock}!rc_pid_event_buffer@{rc\-\_\-pid\-\_\-event\-\_\-buffer}}
+\subsubsection[{lock}]{\setlength{\rightskip}{0pt plus 5cm}spinlock\-\_\-t lock}}\label{structrc__pid__event__buffer_a79cda015c79ff2b4c1444e3070f0bb5d}
+
+
+Definition at line 107 of file rc80211\-\_\-pid.\-h.
+
+\hypertarget{structrc__pid__event__buffer_a504ce2058dfc4cdd4cf89d9e63c34b89}{\index{rc\-\_\-pid\-\_\-event\-\_\-buffer@{rc\-\_\-pid\-\_\-event\-\_\-buffer}!next\-\_\-entry@{next\-\_\-entry}}
+\index{next\-\_\-entry@{next\-\_\-entry}!rc_pid_event_buffer@{rc\-\_\-pid\-\_\-event\-\_\-buffer}}
+\subsubsection[{next\-\_\-entry}]{\setlength{\rightskip}{0pt plus 5cm}unsigned int next\-\_\-entry}}\label{structrc__pid__event__buffer_a504ce2058dfc4cdd4cf89d9e63c34b89}
+
+
+Definition at line 104 of file rc80211\-\_\-pid.\-h.
+
+\hypertarget{structrc__pid__event__buffer_ac15c562561ecad08ac70a1b809622c66}{\index{rc\-\_\-pid\-\_\-event\-\_\-buffer@{rc\-\_\-pid\-\_\-event\-\_\-buffer}!ring@{ring}}
+\index{ring@{ring}!rc_pid_event_buffer@{rc\-\_\-pid\-\_\-event\-\_\-buffer}}
+\subsubsection[{ring}]{\setlength{\rightskip}{0pt plus 5cm}struct {\bf rc\-\_\-pid\-\_\-event} ring\mbox{[}{\bf R\-C\-\_\-\-P\-I\-D\-\_\-\-E\-V\-E\-N\-T\-\_\-\-R\-I\-N\-G\-\_\-\-S\-I\-Z\-E}\mbox{]}}}\label{structrc__pid__event__buffer_ac15c562561ecad08ac70a1b809622c66}
+
+
+Definition at line 101 of file rc80211\-\_\-pid.\-h.
+
+\hypertarget{structrc__pid__event__buffer_a24489217320b81c842b7d32aa13ff863}{\index{rc\-\_\-pid\-\_\-event\-\_\-buffer@{rc\-\_\-pid\-\_\-event\-\_\-buffer}!waitqueue@{waitqueue}}
+\index{waitqueue@{waitqueue}!rc_pid_event_buffer@{rc\-\_\-pid\-\_\-event\-\_\-buffer}}
+\subsubsection[{waitqueue}]{\setlength{\rightskip}{0pt plus 5cm}wait\-\_\-queue\-\_\-head\-\_\-t waitqueue}}\label{structrc__pid__event__buffer_a24489217320b81c842b7d32aa13ff863}
+
+
+Definition at line 110 of file rc80211\-\_\-pid.\-h.
+
+
+
+The documentation for this struct was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+/home/guille/msm/net/mac80211/\hyperlink{rc80211__pid_8h}{rc80211\-\_\-pid.\-h}\end{DoxyCompactItemize}

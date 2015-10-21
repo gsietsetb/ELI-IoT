@@ -1,0 +1,194 @@
+.TH "/home/guille/msm/net/mac80211/rc80211_minstrel_ht.c" 3 "Sun Jun 1 2014" "Version 1.0" "net_mac80211" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+/home/guille/msm/net/mac80211/rc80211_minstrel_ht.c \- 
+.SH SYNOPSIS
+.br
+.PP
+\fC#include <linux/netdevice\&.h>\fP
+.br
+\fC#include <linux/types\&.h>\fP
+.br
+\fC#include <linux/skbuff\&.h>\fP
+.br
+\fC#include <linux/debugfs\&.h>\fP
+.br
+\fC#include <linux/random\&.h>\fP
+.br
+\fC#include <linux/ieee80211\&.h>\fP
+.br
+\fC#include <net/mac80211\&.h>\fP
+.br
+\fC#include 'rate\&.h'\fP
+.br
+\fC#include 'rc80211_minstrel\&.h'\fP
+.br
+\fC#include 'rc80211_minstrel_ht\&.h'\fP
+.br
+
+.SS "Macros"
+
+.in +1c
+.ti -1c
+.RI "#define \fBAVG_PKT_SIZE\fP   1200"
+.br
+.ti -1c
+.RI "#define \fBSAMPLE_COLUMNS\fP   10"
+.br
+.ti -1c
+.RI "#define \fBEWMA_LEVEL\fP   75"
+.br
+.ti -1c
+.RI "#define \fBMCS_NBITS\fP   (\fBAVG_PKT_SIZE\fP << 3)"
+.br
+.ti -1c
+.RI "#define \fBMCS_NSYMS\fP(bps)   ((\fBMCS_NBITS\fP + (bps) - 1) / (bps))"
+.br
+.ti -1c
+.RI "#define \fBMCS_SYMBOL_TIME\fP(sgi, syms)"
+.br
+.ti -1c
+.RI "#define \fBMCS_DURATION\fP(streams, sgi, bps)   \fBMCS_SYMBOL_TIME\fP(sgi, \fBMCS_NSYMS\fP((streams) * (bps)))"
+.br
+.ti -1c
+.RI "#define \fBGROUP_IDX\fP(_streams, _sgi, _ht40)"
+.br
+.ti -1c
+.RI "#define \fBMCS_GROUP\fP(_streams, _sgi, _ht40)"
+.br
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "int __init \fBrc80211_minstrel_ht_init\fP (void)"
+.br
+.ti -1c
+.RI "void \fBrc80211_minstrel_ht_exit\fP (void)"
+.br
+.in -1c
+.SS "Variables"
+
+.in +1c
+.ti -1c
+.RI "struct \fBmcs_group\fP \fBminstrel_mcs_groups\fP []"
+.br
+.in -1c
+.SH "Macro Definition Documentation"
+.PP 
+.SS "#define AVG_PKT_SIZE   1200"
+
+.PP
+Definition at line 19 of file rc80211_minstrel_ht\&.c\&.
+.SS "#define EWMA_LEVEL   75"
+
+.PP
+Definition at line 21 of file rc80211_minstrel_ht\&.c\&.
+.SS "#define GROUP_IDX(_streams, _sgi, _ht40)"
+\fBValue:\fP
+.PP
+.nf
+MINSTREL_MAX_STREAMS * 2 * _ht40 +    \
+    MINSTREL_MAX_STREAMS * _sgi +       \
+    _streams - 1
+.fi
+.PP
+Definition at line 42 of file rc80211_minstrel_ht\&.c\&.
+.SS "#define MCS_DURATION(streams, sgi, bps)   \fBMCS_SYMBOL_TIME\fP(sgi, \fBMCS_NSYMS\fP((streams) * (bps)))"
+
+.PP
+Definition at line 37 of file rc80211_minstrel_ht\&.c\&.
+.SS "#define MCS_GROUP(_streams, _sgi, _ht40)"
+\fBValue:\fP
+.PP
+.nf
+[GROUP_IDX(_streams, _sgi, _ht40)] = {             \
+    \&.streams = _streams,                     \
+    \&.flags =                         \
+        (_sgi ? IEEE80211_TX_RC_SHORT_GI : 0) |         \
+        (_ht40 ? IEEE80211_TX_RC_40_MHZ_WIDTH : 0),     \
+    \&.duration = {                            \
+        MCS_DURATION(_streams, _sgi, _ht40 ? 54 : 26),      \
+        MCS_DURATION(_streams, _sgi, _ht40 ? 108 : 52),     \
+        MCS_DURATION(_streams, _sgi, _ht40 ? 162 : 78),     \
+        MCS_DURATION(_streams, _sgi, _ht40 ? 216 : 104),    \
+        MCS_DURATION(_streams, _sgi, _ht40 ? 324 : 156),    \
+        MCS_DURATION(_streams, _sgi, _ht40 ? 432 : 208),    \
+        MCS_DURATION(_streams, _sgi, _ht40 ? 486 : 234),    \
+        MCS_DURATION(_streams, _sgi, _ht40 ? 540 : 260)     \
+    }                               \
+}
+.fi
+.PP
+Definition at line 48 of file rc80211_minstrel_ht\&.c\&.
+.SS "#define MCS_NBITS   (\fBAVG_PKT_SIZE\fP << 3)"
+
+.PP
+Definition at line 24 of file rc80211_minstrel_ht\&.c\&.
+.SS "#define MCS_NSYMS(bps)   ((\fBMCS_NBITS\fP + (bps) - 1) / (bps))"
+
+.PP
+Definition at line 27 of file rc80211_minstrel_ht\&.c\&.
+.SS "#define MCS_SYMBOL_TIME(sgi, syms)"
+\fBValue:\fP
+.PP
+.nf
+(sgi ?                               \
+      ((syms) * 18 + 4) / 5 :   /* syms * 3\&.6 us */      \
+      (syms) << 2           /* syms * 4 us */       \
+    )
+.fi
+.PP
+Definition at line 30 of file rc80211_minstrel_ht\&.c\&.
+.SS "#define SAMPLE_COLUMNS   10"
+
+.PP
+Definition at line 20 of file rc80211_minstrel_ht\&.c\&.
+.SH "Function Documentation"
+.PP 
+.SS "void rc80211_minstrel_ht_exit (void)"
+
+.PP
+Definition at line 908 of file rc80211_minstrel_ht\&.c\&.
+.SS "int __init rc80211_minstrel_ht_init (void)"
+
+.PP
+Definition at line 901 of file rc80211_minstrel_ht\&.c\&.
+.SH "Variable Documentation"
+.PP 
+.SS "struct \fBmcs_group\fP minstrel_mcs_groups[]"
+\fBInitial value:\fP
+.PP
+.nf
+= {
+    MCS_GROUP(1, 0, 0),
+    MCS_GROUP(2, 0, 0),
+
+    MCS_GROUP(3, 0, 0),
+
+
+    MCS_GROUP(1, 1, 0),
+    MCS_GROUP(2, 1, 0),
+
+    MCS_GROUP(3, 1, 0),
+
+
+    MCS_GROUP(1, 0, 1),
+    MCS_GROUP(2, 0, 1),
+
+    MCS_GROUP(3, 0, 1),
+
+
+    MCS_GROUP(1, 1, 1),
+    MCS_GROUP(2, 1, 1),
+
+    MCS_GROUP(3, 1, 1),
+
+}
+.fi
+.PP
+Definition at line 74 of file rc80211_minstrel_ht\&.c\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for net_mac80211 from the source code\&.

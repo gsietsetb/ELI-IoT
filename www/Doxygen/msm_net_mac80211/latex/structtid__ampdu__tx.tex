@@ -1,0 +1,149 @@
+\hypertarget{structtid__ampdu__tx}{\section{tid\-\_\-ampdu\-\_\-tx Struct Reference}
+\label{structtid__ampdu__tx}\index{tid\-\_\-ampdu\-\_\-tx@{tid\-\_\-ampdu\-\_\-tx}}
+}
+
+
+{\ttfamily \#include $<$sta\-\_\-info.\-h$>$}
+
+
+
+Collaboration diagram for tid\-\_\-ampdu\-\_\-tx\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=182pt]{structtid__ampdu__tx__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+struct rcu\-\_\-head \hyperlink{structtid__ampdu__tx_ab698383409a24791490f962fe6990655}{rcu\-\_\-head}
+\item 
+struct timer\-\_\-list \hyperlink{structtid__ampdu__tx_a96b57b74220e5b5898ffd791809d9dfe}{session\-\_\-timer}
+\item 
+struct timer\-\_\-list \hyperlink{structtid__ampdu__tx_a6da3a9ab680a571b267e51fcca5a3178}{addba\-\_\-resp\-\_\-timer}
+\item 
+struct sk\-\_\-buff\-\_\-head \hyperlink{structtid__ampdu__tx_a6ef603b2ebc14267cfde5baf9f89b481}{pending}
+\item 
+unsigned long \hyperlink{structtid__ampdu__tx_af7504fc0e249186b115eb5f51a297878}{state}
+\item 
+u16 \hyperlink{structtid__ampdu__tx_a735bf6536b07682f96c9417b0f1e9079}{timeout}
+\item 
+u8 \hyperlink{structtid__ampdu__tx_a6ad691d9e8c744adc654ff53c98502d2}{dialog\-\_\-token}
+\item 
+u8 \hyperlink{structtid__ampdu__tx_a51e1b73c63d487e74b3c38bf47bc4d28}{stop\-\_\-initiator}
+\item 
+bool \hyperlink{structtid__ampdu__tx_a71f0a6678e6562dafeeb34a9d175f22f}{tx\-\_\-stop}
+\item 
+u8 \hyperlink{structtid__ampdu__tx_a9200bc5c3d0f32dca7213a89a0f76490}{buf\-\_\-size}
+\item 
+u16 \hyperlink{structtid__ampdu__tx_aeb33a4d1276de906633e672dbec23ba3}{failed\-\_\-bar\-\_\-ssn}
+\item 
+bool \hyperlink{structtid__ampdu__tx_a3d19fd08f014fe245dddaba7bc411ad0}{bar\-\_\-pending}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+struct \hyperlink{structtid__ampdu__tx}{tid\-\_\-ampdu\-\_\-tx} -\/ T\-I\-D aggregation information (Tx).
+
+\-: rcu head for freeing structure \-: check if we keep Tx-\/ing on the T\-I\-D (by timeout value) \-: timer for peer's response to addba request \-: pending frames queue -- use sta's spinlock to protect \-: dialog token for aggregation session \-: session timeout value to be filled in A\-D\-D\-B\-A requests \-: session state (see above) \-: initiator of a session stop \-: T\-X Del\-B\-A frame when stopping \-: reorder buffer size at receiver \-: ssn of the last failed B\-A\-R tx attempt \-: B\-A\-R needs to be re-\/sent
+
+This structure's lifetime is managed by R\-C\-U, assignments to the array holding it must hold the aggregation mutex.
+
+The T\-X path can access it under R\-C\-U lock-\/free if, and only if, the state has the flag H\-T\-\_\-\-A\-G\-G\-\_\-\-S\-T\-A\-T\-E\-\_\-\-O\-P\-E\-R\-A\-T\-I\-O\-N\-A\-L set. Otherwise, the T\-X path must also acquire the spinlock and re-\/check the state, see comments in the tx code touching it. 
+
+Definition at line 119 of file sta\-\_\-info.\-h.
+
+
+
+\subsection{Field Documentation}
+\hypertarget{structtid__ampdu__tx_a6da3a9ab680a571b267e51fcca5a3178}{\index{tid\-\_\-ampdu\-\_\-tx@{tid\-\_\-ampdu\-\_\-tx}!addba\-\_\-resp\-\_\-timer@{addba\-\_\-resp\-\_\-timer}}
+\index{addba\-\_\-resp\-\_\-timer@{addba\-\_\-resp\-\_\-timer}!tid_ampdu_tx@{tid\-\_\-ampdu\-\_\-tx}}
+\subsubsection[{addba\-\_\-resp\-\_\-timer}]{\setlength{\rightskip}{0pt plus 5cm}struct timer\-\_\-list addba\-\_\-resp\-\_\-timer}}\label{structtid__ampdu__tx_a6da3a9ab680a571b267e51fcca5a3178}
+
+
+Definition at line 122 of file sta\-\_\-info.\-h.
+
+\hypertarget{structtid__ampdu__tx_a3d19fd08f014fe245dddaba7bc411ad0}{\index{tid\-\_\-ampdu\-\_\-tx@{tid\-\_\-ampdu\-\_\-tx}!bar\-\_\-pending@{bar\-\_\-pending}}
+\index{bar\-\_\-pending@{bar\-\_\-pending}!tid_ampdu_tx@{tid\-\_\-ampdu\-\_\-tx}}
+\subsubsection[{bar\-\_\-pending}]{\setlength{\rightskip}{0pt plus 5cm}bool bar\-\_\-pending}}\label{structtid__ampdu__tx_a3d19fd08f014fe245dddaba7bc411ad0}
+
+
+Definition at line 132 of file sta\-\_\-info.\-h.
+
+\hypertarget{structtid__ampdu__tx_a9200bc5c3d0f32dca7213a89a0f76490}{\index{tid\-\_\-ampdu\-\_\-tx@{tid\-\_\-ampdu\-\_\-tx}!buf\-\_\-size@{buf\-\_\-size}}
+\index{buf\-\_\-size@{buf\-\_\-size}!tid_ampdu_tx@{tid\-\_\-ampdu\-\_\-tx}}
+\subsubsection[{buf\-\_\-size}]{\setlength{\rightskip}{0pt plus 5cm}u8 buf\-\_\-size}}\label{structtid__ampdu__tx_a9200bc5c3d0f32dca7213a89a0f76490}
+
+
+Definition at line 129 of file sta\-\_\-info.\-h.
+
+\hypertarget{structtid__ampdu__tx_a6ad691d9e8c744adc654ff53c98502d2}{\index{tid\-\_\-ampdu\-\_\-tx@{tid\-\_\-ampdu\-\_\-tx}!dialog\-\_\-token@{dialog\-\_\-token}}
+\index{dialog\-\_\-token@{dialog\-\_\-token}!tid_ampdu_tx@{tid\-\_\-ampdu\-\_\-tx}}
+\subsubsection[{dialog\-\_\-token}]{\setlength{\rightskip}{0pt plus 5cm}u8 dialog\-\_\-token}}\label{structtid__ampdu__tx_a6ad691d9e8c744adc654ff53c98502d2}
+
+
+Definition at line 126 of file sta\-\_\-info.\-h.
+
+\hypertarget{structtid__ampdu__tx_aeb33a4d1276de906633e672dbec23ba3}{\index{tid\-\_\-ampdu\-\_\-tx@{tid\-\_\-ampdu\-\_\-tx}!failed\-\_\-bar\-\_\-ssn@{failed\-\_\-bar\-\_\-ssn}}
+\index{failed\-\_\-bar\-\_\-ssn@{failed\-\_\-bar\-\_\-ssn}!tid_ampdu_tx@{tid\-\_\-ampdu\-\_\-tx}}
+\subsubsection[{failed\-\_\-bar\-\_\-ssn}]{\setlength{\rightskip}{0pt plus 5cm}u16 failed\-\_\-bar\-\_\-ssn}}\label{structtid__ampdu__tx_aeb33a4d1276de906633e672dbec23ba3}
+
+
+Definition at line 131 of file sta\-\_\-info.\-h.
+
+\hypertarget{structtid__ampdu__tx_a6ef603b2ebc14267cfde5baf9f89b481}{\index{tid\-\_\-ampdu\-\_\-tx@{tid\-\_\-ampdu\-\_\-tx}!pending@{pending}}
+\index{pending@{pending}!tid_ampdu_tx@{tid\-\_\-ampdu\-\_\-tx}}
+\subsubsection[{pending}]{\setlength{\rightskip}{0pt plus 5cm}struct sk\-\_\-buff\-\_\-head pending}}\label{structtid__ampdu__tx_a6ef603b2ebc14267cfde5baf9f89b481}
+
+
+Definition at line 123 of file sta\-\_\-info.\-h.
+
+\hypertarget{structtid__ampdu__tx_ab698383409a24791490f962fe6990655}{\index{tid\-\_\-ampdu\-\_\-tx@{tid\-\_\-ampdu\-\_\-tx}!rcu\-\_\-head@{rcu\-\_\-head}}
+\index{rcu\-\_\-head@{rcu\-\_\-head}!tid_ampdu_tx@{tid\-\_\-ampdu\-\_\-tx}}
+\subsubsection[{rcu\-\_\-head}]{\setlength{\rightskip}{0pt plus 5cm}struct rcu\-\_\-head rcu\-\_\-head}}\label{structtid__ampdu__tx_ab698383409a24791490f962fe6990655}
+
+
+Definition at line 120 of file sta\-\_\-info.\-h.
+
+\hypertarget{structtid__ampdu__tx_a96b57b74220e5b5898ffd791809d9dfe}{\index{tid\-\_\-ampdu\-\_\-tx@{tid\-\_\-ampdu\-\_\-tx}!session\-\_\-timer@{session\-\_\-timer}}
+\index{session\-\_\-timer@{session\-\_\-timer}!tid_ampdu_tx@{tid\-\_\-ampdu\-\_\-tx}}
+\subsubsection[{session\-\_\-timer}]{\setlength{\rightskip}{0pt plus 5cm}struct timer\-\_\-list session\-\_\-timer}}\label{structtid__ampdu__tx_a96b57b74220e5b5898ffd791809d9dfe}
+
+
+Definition at line 121 of file sta\-\_\-info.\-h.
+
+\hypertarget{structtid__ampdu__tx_af7504fc0e249186b115eb5f51a297878}{\index{tid\-\_\-ampdu\-\_\-tx@{tid\-\_\-ampdu\-\_\-tx}!state@{state}}
+\index{state@{state}!tid_ampdu_tx@{tid\-\_\-ampdu\-\_\-tx}}
+\subsubsection[{state}]{\setlength{\rightskip}{0pt plus 5cm}unsigned long state}}\label{structtid__ampdu__tx_af7504fc0e249186b115eb5f51a297878}
+
+
+Definition at line 124 of file sta\-\_\-info.\-h.
+
+\hypertarget{structtid__ampdu__tx_a51e1b73c63d487e74b3c38bf47bc4d28}{\index{tid\-\_\-ampdu\-\_\-tx@{tid\-\_\-ampdu\-\_\-tx}!stop\-\_\-initiator@{stop\-\_\-initiator}}
+\index{stop\-\_\-initiator@{stop\-\_\-initiator}!tid_ampdu_tx@{tid\-\_\-ampdu\-\_\-tx}}
+\subsubsection[{stop\-\_\-initiator}]{\setlength{\rightskip}{0pt plus 5cm}u8 stop\-\_\-initiator}}\label{structtid__ampdu__tx_a51e1b73c63d487e74b3c38bf47bc4d28}
+
+
+Definition at line 127 of file sta\-\_\-info.\-h.
+
+\hypertarget{structtid__ampdu__tx_a735bf6536b07682f96c9417b0f1e9079}{\index{tid\-\_\-ampdu\-\_\-tx@{tid\-\_\-ampdu\-\_\-tx}!timeout@{timeout}}
+\index{timeout@{timeout}!tid_ampdu_tx@{tid\-\_\-ampdu\-\_\-tx}}
+\subsubsection[{timeout}]{\setlength{\rightskip}{0pt plus 5cm}u16 timeout}}\label{structtid__ampdu__tx_a735bf6536b07682f96c9417b0f1e9079}
+
+
+Definition at line 125 of file sta\-\_\-info.\-h.
+
+\hypertarget{structtid__ampdu__tx_a71f0a6678e6562dafeeb34a9d175f22f}{\index{tid\-\_\-ampdu\-\_\-tx@{tid\-\_\-ampdu\-\_\-tx}!tx\-\_\-stop@{tx\-\_\-stop}}
+\index{tx\-\_\-stop@{tx\-\_\-stop}!tid_ampdu_tx@{tid\-\_\-ampdu\-\_\-tx}}
+\subsubsection[{tx\-\_\-stop}]{\setlength{\rightskip}{0pt plus 5cm}bool tx\-\_\-stop}}\label{structtid__ampdu__tx_a71f0a6678e6562dafeeb34a9d175f22f}
+
+
+Definition at line 128 of file sta\-\_\-info.\-h.
+
+
+
+The documentation for this struct was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+/home/guille/msm/net/mac80211/\hyperlink{sta__info_8h}{sta\-\_\-info.\-h}\end{DoxyCompactItemize}

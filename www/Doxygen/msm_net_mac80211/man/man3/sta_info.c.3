@@ -1,0 +1,255 @@
+.TH "/home/guille/msm/net/mac80211/sta_info.c" 3 "Sun Jun 1 2014" "Version 1.0" "net_mac80211" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+/home/guille/msm/net/mac80211/sta_info.c \- 
+.SH SYNOPSIS
+.br
+.PP
+\fC#include <linux/module\&.h>\fP
+.br
+\fC#include <linux/init\&.h>\fP
+.br
+\fC#include <linux/etherdevice\&.h>\fP
+.br
+\fC#include <linux/netdevice\&.h>\fP
+.br
+\fC#include <linux/types\&.h>\fP
+.br
+\fC#include <linux/slab\&.h>\fP
+.br
+\fC#include <linux/skbuff\&.h>\fP
+.br
+\fC#include <linux/if_arp\&.h>\fP
+.br
+\fC#include <linux/timer\&.h>\fP
+.br
+\fC#include <linux/rtnetlink\&.h>\fP
+.br
+\fC#include <net/mac80211\&.h>\fP
+.br
+\fC#include 'ieee80211_i\&.h'\fP
+.br
+\fC#include 'driver-ops\&.h'\fP
+.br
+\fC#include 'rate\&.h'\fP
+.br
+\fC#include 'sta_info\&.h'\fP
+.br
+\fC#include 'debugfs_sta\&.h'\fP
+.br
+\fC#include 'mesh\&.h'\fP
+.br
+\fC#include 'wme\&.h'\fP
+.br
+
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "struct \fBsta_info\fP * \fBsta_info_get\fP (struct \fBieee80211_sub_if_data\fP *sdata, const u8 *addr)"
+.br
+.ti -1c
+.RI "struct \fBsta_info\fP * \fBsta_info_get_bss\fP (struct \fBieee80211_sub_if_data\fP *sdata, const u8 *addr)"
+.br
+.ti -1c
+.RI "struct \fBsta_info\fP * \fBsta_info_get_by_idx\fP (struct \fBieee80211_sub_if_data\fP *sdata, int idx)"
+.br
+.ti -1c
+.RI "void \fBsta_info_free\fP (struct \fBieee80211_local\fP *local, struct \fBsta_info\fP *sta)"
+.br
+.ti -1c
+.RI "struct \fBsta_info\fP * \fBsta_info_alloc\fP (struct \fBieee80211_sub_if_data\fP *sdata, const u8 *addr, gfp_t gfp)"
+.br
+.ti -1c
+.RI "int \fBsta_info_insert_rcu\fP (struct \fBsta_info\fP *sta) __acquires(RCU)"
+.br
+.ti -1c
+.RI "int \fBsta_info_insert\fP (struct \fBsta_info\fP *sta)"
+.br
+.ti -1c
+.RI "void \fBsta_info_recalc_tim\fP (struct \fBsta_info\fP *sta)"
+.br
+.ti -1c
+.RI "int __must_check \fB__sta_info_destroy\fP (struct \fBsta_info\fP *sta)"
+.br
+.ti -1c
+.RI "int \fBsta_info_destroy_addr\fP (struct \fBieee80211_sub_if_data\fP *sdata, const u8 *addr)"
+.br
+.ti -1c
+.RI "int \fBsta_info_destroy_addr_bss\fP (struct \fBieee80211_sub_if_data\fP *sdata, const u8 *addr)"
+.br
+.ti -1c
+.RI "void \fBsta_info_init\fP (struct \fBieee80211_local\fP *local)"
+.br
+.ti -1c
+.RI "void \fBsta_info_stop\fP (struct \fBieee80211_local\fP *local)"
+.br
+.ti -1c
+.RI "int \fBsta_info_flush\fP (struct \fBieee80211_local\fP *local, struct \fBieee80211_sub_if_data\fP *sdata)"
+.br
+.ti -1c
+.RI "void \fBieee80211_sta_expire\fP (struct \fBieee80211_sub_if_data\fP *sdata, unsigned long exp_time)"
+.br
+.ti -1c
+.RI "struct ieee80211_sta * \fBieee80211_find_sta_by_ifaddr\fP (struct ieee80211_hw *hw, const u8 *addr, const u8 *localaddr)"
+.br
+.ti -1c
+.RI "\fBEXPORT_SYMBOL_GPL\fP (\fBieee80211_find_sta_by_ifaddr\fP)"
+.br
+.ti -1c
+.RI "struct ieee80211_sta * \fBieee80211_find_sta\fP (struct ieee80211_vif *vif, const u8 *addr)"
+.br
+.ti -1c
+.RI "\fBEXPORT_SYMBOL\fP (\fBieee80211_find_sta\fP)"
+.br
+.ti -1c
+.RI "void \fBieee80211_sta_ps_deliver_wakeup\fP (struct \fBsta_info\fP *sta)"
+.br
+.ti -1c
+.RI "void \fBieee80211_sta_ps_deliver_poll_response\fP (struct \fBsta_info\fP *sta)"
+.br
+.ti -1c
+.RI "void \fBieee80211_sta_ps_deliver_uapsd\fP (struct \fBsta_info\fP *sta)"
+.br
+.ti -1c
+.RI "void \fBieee80211_sta_block_awake\fP (struct ieee80211_hw *hw, struct ieee80211_sta *pubsta, bool block)"
+.br
+.ti -1c
+.RI "\fBEXPORT_SYMBOL\fP (\fBieee80211_sta_block_awake\fP)"
+.br
+.ti -1c
+.RI "void \fBieee80211_sta_eosp_irqsafe\fP (struct ieee80211_sta *pubsta)"
+.br
+.ti -1c
+.RI "\fBEXPORT_SYMBOL\fP (\fBieee80211_sta_eosp_irqsafe\fP)"
+.br
+.ti -1c
+.RI "void \fBieee80211_sta_set_buffered\fP (struct ieee80211_sta *pubsta, u8 tid, bool buffered)"
+.br
+.ti -1c
+.RI "\fBEXPORT_SYMBOL\fP (\fBieee80211_sta_set_buffered\fP)"
+.br
+.ti -1c
+.RI "int \fBsta_info_move_state\fP (struct \fBsta_info\fP *sta, enum ieee80211_sta_state new_state)"
+.br
+.in -1c
+.SH "Function Documentation"
+.PP 
+.SS "int __must_check __sta_info_destroy (struct \fBsta_info\fP *sta)"
+
+.PP
+Definition at line 661 of file sta_info\&.c\&.
+.SS "EXPORT_SYMBOL (\fBieee80211_find_sta\fP)"
+
+.SS "EXPORT_SYMBOL (\fBieee80211_sta_block_awake\fP)"
+
+.SS "EXPORT_SYMBOL (\fBieee80211_sta_eosp_irqsafe\fP)"
+
+.SS "EXPORT_SYMBOL (\fBieee80211_sta_set_buffered\fP)"
+
+.SS "EXPORT_SYMBOL_GPL (\fBieee80211_find_sta_by_ifaddr\fP)"
+
+.SS "struct ieee80211_sta* ieee80211_find_sta (struct ieee80211_vif *vif, const u8 *addr)"
+
+.PP
+Definition at line 926 of file sta_info\&.c\&.
+.SS "struct ieee80211_sta* ieee80211_find_sta_by_ifaddr (struct ieee80211_hw *hw, const u8 *addr, const u8 *localaddr)"
+
+.PP
+Definition at line 903 of file sta_info\&.c\&.
+.SS "void ieee80211_sta_block_awake (struct ieee80211_hw *hw, struct ieee80211_sta *pubsta, boolblock)"
+
+.PP
+Definition at line 1295 of file sta_info\&.c\&.
+.SS "void ieee80211_sta_eosp_irqsafe (struct ieee80211_sta *pubsta)"
+
+.PP
+Definition at line 1309 of file sta_info\&.c\&.
+.SS "void ieee80211_sta_expire (struct \fBieee80211_sub_if_data\fP *sdata, unsigned longexp_time)"
+
+.PP
+Definition at line 879 of file sta_info\&.c\&.
+.SS "void ieee80211_sta_ps_deliver_poll_response (struct \fBsta_info\fP *sta)"
+
+.PP
+Definition at line 1245 of file sta_info\&.c\&.
+.SS "void ieee80211_sta_ps_deliver_uapsd (struct \fBsta_info\fP *sta)"
+
+.PP
+Definition at line 1261 of file sta_info\&.c\&.
+.SS "void ieee80211_sta_ps_deliver_wakeup (struct \fBsta_info\fP *sta)"
+
+.PP
+Definition at line 956 of file sta_info\&.c\&.
+.SS "void ieee80211_sta_set_buffered (struct ieee80211_sta *pubsta, u8tid, boolbuffered)"
+
+.PP
+Definition at line 1334 of file sta_info\&.c\&.
+.SS "struct \fBsta_info\fP* sta_info_alloc (struct \fBieee80211_sub_if_data\fP *sdata, const u8 *addr, gfp_tgfp)"
+
+.PP
+Definition at line 232 of file sta_info\&.c\&.
+.SS "int sta_info_destroy_addr (struct \fBieee80211_sub_if_data\fP *sdata, const u8 *addr)"
+
+.PP
+Definition at line 786 of file sta_info\&.c\&.
+.SS "int sta_info_destroy_addr_bss (struct \fBieee80211_sub_if_data\fP *sdata, const u8 *addr)"
+
+.PP
+Definition at line 799 of file sta_info\&.c\&.
+.SS "int sta_info_flush (struct \fBieee80211_local\fP *local, struct \fBieee80211_sub_if_data\fP *sdata)"
+sta_info_flush - flush matching STA entries from the STA table
+.PP
+Returns the number of removed STA entries\&.
+.PP
+: local interface data : matching rule for the net device (sta->dev) or NULL to match all STAs 
+.PP
+Definition at line 859 of file sta_info\&.c\&.
+.SS "void sta_info_free (struct \fBieee80211_local\fP *local, struct \fBsta_info\fP *sta)"
+sta_info_free - free STA
+.PP
+: pointer to the global information : STA info to free
+.PP
+This function must undo everything done by \fBsta_info_alloc()\fP that may happen before \fBsta_info_insert()\fP\&. It may only be called when \fBsta_info_insert()\fP has not been attempted (and if that fails, the station is freed anyway\&.) 
+.PP
+Definition at line 167 of file sta_info\&.c\&.
+.SS "struct \fBsta_info\fP* sta_info_get (struct \fBieee80211_sub_if_data\fP *sdata, const u8 *addr)"
+
+.PP
+Definition at line 95 of file sta_info\&.c\&.
+.SS "struct \fBsta_info\fP* sta_info_get_bss (struct \fBieee80211_sub_if_data\fP *sdata, const u8 *addr)"
+
+.PP
+Definition at line 117 of file sta_info\&.c\&.
+.SS "struct \fBsta_info\fP* sta_info_get_by_idx (struct \fBieee80211_sub_if_data\fP *sdata, intidx)"
+
+.PP
+Definition at line 136 of file sta_info\&.c\&.
+.SS "void sta_info_init (struct \fBieee80211_local\fP *local)"
+
+.PP
+Definition at line 835 of file sta_info\&.c\&.
+.SS "int sta_info_insert (struct \fBsta_info\fP *sta)"
+
+.PP
+Definition at line 437 of file sta_info\&.c\&.
+.SS "int sta_info_insert_rcu (struct \fBsta_info\fP *sta)"
+
+.PP
+Definition at line 411 of file sta_info\&.c\&.
+.SS "int sta_info_move_state (struct \fBsta_info\fP *sta, enum ieee80211_sta_statenew_state)"
+
+.PP
+Definition at line 1351 of file sta_info\&.c\&.
+.SS "void sta_info_recalc_tim (struct \fBsta_info\fP *sta)"
+
+.PP
+Definition at line 482 of file sta_info\&.c\&.
+.SS "void sta_info_stop (struct \fBieee80211_local\fP *local)"
+
+.PP
+Definition at line 845 of file sta_info\&.c\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for net_mac80211 from the source code\&.

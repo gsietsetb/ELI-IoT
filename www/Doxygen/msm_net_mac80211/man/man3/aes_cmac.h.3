@@ -1,0 +1,41 @@
+.TH "/home/guille/msm/net/mac80211/aes_cmac.h" 3 "Sun Jun 1 2014" "Version 1.0" "net_mac80211" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+/home/guille/msm/net/mac80211/aes_cmac.h \- 
+.SH SYNOPSIS
+.br
+.PP
+\fC#include <linux/crypto\&.h>\fP
+.br
+
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "struct crypto_cipher * \fBieee80211_aes_cmac_key_setup\fP (const u8 key[])"
+.br
+.ti -1c
+.RI "void \fBieee80211_aes_cmac\fP (struct crypto_cipher *tfm, const u8 *aad, const u8 *data, size_t data_len, u8 *mic)"
+.br
+.ti -1c
+.RI "void \fBieee80211_aes_cmac_key_free\fP (struct crypto_cipher *tfm)"
+.br
+.in -1c
+.SH "Function Documentation"
+.PP 
+.SS "void ieee80211_aes_cmac (struct crypto_cipher *tfm, const u8 *aad, const u8 *data, size_tdata_len, u8 *mic)"
+
+.PP
+Definition at line 98 of file aes_cmac\&.c\&.
+.SS "void ieee80211_aes_cmac_key_free (struct crypto_cipher *tfm)"
+
+.PP
+Definition at line 129 of file aes_cmac\&.c\&.
+.SS "struct crypto_cipher* ieee80211_aes_cmac_key_setup (const u8key[])"
+
+.PP
+Definition at line 117 of file aes_cmac\&.c\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for net_mac80211 from the source code\&.

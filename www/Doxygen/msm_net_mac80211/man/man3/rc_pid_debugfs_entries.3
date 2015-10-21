@@ -1,0 +1,90 @@
+.TH "rc_pid_debugfs_entries" 3 "Sun Jun 1 2014" "Version 1.0" "net_mac80211" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+rc_pid_debugfs_entries \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <rc80211_pid\&.h>\fP
+.SS "Data Fields"
+
+.in +1c
+.ti -1c
+.RI "struct dentry * \fBtarget\fP"
+.br
+.ti -1c
+.RI "struct dentry * \fBsampling_period\fP"
+.br
+.ti -1c
+.RI "struct dentry * \fBcoeff_p\fP"
+.br
+.ti -1c
+.RI "struct dentry * \fBcoeff_i\fP"
+.br
+.ti -1c
+.RI "struct dentry * \fBcoeff_d\fP"
+.br
+.ti -1c
+.RI "struct dentry * \fBsmoothing_shift\fP"
+.br
+.ti -1c
+.RI "struct dentry * \fBsharpen_factor\fP"
+.br
+.ti -1c
+.RI "struct dentry * \fBsharpen_duration\fP"
+.br
+.ti -1c
+.RI "struct dentry * \fBnorm_offset\fP"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+struct \fBrc_pid_debugfs_entries\fP - tunable parameters
+.PP
+Algorithm parameters, tunable via debugfs\&. : target percentage for failed frames : error sampling interval in milliseconds : absolute value of the proportional coefficient : absolute value of the integral coefficient : absolute value of the derivative coefficient : absolute value of the integral smoothing factor (i\&.e\&. amount of smoothing introduced by the exponential moving average) : absolute value of the derivative sharpening factor (i\&.e\&. amount of emphasis given to the derivative term after low activity events) : duration of the sharpening effect after the detected low activity event, relative to sampling_period : amount of normalization periodically performed on the learnt rate behaviour values (lower means we should trust more what we learnt about behaviour of rates, higher means we should trust more the natural ordering of rates) 
+.PP
+Definition at line 142 of file rc80211_pid\&.h\&.
+.SH "Field Documentation"
+.PP 
+.SS "struct dentry* coeff_d"
+
+.PP
+Definition at line 147 of file rc80211_pid\&.h\&.
+.SS "struct dentry* coeff_i"
+
+.PP
+Definition at line 146 of file rc80211_pid\&.h\&.
+.SS "struct dentry* coeff_p"
+
+.PP
+Definition at line 145 of file rc80211_pid\&.h\&.
+.SS "struct dentry* norm_offset"
+
+.PP
+Definition at line 151 of file rc80211_pid\&.h\&.
+.SS "struct dentry* sampling_period"
+
+.PP
+Definition at line 144 of file rc80211_pid\&.h\&.
+.SS "struct dentry* sharpen_duration"
+
+.PP
+Definition at line 150 of file rc80211_pid\&.h\&.
+.SS "struct dentry* sharpen_factor"
+
+.PP
+Definition at line 149 of file rc80211_pid\&.h\&.
+.SS "struct dentry* smoothing_shift"
+
+.PP
+Definition at line 148 of file rc80211_pid\&.h\&.
+.SS "struct dentry* target"
+
+.PP
+Definition at line 143 of file rc80211_pid\&.h\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for net_mac80211 from the source code\&.

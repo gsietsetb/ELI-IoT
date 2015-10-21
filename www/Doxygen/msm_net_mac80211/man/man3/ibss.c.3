@@ -1,0 +1,137 @@
+.TH "/home/guille/msm/net/mac80211/ibss.c" 3 "Sun Jun 1 2014" "Version 1.0" "net_mac80211" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+/home/guille/msm/net/mac80211/ibss.c \- 
+.SH SYNOPSIS
+.br
+.PP
+\fC#include <linux/delay\&.h>\fP
+.br
+\fC#include <linux/slab\&.h>\fP
+.br
+\fC#include <linux/if_ether\&.h>\fP
+.br
+\fC#include <linux/skbuff\&.h>\fP
+.br
+\fC#include <linux/if_arp\&.h>\fP
+.br
+\fC#include <linux/etherdevice\&.h>\fP
+.br
+\fC#include <linux/rtnetlink\&.h>\fP
+.br
+\fC#include <net/mac80211\&.h>\fP
+.br
+\fC#include 'ieee80211_i\&.h'\fP
+.br
+\fC#include 'driver-ops\&.h'\fP
+.br
+\fC#include 'rate\&.h'\fP
+.br
+
+.SS "Macros"
+
+.in +1c
+.ti -1c
+.RI "#define \fBIEEE80211_SCAN_INTERVAL\fP   (2 * HZ)"
+.br
+.ti -1c
+.RI "#define \fBIEEE80211_SCAN_INTERVAL_SLOW\fP   (15 * HZ)"
+.br
+.ti -1c
+.RI "#define \fBIEEE80211_IBSS_JOIN_TIMEOUT\fP   (7 * HZ)"
+.br
+.ti -1c
+.RI "#define \fBIEEE80211_IBSS_MERGE_INTERVAL\fP   (30 * HZ)"
+.br
+.ti -1c
+.RI "#define \fBIEEE80211_IBSS_INACTIVITY_LIMIT\fP   (60 * HZ)"
+.br
+.ti -1c
+.RI "#define \fBIEEE80211_IBSS_MAX_STA_ENTRIES\fP   128"
+.br
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBieee80211_ibss_rx_no_sta\fP (struct \fBieee80211_sub_if_data\fP *sdata, const u8 *bssid, const u8 *addr, u32 supp_rates)"
+.br
+.ti -1c
+.RI "void \fBieee80211_ibss_rx_queued_mgmt\fP (struct \fBieee80211_sub_if_data\fP *sdata, struct sk_buff *skb)"
+.br
+.ti -1c
+.RI "void \fBieee80211_ibss_work\fP (struct \fBieee80211_sub_if_data\fP *sdata)"
+.br
+.ti -1c
+.RI "void \fBieee80211_ibss_setup_sdata\fP (struct \fBieee80211_sub_if_data\fP *sdata)"
+.br
+.ti -1c
+.RI "void \fBieee80211_ibss_notify_scan_completed\fP (struct \fBieee80211_local\fP *local)"
+.br
+.ti -1c
+.RI "int \fBieee80211_ibss_join\fP (struct \fBieee80211_sub_if_data\fP *sdata, struct cfg80211_ibss_params *params)"
+.br
+.ti -1c
+.RI "int \fBieee80211_ibss_leave\fP (struct \fBieee80211_sub_if_data\fP *sdata)"
+.br
+.in -1c
+.SH "Macro Definition Documentation"
+.PP 
+.SS "#define IEEE80211_IBSS_INACTIVITY_LIMIT   (60 * HZ)"
+
+.PP
+Definition at line 33 of file ibss\&.c\&.
+.SS "#define IEEE80211_IBSS_JOIN_TIMEOUT   (7 * HZ)"
+
+.PP
+Definition at line 30 of file ibss\&.c\&.
+.SS "#define IEEE80211_IBSS_MAX_STA_ENTRIES   128"
+
+.PP
+Definition at line 35 of file ibss\&.c\&.
+.SS "#define IEEE80211_IBSS_MERGE_INTERVAL   (30 * HZ)"
+
+.PP
+Definition at line 32 of file ibss\&.c\&.
+.SS "#define IEEE80211_SCAN_INTERVAL   (2 * HZ)"
+
+.PP
+Definition at line 28 of file ibss\&.c\&.
+.SS "#define IEEE80211_SCAN_INTERVAL_SLOW   (15 * HZ)"
+
+.PP
+Definition at line 29 of file ibss\&.c\&.
+.SH "Function Documentation"
+.PP 
+.SS "int ieee80211_ibss_join (struct \fBieee80211_sub_if_data\fP *sdata, struct cfg80211_ibss_params *params)"
+
+.PP
+Definition at line 1051 of file ibss\&.c\&.
+.SS "int ieee80211_ibss_leave (struct \fBieee80211_sub_if_data\fP *sdata)"
+
+.PP
+Definition at line 1144 of file ibss\&.c\&.
+.SS "void ieee80211_ibss_notify_scan_completed (struct \fBieee80211_local\fP *local)"
+
+.PP
+Definition at line 1035 of file ibss\&.c\&.
+.SS "void ieee80211_ibss_rx_no_sta (struct \fBieee80211_sub_if_data\fP *sdata, const u8 *bssid, const u8 *addr, u32supp_rates)"
+
+.PP
+Definition at line 573 of file ibss\&.c\&.
+.SS "void ieee80211_ibss_rx_queued_mgmt (struct \fBieee80211_sub_if_data\fP *sdata, struct sk_buff *skb)"
+
+.PP
+Definition at line 907 of file ibss\&.c\&.
+.SS "void ieee80211_ibss_setup_sdata (struct \fBieee80211_sub_if_data\fP *sdata)"
+
+.PP
+Definition at line 1023 of file ibss\&.c\&.
+.SS "void ieee80211_ibss_work (struct \fBieee80211_sub_if_data\fP *sdata)"
+
+.PP
+Definition at line 944 of file ibss\&.c\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for net_mac80211 from the source code\&.

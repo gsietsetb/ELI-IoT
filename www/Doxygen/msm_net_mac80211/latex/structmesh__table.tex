@@ -1,0 +1,147 @@
+\hypertarget{structmesh__table}{\section{mesh\-\_\-table Struct Reference}
+\label{structmesh__table}\index{mesh\-\_\-table@{mesh\-\_\-table}}
+}
+
+
+{\ttfamily \#include $<$mesh.\-h$>$}
+
+
+
+Collaboration diagram for mesh\-\_\-table\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=176pt]{structmesh__table__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+struct hlist\-\_\-head $\ast$ \hyperlink{structmesh__table_a04eadd518c34fb4fff4aaed97e1234e0}{hash\-\_\-buckets}
+\item 
+spinlock\-\_\-t $\ast$ \hyperlink{structmesh__table_a26e336e1f797741f588ac094b1ac0202}{hashwlock}
+\item 
+unsigned int \hyperlink{structmesh__table_a379901d7620aa43cd8472e2c189af861}{hash\-\_\-mask}
+\item 
+\-\_\-\-\_\-u32 \hyperlink{structmesh__table_aefd9eaac521878de0638370ef2c70d71}{hash\-\_\-rnd}
+\item 
+atomic\-\_\-t \hyperlink{structmesh__table_ad87bb8a66d6cd622bda213e2edf6c4a2}{entries}
+\item 
+void($\ast$ \hyperlink{structmesh__table_a9779fca079801066cd605af403cc1eea}{free\-\_\-node} )(struct hlist\-\_\-node $\ast$p, bool free\-\_\-leafs)
+\item 
+int($\ast$ \hyperlink{structmesh__table_ad8a4389f749adafe9393ad7be19be3bc}{copy\-\_\-node} )(struct hlist\-\_\-node $\ast$p, struct \hyperlink{structmesh__table}{mesh\-\_\-table} $\ast$newtbl)
+\item 
+int \hyperlink{structmesh__table_af2ece8f794fc2b70104b44cde3421003}{size\-\_\-order}
+\item 
+int \hyperlink{structmesh__table_a05410cec7cda00c16011e39666056c20}{mean\-\_\-chain\-\_\-len}
+\item 
+struct hlist\-\_\-head $\ast$ \hyperlink{structmesh__table_a3c40962f5ca0faa5387ad1e91a2c7ba6}{known\-\_\-gates}
+\item 
+spinlock\-\_\-t \hyperlink{structmesh__table_aa4d60ff62c57e22498c2aac249c29391}{gates\-\_\-lock}
+\item 
+struct rcu\-\_\-head \hyperlink{structmesh__table_ab698383409a24791490f962fe6990655}{rcu\-\_\-head}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+struct \hyperlink{structmesh__table}{mesh\-\_\-table}
+
+\-: array of hash buckets of the table \-: array of locks to protect write operations, one per bucket \-: 2$^\wedge$size\-\_\-order -\/ 1, used to compute hash idx \-: random value used for hash computations \-: number of entries in the table \-: function to free nodes of the table \-: function to copy nodes of the table \-: determines size of the table, there will be 2$^\wedge$size\-\_\-order hash buckets \-: maximum average length for the hash buckets' list, if it is reached, the table will grow \-: list of known mesh gates and their mpaths by the station. The gate's mpath may or may not be resolved and active.
+
+rcu\-\_\-head\-: R\-C\-U head to free the table 
+
+Definition at line 138 of file mesh.\-h.
+
+
+
+\subsection{Field Documentation}
+\hypertarget{structmesh__table_ad8a4389f749adafe9393ad7be19be3bc}{\index{mesh\-\_\-table@{mesh\-\_\-table}!copy\-\_\-node@{copy\-\_\-node}}
+\index{copy\-\_\-node@{copy\-\_\-node}!mesh_table@{mesh\-\_\-table}}
+\subsubsection[{copy\-\_\-node}]{\setlength{\rightskip}{0pt plus 5cm}int($\ast$ copy\-\_\-node)(struct hlist\-\_\-node $\ast$p, struct {\bf mesh\-\_\-table} $\ast$newtbl)}}\label{structmesh__table_ad8a4389f749adafe9393ad7be19be3bc}
+
+
+Definition at line 146 of file mesh.\-h.
+
+\hypertarget{structmesh__table_ad87bb8a66d6cd622bda213e2edf6c4a2}{\index{mesh\-\_\-table@{mesh\-\_\-table}!entries@{entries}}
+\index{entries@{entries}!mesh_table@{mesh\-\_\-table}}
+\subsubsection[{entries}]{\setlength{\rightskip}{0pt plus 5cm}atomic\-\_\-t entries}}\label{structmesh__table_ad87bb8a66d6cd622bda213e2edf6c4a2}
+
+
+Definition at line 144 of file mesh.\-h.
+
+\hypertarget{structmesh__table_a9779fca079801066cd605af403cc1eea}{\index{mesh\-\_\-table@{mesh\-\_\-table}!free\-\_\-node@{free\-\_\-node}}
+\index{free\-\_\-node@{free\-\_\-node}!mesh_table@{mesh\-\_\-table}}
+\subsubsection[{free\-\_\-node}]{\setlength{\rightskip}{0pt plus 5cm}void($\ast$ free\-\_\-node)(struct hlist\-\_\-node $\ast$p, bool free\-\_\-leafs)}}\label{structmesh__table_a9779fca079801066cd605af403cc1eea}
+
+
+Definition at line 145 of file mesh.\-h.
+
+\hypertarget{structmesh__table_aa4d60ff62c57e22498c2aac249c29391}{\index{mesh\-\_\-table@{mesh\-\_\-table}!gates\-\_\-lock@{gates\-\_\-lock}}
+\index{gates\-\_\-lock@{gates\-\_\-lock}!mesh_table@{mesh\-\_\-table}}
+\subsubsection[{gates\-\_\-lock}]{\setlength{\rightskip}{0pt plus 5cm}spinlock\-\_\-t gates\-\_\-lock}}\label{structmesh__table_aa4d60ff62c57e22498c2aac249c29391}
+
+
+Definition at line 150 of file mesh.\-h.
+
+\hypertarget{structmesh__table_a04eadd518c34fb4fff4aaed97e1234e0}{\index{mesh\-\_\-table@{mesh\-\_\-table}!hash\-\_\-buckets@{hash\-\_\-buckets}}
+\index{hash\-\_\-buckets@{hash\-\_\-buckets}!mesh_table@{mesh\-\_\-table}}
+\subsubsection[{hash\-\_\-buckets}]{\setlength{\rightskip}{0pt plus 5cm}struct hlist\-\_\-head$\ast$ hash\-\_\-buckets}}\label{structmesh__table_a04eadd518c34fb4fff4aaed97e1234e0}
+
+
+Definition at line 140 of file mesh.\-h.
+
+\hypertarget{structmesh__table_a379901d7620aa43cd8472e2c189af861}{\index{mesh\-\_\-table@{mesh\-\_\-table}!hash\-\_\-mask@{hash\-\_\-mask}}
+\index{hash\-\_\-mask@{hash\-\_\-mask}!mesh_table@{mesh\-\_\-table}}
+\subsubsection[{hash\-\_\-mask}]{\setlength{\rightskip}{0pt plus 5cm}unsigned int hash\-\_\-mask}}\label{structmesh__table_a379901d7620aa43cd8472e2c189af861}
+
+
+Definition at line 142 of file mesh.\-h.
+
+\hypertarget{structmesh__table_aefd9eaac521878de0638370ef2c70d71}{\index{mesh\-\_\-table@{mesh\-\_\-table}!hash\-\_\-rnd@{hash\-\_\-rnd}}
+\index{hash\-\_\-rnd@{hash\-\_\-rnd}!mesh_table@{mesh\-\_\-table}}
+\subsubsection[{hash\-\_\-rnd}]{\setlength{\rightskip}{0pt plus 5cm}\-\_\-\-\_\-u32 hash\-\_\-rnd}}\label{structmesh__table_aefd9eaac521878de0638370ef2c70d71}
+
+
+Definition at line 143 of file mesh.\-h.
+
+\hypertarget{structmesh__table_a26e336e1f797741f588ac094b1ac0202}{\index{mesh\-\_\-table@{mesh\-\_\-table}!hashwlock@{hashwlock}}
+\index{hashwlock@{hashwlock}!mesh_table@{mesh\-\_\-table}}
+\subsubsection[{hashwlock}]{\setlength{\rightskip}{0pt plus 5cm}spinlock\-\_\-t$\ast$ hashwlock}}\label{structmesh__table_a26e336e1f797741f588ac094b1ac0202}
+
+
+Definition at line 141 of file mesh.\-h.
+
+\hypertarget{structmesh__table_a3c40962f5ca0faa5387ad1e91a2c7ba6}{\index{mesh\-\_\-table@{mesh\-\_\-table}!known\-\_\-gates@{known\-\_\-gates}}
+\index{known\-\_\-gates@{known\-\_\-gates}!mesh_table@{mesh\-\_\-table}}
+\subsubsection[{known\-\_\-gates}]{\setlength{\rightskip}{0pt plus 5cm}struct hlist\-\_\-head$\ast$ known\-\_\-gates}}\label{structmesh__table_a3c40962f5ca0faa5387ad1e91a2c7ba6}
+
+
+Definition at line 149 of file mesh.\-h.
+
+\hypertarget{structmesh__table_a05410cec7cda00c16011e39666056c20}{\index{mesh\-\_\-table@{mesh\-\_\-table}!mean\-\_\-chain\-\_\-len@{mean\-\_\-chain\-\_\-len}}
+\index{mean\-\_\-chain\-\_\-len@{mean\-\_\-chain\-\_\-len}!mesh_table@{mesh\-\_\-table}}
+\subsubsection[{mean\-\_\-chain\-\_\-len}]{\setlength{\rightskip}{0pt plus 5cm}int mean\-\_\-chain\-\_\-len}}\label{structmesh__table_a05410cec7cda00c16011e39666056c20}
+
+
+Definition at line 148 of file mesh.\-h.
+
+\hypertarget{structmesh__table_ab698383409a24791490f962fe6990655}{\index{mesh\-\_\-table@{mesh\-\_\-table}!rcu\-\_\-head@{rcu\-\_\-head}}
+\index{rcu\-\_\-head@{rcu\-\_\-head}!mesh_table@{mesh\-\_\-table}}
+\subsubsection[{rcu\-\_\-head}]{\setlength{\rightskip}{0pt plus 5cm}struct rcu\-\_\-head rcu\-\_\-head}}\label{structmesh__table_ab698383409a24791490f962fe6990655}
+
+
+Definition at line 152 of file mesh.\-h.
+
+\hypertarget{structmesh__table_af2ece8f794fc2b70104b44cde3421003}{\index{mesh\-\_\-table@{mesh\-\_\-table}!size\-\_\-order@{size\-\_\-order}}
+\index{size\-\_\-order@{size\-\_\-order}!mesh_table@{mesh\-\_\-table}}
+\subsubsection[{size\-\_\-order}]{\setlength{\rightskip}{0pt plus 5cm}int size\-\_\-order}}\label{structmesh__table_af2ece8f794fc2b70104b44cde3421003}
+
+
+Definition at line 147 of file mesh.\-h.
+
+
+
+The documentation for this struct was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+/home/guille/msm/net/mac80211/\hyperlink{mesh_8h}{mesh.\-h}\end{DoxyCompactItemize}

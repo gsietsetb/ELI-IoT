@@ -1,0 +1,118 @@
+\hypertarget{structrc__pid__debugfs__entries}{\section{rc\-\_\-pid\-\_\-debugfs\-\_\-entries Struct Reference}
+\label{structrc__pid__debugfs__entries}\index{rc\-\_\-pid\-\_\-debugfs\-\_\-entries@{rc\-\_\-pid\-\_\-debugfs\-\_\-entries}}
+}
+
+
+{\ttfamily \#include $<$rc80211\-\_\-pid.\-h$>$}
+
+
+
+Collaboration diagram for rc\-\_\-pid\-\_\-debugfs\-\_\-entries\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=196pt]{structrc__pid__debugfs__entries__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+struct dentry $\ast$ \hyperlink{structrc__pid__debugfs__entries_a6dabe07e2b398ac0f58ac8f38a4b56b6}{target}
+\item 
+struct dentry $\ast$ \hyperlink{structrc__pid__debugfs__entries_a76915207e9f4be745cf591cabb1ba17c}{sampling\-\_\-period}
+\item 
+struct dentry $\ast$ \hyperlink{structrc__pid__debugfs__entries_a1a4e446a756b61017c2b85a6d8fa70c5}{coeff\-\_\-p}
+\item 
+struct dentry $\ast$ \hyperlink{structrc__pid__debugfs__entries_ad6b82f12eff1d91fb126c328e1e9a160}{coeff\-\_\-i}
+\item 
+struct dentry $\ast$ \hyperlink{structrc__pid__debugfs__entries_a8e02c39865c25ddbe3542a9f0ee711a1}{coeff\-\_\-d}
+\item 
+struct dentry $\ast$ \hyperlink{structrc__pid__debugfs__entries_aaca47ee03a834e073bbf46987f4a531b}{smoothing\-\_\-shift}
+\item 
+struct dentry $\ast$ \hyperlink{structrc__pid__debugfs__entries_a97f17182415214fc8cccde6894e0c815}{sharpen\-\_\-factor}
+\item 
+struct dentry $\ast$ \hyperlink{structrc__pid__debugfs__entries_aa529c80eecd02e36617d50510a0258a9}{sharpen\-\_\-duration}
+\item 
+struct dentry $\ast$ \hyperlink{structrc__pid__debugfs__entries_a08c42d2f89165fa314dbc2d527fad94d}{norm\-\_\-offset}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+struct \hyperlink{structrc__pid__debugfs__entries}{rc\-\_\-pid\-\_\-debugfs\-\_\-entries} -\/ tunable parameters
+
+Algorithm parameters, tunable via debugfs. \-: target percentage for failed frames \-: error sampling interval in milliseconds \-: absolute value of the proportional coefficient \-: absolute value of the integral coefficient \-: absolute value of the derivative coefficient \-: absolute value of the integral smoothing factor (i.\-e. amount of smoothing introduced by the exponential moving average) \-: absolute value of the derivative sharpening factor (i.\-e. amount of emphasis given to the derivative term after low activity events) \-: duration of the sharpening effect after the detected low activity event, relative to sampling\-\_\-period \-: amount of normalization periodically performed on the learnt rate behaviour values (lower means we should trust more what we learnt about behaviour of rates, higher means we should trust more the natural ordering of rates) 
+
+Definition at line 142 of file rc80211\-\_\-pid.\-h.
+
+
+
+\subsection{Field Documentation}
+\hypertarget{structrc__pid__debugfs__entries_a8e02c39865c25ddbe3542a9f0ee711a1}{\index{rc\-\_\-pid\-\_\-debugfs\-\_\-entries@{rc\-\_\-pid\-\_\-debugfs\-\_\-entries}!coeff\-\_\-d@{coeff\-\_\-d}}
+\index{coeff\-\_\-d@{coeff\-\_\-d}!rc_pid_debugfs_entries@{rc\-\_\-pid\-\_\-debugfs\-\_\-entries}}
+\subsubsection[{coeff\-\_\-d}]{\setlength{\rightskip}{0pt plus 5cm}struct dentry$\ast$ coeff\-\_\-d}}\label{structrc__pid__debugfs__entries_a8e02c39865c25ddbe3542a9f0ee711a1}
+
+
+Definition at line 147 of file rc80211\-\_\-pid.\-h.
+
+\hypertarget{structrc__pid__debugfs__entries_ad6b82f12eff1d91fb126c328e1e9a160}{\index{rc\-\_\-pid\-\_\-debugfs\-\_\-entries@{rc\-\_\-pid\-\_\-debugfs\-\_\-entries}!coeff\-\_\-i@{coeff\-\_\-i}}
+\index{coeff\-\_\-i@{coeff\-\_\-i}!rc_pid_debugfs_entries@{rc\-\_\-pid\-\_\-debugfs\-\_\-entries}}
+\subsubsection[{coeff\-\_\-i}]{\setlength{\rightskip}{0pt plus 5cm}struct dentry$\ast$ coeff\-\_\-i}}\label{structrc__pid__debugfs__entries_ad6b82f12eff1d91fb126c328e1e9a160}
+
+
+Definition at line 146 of file rc80211\-\_\-pid.\-h.
+
+\hypertarget{structrc__pid__debugfs__entries_a1a4e446a756b61017c2b85a6d8fa70c5}{\index{rc\-\_\-pid\-\_\-debugfs\-\_\-entries@{rc\-\_\-pid\-\_\-debugfs\-\_\-entries}!coeff\-\_\-p@{coeff\-\_\-p}}
+\index{coeff\-\_\-p@{coeff\-\_\-p}!rc_pid_debugfs_entries@{rc\-\_\-pid\-\_\-debugfs\-\_\-entries}}
+\subsubsection[{coeff\-\_\-p}]{\setlength{\rightskip}{0pt plus 5cm}struct dentry$\ast$ coeff\-\_\-p}}\label{structrc__pid__debugfs__entries_a1a4e446a756b61017c2b85a6d8fa70c5}
+
+
+Definition at line 145 of file rc80211\-\_\-pid.\-h.
+
+\hypertarget{structrc__pid__debugfs__entries_a08c42d2f89165fa314dbc2d527fad94d}{\index{rc\-\_\-pid\-\_\-debugfs\-\_\-entries@{rc\-\_\-pid\-\_\-debugfs\-\_\-entries}!norm\-\_\-offset@{norm\-\_\-offset}}
+\index{norm\-\_\-offset@{norm\-\_\-offset}!rc_pid_debugfs_entries@{rc\-\_\-pid\-\_\-debugfs\-\_\-entries}}
+\subsubsection[{norm\-\_\-offset}]{\setlength{\rightskip}{0pt plus 5cm}struct dentry$\ast$ norm\-\_\-offset}}\label{structrc__pid__debugfs__entries_a08c42d2f89165fa314dbc2d527fad94d}
+
+
+Definition at line 151 of file rc80211\-\_\-pid.\-h.
+
+\hypertarget{structrc__pid__debugfs__entries_a76915207e9f4be745cf591cabb1ba17c}{\index{rc\-\_\-pid\-\_\-debugfs\-\_\-entries@{rc\-\_\-pid\-\_\-debugfs\-\_\-entries}!sampling\-\_\-period@{sampling\-\_\-period}}
+\index{sampling\-\_\-period@{sampling\-\_\-period}!rc_pid_debugfs_entries@{rc\-\_\-pid\-\_\-debugfs\-\_\-entries}}
+\subsubsection[{sampling\-\_\-period}]{\setlength{\rightskip}{0pt plus 5cm}struct dentry$\ast$ sampling\-\_\-period}}\label{structrc__pid__debugfs__entries_a76915207e9f4be745cf591cabb1ba17c}
+
+
+Definition at line 144 of file rc80211\-\_\-pid.\-h.
+
+\hypertarget{structrc__pid__debugfs__entries_aa529c80eecd02e36617d50510a0258a9}{\index{rc\-\_\-pid\-\_\-debugfs\-\_\-entries@{rc\-\_\-pid\-\_\-debugfs\-\_\-entries}!sharpen\-\_\-duration@{sharpen\-\_\-duration}}
+\index{sharpen\-\_\-duration@{sharpen\-\_\-duration}!rc_pid_debugfs_entries@{rc\-\_\-pid\-\_\-debugfs\-\_\-entries}}
+\subsubsection[{sharpen\-\_\-duration}]{\setlength{\rightskip}{0pt plus 5cm}struct dentry$\ast$ sharpen\-\_\-duration}}\label{structrc__pid__debugfs__entries_aa529c80eecd02e36617d50510a0258a9}
+
+
+Definition at line 150 of file rc80211\-\_\-pid.\-h.
+
+\hypertarget{structrc__pid__debugfs__entries_a97f17182415214fc8cccde6894e0c815}{\index{rc\-\_\-pid\-\_\-debugfs\-\_\-entries@{rc\-\_\-pid\-\_\-debugfs\-\_\-entries}!sharpen\-\_\-factor@{sharpen\-\_\-factor}}
+\index{sharpen\-\_\-factor@{sharpen\-\_\-factor}!rc_pid_debugfs_entries@{rc\-\_\-pid\-\_\-debugfs\-\_\-entries}}
+\subsubsection[{sharpen\-\_\-factor}]{\setlength{\rightskip}{0pt plus 5cm}struct dentry$\ast$ sharpen\-\_\-factor}}\label{structrc__pid__debugfs__entries_a97f17182415214fc8cccde6894e0c815}
+
+
+Definition at line 149 of file rc80211\-\_\-pid.\-h.
+
+\hypertarget{structrc__pid__debugfs__entries_aaca47ee03a834e073bbf46987f4a531b}{\index{rc\-\_\-pid\-\_\-debugfs\-\_\-entries@{rc\-\_\-pid\-\_\-debugfs\-\_\-entries}!smoothing\-\_\-shift@{smoothing\-\_\-shift}}
+\index{smoothing\-\_\-shift@{smoothing\-\_\-shift}!rc_pid_debugfs_entries@{rc\-\_\-pid\-\_\-debugfs\-\_\-entries}}
+\subsubsection[{smoothing\-\_\-shift}]{\setlength{\rightskip}{0pt plus 5cm}struct dentry$\ast$ smoothing\-\_\-shift}}\label{structrc__pid__debugfs__entries_aaca47ee03a834e073bbf46987f4a531b}
+
+
+Definition at line 148 of file rc80211\-\_\-pid.\-h.
+
+\hypertarget{structrc__pid__debugfs__entries_a6dabe07e2b398ac0f58ac8f38a4b56b6}{\index{rc\-\_\-pid\-\_\-debugfs\-\_\-entries@{rc\-\_\-pid\-\_\-debugfs\-\_\-entries}!target@{target}}
+\index{target@{target}!rc_pid_debugfs_entries@{rc\-\_\-pid\-\_\-debugfs\-\_\-entries}}
+\subsubsection[{target}]{\setlength{\rightskip}{0pt plus 5cm}struct dentry$\ast$ target}}\label{structrc__pid__debugfs__entries_a6dabe07e2b398ac0f58ac8f38a4b56b6}
+
+
+Definition at line 143 of file rc80211\-\_\-pid.\-h.
+
+
+
+The documentation for this struct was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+/home/guille/msm/net/mac80211/\hyperlink{rc80211__pid_8h}{rc80211\-\_\-pid.\-h}\end{DoxyCompactItemize}

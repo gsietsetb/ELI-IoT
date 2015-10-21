@@ -1,0 +1,71 @@
+.TH "/home/guille/msm/net/mac80211/rc80211_minstrel_debugfs.c" 3 "Sun Jun 1 2014" "Version 1.0" "net_mac80211" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+/home/guille/msm/net/mac80211/rc80211_minstrel_debugfs.c \- 
+.SH SYNOPSIS
+.br
+.PP
+\fC#include <linux/netdevice\&.h>\fP
+.br
+\fC#include <linux/types\&.h>\fP
+.br
+\fC#include <linux/skbuff\&.h>\fP
+.br
+\fC#include <linux/debugfs\&.h>\fP
+.br
+\fC#include <linux/ieee80211\&.h>\fP
+.br
+\fC#include <linux/slab\&.h>\fP
+.br
+\fC#include <linux/export\&.h>\fP
+.br
+\fC#include <net/mac80211\&.h>\fP
+.br
+\fC#include 'rc80211_minstrel\&.h'\fP
+.br
+
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "int \fBminstrel_stats_open\fP (struct inode *inode, struct file *file)"
+.br
+.ti -1c
+.RI "ssize_t \fBminstrel_stats_read\fP (struct file *file, char __user *buf, size_t len, loff_t *ppos)"
+.br
+.ti -1c
+.RI "int \fBminstrel_stats_release\fP (struct inode *inode, struct file *file)"
+.br
+.ti -1c
+.RI "void \fBminstrel_add_sta_debugfs\fP (void *priv, void *priv_sta, struct dentry *dir)"
+.br
+.ti -1c
+.RI "void \fBminstrel_remove_sta_debugfs\fP (void *priv, void *priv_sta)"
+.br
+.in -1c
+.SH "Function Documentation"
+.PP 
+.SS "void minstrel_add_sta_debugfs (void *priv, void *priv_sta, struct dentry *dir)"
+
+.PP
+Definition at line 130 of file rc80211_minstrel_debugfs\&.c\&.
+.SS "void minstrel_remove_sta_debugfs (void *priv, void *priv_sta)"
+
+.PP
+Definition at line 139 of file rc80211_minstrel_debugfs\&.c\&.
+.SS "int minstrel_stats_open (struct inode *inode, struct file *file)"
+
+.PP
+Definition at line 58 of file rc80211_minstrel_debugfs\&.c\&.
+.SS "ssize_t minstrel_stats_read (struct file *file, char __user *buf, size_tlen, loff_t *ppos)"
+
+.PP
+Definition at line 106 of file rc80211_minstrel_debugfs\&.c\&.
+.SS "int minstrel_stats_release (struct inode *inode, struct file *file)"
+
+.PP
+Definition at line 115 of file rc80211_minstrel_debugfs\&.c\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for net_mac80211 from the source code\&.

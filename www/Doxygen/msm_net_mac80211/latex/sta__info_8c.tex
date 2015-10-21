@@ -1,0 +1,718 @@
+\hypertarget{sta__info_8c}{\section{/home/guille/msm/net/mac80211/sta\-\_\-info.c File Reference}
+\label{sta__info_8c}\index{/home/guille/msm/net/mac80211/sta\-\_\-info.\-c@{/home/guille/msm/net/mac80211/sta\-\_\-info.\-c}}
+}
+{\ttfamily \#include $<$linux/module.\-h$>$}\\*
+{\ttfamily \#include $<$linux/init.\-h$>$}\\*
+{\ttfamily \#include $<$linux/etherdevice.\-h$>$}\\*
+{\ttfamily \#include $<$linux/netdevice.\-h$>$}\\*
+{\ttfamily \#include $<$linux/types.\-h$>$}\\*
+{\ttfamily \#include $<$linux/slab.\-h$>$}\\*
+{\ttfamily \#include $<$linux/skbuff.\-h$>$}\\*
+{\ttfamily \#include $<$linux/if\-\_\-arp.\-h$>$}\\*
+{\ttfamily \#include $<$linux/timer.\-h$>$}\\*
+{\ttfamily \#include $<$linux/rtnetlink.\-h$>$}\\*
+{\ttfamily \#include $<$net/mac80211.\-h$>$}\\*
+{\ttfamily \#include \char`\"{}ieee80211\-\_\-i.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}driver-\/ops.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}rate.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}sta\-\_\-info.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}debugfs\-\_\-sta.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}mesh.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}wme.\-h\char`\"{}}\\*
+Include dependency graph for sta\-\_\-info.\-c\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{sta__info_8c__incl}
+\end{center}
+\end{figure}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structsta__info}{sta\-\_\-info} $\ast$ \hyperlink{sta__info_8c_a80095ff141cec3d548fb6e7ee1eb1379}{sta\-\_\-info\-\_\-get} (struct \hyperlink{structieee80211__sub__if__data}{ieee80211\-\_\-sub\-\_\-if\-\_\-data} $\ast$sdata, const u8 $\ast$addr)
+\item 
+struct \hyperlink{structsta__info}{sta\-\_\-info} $\ast$ \hyperlink{sta__info_8c_a32bf7e50842b38b1b5a3472654bb09ed}{sta\-\_\-info\-\_\-get\-\_\-bss} (struct \hyperlink{structieee80211__sub__if__data}{ieee80211\-\_\-sub\-\_\-if\-\_\-data} $\ast$sdata, const u8 $\ast$addr)
+\item 
+struct \hyperlink{structsta__info}{sta\-\_\-info} $\ast$ \hyperlink{sta__info_8c_a3b9f77d4d22565fa2d7599b13281edfa}{sta\-\_\-info\-\_\-get\-\_\-by\-\_\-idx} (struct \hyperlink{structieee80211__sub__if__data}{ieee80211\-\_\-sub\-\_\-if\-\_\-data} $\ast$sdata, int idx)
+\item 
+void \hyperlink{sta__info_8c_aa1d19f43f87ded2fd04145956db22c57}{sta\-\_\-info\-\_\-free} (struct \hyperlink{structieee80211__local}{ieee80211\-\_\-local} $\ast$local, struct \hyperlink{structsta__info}{sta\-\_\-info} $\ast$sta)
+\item 
+struct \hyperlink{structsta__info}{sta\-\_\-info} $\ast$ \hyperlink{sta__info_8c_a0967d55e08a611cb4fd09fdfb349f3bc}{sta\-\_\-info\-\_\-alloc} (struct \hyperlink{structieee80211__sub__if__data}{ieee80211\-\_\-sub\-\_\-if\-\_\-data} $\ast$sdata, const u8 $\ast$addr, gfp\-\_\-t gfp)
+\item 
+int \hyperlink{sta__info_8c_a3a60a524480b0c152a3b2c1ab1cadb74}{sta\-\_\-info\-\_\-insert\-\_\-rcu} (struct \hyperlink{structsta__info}{sta\-\_\-info} $\ast$sta) \-\_\-\-\_\-acquires(R\-C\-U)
+\item 
+int \hyperlink{sta__info_8c_af66f94b8bfc921da73e4920ac8d072e0}{sta\-\_\-info\-\_\-insert} (struct \hyperlink{structsta__info}{sta\-\_\-info} $\ast$sta)
+\item 
+void \hyperlink{sta__info_8c_a8def6575903dec4bf91cc3e295ca995e}{sta\-\_\-info\-\_\-recalc\-\_\-tim} (struct \hyperlink{structsta__info}{sta\-\_\-info} $\ast$sta)
+\item 
+int \-\_\-\-\_\-must\-\_\-check \hyperlink{sta__info_8c_ad65fefaf69da1a7dce66d966d650bdc9}{\-\_\-\-\_\-sta\-\_\-info\-\_\-destroy} (struct \hyperlink{structsta__info}{sta\-\_\-info} $\ast$sta)
+\item 
+int \hyperlink{sta__info_8c_a8f362da77665515d76fd762598db0095}{sta\-\_\-info\-\_\-destroy\-\_\-addr} (struct \hyperlink{structieee80211__sub__if__data}{ieee80211\-\_\-sub\-\_\-if\-\_\-data} $\ast$sdata, const u8 $\ast$addr)
+\item 
+int \hyperlink{sta__info_8c_af9f8dd4e0d80e943f14e24760967f666}{sta\-\_\-info\-\_\-destroy\-\_\-addr\-\_\-bss} (struct \hyperlink{structieee80211__sub__if__data}{ieee80211\-\_\-sub\-\_\-if\-\_\-data} $\ast$sdata, const u8 $\ast$addr)
+\item 
+void \hyperlink{sta__info_8c_ac87d6155a7e5e9b5f3d55d3ab752ff2c}{sta\-\_\-info\-\_\-init} (struct \hyperlink{structieee80211__local}{ieee80211\-\_\-local} $\ast$local)
+\item 
+void \hyperlink{sta__info_8c_a427b6cbb34acdebaf899cf60e7a3dd3c}{sta\-\_\-info\-\_\-stop} (struct \hyperlink{structieee80211__local}{ieee80211\-\_\-local} $\ast$local)
+\item 
+int \hyperlink{sta__info_8c_a461ad5e6b376a80abffa879b75510419}{sta\-\_\-info\-\_\-flush} (struct \hyperlink{structieee80211__local}{ieee80211\-\_\-local} $\ast$local, struct \hyperlink{structieee80211__sub__if__data}{ieee80211\-\_\-sub\-\_\-if\-\_\-data} $\ast$sdata)
+\item 
+void \hyperlink{sta__info_8c_a7092e91acf3420082bced26fc1b58781}{ieee80211\-\_\-sta\-\_\-expire} (struct \hyperlink{structieee80211__sub__if__data}{ieee80211\-\_\-sub\-\_\-if\-\_\-data} $\ast$sdata, unsigned long exp\-\_\-time)
+\item 
+struct ieee80211\-\_\-sta $\ast$ \hyperlink{sta__info_8c_a096ee0554086d479ad7e62008d2b71b2}{ieee80211\-\_\-find\-\_\-sta\-\_\-by\-\_\-ifaddr} (struct ieee80211\-\_\-hw $\ast$hw, const u8 $\ast$addr, const u8 $\ast$localaddr)
+\item 
+\hyperlink{sta__info_8c_a201181f6fba1c1ccba7e63f67b76eba1}{E\-X\-P\-O\-R\-T\-\_\-\-S\-Y\-M\-B\-O\-L\-\_\-\-G\-P\-L} (\hyperlink{sta__info_8c_a096ee0554086d479ad7e62008d2b71b2}{ieee80211\-\_\-find\-\_\-sta\-\_\-by\-\_\-ifaddr})
+\item 
+struct ieee80211\-\_\-sta $\ast$ \hyperlink{sta__info_8c_a4c692b584937664fef7a82b9ab9a5f4b}{ieee80211\-\_\-find\-\_\-sta} (struct ieee80211\-\_\-vif $\ast$vif, const u8 $\ast$addr)
+\item 
+\hyperlink{sta__info_8c_a3ecf6c432613ff30122fde9c281eb99d}{E\-X\-P\-O\-R\-T\-\_\-\-S\-Y\-M\-B\-O\-L} (\hyperlink{sta__info_8c_a4c692b584937664fef7a82b9ab9a5f4b}{ieee80211\-\_\-find\-\_\-sta})
+\item 
+void \hyperlink{sta__info_8c_a8f36498a45cfa5dd204074cdddc2ffa4}{ieee80211\-\_\-sta\-\_\-ps\-\_\-deliver\-\_\-wakeup} (struct \hyperlink{structsta__info}{sta\-\_\-info} $\ast$sta)
+\item 
+void \hyperlink{sta__info_8c_a335ac64444103a7882dc57134c548a75}{ieee80211\-\_\-sta\-\_\-ps\-\_\-deliver\-\_\-poll\-\_\-response} (struct \hyperlink{structsta__info}{sta\-\_\-info} $\ast$sta)
+\item 
+void \hyperlink{sta__info_8c_a104a5fb80c9a850c6120f6200765e03a}{ieee80211\-\_\-sta\-\_\-ps\-\_\-deliver\-\_\-uapsd} (struct \hyperlink{structsta__info}{sta\-\_\-info} $\ast$sta)
+\item 
+void \hyperlink{sta__info_8c_ada4db040914e2d1f53f516a4902624d0}{ieee80211\-\_\-sta\-\_\-block\-\_\-awake} (struct ieee80211\-\_\-hw $\ast$hw, struct ieee80211\-\_\-sta $\ast$pubsta, bool block)
+\item 
+\hyperlink{sta__info_8c_ad8186d69d42e9b73c1facc4d5c660c52}{E\-X\-P\-O\-R\-T\-\_\-\-S\-Y\-M\-B\-O\-L} (\hyperlink{sta__info_8c_ada4db040914e2d1f53f516a4902624d0}{ieee80211\-\_\-sta\-\_\-block\-\_\-awake})
+\item 
+void \hyperlink{sta__info_8c_acf076529e9b0f573f8139962fb03c864}{ieee80211\-\_\-sta\-\_\-eosp\-\_\-irqsafe} (struct ieee80211\-\_\-sta $\ast$pubsta)
+\item 
+\hyperlink{sta__info_8c_aef58a66a9d82f9fded4a548a36b295ca}{E\-X\-P\-O\-R\-T\-\_\-\-S\-Y\-M\-B\-O\-L} (\hyperlink{sta__info_8c_acf076529e9b0f573f8139962fb03c864}{ieee80211\-\_\-sta\-\_\-eosp\-\_\-irqsafe})
+\item 
+void \hyperlink{sta__info_8c_a699de1a67164ef85568f153303820295}{ieee80211\-\_\-sta\-\_\-set\-\_\-buffered} (struct ieee80211\-\_\-sta $\ast$pubsta, u8 tid, bool buffered)
+\item 
+\hyperlink{sta__info_8c_aa2d42f14379788adcb9e17cd8f8c806a}{E\-X\-P\-O\-R\-T\-\_\-\-S\-Y\-M\-B\-O\-L} (\hyperlink{sta__info_8c_a699de1a67164ef85568f153303820295}{ieee80211\-\_\-sta\-\_\-set\-\_\-buffered})
+\item 
+int \hyperlink{sta__info_8c_ab27234729dce8e7ab2357266e8157198}{sta\-\_\-info\-\_\-move\-\_\-state} (struct \hyperlink{structsta__info}{sta\-\_\-info} $\ast$sta, enum ieee80211\-\_\-sta\-\_\-state new\-\_\-state)
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\hypertarget{sta__info_8c_ad65fefaf69da1a7dce66d966d650bdc9}{\index{sta\-\_\-info.\-c@{sta\-\_\-info.\-c}!\-\_\-\-\_\-sta\-\_\-info\-\_\-destroy@{\-\_\-\-\_\-sta\-\_\-info\-\_\-destroy}}
+\index{\-\_\-\-\_\-sta\-\_\-info\-\_\-destroy@{\-\_\-\-\_\-sta\-\_\-info\-\_\-destroy}!sta_info.c@{sta\-\_\-info.\-c}}
+\subsubsection[{\-\_\-\-\_\-sta\-\_\-info\-\_\-destroy}]{\setlength{\rightskip}{0pt plus 5cm}int \-\_\-\-\_\-must\-\_\-check \-\_\-\-\_\-sta\-\_\-info\-\_\-destroy (
+\begin{DoxyParamCaption}
+\item[{struct {\bf sta\-\_\-info} $\ast$}]{sta}
+\end{DoxyParamCaption}
+)}}\label{sta__info_8c_ad65fefaf69da1a7dce66d966d650bdc9}
+
+
+Definition at line 661 of file sta\-\_\-info.\-c.
+
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{sta__info_8c_ad65fefaf69da1a7dce66d966d650bdc9_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{sta__info_8c_ad65fefaf69da1a7dce66d966d650bdc9_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{sta__info_8c_a3ecf6c432613ff30122fde9c281eb99d}{\index{sta\-\_\-info.\-c@{sta\-\_\-info.\-c}!E\-X\-P\-O\-R\-T\-\_\-\-S\-Y\-M\-B\-O\-L@{E\-X\-P\-O\-R\-T\-\_\-\-S\-Y\-M\-B\-O\-L}}
+\index{E\-X\-P\-O\-R\-T\-\_\-\-S\-Y\-M\-B\-O\-L@{E\-X\-P\-O\-R\-T\-\_\-\-S\-Y\-M\-B\-O\-L}!sta_info.c@{sta\-\_\-info.\-c}}
+\subsubsection[{E\-X\-P\-O\-R\-T\-\_\-\-S\-Y\-M\-B\-O\-L}]{\setlength{\rightskip}{0pt plus 5cm}E\-X\-P\-O\-R\-T\-\_\-\-S\-Y\-M\-B\-O\-L (
+\begin{DoxyParamCaption}
+\item[{{\bf ieee80211\-\_\-find\-\_\-sta}}]{}
+\end{DoxyParamCaption}
+)}}\label{sta__info_8c_a3ecf6c432613ff30122fde9c281eb99d}
+\hypertarget{sta__info_8c_ad8186d69d42e9b73c1facc4d5c660c52}{\index{sta\-\_\-info.\-c@{sta\-\_\-info.\-c}!E\-X\-P\-O\-R\-T\-\_\-\-S\-Y\-M\-B\-O\-L@{E\-X\-P\-O\-R\-T\-\_\-\-S\-Y\-M\-B\-O\-L}}
+\index{E\-X\-P\-O\-R\-T\-\_\-\-S\-Y\-M\-B\-O\-L@{E\-X\-P\-O\-R\-T\-\_\-\-S\-Y\-M\-B\-O\-L}!sta_info.c@{sta\-\_\-info.\-c}}
+\subsubsection[{E\-X\-P\-O\-R\-T\-\_\-\-S\-Y\-M\-B\-O\-L}]{\setlength{\rightskip}{0pt plus 5cm}E\-X\-P\-O\-R\-T\-\_\-\-S\-Y\-M\-B\-O\-L (
+\begin{DoxyParamCaption}
+\item[{{\bf ieee80211\-\_\-sta\-\_\-block\-\_\-awake}}]{}
+\end{DoxyParamCaption}
+)}}\label{sta__info_8c_ad8186d69d42e9b73c1facc4d5c660c52}
+\hypertarget{sta__info_8c_aef58a66a9d82f9fded4a548a36b295ca}{\index{sta\-\_\-info.\-c@{sta\-\_\-info.\-c}!E\-X\-P\-O\-R\-T\-\_\-\-S\-Y\-M\-B\-O\-L@{E\-X\-P\-O\-R\-T\-\_\-\-S\-Y\-M\-B\-O\-L}}
+\index{E\-X\-P\-O\-R\-T\-\_\-\-S\-Y\-M\-B\-O\-L@{E\-X\-P\-O\-R\-T\-\_\-\-S\-Y\-M\-B\-O\-L}!sta_info.c@{sta\-\_\-info.\-c}}
+\subsubsection[{E\-X\-P\-O\-R\-T\-\_\-\-S\-Y\-M\-B\-O\-L}]{\setlength{\rightskip}{0pt plus 5cm}E\-X\-P\-O\-R\-T\-\_\-\-S\-Y\-M\-B\-O\-L (
+\begin{DoxyParamCaption}
+\item[{{\bf ieee80211\-\_\-sta\-\_\-eosp\-\_\-irqsafe}}]{}
+\end{DoxyParamCaption}
+)}}\label{sta__info_8c_aef58a66a9d82f9fded4a548a36b295ca}
+\hypertarget{sta__info_8c_aa2d42f14379788adcb9e17cd8f8c806a}{\index{sta\-\_\-info.\-c@{sta\-\_\-info.\-c}!E\-X\-P\-O\-R\-T\-\_\-\-S\-Y\-M\-B\-O\-L@{E\-X\-P\-O\-R\-T\-\_\-\-S\-Y\-M\-B\-O\-L}}
+\index{E\-X\-P\-O\-R\-T\-\_\-\-S\-Y\-M\-B\-O\-L@{E\-X\-P\-O\-R\-T\-\_\-\-S\-Y\-M\-B\-O\-L}!sta_info.c@{sta\-\_\-info.\-c}}
+\subsubsection[{E\-X\-P\-O\-R\-T\-\_\-\-S\-Y\-M\-B\-O\-L}]{\setlength{\rightskip}{0pt plus 5cm}E\-X\-P\-O\-R\-T\-\_\-\-S\-Y\-M\-B\-O\-L (
+\begin{DoxyParamCaption}
+\item[{{\bf ieee80211\-\_\-sta\-\_\-set\-\_\-buffered}}]{}
+\end{DoxyParamCaption}
+)}}\label{sta__info_8c_aa2d42f14379788adcb9e17cd8f8c806a}
+\hypertarget{sta__info_8c_a201181f6fba1c1ccba7e63f67b76eba1}{\index{sta\-\_\-info.\-c@{sta\-\_\-info.\-c}!E\-X\-P\-O\-R\-T\-\_\-\-S\-Y\-M\-B\-O\-L\-\_\-\-G\-P\-L@{E\-X\-P\-O\-R\-T\-\_\-\-S\-Y\-M\-B\-O\-L\-\_\-\-G\-P\-L}}
+\index{E\-X\-P\-O\-R\-T\-\_\-\-S\-Y\-M\-B\-O\-L\-\_\-\-G\-P\-L@{E\-X\-P\-O\-R\-T\-\_\-\-S\-Y\-M\-B\-O\-L\-\_\-\-G\-P\-L}!sta_info.c@{sta\-\_\-info.\-c}}
+\subsubsection[{E\-X\-P\-O\-R\-T\-\_\-\-S\-Y\-M\-B\-O\-L\-\_\-\-G\-P\-L}]{\setlength{\rightskip}{0pt plus 5cm}E\-X\-P\-O\-R\-T\-\_\-\-S\-Y\-M\-B\-O\-L\-\_\-\-G\-P\-L (
+\begin{DoxyParamCaption}
+\item[{{\bf ieee80211\-\_\-find\-\_\-sta\-\_\-by\-\_\-ifaddr}}]{}
+\end{DoxyParamCaption}
+)}}\label{sta__info_8c_a201181f6fba1c1ccba7e63f67b76eba1}
+\hypertarget{sta__info_8c_a4c692b584937664fef7a82b9ab9a5f4b}{\index{sta\-\_\-info.\-c@{sta\-\_\-info.\-c}!ieee80211\-\_\-find\-\_\-sta@{ieee80211\-\_\-find\-\_\-sta}}
+\index{ieee80211\-\_\-find\-\_\-sta@{ieee80211\-\_\-find\-\_\-sta}!sta_info.c@{sta\-\_\-info.\-c}}
+\subsubsection[{ieee80211\-\_\-find\-\_\-sta}]{\setlength{\rightskip}{0pt plus 5cm}struct ieee80211\-\_\-sta$\ast$ ieee80211\-\_\-find\-\_\-sta (
+\begin{DoxyParamCaption}
+\item[{struct ieee80211\-\_\-vif $\ast$}]{vif, }
+\item[{const u8 $\ast$}]{addr}
+\end{DoxyParamCaption}
+)}}\label{sta__info_8c_a4c692b584937664fef7a82b9ab9a5f4b}
+
+
+Definition at line 926 of file sta\-\_\-info.\-c.
+
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=310pt]{sta__info_8c_a4c692b584937664fef7a82b9ab9a5f4b_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{sta__info_8c_a096ee0554086d479ad7e62008d2b71b2}{\index{sta\-\_\-info.\-c@{sta\-\_\-info.\-c}!ieee80211\-\_\-find\-\_\-sta\-\_\-by\-\_\-ifaddr@{ieee80211\-\_\-find\-\_\-sta\-\_\-by\-\_\-ifaddr}}
+\index{ieee80211\-\_\-find\-\_\-sta\-\_\-by\-\_\-ifaddr@{ieee80211\-\_\-find\-\_\-sta\-\_\-by\-\_\-ifaddr}!sta_info.c@{sta\-\_\-info.\-c}}
+\subsubsection[{ieee80211\-\_\-find\-\_\-sta\-\_\-by\-\_\-ifaddr}]{\setlength{\rightskip}{0pt plus 5cm}struct ieee80211\-\_\-sta$\ast$ ieee80211\-\_\-find\-\_\-sta\-\_\-by\-\_\-ifaddr (
+\begin{DoxyParamCaption}
+\item[{struct ieee80211\-\_\-hw $\ast$}]{hw, }
+\item[{const u8 $\ast$}]{addr, }
+\item[{const u8 $\ast$}]{localaddr}
+\end{DoxyParamCaption}
+)}}\label{sta__info_8c_a096ee0554086d479ad7e62008d2b71b2}
+
+
+Definition at line 903 of file sta\-\_\-info.\-c.
+
+\hypertarget{sta__info_8c_ada4db040914e2d1f53f516a4902624d0}{\index{sta\-\_\-info.\-c@{sta\-\_\-info.\-c}!ieee80211\-\_\-sta\-\_\-block\-\_\-awake@{ieee80211\-\_\-sta\-\_\-block\-\_\-awake}}
+\index{ieee80211\-\_\-sta\-\_\-block\-\_\-awake@{ieee80211\-\_\-sta\-\_\-block\-\_\-awake}!sta_info.c@{sta\-\_\-info.\-c}}
+\subsubsection[{ieee80211\-\_\-sta\-\_\-block\-\_\-awake}]{\setlength{\rightskip}{0pt plus 5cm}void ieee80211\-\_\-sta\-\_\-block\-\_\-awake (
+\begin{DoxyParamCaption}
+\item[{struct ieee80211\-\_\-hw $\ast$}]{hw, }
+\item[{struct ieee80211\-\_\-sta $\ast$}]{pubsta, }
+\item[{bool}]{block}
+\end{DoxyParamCaption}
+)}}\label{sta__info_8c_ada4db040914e2d1f53f516a4902624d0}
+
+
+Definition at line 1295 of file sta\-\_\-info.\-c.
+
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=344pt]{sta__info_8c_ada4db040914e2d1f53f516a4902624d0_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{sta__info_8c_acf076529e9b0f573f8139962fb03c864}{\index{sta\-\_\-info.\-c@{sta\-\_\-info.\-c}!ieee80211\-\_\-sta\-\_\-eosp\-\_\-irqsafe@{ieee80211\-\_\-sta\-\_\-eosp\-\_\-irqsafe}}
+\index{ieee80211\-\_\-sta\-\_\-eosp\-\_\-irqsafe@{ieee80211\-\_\-sta\-\_\-eosp\-\_\-irqsafe}!sta_info.c@{sta\-\_\-info.\-c}}
+\subsubsection[{ieee80211\-\_\-sta\-\_\-eosp\-\_\-irqsafe}]{\setlength{\rightskip}{0pt plus 5cm}void ieee80211\-\_\-sta\-\_\-eosp\-\_\-irqsafe (
+\begin{DoxyParamCaption}
+\item[{struct ieee80211\-\_\-sta $\ast$}]{pubsta}
+\end{DoxyParamCaption}
+)}}\label{sta__info_8c_acf076529e9b0f573f8139962fb03c864}
+
+
+Definition at line 1309 of file sta\-\_\-info.\-c.
+
+\hypertarget{sta__info_8c_a7092e91acf3420082bced26fc1b58781}{\index{sta\-\_\-info.\-c@{sta\-\_\-info.\-c}!ieee80211\-\_\-sta\-\_\-expire@{ieee80211\-\_\-sta\-\_\-expire}}
+\index{ieee80211\-\_\-sta\-\_\-expire@{ieee80211\-\_\-sta\-\_\-expire}!sta_info.c@{sta\-\_\-info.\-c}}
+\subsubsection[{ieee80211\-\_\-sta\-\_\-expire}]{\setlength{\rightskip}{0pt plus 5cm}void ieee80211\-\_\-sta\-\_\-expire (
+\begin{DoxyParamCaption}
+\item[{struct {\bf ieee80211\-\_\-sub\-\_\-if\-\_\-data} $\ast$}]{sdata, }
+\item[{unsigned long}]{exp\-\_\-time}
+\end{DoxyParamCaption}
+)}}\label{sta__info_8c_a7092e91acf3420082bced26fc1b58781}
+
+
+Definition at line 879 of file sta\-\_\-info.\-c.
+
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{sta__info_8c_a7092e91acf3420082bced26fc1b58781_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{sta__info_8c_a335ac64444103a7882dc57134c548a75}{\index{sta\-\_\-info.\-c@{sta\-\_\-info.\-c}!ieee80211\-\_\-sta\-\_\-ps\-\_\-deliver\-\_\-poll\-\_\-response@{ieee80211\-\_\-sta\-\_\-ps\-\_\-deliver\-\_\-poll\-\_\-response}}
+\index{ieee80211\-\_\-sta\-\_\-ps\-\_\-deliver\-\_\-poll\-\_\-response@{ieee80211\-\_\-sta\-\_\-ps\-\_\-deliver\-\_\-poll\-\_\-response}!sta_info.c@{sta\-\_\-info.\-c}}
+\subsubsection[{ieee80211\-\_\-sta\-\_\-ps\-\_\-deliver\-\_\-poll\-\_\-response}]{\setlength{\rightskip}{0pt plus 5cm}void ieee80211\-\_\-sta\-\_\-ps\-\_\-deliver\-\_\-poll\-\_\-response (
+\begin{DoxyParamCaption}
+\item[{struct {\bf sta\-\_\-info} $\ast$}]{sta}
+\end{DoxyParamCaption}
+)}}\label{sta__info_8c_a335ac64444103a7882dc57134c548a75}
+
+
+Definition at line 1245 of file sta\-\_\-info.\-c.
+
+\hypertarget{sta__info_8c_a104a5fb80c9a850c6120f6200765e03a}{\index{sta\-\_\-info.\-c@{sta\-\_\-info.\-c}!ieee80211\-\_\-sta\-\_\-ps\-\_\-deliver\-\_\-uapsd@{ieee80211\-\_\-sta\-\_\-ps\-\_\-deliver\-\_\-uapsd}}
+\index{ieee80211\-\_\-sta\-\_\-ps\-\_\-deliver\-\_\-uapsd@{ieee80211\-\_\-sta\-\_\-ps\-\_\-deliver\-\_\-uapsd}!sta_info.c@{sta\-\_\-info.\-c}}
+\subsubsection[{ieee80211\-\_\-sta\-\_\-ps\-\_\-deliver\-\_\-uapsd}]{\setlength{\rightskip}{0pt plus 5cm}void ieee80211\-\_\-sta\-\_\-ps\-\_\-deliver\-\_\-uapsd (
+\begin{DoxyParamCaption}
+\item[{struct {\bf sta\-\_\-info} $\ast$}]{sta}
+\end{DoxyParamCaption}
+)}}\label{sta__info_8c_a104a5fb80c9a850c6120f6200765e03a}
+
+
+Definition at line 1261 of file sta\-\_\-info.\-c.
+
+\hypertarget{sta__info_8c_a8f36498a45cfa5dd204074cdddc2ffa4}{\index{sta\-\_\-info.\-c@{sta\-\_\-info.\-c}!ieee80211\-\_\-sta\-\_\-ps\-\_\-deliver\-\_\-wakeup@{ieee80211\-\_\-sta\-\_\-ps\-\_\-deliver\-\_\-wakeup}}
+\index{ieee80211\-\_\-sta\-\_\-ps\-\_\-deliver\-\_\-wakeup@{ieee80211\-\_\-sta\-\_\-ps\-\_\-deliver\-\_\-wakeup}!sta_info.c@{sta\-\_\-info.\-c}}
+\subsubsection[{ieee80211\-\_\-sta\-\_\-ps\-\_\-deliver\-\_\-wakeup}]{\setlength{\rightskip}{0pt plus 5cm}void ieee80211\-\_\-sta\-\_\-ps\-\_\-deliver\-\_\-wakeup (
+\begin{DoxyParamCaption}
+\item[{struct {\bf sta\-\_\-info} $\ast$}]{sta}
+\end{DoxyParamCaption}
+)}}\label{sta__info_8c_a8f36498a45cfa5dd204074cdddc2ffa4}
+
+
+Definition at line 956 of file sta\-\_\-info.\-c.
+
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{sta__info_8c_a8f36498a45cfa5dd204074cdddc2ffa4_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{sta__info_8c_a699de1a67164ef85568f153303820295}{\index{sta\-\_\-info.\-c@{sta\-\_\-info.\-c}!ieee80211\-\_\-sta\-\_\-set\-\_\-buffered@{ieee80211\-\_\-sta\-\_\-set\-\_\-buffered}}
+\index{ieee80211\-\_\-sta\-\_\-set\-\_\-buffered@{ieee80211\-\_\-sta\-\_\-set\-\_\-buffered}!sta_info.c@{sta\-\_\-info.\-c}}
+\subsubsection[{ieee80211\-\_\-sta\-\_\-set\-\_\-buffered}]{\setlength{\rightskip}{0pt plus 5cm}void ieee80211\-\_\-sta\-\_\-set\-\_\-buffered (
+\begin{DoxyParamCaption}
+\item[{struct ieee80211\-\_\-sta $\ast$}]{pubsta, }
+\item[{u8}]{tid, }
+\item[{bool}]{buffered}
+\end{DoxyParamCaption}
+)}}\label{sta__info_8c_a699de1a67164ef85568f153303820295}
+
+
+Definition at line 1334 of file sta\-\_\-info.\-c.
+
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{sta__info_8c_a699de1a67164ef85568f153303820295_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{sta__info_8c_a0967d55e08a611cb4fd09fdfb349f3bc}{\index{sta\-\_\-info.\-c@{sta\-\_\-info.\-c}!sta\-\_\-info\-\_\-alloc@{sta\-\_\-info\-\_\-alloc}}
+\index{sta\-\_\-info\-\_\-alloc@{sta\-\_\-info\-\_\-alloc}!sta_info.c@{sta\-\_\-info.\-c}}
+\subsubsection[{sta\-\_\-info\-\_\-alloc}]{\setlength{\rightskip}{0pt plus 5cm}struct {\bf sta\-\_\-info}$\ast$ sta\-\_\-info\-\_\-alloc (
+\begin{DoxyParamCaption}
+\item[{struct {\bf ieee80211\-\_\-sub\-\_\-if\-\_\-data} $\ast$}]{sdata, }
+\item[{const u8 $\ast$}]{addr, }
+\item[{gfp\-\_\-t}]{gfp}
+\end{DoxyParamCaption}
+)}}\label{sta__info_8c_a0967d55e08a611cb4fd09fdfb349f3bc}
+
+
+Definition at line 232 of file sta\-\_\-info.\-c.
+
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{sta__info_8c_a0967d55e08a611cb4fd09fdfb349f3bc_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=326pt]{sta__info_8c_a0967d55e08a611cb4fd09fdfb349f3bc_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{sta__info_8c_a8f362da77665515d76fd762598db0095}{\index{sta\-\_\-info.\-c@{sta\-\_\-info.\-c}!sta\-\_\-info\-\_\-destroy\-\_\-addr@{sta\-\_\-info\-\_\-destroy\-\_\-addr}}
+\index{sta\-\_\-info\-\_\-destroy\-\_\-addr@{sta\-\_\-info\-\_\-destroy\-\_\-addr}!sta_info.c@{sta\-\_\-info.\-c}}
+\subsubsection[{sta\-\_\-info\-\_\-destroy\-\_\-addr}]{\setlength{\rightskip}{0pt plus 5cm}int sta\-\_\-info\-\_\-destroy\-\_\-addr (
+\begin{DoxyParamCaption}
+\item[{struct {\bf ieee80211\-\_\-sub\-\_\-if\-\_\-data} $\ast$}]{sdata, }
+\item[{const u8 $\ast$}]{addr}
+\end{DoxyParamCaption}
+)}}\label{sta__info_8c_a8f362da77665515d76fd762598db0095}
+
+
+Definition at line 786 of file sta\-\_\-info.\-c.
+
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{sta__info_8c_a8f362da77665515d76fd762598db0095_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=340pt]{sta__info_8c_a8f362da77665515d76fd762598db0095_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{sta__info_8c_af9f8dd4e0d80e943f14e24760967f666}{\index{sta\-\_\-info.\-c@{sta\-\_\-info.\-c}!sta\-\_\-info\-\_\-destroy\-\_\-addr\-\_\-bss@{sta\-\_\-info\-\_\-destroy\-\_\-addr\-\_\-bss}}
+\index{sta\-\_\-info\-\_\-destroy\-\_\-addr\-\_\-bss@{sta\-\_\-info\-\_\-destroy\-\_\-addr\-\_\-bss}!sta_info.c@{sta\-\_\-info.\-c}}
+\subsubsection[{sta\-\_\-info\-\_\-destroy\-\_\-addr\-\_\-bss}]{\setlength{\rightskip}{0pt plus 5cm}int sta\-\_\-info\-\_\-destroy\-\_\-addr\-\_\-bss (
+\begin{DoxyParamCaption}
+\item[{struct {\bf ieee80211\-\_\-sub\-\_\-if\-\_\-data} $\ast$}]{sdata, }
+\item[{const u8 $\ast$}]{addr}
+\end{DoxyParamCaption}
+)}}\label{sta__info_8c_af9f8dd4e0d80e943f14e24760967f666}
+
+
+Definition at line 799 of file sta\-\_\-info.\-c.
+
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{sta__info_8c_af9f8dd4e0d80e943f14e24760967f666_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{sta__info_8c_a461ad5e6b376a80abffa879b75510419}{\index{sta\-\_\-info.\-c@{sta\-\_\-info.\-c}!sta\-\_\-info\-\_\-flush@{sta\-\_\-info\-\_\-flush}}
+\index{sta\-\_\-info\-\_\-flush@{sta\-\_\-info\-\_\-flush}!sta_info.c@{sta\-\_\-info.\-c}}
+\subsubsection[{sta\-\_\-info\-\_\-flush}]{\setlength{\rightskip}{0pt plus 5cm}int sta\-\_\-info\-\_\-flush (
+\begin{DoxyParamCaption}
+\item[{struct {\bf ieee80211\-\_\-local} $\ast$}]{local, }
+\item[{struct {\bf ieee80211\-\_\-sub\-\_\-if\-\_\-data} $\ast$}]{sdata}
+\end{DoxyParamCaption}
+)}}\label{sta__info_8c_a461ad5e6b376a80abffa879b75510419}
+sta\-\_\-info\-\_\-flush -\/ flush matching S\-T\-A entries from the S\-T\-A table
+
+Returns the number of removed S\-T\-A entries.
+
+\-: local interface data \-: matching rule for the net device (sta-\/$>$dev) or N\-U\-L\-L to match all S\-T\-As 
+
+Definition at line 859 of file sta\-\_\-info.\-c.
+
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{sta__info_8c_a461ad5e6b376a80abffa879b75510419_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{sta__info_8c_a461ad5e6b376a80abffa879b75510419_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{sta__info_8c_aa1d19f43f87ded2fd04145956db22c57}{\index{sta\-\_\-info.\-c@{sta\-\_\-info.\-c}!sta\-\_\-info\-\_\-free@{sta\-\_\-info\-\_\-free}}
+\index{sta\-\_\-info\-\_\-free@{sta\-\_\-info\-\_\-free}!sta_info.c@{sta\-\_\-info.\-c}}
+\subsubsection[{sta\-\_\-info\-\_\-free}]{\setlength{\rightskip}{0pt plus 5cm}void sta\-\_\-info\-\_\-free (
+\begin{DoxyParamCaption}
+\item[{struct {\bf ieee80211\-\_\-local} $\ast$}]{local, }
+\item[{struct {\bf sta\-\_\-info} $\ast$}]{sta}
+\end{DoxyParamCaption}
+)}}\label{sta__info_8c_aa1d19f43f87ded2fd04145956db22c57}
+sta\-\_\-info\-\_\-free -\/ free S\-T\-A
+
+\-: pointer to the global information \-: S\-T\-A info to free
+
+This function must undo everything done by \hyperlink{sta__info_8c_a0967d55e08a611cb4fd09fdfb349f3bc}{sta\-\_\-info\-\_\-alloc()} that may happen before \hyperlink{sta__info_8c_af66f94b8bfc921da73e4920ac8d072e0}{sta\-\_\-info\-\_\-insert()}. It may only be called when \hyperlink{sta__info_8c_af66f94b8bfc921da73e4920ac8d072e0}{sta\-\_\-info\-\_\-insert()} has not been attempted (and if that fails, the station is freed anyway.) 
+
+Definition at line 167 of file sta\-\_\-info.\-c.
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{sta__info_8c_aa1d19f43f87ded2fd04145956db22c57_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{sta__info_8c_a80095ff141cec3d548fb6e7ee1eb1379}{\index{sta\-\_\-info.\-c@{sta\-\_\-info.\-c}!sta\-\_\-info\-\_\-get@{sta\-\_\-info\-\_\-get}}
+\index{sta\-\_\-info\-\_\-get@{sta\-\_\-info\-\_\-get}!sta_info.c@{sta\-\_\-info.\-c}}
+\subsubsection[{sta\-\_\-info\-\_\-get}]{\setlength{\rightskip}{0pt plus 5cm}struct {\bf sta\-\_\-info}$\ast$ sta\-\_\-info\-\_\-get (
+\begin{DoxyParamCaption}
+\item[{struct {\bf ieee80211\-\_\-sub\-\_\-if\-\_\-data} $\ast$}]{sdata, }
+\item[{const u8 $\ast$}]{addr}
+\end{DoxyParamCaption}
+)}}\label{sta__info_8c_a80095ff141cec3d548fb6e7ee1eb1379}
+
+
+Definition at line 95 of file sta\-\_\-info.\-c.
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{sta__info_8c_a80095ff141cec3d548fb6e7ee1eb1379_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{sta__info_8c_a32bf7e50842b38b1b5a3472654bb09ed}{\index{sta\-\_\-info.\-c@{sta\-\_\-info.\-c}!sta\-\_\-info\-\_\-get\-\_\-bss@{sta\-\_\-info\-\_\-get\-\_\-bss}}
+\index{sta\-\_\-info\-\_\-get\-\_\-bss@{sta\-\_\-info\-\_\-get\-\_\-bss}!sta_info.c@{sta\-\_\-info.\-c}}
+\subsubsection[{sta\-\_\-info\-\_\-get\-\_\-bss}]{\setlength{\rightskip}{0pt plus 5cm}struct {\bf sta\-\_\-info}$\ast$ sta\-\_\-info\-\_\-get\-\_\-bss (
+\begin{DoxyParamCaption}
+\item[{struct {\bf ieee80211\-\_\-sub\-\_\-if\-\_\-data} $\ast$}]{sdata, }
+\item[{const u8 $\ast$}]{addr}
+\end{DoxyParamCaption}
+)}}\label{sta__info_8c_a32bf7e50842b38b1b5a3472654bb09ed}
+
+
+Definition at line 117 of file sta\-\_\-info.\-c.
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=342pt]{sta__info_8c_a32bf7e50842b38b1b5a3472654bb09ed_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{sta__info_8c_a3b9f77d4d22565fa2d7599b13281edfa}{\index{sta\-\_\-info.\-c@{sta\-\_\-info.\-c}!sta\-\_\-info\-\_\-get\-\_\-by\-\_\-idx@{sta\-\_\-info\-\_\-get\-\_\-by\-\_\-idx}}
+\index{sta\-\_\-info\-\_\-get\-\_\-by\-\_\-idx@{sta\-\_\-info\-\_\-get\-\_\-by\-\_\-idx}!sta_info.c@{sta\-\_\-info.\-c}}
+\subsubsection[{sta\-\_\-info\-\_\-get\-\_\-by\-\_\-idx}]{\setlength{\rightskip}{0pt plus 5cm}struct {\bf sta\-\_\-info}$\ast$ sta\-\_\-info\-\_\-get\-\_\-by\-\_\-idx (
+\begin{DoxyParamCaption}
+\item[{struct {\bf ieee80211\-\_\-sub\-\_\-if\-\_\-data} $\ast$}]{sdata, }
+\item[{int}]{idx}
+\end{DoxyParamCaption}
+)}}\label{sta__info_8c_a3b9f77d4d22565fa2d7599b13281edfa}
+
+
+Definition at line 136 of file sta\-\_\-info.\-c.
+
+\hypertarget{sta__info_8c_ac87d6155a7e5e9b5f3d55d3ab752ff2c}{\index{sta\-\_\-info.\-c@{sta\-\_\-info.\-c}!sta\-\_\-info\-\_\-init@{sta\-\_\-info\-\_\-init}}
+\index{sta\-\_\-info\-\_\-init@{sta\-\_\-info\-\_\-init}!sta_info.c@{sta\-\_\-info.\-c}}
+\subsubsection[{sta\-\_\-info\-\_\-init}]{\setlength{\rightskip}{0pt plus 5cm}void sta\-\_\-info\-\_\-init (
+\begin{DoxyParamCaption}
+\item[{struct {\bf ieee80211\-\_\-local} $\ast$}]{local}
+\end{DoxyParamCaption}
+)}}\label{sta__info_8c_ac87d6155a7e5e9b5f3d55d3ab752ff2c}
+
+
+Definition at line 835 of file sta\-\_\-info.\-c.
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=290pt]{sta__info_8c_ac87d6155a7e5e9b5f3d55d3ab752ff2c_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{sta__info_8c_af66f94b8bfc921da73e4920ac8d072e0}{\index{sta\-\_\-info.\-c@{sta\-\_\-info.\-c}!sta\-\_\-info\-\_\-insert@{sta\-\_\-info\-\_\-insert}}
+\index{sta\-\_\-info\-\_\-insert@{sta\-\_\-info\-\_\-insert}!sta_info.c@{sta\-\_\-info.\-c}}
+\subsubsection[{sta\-\_\-info\-\_\-insert}]{\setlength{\rightskip}{0pt plus 5cm}int sta\-\_\-info\-\_\-insert (
+\begin{DoxyParamCaption}
+\item[{struct {\bf sta\-\_\-info} $\ast$}]{sta}
+\end{DoxyParamCaption}
+)}}\label{sta__info_8c_af66f94b8bfc921da73e4920ac8d072e0}
+
+
+Definition at line 437 of file sta\-\_\-info.\-c.
+
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{sta__info_8c_af66f94b8bfc921da73e4920ac8d072e0_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{sta__info_8c_a3a60a524480b0c152a3b2c1ab1cadb74}{\index{sta\-\_\-info.\-c@{sta\-\_\-info.\-c}!sta\-\_\-info\-\_\-insert\-\_\-rcu@{sta\-\_\-info\-\_\-insert\-\_\-rcu}}
+\index{sta\-\_\-info\-\_\-insert\-\_\-rcu@{sta\-\_\-info\-\_\-insert\-\_\-rcu}!sta_info.c@{sta\-\_\-info.\-c}}
+\subsubsection[{sta\-\_\-info\-\_\-insert\-\_\-rcu}]{\setlength{\rightskip}{0pt plus 5cm}int sta\-\_\-info\-\_\-insert\-\_\-rcu (
+\begin{DoxyParamCaption}
+\item[{struct {\bf sta\-\_\-info} $\ast$}]{sta}
+\end{DoxyParamCaption}
+)}}\label{sta__info_8c_a3a60a524480b0c152a3b2c1ab1cadb74}
+
+
+Definition at line 411 of file sta\-\_\-info.\-c.
+
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=290pt]{sta__info_8c_a3a60a524480b0c152a3b2c1ab1cadb74_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=338pt]{sta__info_8c_a3a60a524480b0c152a3b2c1ab1cadb74_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{sta__info_8c_ab27234729dce8e7ab2357266e8157198}{\index{sta\-\_\-info.\-c@{sta\-\_\-info.\-c}!sta\-\_\-info\-\_\-move\-\_\-state@{sta\-\_\-info\-\_\-move\-\_\-state}}
+\index{sta\-\_\-info\-\_\-move\-\_\-state@{sta\-\_\-info\-\_\-move\-\_\-state}!sta_info.c@{sta\-\_\-info.\-c}}
+\subsubsection[{sta\-\_\-info\-\_\-move\-\_\-state}]{\setlength{\rightskip}{0pt plus 5cm}int sta\-\_\-info\-\_\-move\-\_\-state (
+\begin{DoxyParamCaption}
+\item[{struct {\bf sta\-\_\-info} $\ast$}]{sta, }
+\item[{enum ieee80211\-\_\-sta\-\_\-state}]{new\-\_\-state}
+\end{DoxyParamCaption}
+)}}\label{sta__info_8c_ab27234729dce8e7ab2357266e8157198}
+
+
+Definition at line 1351 of file sta\-\_\-info.\-c.
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{sta__info_8c_ab27234729dce8e7ab2357266e8157198_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{sta__info_8c_a8def6575903dec4bf91cc3e295ca995e}{\index{sta\-\_\-info.\-c@{sta\-\_\-info.\-c}!sta\-\_\-info\-\_\-recalc\-\_\-tim@{sta\-\_\-info\-\_\-recalc\-\_\-tim}}
+\index{sta\-\_\-info\-\_\-recalc\-\_\-tim@{sta\-\_\-info\-\_\-recalc\-\_\-tim}!sta_info.c@{sta\-\_\-info.\-c}}
+\subsubsection[{sta\-\_\-info\-\_\-recalc\-\_\-tim}]{\setlength{\rightskip}{0pt plus 5cm}void sta\-\_\-info\-\_\-recalc\-\_\-tim (
+\begin{DoxyParamCaption}
+\item[{struct {\bf sta\-\_\-info} $\ast$}]{sta}
+\end{DoxyParamCaption}
+)}}\label{sta__info_8c_a8def6575903dec4bf91cc3e295ca995e}
+
+
+Definition at line 482 of file sta\-\_\-info.\-c.
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{sta__info_8c_a8def6575903dec4bf91cc3e295ca995e_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{sta__info_8c_a427b6cbb34acdebaf899cf60e7a3dd3c}{\index{sta\-\_\-info.\-c@{sta\-\_\-info.\-c}!sta\-\_\-info\-\_\-stop@{sta\-\_\-info\-\_\-stop}}
+\index{sta\-\_\-info\-\_\-stop@{sta\-\_\-info\-\_\-stop}!sta_info.c@{sta\-\_\-info.\-c}}
+\subsubsection[{sta\-\_\-info\-\_\-stop}]{\setlength{\rightskip}{0pt plus 5cm}void sta\-\_\-info\-\_\-stop (
+\begin{DoxyParamCaption}
+\item[{struct {\bf ieee80211\-\_\-local} $\ast$}]{local}
+\end{DoxyParamCaption}
+)}}\label{sta__info_8c_a427b6cbb34acdebaf899cf60e7a3dd3c}
+
+
+Definition at line 845 of file sta\-\_\-info.\-c.
+
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{sta__info_8c_a427b6cbb34acdebaf899cf60e7a3dd3c_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=320pt]{sta__info_8c_a427b6cbb34acdebaf899cf60e7a3dd3c_icgraph}
+\end{center}
+\end{figure}
+
+

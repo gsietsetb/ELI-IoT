@@ -1,0 +1,761 @@
+\hypertarget{mesh__pathtbl_8c}{\section{/home/guille/msm/net/mac80211/mesh\-\_\-pathtbl.c File Reference}
+\label{mesh__pathtbl_8c}\index{/home/guille/msm/net/mac80211/mesh\-\_\-pathtbl.\-c@{/home/guille/msm/net/mac80211/mesh\-\_\-pathtbl.\-c}}
+}
+{\ttfamily \#include $<$linux/etherdevice.\-h$>$}\\*
+{\ttfamily \#include $<$linux/list.\-h$>$}\\*
+{\ttfamily \#include $<$linux/random.\-h$>$}\\*
+{\ttfamily \#include $<$linux/slab.\-h$>$}\\*
+{\ttfamily \#include $<$linux/spinlock.\-h$>$}\\*
+{\ttfamily \#include $<$linux/string.\-h$>$}\\*
+{\ttfamily \#include $<$net/mac80211.\-h$>$}\\*
+{\ttfamily \#include \char`\"{}wme.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}ieee80211\-\_\-i.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}mesh.\-h\char`\"{}}\\*
+Include dependency graph for mesh\-\_\-pathtbl.\-c\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{mesh__pathtbl_8c__incl}
+\end{center}
+\end{figure}
+\subsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structmpath__node}{mpath\-\_\-node}
+\end{DoxyCompactItemize}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{mesh__pathtbl_8c_a79ace0cc939c9aecb7cd864c5dfacfe3}{mpath\-\_\-dbg}(fmt, args...)~do \{ (void)(0); \} while (0)
+\item 
+\#define \hyperlink{mesh__pathtbl_8c_a19c056efb7fd30217c2c44c3e0dd18bd}{I\-N\-I\-T\-\_\-\-P\-A\-T\-H\-S\-\_\-\-S\-I\-Z\-E\-\_\-\-O\-R\-D\-E\-R}~2
+\item 
+\#define \hyperlink{mesh__pathtbl_8c_a47ac5b387fa8e8f814782b36553daed7}{M\-E\-A\-N\-\_\-\-C\-H\-A\-I\-N\-\_\-\-L\-E\-N}~2
+\item 
+\#define \hyperlink{mesh__pathtbl_8c_a2519930b317ecf32f22699e10d230fa3}{M\-P\-A\-T\-H\-\_\-\-E\-X\-P\-I\-R\-E\-D}(mpath)
+\item 
+\#define \hyperlink{mesh__pathtbl_8c_ada476f6fdb60b34bcdf1a9edbfa4bf89}{for\-\_\-each\-\_\-mesh\-\_\-entry}(tbl, p, node, i)
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{mesh__pathtbl_8c_aa0eb720f520e04822384c44fdd66bc0c}{mesh\-\_\-path\-\_\-assign\-\_\-nexthop} (struct \hyperlink{structmesh__path}{mesh\-\_\-path} $\ast$mpath, struct \hyperlink{structsta__info}{sta\-\_\-info} $\ast$sta)
+\item 
+struct \hyperlink{structmesh__path}{mesh\-\_\-path} $\ast$ \hyperlink{mesh__pathtbl_8c_a1794882e6c44e105ce79ff35a74a160b}{mesh\-\_\-path\-\_\-lookup} (u8 $\ast$dst, struct \hyperlink{structieee80211__sub__if__data}{ieee80211\-\_\-sub\-\_\-if\-\_\-data} $\ast$sdata)
+\item 
+struct \hyperlink{structmesh__path}{mesh\-\_\-path} $\ast$ \hyperlink{mesh__pathtbl_8c_ade75b84e7888b0843fa63cd03a3ec015}{mpp\-\_\-path\-\_\-lookup} (u8 $\ast$dst, struct \hyperlink{structieee80211__sub__if__data}{ieee80211\-\_\-sub\-\_\-if\-\_\-data} $\ast$sdata)
+\item 
+struct \hyperlink{structmesh__path}{mesh\-\_\-path} $\ast$ \hyperlink{mesh__pathtbl_8c_a291a74d17d68d23e5d0ff9abeccbb9fa}{mesh\-\_\-path\-\_\-lookup\-\_\-by\-\_\-idx} (int idx, struct \hyperlink{structieee80211__sub__if__data}{ieee80211\-\_\-sub\-\_\-if\-\_\-data} $\ast$sdata)
+\item 
+int \hyperlink{mesh__pathtbl_8c_af99521d45a7ba659d9c988ad8e274966}{mesh\-\_\-path\-\_\-add\-\_\-gate} (struct \hyperlink{structmesh__path}{mesh\-\_\-path} $\ast$mpath)
+\item 
+int \hyperlink{mesh__pathtbl_8c_a9bb1def60ac1348affaef2be516cb928}{mesh\-\_\-gate\-\_\-num} (struct \hyperlink{structieee80211__sub__if__data}{ieee80211\-\_\-sub\-\_\-if\-\_\-data} $\ast$sdata)
+\item 
+int \hyperlink{mesh__pathtbl_8c_abf045a31559b7aea3fa56394d7ab1372}{mesh\-\_\-path\-\_\-add} (u8 $\ast$dst, struct \hyperlink{structieee80211__sub__if__data}{ieee80211\-\_\-sub\-\_\-if\-\_\-data} $\ast$sdata)
+\item 
+void \hyperlink{mesh__pathtbl_8c_a69e53ed90bb9493db24a820fff7db860}{mesh\-\_\-mpath\-\_\-table\-\_\-grow} (void)
+\item 
+void \hyperlink{mesh__pathtbl_8c_a86c0b167f83fc46ca1441594853d69da}{mesh\-\_\-mpp\-\_\-table\-\_\-grow} (void)
+\item 
+int \hyperlink{mesh__pathtbl_8c_a43c1db07be87b3dce6f20e16ca8e1c3a}{mpp\-\_\-path\-\_\-add} (u8 $\ast$dst, u8 $\ast$mpp, struct \hyperlink{structieee80211__sub__if__data}{ieee80211\-\_\-sub\-\_\-if\-\_\-data} $\ast$sdata)
+\item 
+void \hyperlink{mesh__pathtbl_8c_a347c473ad002d31a76c9856c38af804b}{mesh\-\_\-plink\-\_\-broken} (struct \hyperlink{structsta__info}{sta\-\_\-info} $\ast$sta)
+\item 
+void \hyperlink{mesh__pathtbl_8c_a92ce0e2138aadd5098196a5f49557f4f}{mesh\-\_\-path\-\_\-flush\-\_\-by\-\_\-nexthop} (struct \hyperlink{structsta__info}{sta\-\_\-info} $\ast$sta)
+\item 
+void \hyperlink{mesh__pathtbl_8c_ab80f623ac3eea4f453cbd899f3d7b3be}{mesh\-\_\-path\-\_\-flush\-\_\-by\-\_\-iface} (struct \hyperlink{structieee80211__sub__if__data}{ieee80211\-\_\-sub\-\_\-if\-\_\-data} $\ast$sdata)
+\item 
+int \hyperlink{mesh__pathtbl_8c_a881ea8f05596c17b19b72f0cbc38b6a4}{mesh\-\_\-path\-\_\-del} (u8 $\ast$addr, struct \hyperlink{structieee80211__sub__if__data}{ieee80211\-\_\-sub\-\_\-if\-\_\-data} $\ast$sdata)
+\item 
+void \hyperlink{mesh__pathtbl_8c_a53b7762f7fb8c8cd60e943f1c292abab}{mesh\-\_\-path\-\_\-tx\-\_\-pending} (struct \hyperlink{structmesh__path}{mesh\-\_\-path} $\ast$mpath)
+\item 
+int \hyperlink{mesh__pathtbl_8c_acfaaabcef47e7a6e3b75022748bd0abc}{mesh\-\_\-path\-\_\-send\-\_\-to\-\_\-gates} (struct \hyperlink{structmesh__path}{mesh\-\_\-path} $\ast$mpath)
+\item 
+void \hyperlink{mesh__pathtbl_8c_a90f2613b99917c6405a441e0c7de6027}{mesh\-\_\-path\-\_\-discard\-\_\-frame} (struct sk\-\_\-buff $\ast$skb, struct \hyperlink{structieee80211__sub__if__data}{ieee80211\-\_\-sub\-\_\-if\-\_\-data} $\ast$sdata)
+\item 
+void \hyperlink{mesh__pathtbl_8c_ae453f6c3c228429527920b139aca79d7}{mesh\-\_\-path\-\_\-flush\-\_\-pending} (struct \hyperlink{structmesh__path}{mesh\-\_\-path} $\ast$mpath)
+\item 
+void \hyperlink{mesh__pathtbl_8c_a2da3453bee1fbea601bb76e75687a14e}{mesh\-\_\-path\-\_\-fix\-\_\-nexthop} (struct \hyperlink{structmesh__path}{mesh\-\_\-path} $\ast$mpath, struct \hyperlink{structsta__info}{sta\-\_\-info} $\ast$next\-\_\-hop)
+\item 
+int \hyperlink{mesh__pathtbl_8c_a545e27353ed69a7d8c94f4b6cae204f1}{mesh\-\_\-pathtbl\-\_\-init} (void)
+\item 
+void \hyperlink{mesh__pathtbl_8c_a0f6ee851cd26b2b89230140fc89460d4}{mesh\-\_\-path\-\_\-expire} (struct \hyperlink{structieee80211__sub__if__data}{ieee80211\-\_\-sub\-\_\-if\-\_\-data} $\ast$sdata)
+\item 
+void \hyperlink{mesh__pathtbl_8c_a5a45b0108a76cf186ef91b494da9a4ea}{mesh\-\_\-pathtbl\-\_\-unregister} (void)
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{mesh__pathtbl_8c_ac5d21413a6ce5e2d23d20e86f60f60cf}{mesh\-\_\-paths\-\_\-generation}
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{mesh__pathtbl_8c_ada476f6fdb60b34bcdf1a9edbfa4bf89}{\index{mesh\-\_\-pathtbl.\-c@{mesh\-\_\-pathtbl.\-c}!for\-\_\-each\-\_\-mesh\-\_\-entry@{for\-\_\-each\-\_\-mesh\-\_\-entry}}
+\index{for\-\_\-each\-\_\-mesh\-\_\-entry@{for\-\_\-each\-\_\-mesh\-\_\-entry}!mesh_pathtbl.c@{mesh\-\_\-pathtbl.\-c}}
+\subsubsection[{for\-\_\-each\-\_\-mesh\-\_\-entry}]{\setlength{\rightskip}{0pt plus 5cm}\#define for\-\_\-each\-\_\-mesh\-\_\-entry(
+\begin{DoxyParamCaption}
+\item[{}]{tbl, }
+\item[{}]{p, }
+\item[{}]{node, }
+\item[{}]{i}
+\end{DoxyParamCaption}
+)}}\label{mesh__pathtbl_8c_ada476f6fdb60b34bcdf1a9edbfa4bf89}
+{\bfseries Value\-:}
+\begin{DoxyCode}
+\textcolor{keywordflow}{for} (i = 0; i <= tbl->hash\_mask; i++) \(\backslash\)
+        hlist\_for\_each\_entry\_rcu(node, p, &tbl->hash\_buckets[i], list)
+\end{DoxyCode}
+
+
+Definition at line 78 of file mesh\-\_\-pathtbl.\-c.
+
+\hypertarget{mesh__pathtbl_8c_a19c056efb7fd30217c2c44c3e0dd18bd}{\index{mesh\-\_\-pathtbl.\-c@{mesh\-\_\-pathtbl.\-c}!I\-N\-I\-T\-\_\-\-P\-A\-T\-H\-S\-\_\-\-S\-I\-Z\-E\-\_\-\-O\-R\-D\-E\-R@{I\-N\-I\-T\-\_\-\-P\-A\-T\-H\-S\-\_\-\-S\-I\-Z\-E\-\_\-\-O\-R\-D\-E\-R}}
+\index{I\-N\-I\-T\-\_\-\-P\-A\-T\-H\-S\-\_\-\-S\-I\-Z\-E\-\_\-\-O\-R\-D\-E\-R@{I\-N\-I\-T\-\_\-\-P\-A\-T\-H\-S\-\_\-\-S\-I\-Z\-E\-\_\-\-O\-R\-D\-E\-R}!mesh_pathtbl.c@{mesh\-\_\-pathtbl.\-c}}
+\subsubsection[{I\-N\-I\-T\-\_\-\-P\-A\-T\-H\-S\-\_\-\-S\-I\-Z\-E\-\_\-\-O\-R\-D\-E\-R}]{\setlength{\rightskip}{0pt plus 5cm}\#define I\-N\-I\-T\-\_\-\-P\-A\-T\-H\-S\-\_\-\-S\-I\-Z\-E\-\_\-\-O\-R\-D\-E\-R~2}}\label{mesh__pathtbl_8c_a19c056efb7fd30217c2c44c3e0dd18bd}
+
+
+Definition at line 28 of file mesh\-\_\-pathtbl.\-c.
+
+\hypertarget{mesh__pathtbl_8c_a47ac5b387fa8e8f814782b36553daed7}{\index{mesh\-\_\-pathtbl.\-c@{mesh\-\_\-pathtbl.\-c}!M\-E\-A\-N\-\_\-\-C\-H\-A\-I\-N\-\_\-\-L\-E\-N@{M\-E\-A\-N\-\_\-\-C\-H\-A\-I\-N\-\_\-\-L\-E\-N}}
+\index{M\-E\-A\-N\-\_\-\-C\-H\-A\-I\-N\-\_\-\-L\-E\-N@{M\-E\-A\-N\-\_\-\-C\-H\-A\-I\-N\-\_\-\-L\-E\-N}!mesh_pathtbl.c@{mesh\-\_\-pathtbl.\-c}}
+\subsubsection[{M\-E\-A\-N\-\_\-\-C\-H\-A\-I\-N\-\_\-\-L\-E\-N}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\-E\-A\-N\-\_\-\-C\-H\-A\-I\-N\-\_\-\-L\-E\-N~2}}\label{mesh__pathtbl_8c_a47ac5b387fa8e8f814782b36553daed7}
+
+
+Definition at line 31 of file mesh\-\_\-pathtbl.\-c.
+
+\hypertarget{mesh__pathtbl_8c_a79ace0cc939c9aecb7cd864c5dfacfe3}{\index{mesh\-\_\-pathtbl.\-c@{mesh\-\_\-pathtbl.\-c}!mpath\-\_\-dbg@{mpath\-\_\-dbg}}
+\index{mpath\-\_\-dbg@{mpath\-\_\-dbg}!mesh_pathtbl.c@{mesh\-\_\-pathtbl.\-c}}
+\subsubsection[{mpath\-\_\-dbg}]{\setlength{\rightskip}{0pt plus 5cm}\#define mpath\-\_\-dbg(
+\begin{DoxyParamCaption}
+\item[{}]{fmt, }
+\item[{}]{args...}
+\end{DoxyParamCaption}
+)~do \{ (void)(0); \} while (0)}}\label{mesh__pathtbl_8c_a79ace0cc939c9aecb7cd864c5dfacfe3}
+
+
+Definition at line 24 of file mesh\-\_\-pathtbl.\-c.
+
+\hypertarget{mesh__pathtbl_8c_a2519930b317ecf32f22699e10d230fa3}{\index{mesh\-\_\-pathtbl.\-c@{mesh\-\_\-pathtbl.\-c}!M\-P\-A\-T\-H\-\_\-\-E\-X\-P\-I\-R\-E\-D@{M\-P\-A\-T\-H\-\_\-\-E\-X\-P\-I\-R\-E\-D}}
+\index{M\-P\-A\-T\-H\-\_\-\-E\-X\-P\-I\-R\-E\-D@{M\-P\-A\-T\-H\-\_\-\-E\-X\-P\-I\-R\-E\-D}!mesh_pathtbl.c@{mesh\-\_\-pathtbl.\-c}}
+\subsubsection[{M\-P\-A\-T\-H\-\_\-\-E\-X\-P\-I\-R\-E\-D}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\-P\-A\-T\-H\-\_\-\-E\-X\-P\-I\-R\-E\-D(
+\begin{DoxyParamCaption}
+\item[{}]{mpath}
+\end{DoxyParamCaption}
+)}}\label{mesh__pathtbl_8c_a2519930b317ecf32f22699e10d230fa3}
+{\bfseries Value\-:}
+\begin{DoxyCode}
+((mpath->flags & \hyperlink{mesh_8h_a1108038688d583a88056a1ebebd89fa2a64ca4728e1fb232637a6d28878c700be}{MESH\_PATH\_ACTIVE}) && \(\backslash\)
+                time\_after(jiffies, mpath->exp\_time) && \(\backslash\)
+                !(mpath->flags & \hyperlink{mesh_8h_a1108038688d583a88056a1ebebd89fa2a82162e466aee394e88e80550ac71000f}{MESH\_PATH\_FIXED}))
+\end{DoxyCode}
+
+
+Definition at line 33 of file mesh\-\_\-pathtbl.\-c.
+
+
+
+\subsection{Function Documentation}
+\hypertarget{mesh__pathtbl_8c_a9bb1def60ac1348affaef2be516cb928}{\index{mesh\-\_\-pathtbl.\-c@{mesh\-\_\-pathtbl.\-c}!mesh\-\_\-gate\-\_\-num@{mesh\-\_\-gate\-\_\-num}}
+\index{mesh\-\_\-gate\-\_\-num@{mesh\-\_\-gate\-\_\-num}!mesh_pathtbl.c@{mesh\-\_\-pathtbl.\-c}}
+\subsubsection[{mesh\-\_\-gate\-\_\-num}]{\setlength{\rightskip}{0pt plus 5cm}int mesh\-\_\-gate\-\_\-num (
+\begin{DoxyParamCaption}
+\item[{struct {\bf ieee80211\-\_\-sub\-\_\-if\-\_\-data} $\ast$}]{sdata}
+\end{DoxyParamCaption}
+)}}\label{mesh__pathtbl_8c_a9bb1def60ac1348affaef2be516cb928}
+mesh\-\_\-gate\-\_\-num -\/ number of gates known to this interface \-: subif data 
+
+Definition at line 493 of file mesh\-\_\-pathtbl.\-c.
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{mesh__pathtbl_8c_a9bb1def60ac1348affaef2be516cb928_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{mesh__pathtbl_8c_a69e53ed90bb9493db24a820fff7db860}{\index{mesh\-\_\-pathtbl.\-c@{mesh\-\_\-pathtbl.\-c}!mesh\-\_\-mpath\-\_\-table\-\_\-grow@{mesh\-\_\-mpath\-\_\-table\-\_\-grow}}
+\index{mesh\-\_\-mpath\-\_\-table\-\_\-grow@{mesh\-\_\-mpath\-\_\-table\-\_\-grow}!mesh_pathtbl.c@{mesh\-\_\-pathtbl.\-c}}
+\subsubsection[{mesh\-\_\-mpath\-\_\-table\-\_\-grow}]{\setlength{\rightskip}{0pt plus 5cm}void mesh\-\_\-mpath\-\_\-table\-\_\-grow (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{mesh__pathtbl_8c_a69e53ed90bb9493db24a820fff7db860}
+
+
+Definition at line 599 of file mesh\-\_\-pathtbl.\-c.
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{mesh__pathtbl_8c_a69e53ed90bb9493db24a820fff7db860_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{mesh__pathtbl_8c_a86c0b167f83fc46ca1441594853d69da}{\index{mesh\-\_\-pathtbl.\-c@{mesh\-\_\-pathtbl.\-c}!mesh\-\_\-mpp\-\_\-table\-\_\-grow@{mesh\-\_\-mpp\-\_\-table\-\_\-grow}}
+\index{mesh\-\_\-mpp\-\_\-table\-\_\-grow@{mesh\-\_\-mpp\-\_\-table\-\_\-grow}!mesh_pathtbl.c@{mesh\-\_\-pathtbl.\-c}}
+\subsubsection[{mesh\-\_\-mpp\-\_\-table\-\_\-grow}]{\setlength{\rightskip}{0pt plus 5cm}void mesh\-\_\-mpp\-\_\-table\-\_\-grow (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{mesh__pathtbl_8c_a86c0b167f83fc46ca1441594853d69da}
+
+
+Definition at line 620 of file mesh\-\_\-pathtbl.\-c.
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{mesh__pathtbl_8c_a86c0b167f83fc46ca1441594853d69da_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{mesh__pathtbl_8c_abf045a31559b7aea3fa56394d7ab1372}{\index{mesh\-\_\-pathtbl.\-c@{mesh\-\_\-pathtbl.\-c}!mesh\-\_\-path\-\_\-add@{mesh\-\_\-path\-\_\-add}}
+\index{mesh\-\_\-path\-\_\-add@{mesh\-\_\-path\-\_\-add}!mesh_pathtbl.c@{mesh\-\_\-pathtbl.\-c}}
+\subsubsection[{mesh\-\_\-path\-\_\-add}]{\setlength{\rightskip}{0pt plus 5cm}int mesh\-\_\-path\-\_\-add (
+\begin{DoxyParamCaption}
+\item[{u8 $\ast$}]{dst, }
+\item[{struct {\bf ieee80211\-\_\-sub\-\_\-if\-\_\-data} $\ast$}]{sdata}
+\end{DoxyParamCaption}
+)}}\label{mesh__pathtbl_8c_abf045a31559b7aea3fa56394d7ab1372}
+mesh\-\_\-path\-\_\-add -\/ allocate and add a new path to the mesh path table \-: destination address of the path (E\-T\-H\-\_\-\-A\-L\-E\-N length) \-: local subif
+
+Returns\-: 0 on success
+
+State\-: the initial state of the new path is set to 0 
+
+Definition at line 507 of file mesh\-\_\-pathtbl.\-c.
+
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{mesh__pathtbl_8c_abf045a31559b7aea3fa56394d7ab1372_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{mesh__pathtbl_8c_abf045a31559b7aea3fa56394d7ab1372_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{mesh__pathtbl_8c_af99521d45a7ba659d9c988ad8e274966}{\index{mesh\-\_\-pathtbl.\-c@{mesh\-\_\-pathtbl.\-c}!mesh\-\_\-path\-\_\-add\-\_\-gate@{mesh\-\_\-path\-\_\-add\-\_\-gate}}
+\index{mesh\-\_\-path\-\_\-add\-\_\-gate@{mesh\-\_\-path\-\_\-add\-\_\-gate}!mesh_pathtbl.c@{mesh\-\_\-pathtbl.\-c}}
+\subsubsection[{mesh\-\_\-path\-\_\-add\-\_\-gate}]{\setlength{\rightskip}{0pt plus 5cm}int mesh\-\_\-path\-\_\-add\-\_\-gate (
+\begin{DoxyParamCaption}
+\item[{struct {\bf mesh\-\_\-path} $\ast$}]{mpath}
+\end{DoxyParamCaption}
+)}}\label{mesh__pathtbl_8c_af99521d45a7ba659d9c988ad8e274966}
+mesh\-\_\-path\-\_\-add\-\_\-gate -\/ add the given mpath to a mesh gate to our path table \-: gate path to add to table 
+
+Definition at line 420 of file mesh\-\_\-pathtbl.\-c.
+
+\hypertarget{mesh__pathtbl_8c_aa0eb720f520e04822384c44fdd66bc0c}{\index{mesh\-\_\-pathtbl.\-c@{mesh\-\_\-pathtbl.\-c}!mesh\-\_\-path\-\_\-assign\-\_\-nexthop@{mesh\-\_\-path\-\_\-assign\-\_\-nexthop}}
+\index{mesh\-\_\-path\-\_\-assign\-\_\-nexthop@{mesh\-\_\-path\-\_\-assign\-\_\-nexthop}!mesh_pathtbl.c@{mesh\-\_\-pathtbl.\-c}}
+\subsubsection[{mesh\-\_\-path\-\_\-assign\-\_\-nexthop}]{\setlength{\rightskip}{0pt plus 5cm}void mesh\-\_\-path\-\_\-assign\-\_\-nexthop (
+\begin{DoxyParamCaption}
+\item[{struct {\bf mesh\-\_\-path} $\ast$}]{mpath, }
+\item[{struct {\bf sta\-\_\-info} $\ast$}]{sta}
+\end{DoxyParamCaption}
+)}}\label{mesh__pathtbl_8c_aa0eb720f520e04822384c44fdd66bc0c}
+mesh\-\_\-path\-\_\-assign\-\_\-nexthop -\/ update mesh path next hop
+
+\-: mesh path to update \-: next hop to assign
+
+Locking\-: mpath-\/$>$state\-\_\-lock must be held when calling this function 
+
+Definition at line 208 of file mesh\-\_\-pathtbl.\-c.
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{mesh__pathtbl_8c_aa0eb720f520e04822384c44fdd66bc0c_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{mesh__pathtbl_8c_a881ea8f05596c17b19b72f0cbc38b6a4}{\index{mesh\-\_\-pathtbl.\-c@{mesh\-\_\-pathtbl.\-c}!mesh\-\_\-path\-\_\-del@{mesh\-\_\-path\-\_\-del}}
+\index{mesh\-\_\-path\-\_\-del@{mesh\-\_\-path\-\_\-del}!mesh_pathtbl.c@{mesh\-\_\-pathtbl.\-c}}
+\subsubsection[{mesh\-\_\-path\-\_\-del}]{\setlength{\rightskip}{0pt plus 5cm}int mesh\-\_\-path\-\_\-del (
+\begin{DoxyParamCaption}
+\item[{u8 $\ast$}]{addr, }
+\item[{struct {\bf ieee80211\-\_\-sub\-\_\-if\-\_\-data} $\ast$}]{sdata}
+\end{DoxyParamCaption}
+)}}\label{mesh__pathtbl_8c_a881ea8f05596c17b19b72f0cbc38b6a4}
+mesh\-\_\-path\-\_\-del -\/ delete a mesh path from the table
+
+\-: dst address (E\-T\-H\-\_\-\-A\-L\-E\-N length) \-: local subif
+
+Returns\-: 0 if successful 
+
+Definition at line 866 of file mesh\-\_\-pathtbl.\-c.
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=296pt]{mesh__pathtbl_8c_a881ea8f05596c17b19b72f0cbc38b6a4_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{mesh__pathtbl_8c_a90f2613b99917c6405a441e0c7de6027}{\index{mesh\-\_\-pathtbl.\-c@{mesh\-\_\-pathtbl.\-c}!mesh\-\_\-path\-\_\-discard\-\_\-frame@{mesh\-\_\-path\-\_\-discard\-\_\-frame}}
+\index{mesh\-\_\-path\-\_\-discard\-\_\-frame@{mesh\-\_\-path\-\_\-discard\-\_\-frame}!mesh_pathtbl.c@{mesh\-\_\-pathtbl.\-c}}
+\subsubsection[{mesh\-\_\-path\-\_\-discard\-\_\-frame}]{\setlength{\rightskip}{0pt plus 5cm}void mesh\-\_\-path\-\_\-discard\-\_\-frame (
+\begin{DoxyParamCaption}
+\item[{struct sk\-\_\-buff $\ast$}]{skb, }
+\item[{struct {\bf ieee80211\-\_\-sub\-\_\-if\-\_\-data} $\ast$}]{sdata}
+\end{DoxyParamCaption}
+)}}\label{mesh__pathtbl_8c_a90f2613b99917c6405a441e0c7de6027}
+mesh\-\_\-path\-\_\-discard\-\_\-frame -\/ discard a frame whose path could not be resolved
+
+\-: frame to discard \-: network subif the frame was to be sent through
+
+Locking\-: the function must me called within a rcu\-\_\-read\-\_\-lock region 
+
+Definition at line 974 of file mesh\-\_\-pathtbl.\-c.
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{mesh__pathtbl_8c_a90f2613b99917c6405a441e0c7de6027_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{mesh__pathtbl_8c_a0f6ee851cd26b2b89230140fc89460d4}{\index{mesh\-\_\-pathtbl.\-c@{mesh\-\_\-pathtbl.\-c}!mesh\-\_\-path\-\_\-expire@{mesh\-\_\-path\-\_\-expire}}
+\index{mesh\-\_\-path\-\_\-expire@{mesh\-\_\-path\-\_\-expire}!mesh_pathtbl.c@{mesh\-\_\-pathtbl.\-c}}
+\subsubsection[{mesh\-\_\-path\-\_\-expire}]{\setlength{\rightskip}{0pt plus 5cm}void mesh\-\_\-path\-\_\-expire (
+\begin{DoxyParamCaption}
+\item[{struct {\bf ieee80211\-\_\-sub\-\_\-if\-\_\-data} $\ast$}]{sdata}
+\end{DoxyParamCaption}
+)}}\label{mesh__pathtbl_8c_a0f6ee851cd26b2b89230140fc89460d4}
+
+
+Definition at line 1097 of file mesh\-\_\-pathtbl.\-c.
+
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=296pt]{mesh__pathtbl_8c_a0f6ee851cd26b2b89230140fc89460d4_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{mesh__pathtbl_8c_a2da3453bee1fbea601bb76e75687a14e}{\index{mesh\-\_\-pathtbl.\-c@{mesh\-\_\-pathtbl.\-c}!mesh\-\_\-path\-\_\-fix\-\_\-nexthop@{mesh\-\_\-path\-\_\-fix\-\_\-nexthop}}
+\index{mesh\-\_\-path\-\_\-fix\-\_\-nexthop@{mesh\-\_\-path\-\_\-fix\-\_\-nexthop}!mesh_pathtbl.c@{mesh\-\_\-pathtbl.\-c}}
+\subsubsection[{mesh\-\_\-path\-\_\-fix\-\_\-nexthop}]{\setlength{\rightskip}{0pt plus 5cm}void mesh\-\_\-path\-\_\-fix\-\_\-nexthop (
+\begin{DoxyParamCaption}
+\item[{struct {\bf mesh\-\_\-path} $\ast$}]{mpath, }
+\item[{struct {\bf sta\-\_\-info} $\ast$}]{next\-\_\-hop}
+\end{DoxyParamCaption}
+)}}\label{mesh__pathtbl_8c_a2da3453bee1fbea601bb76e75687a14e}
+mesh\-\_\-path\-\_\-fix\-\_\-nexthop -\/ force a specific next hop for a mesh path
+
+\-: the mesh path to modify \-: the next hop to force
+
+Locking\-: this function must be called holding mpath-\/$>$state\-\_\-lock 
+
+Definition at line 1004 of file mesh\-\_\-pathtbl.\-c.
+
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{mesh__pathtbl_8c_a2da3453bee1fbea601bb76e75687a14e_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{mesh__pathtbl_8c_ab80f623ac3eea4f453cbd899f3d7b3be}{\index{mesh\-\_\-pathtbl.\-c@{mesh\-\_\-pathtbl.\-c}!mesh\-\_\-path\-\_\-flush\-\_\-by\-\_\-iface@{mesh\-\_\-path\-\_\-flush\-\_\-by\-\_\-iface}}
+\index{mesh\-\_\-path\-\_\-flush\-\_\-by\-\_\-iface@{mesh\-\_\-path\-\_\-flush\-\_\-by\-\_\-iface}!mesh_pathtbl.c@{mesh\-\_\-pathtbl.\-c}}
+\subsubsection[{mesh\-\_\-path\-\_\-flush\-\_\-by\-\_\-iface}]{\setlength{\rightskip}{0pt plus 5cm}void mesh\-\_\-path\-\_\-flush\-\_\-by\-\_\-iface (
+\begin{DoxyParamCaption}
+\item[{struct {\bf ieee80211\-\_\-sub\-\_\-if\-\_\-data} $\ast$}]{sdata}
+\end{DoxyParamCaption}
+)}}\label{mesh__pathtbl_8c_ab80f623ac3eea4f453cbd899f3d7b3be}
+mesh\-\_\-path\-\_\-flush\-\_\-by\-\_\-iface -\/ Deletes all mesh paths associated with a given iface
+
+This function deletes both mesh paths as well as mesh portal paths.
+
+-\/ interface data to match 
+
+Definition at line 844 of file mesh\-\_\-pathtbl.\-c.
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{mesh__pathtbl_8c_ab80f623ac3eea4f453cbd899f3d7b3be_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{mesh__pathtbl_8c_a92ce0e2138aadd5098196a5f49557f4f}{\index{mesh\-\_\-pathtbl.\-c@{mesh\-\_\-pathtbl.\-c}!mesh\-\_\-path\-\_\-flush\-\_\-by\-\_\-nexthop@{mesh\-\_\-path\-\_\-flush\-\_\-by\-\_\-nexthop}}
+\index{mesh\-\_\-path\-\_\-flush\-\_\-by\-\_\-nexthop@{mesh\-\_\-path\-\_\-flush\-\_\-by\-\_\-nexthop}!mesh_pathtbl.c@{mesh\-\_\-pathtbl.\-c}}
+\subsubsection[{mesh\-\_\-path\-\_\-flush\-\_\-by\-\_\-nexthop}]{\setlength{\rightskip}{0pt plus 5cm}void mesh\-\_\-path\-\_\-flush\-\_\-by\-\_\-nexthop (
+\begin{DoxyParamCaption}
+\item[{struct {\bf sta\-\_\-info} $\ast$}]{sta}
+\end{DoxyParamCaption}
+)}}\label{mesh__pathtbl_8c_a92ce0e2138aadd5098196a5f49557f4f}
+mesh\-\_\-path\-\_\-flush\-\_\-by\-\_\-nexthop -\/ Deletes mesh paths if their next hop matches
+
+-\/ mesh peer to match
+
+R\-C\-U notes\-: this function is called when a mesh plink transitions from P\-L\-I\-N\-K\-\_\-\-E\-S\-T\-A\-B to any other state, since P\-L\-I\-N\-K\-\_\-\-E\-S\-T\-A\-B state is the only one that allows path creation. This will happen before the sta can be freed (because sta\-\_\-info\-\_\-destroy() calls this) so any reader in a rcu read block will be protected against the plink disappearing. 
+
+Definition at line 794 of file mesh\-\_\-pathtbl.\-c.
+
+\hypertarget{mesh__pathtbl_8c_ae453f6c3c228429527920b139aca79d7}{\index{mesh\-\_\-pathtbl.\-c@{mesh\-\_\-pathtbl.\-c}!mesh\-\_\-path\-\_\-flush\-\_\-pending@{mesh\-\_\-path\-\_\-flush\-\_\-pending}}
+\index{mesh\-\_\-path\-\_\-flush\-\_\-pending@{mesh\-\_\-path\-\_\-flush\-\_\-pending}!mesh_pathtbl.c@{mesh\-\_\-pathtbl.\-c}}
+\subsubsection[{mesh\-\_\-path\-\_\-flush\-\_\-pending}]{\setlength{\rightskip}{0pt plus 5cm}void mesh\-\_\-path\-\_\-flush\-\_\-pending (
+\begin{DoxyParamCaption}
+\item[{struct {\bf mesh\-\_\-path} $\ast$}]{mpath}
+\end{DoxyParamCaption}
+)}}\label{mesh__pathtbl_8c_ae453f6c3c228429527920b139aca79d7}
+mesh\-\_\-path\-\_\-flush\-\_\-pending -\/ free the pending queue of a mesh path
+
+\-: mesh path whose queue has to be freed
+
+Locking\-: the function must me called within a rcu\-\_\-read\-\_\-lock region 
+
+Definition at line 988 of file mesh\-\_\-pathtbl.\-c.
+
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{mesh__pathtbl_8c_ae453f6c3c228429527920b139aca79d7_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{mesh__pathtbl_8c_ae453f6c3c228429527920b139aca79d7_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{mesh__pathtbl_8c_a1794882e6c44e105ce79ff35a74a160b}{\index{mesh\-\_\-pathtbl.\-c@{mesh\-\_\-pathtbl.\-c}!mesh\-\_\-path\-\_\-lookup@{mesh\-\_\-path\-\_\-lookup}}
+\index{mesh\-\_\-path\-\_\-lookup@{mesh\-\_\-path\-\_\-lookup}!mesh_pathtbl.c@{mesh\-\_\-pathtbl.\-c}}
+\subsubsection[{mesh\-\_\-path\-\_\-lookup}]{\setlength{\rightskip}{0pt plus 5cm}struct {\bf mesh\-\_\-path}$\ast$ mesh\-\_\-path\-\_\-lookup (
+\begin{DoxyParamCaption}
+\item[{u8 $\ast$}]{dst, }
+\item[{struct {\bf ieee80211\-\_\-sub\-\_\-if\-\_\-data} $\ast$}]{sdata}
+\end{DoxyParamCaption}
+)}}\label{mesh__pathtbl_8c_a1794882e6c44e105ce79ff35a74a160b}
+mesh\-\_\-path\-\_\-lookup -\/ look up a path in the mesh path table \-: hardware address (E\-T\-H\-\_\-\-A\-L\-E\-N length) of destination \-: local subif
+
+Returns\-: pointer to the mesh path structure, or N\-U\-L\-L if not found
+
+Locking\-: must be called within a read rcu section. 
+
+Definition at line 372 of file mesh\-\_\-pathtbl.\-c.
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{mesh__pathtbl_8c_a1794882e6c44e105ce79ff35a74a160b_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{mesh__pathtbl_8c_a291a74d17d68d23e5d0ff9abeccbb9fa}{\index{mesh\-\_\-pathtbl.\-c@{mesh\-\_\-pathtbl.\-c}!mesh\-\_\-path\-\_\-lookup\-\_\-by\-\_\-idx@{mesh\-\_\-path\-\_\-lookup\-\_\-by\-\_\-idx}}
+\index{mesh\-\_\-path\-\_\-lookup\-\_\-by\-\_\-idx@{mesh\-\_\-path\-\_\-lookup\-\_\-by\-\_\-idx}!mesh_pathtbl.c@{mesh\-\_\-pathtbl.\-c}}
+\subsubsection[{mesh\-\_\-path\-\_\-lookup\-\_\-by\-\_\-idx}]{\setlength{\rightskip}{0pt plus 5cm}struct {\bf mesh\-\_\-path}$\ast$ mesh\-\_\-path\-\_\-lookup\-\_\-by\-\_\-idx (
+\begin{DoxyParamCaption}
+\item[{int}]{idx, }
+\item[{struct {\bf ieee80211\-\_\-sub\-\_\-if\-\_\-data} $\ast$}]{sdata}
+\end{DoxyParamCaption}
+)}}\label{mesh__pathtbl_8c_a291a74d17d68d23e5d0ff9abeccbb9fa}
+mesh\-\_\-path\-\_\-lookup\-\_\-by\-\_\-idx -\/ look up a path in the mesh path table by its index \-: index \-: local subif, or N\-U\-L\-L for all entries
+
+Returns\-: pointer to the mesh path structure, or N\-U\-L\-L if not found.
+
+Locking\-: must be called within a read rcu section. 
+
+Definition at line 392 of file mesh\-\_\-pathtbl.\-c.
+
+\hypertarget{mesh__pathtbl_8c_acfaaabcef47e7a6e3b75022748bd0abc}{\index{mesh\-\_\-pathtbl.\-c@{mesh\-\_\-pathtbl.\-c}!mesh\-\_\-path\-\_\-send\-\_\-to\-\_\-gates@{mesh\-\_\-path\-\_\-send\-\_\-to\-\_\-gates}}
+\index{mesh\-\_\-path\-\_\-send\-\_\-to\-\_\-gates@{mesh\-\_\-path\-\_\-send\-\_\-to\-\_\-gates}!mesh_pathtbl.c@{mesh\-\_\-pathtbl.\-c}}
+\subsubsection[{mesh\-\_\-path\-\_\-send\-\_\-to\-\_\-gates}]{\setlength{\rightskip}{0pt plus 5cm}int mesh\-\_\-path\-\_\-send\-\_\-to\-\_\-gates (
+\begin{DoxyParamCaption}
+\item[{struct {\bf mesh\-\_\-path} $\ast$}]{mpath}
+\end{DoxyParamCaption}
+)}}\label{mesh__pathtbl_8c_acfaaabcef47e7a6e3b75022748bd0abc}
+mesh\-\_\-path\-\_\-send\-\_\-to\-\_\-gates -\/ sends pending frames to all known mesh gates
+
+\-: mesh path whose queue will be emptied
+
+If there is only one gate, the frames are transferred from the failed mpath queue to that gate's queue. If there are more than one gates, the frames are copied from each gate to the next. After frames are copied, the mpath queues are emptied onto the transmission queue. 
+
+Definition at line 924 of file mesh\-\_\-pathtbl.\-c.
+
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{mesh__pathtbl_8c_acfaaabcef47e7a6e3b75022748bd0abc_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{mesh__pathtbl_8c_acfaaabcef47e7a6e3b75022748bd0abc_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{mesh__pathtbl_8c_a53b7762f7fb8c8cd60e943f1c292abab}{\index{mesh\-\_\-pathtbl.\-c@{mesh\-\_\-pathtbl.\-c}!mesh\-\_\-path\-\_\-tx\-\_\-pending@{mesh\-\_\-path\-\_\-tx\-\_\-pending}}
+\index{mesh\-\_\-path\-\_\-tx\-\_\-pending@{mesh\-\_\-path\-\_\-tx\-\_\-pending}!mesh_pathtbl.c@{mesh\-\_\-pathtbl.\-c}}
+\subsubsection[{mesh\-\_\-path\-\_\-tx\-\_\-pending}]{\setlength{\rightskip}{0pt plus 5cm}void mesh\-\_\-path\-\_\-tx\-\_\-pending (
+\begin{DoxyParamCaption}
+\item[{struct {\bf mesh\-\_\-path} $\ast$}]{mpath}
+\end{DoxyParamCaption}
+)}}\label{mesh__pathtbl_8c_a53b7762f7fb8c8cd60e943f1c292abab}
+mesh\-\_\-path\-\_\-tx\-\_\-pending -\/ sends pending frames in a mesh path queue
+
+\-: mesh path to activate
+
+Locking\-: the state\-\_\-lock of the mpath structure must N\-O\-T be held when calling this function. 
+
+Definition at line 907 of file mesh\-\_\-pathtbl.\-c.
+
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{mesh__pathtbl_8c_a53b7762f7fb8c8cd60e943f1c292abab_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{mesh__pathtbl_8c_a53b7762f7fb8c8cd60e943f1c292abab_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{mesh__pathtbl_8c_a545e27353ed69a7d8c94f4b6cae204f1}{\index{mesh\-\_\-pathtbl.\-c@{mesh\-\_\-pathtbl.\-c}!mesh\-\_\-pathtbl\-\_\-init@{mesh\-\_\-pathtbl\-\_\-init}}
+\index{mesh\-\_\-pathtbl\-\_\-init@{mesh\-\_\-pathtbl\-\_\-init}!mesh_pathtbl.c@{mesh\-\_\-pathtbl.\-c}}
+\subsubsection[{mesh\-\_\-pathtbl\-\_\-init}]{\setlength{\rightskip}{0pt plus 5cm}int mesh\-\_\-pathtbl\-\_\-init (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{mesh__pathtbl_8c_a545e27353ed69a7d8c94f4b6cae204f1}
+
+
+Definition at line 1050 of file mesh\-\_\-pathtbl.\-c.
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{mesh__pathtbl_8c_a545e27353ed69a7d8c94f4b6cae204f1_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{mesh__pathtbl_8c_a5a45b0108a76cf186ef91b494da9a4ea}{\index{mesh\-\_\-pathtbl.\-c@{mesh\-\_\-pathtbl.\-c}!mesh\-\_\-pathtbl\-\_\-unregister@{mesh\-\_\-pathtbl\-\_\-unregister}}
+\index{mesh\-\_\-pathtbl\-\_\-unregister@{mesh\-\_\-pathtbl\-\_\-unregister}!mesh_pathtbl.c@{mesh\-\_\-pathtbl.\-c}}
+\subsubsection[{mesh\-\_\-pathtbl\-\_\-unregister}]{\setlength{\rightskip}{0pt plus 5cm}void mesh\-\_\-pathtbl\-\_\-unregister (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{mesh__pathtbl_8c_a5a45b0108a76cf186ef91b494da9a4ea}
+
+
+Definition at line 1119 of file mesh\-\_\-pathtbl.\-c.
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=330pt]{mesh__pathtbl_8c_a5a45b0108a76cf186ef91b494da9a4ea_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{mesh__pathtbl_8c_a347c473ad002d31a76c9856c38af804b}{\index{mesh\-\_\-pathtbl.\-c@{mesh\-\_\-pathtbl.\-c}!mesh\-\_\-plink\-\_\-broken@{mesh\-\_\-plink\-\_\-broken}}
+\index{mesh\-\_\-plink\-\_\-broken@{mesh\-\_\-plink\-\_\-broken}!mesh_pathtbl.c@{mesh\-\_\-pathtbl.\-c}}
+\subsubsection[{mesh\-\_\-plink\-\_\-broken}]{\setlength{\rightskip}{0pt plus 5cm}void mesh\-\_\-plink\-\_\-broken (
+\begin{DoxyParamCaption}
+\item[{struct {\bf sta\-\_\-info} $\ast$}]{sta}
+\end{DoxyParamCaption}
+)}}\label{mesh__pathtbl_8c_a347c473ad002d31a76c9856c38af804b}
+mesh\-\_\-plink\-\_\-broken -\/ deactivates paths and sends perr when a link breaks
+
+\-: broken peer link
+
+This function must be called from the rate control algorithm if enough delivery errors suggest that a peer link is no longer usable. 
+
+Definition at line 727 of file mesh\-\_\-pathtbl.\-c.
+
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{mesh__pathtbl_8c_a347c473ad002d31a76c9856c38af804b_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{mesh__pathtbl_8c_a347c473ad002d31a76c9856c38af804b_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{mesh__pathtbl_8c_a43c1db07be87b3dce6f20e16ca8e1c3a}{\index{mesh\-\_\-pathtbl.\-c@{mesh\-\_\-pathtbl.\-c}!mpp\-\_\-path\-\_\-add@{mpp\-\_\-path\-\_\-add}}
+\index{mpp\-\_\-path\-\_\-add@{mpp\-\_\-path\-\_\-add}!mesh_pathtbl.c@{mesh\-\_\-pathtbl.\-c}}
+\subsubsection[{mpp\-\_\-path\-\_\-add}]{\setlength{\rightskip}{0pt plus 5cm}int mpp\-\_\-path\-\_\-add (
+\begin{DoxyParamCaption}
+\item[{u8 $\ast$}]{dst, }
+\item[{u8 $\ast$}]{mpp, }
+\item[{struct {\bf ieee80211\-\_\-sub\-\_\-if\-\_\-data} $\ast$}]{sdata}
+\end{DoxyParamCaption}
+)}}\label{mesh__pathtbl_8c_a43c1db07be87b3dce6f20e16ca8e1c3a}
+
+
+Definition at line 640 of file mesh\-\_\-pathtbl.\-c.
+
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=316pt]{mesh__pathtbl_8c_a43c1db07be87b3dce6f20e16ca8e1c3a_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{mesh__pathtbl_8c_ade75b84e7888b0843fa63cd03a3ec015}{\index{mesh\-\_\-pathtbl.\-c@{mesh\-\_\-pathtbl.\-c}!mpp\-\_\-path\-\_\-lookup@{mpp\-\_\-path\-\_\-lookup}}
+\index{mpp\-\_\-path\-\_\-lookup@{mpp\-\_\-path\-\_\-lookup}!mesh_pathtbl.c@{mesh\-\_\-pathtbl.\-c}}
+\subsubsection[{mpp\-\_\-path\-\_\-lookup}]{\setlength{\rightskip}{0pt plus 5cm}struct {\bf mesh\-\_\-path}$\ast$ mpp\-\_\-path\-\_\-lookup (
+\begin{DoxyParamCaption}
+\item[{u8 $\ast$}]{dst, }
+\item[{struct {\bf ieee80211\-\_\-sub\-\_\-if\-\_\-data} $\ast$}]{sdata}
+\end{DoxyParamCaption}
+)}}\label{mesh__pathtbl_8c_ade75b84e7888b0843fa63cd03a3ec015}
+
+
+Definition at line 377 of file mesh\-\_\-pathtbl.\-c.
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=346pt]{mesh__pathtbl_8c_ade75b84e7888b0843fa63cd03a3ec015_icgraph}
+\end{center}
+\end{figure}
+
+
+
+
+\subsection{Variable Documentation}
+\hypertarget{mesh__pathtbl_8c_ac5d21413a6ce5e2d23d20e86f60f60cf}{\index{mesh\-\_\-pathtbl.\-c@{mesh\-\_\-pathtbl.\-c}!mesh\-\_\-paths\-\_\-generation@{mesh\-\_\-paths\-\_\-generation}}
+\index{mesh\-\_\-paths\-\_\-generation@{mesh\-\_\-paths\-\_\-generation}!mesh_pathtbl.c@{mesh\-\_\-pathtbl.\-c}}
+\subsubsection[{mesh\-\_\-paths\-\_\-generation}]{\setlength{\rightskip}{0pt plus 5cm}int mesh\-\_\-paths\-\_\-generation}}\label{mesh__pathtbl_8c_ac5d21413a6ce5e2d23d20e86f60f60cf}
+
+
+Definition at line 49 of file mesh\-\_\-pathtbl.\-c.
+

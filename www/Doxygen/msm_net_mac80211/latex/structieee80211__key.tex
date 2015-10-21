@@ -1,0 +1,190 @@
+\hypertarget{structieee80211__key}{\section{ieee80211\-\_\-key Struct Reference}
+\label{structieee80211__key}\index{ieee80211\-\_\-key@{ieee80211\-\_\-key}}
+}
+
+
+{\ttfamily \#include $<$key.\-h$>$}
+
+
+
+Collaboration diagram for ieee80211\-\_\-key\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{structieee80211__key__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structieee80211__local}{ieee80211\-\_\-local} $\ast$ \hyperlink{structieee80211__key_ad436a024f420f219c4fe2eebce7e4ab2}{local}
+\item 
+struct \hyperlink{structieee80211__sub__if__data}{ieee80211\-\_\-sub\-\_\-if\-\_\-data} $\ast$ \hyperlink{structieee80211__key_ad829d8d33f06a7245cc303f924f259ac}{sdata}
+\item 
+struct \hyperlink{structsta__info}{sta\-\_\-info} $\ast$ \hyperlink{structieee80211__key_aafa9dadbeccd54b4a6b9f77f2908a093}{sta}
+\item 
+struct list\-\_\-head \hyperlink{structieee80211__key_a1f00f18b91d5a820f2c43064243aa86e}{list}
+\item 
+unsigned int \hyperlink{structieee80211__key_ac92588540e8c1d014a08cd8a45462b19}{flags}
+\item 
+\begin{tabbing}
+xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=\kill
+union \{\\
+\>struct \{\\
+\>\>spinlock\_t \hyperlink{structieee80211__key_a9b2bd2f2c7f0e62e0e0433a4b4964bca}{txlock}\\
+\>\>struct \hyperlink{structtkip__ctx}{tkip\_ctx} \hyperlink{structieee80211__key_a3a974b8d9690b9d3e88e8604538f4cf8}{tx}\\
+\>\>struct \hyperlink{structtkip__ctx}{tkip\_ctx} \hyperlink{structieee80211__key_a47e91edc6699fec0d3ddca2c17c58a16}{rx} \mbox{[}\hyperlink{key_8h_a99cb7469613fea382d3951d37ee2c075}{NUM\_RX\_DATA\_QUEUES}\mbox{]}\\
+\>\} \hyperlink{structieee80211__key_a1e037cc7cf26e98fb0ab400903c62d50}{tkip}\\
+\>struct \{\\
+\>\>atomic64\_t \hyperlink{structieee80211__key_a151a5bf95479b1130b341b412e6e3705}{tx\_pn}\\
+\>\>u8 \hyperlink{structieee80211__key_af268ed760198a17a7ecd9c352f6f1fc5}{rx\_pn} \mbox{[}\hyperlink{key_8h_a99cb7469613fea382d3951d37ee2c075}{NUM\_RX\_DATA\_QUEUES}+1\mbox{]}\mbox{[}\hyperlink{key_8h_a81046bbc6df45432e2845f0f32222abc}{CCMP\_PN\_LEN}\mbox{]}\\
+\>\>struct crypto\_cipher $\ast$ \hyperlink{structieee80211__key_a45576ea98555983d71e70badb9035f67}{tfm}\\
+\>\>u32 \hyperlink{structieee80211__key_a0c08b132b796ebfdeda0499ae965b637}{replays}\\
+\>\} \hyperlink{structieee80211__key_a7f707fa843bd338b94e1d10d95e88f11}{ccmp}\\
+\>struct \{\\
+\>\>atomic64\_t \hyperlink{structieee80211__key_a151a5bf95479b1130b341b412e6e3705}{tx\_pn}\\
+\>\>u8 \hyperlink{structieee80211__key_af268ed760198a17a7ecd9c352f6f1fc5}{rx\_pn} \mbox{[}\hyperlink{key_8h_a07fe3d0d5319da1976cbe16e6dcdb415}{CMAC\_PN\_LEN}\mbox{]}\\
+\>\>struct crypto\_cipher $\ast$ \hyperlink{structieee80211__key_a45576ea98555983d71e70badb9035f67}{tfm}\\
+\>\>u32 \hyperlink{structieee80211__key_a0c08b132b796ebfdeda0499ae965b637}{replays}\\
+\>\>u32 \hyperlink{structieee80211__key_a6751db90f0ca17fdb752baeb6f8d5152}{icverrors}\\
+\>\} \hyperlink{structieee80211__key_affdec9171aa9c62e512d1080c1c45e2a}{aes\_cmac}\\
+\} \hyperlink{structieee80211__key_aaf1be5c7d7653b795e11cb959246ee99}{u}\\
+
+\end{tabbing}\item 
+int \hyperlink{structieee80211__key_aff97ed740b6f262a845615cf7e63af70}{tx\-\_\-rx\-\_\-count}
+\item 
+struct ieee80211\-\_\-key\-\_\-conf \hyperlink{structieee80211__key_ac356e71d3ee661c89f43f272674ca2d6}{conf}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+
+
+Definition at line 65 of file key.\-h.
+
+
+
+\subsection{Field Documentation}
+\hypertarget{structieee80211__key_affdec9171aa9c62e512d1080c1c45e2a}{\index{ieee80211\-\_\-key@{ieee80211\-\_\-key}!aes\-\_\-cmac@{aes\-\_\-cmac}}
+\index{aes\-\_\-cmac@{aes\-\_\-cmac}!ieee80211_key@{ieee80211\-\_\-key}}
+\subsubsection[{aes\-\_\-cmac}]{\setlength{\rightskip}{0pt plus 5cm}struct \{ ... \}   aes\-\_\-cmac}}\label{structieee80211__key_affdec9171aa9c62e512d1080c1c45e2a}
+\hypertarget{structieee80211__key_a7f707fa843bd338b94e1d10d95e88f11}{\index{ieee80211\-\_\-key@{ieee80211\-\_\-key}!ccmp@{ccmp}}
+\index{ccmp@{ccmp}!ieee80211_key@{ieee80211\-\_\-key}}
+\subsubsection[{ccmp}]{\setlength{\rightskip}{0pt plus 5cm}struct \{ ... \}   ccmp}}\label{structieee80211__key_a7f707fa843bd338b94e1d10d95e88f11}
+\hypertarget{structieee80211__key_ac356e71d3ee661c89f43f272674ca2d6}{\index{ieee80211\-\_\-key@{ieee80211\-\_\-key}!conf@{conf}}
+\index{conf@{conf}!ieee80211_key@{ieee80211\-\_\-key}}
+\subsubsection[{conf}]{\setlength{\rightskip}{0pt plus 5cm}struct ieee80211\-\_\-key\-\_\-conf conf}}\label{structieee80211__key_ac356e71d3ee661c89f43f272674ca2d6}
+
+
+Definition at line 123 of file key.\-h.
+
+\hypertarget{structieee80211__key_ac92588540e8c1d014a08cd8a45462b19}{\index{ieee80211\-\_\-key@{ieee80211\-\_\-key}!flags@{flags}}
+\index{flags@{flags}!ieee80211_key@{ieee80211\-\_\-key}}
+\subsubsection[{flags}]{\setlength{\rightskip}{0pt plus 5cm}unsigned int flags}}\label{structieee80211__key_ac92588540e8c1d014a08cd8a45462b19}
+
+
+Definition at line 74 of file key.\-h.
+
+\hypertarget{structieee80211__key_a6751db90f0ca17fdb752baeb6f8d5152}{\index{ieee80211\-\_\-key@{ieee80211\-\_\-key}!icverrors@{icverrors}}
+\index{icverrors@{icverrors}!ieee80211_key@{ieee80211\-\_\-key}}
+\subsubsection[{icverrors}]{\setlength{\rightskip}{0pt plus 5cm}u32 icverrors}}\label{structieee80211__key_a6751db90f0ca17fdb752baeb6f8d5152}
+
+
+Definition at line 104 of file key.\-h.
+
+\hypertarget{structieee80211__key_a1f00f18b91d5a820f2c43064243aa86e}{\index{ieee80211\-\_\-key@{ieee80211\-\_\-key}!list@{list}}
+\index{list@{list}!ieee80211_key@{ieee80211\-\_\-key}}
+\subsubsection[{list}]{\setlength{\rightskip}{0pt plus 5cm}struct list\-\_\-head list}}\label{structieee80211__key_a1f00f18b91d5a820f2c43064243aa86e}
+
+
+Definition at line 71 of file key.\-h.
+
+\hypertarget{structieee80211__key_ad436a024f420f219c4fe2eebce7e4ab2}{\index{ieee80211\-\_\-key@{ieee80211\-\_\-key}!local@{local}}
+\index{local@{local}!ieee80211_key@{ieee80211\-\_\-key}}
+\subsubsection[{local}]{\setlength{\rightskip}{0pt plus 5cm}struct {\bf ieee80211\-\_\-local}$\ast$ local}}\label{structieee80211__key_ad436a024f420f219c4fe2eebce7e4ab2}
+
+
+Definition at line 66 of file key.\-h.
+
+\hypertarget{structieee80211__key_a0c08b132b796ebfdeda0499ae965b637}{\index{ieee80211\-\_\-key@{ieee80211\-\_\-key}!replays@{replays}}
+\index{replays@{replays}!ieee80211_key@{ieee80211\-\_\-key}}
+\subsubsection[{replays}]{\setlength{\rightskip}{0pt plus 5cm}u32 replays}}\label{structieee80211__key_a0c08b132b796ebfdeda0499ae965b637}
+
+
+Definition at line 97 of file key.\-h.
+
+\hypertarget{structieee80211__key_a47e91edc6699fec0d3ddca2c17c58a16}{\index{ieee80211\-\_\-key@{ieee80211\-\_\-key}!rx@{rx}}
+\index{rx@{rx}!ieee80211_key@{ieee80211\-\_\-key}}
+\subsubsection[{rx}]{\setlength{\rightskip}{0pt plus 5cm}struct {\bf tkip\-\_\-ctx} rx\mbox{[}{\bf N\-U\-M\-\_\-\-R\-X\-\_\-\-D\-A\-T\-A\-\_\-\-Q\-U\-E\-U\-E\-S}\mbox{]}}}\label{structieee80211__key_a47e91edc6699fec0d3ddca2c17c58a16}
+
+
+Definition at line 85 of file key.\-h.
+
+\hypertarget{structieee80211__key_af268ed760198a17a7ecd9c352f6f1fc5}{\index{ieee80211\-\_\-key@{ieee80211\-\_\-key}!rx\-\_\-pn@{rx\-\_\-pn}}
+\index{rx\-\_\-pn@{rx\-\_\-pn}!ieee80211_key@{ieee80211\-\_\-key}}
+\subsubsection[{rx\-\_\-pn}]{\setlength{\rightskip}{0pt plus 5cm}u8 rx\-\_\-pn\mbox{[}{\bf C\-M\-A\-C\-\_\-\-P\-N\-\_\-\-L\-E\-N}\mbox{]}}}\label{structieee80211__key_af268ed760198a17a7ecd9c352f6f1fc5}
+
+
+Definition at line 95 of file key.\-h.
+
+\hypertarget{structieee80211__key_ad829d8d33f06a7245cc303f924f259ac}{\index{ieee80211\-\_\-key@{ieee80211\-\_\-key}!sdata@{sdata}}
+\index{sdata@{sdata}!ieee80211_key@{ieee80211\-\_\-key}}
+\subsubsection[{sdata}]{\setlength{\rightskip}{0pt plus 5cm}struct {\bf ieee80211\-\_\-sub\-\_\-if\-\_\-data}$\ast$ sdata}}\label{structieee80211__key_ad829d8d33f06a7245cc303f924f259ac}
+
+
+Definition at line 67 of file key.\-h.
+
+\hypertarget{structieee80211__key_aafa9dadbeccd54b4a6b9f77f2908a093}{\index{ieee80211\-\_\-key@{ieee80211\-\_\-key}!sta@{sta}}
+\index{sta@{sta}!ieee80211_key@{ieee80211\-\_\-key}}
+\subsubsection[{sta}]{\setlength{\rightskip}{0pt plus 5cm}struct {\bf sta\-\_\-info}$\ast$ sta}}\label{structieee80211__key_aafa9dadbeccd54b4a6b9f77f2908a093}
+
+
+Definition at line 68 of file key.\-h.
+
+\hypertarget{structieee80211__key_a45576ea98555983d71e70badb9035f67}{\index{ieee80211\-\_\-key@{ieee80211\-\_\-key}!tfm@{tfm}}
+\index{tfm@{tfm}!ieee80211_key@{ieee80211\-\_\-key}}
+\subsubsection[{tfm}]{\setlength{\rightskip}{0pt plus 5cm}struct crypto\-\_\-cipher$\ast$ tfm}}\label{structieee80211__key_a45576ea98555983d71e70badb9035f67}
+
+
+Definition at line 96 of file key.\-h.
+
+\hypertarget{structieee80211__key_a1e037cc7cf26e98fb0ab400903c62d50}{\index{ieee80211\-\_\-key@{ieee80211\-\_\-key}!tkip@{tkip}}
+\index{tkip@{tkip}!ieee80211_key@{ieee80211\-\_\-key}}
+\subsubsection[{tkip}]{\setlength{\rightskip}{0pt plus 5cm}struct \{ ... \}   tkip}}\label{structieee80211__key_a1e037cc7cf26e98fb0ab400903c62d50}
+\hypertarget{structieee80211__key_a3a974b8d9690b9d3e88e8604538f4cf8}{\index{ieee80211\-\_\-key@{ieee80211\-\_\-key}!tx@{tx}}
+\index{tx@{tx}!ieee80211_key@{ieee80211\-\_\-key}}
+\subsubsection[{tx}]{\setlength{\rightskip}{0pt plus 5cm}struct {\bf tkip\-\_\-ctx} tx}}\label{structieee80211__key_a3a974b8d9690b9d3e88e8604538f4cf8}
+
+
+Definition at line 82 of file key.\-h.
+
+\hypertarget{structieee80211__key_a151a5bf95479b1130b341b412e6e3705}{\index{ieee80211\-\_\-key@{ieee80211\-\_\-key}!tx\-\_\-pn@{tx\-\_\-pn}}
+\index{tx\-\_\-pn@{tx\-\_\-pn}!ieee80211_key@{ieee80211\-\_\-key}}
+\subsubsection[{tx\-\_\-pn}]{\setlength{\rightskip}{0pt plus 5cm}atomic64\-\_\-t tx\-\_\-pn}}\label{structieee80211__key_a151a5bf95479b1130b341b412e6e3705}
+
+
+Definition at line 88 of file key.\-h.
+
+\hypertarget{structieee80211__key_aff97ed740b6f262a845615cf7e63af70}{\index{ieee80211\-\_\-key@{ieee80211\-\_\-key}!tx\-\_\-rx\-\_\-count@{tx\-\_\-rx\-\_\-count}}
+\index{tx\-\_\-rx\-\_\-count@{tx\-\_\-rx\-\_\-count}!ieee80211_key@{ieee80211\-\_\-key}}
+\subsubsection[{tx\-\_\-rx\-\_\-count}]{\setlength{\rightskip}{0pt plus 5cm}int tx\-\_\-rx\-\_\-count}}\label{structieee80211__key_aff97ed740b6f262a845615cf7e63af70}
+
+
+Definition at line 109 of file key.\-h.
+
+\hypertarget{structieee80211__key_a9b2bd2f2c7f0e62e0e0433a4b4964bca}{\index{ieee80211\-\_\-key@{ieee80211\-\_\-key}!txlock@{txlock}}
+\index{txlock@{txlock}!ieee80211_key@{ieee80211\-\_\-key}}
+\subsubsection[{txlock}]{\setlength{\rightskip}{0pt plus 5cm}spinlock\-\_\-t txlock}}\label{structieee80211__key_a9b2bd2f2c7f0e62e0e0433a4b4964bca}
+
+
+Definition at line 79 of file key.\-h.
+
+\hypertarget{structieee80211__key_aaf1be5c7d7653b795e11cb959246ee99}{\index{ieee80211\-\_\-key@{ieee80211\-\_\-key}!u@{u}}
+\index{u@{u}!ieee80211_key@{ieee80211\-\_\-key}}
+\subsubsection[{u}]{\setlength{\rightskip}{0pt plus 5cm}union \{ ... \}   u}}\label{structieee80211__key_aaf1be5c7d7653b795e11cb959246ee99}
+
+
+The documentation for this struct was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+/home/guille/msm/net/mac80211/\hyperlink{key_8h}{key.\-h}\end{DoxyCompactItemize}

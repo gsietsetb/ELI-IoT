@@ -1,0 +1,1079 @@
+\hypertarget{structieee80211__local}{\section{ieee80211\-\_\-local Struct Reference}
+\label{structieee80211__local}\index{ieee80211\-\_\-local@{ieee80211\-\_\-local}}
+}
+
+
+{\ttfamily \#include $<$ieee80211\-\_\-i.\-h$>$}
+
+
+
+Collaboration diagram for ieee80211\-\_\-local\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{structieee80211__local__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+struct ieee80211\-\_\-hw \hyperlink{structieee80211__local_a076bd779234ea1780e71eee200bc0d2c}{hw}
+\item 
+struct ieee80211\-\_\-ops $\ast$ \hyperlink{structieee80211__local_a276a891dc24af93ff2578620eaa83190}{ops}
+\item 
+struct list\-\_\-head \hyperlink{structieee80211__local_a207d91b6483b2be61984ad3a064dbeb9}{work\-\_\-list}
+\item 
+struct timer\-\_\-list \hyperlink{structieee80211__local_a8a02d2a35aae73440084c24cb79a57af}{work\-\_\-timer}
+\item 
+struct work\-\_\-struct \hyperlink{structieee80211__local_a5c4560ff0f9e5c23485f07405ea29b34}{work\-\_\-work}
+\item 
+struct workqueue\-\_\-struct $\ast$ \hyperlink{structieee80211__local_a5ed2da065662e4534cb5bec3437a1876}{workqueue}
+\item 
+unsigned long \hyperlink{structieee80211__local_a4ac9818da187bbf4f141fd9e6ca1f0fd}{queue\-\_\-stop\-\_\-reasons} \mbox{[}I\-E\-E\-E80211\-\_\-\-M\-A\-X\-\_\-\-Q\-U\-E\-U\-E\-S\mbox{]}
+\item 
+spinlock\-\_\-t \hyperlink{structieee80211__local_a6a4677a1a1ad602030742ceba058133b}{queue\-\_\-stop\-\_\-reason\-\_\-lock}
+\item 
+int \hyperlink{structieee80211__local_a8943f3ee2b248b1fe911c0441c136c08}{open\-\_\-count}
+\item 
+int \hyperlink{structieee80211__local_a0bd1594e17d034f96ba795dabeaee577}{monitors}
+\item 
+int \hyperlink{structieee80211__local_a9ed7f1c7df7ff97118031d501ebf660c}{cooked\-\_\-mntrs}
+\item 
+int \hyperlink{structieee80211__local_a27eb74fe97bc47632e4e68f9987b7676}{fif\-\_\-fcsfail}
+\item 
+int \hyperlink{structieee80211__local_a11004cb6258d9a385000bc4544aa06b5}{fif\-\_\-plcpfail}
+\item 
+int \hyperlink{structieee80211__local_af26c59857ac99739a98a86955ccb73f4}{fif\-\_\-control}
+\item 
+int \hyperlink{structieee80211__local_a6df112d414c0a93f9b40417e0d08cdd1}{fif\-\_\-other\-\_\-bss}
+\item 
+int \hyperlink{structieee80211__local_a79f914bf1ffdca68ec910069d5f7aad4}{fif\-\_\-pspoll}
+\item 
+int \hyperlink{structieee80211__local_ad3a2ffb279ac8ef26c6bb971b729cd73}{fif\-\_\-probe\-\_\-req}
+\item 
+int \hyperlink{structieee80211__local_ab293743371aeef9182e1e8c5be0d26f6}{probe\-\_\-req\-\_\-reg}
+\item 
+unsigned int \hyperlink{structieee80211__local_af57092f118989725a35071734086b077}{filter\-\_\-flags}
+\item 
+bool \hyperlink{structieee80211__local_a257c289b6a875f6028f1e79f4c0241bc}{wiphy\-\_\-ciphers\-\_\-allocated}
+\item 
+spinlock\-\_\-t \hyperlink{structieee80211__local_aa04ada770caf28109eee6faf56a43ee6}{filter\-\_\-lock}
+\item 
+struct work\-\_\-struct \hyperlink{structieee80211__local_aeebe638f6e2c04a7481951fee56b1c9e}{reconfig\-\_\-filter}
+\item 
+struct work\-\_\-struct \hyperlink{structieee80211__local_a1b89bbd9d7e4daee680c064bed613ff7}{recalc\-\_\-smps}
+\item 
+struct netdev\-\_\-hw\-\_\-addr\-\_\-list \hyperlink{structieee80211__local_a00dc9ea6f5dc07b551f8ae14dd3a4eff}{mc\-\_\-list}
+\item 
+bool \hyperlink{structieee80211__local_a34d7d9b6d74715302c953d01980bdebf}{tim\-\_\-in\-\_\-locked\-\_\-section}
+\item 
+bool \hyperlink{structieee80211__local_ae0ed5063d998fba626c0783a36391f3c}{suspended}
+\item 
+bool \hyperlink{structieee80211__local_a2ddb54f91088d41426fb0b5e4cb82022}{resuming}
+\item 
+bool \hyperlink{structieee80211__local_a4938b434be86b4b137b6eec047203e65}{quiescing}
+\item 
+bool \hyperlink{structieee80211__local_a43c08d193d555a2b2a61c53d2a4e5a63}{started}
+\item 
+bool \hyperlink{structieee80211__local_aafe36b77f629fe748f545f726849bb4c}{wowlan}
+\item 
+int \hyperlink{structieee80211__local_acf548b161496ab61ff27e8ae5aa59aff}{tx\-\_\-headroom}
+\item 
+struct tasklet\-\_\-struct \hyperlink{structieee80211__local_a4308a8fe6dfe7c223959f8b219a05695}{tasklet}
+\item 
+struct sk\-\_\-buff\-\_\-head \hyperlink{structieee80211__local_a6eeb93345e21d69a77a7c2c571bd0000}{skb\-\_\-queue}
+\item 
+struct sk\-\_\-buff\-\_\-head \hyperlink{structieee80211__local_a98b4c0b5fc65c583926a6c35981287eb}{skb\-\_\-queue\-\_\-unreliable}
+\item 
+struct sk\-\_\-buff\-\_\-head \hyperlink{structieee80211__local_aac644577fe51ca03388b580ee634c471}{rx\-\_\-skb\-\_\-queue}
+\item 
+bool \hyperlink{structieee80211__local_a52eb7e26fdfb1a3b6469728a7131fe80}{running\-\_\-rx\-\_\-handler}
+\item 
+struct mutex \hyperlink{structieee80211__local_a8fb5b2a5fbdd771e5d8cbd9e6f3f0652}{sta\-\_\-mtx}
+\item 
+spinlock\-\_\-t \hyperlink{structieee80211__local_a66f27f63b02e43a76482968cf728de10}{tim\-\_\-lock}
+\item 
+unsigned long \hyperlink{structieee80211__local_a24328b32806c8eb5a960e0ed36a4b4f3}{num\-\_\-sta}
+\item 
+struct list\-\_\-head \hyperlink{structieee80211__local_aa442db3b90ab8934df91ba31e7602e66}{sta\-\_\-list}
+\item 
+struct \hyperlink{structsta__info}{sta\-\_\-info} \-\_\-\-\_\-rcu $\ast$ \hyperlink{structieee80211__local_a6014b1885979a210472e849167192cec}{sta\-\_\-hash} \mbox{[}\hyperlink{sta__info_8h_ae6a569f0acda8f25b206cbce1dd162e4}{S\-T\-A\-\_\-\-H\-A\-S\-H\-\_\-\-S\-I\-Z\-E}\mbox{]}
+\item 
+struct timer\-\_\-list \hyperlink{structieee80211__local_a08ed23f945556f2425951c67c8676a06}{sta\-\_\-cleanup}
+\item 
+int \hyperlink{structieee80211__local_a97ee12a47f59b1e2ffa51cca68a70304}{sta\-\_\-generation}
+\item 
+struct sk\-\_\-buff\-\_\-head \hyperlink{structieee80211__local_a1af46fe8e85323cc129ada2186925c51}{pending} \mbox{[}I\-E\-E\-E80211\-\_\-\-M\-A\-X\-\_\-\-Q\-U\-E\-U\-E\-S\mbox{]}
+\item 
+struct tasklet\-\_\-struct \hyperlink{structieee80211__local_aebdf516672c673478395a1f1a1bda6ab}{tx\-\_\-pending\-\_\-tasklet}
+\item 
+atomic\-\_\-t \hyperlink{structieee80211__local_a761ac48dbd4f02cca627bf2164691129}{agg\-\_\-queue\-\_\-stop} \mbox{[}I\-E\-E\-E80211\-\_\-\-M\-A\-X\-\_\-\-Q\-U\-E\-U\-E\-S\mbox{]}
+\item 
+atomic\-\_\-t \hyperlink{structieee80211__local_ad49cfc0bfcbcee0e8082e1b209e97d31}{iff\-\_\-allmultis}
+\item 
+atomic\-\_\-t \hyperlink{structieee80211__local_a8f1cf23044f197295b99eb923325e33b}{iff\-\_\-promiscs}
+\item 
+struct \hyperlink{structrate__control__ref}{rate\-\_\-control\-\_\-ref} $\ast$ \hyperlink{structieee80211__local_a0f6ac21a75ada1908328210ec3b42667}{rate\-\_\-ctrl}
+\item 
+struct crypto\-\_\-cipher $\ast$ \hyperlink{structieee80211__local_ab554bf57d377855ad08d970f9e395ad0}{wep\-\_\-tx\-\_\-tfm}
+\item 
+struct crypto\-\_\-cipher $\ast$ \hyperlink{structieee80211__local_a993e1c97083f7fe3b90b9da910d72bd7}{wep\-\_\-rx\-\_\-tfm}
+\item 
+u32 \hyperlink{structieee80211__local_ac63790cf9fa02ac7ac0c4282cfe5b041}{wep\-\_\-iv}
+\item 
+struct list\-\_\-head \hyperlink{structieee80211__local_af269ec693ad97d77fcfb0decd1c9edc7}{interfaces}
+\item 
+struct mutex \hyperlink{structieee80211__local_a64a494bea7f67ad34d7e3e06f47519fa}{iflist\-\_\-mtx}
+\item 
+struct mutex \hyperlink{structieee80211__local_aa4d4909b9696da095fd82e003eee670b}{key\-\_\-mtx}
+\item 
+struct mutex \hyperlink{structieee80211__local_a06f637951b74c996f2e4987a7be1dbdd}{mtx}
+\item 
+unsigned long \hyperlink{structieee80211__local_aa4734c7bf0bba0e87ccf874423c3c79a}{scanning}
+\item 
+struct cfg80211\-\_\-ssid \hyperlink{structieee80211__local_aa25532a782ada88d435b24dfda931173}{scan\-\_\-ssid}
+\item 
+struct cfg80211\-\_\-scan\-\_\-request $\ast$ \hyperlink{structieee80211__local_a8468ec1a7c0d94fbdc5cb8c1e030051e}{int\-\_\-scan\-\_\-req}
+\item 
+struct cfg80211\-\_\-scan\-\_\-request $\ast$ \hyperlink{structieee80211__local_aaa4fd1e0ca28860a5750a01837c6c325}{scan\-\_\-req}
+\item 
+struct cfg80211\-\_\-scan\-\_\-request $\ast$ \hyperlink{structieee80211__local_aec89fecf81c37f8d260d6d2e2697a463}{hw\-\_\-scan\-\_\-req}
+\item 
+struct ieee80211\-\_\-channel $\ast$ \hyperlink{structieee80211__local_a0fcd0e60e46da373ab6002985dfa2751}{scan\-\_\-channel}
+\item 
+enum ieee80211\-\_\-band \hyperlink{structieee80211__local_aba68e760b61a0482eed83d42e9df3f4d}{hw\-\_\-scan\-\_\-band}
+\item 
+int \hyperlink{structieee80211__local_a047d647546c287f0ae0ab2b56b09ed66}{scan\-\_\-channel\-\_\-idx}
+\item 
+int \hyperlink{structieee80211__local_a68131071a0fe62e850afc46f0a7ef6a1}{scan\-\_\-ies\-\_\-len}
+\item 
+bool \hyperlink{structieee80211__local_abd8e66f3e46d5bb5d08224d0960a29b6}{sched\-\_\-scanning}
+\item 
+struct ieee80211\-\_\-sched\-\_\-scan\-\_\-ies \hyperlink{structieee80211__local_a1dbb796d0082174e8a7f69314a3bfc90}{sched\-\_\-scan\-\_\-ies}
+\item 
+struct work\-\_\-struct \hyperlink{structieee80211__local_a0724e881582b025d21006614b3f63066}{sched\-\_\-scan\-\_\-stopped\-\_\-work}
+\item 
+unsigned long \hyperlink{structieee80211__local_aad9daf693bf88c202d2832eb6500c08d}{leave\-\_\-oper\-\_\-channel\-\_\-time}
+\item 
+enum \hyperlink{ieee80211__i_8h_a01815f7cfcbae17eee01a64cd3954172}{mac80211\-\_\-scan\-\_\-state} \hyperlink{structieee80211__local_a16e86195a99d4318403d3df1b82adf53}{next\-\_\-scan\-\_\-state}
+\item 
+struct delayed\-\_\-work \hyperlink{structieee80211__local_a63c27bb90b892d939725e333b3b64514}{scan\-\_\-work}
+\item 
+struct \hyperlink{structieee80211__sub__if__data}{ieee80211\-\_\-sub\-\_\-if\-\_\-data} $\ast$ \hyperlink{structieee80211__local_aa5cd69a012fd9276c05cfbfccd1e0a51}{scan\-\_\-sdata}
+\item 
+enum nl80211\-\_\-channel\-\_\-type \hyperlink{structieee80211__local_a89b1771fcea39258509a121d3282d993}{\-\_\-oper\-\_\-channel\-\_\-type}
+\item 
+struct ieee80211\-\_\-channel $\ast$ \hyperlink{structieee80211__local_a298bcfc61e8403d53c2b492746b765b8}{oper\-\_\-channel}
+\item 
+struct ieee80211\-\_\-channel $\ast$ \hyperlink{structieee80211__local_a02e1fa5047853fd7b4a5a35afa92afc0}{csa\-\_\-channel}
+\item 
+struct ieee80211\-\_\-channel $\ast$ \hyperlink{structieee80211__local_a846c2b9126411a975d7cdab2fb50b13e}{tmp\-\_\-channel}
+\item 
+enum nl80211\-\_\-channel\-\_\-type \hyperlink{structieee80211__local_adaa5be6105e3f31efe60ff88360b891f}{tmp\-\_\-channel\-\_\-type}
+\item 
+u32 \hyperlink{structieee80211__local_aeb77ef47621fe6375091795cf0ba9719}{dot11\-Transmitted\-Fragment\-Count}
+\item 
+u32 \hyperlink{structieee80211__local_a3ad6d0afa55ad58821a1c316dc9909ca}{dot11\-Multicast\-Transmitted\-Frame\-Count}
+\item 
+u32 \hyperlink{structieee80211__local_ab942895683b0fe90f7d2a8bd1eadb04c}{dot11\-Failed\-Count}
+\item 
+u32 \hyperlink{structieee80211__local_aab5dd2410fd5f8c1e58db5c21f67a7b0}{dot11\-Retry\-Count}
+\item 
+u32 \hyperlink{structieee80211__local_ae955651cdcc433421b2e87c12dab7dc2}{dot11\-Multiple\-Retry\-Count}
+\item 
+u32 \hyperlink{structieee80211__local_a13a04493892b47783b35445d32ad0aca}{dot11\-Frame\-Duplicate\-Count}
+\item 
+u32 \hyperlink{structieee80211__local_af8de4e957fa887e3f6c08120930c709e}{dot11\-Received\-Fragment\-Count}
+\item 
+u32 \hyperlink{structieee80211__local_ae2b04efb04664b259f8e6913707578ac}{dot11\-Multicast\-Received\-Frame\-Count}
+\item 
+u32 \hyperlink{structieee80211__local_a3067059726ca5e76782a558090bb0d44}{dot11\-Transmitted\-Frame\-Count}
+\item 
+int \hyperlink{structieee80211__local_a539e95055f6bd55d800085aec0180d86}{total\-\_\-ps\-\_\-buffered}
+\item 
+unsigned int \hyperlink{structieee80211__local_ae7863966f2b9005eeb21a687f9f5a5a3}{wmm\-\_\-acm}
+\item 
+bool \hyperlink{structieee80211__local_ab5292154aefaae54f246320fd4afbf11}{pspolling}
+\item 
+bool \hyperlink{structieee80211__local_a6d0fffdd77c973b707ec9e1955744f88}{offchannel\-\_\-ps\-\_\-enabled}
+\item 
+struct \hyperlink{structieee80211__sub__if__data}{ieee80211\-\_\-sub\-\_\-if\-\_\-data} $\ast$ \hyperlink{structieee80211__local_af1cdea8e67f896a2208f1e05403a5bda}{ps\-\_\-sdata}
+\item 
+struct work\-\_\-struct \hyperlink{structieee80211__local_a0bea55b19dc8be14df12be0efa29ef2c}{dynamic\-\_\-ps\-\_\-enable\-\_\-work}
+\item 
+struct work\-\_\-struct \hyperlink{structieee80211__local_ae86c9b970f2f92364edee6f3002cae9e}{dynamic\-\_\-ps\-\_\-disable\-\_\-work}
+\item 
+struct timer\-\_\-list \hyperlink{structieee80211__local_a7cd1b6141c7f2492a8b286e9e013ae73}{dynamic\-\_\-ps\-\_\-timer}
+\item 
+struct notifier\-\_\-block \hyperlink{structieee80211__local_a0bcd7033eb509ae3bb60ce10a09a48b3}{network\-\_\-latency\-\_\-notifier}
+\item 
+struct notifier\-\_\-block \hyperlink{structieee80211__local_acb6a252b9a72983b1cd445b3f4e99f50}{ifa\-\_\-notifier}
+\item 
+int \hyperlink{structieee80211__local_af82b7e878824a6ab444850f585b064d2}{dynamic\-\_\-ps\-\_\-forced\-\_\-timeout}
+\item 
+int \hyperlink{structieee80211__local_a47de19fba894ad848cda173ecc4d47e7}{dynamic\-\_\-ps\-\_\-user\-\_\-timeout}
+\item 
+bool \hyperlink{structieee80211__local_a6b8c48108e6a22fba50ecf304fa6a4fc}{disable\-\_\-dynamic\-\_\-ps}
+\item 
+int \hyperlink{structieee80211__local_a769dfa727897d182933a132cf92c480e}{user\-\_\-power\-\_\-level}
+\item 
+int \hyperlink{structieee80211__local_ad1b75d23d03dca9da09d4d091c904e8f}{power\-\_\-constr\-\_\-level}
+\item 
+enum ieee80211\-\_\-smps\-\_\-mode \hyperlink{structieee80211__local_ae5063971b60ec8e964c6776eebe3f04f}{smps\-\_\-mode}
+\item 
+struct work\-\_\-struct \hyperlink{structieee80211__local_aa77ee6794b746189308aeeceb3635838}{restart\-\_\-work}
+\item 
+struct ieee80211\-\_\-channel $\ast$ \hyperlink{structieee80211__local_a5e8f22962db463298122a3ce5067f785}{hw\-\_\-roc\-\_\-channel}
+\item 
+struct net\-\_\-device $\ast$ \hyperlink{structieee80211__local_a34d7d070a0f447d2a535599a3dff3ac5}{hw\-\_\-roc\-\_\-dev}
+\item 
+struct sk\-\_\-buff $\ast$ \hyperlink{structieee80211__local_aeec3c84d01b2997932d8a704fb332392}{hw\-\_\-roc\-\_\-skb}
+\item 
+struct sk\-\_\-buff $\ast$ \hyperlink{structieee80211__local_a3348475145fcc551a07a06e481f06837}{hw\-\_\-roc\-\_\-skb\-\_\-for\-\_\-status}
+\item 
+struct work\-\_\-struct hw\-\_\-roc\-\_\-start \hyperlink{structieee80211__local_a471bd977ec2f7b650195b9ce384150ad}{hw\-\_\-roc\-\_\-done}
+\item 
+enum nl80211\-\_\-channel\-\_\-type \hyperlink{structieee80211__local_a9b00b6c7042a2ae7a8ad5490f4017efa}{hw\-\_\-roc\-\_\-channel\-\_\-type}
+\item 
+unsigned int \hyperlink{structieee80211__local_af4abb221fc61238c80b3b5c96f5d3c7b}{hw\-\_\-roc\-\_\-duration}
+\item 
+u32 \hyperlink{structieee80211__local_af36d3ae3e1d2447d84f160e433e5be2e}{hw\-\_\-roc\-\_\-cookie}
+\item 
+bool \hyperlink{structieee80211__local_a7c4c5a9a800b0b54327da5a44b95f562}{hw\-\_\-roc\-\_\-for\-\_\-tx}
+\item 
+struct idr \hyperlink{structieee80211__local_a94ad6f2bba1c98eb6d70944990d275d1}{ack\-\_\-status\-\_\-frames}
+\item 
+spinlock\-\_\-t \hyperlink{structieee80211__local_aaafe5cc995adaa9d3c6d1a5bb9117189}{ack\-\_\-status\-\_\-lock}
+\item 
+struct net\-\_\-device \hyperlink{structieee80211__local_aac1852a9def07663ebe91ac3d74cc313}{napi\-\_\-dev}
+\item 
+struct napi\-\_\-struct \hyperlink{structieee80211__local_ad7946e6f4ab63e48db691b15b9a961d5}{napi}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+
+
+Definition at line 821 of file ieee80211\-\_\-i.\-h.
+
+
+
+\subsection{Field Documentation}
+\hypertarget{structieee80211__local_a89b1771fcea39258509a121d3282d993}{\index{ieee80211\-\_\-local@{ieee80211\-\_\-local}!\-\_\-oper\-\_\-channel\-\_\-type@{\-\_\-oper\-\_\-channel\-\_\-type}}
+\index{\-\_\-oper\-\_\-channel\-\_\-type@{\-\_\-oper\-\_\-channel\-\_\-type}!ieee80211_local@{ieee80211\-\_\-local}}
+\subsubsection[{\-\_\-oper\-\_\-channel\-\_\-type}]{\setlength{\rightskip}{0pt plus 5cm}enum nl80211\-\_\-channel\-\_\-type \-\_\-oper\-\_\-channel\-\_\-type}}\label{structieee80211__local_a89b1771fcea39258509a121d3282d993}
+
+
+Definition at line 976 of file ieee80211\-\_\-i.\-h.
+
+\hypertarget{structieee80211__local_a94ad6f2bba1c98eb6d70944990d275d1}{\index{ieee80211\-\_\-local@{ieee80211\-\_\-local}!ack\-\_\-status\-\_\-frames@{ack\-\_\-status\-\_\-frames}}
+\index{ack\-\_\-status\-\_\-frames@{ack\-\_\-status\-\_\-frames}!ieee80211_local@{ieee80211\-\_\-local}}
+\subsubsection[{ack\-\_\-status\-\_\-frames}]{\setlength{\rightskip}{0pt plus 5cm}struct idr ack\-\_\-status\-\_\-frames}}\label{structieee80211__local_a94ad6f2bba1c98eb6d70944990d275d1}
+
+
+Definition at line 1079 of file ieee80211\-\_\-i.\-h.
+
+\hypertarget{structieee80211__local_aaafe5cc995adaa9d3c6d1a5bb9117189}{\index{ieee80211\-\_\-local@{ieee80211\-\_\-local}!ack\-\_\-status\-\_\-lock@{ack\-\_\-status\-\_\-lock}}
+\index{ack\-\_\-status\-\_\-lock@{ack\-\_\-status\-\_\-lock}!ieee80211_local@{ieee80211\-\_\-local}}
+\subsubsection[{ack\-\_\-status\-\_\-lock}]{\setlength{\rightskip}{0pt plus 5cm}spinlock\-\_\-t ack\-\_\-status\-\_\-lock}}\label{structieee80211__local_aaafe5cc995adaa9d3c6d1a5bb9117189}
+
+
+Definition at line 1080 of file ieee80211\-\_\-i.\-h.
+
+\hypertarget{structieee80211__local_a761ac48dbd4f02cca627bf2164691129}{\index{ieee80211\-\_\-local@{ieee80211\-\_\-local}!agg\-\_\-queue\-\_\-stop@{agg\-\_\-queue\-\_\-stop}}
+\index{agg\-\_\-queue\-\_\-stop@{agg\-\_\-queue\-\_\-stop}!ieee80211_local@{ieee80211\-\_\-local}}
+\subsubsection[{agg\-\_\-queue\-\_\-stop}]{\setlength{\rightskip}{0pt plus 5cm}atomic\-\_\-t agg\-\_\-queue\-\_\-stop\mbox{[}I\-E\-E\-E80211\-\_\-\-M\-A\-X\-\_\-\-Q\-U\-E\-U\-E\-S\mbox{]}}}\label{structieee80211__local_a761ac48dbd4f02cca627bf2164691129}
+
+
+Definition at line 934 of file ieee80211\-\_\-i.\-h.
+
+\hypertarget{structieee80211__local_a9ed7f1c7df7ff97118031d501ebf660c}{\index{ieee80211\-\_\-local@{ieee80211\-\_\-local}!cooked\-\_\-mntrs@{cooked\-\_\-mntrs}}
+\index{cooked\-\_\-mntrs@{cooked\-\_\-mntrs}!ieee80211_local@{ieee80211\-\_\-local}}
+\subsubsection[{cooked\-\_\-mntrs}]{\setlength{\rightskip}{0pt plus 5cm}int cooked\-\_\-mntrs}}\label{structieee80211__local_a9ed7f1c7df7ff97118031d501ebf660c}
+
+
+Definition at line 847 of file ieee80211\-\_\-i.\-h.
+
+\hypertarget{structieee80211__local_a02e1fa5047853fd7b4a5a35afa92afc0}{\index{ieee80211\-\_\-local@{ieee80211\-\_\-local}!csa\-\_\-channel@{csa\-\_\-channel}}
+\index{csa\-\_\-channel@{csa\-\_\-channel}!ieee80211_local@{ieee80211\-\_\-local}}
+\subsubsection[{csa\-\_\-channel}]{\setlength{\rightskip}{0pt plus 5cm}struct ieee80211\-\_\-channel $\ast$ csa\-\_\-channel}}\label{structieee80211__local_a02e1fa5047853fd7b4a5a35afa92afc0}
+
+
+Definition at line 977 of file ieee80211\-\_\-i.\-h.
+
+\hypertarget{structieee80211__local_a6b8c48108e6a22fba50ecf304fa6a4fc}{\index{ieee80211\-\_\-local@{ieee80211\-\_\-local}!disable\-\_\-dynamic\-\_\-ps@{disable\-\_\-dynamic\-\_\-ps}}
+\index{disable\-\_\-dynamic\-\_\-ps@{disable\-\_\-dynamic\-\_\-ps}!ieee80211_local@{ieee80211\-\_\-local}}
+\subsubsection[{disable\-\_\-dynamic\-\_\-ps}]{\setlength{\rightskip}{0pt plus 5cm}bool disable\-\_\-dynamic\-\_\-ps}}\label{structieee80211__local_a6b8c48108e6a22fba50ecf304fa6a4fc}
+
+
+Definition at line 1054 of file ieee80211\-\_\-i.\-h.
+
+\hypertarget{structieee80211__local_ab942895683b0fe90f7d2a8bd1eadb04c}{\index{ieee80211\-\_\-local@{ieee80211\-\_\-local}!dot11\-Failed\-Count@{dot11\-Failed\-Count}}
+\index{dot11\-Failed\-Count@{dot11\-Failed\-Count}!ieee80211_local@{ieee80211\-\_\-local}}
+\subsubsection[{dot11\-Failed\-Count}]{\setlength{\rightskip}{0pt plus 5cm}u32 dot11\-Failed\-Count}}\label{structieee80211__local_ab942895683b0fe90f7d2a8bd1eadb04c}
+
+
+Definition at line 987 of file ieee80211\-\_\-i.\-h.
+
+\hypertarget{structieee80211__local_a13a04493892b47783b35445d32ad0aca}{\index{ieee80211\-\_\-local@{ieee80211\-\_\-local}!dot11\-Frame\-Duplicate\-Count@{dot11\-Frame\-Duplicate\-Count}}
+\index{dot11\-Frame\-Duplicate\-Count@{dot11\-Frame\-Duplicate\-Count}!ieee80211_local@{ieee80211\-\_\-local}}
+\subsubsection[{dot11\-Frame\-Duplicate\-Count}]{\setlength{\rightskip}{0pt plus 5cm}u32 dot11\-Frame\-Duplicate\-Count}}\label{structieee80211__local_a13a04493892b47783b35445d32ad0aca}
+
+
+Definition at line 990 of file ieee80211\-\_\-i.\-h.
+
+\hypertarget{structieee80211__local_ae2b04efb04664b259f8e6913707578ac}{\index{ieee80211\-\_\-local@{ieee80211\-\_\-local}!dot11\-Multicast\-Received\-Frame\-Count@{dot11\-Multicast\-Received\-Frame\-Count}}
+\index{dot11\-Multicast\-Received\-Frame\-Count@{dot11\-Multicast\-Received\-Frame\-Count}!ieee80211_local@{ieee80211\-\_\-local}}
+\subsubsection[{dot11\-Multicast\-Received\-Frame\-Count}]{\setlength{\rightskip}{0pt plus 5cm}u32 dot11\-Multicast\-Received\-Frame\-Count}}\label{structieee80211__local_ae2b04efb04664b259f8e6913707578ac}
+
+
+Definition at line 992 of file ieee80211\-\_\-i.\-h.
+
+\hypertarget{structieee80211__local_a3ad6d0afa55ad58821a1c316dc9909ca}{\index{ieee80211\-\_\-local@{ieee80211\-\_\-local}!dot11\-Multicast\-Transmitted\-Frame\-Count@{dot11\-Multicast\-Transmitted\-Frame\-Count}}
+\index{dot11\-Multicast\-Transmitted\-Frame\-Count@{dot11\-Multicast\-Transmitted\-Frame\-Count}!ieee80211_local@{ieee80211\-\_\-local}}
+\subsubsection[{dot11\-Multicast\-Transmitted\-Frame\-Count}]{\setlength{\rightskip}{0pt plus 5cm}u32 dot11\-Multicast\-Transmitted\-Frame\-Count}}\label{structieee80211__local_a3ad6d0afa55ad58821a1c316dc9909ca}
+
+
+Definition at line 986 of file ieee80211\-\_\-i.\-h.
+
+\hypertarget{structieee80211__local_ae955651cdcc433421b2e87c12dab7dc2}{\index{ieee80211\-\_\-local@{ieee80211\-\_\-local}!dot11\-Multiple\-Retry\-Count@{dot11\-Multiple\-Retry\-Count}}
+\index{dot11\-Multiple\-Retry\-Count@{dot11\-Multiple\-Retry\-Count}!ieee80211_local@{ieee80211\-\_\-local}}
+\subsubsection[{dot11\-Multiple\-Retry\-Count}]{\setlength{\rightskip}{0pt plus 5cm}u32 dot11\-Multiple\-Retry\-Count}}\label{structieee80211__local_ae955651cdcc433421b2e87c12dab7dc2}
+
+
+Definition at line 989 of file ieee80211\-\_\-i.\-h.
+
+\hypertarget{structieee80211__local_af8de4e957fa887e3f6c08120930c709e}{\index{ieee80211\-\_\-local@{ieee80211\-\_\-local}!dot11\-Received\-Fragment\-Count@{dot11\-Received\-Fragment\-Count}}
+\index{dot11\-Received\-Fragment\-Count@{dot11\-Received\-Fragment\-Count}!ieee80211_local@{ieee80211\-\_\-local}}
+\subsubsection[{dot11\-Received\-Fragment\-Count}]{\setlength{\rightskip}{0pt plus 5cm}u32 dot11\-Received\-Fragment\-Count}}\label{structieee80211__local_af8de4e957fa887e3f6c08120930c709e}
+
+
+Definition at line 991 of file ieee80211\-\_\-i.\-h.
+
+\hypertarget{structieee80211__local_aab5dd2410fd5f8c1e58db5c21f67a7b0}{\index{ieee80211\-\_\-local@{ieee80211\-\_\-local}!dot11\-Retry\-Count@{dot11\-Retry\-Count}}
+\index{dot11\-Retry\-Count@{dot11\-Retry\-Count}!ieee80211_local@{ieee80211\-\_\-local}}
+\subsubsection[{dot11\-Retry\-Count}]{\setlength{\rightskip}{0pt plus 5cm}u32 dot11\-Retry\-Count}}\label{structieee80211__local_aab5dd2410fd5f8c1e58db5c21f67a7b0}
+
+
+Definition at line 988 of file ieee80211\-\_\-i.\-h.
+
+\hypertarget{structieee80211__local_aeb77ef47621fe6375091795cf0ba9719}{\index{ieee80211\-\_\-local@{ieee80211\-\_\-local}!dot11\-Transmitted\-Fragment\-Count@{dot11\-Transmitted\-Fragment\-Count}}
+\index{dot11\-Transmitted\-Fragment\-Count@{dot11\-Transmitted\-Fragment\-Count}!ieee80211_local@{ieee80211\-\_\-local}}
+\subsubsection[{dot11\-Transmitted\-Fragment\-Count}]{\setlength{\rightskip}{0pt plus 5cm}u32 dot11\-Transmitted\-Fragment\-Count}}\label{structieee80211__local_aeb77ef47621fe6375091795cf0ba9719}
+
+
+Definition at line 985 of file ieee80211\-\_\-i.\-h.
+
+\hypertarget{structieee80211__local_a3067059726ca5e76782a558090bb0d44}{\index{ieee80211\-\_\-local@{ieee80211\-\_\-local}!dot11\-Transmitted\-Frame\-Count@{dot11\-Transmitted\-Frame\-Count}}
+\index{dot11\-Transmitted\-Frame\-Count@{dot11\-Transmitted\-Frame\-Count}!ieee80211_local@{ieee80211\-\_\-local}}
+\subsubsection[{dot11\-Transmitted\-Frame\-Count}]{\setlength{\rightskip}{0pt plus 5cm}u32 dot11\-Transmitted\-Frame\-Count}}\label{structieee80211__local_a3067059726ca5e76782a558090bb0d44}
+
+
+Definition at line 993 of file ieee80211\-\_\-i.\-h.
+
+\hypertarget{structieee80211__local_ae86c9b970f2f92364edee6f3002cae9e}{\index{ieee80211\-\_\-local@{ieee80211\-\_\-local}!dynamic\-\_\-ps\-\_\-disable\-\_\-work@{dynamic\-\_\-ps\-\_\-disable\-\_\-work}}
+\index{dynamic\-\_\-ps\-\_\-disable\-\_\-work@{dynamic\-\_\-ps\-\_\-disable\-\_\-work}!ieee80211_local@{ieee80211\-\_\-local}}
+\subsubsection[{dynamic\-\_\-ps\-\_\-disable\-\_\-work}]{\setlength{\rightskip}{0pt plus 5cm}struct work\-\_\-struct dynamic\-\_\-ps\-\_\-disable\-\_\-work}}\label{structieee80211__local_ae86c9b970f2f92364edee6f3002cae9e}
+
+
+Definition at line 1043 of file ieee80211\-\_\-i.\-h.
+
+\hypertarget{structieee80211__local_a0bea55b19dc8be14df12be0efa29ef2c}{\index{ieee80211\-\_\-local@{ieee80211\-\_\-local}!dynamic\-\_\-ps\-\_\-enable\-\_\-work@{dynamic\-\_\-ps\-\_\-enable\-\_\-work}}
+\index{dynamic\-\_\-ps\-\_\-enable\-\_\-work@{dynamic\-\_\-ps\-\_\-enable\-\_\-work}!ieee80211_local@{ieee80211\-\_\-local}}
+\subsubsection[{dynamic\-\_\-ps\-\_\-enable\-\_\-work}]{\setlength{\rightskip}{0pt plus 5cm}struct work\-\_\-struct dynamic\-\_\-ps\-\_\-enable\-\_\-work}}\label{structieee80211__local_a0bea55b19dc8be14df12be0efa29ef2c}
+
+
+Definition at line 1042 of file ieee80211\-\_\-i.\-h.
+
+\hypertarget{structieee80211__local_af82b7e878824a6ab444850f585b064d2}{\index{ieee80211\-\_\-local@{ieee80211\-\_\-local}!dynamic\-\_\-ps\-\_\-forced\-\_\-timeout@{dynamic\-\_\-ps\-\_\-forced\-\_\-timeout}}
+\index{dynamic\-\_\-ps\-\_\-forced\-\_\-timeout@{dynamic\-\_\-ps\-\_\-forced\-\_\-timeout}!ieee80211_local@{ieee80211\-\_\-local}}
+\subsubsection[{dynamic\-\_\-ps\-\_\-forced\-\_\-timeout}]{\setlength{\rightskip}{0pt plus 5cm}int dynamic\-\_\-ps\-\_\-forced\-\_\-timeout}}\label{structieee80211__local_af82b7e878824a6ab444850f585b064d2}
+
+
+Definition at line 1052 of file ieee80211\-\_\-i.\-h.
+
+\hypertarget{structieee80211__local_a7cd1b6141c7f2492a8b286e9e013ae73}{\index{ieee80211\-\_\-local@{ieee80211\-\_\-local}!dynamic\-\_\-ps\-\_\-timer@{dynamic\-\_\-ps\-\_\-timer}}
+\index{dynamic\-\_\-ps\-\_\-timer@{dynamic\-\_\-ps\-\_\-timer}!ieee80211_local@{ieee80211\-\_\-local}}
+\subsubsection[{dynamic\-\_\-ps\-\_\-timer}]{\setlength{\rightskip}{0pt plus 5cm}struct timer\-\_\-list dynamic\-\_\-ps\-\_\-timer}}\label{structieee80211__local_a7cd1b6141c7f2492a8b286e9e013ae73}
+
+
+Definition at line 1044 of file ieee80211\-\_\-i.\-h.
+
+\hypertarget{structieee80211__local_a47de19fba894ad848cda173ecc4d47e7}{\index{ieee80211\-\_\-local@{ieee80211\-\_\-local}!dynamic\-\_\-ps\-\_\-user\-\_\-timeout@{dynamic\-\_\-ps\-\_\-user\-\_\-timeout}}
+\index{dynamic\-\_\-ps\-\_\-user\-\_\-timeout@{dynamic\-\_\-ps\-\_\-user\-\_\-timeout}!ieee80211_local@{ieee80211\-\_\-local}}
+\subsubsection[{dynamic\-\_\-ps\-\_\-user\-\_\-timeout}]{\setlength{\rightskip}{0pt plus 5cm}int dynamic\-\_\-ps\-\_\-user\-\_\-timeout}}\label{structieee80211__local_a47de19fba894ad848cda173ecc4d47e7}
+
+
+Definition at line 1053 of file ieee80211\-\_\-i.\-h.
+
+\hypertarget{structieee80211__local_af26c59857ac99739a98a86955ccb73f4}{\index{ieee80211\-\_\-local@{ieee80211\-\_\-local}!fif\-\_\-control@{fif\-\_\-control}}
+\index{fif\-\_\-control@{fif\-\_\-control}!ieee80211_local@{ieee80211\-\_\-local}}
+\subsubsection[{fif\-\_\-control}]{\setlength{\rightskip}{0pt plus 5cm}int fif\-\_\-control}}\label{structieee80211__local_af26c59857ac99739a98a86955ccb73f4}
+
+
+Definition at line 849 of file ieee80211\-\_\-i.\-h.
+
+\hypertarget{structieee80211__local_a27eb74fe97bc47632e4e68f9987b7676}{\index{ieee80211\-\_\-local@{ieee80211\-\_\-local}!fif\-\_\-fcsfail@{fif\-\_\-fcsfail}}
+\index{fif\-\_\-fcsfail@{fif\-\_\-fcsfail}!ieee80211_local@{ieee80211\-\_\-local}}
+\subsubsection[{fif\-\_\-fcsfail}]{\setlength{\rightskip}{0pt plus 5cm}int fif\-\_\-fcsfail}}\label{structieee80211__local_a27eb74fe97bc47632e4e68f9987b7676}
+
+
+Definition at line 849 of file ieee80211\-\_\-i.\-h.
+
+\hypertarget{structieee80211__local_a6df112d414c0a93f9b40417e0d08cdd1}{\index{ieee80211\-\_\-local@{ieee80211\-\_\-local}!fif\-\_\-other\-\_\-bss@{fif\-\_\-other\-\_\-bss}}
+\index{fif\-\_\-other\-\_\-bss@{fif\-\_\-other\-\_\-bss}!ieee80211_local@{ieee80211\-\_\-local}}
+\subsubsection[{fif\-\_\-other\-\_\-bss}]{\setlength{\rightskip}{0pt plus 5cm}int fif\-\_\-other\-\_\-bss}}\label{structieee80211__local_a6df112d414c0a93f9b40417e0d08cdd1}
+
+
+Definition at line 849 of file ieee80211\-\_\-i.\-h.
+
+\hypertarget{structieee80211__local_a11004cb6258d9a385000bc4544aa06b5}{\index{ieee80211\-\_\-local@{ieee80211\-\_\-local}!fif\-\_\-plcpfail@{fif\-\_\-plcpfail}}
+\index{fif\-\_\-plcpfail@{fif\-\_\-plcpfail}!ieee80211_local@{ieee80211\-\_\-local}}
+\subsubsection[{fif\-\_\-plcpfail}]{\setlength{\rightskip}{0pt plus 5cm}int fif\-\_\-plcpfail}}\label{structieee80211__local_a11004cb6258d9a385000bc4544aa06b5}
+
+
+Definition at line 849 of file ieee80211\-\_\-i.\-h.
+
+\hypertarget{structieee80211__local_ad3a2ffb279ac8ef26c6bb971b729cd73}{\index{ieee80211\-\_\-local@{ieee80211\-\_\-local}!fif\-\_\-probe\-\_\-req@{fif\-\_\-probe\-\_\-req}}
+\index{fif\-\_\-probe\-\_\-req@{fif\-\_\-probe\-\_\-req}!ieee80211_local@{ieee80211\-\_\-local}}
+\subsubsection[{fif\-\_\-probe\-\_\-req}]{\setlength{\rightskip}{0pt plus 5cm}int fif\-\_\-probe\-\_\-req}}\label{structieee80211__local_ad3a2ffb279ac8ef26c6bb971b729cd73}
+
+
+Definition at line 849 of file ieee80211\-\_\-i.\-h.
+
+\hypertarget{structieee80211__local_a79f914bf1ffdca68ec910069d5f7aad4}{\index{ieee80211\-\_\-local@{ieee80211\-\_\-local}!fif\-\_\-pspoll@{fif\-\_\-pspoll}}
+\index{fif\-\_\-pspoll@{fif\-\_\-pspoll}!ieee80211_local@{ieee80211\-\_\-local}}
+\subsubsection[{fif\-\_\-pspoll}]{\setlength{\rightskip}{0pt plus 5cm}int fif\-\_\-pspoll}}\label{structieee80211__local_a79f914bf1ffdca68ec910069d5f7aad4}
+
+
+Definition at line 849 of file ieee80211\-\_\-i.\-h.
+
+\hypertarget{structieee80211__local_af57092f118989725a35071734086b077}{\index{ieee80211\-\_\-local@{ieee80211\-\_\-local}!filter\-\_\-flags@{filter\-\_\-flags}}
+\index{filter\-\_\-flags@{filter\-\_\-flags}!ieee80211_local@{ieee80211\-\_\-local}}
+\subsubsection[{filter\-\_\-flags}]{\setlength{\rightskip}{0pt plus 5cm}unsigned int filter\-\_\-flags}}\label{structieee80211__local_af57092f118989725a35071734086b077}
+
+
+Definition at line 852 of file ieee80211\-\_\-i.\-h.
+
+\hypertarget{structieee80211__local_aa04ada770caf28109eee6faf56a43ee6}{\index{ieee80211\-\_\-local@{ieee80211\-\_\-local}!filter\-\_\-lock@{filter\-\_\-lock}}
+\index{filter\-\_\-lock@{filter\-\_\-lock}!ieee80211_local@{ieee80211\-\_\-local}}
+\subsubsection[{filter\-\_\-lock}]{\setlength{\rightskip}{0pt plus 5cm}spinlock\-\_\-t filter\-\_\-lock}}\label{structieee80211__local_aa04ada770caf28109eee6faf56a43ee6}
+
+
+Definition at line 857 of file ieee80211\-\_\-i.\-h.
+
+\hypertarget{structieee80211__local_a076bd779234ea1780e71eee200bc0d2c}{\index{ieee80211\-\_\-local@{ieee80211\-\_\-local}!hw@{hw}}
+\index{hw@{hw}!ieee80211_local@{ieee80211\-\_\-local}}
+\subsubsection[{hw}]{\setlength{\rightskip}{0pt plus 5cm}struct ieee80211\-\_\-hw hw}}\label{structieee80211__local_a076bd779234ea1780e71eee200bc0d2c}
+
+
+Definition at line 825 of file ieee80211\-\_\-i.\-h.
+
+\hypertarget{structieee80211__local_a5e8f22962db463298122a3ce5067f785}{\index{ieee80211\-\_\-local@{ieee80211\-\_\-local}!hw\-\_\-roc\-\_\-channel@{hw\-\_\-roc\-\_\-channel}}
+\index{hw\-\_\-roc\-\_\-channel@{hw\-\_\-roc\-\_\-channel}!ieee80211_local@{ieee80211\-\_\-local}}
+\subsubsection[{hw\-\_\-roc\-\_\-channel}]{\setlength{\rightskip}{0pt plus 5cm}struct ieee80211\-\_\-channel$\ast$ hw\-\_\-roc\-\_\-channel}}\label{structieee80211__local_a5e8f22962db463298122a3ce5067f785}
+
+
+Definition at line 1070 of file ieee80211\-\_\-i.\-h.
+
+\hypertarget{structieee80211__local_a9b00b6c7042a2ae7a8ad5490f4017efa}{\index{ieee80211\-\_\-local@{ieee80211\-\_\-local}!hw\-\_\-roc\-\_\-channel\-\_\-type@{hw\-\_\-roc\-\_\-channel\-\_\-type}}
+\index{hw\-\_\-roc\-\_\-channel\-\_\-type@{hw\-\_\-roc\-\_\-channel\-\_\-type}!ieee80211_local@{ieee80211\-\_\-local}}
+\subsubsection[{hw\-\_\-roc\-\_\-channel\-\_\-type}]{\setlength{\rightskip}{0pt plus 5cm}enum nl80211\-\_\-channel\-\_\-type hw\-\_\-roc\-\_\-channel\-\_\-type}}\label{structieee80211__local_a9b00b6c7042a2ae7a8ad5490f4017efa}
+
+
+Definition at line 1074 of file ieee80211\-\_\-i.\-h.
+
+\hypertarget{structieee80211__local_af36d3ae3e1d2447d84f160e433e5be2e}{\index{ieee80211\-\_\-local@{ieee80211\-\_\-local}!hw\-\_\-roc\-\_\-cookie@{hw\-\_\-roc\-\_\-cookie}}
+\index{hw\-\_\-roc\-\_\-cookie@{hw\-\_\-roc\-\_\-cookie}!ieee80211_local@{ieee80211\-\_\-local}}
+\subsubsection[{hw\-\_\-roc\-\_\-cookie}]{\setlength{\rightskip}{0pt plus 5cm}u32 hw\-\_\-roc\-\_\-cookie}}\label{structieee80211__local_af36d3ae3e1d2447d84f160e433e5be2e}
+
+
+Definition at line 1076 of file ieee80211\-\_\-i.\-h.
+
+\hypertarget{structieee80211__local_a34d7d070a0f447d2a535599a3dff3ac5}{\index{ieee80211\-\_\-local@{ieee80211\-\_\-local}!hw\-\_\-roc\-\_\-dev@{hw\-\_\-roc\-\_\-dev}}
+\index{hw\-\_\-roc\-\_\-dev@{hw\-\_\-roc\-\_\-dev}!ieee80211_local@{ieee80211\-\_\-local}}
+\subsubsection[{hw\-\_\-roc\-\_\-dev}]{\setlength{\rightskip}{0pt plus 5cm}struct net\-\_\-device$\ast$ hw\-\_\-roc\-\_\-dev}}\label{structieee80211__local_a34d7d070a0f447d2a535599a3dff3ac5}
+
+
+Definition at line 1071 of file ieee80211\-\_\-i.\-h.
+
+\hypertarget{structieee80211__local_a471bd977ec2f7b650195b9ce384150ad}{\index{ieee80211\-\_\-local@{ieee80211\-\_\-local}!hw\-\_\-roc\-\_\-done@{hw\-\_\-roc\-\_\-done}}
+\index{hw\-\_\-roc\-\_\-done@{hw\-\_\-roc\-\_\-done}!ieee80211_local@{ieee80211\-\_\-local}}
+\subsubsection[{hw\-\_\-roc\-\_\-done}]{\setlength{\rightskip}{0pt plus 5cm}struct work\-\_\-struct hw\-\_\-roc\-\_\-start hw\-\_\-roc\-\_\-done}}\label{structieee80211__local_a471bd977ec2f7b650195b9ce384150ad}
+
+
+Definition at line 1073 of file ieee80211\-\_\-i.\-h.
+
+\hypertarget{structieee80211__local_af4abb221fc61238c80b3b5c96f5d3c7b}{\index{ieee80211\-\_\-local@{ieee80211\-\_\-local}!hw\-\_\-roc\-\_\-duration@{hw\-\_\-roc\-\_\-duration}}
+\index{hw\-\_\-roc\-\_\-duration@{hw\-\_\-roc\-\_\-duration}!ieee80211_local@{ieee80211\-\_\-local}}
+\subsubsection[{hw\-\_\-roc\-\_\-duration}]{\setlength{\rightskip}{0pt plus 5cm}unsigned int hw\-\_\-roc\-\_\-duration}}\label{structieee80211__local_af4abb221fc61238c80b3b5c96f5d3c7b}
+
+
+Definition at line 1075 of file ieee80211\-\_\-i.\-h.
+
+\hypertarget{structieee80211__local_a7c4c5a9a800b0b54327da5a44b95f562}{\index{ieee80211\-\_\-local@{ieee80211\-\_\-local}!hw\-\_\-roc\-\_\-for\-\_\-tx@{hw\-\_\-roc\-\_\-for\-\_\-tx}}
+\index{hw\-\_\-roc\-\_\-for\-\_\-tx@{hw\-\_\-roc\-\_\-for\-\_\-tx}!ieee80211_local@{ieee80211\-\_\-local}}
+\subsubsection[{hw\-\_\-roc\-\_\-for\-\_\-tx}]{\setlength{\rightskip}{0pt plus 5cm}bool hw\-\_\-roc\-\_\-for\-\_\-tx}}\label{structieee80211__local_a7c4c5a9a800b0b54327da5a44b95f562}
+
+
+Definition at line 1077 of file ieee80211\-\_\-i.\-h.
+
+\hypertarget{structieee80211__local_aeec3c84d01b2997932d8a704fb332392}{\index{ieee80211\-\_\-local@{ieee80211\-\_\-local}!hw\-\_\-roc\-\_\-skb@{hw\-\_\-roc\-\_\-skb}}
+\index{hw\-\_\-roc\-\_\-skb@{hw\-\_\-roc\-\_\-skb}!ieee80211_local@{ieee80211\-\_\-local}}
+\subsubsection[{hw\-\_\-roc\-\_\-skb}]{\setlength{\rightskip}{0pt plus 5cm}struct sk\-\_\-buff$\ast$ hw\-\_\-roc\-\_\-skb}}\label{structieee80211__local_aeec3c84d01b2997932d8a704fb332392}
+
+
+Definition at line 1072 of file ieee80211\-\_\-i.\-h.
+
+\hypertarget{structieee80211__local_a3348475145fcc551a07a06e481f06837}{\index{ieee80211\-\_\-local@{ieee80211\-\_\-local}!hw\-\_\-roc\-\_\-skb\-\_\-for\-\_\-status@{hw\-\_\-roc\-\_\-skb\-\_\-for\-\_\-status}}
+\index{hw\-\_\-roc\-\_\-skb\-\_\-for\-\_\-status@{hw\-\_\-roc\-\_\-skb\-\_\-for\-\_\-status}!ieee80211_local@{ieee80211\-\_\-local}}
+\subsubsection[{hw\-\_\-roc\-\_\-skb\-\_\-for\-\_\-status}]{\setlength{\rightskip}{0pt plus 5cm}struct sk\-\_\-buff $\ast$ hw\-\_\-roc\-\_\-skb\-\_\-for\-\_\-status}}\label{structieee80211__local_a3348475145fcc551a07a06e481f06837}
+
+
+Definition at line 1072 of file ieee80211\-\_\-i.\-h.
+
+\hypertarget{structieee80211__local_aba68e760b61a0482eed83d42e9df3f4d}{\index{ieee80211\-\_\-local@{ieee80211\-\_\-local}!hw\-\_\-scan\-\_\-band@{hw\-\_\-scan\-\_\-band}}
+\index{hw\-\_\-scan\-\_\-band@{hw\-\_\-scan\-\_\-band}!ieee80211_local@{ieee80211\-\_\-local}}
+\subsubsection[{hw\-\_\-scan\-\_\-band}]{\setlength{\rightskip}{0pt plus 5cm}enum ieee80211\-\_\-band hw\-\_\-scan\-\_\-band}}\label{structieee80211__local_aba68e760b61a0482eed83d42e9df3f4d}
+
+
+Definition at line 964 of file ieee80211\-\_\-i.\-h.
+
+\hypertarget{structieee80211__local_aec89fecf81c37f8d260d6d2e2697a463}{\index{ieee80211\-\_\-local@{ieee80211\-\_\-local}!hw\-\_\-scan\-\_\-req@{hw\-\_\-scan\-\_\-req}}
+\index{hw\-\_\-scan\-\_\-req@{hw\-\_\-scan\-\_\-req}!ieee80211_local@{ieee80211\-\_\-local}}
+\subsubsection[{hw\-\_\-scan\-\_\-req}]{\setlength{\rightskip}{0pt plus 5cm}struct cfg80211\-\_\-scan\-\_\-request $\ast$ hw\-\_\-scan\-\_\-req}}\label{structieee80211__local_aec89fecf81c37f8d260d6d2e2697a463}
+
+
+Definition at line 962 of file ieee80211\-\_\-i.\-h.
+
+\hypertarget{structieee80211__local_acb6a252b9a72983b1cd445b3f4e99f50}{\index{ieee80211\-\_\-local@{ieee80211\-\_\-local}!ifa\-\_\-notifier@{ifa\-\_\-notifier}}
+\index{ifa\-\_\-notifier@{ifa\-\_\-notifier}!ieee80211_local@{ieee80211\-\_\-local}}
+\subsubsection[{ifa\-\_\-notifier}]{\setlength{\rightskip}{0pt plus 5cm}struct notifier\-\_\-block ifa\-\_\-notifier}}\label{structieee80211__local_acb6a252b9a72983b1cd445b3f4e99f50}
+
+
+Definition at line 1046 of file ieee80211\-\_\-i.\-h.
+
+\hypertarget{structieee80211__local_ad49cfc0bfcbcee0e8082e1b209e97d31}{\index{ieee80211\-\_\-local@{ieee80211\-\_\-local}!iff\-\_\-allmultis@{iff\-\_\-allmultis}}
+\index{iff\-\_\-allmultis@{iff\-\_\-allmultis}!ieee80211_local@{ieee80211\-\_\-local}}
+\subsubsection[{iff\-\_\-allmultis}]{\setlength{\rightskip}{0pt plus 5cm}atomic\-\_\-t iff\-\_\-allmultis}}\label{structieee80211__local_ad49cfc0bfcbcee0e8082e1b209e97d31}
+
+
+Definition at line 937 of file ieee80211\-\_\-i.\-h.
+
+\hypertarget{structieee80211__local_a8f1cf23044f197295b99eb923325e33b}{\index{ieee80211\-\_\-local@{ieee80211\-\_\-local}!iff\-\_\-promiscs@{iff\-\_\-promiscs}}
+\index{iff\-\_\-promiscs@{iff\-\_\-promiscs}!ieee80211_local@{ieee80211\-\_\-local}}
+\subsubsection[{iff\-\_\-promiscs}]{\setlength{\rightskip}{0pt plus 5cm}atomic\-\_\-t iff\-\_\-promiscs}}\label{structieee80211__local_a8f1cf23044f197295b99eb923325e33b}
+
+
+Definition at line 937 of file ieee80211\-\_\-i.\-h.
+
+\hypertarget{structieee80211__local_a64a494bea7f67ad34d7e3e06f47519fa}{\index{ieee80211\-\_\-local@{ieee80211\-\_\-local}!iflist\-\_\-mtx@{iflist\-\_\-mtx}}
+\index{iflist\-\_\-mtx@{iflist\-\_\-mtx}!ieee80211_local@{ieee80211\-\_\-local}}
+\subsubsection[{iflist\-\_\-mtx}]{\setlength{\rightskip}{0pt plus 5cm}struct mutex iflist\-\_\-mtx}}\label{structieee80211__local_a64a494bea7f67ad34d7e3e06f47519fa}
+
+
+Definition at line 947 of file ieee80211\-\_\-i.\-h.
+
+\hypertarget{structieee80211__local_a8468ec1a7c0d94fbdc5cb8c1e030051e}{\index{ieee80211\-\_\-local@{ieee80211\-\_\-local}!int\-\_\-scan\-\_\-req@{int\-\_\-scan\-\_\-req}}
+\index{int\-\_\-scan\-\_\-req@{int\-\_\-scan\-\_\-req}!ieee80211_local@{ieee80211\-\_\-local}}
+\subsubsection[{int\-\_\-scan\-\_\-req}]{\setlength{\rightskip}{0pt plus 5cm}struct cfg80211\-\_\-scan\-\_\-request$\ast$ int\-\_\-scan\-\_\-req}}\label{structieee80211__local_a8468ec1a7c0d94fbdc5cb8c1e030051e}
+
+
+Definition at line 961 of file ieee80211\-\_\-i.\-h.
+
+\hypertarget{structieee80211__local_af269ec693ad97d77fcfb0decd1c9edc7}{\index{ieee80211\-\_\-local@{ieee80211\-\_\-local}!interfaces@{interfaces}}
+\index{interfaces@{interfaces}!ieee80211_local@{ieee80211\-\_\-local}}
+\subsubsection[{interfaces}]{\setlength{\rightskip}{0pt plus 5cm}struct list\-\_\-head interfaces}}\label{structieee80211__local_af269ec693ad97d77fcfb0decd1c9edc7}
+
+
+Definition at line 946 of file ieee80211\-\_\-i.\-h.
+
+\hypertarget{structieee80211__local_aa4d4909b9696da095fd82e003eee670b}{\index{ieee80211\-\_\-local@{ieee80211\-\_\-local}!key\-\_\-mtx@{key\-\_\-mtx}}
+\index{key\-\_\-mtx@{key\-\_\-mtx}!ieee80211_local@{ieee80211\-\_\-local}}
+\subsubsection[{key\-\_\-mtx}]{\setlength{\rightskip}{0pt plus 5cm}struct mutex key\-\_\-mtx}}\label{structieee80211__local_aa4d4909b9696da095fd82e003eee670b}
+
+
+Definition at line 953 of file ieee80211\-\_\-i.\-h.
+
+\hypertarget{structieee80211__local_aad9daf693bf88c202d2832eb6500c08d}{\index{ieee80211\-\_\-local@{ieee80211\-\_\-local}!leave\-\_\-oper\-\_\-channel\-\_\-time@{leave\-\_\-oper\-\_\-channel\-\_\-time}}
+\index{leave\-\_\-oper\-\_\-channel\-\_\-time@{leave\-\_\-oper\-\_\-channel\-\_\-time}!ieee80211_local@{ieee80211\-\_\-local}}
+\subsubsection[{leave\-\_\-oper\-\_\-channel\-\_\-time}]{\setlength{\rightskip}{0pt plus 5cm}unsigned long leave\-\_\-oper\-\_\-channel\-\_\-time}}\label{structieee80211__local_aad9daf693bf88c202d2832eb6500c08d}
+
+
+Definition at line 972 of file ieee80211\-\_\-i.\-h.
+
+\hypertarget{structieee80211__local_a00dc9ea6f5dc07b551f8ae14dd3a4eff}{\index{ieee80211\-\_\-local@{ieee80211\-\_\-local}!mc\-\_\-list@{mc\-\_\-list}}
+\index{mc\-\_\-list@{mc\-\_\-list}!ieee80211_local@{ieee80211\-\_\-local}}
+\subsubsection[{mc\-\_\-list}]{\setlength{\rightskip}{0pt plus 5cm}struct netdev\-\_\-hw\-\_\-addr\-\_\-list mc\-\_\-list}}\label{structieee80211__local_a00dc9ea6f5dc07b551f8ae14dd3a4eff}
+
+
+Definition at line 866 of file ieee80211\-\_\-i.\-h.
+
+\hypertarget{structieee80211__local_a0bd1594e17d034f96ba795dabeaee577}{\index{ieee80211\-\_\-local@{ieee80211\-\_\-local}!monitors@{monitors}}
+\index{monitors@{monitors}!ieee80211_local@{ieee80211\-\_\-local}}
+\subsubsection[{monitors}]{\setlength{\rightskip}{0pt plus 5cm}int monitors}}\label{structieee80211__local_a0bd1594e17d034f96ba795dabeaee577}
+
+
+Definition at line 847 of file ieee80211\-\_\-i.\-h.
+
+\hypertarget{structieee80211__local_a06f637951b74c996f2e4987a7be1dbdd}{\index{ieee80211\-\_\-local@{ieee80211\-\_\-local}!mtx@{mtx}}
+\index{mtx@{mtx}!ieee80211_local@{ieee80211\-\_\-local}}
+\subsubsection[{mtx}]{\setlength{\rightskip}{0pt plus 5cm}struct mutex mtx}}\label{structieee80211__local_a06f637951b74c996f2e4987a7be1dbdd}
+
+
+Definition at line 956 of file ieee80211\-\_\-i.\-h.
+
+\hypertarget{structieee80211__local_ad7946e6f4ab63e48db691b15b9a961d5}{\index{ieee80211\-\_\-local@{ieee80211\-\_\-local}!napi@{napi}}
+\index{napi@{napi}!ieee80211_local@{ieee80211\-\_\-local}}
+\subsubsection[{napi}]{\setlength{\rightskip}{0pt plus 5cm}struct napi\-\_\-struct napi}}\label{structieee80211__local_ad7946e6f4ab63e48db691b15b9a961d5}
+
+
+Definition at line 1085 of file ieee80211\-\_\-i.\-h.
+
+\hypertarget{structieee80211__local_aac1852a9def07663ebe91ac3d74cc313}{\index{ieee80211\-\_\-local@{ieee80211\-\_\-local}!napi\-\_\-dev@{napi\-\_\-dev}}
+\index{napi\-\_\-dev@{napi\-\_\-dev}!ieee80211_local@{ieee80211\-\_\-local}}
+\subsubsection[{napi\-\_\-dev}]{\setlength{\rightskip}{0pt plus 5cm}struct net\-\_\-device napi\-\_\-dev}}\label{structieee80211__local_aac1852a9def07663ebe91ac3d74cc313}
+
+
+Definition at line 1083 of file ieee80211\-\_\-i.\-h.
+
+\hypertarget{structieee80211__local_a0bcd7033eb509ae3bb60ce10a09a48b3}{\index{ieee80211\-\_\-local@{ieee80211\-\_\-local}!network\-\_\-latency\-\_\-notifier@{network\-\_\-latency\-\_\-notifier}}
+\index{network\-\_\-latency\-\_\-notifier@{network\-\_\-latency\-\_\-notifier}!ieee80211_local@{ieee80211\-\_\-local}}
+\subsubsection[{network\-\_\-latency\-\_\-notifier}]{\setlength{\rightskip}{0pt plus 5cm}struct notifier\-\_\-block network\-\_\-latency\-\_\-notifier}}\label{structieee80211__local_a0bcd7033eb509ae3bb60ce10a09a48b3}
+
+
+Definition at line 1045 of file ieee80211\-\_\-i.\-h.
+
+\hypertarget{structieee80211__local_a16e86195a99d4318403d3df1b82adf53}{\index{ieee80211\-\_\-local@{ieee80211\-\_\-local}!next\-\_\-scan\-\_\-state@{next\-\_\-scan\-\_\-state}}
+\index{next\-\_\-scan\-\_\-state@{next\-\_\-scan\-\_\-state}!ieee80211_local@{ieee80211\-\_\-local}}
+\subsubsection[{next\-\_\-scan\-\_\-state}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf mac80211\-\_\-scan\-\_\-state} next\-\_\-scan\-\_\-state}}\label{structieee80211__local_a16e86195a99d4318403d3df1b82adf53}
+
+
+Definition at line 973 of file ieee80211\-\_\-i.\-h.
+
+\hypertarget{structieee80211__local_a24328b32806c8eb5a960e0ed36a4b4f3}{\index{ieee80211\-\_\-local@{ieee80211\-\_\-local}!num\-\_\-sta@{num\-\_\-sta}}
+\index{num\-\_\-sta@{num\-\_\-sta}!ieee80211_local@{ieee80211\-\_\-local}}
+\subsubsection[{num\-\_\-sta}]{\setlength{\rightskip}{0pt plus 5cm}unsigned long num\-\_\-sta}}\label{structieee80211__local_a24328b32806c8eb5a960e0ed36a4b4f3}
+
+
+Definition at line 925 of file ieee80211\-\_\-i.\-h.
+
+\hypertarget{structieee80211__local_a6d0fffdd77c973b707ec9e1955744f88}{\index{ieee80211\-\_\-local@{ieee80211\-\_\-local}!offchannel\-\_\-ps\-\_\-enabled@{offchannel\-\_\-ps\-\_\-enabled}}
+\index{offchannel\-\_\-ps\-\_\-enabled@{offchannel\-\_\-ps\-\_\-enabled}!ieee80211_local@{ieee80211\-\_\-local}}
+\subsubsection[{offchannel\-\_\-ps\-\_\-enabled}]{\setlength{\rightskip}{0pt plus 5cm}bool offchannel\-\_\-ps\-\_\-enabled}}\label{structieee80211__local_a6d0fffdd77c973b707ec9e1955744f88}
+
+
+Definition at line 1036 of file ieee80211\-\_\-i.\-h.
+
+\hypertarget{structieee80211__local_a8943f3ee2b248b1fe911c0441c136c08}{\index{ieee80211\-\_\-local@{ieee80211\-\_\-local}!open\-\_\-count@{open\-\_\-count}}
+\index{open\-\_\-count@{open\-\_\-count}!ieee80211_local@{ieee80211\-\_\-local}}
+\subsubsection[{open\-\_\-count}]{\setlength{\rightskip}{0pt plus 5cm}int open\-\_\-count}}\label{structieee80211__local_a8943f3ee2b248b1fe911c0441c136c08}
+
+
+Definition at line 846 of file ieee80211\-\_\-i.\-h.
+
+\hypertarget{structieee80211__local_a298bcfc61e8403d53c2b492746b765b8}{\index{ieee80211\-\_\-local@{ieee80211\-\_\-local}!oper\-\_\-channel@{oper\-\_\-channel}}
+\index{oper\-\_\-channel@{oper\-\_\-channel}!ieee80211_local@{ieee80211\-\_\-local}}
+\subsubsection[{oper\-\_\-channel}]{\setlength{\rightskip}{0pt plus 5cm}struct ieee80211\-\_\-channel$\ast$ oper\-\_\-channel}}\label{structieee80211__local_a298bcfc61e8403d53c2b492746b765b8}
+
+
+Definition at line 977 of file ieee80211\-\_\-i.\-h.
+
+\hypertarget{structieee80211__local_a276a891dc24af93ff2578620eaa83190}{\index{ieee80211\-\_\-local@{ieee80211\-\_\-local}!ops@{ops}}
+\index{ops@{ops}!ieee80211_local@{ieee80211\-\_\-local}}
+\subsubsection[{ops}]{\setlength{\rightskip}{0pt plus 5cm}struct ieee80211\-\_\-ops$\ast$ ops}}\label{structieee80211__local_a276a891dc24af93ff2578620eaa83190}
+
+
+Definition at line 827 of file ieee80211\-\_\-i.\-h.
+
+\hypertarget{structieee80211__local_a1af46fe8e85323cc129ada2186925c51}{\index{ieee80211\-\_\-local@{ieee80211\-\_\-local}!pending@{pending}}
+\index{pending@{pending}!ieee80211_local@{ieee80211\-\_\-local}}
+\subsubsection[{pending}]{\setlength{\rightskip}{0pt plus 5cm}struct sk\-\_\-buff\-\_\-head pending\mbox{[}I\-E\-E\-E80211\-\_\-\-M\-A\-X\-\_\-\-Q\-U\-E\-U\-E\-S\mbox{]}}}\label{structieee80211__local_a1af46fe8e85323cc129ada2186925c51}
+
+
+Definition at line 931 of file ieee80211\-\_\-i.\-h.
+
+\hypertarget{structieee80211__local_ad1b75d23d03dca9da09d4d091c904e8f}{\index{ieee80211\-\_\-local@{ieee80211\-\_\-local}!power\-\_\-constr\-\_\-level@{power\-\_\-constr\-\_\-level}}
+\index{power\-\_\-constr\-\_\-level@{power\-\_\-constr\-\_\-level}!ieee80211_local@{ieee80211\-\_\-local}}
+\subsubsection[{power\-\_\-constr\-\_\-level}]{\setlength{\rightskip}{0pt plus 5cm}int power\-\_\-constr\-\_\-level}}\label{structieee80211__local_ad1b75d23d03dca9da09d4d091c904e8f}
+
+
+Definition at line 1057 of file ieee80211\-\_\-i.\-h.
+
+\hypertarget{structieee80211__local_ab293743371aeef9182e1e8c5be0d26f6}{\index{ieee80211\-\_\-local@{ieee80211\-\_\-local}!probe\-\_\-req\-\_\-reg@{probe\-\_\-req\-\_\-reg}}
+\index{probe\-\_\-req\-\_\-reg@{probe\-\_\-req\-\_\-reg}!ieee80211_local@{ieee80211\-\_\-local}}
+\subsubsection[{probe\-\_\-req\-\_\-reg}]{\setlength{\rightskip}{0pt plus 5cm}int probe\-\_\-req\-\_\-reg}}\label{structieee80211__local_ab293743371aeef9182e1e8c5be0d26f6}
+
+
+Definition at line 851 of file ieee80211\-\_\-i.\-h.
+
+\hypertarget{structieee80211__local_af1cdea8e67f896a2208f1e05403a5bda}{\index{ieee80211\-\_\-local@{ieee80211\-\_\-local}!ps\-\_\-sdata@{ps\-\_\-sdata}}
+\index{ps\-\_\-sdata@{ps\-\_\-sdata}!ieee80211_local@{ieee80211\-\_\-local}}
+\subsubsection[{ps\-\_\-sdata}]{\setlength{\rightskip}{0pt plus 5cm}struct {\bf ieee80211\-\_\-sub\-\_\-if\-\_\-data}$\ast$ ps\-\_\-sdata}}\label{structieee80211__local_af1cdea8e67f896a2208f1e05403a5bda}
+
+
+Definition at line 1041 of file ieee80211\-\_\-i.\-h.
+
+\hypertarget{structieee80211__local_ab5292154aefaae54f246320fd4afbf11}{\index{ieee80211\-\_\-local@{ieee80211\-\_\-local}!pspolling@{pspolling}}
+\index{pspolling@{pspolling}!ieee80211_local@{ieee80211\-\_\-local}}
+\subsubsection[{pspolling}]{\setlength{\rightskip}{0pt plus 5cm}bool pspolling}}\label{structieee80211__local_ab5292154aefaae54f246320fd4afbf11}
+
+
+Definition at line 1035 of file ieee80211\-\_\-i.\-h.
+
+\hypertarget{structieee80211__local_a6a4677a1a1ad602030742ceba058133b}{\index{ieee80211\-\_\-local@{ieee80211\-\_\-local}!queue\-\_\-stop\-\_\-reason\-\_\-lock@{queue\-\_\-stop\-\_\-reason\-\_\-lock}}
+\index{queue\-\_\-stop\-\_\-reason\-\_\-lock@{queue\-\_\-stop\-\_\-reason\-\_\-lock}!ieee80211_local@{ieee80211\-\_\-local}}
+\subsubsection[{queue\-\_\-stop\-\_\-reason\-\_\-lock}]{\setlength{\rightskip}{0pt plus 5cm}spinlock\-\_\-t queue\-\_\-stop\-\_\-reason\-\_\-lock}}\label{structieee80211__local_a6a4677a1a1ad602030742ceba058133b}
+
+
+Definition at line 844 of file ieee80211\-\_\-i.\-h.
+
+\hypertarget{structieee80211__local_a4ac9818da187bbf4f141fd9e6ca1f0fd}{\index{ieee80211\-\_\-local@{ieee80211\-\_\-local}!queue\-\_\-stop\-\_\-reasons@{queue\-\_\-stop\-\_\-reasons}}
+\index{queue\-\_\-stop\-\_\-reasons@{queue\-\_\-stop\-\_\-reasons}!ieee80211_local@{ieee80211\-\_\-local}}
+\subsubsection[{queue\-\_\-stop\-\_\-reasons}]{\setlength{\rightskip}{0pt plus 5cm}unsigned long queue\-\_\-stop\-\_\-reasons\mbox{[}I\-E\-E\-E80211\-\_\-\-M\-A\-X\-\_\-\-Q\-U\-E\-U\-E\-S\mbox{]}}}\label{structieee80211__local_a4ac9818da187bbf4f141fd9e6ca1f0fd}
+
+
+Definition at line 842 of file ieee80211\-\_\-i.\-h.
+
+\hypertarget{structieee80211__local_a4938b434be86b4b137b6eec047203e65}{\index{ieee80211\-\_\-local@{ieee80211\-\_\-local}!quiescing@{quiescing}}
+\index{quiescing@{quiescing}!ieee80211_local@{ieee80211\-\_\-local}}
+\subsubsection[{quiescing}]{\setlength{\rightskip}{0pt plus 5cm}bool quiescing}}\label{structieee80211__local_a4938b434be86b4b137b6eec047203e65}
+
+
+Definition at line 890 of file ieee80211\-\_\-i.\-h.
+
+\hypertarget{structieee80211__local_a0f6ac21a75ada1908328210ec3b42667}{\index{ieee80211\-\_\-local@{ieee80211\-\_\-local}!rate\-\_\-ctrl@{rate\-\_\-ctrl}}
+\index{rate\-\_\-ctrl@{rate\-\_\-ctrl}!ieee80211_local@{ieee80211\-\_\-local}}
+\subsubsection[{rate\-\_\-ctrl}]{\setlength{\rightskip}{0pt plus 5cm}struct {\bf rate\-\_\-control\-\_\-ref}$\ast$ rate\-\_\-ctrl}}\label{structieee80211__local_a0f6ac21a75ada1908328210ec3b42667}
+
+
+Definition at line 939 of file ieee80211\-\_\-i.\-h.
+
+\hypertarget{structieee80211__local_a1b89bbd9d7e4daee680c064bed613ff7}{\index{ieee80211\-\_\-local@{ieee80211\-\_\-local}!recalc\-\_\-smps@{recalc\-\_\-smps}}
+\index{recalc\-\_\-smps@{recalc\-\_\-smps}!ieee80211_local@{ieee80211\-\_\-local}}
+\subsubsection[{recalc\-\_\-smps}]{\setlength{\rightskip}{0pt plus 5cm}struct work\-\_\-struct recalc\-\_\-smps}}\label{structieee80211__local_a1b89bbd9d7e4daee680c064bed613ff7}
+
+
+Definition at line 863 of file ieee80211\-\_\-i.\-h.
+
+\hypertarget{structieee80211__local_aeebe638f6e2c04a7481951fee56b1c9e}{\index{ieee80211\-\_\-local@{ieee80211\-\_\-local}!reconfig\-\_\-filter@{reconfig\-\_\-filter}}
+\index{reconfig\-\_\-filter@{reconfig\-\_\-filter}!ieee80211_local@{ieee80211\-\_\-local}}
+\subsubsection[{reconfig\-\_\-filter}]{\setlength{\rightskip}{0pt plus 5cm}struct work\-\_\-struct reconfig\-\_\-filter}}\label{structieee80211__local_aeebe638f6e2c04a7481951fee56b1c9e}
+
+
+Definition at line 860 of file ieee80211\-\_\-i.\-h.
+
+\hypertarget{structieee80211__local_aa77ee6794b746189308aeeceb3635838}{\index{ieee80211\-\_\-local@{ieee80211\-\_\-local}!restart\-\_\-work@{restart\-\_\-work}}
+\index{restart\-\_\-work@{restart\-\_\-work}!ieee80211_local@{ieee80211\-\_\-local}}
+\subsubsection[{restart\-\_\-work}]{\setlength{\rightskip}{0pt plus 5cm}struct work\-\_\-struct restart\-\_\-work}}\label{structieee80211__local_aa77ee6794b746189308aeeceb3635838}
+
+
+Definition at line 1061 of file ieee80211\-\_\-i.\-h.
+
+\hypertarget{structieee80211__local_a2ddb54f91088d41426fb0b5e4cb82022}{\index{ieee80211\-\_\-local@{ieee80211\-\_\-local}!resuming@{resuming}}
+\index{resuming@{resuming}!ieee80211_local@{ieee80211\-\_\-local}}
+\subsubsection[{resuming}]{\setlength{\rightskip}{0pt plus 5cm}bool resuming}}\label{structieee80211__local_a2ddb54f91088d41426fb0b5e4cb82022}
+
+
+Definition at line 884 of file ieee80211\-\_\-i.\-h.
+
+\hypertarget{structieee80211__local_a52eb7e26fdfb1a3b6469728a7131fe80}{\index{ieee80211\-\_\-local@{ieee80211\-\_\-local}!running\-\_\-rx\-\_\-handler@{running\-\_\-rx\-\_\-handler}}
+\index{running\-\_\-rx\-\_\-handler@{running\-\_\-rx\-\_\-handler}!ieee80211_local@{ieee80211\-\_\-local}}
+\subsubsection[{running\-\_\-rx\-\_\-handler}]{\setlength{\rightskip}{0pt plus 5cm}bool running\-\_\-rx\-\_\-handler}}\label{structieee80211__local_a52eb7e26fdfb1a3b6469728a7131fe80}
+
+
+Definition at line 916 of file ieee80211\-\_\-i.\-h.
+
+\hypertarget{structieee80211__local_aac644577fe51ca03388b580ee634c471}{\index{ieee80211\-\_\-local@{ieee80211\-\_\-local}!rx\-\_\-skb\-\_\-queue@{rx\-\_\-skb\-\_\-queue}}
+\index{rx\-\_\-skb\-\_\-queue@{rx\-\_\-skb\-\_\-queue}!ieee80211_local@{ieee80211\-\_\-local}}
+\subsubsection[{rx\-\_\-skb\-\_\-queue}]{\setlength{\rightskip}{0pt plus 5cm}struct sk\-\_\-buff\-\_\-head rx\-\_\-skb\-\_\-queue}}\label{structieee80211__local_aac644577fe51ca03388b580ee634c471}
+
+
+Definition at line 915 of file ieee80211\-\_\-i.\-h.
+
+\hypertarget{structieee80211__local_a0fcd0e60e46da373ab6002985dfa2751}{\index{ieee80211\-\_\-local@{ieee80211\-\_\-local}!scan\-\_\-channel@{scan\-\_\-channel}}
+\index{scan\-\_\-channel@{scan\-\_\-channel}!ieee80211_local@{ieee80211\-\_\-local}}
+\subsubsection[{scan\-\_\-channel}]{\setlength{\rightskip}{0pt plus 5cm}struct ieee80211\-\_\-channel$\ast$ scan\-\_\-channel}}\label{structieee80211__local_a0fcd0e60e46da373ab6002985dfa2751}
+
+
+Definition at line 963 of file ieee80211\-\_\-i.\-h.
+
+\hypertarget{structieee80211__local_a047d647546c287f0ae0ab2b56b09ed66}{\index{ieee80211\-\_\-local@{ieee80211\-\_\-local}!scan\-\_\-channel\-\_\-idx@{scan\-\_\-channel\-\_\-idx}}
+\index{scan\-\_\-channel\-\_\-idx@{scan\-\_\-channel\-\_\-idx}!ieee80211_local@{ieee80211\-\_\-local}}
+\subsubsection[{scan\-\_\-channel\-\_\-idx}]{\setlength{\rightskip}{0pt plus 5cm}int scan\-\_\-channel\-\_\-idx}}\label{structieee80211__local_a047d647546c287f0ae0ab2b56b09ed66}
+
+
+Definition at line 965 of file ieee80211\-\_\-i.\-h.
+
+\hypertarget{structieee80211__local_a68131071a0fe62e850afc46f0a7ef6a1}{\index{ieee80211\-\_\-local@{ieee80211\-\_\-local}!scan\-\_\-ies\-\_\-len@{scan\-\_\-ies\-\_\-len}}
+\index{scan\-\_\-ies\-\_\-len@{scan\-\_\-ies\-\_\-len}!ieee80211_local@{ieee80211\-\_\-local}}
+\subsubsection[{scan\-\_\-ies\-\_\-len}]{\setlength{\rightskip}{0pt plus 5cm}int scan\-\_\-ies\-\_\-len}}\label{structieee80211__local_a68131071a0fe62e850afc46f0a7ef6a1}
+
+
+Definition at line 966 of file ieee80211\-\_\-i.\-h.
+
+\hypertarget{structieee80211__local_aaa4fd1e0ca28860a5750a01837c6c325}{\index{ieee80211\-\_\-local@{ieee80211\-\_\-local}!scan\-\_\-req@{scan\-\_\-req}}
+\index{scan\-\_\-req@{scan\-\_\-req}!ieee80211_local@{ieee80211\-\_\-local}}
+\subsubsection[{scan\-\_\-req}]{\setlength{\rightskip}{0pt plus 5cm}struct cfg80211\-\_\-scan\-\_\-request$\ast$ scan\-\_\-req}}\label{structieee80211__local_aaa4fd1e0ca28860a5750a01837c6c325}
+
+
+Definition at line 962 of file ieee80211\-\_\-i.\-h.
+
+\hypertarget{structieee80211__local_aa5cd69a012fd9276c05cfbfccd1e0a51}{\index{ieee80211\-\_\-local@{ieee80211\-\_\-local}!scan\-\_\-sdata@{scan\-\_\-sdata}}
+\index{scan\-\_\-sdata@{scan\-\_\-sdata}!ieee80211_local@{ieee80211\-\_\-local}}
+\subsubsection[{scan\-\_\-sdata}]{\setlength{\rightskip}{0pt plus 5cm}struct {\bf ieee80211\-\_\-sub\-\_\-if\-\_\-data}$\ast$ scan\-\_\-sdata}}\label{structieee80211__local_aa5cd69a012fd9276c05cfbfccd1e0a51}
+
+
+Definition at line 975 of file ieee80211\-\_\-i.\-h.
+
+\hypertarget{structieee80211__local_aa25532a782ada88d435b24dfda931173}{\index{ieee80211\-\_\-local@{ieee80211\-\_\-local}!scan\-\_\-ssid@{scan\-\_\-ssid}}
+\index{scan\-\_\-ssid@{scan\-\_\-ssid}!ieee80211_local@{ieee80211\-\_\-local}}
+\subsubsection[{scan\-\_\-ssid}]{\setlength{\rightskip}{0pt plus 5cm}struct cfg80211\-\_\-ssid scan\-\_\-ssid}}\label{structieee80211__local_aa25532a782ada88d435b24dfda931173}
+
+
+Definition at line 960 of file ieee80211\-\_\-i.\-h.
+
+\hypertarget{structieee80211__local_a63c27bb90b892d939725e333b3b64514}{\index{ieee80211\-\_\-local@{ieee80211\-\_\-local}!scan\-\_\-work@{scan\-\_\-work}}
+\index{scan\-\_\-work@{scan\-\_\-work}!ieee80211_local@{ieee80211\-\_\-local}}
+\subsubsection[{scan\-\_\-work}]{\setlength{\rightskip}{0pt plus 5cm}struct delayed\-\_\-work scan\-\_\-work}}\label{structieee80211__local_a63c27bb90b892d939725e333b3b64514}
+
+
+Definition at line 974 of file ieee80211\-\_\-i.\-h.
+
+\hypertarget{structieee80211__local_aa4734c7bf0bba0e87ccf874423c3c79a}{\index{ieee80211\-\_\-local@{ieee80211\-\_\-local}!scanning@{scanning}}
+\index{scanning@{scanning}!ieee80211_local@{ieee80211\-\_\-local}}
+\subsubsection[{scanning}]{\setlength{\rightskip}{0pt plus 5cm}unsigned long scanning}}\label{structieee80211__local_aa4734c7bf0bba0e87ccf874423c3c79a}
+
+
+Definition at line 959 of file ieee80211\-\_\-i.\-h.
+
+\hypertarget{structieee80211__local_a1dbb796d0082174e8a7f69314a3bfc90}{\index{ieee80211\-\_\-local@{ieee80211\-\_\-local}!sched\-\_\-scan\-\_\-ies@{sched\-\_\-scan\-\_\-ies}}
+\index{sched\-\_\-scan\-\_\-ies@{sched\-\_\-scan\-\_\-ies}!ieee80211_local@{ieee80211\-\_\-local}}
+\subsubsection[{sched\-\_\-scan\-\_\-ies}]{\setlength{\rightskip}{0pt plus 5cm}struct ieee80211\-\_\-sched\-\_\-scan\-\_\-ies sched\-\_\-scan\-\_\-ies}}\label{structieee80211__local_a1dbb796d0082174e8a7f69314a3bfc90}
+
+
+Definition at line 969 of file ieee80211\-\_\-i.\-h.
+
+\hypertarget{structieee80211__local_a0724e881582b025d21006614b3f63066}{\index{ieee80211\-\_\-local@{ieee80211\-\_\-local}!sched\-\_\-scan\-\_\-stopped\-\_\-work@{sched\-\_\-scan\-\_\-stopped\-\_\-work}}
+\index{sched\-\_\-scan\-\_\-stopped\-\_\-work@{sched\-\_\-scan\-\_\-stopped\-\_\-work}!ieee80211_local@{ieee80211\-\_\-local}}
+\subsubsection[{sched\-\_\-scan\-\_\-stopped\-\_\-work}]{\setlength{\rightskip}{0pt plus 5cm}struct work\-\_\-struct sched\-\_\-scan\-\_\-stopped\-\_\-work}}\label{structieee80211__local_a0724e881582b025d21006614b3f63066}
+
+
+Definition at line 970 of file ieee80211\-\_\-i.\-h.
+
+\hypertarget{structieee80211__local_abd8e66f3e46d5bb5d08224d0960a29b6}{\index{ieee80211\-\_\-local@{ieee80211\-\_\-local}!sched\-\_\-scanning@{sched\-\_\-scanning}}
+\index{sched\-\_\-scanning@{sched\-\_\-scanning}!ieee80211_local@{ieee80211\-\_\-local}}
+\subsubsection[{sched\-\_\-scanning}]{\setlength{\rightskip}{0pt plus 5cm}bool sched\-\_\-scanning}}\label{structieee80211__local_abd8e66f3e46d5bb5d08224d0960a29b6}
+
+
+Definition at line 968 of file ieee80211\-\_\-i.\-h.
+
+\hypertarget{structieee80211__local_a6eeb93345e21d69a77a7c2c571bd0000}{\index{ieee80211\-\_\-local@{ieee80211\-\_\-local}!skb\-\_\-queue@{skb\-\_\-queue}}
+\index{skb\-\_\-queue@{skb\-\_\-queue}!ieee80211_local@{ieee80211\-\_\-local}}
+\subsubsection[{skb\-\_\-queue}]{\setlength{\rightskip}{0pt plus 5cm}struct sk\-\_\-buff\-\_\-head skb\-\_\-queue}}\label{structieee80211__local_a6eeb93345e21d69a77a7c2c571bd0000}
+
+
+Definition at line 906 of file ieee80211\-\_\-i.\-h.
+
+\hypertarget{structieee80211__local_a98b4c0b5fc65c583926a6c35981287eb}{\index{ieee80211\-\_\-local@{ieee80211\-\_\-local}!skb\-\_\-queue\-\_\-unreliable@{skb\-\_\-queue\-\_\-unreliable}}
+\index{skb\-\_\-queue\-\_\-unreliable@{skb\-\_\-queue\-\_\-unreliable}!ieee80211_local@{ieee80211\-\_\-local}}
+\subsubsection[{skb\-\_\-queue\-\_\-unreliable}]{\setlength{\rightskip}{0pt plus 5cm}struct sk\-\_\-buff\-\_\-head skb\-\_\-queue\-\_\-unreliable}}\label{structieee80211__local_a98b4c0b5fc65c583926a6c35981287eb}
+
+
+Definition at line 907 of file ieee80211\-\_\-i.\-h.
+
+\hypertarget{structieee80211__local_ae5063971b60ec8e964c6776eebe3f04f}{\index{ieee80211\-\_\-local@{ieee80211\-\_\-local}!smps\-\_\-mode@{smps\-\_\-mode}}
+\index{smps\-\_\-mode@{smps\-\_\-mode}!ieee80211_local@{ieee80211\-\_\-local}}
+\subsubsection[{smps\-\_\-mode}]{\setlength{\rightskip}{0pt plus 5cm}enum ieee80211\-\_\-smps\-\_\-mode smps\-\_\-mode}}\label{structieee80211__local_ae5063971b60ec8e964c6776eebe3f04f}
+
+
+Definition at line 1059 of file ieee80211\-\_\-i.\-h.
+
+\hypertarget{structieee80211__local_a08ed23f945556f2425951c67c8676a06}{\index{ieee80211\-\_\-local@{ieee80211\-\_\-local}!sta\-\_\-cleanup@{sta\-\_\-cleanup}}
+\index{sta\-\_\-cleanup@{sta\-\_\-cleanup}!ieee80211_local@{ieee80211\-\_\-local}}
+\subsubsection[{sta\-\_\-cleanup}]{\setlength{\rightskip}{0pt plus 5cm}struct timer\-\_\-list sta\-\_\-cleanup}}\label{structieee80211__local_a08ed23f945556f2425951c67c8676a06}
+
+
+Definition at line 928 of file ieee80211\-\_\-i.\-h.
+
+\hypertarget{structieee80211__local_a97ee12a47f59b1e2ffa51cca68a70304}{\index{ieee80211\-\_\-local@{ieee80211\-\_\-local}!sta\-\_\-generation@{sta\-\_\-generation}}
+\index{sta\-\_\-generation@{sta\-\_\-generation}!ieee80211_local@{ieee80211\-\_\-local}}
+\subsubsection[{sta\-\_\-generation}]{\setlength{\rightskip}{0pt plus 5cm}int sta\-\_\-generation}}\label{structieee80211__local_a97ee12a47f59b1e2ffa51cca68a70304}
+
+
+Definition at line 929 of file ieee80211\-\_\-i.\-h.
+
+\hypertarget{structieee80211__local_a6014b1885979a210472e849167192cec}{\index{ieee80211\-\_\-local@{ieee80211\-\_\-local}!sta\-\_\-hash@{sta\-\_\-hash}}
+\index{sta\-\_\-hash@{sta\-\_\-hash}!ieee80211_local@{ieee80211\-\_\-local}}
+\subsubsection[{sta\-\_\-hash}]{\setlength{\rightskip}{0pt plus 5cm}struct {\bf sta\-\_\-info} \-\_\-\-\_\-rcu$\ast$ sta\-\_\-hash\mbox{[}{\bf S\-T\-A\-\_\-\-H\-A\-S\-H\-\_\-\-S\-I\-Z\-E}\mbox{]}}}\label{structieee80211__local_a6014b1885979a210472e849167192cec}
+
+
+Definition at line 927 of file ieee80211\-\_\-i.\-h.
+
+\hypertarget{structieee80211__local_aa442db3b90ab8934df91ba31e7602e66}{\index{ieee80211\-\_\-local@{ieee80211\-\_\-local}!sta\-\_\-list@{sta\-\_\-list}}
+\index{sta\-\_\-list@{sta\-\_\-list}!ieee80211_local@{ieee80211\-\_\-local}}
+\subsubsection[{sta\-\_\-list}]{\setlength{\rightskip}{0pt plus 5cm}struct list\-\_\-head sta\-\_\-list}}\label{structieee80211__local_aa442db3b90ab8934df91ba31e7602e66}
+
+
+Definition at line 926 of file ieee80211\-\_\-i.\-h.
+
+\hypertarget{structieee80211__local_a8fb5b2a5fbdd771e5d8cbd9e6f3f0652}{\index{ieee80211\-\_\-local@{ieee80211\-\_\-local}!sta\-\_\-mtx@{sta\-\_\-mtx}}
+\index{sta\-\_\-mtx@{sta\-\_\-mtx}!ieee80211_local@{ieee80211\-\_\-local}}
+\subsubsection[{sta\-\_\-mtx}]{\setlength{\rightskip}{0pt plus 5cm}struct mutex sta\-\_\-mtx}}\label{structieee80211__local_a8fb5b2a5fbdd771e5d8cbd9e6f3f0652}
+
+
+Definition at line 923 of file ieee80211\-\_\-i.\-h.
+
+\hypertarget{structieee80211__local_a43c08d193d555a2b2a61c53d2a4e5a63}{\index{ieee80211\-\_\-local@{ieee80211\-\_\-local}!started@{started}}
+\index{started@{started}!ieee80211_local@{ieee80211\-\_\-local}}
+\subsubsection[{started}]{\setlength{\rightskip}{0pt plus 5cm}bool started}}\label{structieee80211__local_a43c08d193d555a2b2a61c53d2a4e5a63}
+
+
+Definition at line 893 of file ieee80211\-\_\-i.\-h.
+
+\hypertarget{structieee80211__local_ae0ed5063d998fba626c0783a36391f3c}{\index{ieee80211\-\_\-local@{ieee80211\-\_\-local}!suspended@{suspended}}
+\index{suspended@{suspended}!ieee80211_local@{ieee80211\-\_\-local}}
+\subsubsection[{suspended}]{\setlength{\rightskip}{0pt plus 5cm}bool suspended}}\label{structieee80211__local_ae0ed5063d998fba626c0783a36391f3c}
+
+
+Definition at line 876 of file ieee80211\-\_\-i.\-h.
+
+\hypertarget{structieee80211__local_a4308a8fe6dfe7c223959f8b219a05695}{\index{ieee80211\-\_\-local@{ieee80211\-\_\-local}!tasklet@{tasklet}}
+\index{tasklet@{tasklet}!ieee80211_local@{ieee80211\-\_\-local}}
+\subsubsection[{tasklet}]{\setlength{\rightskip}{0pt plus 5cm}struct tasklet\-\_\-struct tasklet}}\label{structieee80211__local_a4308a8fe6dfe7c223959f8b219a05695}
+
+
+Definition at line 905 of file ieee80211\-\_\-i.\-h.
+
+\hypertarget{structieee80211__local_a34d7d9b6d74715302c953d01980bdebf}{\index{ieee80211\-\_\-local@{ieee80211\-\_\-local}!tim\-\_\-in\-\_\-locked\-\_\-section@{tim\-\_\-in\-\_\-locked\-\_\-section}}
+\index{tim\-\_\-in\-\_\-locked\-\_\-section@{tim\-\_\-in\-\_\-locked\-\_\-section}!ieee80211_local@{ieee80211\-\_\-local}}
+\subsubsection[{tim\-\_\-in\-\_\-locked\-\_\-section}]{\setlength{\rightskip}{0pt plus 5cm}bool tim\-\_\-in\-\_\-locked\-\_\-section}}\label{structieee80211__local_a34d7d9b6d74715302c953d01980bdebf}
+
+
+Definition at line 868 of file ieee80211\-\_\-i.\-h.
+
+\hypertarget{structieee80211__local_a66f27f63b02e43a76482968cf728de10}{\index{ieee80211\-\_\-local@{ieee80211\-\_\-local}!tim\-\_\-lock@{tim\-\_\-lock}}
+\index{tim\-\_\-lock@{tim\-\_\-lock}!ieee80211_local@{ieee80211\-\_\-local}}
+\subsubsection[{tim\-\_\-lock}]{\setlength{\rightskip}{0pt plus 5cm}spinlock\-\_\-t tim\-\_\-lock}}\label{structieee80211__local_a66f27f63b02e43a76482968cf728de10}
+
+
+Definition at line 924 of file ieee80211\-\_\-i.\-h.
+
+\hypertarget{structieee80211__local_a846c2b9126411a975d7cdab2fb50b13e}{\index{ieee80211\-\_\-local@{ieee80211\-\_\-local}!tmp\-\_\-channel@{tmp\-\_\-channel}}
+\index{tmp\-\_\-channel@{tmp\-\_\-channel}!ieee80211_local@{ieee80211\-\_\-local}}
+\subsubsection[{tmp\-\_\-channel}]{\setlength{\rightskip}{0pt plus 5cm}struct ieee80211\-\_\-channel$\ast$ tmp\-\_\-channel}}\label{structieee80211__local_a846c2b9126411a975d7cdab2fb50b13e}
+
+
+Definition at line 980 of file ieee80211\-\_\-i.\-h.
+
+\hypertarget{structieee80211__local_adaa5be6105e3f31efe60ff88360b891f}{\index{ieee80211\-\_\-local@{ieee80211\-\_\-local}!tmp\-\_\-channel\-\_\-type@{tmp\-\_\-channel\-\_\-type}}
+\index{tmp\-\_\-channel\-\_\-type@{tmp\-\_\-channel\-\_\-type}!ieee80211_local@{ieee80211\-\_\-local}}
+\subsubsection[{tmp\-\_\-channel\-\_\-type}]{\setlength{\rightskip}{0pt plus 5cm}enum nl80211\-\_\-channel\-\_\-type tmp\-\_\-channel\-\_\-type}}\label{structieee80211__local_adaa5be6105e3f31efe60ff88360b891f}
+
+
+Definition at line 981 of file ieee80211\-\_\-i.\-h.
+
+\hypertarget{structieee80211__local_a539e95055f6bd55d800085aec0180d86}{\index{ieee80211\-\_\-local@{ieee80211\-\_\-local}!total\-\_\-ps\-\_\-buffered@{total\-\_\-ps\-\_\-buffered}}
+\index{total\-\_\-ps\-\_\-buffered@{total\-\_\-ps\-\_\-buffered}!ieee80211_local@{ieee80211\-\_\-local}}
+\subsubsection[{total\-\_\-ps\-\_\-buffered}]{\setlength{\rightskip}{0pt plus 5cm}int total\-\_\-ps\-\_\-buffered}}\label{structieee80211__local_a539e95055f6bd55d800085aec0180d86}
+
+
+Definition at line 1030 of file ieee80211\-\_\-i.\-h.
+
+\hypertarget{structieee80211__local_acf548b161496ab61ff27e8ae5aa59aff}{\index{ieee80211\-\_\-local@{ieee80211\-\_\-local}!tx\-\_\-headroom@{tx\-\_\-headroom}}
+\index{tx\-\_\-headroom@{tx\-\_\-headroom}!ieee80211_local@{ieee80211\-\_\-local}}
+\subsubsection[{tx\-\_\-headroom}]{\setlength{\rightskip}{0pt plus 5cm}int tx\-\_\-headroom}}\label{structieee80211__local_acf548b161496ab61ff27e8ae5aa59aff}
+
+
+Definition at line 898 of file ieee80211\-\_\-i.\-h.
+
+\hypertarget{structieee80211__local_aebdf516672c673478395a1f1a1bda6ab}{\index{ieee80211\-\_\-local@{ieee80211\-\_\-local}!tx\-\_\-pending\-\_\-tasklet@{tx\-\_\-pending\-\_\-tasklet}}
+\index{tx\-\_\-pending\-\_\-tasklet@{tx\-\_\-pending\-\_\-tasklet}!ieee80211_local@{ieee80211\-\_\-local}}
+\subsubsection[{tx\-\_\-pending\-\_\-tasklet}]{\setlength{\rightskip}{0pt plus 5cm}struct tasklet\-\_\-struct tx\-\_\-pending\-\_\-tasklet}}\label{structieee80211__local_aebdf516672c673478395a1f1a1bda6ab}
+
+
+Definition at line 932 of file ieee80211\-\_\-i.\-h.
+
+\hypertarget{structieee80211__local_a769dfa727897d182933a132cf92c480e}{\index{ieee80211\-\_\-local@{ieee80211\-\_\-local}!user\-\_\-power\-\_\-level@{user\-\_\-power\-\_\-level}}
+\index{user\-\_\-power\-\_\-level@{user\-\_\-power\-\_\-level}!ieee80211_local@{ieee80211\-\_\-local}}
+\subsubsection[{user\-\_\-power\-\_\-level}]{\setlength{\rightskip}{0pt plus 5cm}int user\-\_\-power\-\_\-level}}\label{structieee80211__local_a769dfa727897d182933a132cf92c480e}
+
+
+Definition at line 1056 of file ieee80211\-\_\-i.\-h.
+
+\hypertarget{structieee80211__local_ac63790cf9fa02ac7ac0c4282cfe5b041}{\index{ieee80211\-\_\-local@{ieee80211\-\_\-local}!wep\-\_\-iv@{wep\-\_\-iv}}
+\index{wep\-\_\-iv@{wep\-\_\-iv}!ieee80211_local@{ieee80211\-\_\-local}}
+\subsubsection[{wep\-\_\-iv}]{\setlength{\rightskip}{0pt plus 5cm}u32 wep\-\_\-iv}}\label{structieee80211__local_ac63790cf9fa02ac7ac0c4282cfe5b041}
+
+
+Definition at line 943 of file ieee80211\-\_\-i.\-h.
+
+\hypertarget{structieee80211__local_a993e1c97083f7fe3b90b9da910d72bd7}{\index{ieee80211\-\_\-local@{ieee80211\-\_\-local}!wep\-\_\-rx\-\_\-tfm@{wep\-\_\-rx\-\_\-tfm}}
+\index{wep\-\_\-rx\-\_\-tfm@{wep\-\_\-rx\-\_\-tfm}!ieee80211_local@{ieee80211\-\_\-local}}
+\subsubsection[{wep\-\_\-rx\-\_\-tfm}]{\setlength{\rightskip}{0pt plus 5cm}struct crypto\-\_\-cipher$\ast$ wep\-\_\-rx\-\_\-tfm}}\label{structieee80211__local_a993e1c97083f7fe3b90b9da910d72bd7}
+
+
+Definition at line 942 of file ieee80211\-\_\-i.\-h.
+
+\hypertarget{structieee80211__local_ab554bf57d377855ad08d970f9e395ad0}{\index{ieee80211\-\_\-local@{ieee80211\-\_\-local}!wep\-\_\-tx\-\_\-tfm@{wep\-\_\-tx\-\_\-tfm}}
+\index{wep\-\_\-tx\-\_\-tfm@{wep\-\_\-tx\-\_\-tfm}!ieee80211_local@{ieee80211\-\_\-local}}
+\subsubsection[{wep\-\_\-tx\-\_\-tfm}]{\setlength{\rightskip}{0pt plus 5cm}struct crypto\-\_\-cipher$\ast$ wep\-\_\-tx\-\_\-tfm}}\label{structieee80211__local_ab554bf57d377855ad08d970f9e395ad0}
+
+
+Definition at line 941 of file ieee80211\-\_\-i.\-h.
+
+\hypertarget{structieee80211__local_a257c289b6a875f6028f1e79f4c0241bc}{\index{ieee80211\-\_\-local@{ieee80211\-\_\-local}!wiphy\-\_\-ciphers\-\_\-allocated@{wiphy\-\_\-ciphers\-\_\-allocated}}
+\index{wiphy\-\_\-ciphers\-\_\-allocated@{wiphy\-\_\-ciphers\-\_\-allocated}!ieee80211_local@{ieee80211\-\_\-local}}
+\subsubsection[{wiphy\-\_\-ciphers\-\_\-allocated}]{\setlength{\rightskip}{0pt plus 5cm}bool wiphy\-\_\-ciphers\-\_\-allocated}}\label{structieee80211__local_a257c289b6a875f6028f1e79f4c0241bc}
+
+
+Definition at line 854 of file ieee80211\-\_\-i.\-h.
+
+\hypertarget{structieee80211__local_ae7863966f2b9005eeb21a687f9f5a5a3}{\index{ieee80211\-\_\-local@{ieee80211\-\_\-local}!wmm\-\_\-acm@{wmm\-\_\-acm}}
+\index{wmm\-\_\-acm@{wmm\-\_\-acm}!ieee80211_local@{ieee80211\-\_\-local}}
+\subsubsection[{wmm\-\_\-acm}]{\setlength{\rightskip}{0pt plus 5cm}unsigned int wmm\-\_\-acm}}\label{structieee80211__local_ae7863966f2b9005eeb21a687f9f5a5a3}
+
+
+Definition at line 1033 of file ieee80211\-\_\-i.\-h.
+
+\hypertarget{structieee80211__local_a207d91b6483b2be61984ad3a064dbeb9}{\index{ieee80211\-\_\-local@{ieee80211\-\_\-local}!work\-\_\-list@{work\-\_\-list}}
+\index{work\-\_\-list@{work\-\_\-list}!ieee80211_local@{ieee80211\-\_\-local}}
+\subsubsection[{work\-\_\-list}]{\setlength{\rightskip}{0pt plus 5cm}struct list\-\_\-head work\-\_\-list}}\label{structieee80211__local_a207d91b6483b2be61984ad3a064dbeb9}
+
+
+Definition at line 832 of file ieee80211\-\_\-i.\-h.
+
+\hypertarget{structieee80211__local_a8a02d2a35aae73440084c24cb79a57af}{\index{ieee80211\-\_\-local@{ieee80211\-\_\-local}!work\-\_\-timer@{work\-\_\-timer}}
+\index{work\-\_\-timer@{work\-\_\-timer}!ieee80211_local@{ieee80211\-\_\-local}}
+\subsubsection[{work\-\_\-timer}]{\setlength{\rightskip}{0pt plus 5cm}struct timer\-\_\-list work\-\_\-timer}}\label{structieee80211__local_a8a02d2a35aae73440084c24cb79a57af}
+
+
+Definition at line 833 of file ieee80211\-\_\-i.\-h.
+
+\hypertarget{structieee80211__local_a5c4560ff0f9e5c23485f07405ea29b34}{\index{ieee80211\-\_\-local@{ieee80211\-\_\-local}!work\-\_\-work@{work\-\_\-work}}
+\index{work\-\_\-work@{work\-\_\-work}!ieee80211_local@{ieee80211\-\_\-local}}
+\subsubsection[{work\-\_\-work}]{\setlength{\rightskip}{0pt plus 5cm}struct work\-\_\-struct work\-\_\-work}}\label{structieee80211__local_a5c4560ff0f9e5c23485f07405ea29b34}
+
+
+Definition at line 834 of file ieee80211\-\_\-i.\-h.
+
+\hypertarget{structieee80211__local_a5ed2da065662e4534cb5bec3437a1876}{\index{ieee80211\-\_\-local@{ieee80211\-\_\-local}!workqueue@{workqueue}}
+\index{workqueue@{workqueue}!ieee80211_local@{ieee80211\-\_\-local}}
+\subsubsection[{workqueue}]{\setlength{\rightskip}{0pt plus 5cm}struct workqueue\-\_\-struct$\ast$ workqueue}}\label{structieee80211__local_a5ed2da065662e4534cb5bec3437a1876}
+
+
+Definition at line 840 of file ieee80211\-\_\-i.\-h.
+
+\hypertarget{structieee80211__local_aafe36b77f629fe748f545f726849bb4c}{\index{ieee80211\-\_\-local@{ieee80211\-\_\-local}!wowlan@{wowlan}}
+\index{wowlan@{wowlan}!ieee80211_local@{ieee80211\-\_\-local}}
+\subsubsection[{wowlan}]{\setlength{\rightskip}{0pt plus 5cm}bool wowlan}}\label{structieee80211__local_aafe36b77f629fe748f545f726849bb4c}
+
+
+Definition at line 896 of file ieee80211\-\_\-i.\-h.
+
+
+
+The documentation for this struct was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+/home/guille/msm/net/mac80211/\hyperlink{ieee80211__i_8h}{ieee80211\-\_\-i.\-h}\end{DoxyCompactItemize}

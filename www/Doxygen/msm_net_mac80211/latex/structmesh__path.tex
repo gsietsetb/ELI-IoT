@@ -1,0 +1,201 @@
+\hypertarget{structmesh__path}{\section{mesh\-\_\-path Struct Reference}
+\label{structmesh__path}\index{mesh\-\_\-path@{mesh\-\_\-path}}
+}
+
+
+{\ttfamily \#include $<$mesh.\-h$>$}
+
+
+
+Collaboration diagram for mesh\-\_\-path\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=550pt]{structmesh__path__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+u8 \hyperlink{structmesh__path_a7e206c9dbce55c0147656b4e271c71e4}{dst} \mbox{[}E\-T\-H\-\_\-\-A\-L\-E\-N\mbox{]}
+\item 
+u8 \hyperlink{structmesh__path_a48b50421cfec4f69ffc3b753f7019185}{mpp} \mbox{[}E\-T\-H\-\_\-\-A\-L\-E\-N\mbox{]}
+\item 
+struct \hyperlink{structieee80211__sub__if__data}{ieee80211\-\_\-sub\-\_\-if\-\_\-data} $\ast$ \hyperlink{structmesh__path_ad829d8d33f06a7245cc303f924f259ac}{sdata}
+\item 
+struct \hyperlink{structsta__info}{sta\-\_\-info} \-\_\-\-\_\-rcu $\ast$ \hyperlink{structmesh__path_abc4b3146b43964101d2a25163375fed0}{next\-\_\-hop}
+\item 
+struct timer\-\_\-list \hyperlink{structmesh__path_ae8aedee6c0bd2f7edbb10f18d574f107}{timer}
+\item 
+struct sk\-\_\-buff\-\_\-head \hyperlink{structmesh__path_a78a751fa8f8fb1623ed2b86bd59017db}{frame\-\_\-queue}
+\item 
+struct rcu\-\_\-head \hyperlink{structmesh__path_aa9677537ffa4e40f3c4f3e9fb3b4c76d}{rcu}
+\item 
+u32 \hyperlink{structmesh__path_a3a5989b8e6d4286ac3822b65bbc1cf16}{sn}
+\item 
+u32 \hyperlink{structmesh__path_aecb5673e0ccbdfd6e104e917abc4bdfe}{metric}
+\item 
+u8 \hyperlink{structmesh__path_a65c900d253cc9afe77e2aa7a5c3ded5a}{hop\-\_\-count}
+\item 
+unsigned long \hyperlink{structmesh__path_af01b3e5a14761c34e4298e254fb7c094}{exp\-\_\-time}
+\item 
+u32 \hyperlink{structmesh__path_a7875d6c0fb79d3ecfa1bedcdbc7e9704}{discovery\-\_\-timeout}
+\item 
+u8 \hyperlink{structmesh__path_a7ce70c7ff6bf0aef3fec882ad4959555}{discovery\-\_\-retries}
+\item 
+enum \hyperlink{mesh_8h_a1108038688d583a88056a1ebebd89fa2}{mesh\-\_\-path\-\_\-flags} \hyperlink{structmesh__path_acdca1d9efeb99cd79e04eaaf7b94f159}{flags}
+\item 
+spinlock\-\_\-t \hyperlink{structmesh__path_a906a637c5d4df9d7a2a5a407cc01b8ac}{state\-\_\-lock}
+\item 
+u8 \hyperlink{structmesh__path_a3c1c259f27b1cdda2e17a81ff98a5310}{rann\-\_\-snd\-\_\-addr} \mbox{[}E\-T\-H\-\_\-\-A\-L\-E\-N\mbox{]}
+\item 
+bool \hyperlink{structmesh__path_a860e4167ebf87a0635c678a614b96a99}{is\-\_\-root}
+\item 
+bool \hyperlink{structmesh__path_a4399b726e2ce468eb33d179378d68e21}{is\-\_\-gate}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+struct \hyperlink{structmesh__path}{mesh\-\_\-path} -\/ mac80211 mesh path structure
+
+\-: mesh path destination mac address \-: mesh subif \-: mesh neighbor to which frames for this destination will be forwarded \-: mesh path discovery timer \-: pending queue for frames sent to this destination while the path is unresolved \-: target sequence number \-: current metric to this destination \-: hops to destination \-: in jiffies, when the path will expire or when it expired \-: timeout (lapse in jiffies) used for the last discovery retry \-: number of discovery retries \-: mesh path flags, as specified on \&enum mesh\-\_\-path\-\_\-flags \-: mesh path state lock used to protect changes to the mpath itself. No need to take this lock when adding or removing an mpath to a hash bucket on a path table. \-: the R\-A\-N\-N sender address \-: the destination station of this path is a root node \-: the destination station of this path is a mesh gate
+
+The combination of dst and sdata is unique in the mesh path table. Since the next\-\_\-hop S\-T\-A is only protected by R\-C\-U as well, deleting the S\-T\-A must also remove/substitute the \hyperlink{structmesh__path}{mesh\-\_\-path} structure and wait until that is no longer reachable before destroying the S\-T\-A completely. 
+
+Definition at line 98 of file mesh.\-h.
+
+
+
+\subsection{Field Documentation}
+\hypertarget{structmesh__path_a7ce70c7ff6bf0aef3fec882ad4959555}{\index{mesh\-\_\-path@{mesh\-\_\-path}!discovery\-\_\-retries@{discovery\-\_\-retries}}
+\index{discovery\-\_\-retries@{discovery\-\_\-retries}!mesh_path@{mesh\-\_\-path}}
+\subsubsection[{discovery\-\_\-retries}]{\setlength{\rightskip}{0pt plus 5cm}u8 discovery\-\_\-retries}}\label{structmesh__path_a7ce70c7ff6bf0aef3fec882ad4959555}
+
+
+Definition at line 111 of file mesh.\-h.
+
+\hypertarget{structmesh__path_a7875d6c0fb79d3ecfa1bedcdbc7e9704}{\index{mesh\-\_\-path@{mesh\-\_\-path}!discovery\-\_\-timeout@{discovery\-\_\-timeout}}
+\index{discovery\-\_\-timeout@{discovery\-\_\-timeout}!mesh_path@{mesh\-\_\-path}}
+\subsubsection[{discovery\-\_\-timeout}]{\setlength{\rightskip}{0pt plus 5cm}u32 discovery\-\_\-timeout}}\label{structmesh__path_a7875d6c0fb79d3ecfa1bedcdbc7e9704}
+
+
+Definition at line 110 of file mesh.\-h.
+
+\hypertarget{structmesh__path_a7e206c9dbce55c0147656b4e271c71e4}{\index{mesh\-\_\-path@{mesh\-\_\-path}!dst@{dst}}
+\index{dst@{dst}!mesh_path@{mesh\-\_\-path}}
+\subsubsection[{dst}]{\setlength{\rightskip}{0pt plus 5cm}u8 dst\mbox{[}E\-T\-H\-\_\-\-A\-L\-E\-N\mbox{]}}}\label{structmesh__path_a7e206c9dbce55c0147656b4e271c71e4}
+
+
+Definition at line 99 of file mesh.\-h.
+
+\hypertarget{structmesh__path_af01b3e5a14761c34e4298e254fb7c094}{\index{mesh\-\_\-path@{mesh\-\_\-path}!exp\-\_\-time@{exp\-\_\-time}}
+\index{exp\-\_\-time@{exp\-\_\-time}!mesh_path@{mesh\-\_\-path}}
+\subsubsection[{exp\-\_\-time}]{\setlength{\rightskip}{0pt plus 5cm}unsigned long exp\-\_\-time}}\label{structmesh__path_af01b3e5a14761c34e4298e254fb7c094}
+
+
+Definition at line 109 of file mesh.\-h.
+
+\hypertarget{structmesh__path_acdca1d9efeb99cd79e04eaaf7b94f159}{\index{mesh\-\_\-path@{mesh\-\_\-path}!flags@{flags}}
+\index{flags@{flags}!mesh_path@{mesh\-\_\-path}}
+\subsubsection[{flags}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf mesh\-\_\-path\-\_\-flags} flags}}\label{structmesh__path_acdca1d9efeb99cd79e04eaaf7b94f159}
+
+
+Definition at line 112 of file mesh.\-h.
+
+\hypertarget{structmesh__path_a78a751fa8f8fb1623ed2b86bd59017db}{\index{mesh\-\_\-path@{mesh\-\_\-path}!frame\-\_\-queue@{frame\-\_\-queue}}
+\index{frame\-\_\-queue@{frame\-\_\-queue}!mesh_path@{mesh\-\_\-path}}
+\subsubsection[{frame\-\_\-queue}]{\setlength{\rightskip}{0pt plus 5cm}struct sk\-\_\-buff\-\_\-head frame\-\_\-queue}}\label{structmesh__path_a78a751fa8f8fb1623ed2b86bd59017db}
+
+
+Definition at line 104 of file mesh.\-h.
+
+\hypertarget{structmesh__path_a65c900d253cc9afe77e2aa7a5c3ded5a}{\index{mesh\-\_\-path@{mesh\-\_\-path}!hop\-\_\-count@{hop\-\_\-count}}
+\index{hop\-\_\-count@{hop\-\_\-count}!mesh_path@{mesh\-\_\-path}}
+\subsubsection[{hop\-\_\-count}]{\setlength{\rightskip}{0pt plus 5cm}u8 hop\-\_\-count}}\label{structmesh__path_a65c900d253cc9afe77e2aa7a5c3ded5a}
+
+
+Definition at line 108 of file mesh.\-h.
+
+\hypertarget{structmesh__path_a4399b726e2ce468eb33d179378d68e21}{\index{mesh\-\_\-path@{mesh\-\_\-path}!is\-\_\-gate@{is\-\_\-gate}}
+\index{is\-\_\-gate@{is\-\_\-gate}!mesh_path@{mesh\-\_\-path}}
+\subsubsection[{is\-\_\-gate}]{\setlength{\rightskip}{0pt plus 5cm}bool is\-\_\-gate}}\label{structmesh__path_a4399b726e2ce468eb33d179378d68e21}
+
+
+Definition at line 116 of file mesh.\-h.
+
+\hypertarget{structmesh__path_a860e4167ebf87a0635c678a614b96a99}{\index{mesh\-\_\-path@{mesh\-\_\-path}!is\-\_\-root@{is\-\_\-root}}
+\index{is\-\_\-root@{is\-\_\-root}!mesh_path@{mesh\-\_\-path}}
+\subsubsection[{is\-\_\-root}]{\setlength{\rightskip}{0pt plus 5cm}bool is\-\_\-root}}\label{structmesh__path_a860e4167ebf87a0635c678a614b96a99}
+
+
+Definition at line 115 of file mesh.\-h.
+
+\hypertarget{structmesh__path_aecb5673e0ccbdfd6e104e917abc4bdfe}{\index{mesh\-\_\-path@{mesh\-\_\-path}!metric@{metric}}
+\index{metric@{metric}!mesh_path@{mesh\-\_\-path}}
+\subsubsection[{metric}]{\setlength{\rightskip}{0pt plus 5cm}u32 metric}}\label{structmesh__path_aecb5673e0ccbdfd6e104e917abc4bdfe}
+
+
+Definition at line 107 of file mesh.\-h.
+
+\hypertarget{structmesh__path_a48b50421cfec4f69ffc3b753f7019185}{\index{mesh\-\_\-path@{mesh\-\_\-path}!mpp@{mpp}}
+\index{mpp@{mpp}!mesh_path@{mesh\-\_\-path}}
+\subsubsection[{mpp}]{\setlength{\rightskip}{0pt plus 5cm}u8 mpp\mbox{[}E\-T\-H\-\_\-\-A\-L\-E\-N\mbox{]}}}\label{structmesh__path_a48b50421cfec4f69ffc3b753f7019185}
+
+
+Definition at line 100 of file mesh.\-h.
+
+\hypertarget{structmesh__path_abc4b3146b43964101d2a25163375fed0}{\index{mesh\-\_\-path@{mesh\-\_\-path}!next\-\_\-hop@{next\-\_\-hop}}
+\index{next\-\_\-hop@{next\-\_\-hop}!mesh_path@{mesh\-\_\-path}}
+\subsubsection[{next\-\_\-hop}]{\setlength{\rightskip}{0pt plus 5cm}struct {\bf sta\-\_\-info} \-\_\-\-\_\-rcu$\ast$ next\-\_\-hop}}\label{structmesh__path_abc4b3146b43964101d2a25163375fed0}
+
+
+Definition at line 102 of file mesh.\-h.
+
+\hypertarget{structmesh__path_a3c1c259f27b1cdda2e17a81ff98a5310}{\index{mesh\-\_\-path@{mesh\-\_\-path}!rann\-\_\-snd\-\_\-addr@{rann\-\_\-snd\-\_\-addr}}
+\index{rann\-\_\-snd\-\_\-addr@{rann\-\_\-snd\-\_\-addr}!mesh_path@{mesh\-\_\-path}}
+\subsubsection[{rann\-\_\-snd\-\_\-addr}]{\setlength{\rightskip}{0pt plus 5cm}u8 rann\-\_\-snd\-\_\-addr\mbox{[}E\-T\-H\-\_\-\-A\-L\-E\-N\mbox{]}}}\label{structmesh__path_a3c1c259f27b1cdda2e17a81ff98a5310}
+
+
+Definition at line 114 of file mesh.\-h.
+
+\hypertarget{structmesh__path_aa9677537ffa4e40f3c4f3e9fb3b4c76d}{\index{mesh\-\_\-path@{mesh\-\_\-path}!rcu@{rcu}}
+\index{rcu@{rcu}!mesh_path@{mesh\-\_\-path}}
+\subsubsection[{rcu}]{\setlength{\rightskip}{0pt plus 5cm}struct rcu\-\_\-head rcu}}\label{structmesh__path_aa9677537ffa4e40f3c4f3e9fb3b4c76d}
+
+
+Definition at line 105 of file mesh.\-h.
+
+\hypertarget{structmesh__path_ad829d8d33f06a7245cc303f924f259ac}{\index{mesh\-\_\-path@{mesh\-\_\-path}!sdata@{sdata}}
+\index{sdata@{sdata}!mesh_path@{mesh\-\_\-path}}
+\subsubsection[{sdata}]{\setlength{\rightskip}{0pt plus 5cm}struct {\bf ieee80211\-\_\-sub\-\_\-if\-\_\-data}$\ast$ sdata}}\label{structmesh__path_ad829d8d33f06a7245cc303f924f259ac}
+
+
+Definition at line 101 of file mesh.\-h.
+
+\hypertarget{structmesh__path_a3a5989b8e6d4286ac3822b65bbc1cf16}{\index{mesh\-\_\-path@{mesh\-\_\-path}!sn@{sn}}
+\index{sn@{sn}!mesh_path@{mesh\-\_\-path}}
+\subsubsection[{sn}]{\setlength{\rightskip}{0pt plus 5cm}u32 sn}}\label{structmesh__path_a3a5989b8e6d4286ac3822b65bbc1cf16}
+
+
+Definition at line 106 of file mesh.\-h.
+
+\hypertarget{structmesh__path_a906a637c5d4df9d7a2a5a407cc01b8ac}{\index{mesh\-\_\-path@{mesh\-\_\-path}!state\-\_\-lock@{state\-\_\-lock}}
+\index{state\-\_\-lock@{state\-\_\-lock}!mesh_path@{mesh\-\_\-path}}
+\subsubsection[{state\-\_\-lock}]{\setlength{\rightskip}{0pt plus 5cm}spinlock\-\_\-t state\-\_\-lock}}\label{structmesh__path_a906a637c5d4df9d7a2a5a407cc01b8ac}
+
+
+Definition at line 113 of file mesh.\-h.
+
+\hypertarget{structmesh__path_ae8aedee6c0bd2f7edbb10f18d574f107}{\index{mesh\-\_\-path@{mesh\-\_\-path}!timer@{timer}}
+\index{timer@{timer}!mesh_path@{mesh\-\_\-path}}
+\subsubsection[{timer}]{\setlength{\rightskip}{0pt plus 5cm}struct timer\-\_\-list timer}}\label{structmesh__path_ae8aedee6c0bd2f7edbb10f18d574f107}
+
+
+Definition at line 103 of file mesh.\-h.
+
+
+
+The documentation for this struct was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+/home/guille/msm/net/mac80211/\hyperlink{mesh_8h}{mesh.\-h}\end{DoxyCompactItemize}

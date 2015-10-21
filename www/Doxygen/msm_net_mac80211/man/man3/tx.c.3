@@ -1,0 +1,219 @@
+.TH "/home/guille/msm/net/mac80211/tx.c" 3 "Sun Jun 1 2014" "Version 1.0" "net_mac80211" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+/home/guille/msm/net/mac80211/tx.c \- 
+.SH SYNOPSIS
+.br
+.PP
+\fC#include <linux/kernel\&.h>\fP
+.br
+\fC#include <linux/slab\&.h>\fP
+.br
+\fC#include <linux/skbuff\&.h>\fP
+.br
+\fC#include <linux/etherdevice\&.h>\fP
+.br
+\fC#include <linux/bitmap\&.h>\fP
+.br
+\fC#include <linux/rcupdate\&.h>\fP
+.br
+\fC#include <linux/export\&.h>\fP
+.br
+\fC#include <net/net_namespace\&.h>\fP
+.br
+\fC#include <net/ieee80211_radiotap\&.h>\fP
+.br
+\fC#include <net/cfg80211\&.h>\fP
+.br
+\fC#include <net/mac80211\&.h>\fP
+.br
+\fC#include <asm/unaligned\&.h>\fP
+.br
+\fC#include 'ieee80211_i\&.h'\fP
+.br
+\fC#include 'driver-ops\&.h'\fP
+.br
+\fC#include 'led\&.h'\fP
+.br
+\fC#include 'mesh\&.h'\fP
+.br
+\fC#include 'wep\&.h'\fP
+.br
+\fC#include 'wpa\&.h'\fP
+.br
+\fC#include 'wme\&.h'\fP
+.br
+\fC#include 'rate\&.h'\fP
+.br
+
+.SS "Macros"
+
+.in +1c
+.ti -1c
+.RI "#define \fBCALL_TXH\fP(txh)"
+.br
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBieee80211_xmit\fP (struct \fBieee80211_sub_if_data\fP *sdata, struct sk_buff *skb)"
+.br
+.ti -1c
+.RI "netdev_tx_t \fBieee80211_monitor_start_xmit\fP (struct sk_buff *skb, struct net_device *dev)"
+.br
+.ti -1c
+.RI "netdev_tx_t \fBieee80211_subif_start_xmit\fP (struct sk_buff *skb, struct net_device *dev)"
+.br
+.ti -1c
+.RI "void \fBieee80211_clear_tx_pending\fP (struct \fBieee80211_local\fP *local)"
+.br
+.ti -1c
+.RI "void \fBieee80211_tx_pending\fP (unsigned long data)"
+.br
+.ti -1c
+.RI "struct sk_buff * \fBieee80211_beacon_get_tim\fP (struct ieee80211_hw *hw, struct ieee80211_vif *vif, u16 *tim_offset, u16 *tim_length)"
+.br
+.ti -1c
+.RI "\fBEXPORT_SYMBOL\fP (\fBieee80211_beacon_get_tim\fP)"
+.br
+.ti -1c
+.RI "struct sk_buff * \fBieee80211_proberesp_get\fP (struct ieee80211_hw *hw, struct ieee80211_vif *vif)"
+.br
+.ti -1c
+.RI "\fBEXPORT_SYMBOL\fP (\fBieee80211_proberesp_get\fP)"
+.br
+.ti -1c
+.RI "struct sk_buff * \fBieee80211_pspoll_get\fP (struct ieee80211_hw *hw, struct ieee80211_vif *vif)"
+.br
+.ti -1c
+.RI "\fBEXPORT_SYMBOL\fP (\fBieee80211_pspoll_get\fP)"
+.br
+.ti -1c
+.RI "struct sk_buff * \fBieee80211_nullfunc_get\fP (struct ieee80211_hw *hw, struct ieee80211_vif *vif)"
+.br
+.ti -1c
+.RI "\fBEXPORT_SYMBOL\fP (\fBieee80211_nullfunc_get\fP)"
+.br
+.ti -1c
+.RI "struct sk_buff * \fBieee80211_probereq_get\fP (struct ieee80211_hw *hw, struct ieee80211_vif *vif, const u8 *ssid, size_t ssid_len, const u8 *ie, size_t ie_len)"
+.br
+.ti -1c
+.RI "\fBEXPORT_SYMBOL\fP (\fBieee80211_probereq_get\fP)"
+.br
+.ti -1c
+.RI "void \fBieee80211_rts_get\fP (struct ieee80211_hw *hw, struct ieee80211_vif *vif, const void *frame, size_t frame_len, const struct ieee80211_tx_info *frame_txctl, struct ieee80211_rts *rts)"
+.br
+.ti -1c
+.RI "\fBEXPORT_SYMBOL\fP (\fBieee80211_rts_get\fP)"
+.br
+.ti -1c
+.RI "void \fBieee80211_ctstoself_get\fP (struct ieee80211_hw *hw, struct ieee80211_vif *vif, const void *frame, size_t frame_len, const struct ieee80211_tx_info *frame_txctl, struct ieee80211_cts *cts)"
+.br
+.ti -1c
+.RI "\fBEXPORT_SYMBOL\fP (\fBieee80211_ctstoself_get\fP)"
+.br
+.ti -1c
+.RI "struct sk_buff * \fBieee80211_get_buffered_bc\fP (struct ieee80211_hw *hw, struct ieee80211_vif *vif)"
+.br
+.ti -1c
+.RI "\fBEXPORT_SYMBOL\fP (\fBieee80211_get_buffered_bc\fP)"
+.br
+.ti -1c
+.RI "void \fBieee80211_tx_skb_tid\fP (struct \fBieee80211_sub_if_data\fP *sdata, struct sk_buff *skb, int tid)"
+.br
+.in -1c
+.SH "Macro Definition Documentation"
+.PP 
+.SS "#define CALL_TXH(txh)"
+\fBValue:\fP
+.PP
+.nf
+do {              \
+        res = txh(tx);      \
+        if (res != TX_CONTINUE) \
+            goto txh_done;  \
+    } while (0)
+.fi
+.SH "Function Documentation"
+.PP 
+.SS "EXPORT_SYMBOL (\fBieee80211_beacon_get_tim\fP)"
+
+.SS "EXPORT_SYMBOL (\fBieee80211_proberesp_get\fP)"
+
+.SS "EXPORT_SYMBOL (\fBieee80211_pspoll_get\fP)"
+
+.SS "EXPORT_SYMBOL (\fBieee80211_nullfunc_get\fP)"
+
+.SS "EXPORT_SYMBOL (\fBieee80211_probereq_get\fP)"
+
+.SS "EXPORT_SYMBOL (\fBieee80211_rts_get\fP)"
+
+.SS "EXPORT_SYMBOL (\fBieee80211_ctstoself_get\fP)"
+
+.SS "EXPORT_SYMBOL (\fBieee80211_get_buffered_bc\fP)"
+
+.SS "struct sk_buff* ieee80211_beacon_get_tim (struct ieee80211_hw *hw, struct ieee80211_vif *vif, u16 *tim_offset, u16 *tim_length)"
+
+.PP
+Definition at line 2286 of file tx\&.c\&.
+.SS "void ieee80211_clear_tx_pending (struct \fBieee80211_local\fP *local)"
+
+.PP
+Definition at line 2127 of file tx\&.c\&.
+.SS "void ieee80211_ctstoself_get (struct ieee80211_hw *hw, struct ieee80211_vif *vif, const void *frame, size_tframe_len, const struct ieee80211_tx_info *frame_txctl, struct ieee80211_cts *cts)"
+
+.PP
+Definition at line 2636 of file tx\&.c\&.
+.SS "struct sk_buff* ieee80211_get_buffered_bc (struct ieee80211_hw *hw, struct ieee80211_vif *vif)"
+
+.PP
+Definition at line 2652 of file tx\&.c\&.
+.SS "netdev_tx_t ieee80211_monitor_start_xmit (struct sk_buff *skb, struct net_device *dev)"
+
+.PP
+Definition at line 1567 of file tx\&.c\&.
+.SS "struct sk_buff* ieee80211_nullfunc_get (struct ieee80211_hw *hw, struct ieee80211_vif *vif)"
+
+.PP
+Definition at line 2537 of file tx\&.c\&.
+.SS "struct sk_buff* ieee80211_probereq_get (struct ieee80211_hw *hw, struct ieee80211_vif *vif, const u8 *ssid, size_tssid_len, const u8 *ie, size_tie_len)"
+
+.PP
+Definition at line 2573 of file tx\&.c\&.
+.SS "struct sk_buff* ieee80211_proberesp_get (struct ieee80211_hw *hw, struct ieee80211_vif *vif)"
+
+.PP
+Definition at line 2468 of file tx\&.c\&.
+.SS "struct sk_buff* ieee80211_pspoll_get (struct ieee80211_hw *hw, struct ieee80211_vif *vif)"
+
+.PP
+Definition at line 2499 of file tx\&.c\&.
+.SS "void ieee80211_rts_get (struct ieee80211_hw *hw, struct ieee80211_vif *vif, const void *frame, size_tframe_len, const struct ieee80211_tx_info *frame_txctl, struct ieee80211_rts *rts)"
+
+.PP
+Definition at line 2620 of file tx\&.c\&.
+.SS "netdev_tx_t ieee80211_subif_start_xmit (struct sk_buff *skb, struct net_device *dev)"
+ieee80211_subif_start_xmit - netif start_xmit function for Ethernet-type subinterfaces (wlan#, WDS, and VLAN interfaces) : packet to be sent : incoming interface
+.PP
+Returns: 0 on success (and frees skb in this case) or 1 on failure (skb will not be freed, and caller is responsible for either retrying later or freeing skb)\&.
+.PP
+This function takes in an Ethernet header and encapsulates it with suitable IEEE 802\&.11 header based on which interface the packet is coming in\&. The encapsulated packet will then be passed to master interface, wlan#\&.11, for transmission (through low-level driver)\&. 
+.PP
+Definition at line 1710 of file tx\&.c\&.
+.SS "void ieee80211_tx_pending (unsigned longdata)"
+
+.PP
+Definition at line 2171 of file tx\&.c\&.
+.SS "void ieee80211_tx_skb_tid (struct \fBieee80211_sub_if_data\fP *sdata, struct sk_buff *skb, inttid)"
+
+.PP
+Definition at line 2711 of file tx\&.c\&.
+.SS "void ieee80211_xmit (struct \fBieee80211_sub_if_data\fP *sdata, struct sk_buff *skb)"
+
+.PP
+Definition at line 1443 of file tx\&.c\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for net_mac80211 from the source code\&.

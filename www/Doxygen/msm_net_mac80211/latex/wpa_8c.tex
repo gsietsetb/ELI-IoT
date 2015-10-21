@@ -1,0 +1,257 @@
+\hypertarget{wpa_8c}{\section{/home/guille/msm/net/mac80211/wpa.c File Reference}
+\label{wpa_8c}\index{/home/guille/msm/net/mac80211/wpa.\-c@{/home/guille/msm/net/mac80211/wpa.\-c}}
+}
+{\ttfamily \#include $<$linux/netdevice.\-h$>$}\\*
+{\ttfamily \#include $<$linux/types.\-h$>$}\\*
+{\ttfamily \#include $<$linux/skbuff.\-h$>$}\\*
+{\ttfamily \#include $<$linux/compiler.\-h$>$}\\*
+{\ttfamily \#include $<$linux/ieee80211.\-h$>$}\\*
+{\ttfamily \#include $<$linux/gfp.\-h$>$}\\*
+{\ttfamily \#include $<$asm/unaligned.\-h$>$}\\*
+{\ttfamily \#include $<$net/mac80211.\-h$>$}\\*
+{\ttfamily \#include $<$crypto/aes.\-h$>$}\\*
+{\ttfamily \#include \char`\"{}ieee80211\-\_\-i.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}michael.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}tkip.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}aes\-\_\-ccm.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}aes\-\_\-cmac.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}wpa.\-h\char`\"{}}\\*
+Include dependency graph for wpa.\-c\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{wpa_8c__incl}
+\end{center}
+\end{figure}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{ieee80211__i_8h_aa2ad17efc9175bf670336cd4c7cf8a5d}{ieee80211\-\_\-tx\-\_\-result} \hyperlink{wpa_8c_aacceffc35799fffec97dc429f0eb1de7}{ieee80211\-\_\-tx\-\_\-h\-\_\-michael\-\_\-mic\-\_\-add} (struct \hyperlink{structieee80211__tx__data}{ieee80211\-\_\-tx\-\_\-data} $\ast$tx)
+\item 
+\hyperlink{ieee80211__i_8h_a079ae32596356b2d6e9f167e43dc00bd}{ieee80211\-\_\-rx\-\_\-result} \hyperlink{wpa_8c_a274a93766cadaf652f6f98fffa038927}{ieee80211\-\_\-rx\-\_\-h\-\_\-michael\-\_\-mic\-\_\-verify} (struct \hyperlink{structieee80211__rx__data}{ieee80211\-\_\-rx\-\_\-data} $\ast$rx)
+\item 
+\hyperlink{ieee80211__i_8h_aa2ad17efc9175bf670336cd4c7cf8a5d}{ieee80211\-\_\-tx\-\_\-result} \hyperlink{wpa_8c_a7debcd4c7a6e36bb44e919292fe89813}{ieee80211\-\_\-crypto\-\_\-tkip\-\_\-encrypt} (struct \hyperlink{structieee80211__tx__data}{ieee80211\-\_\-tx\-\_\-data} $\ast$tx)
+\item 
+\hyperlink{ieee80211__i_8h_a079ae32596356b2d6e9f167e43dc00bd}{ieee80211\-\_\-rx\-\_\-result} \hyperlink{wpa_8c_aa2489c40c5dfea9363579c21e999f9f1}{ieee80211\-\_\-crypto\-\_\-tkip\-\_\-decrypt} (struct \hyperlink{structieee80211__rx__data}{ieee80211\-\_\-rx\-\_\-data} $\ast$rx)
+\item 
+\hyperlink{ieee80211__i_8h_aa2ad17efc9175bf670336cd4c7cf8a5d}{ieee80211\-\_\-tx\-\_\-result} \hyperlink{wpa_8c_a10c37d8cf76bc7cdba793eb317412847}{ieee80211\-\_\-crypto\-\_\-ccmp\-\_\-encrypt} (struct \hyperlink{structieee80211__tx__data}{ieee80211\-\_\-tx\-\_\-data} $\ast$tx)
+\item 
+\hyperlink{ieee80211__i_8h_a079ae32596356b2d6e9f167e43dc00bd}{ieee80211\-\_\-rx\-\_\-result} \hyperlink{wpa_8c_a3a5e78b125cbd6ce97ddf21218e2f5b2}{ieee80211\-\_\-crypto\-\_\-ccmp\-\_\-decrypt} (struct \hyperlink{structieee80211__rx__data}{ieee80211\-\_\-rx\-\_\-data} $\ast$rx)
+\item 
+\hyperlink{ieee80211__i_8h_aa2ad17efc9175bf670336cd4c7cf8a5d}{ieee80211\-\_\-tx\-\_\-result} \hyperlink{wpa_8c_a8bebf4db84ab81a813865ff7cd1e94e1}{ieee80211\-\_\-crypto\-\_\-aes\-\_\-cmac\-\_\-encrypt} (struct \hyperlink{structieee80211__tx__data}{ieee80211\-\_\-tx\-\_\-data} $\ast$tx)
+\item 
+\hyperlink{ieee80211__i_8h_a079ae32596356b2d6e9f167e43dc00bd}{ieee80211\-\_\-rx\-\_\-result} \hyperlink{wpa_8c_a5e812dc9eee03684c366e2bbe6bd41b4}{ieee80211\-\_\-crypto\-\_\-aes\-\_\-cmac\-\_\-decrypt} (struct \hyperlink{structieee80211__rx__data}{ieee80211\-\_\-rx\-\_\-data} $\ast$rx)
+\item 
+\hyperlink{ieee80211__i_8h_aa2ad17efc9175bf670336cd4c7cf8a5d}{ieee80211\-\_\-tx\-\_\-result} \hyperlink{wpa_8c_a76dbab155c0d0abd0b8b4a32e333e99b}{ieee80211\-\_\-crypto\-\_\-hw\-\_\-encrypt} (struct \hyperlink{structieee80211__tx__data}{ieee80211\-\_\-tx\-\_\-data} $\ast$tx)
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\hypertarget{wpa_8c_a5e812dc9eee03684c366e2bbe6bd41b4}{\index{wpa.\-c@{wpa.\-c}!ieee80211\-\_\-crypto\-\_\-aes\-\_\-cmac\-\_\-decrypt@{ieee80211\-\_\-crypto\-\_\-aes\-\_\-cmac\-\_\-decrypt}}
+\index{ieee80211\-\_\-crypto\-\_\-aes\-\_\-cmac\-\_\-decrypt@{ieee80211\-\_\-crypto\-\_\-aes\-\_\-cmac\-\_\-decrypt}!wpa.c@{wpa.\-c}}
+\subsubsection[{ieee80211\-\_\-crypto\-\_\-aes\-\_\-cmac\-\_\-decrypt}]{\setlength{\rightskip}{0pt plus 5cm}{\bf ieee80211\-\_\-rx\-\_\-result} ieee80211\-\_\-crypto\-\_\-aes\-\_\-cmac\-\_\-decrypt (
+\begin{DoxyParamCaption}
+\item[{struct {\bf ieee80211\-\_\-rx\-\_\-data} $\ast$}]{rx}
+\end{DoxyParamCaption}
+)}}\label{wpa_8c_a5e812dc9eee03684c366e2bbe6bd41b4}
+
+
+Definition at line 618 of file wpa.\-c.
+
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=342pt]{wpa_8c_a5e812dc9eee03684c366e2bbe6bd41b4_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{wpa_8c_a8bebf4db84ab81a813865ff7cd1e94e1}{\index{wpa.\-c@{wpa.\-c}!ieee80211\-\_\-crypto\-\_\-aes\-\_\-cmac\-\_\-encrypt@{ieee80211\-\_\-crypto\-\_\-aes\-\_\-cmac\-\_\-encrypt}}
+\index{ieee80211\-\_\-crypto\-\_\-aes\-\_\-cmac\-\_\-encrypt@{ieee80211\-\_\-crypto\-\_\-aes\-\_\-cmac\-\_\-encrypt}!wpa.c@{wpa.\-c}}
+\subsubsection[{ieee80211\-\_\-crypto\-\_\-aes\-\_\-cmac\-\_\-encrypt}]{\setlength{\rightskip}{0pt plus 5cm}{\bf ieee80211\-\_\-tx\-\_\-result} ieee80211\-\_\-crypto\-\_\-aes\-\_\-cmac\-\_\-encrypt (
+\begin{DoxyParamCaption}
+\item[{struct {\bf ieee80211\-\_\-tx\-\_\-data} $\ast$}]{tx}
+\end{DoxyParamCaption}
+)}}\label{wpa_8c_a8bebf4db84ab81a813865ff7cd1e94e1}
+
+
+Definition at line 573 of file wpa.\-c.
+
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=342pt]{wpa_8c_a8bebf4db84ab81a813865ff7cd1e94e1_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{wpa_8c_a3a5e78b125cbd6ce97ddf21218e2f5b2}{\index{wpa.\-c@{wpa.\-c}!ieee80211\-\_\-crypto\-\_\-ccmp\-\_\-decrypt@{ieee80211\-\_\-crypto\-\_\-ccmp\-\_\-decrypt}}
+\index{ieee80211\-\_\-crypto\-\_\-ccmp\-\_\-decrypt@{ieee80211\-\_\-crypto\-\_\-ccmp\-\_\-decrypt}!wpa.c@{wpa.\-c}}
+\subsubsection[{ieee80211\-\_\-crypto\-\_\-ccmp\-\_\-decrypt}]{\setlength{\rightskip}{0pt plus 5cm}{\bf ieee80211\-\_\-rx\-\_\-result} ieee80211\-\_\-crypto\-\_\-ccmp\-\_\-decrypt (
+\begin{DoxyParamCaption}
+\item[{struct {\bf ieee80211\-\_\-rx\-\_\-data} $\ast$}]{rx}
+\end{DoxyParamCaption}
+)}}\label{wpa_8c_a3a5e78b125cbd6ce97ddf21218e2f5b2}
+
+
+Definition at line 475 of file wpa.\-c.
+
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{wpa_8c_a3a5e78b125cbd6ce97ddf21218e2f5b2_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{wpa_8c_a10c37d8cf76bc7cdba793eb317412847}{\index{wpa.\-c@{wpa.\-c}!ieee80211\-\_\-crypto\-\_\-ccmp\-\_\-encrypt@{ieee80211\-\_\-crypto\-\_\-ccmp\-\_\-encrypt}}
+\index{ieee80211\-\_\-crypto\-\_\-ccmp\-\_\-encrypt@{ieee80211\-\_\-crypto\-\_\-ccmp\-\_\-encrypt}!wpa.c@{wpa.\-c}}
+\subsubsection[{ieee80211\-\_\-crypto\-\_\-ccmp\-\_\-encrypt}]{\setlength{\rightskip}{0pt plus 5cm}{\bf ieee80211\-\_\-tx\-\_\-result} ieee80211\-\_\-crypto\-\_\-ccmp\-\_\-encrypt (
+\begin{DoxyParamCaption}
+\item[{struct {\bf ieee80211\-\_\-tx\-\_\-data} $\ast$}]{tx}
+\end{DoxyParamCaption}
+)}}\label{wpa_8c_a10c37d8cf76bc7cdba793eb317412847}
+
+
+Definition at line 459 of file wpa.\-c.
+
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{wpa_8c_a10c37d8cf76bc7cdba793eb317412847_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{wpa_8c_a76dbab155c0d0abd0b8b4a32e333e99b}{\index{wpa.\-c@{wpa.\-c}!ieee80211\-\_\-crypto\-\_\-hw\-\_\-encrypt@{ieee80211\-\_\-crypto\-\_\-hw\-\_\-encrypt}}
+\index{ieee80211\-\_\-crypto\-\_\-hw\-\_\-encrypt@{ieee80211\-\_\-crypto\-\_\-hw\-\_\-encrypt}!wpa.c@{wpa.\-c}}
+\subsubsection[{ieee80211\-\_\-crypto\-\_\-hw\-\_\-encrypt}]{\setlength{\rightskip}{0pt plus 5cm}{\bf ieee80211\-\_\-tx\-\_\-result} ieee80211\-\_\-crypto\-\_\-hw\-\_\-encrypt (
+\begin{DoxyParamCaption}
+\item[{struct {\bf ieee80211\-\_\-tx\-\_\-data} $\ast$}]{tx}
+\end{DoxyParamCaption}
+)}}\label{wpa_8c_a76dbab155c0d0abd0b8b4a32e333e99b}
+
+
+Definition at line 668 of file wpa.\-c.
+
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{wpa_8c_a76dbab155c0d0abd0b8b4a32e333e99b_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{wpa_8c_aa2489c40c5dfea9363579c21e999f9f1}{\index{wpa.\-c@{wpa.\-c}!ieee80211\-\_\-crypto\-\_\-tkip\-\_\-decrypt@{ieee80211\-\_\-crypto\-\_\-tkip\-\_\-decrypt}}
+\index{ieee80211\-\_\-crypto\-\_\-tkip\-\_\-decrypt@{ieee80211\-\_\-crypto\-\_\-tkip\-\_\-decrypt}!wpa.c@{wpa.\-c}}
+\subsubsection[{ieee80211\-\_\-crypto\-\_\-tkip\-\_\-decrypt}]{\setlength{\rightskip}{0pt plus 5cm}{\bf ieee80211\-\_\-rx\-\_\-result} ieee80211\-\_\-crypto\-\_\-tkip\-\_\-decrypt (
+\begin{DoxyParamCaption}
+\item[{struct {\bf ieee80211\-\_\-rx\-\_\-data} $\ast$}]{rx}
+\end{DoxyParamCaption}
+)}}\label{wpa_8c_aa2489c40c5dfea9363579c21e999f9f1}
+
+
+Definition at line 244 of file wpa.\-c.
+
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{wpa_8c_aa2489c40c5dfea9363579c21e999f9f1_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{wpa_8c_a7debcd4c7a6e36bb44e919292fe89813}{\index{wpa.\-c@{wpa.\-c}!ieee80211\-\_\-crypto\-\_\-tkip\-\_\-encrypt@{ieee80211\-\_\-crypto\-\_\-tkip\-\_\-encrypt}}
+\index{ieee80211\-\_\-crypto\-\_\-tkip\-\_\-encrypt@{ieee80211\-\_\-crypto\-\_\-tkip\-\_\-encrypt}!wpa.c@{wpa.\-c}}
+\subsubsection[{ieee80211\-\_\-crypto\-\_\-tkip\-\_\-encrypt}]{\setlength{\rightskip}{0pt plus 5cm}{\bf ieee80211\-\_\-tx\-\_\-result} ieee80211\-\_\-crypto\-\_\-tkip\-\_\-encrypt (
+\begin{DoxyParamCaption}
+\item[{struct {\bf ieee80211\-\_\-tx\-\_\-data} $\ast$}]{tx}
+\end{DoxyParamCaption}
+)}}\label{wpa_8c_a7debcd4c7a6e36bb44e919292fe89813}
+
+
+Definition at line 228 of file wpa.\-c.
+
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{wpa_8c_a7debcd4c7a6e36bb44e919292fe89813_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{wpa_8c_a274a93766cadaf652f6f98fffa038927}{\index{wpa.\-c@{wpa.\-c}!ieee80211\-\_\-rx\-\_\-h\-\_\-michael\-\_\-mic\-\_\-verify@{ieee80211\-\_\-rx\-\_\-h\-\_\-michael\-\_\-mic\-\_\-verify}}
+\index{ieee80211\-\_\-rx\-\_\-h\-\_\-michael\-\_\-mic\-\_\-verify@{ieee80211\-\_\-rx\-\_\-h\-\_\-michael\-\_\-mic\-\_\-verify}!wpa.c@{wpa.\-c}}
+\subsubsection[{ieee80211\-\_\-rx\-\_\-h\-\_\-michael\-\_\-mic\-\_\-verify}]{\setlength{\rightskip}{0pt plus 5cm}{\bf ieee80211\-\_\-rx\-\_\-result} ieee80211\-\_\-rx\-\_\-h\-\_\-michael\-\_\-mic\-\_\-verify (
+\begin{DoxyParamCaption}
+\item[{struct {\bf ieee80211\-\_\-rx\-\_\-data} $\ast$}]{rx}
+\end{DoxyParamCaption}
+)}}\label{wpa_8c_a274a93766cadaf652f6f98fffa038927}
+
+
+Definition at line 82 of file wpa.\-c.
+
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{wpa_8c_a274a93766cadaf652f6f98fffa038927_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{wpa_8c_aacceffc35799fffec97dc429f0eb1de7}{\index{wpa.\-c@{wpa.\-c}!ieee80211\-\_\-tx\-\_\-h\-\_\-michael\-\_\-mic\-\_\-add@{ieee80211\-\_\-tx\-\_\-h\-\_\-michael\-\_\-mic\-\_\-add}}
+\index{ieee80211\-\_\-tx\-\_\-h\-\_\-michael\-\_\-mic\-\_\-add@{ieee80211\-\_\-tx\-\_\-h\-\_\-michael\-\_\-mic\-\_\-add}!wpa.c@{wpa.\-c}}
+\subsubsection[{ieee80211\-\_\-tx\-\_\-h\-\_\-michael\-\_\-mic\-\_\-add}]{\setlength{\rightskip}{0pt plus 5cm}{\bf ieee80211\-\_\-tx\-\_\-result} ieee80211\-\_\-tx\-\_\-h\-\_\-michael\-\_\-mic\-\_\-add (
+\begin{DoxyParamCaption}
+\item[{struct {\bf ieee80211\-\_\-tx\-\_\-data} $\ast$}]{tx}
+\end{DoxyParamCaption}
+)}}\label{wpa_8c_aacceffc35799fffec97dc429f0eb1de7}
+
+
+Definition at line 28 of file wpa.\-c.
+
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=312pt]{wpa_8c_aacceffc35799fffec97dc429f0eb1de7_cgraph}
+\end{center}
+\end{figure}
+
+

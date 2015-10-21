@@ -1,0 +1,145 @@
+\hypertarget{status_8c}{\section{/home/guille/msm/net/mac80211/status.c File Reference}
+\label{status_8c}\index{/home/guille/msm/net/mac80211/status.\-c@{/home/guille/msm/net/mac80211/status.\-c}}
+}
+{\ttfamily \#include $<$linux/export.\-h$>$}\\*
+{\ttfamily \#include $<$linux/etherdevice.\-h$>$}\\*
+{\ttfamily \#include $<$net/mac80211.\-h$>$}\\*
+{\ttfamily \#include $<$asm/unaligned.\-h$>$}\\*
+{\ttfamily \#include \char`\"{}ieee80211\-\_\-i.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}rate.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}mesh.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}led.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}wme.\-h\char`\"{}}\\*
+Include dependency graph for status.\-c\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{status_8c__incl}
+\end{center}
+\end{figure}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{status_8c_a10bb32bf0d97b15b61e06371ab1c8b22}{S\-T\-A\-\_\-\-L\-O\-S\-T\-\_\-\-P\-K\-T\-\_\-\-T\-H\-R\-E\-S\-H\-O\-L\-D}~50
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{status_8c_a74c78cdee7aebc79accdd81c429b9f20}{ieee80211\-\_\-tx\-\_\-status\-\_\-irqsafe} (struct ieee80211\-\_\-hw $\ast$hw, struct sk\-\_\-buff $\ast$skb)
+\item 
+\hyperlink{status_8c_a8f85c7ffdfa78f4dcd6d5de2dc68472f}{E\-X\-P\-O\-R\-T\-\_\-\-S\-Y\-M\-B\-O\-L} (\hyperlink{status_8c_a74c78cdee7aebc79accdd81c429b9f20}{ieee80211\-\_\-tx\-\_\-status\-\_\-irqsafe})
+\item 
+void \hyperlink{status_8c_a975dbc285456cd9eb73321ed9634f814}{ieee80211\-\_\-tx\-\_\-status} (struct ieee80211\-\_\-hw $\ast$hw, struct sk\-\_\-buff $\ast$skb)
+\item 
+\hyperlink{status_8c_ad0992e6c85c6477bb9ca25bb0df0c36b}{E\-X\-P\-O\-R\-T\-\_\-\-S\-Y\-M\-B\-O\-L} (\hyperlink{status_8c_a975dbc285456cd9eb73321ed9634f814}{ieee80211\-\_\-tx\-\_\-status})
+\item 
+void \hyperlink{status_8c_a33c20bff00471cad9c8d7b0fc2ca7186}{ieee80211\-\_\-report\-\_\-low\-\_\-ack} (struct ieee80211\-\_\-sta $\ast$pubsta, u32 num\-\_\-packets)
+\item 
+\hyperlink{status_8c_a3dc55c8a29e5bbb3269adaf57fb13086}{E\-X\-P\-O\-R\-T\-\_\-\-S\-Y\-M\-B\-O\-L} (\hyperlink{status_8c_a33c20bff00471cad9c8d7b0fc2ca7186}{ieee80211\-\_\-report\-\_\-low\-\_\-ack})
+\item 
+void \hyperlink{status_8c_a6e92205c709879d4c1f3b333e126ebae}{ieee80211\-\_\-free\-\_\-txskb} (struct ieee80211\-\_\-hw $\ast$hw, struct sk\-\_\-buff $\ast$skb)
+\item 
+\hyperlink{status_8c_a0bafa6d6348015b8b076921af5359813}{E\-X\-P\-O\-R\-T\-\_\-\-S\-Y\-M\-B\-O\-L} (\hyperlink{status_8c_a6e92205c709879d4c1f3b333e126ebae}{ieee80211\-\_\-free\-\_\-txskb})
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{status_8c_a10bb32bf0d97b15b61e06371ab1c8b22}{\index{status.\-c@{status.\-c}!S\-T\-A\-\_\-\-L\-O\-S\-T\-\_\-\-P\-K\-T\-\_\-\-T\-H\-R\-E\-S\-H\-O\-L\-D@{S\-T\-A\-\_\-\-L\-O\-S\-T\-\_\-\-P\-K\-T\-\_\-\-T\-H\-R\-E\-S\-H\-O\-L\-D}}
+\index{S\-T\-A\-\_\-\-L\-O\-S\-T\-\_\-\-P\-K\-T\-\_\-\-T\-H\-R\-E\-S\-H\-O\-L\-D@{S\-T\-A\-\_\-\-L\-O\-S\-T\-\_\-\-P\-K\-T\-\_\-\-T\-H\-R\-E\-S\-H\-O\-L\-D}!status.c@{status.\-c}}
+\subsubsection[{S\-T\-A\-\_\-\-L\-O\-S\-T\-\_\-\-P\-K\-T\-\_\-\-T\-H\-R\-E\-S\-H\-O\-L\-D}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\-T\-A\-\_\-\-L\-O\-S\-T\-\_\-\-P\-K\-T\-\_\-\-T\-H\-R\-E\-S\-H\-O\-L\-D~50}}\label{status_8c_a10bb32bf0d97b15b61e06371ab1c8b22}
+
+
+Definition at line 337 of file status.\-c.
+
+
+
+\subsection{Function Documentation}
+\hypertarget{status_8c_a8f85c7ffdfa78f4dcd6d5de2dc68472f}{\index{status.\-c@{status.\-c}!E\-X\-P\-O\-R\-T\-\_\-\-S\-Y\-M\-B\-O\-L@{E\-X\-P\-O\-R\-T\-\_\-\-S\-Y\-M\-B\-O\-L}}
+\index{E\-X\-P\-O\-R\-T\-\_\-\-S\-Y\-M\-B\-O\-L@{E\-X\-P\-O\-R\-T\-\_\-\-S\-Y\-M\-B\-O\-L}!status.c@{status.\-c}}
+\subsubsection[{E\-X\-P\-O\-R\-T\-\_\-\-S\-Y\-M\-B\-O\-L}]{\setlength{\rightskip}{0pt plus 5cm}E\-X\-P\-O\-R\-T\-\_\-\-S\-Y\-M\-B\-O\-L (
+\begin{DoxyParamCaption}
+\item[{{\bf ieee80211\-\_\-tx\-\_\-status\-\_\-irqsafe}}]{}
+\end{DoxyParamCaption}
+)}}\label{status_8c_a8f85c7ffdfa78f4dcd6d5de2dc68472f}
+\hypertarget{status_8c_ad0992e6c85c6477bb9ca25bb0df0c36b}{\index{status.\-c@{status.\-c}!E\-X\-P\-O\-R\-T\-\_\-\-S\-Y\-M\-B\-O\-L@{E\-X\-P\-O\-R\-T\-\_\-\-S\-Y\-M\-B\-O\-L}}
+\index{E\-X\-P\-O\-R\-T\-\_\-\-S\-Y\-M\-B\-O\-L@{E\-X\-P\-O\-R\-T\-\_\-\-S\-Y\-M\-B\-O\-L}!status.c@{status.\-c}}
+\subsubsection[{E\-X\-P\-O\-R\-T\-\_\-\-S\-Y\-M\-B\-O\-L}]{\setlength{\rightskip}{0pt plus 5cm}E\-X\-P\-O\-R\-T\-\_\-\-S\-Y\-M\-B\-O\-L (
+\begin{DoxyParamCaption}
+\item[{{\bf ieee80211\-\_\-tx\-\_\-status}}]{}
+\end{DoxyParamCaption}
+)}}\label{status_8c_ad0992e6c85c6477bb9ca25bb0df0c36b}
+\hypertarget{status_8c_a3dc55c8a29e5bbb3269adaf57fb13086}{\index{status.\-c@{status.\-c}!E\-X\-P\-O\-R\-T\-\_\-\-S\-Y\-M\-B\-O\-L@{E\-X\-P\-O\-R\-T\-\_\-\-S\-Y\-M\-B\-O\-L}}
+\index{E\-X\-P\-O\-R\-T\-\_\-\-S\-Y\-M\-B\-O\-L@{E\-X\-P\-O\-R\-T\-\_\-\-S\-Y\-M\-B\-O\-L}!status.c@{status.\-c}}
+\subsubsection[{E\-X\-P\-O\-R\-T\-\_\-\-S\-Y\-M\-B\-O\-L}]{\setlength{\rightskip}{0pt plus 5cm}E\-X\-P\-O\-R\-T\-\_\-\-S\-Y\-M\-B\-O\-L (
+\begin{DoxyParamCaption}
+\item[{{\bf ieee80211\-\_\-report\-\_\-low\-\_\-ack}}]{}
+\end{DoxyParamCaption}
+)}}\label{status_8c_a3dc55c8a29e5bbb3269adaf57fb13086}
+\hypertarget{status_8c_a0bafa6d6348015b8b076921af5359813}{\index{status.\-c@{status.\-c}!E\-X\-P\-O\-R\-T\-\_\-\-S\-Y\-M\-B\-O\-L@{E\-X\-P\-O\-R\-T\-\_\-\-S\-Y\-M\-B\-O\-L}}
+\index{E\-X\-P\-O\-R\-T\-\_\-\-S\-Y\-M\-B\-O\-L@{E\-X\-P\-O\-R\-T\-\_\-\-S\-Y\-M\-B\-O\-L}!status.c@{status.\-c}}
+\subsubsection[{E\-X\-P\-O\-R\-T\-\_\-\-S\-Y\-M\-B\-O\-L}]{\setlength{\rightskip}{0pt plus 5cm}E\-X\-P\-O\-R\-T\-\_\-\-S\-Y\-M\-B\-O\-L (
+\begin{DoxyParamCaption}
+\item[{{\bf ieee80211\-\_\-free\-\_\-txskb}}]{}
+\end{DoxyParamCaption}
+)}}\label{status_8c_a0bafa6d6348015b8b076921af5359813}
+\hypertarget{status_8c_a6e92205c709879d4c1f3b333e126ebae}{\index{status.\-c@{status.\-c}!ieee80211\-\_\-free\-\_\-txskb@{ieee80211\-\_\-free\-\_\-txskb}}
+\index{ieee80211\-\_\-free\-\_\-txskb@{ieee80211\-\_\-free\-\_\-txskb}!status.c@{status.\-c}}
+\subsubsection[{ieee80211\-\_\-free\-\_\-txskb}]{\setlength{\rightskip}{0pt plus 5cm}void ieee80211\-\_\-free\-\_\-txskb (
+\begin{DoxyParamCaption}
+\item[{struct ieee80211\-\_\-hw $\ast$}]{hw, }
+\item[{struct sk\-\_\-buff $\ast$}]{skb}
+\end{DoxyParamCaption}
+)}}\label{status_8c_a6e92205c709879d4c1f3b333e126ebae}
+
+
+Definition at line 638 of file status.\-c.
+
+\hypertarget{status_8c_a33c20bff00471cad9c8d7b0fc2ca7186}{\index{status.\-c@{status.\-c}!ieee80211\-\_\-report\-\_\-low\-\_\-ack@{ieee80211\-\_\-report\-\_\-low\-\_\-ack}}
+\index{ieee80211\-\_\-report\-\_\-low\-\_\-ack@{ieee80211\-\_\-report\-\_\-low\-\_\-ack}!status.c@{status.\-c}}
+\subsubsection[{ieee80211\-\_\-report\-\_\-low\-\_\-ack}]{\setlength{\rightskip}{0pt plus 5cm}void ieee80211\-\_\-report\-\_\-low\-\_\-ack (
+\begin{DoxyParamCaption}
+\item[{struct ieee80211\-\_\-sta $\ast$}]{pubsta, }
+\item[{u32}]{num\-\_\-packets}
+\end{DoxyParamCaption}
+)}}\label{status_8c_a33c20bff00471cad9c8d7b0fc2ca7186}
+
+
+Definition at line 630 of file status.\-c.
+
+\hypertarget{status_8c_a975dbc285456cd9eb73321ed9634f814}{\index{status.\-c@{status.\-c}!ieee80211\-\_\-tx\-\_\-status@{ieee80211\-\_\-tx\-\_\-status}}
+\index{ieee80211\-\_\-tx\-\_\-status@{ieee80211\-\_\-tx\-\_\-status}!status.c@{status.\-c}}
+\subsubsection[{ieee80211\-\_\-tx\-\_\-status}]{\setlength{\rightskip}{0pt plus 5cm}void ieee80211\-\_\-tx\-\_\-status (
+\begin{DoxyParamCaption}
+\item[{struct ieee80211\-\_\-hw $\ast$}]{hw, }
+\item[{struct sk\-\_\-buff $\ast$}]{skb}
+\end{DoxyParamCaption}
+)}}\label{status_8c_a975dbc285456cd9eb73321ed9634f814}
+
+
+Definition at line 339 of file status.\-c.
+
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{status_8c_a975dbc285456cd9eb73321ed9634f814_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{status_8c_a74c78cdee7aebc79accdd81c429b9f20}{\index{status.\-c@{status.\-c}!ieee80211\-\_\-tx\-\_\-status\-\_\-irqsafe@{ieee80211\-\_\-tx\-\_\-status\-\_\-irqsafe}}
+\index{ieee80211\-\_\-tx\-\_\-status\-\_\-irqsafe@{ieee80211\-\_\-tx\-\_\-status\-\_\-irqsafe}!status.c@{status.\-c}}
+\subsubsection[{ieee80211\-\_\-tx\-\_\-status\-\_\-irqsafe}]{\setlength{\rightskip}{0pt plus 5cm}void ieee80211\-\_\-tx\-\_\-status\-\_\-irqsafe (
+\begin{DoxyParamCaption}
+\item[{struct ieee80211\-\_\-hw $\ast$}]{hw, }
+\item[{struct sk\-\_\-buff $\ast$}]{skb}
+\end{DoxyParamCaption}
+)}}\label{status_8c_a74c78cdee7aebc79accdd81c429b9f20}
+
+
+Definition at line 23 of file status.\-c.
+

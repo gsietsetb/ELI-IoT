@@ -1,0 +1,218 @@
+\hypertarget{wep_8c}{\section{/home/guille/msm/net/mac80211/wep.c File Reference}
+\label{wep_8c}\index{/home/guille/msm/net/mac80211/wep.\-c@{/home/guille/msm/net/mac80211/wep.\-c}}
+}
+{\ttfamily \#include $<$linux/netdevice.\-h$>$}\\*
+{\ttfamily \#include $<$linux/types.\-h$>$}\\*
+{\ttfamily \#include $<$linux/random.\-h$>$}\\*
+{\ttfamily \#include $<$linux/compiler.\-h$>$}\\*
+{\ttfamily \#include $<$linux/crc32.\-h$>$}\\*
+{\ttfamily \#include $<$linux/crypto.\-h$>$}\\*
+{\ttfamily \#include $<$linux/err.\-h$>$}\\*
+{\ttfamily \#include $<$linux/mm.\-h$>$}\\*
+{\ttfamily \#include $<$linux/scatterlist.\-h$>$}\\*
+{\ttfamily \#include $<$linux/slab.\-h$>$}\\*
+{\ttfamily \#include $<$asm/unaligned.\-h$>$}\\*
+{\ttfamily \#include $<$net/mac80211.\-h$>$}\\*
+{\ttfamily \#include \char`\"{}ieee80211\-\_\-i.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}wep.\-h\char`\"{}}\\*
+Include dependency graph for wep.\-c\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{wep_8c__incl}
+\end{center}
+\end{figure}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{wep_8c_acdcb39b12179997d70caf2a3412200a0}{ieee80211\-\_\-wep\-\_\-init} (struct \hyperlink{structieee80211__local}{ieee80211\-\_\-local} $\ast$local)
+\item 
+void \hyperlink{wep_8c_aa41d84ed230d66eb7f6aa3a33a678ae0}{ieee80211\-\_\-wep\-\_\-free} (struct \hyperlink{structieee80211__local}{ieee80211\-\_\-local} $\ast$local)
+\item 
+int \hyperlink{wep_8c_afe27c734373e97b799fcf318b2c67020}{ieee80211\-\_\-wep\-\_\-encrypt\-\_\-data} (struct crypto\-\_\-cipher $\ast$tfm, u8 $\ast$rc4key, size\-\_\-t klen, u8 $\ast$data, size\-\_\-t data\-\_\-len)
+\item 
+int \hyperlink{wep_8c_aa89a2a133d29c7280d1d98db60b19cdc}{ieee80211\-\_\-wep\-\_\-encrypt} (struct \hyperlink{structieee80211__local}{ieee80211\-\_\-local} $\ast$local, struct sk\-\_\-buff $\ast$skb, const u8 $\ast$key, int keylen, int keyidx)
+\item 
+int \hyperlink{wep_8c_a1a36b304ed82213c8d1b9404da55046f}{ieee80211\-\_\-wep\-\_\-decrypt\-\_\-data} (struct crypto\-\_\-cipher $\ast$tfm, u8 $\ast$rc4key, size\-\_\-t klen, u8 $\ast$data, size\-\_\-t data\-\_\-len)
+\item 
+\hyperlink{ieee80211__i_8h_a079ae32596356b2d6e9f167e43dc00bd}{ieee80211\-\_\-rx\-\_\-result} \hyperlink{wep_8c_a57ad3de7620803a80b514e0964d38f88}{ieee80211\-\_\-crypto\-\_\-wep\-\_\-decrypt} (struct \hyperlink{structieee80211__rx__data}{ieee80211\-\_\-rx\-\_\-data} $\ast$rx)
+\item 
+\hyperlink{ieee80211__i_8h_aa2ad17efc9175bf670336cd4c7cf8a5d}{ieee80211\-\_\-tx\-\_\-result} \hyperlink{wep_8c_ae7b8a426d4bb465e0c43c2aa0ddc2bc6}{ieee80211\-\_\-crypto\-\_\-wep\-\_\-encrypt} (struct \hyperlink{structieee80211__tx__data}{ieee80211\-\_\-tx\-\_\-data} $\ast$tx)
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\hypertarget{wep_8c_a57ad3de7620803a80b514e0964d38f88}{\index{wep.\-c@{wep.\-c}!ieee80211\-\_\-crypto\-\_\-wep\-\_\-decrypt@{ieee80211\-\_\-crypto\-\_\-wep\-\_\-decrypt}}
+\index{ieee80211\-\_\-crypto\-\_\-wep\-\_\-decrypt@{ieee80211\-\_\-crypto\-\_\-wep\-\_\-decrypt}!wep.c@{wep.\-c}}
+\subsubsection[{ieee80211\-\_\-crypto\-\_\-wep\-\_\-decrypt}]{\setlength{\rightskip}{0pt plus 5cm}{\bf ieee80211\-\_\-rx\-\_\-result} ieee80211\-\_\-crypto\-\_\-wep\-\_\-decrypt (
+\begin{DoxyParamCaption}
+\item[{struct {\bf ieee80211\-\_\-rx\-\_\-data} $\ast$}]{rx}
+\end{DoxyParamCaption}
+)}}\label{wep_8c_a57ad3de7620803a80b514e0964d38f88}
+
+
+Definition at line 282 of file wep.\-c.
+
+\hypertarget{wep_8c_ae7b8a426d4bb465e0c43c2aa0ddc2bc6}{\index{wep.\-c@{wep.\-c}!ieee80211\-\_\-crypto\-\_\-wep\-\_\-encrypt@{ieee80211\-\_\-crypto\-\_\-wep\-\_\-encrypt}}
+\index{ieee80211\-\_\-crypto\-\_\-wep\-\_\-encrypt@{ieee80211\-\_\-crypto\-\_\-wep\-\_\-encrypt}!wep.c@{wep.\-c}}
+\subsubsection[{ieee80211\-\_\-crypto\-\_\-wep\-\_\-encrypt}]{\setlength{\rightskip}{0pt plus 5cm}{\bf ieee80211\-\_\-tx\-\_\-result} ieee80211\-\_\-crypto\-\_\-wep\-\_\-encrypt (
+\begin{DoxyParamCaption}
+\item[{struct {\bf ieee80211\-\_\-tx\-\_\-data} $\ast$}]{tx}
+\end{DoxyParamCaption}
+)}}\label{wep_8c_ae7b8a426d4bb465e0c43c2aa0ddc2bc6}
+
+
+Definition at line 334 of file wep.\-c.
+
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{wep_8c_ae7b8a426d4bb465e0c43c2aa0ddc2bc6_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{wep_8c_a1a36b304ed82213c8d1b9404da55046f}{\index{wep.\-c@{wep.\-c}!ieee80211\-\_\-wep\-\_\-decrypt\-\_\-data@{ieee80211\-\_\-wep\-\_\-decrypt\-\_\-data}}
+\index{ieee80211\-\_\-wep\-\_\-decrypt\-\_\-data@{ieee80211\-\_\-wep\-\_\-decrypt\-\_\-data}!wep.c@{wep.\-c}}
+\subsubsection[{ieee80211\-\_\-wep\-\_\-decrypt\-\_\-data}]{\setlength{\rightskip}{0pt plus 5cm}int ieee80211\-\_\-wep\-\_\-decrypt\-\_\-data (
+\begin{DoxyParamCaption}
+\item[{struct crypto\-\_\-cipher $\ast$}]{tfm, }
+\item[{u8 $\ast$}]{rc4key, }
+\item[{size\-\_\-t}]{klen, }
+\item[{u8 $\ast$}]{data, }
+\item[{size\-\_\-t}]{data\-\_\-len}
+\end{DoxyParamCaption}
+)}}\label{wep_8c_a1a36b304ed82213c8d1b9404da55046f}
+
+
+Definition at line 186 of file wep.\-c.
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{wep_8c_a1a36b304ed82213c8d1b9404da55046f_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{wep_8c_aa89a2a133d29c7280d1d98db60b19cdc}{\index{wep.\-c@{wep.\-c}!ieee80211\-\_\-wep\-\_\-encrypt@{ieee80211\-\_\-wep\-\_\-encrypt}}
+\index{ieee80211\-\_\-wep\-\_\-encrypt@{ieee80211\-\_\-wep\-\_\-encrypt}!wep.c@{wep.\-c}}
+\subsubsection[{ieee80211\-\_\-wep\-\_\-encrypt}]{\setlength{\rightskip}{0pt plus 5cm}int ieee80211\-\_\-wep\-\_\-encrypt (
+\begin{DoxyParamCaption}
+\item[{struct {\bf ieee80211\-\_\-local} $\ast$}]{local, }
+\item[{struct sk\-\_\-buff $\ast$}]{skb, }
+\item[{const u8 $\ast$}]{key, }
+\item[{int}]{keylen, }
+\item[{int}]{keyidx}
+\end{DoxyParamCaption}
+)}}\label{wep_8c_aa89a2a133d29c7280d1d98db60b19cdc}
+
+
+Definition at line 155 of file wep.\-c.
+
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{wep_8c_aa89a2a133d29c7280d1d98db60b19cdc_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{wep_8c_aa89a2a133d29c7280d1d98db60b19cdc_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{wep_8c_afe27c734373e97b799fcf318b2c67020}{\index{wep.\-c@{wep.\-c}!ieee80211\-\_\-wep\-\_\-encrypt\-\_\-data@{ieee80211\-\_\-wep\-\_\-encrypt\-\_\-data}}
+\index{ieee80211\-\_\-wep\-\_\-encrypt\-\_\-data@{ieee80211\-\_\-wep\-\_\-encrypt\-\_\-data}!wep.c@{wep.\-c}}
+\subsubsection[{ieee80211\-\_\-wep\-\_\-encrypt\-\_\-data}]{\setlength{\rightskip}{0pt plus 5cm}int ieee80211\-\_\-wep\-\_\-encrypt\-\_\-data (
+\begin{DoxyParamCaption}
+\item[{struct crypto\-\_\-cipher $\ast$}]{tfm, }
+\item[{u8 $\ast$}]{rc4key, }
+\item[{size\-\_\-t}]{klen, }
+\item[{u8 $\ast$}]{data, }
+\item[{size\-\_\-t}]{data\-\_\-len}
+\end{DoxyParamCaption}
+)}}\label{wep_8c_afe27c734373e97b799fcf318b2c67020}
+
+
+Definition at line 128 of file wep.\-c.
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{wep_8c_afe27c734373e97b799fcf318b2c67020_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{wep_8c_aa41d84ed230d66eb7f6aa3a33a678ae0}{\index{wep.\-c@{wep.\-c}!ieee80211\-\_\-wep\-\_\-free@{ieee80211\-\_\-wep\-\_\-free}}
+\index{ieee80211\-\_\-wep\-\_\-free@{ieee80211\-\_\-wep\-\_\-free}!wep.c@{wep.\-c}}
+\subsubsection[{ieee80211\-\_\-wep\-\_\-free}]{\setlength{\rightskip}{0pt plus 5cm}void ieee80211\-\_\-wep\-\_\-free (
+\begin{DoxyParamCaption}
+\item[{struct {\bf ieee80211\-\_\-local} $\ast$}]{local}
+\end{DoxyParamCaption}
+)}}\label{wep_8c_aa41d84ed230d66eb7f6aa3a33a678ae0}
+
+
+Definition at line 49 of file wep.\-c.
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{wep_8c_aa41d84ed230d66eb7f6aa3a33a678ae0_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{wep_8c_acdcb39b12179997d70caf2a3412200a0}{\index{wep.\-c@{wep.\-c}!ieee80211\-\_\-wep\-\_\-init@{ieee80211\-\_\-wep\-\_\-init}}
+\index{ieee80211\-\_\-wep\-\_\-init@{ieee80211\-\_\-wep\-\_\-init}!wep.c@{wep.\-c}}
+\subsubsection[{ieee80211\-\_\-wep\-\_\-init}]{\setlength{\rightskip}{0pt plus 5cm}int ieee80211\-\_\-wep\-\_\-init (
+\begin{DoxyParamCaption}
+\item[{struct {\bf ieee80211\-\_\-local} $\ast$}]{local}
+\end{DoxyParamCaption}
+)}}\label{wep_8c_acdcb39b12179997d70caf2a3412200a0}
+
+
+Definition at line 28 of file wep.\-c.
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=334pt]{wep_8c_acdcb39b12179997d70caf2a3412200a0_icgraph}
+\end{center}
+\end{figure}
+
+

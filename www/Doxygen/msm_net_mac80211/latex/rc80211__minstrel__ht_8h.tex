@@ -1,0 +1,143 @@
+\hypertarget{rc80211__minstrel__ht_8h}{\section{/home/guille/msm/net/mac80211/rc80211\-\_\-minstrel\-\_\-ht.h File Reference}
+\label{rc80211__minstrel__ht_8h}\index{/home/guille/msm/net/mac80211/rc80211\-\_\-minstrel\-\_\-ht.\-h@{/home/guille/msm/net/mac80211/rc80211\-\_\-minstrel\-\_\-ht.\-h}}
+}
+This graph shows which files directly or indirectly include this file\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{rc80211__minstrel__ht_8h__dep__incl}
+\end{center}
+\end{figure}
+\subsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structmcs__group}{mcs\-\_\-group}
+\item 
+struct \hyperlink{structminstrel__rate__stats}{minstrel\-\_\-rate\-\_\-stats}
+\item 
+struct \hyperlink{structminstrel__mcs__group__data}{minstrel\-\_\-mcs\-\_\-group\-\_\-data}
+\item 
+struct \hyperlink{structminstrel__ht__sta}{minstrel\-\_\-ht\-\_\-sta}
+\item 
+struct \hyperlink{structminstrel__ht__sta__priv}{minstrel\-\_\-ht\-\_\-sta\-\_\-priv}
+\end{DoxyCompactItemize}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{rc80211__minstrel__ht_8h_a158e497cdbf9ea61badd923e095cb3d4}{M\-I\-N\-S\-T\-R\-E\-L\-\_\-\-M\-A\-X\-\_\-\-S\-T\-R\-E\-A\-M\-S}~3
+\item 
+\#define \hyperlink{rc80211__minstrel__ht_8h_a392070f099c290936c19a9674a383602}{M\-I\-N\-S\-T\-R\-E\-L\-\_\-\-S\-T\-R\-E\-A\-M\-\_\-\-G\-R\-O\-U\-P\-S}~4
+\item 
+\#define \hyperlink{rc80211__minstrel__ht_8h_a15ed3067388a92cac6ebcd738c3a66b4}{M\-I\-N\-S\-T\-R\-E\-L\-\_\-\-S\-C\-A\-L\-E}~16
+\item 
+\#define \hyperlink{rc80211__minstrel__ht_8h_a84316f6ae6c19bbf1b626e00e6f7fca3}{M\-I\-N\-S\-T\-R\-E\-L\-\_\-\-F\-R\-A\-C}(val, div)~(((val) $<$$<$ \hyperlink{rc80211__minstrel__ht_8h_a15ed3067388a92cac6ebcd738c3a66b4}{M\-I\-N\-S\-T\-R\-E\-L\-\_\-\-S\-C\-A\-L\-E}) / div)
+\item 
+\#define \hyperlink{rc80211__minstrel__ht_8h_a56de787e6af41a51a1a75fcf94d7d96e}{M\-I\-N\-S\-T\-R\-E\-L\-\_\-\-T\-R\-U\-N\-C}(val)~((val) $>$$>$ \hyperlink{rc80211__minstrel__ht_8h_a15ed3067388a92cac6ebcd738c3a66b4}{M\-I\-N\-S\-T\-R\-E\-L\-\_\-\-S\-C\-A\-L\-E})
+\item 
+\#define \hyperlink{rc80211__minstrel__ht_8h_a1cce97ab419153d65e970112b74b5655}{M\-C\-S\-\_\-\-G\-R\-O\-U\-P\-\_\-\-R\-A\-T\-E\-S}~8
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{rc80211__minstrel__ht_8h_ac547aaf2d59f39d48af030b6401d0d4c}{minstrel\-\_\-ht\-\_\-add\-\_\-sta\-\_\-debugfs} (void $\ast$priv, void $\ast$priv\-\_\-sta, struct dentry $\ast$dir)
+\item 
+void \hyperlink{rc80211__minstrel__ht_8h_a02f0b94d877b068e932d6cbb6d023a1f}{minstrel\-\_\-ht\-\_\-remove\-\_\-sta\-\_\-debugfs} (void $\ast$priv, void $\ast$priv\-\_\-sta)
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structmcs__group}{mcs\-\_\-group} \hyperlink{rc80211__minstrel__ht_8h_a0275d6b1dc2b07593544384ba9a79183}{minstrel\-\_\-mcs\-\_\-groups} \mbox{[}$\,$\mbox{]}
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{rc80211__minstrel__ht_8h_a1cce97ab419153d65e970112b74b5655}{\index{rc80211\-\_\-minstrel\-\_\-ht.\-h@{rc80211\-\_\-minstrel\-\_\-ht.\-h}!M\-C\-S\-\_\-\-G\-R\-O\-U\-P\-\_\-\-R\-A\-T\-E\-S@{M\-C\-S\-\_\-\-G\-R\-O\-U\-P\-\_\-\-R\-A\-T\-E\-S}}
+\index{M\-C\-S\-\_\-\-G\-R\-O\-U\-P\-\_\-\-R\-A\-T\-E\-S@{M\-C\-S\-\_\-\-G\-R\-O\-U\-P\-\_\-\-R\-A\-T\-E\-S}!rc80211_minstrel_ht.h@{rc80211\-\_\-minstrel\-\_\-ht.\-h}}
+\subsubsection[{M\-C\-S\-\_\-\-G\-R\-O\-U\-P\-\_\-\-R\-A\-T\-E\-S}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\-C\-S\-\_\-\-G\-R\-O\-U\-P\-\_\-\-R\-A\-T\-E\-S~8}}\label{rc80211__minstrel__ht_8h_a1cce97ab419153d65e970112b74b5655}
+
+
+Definition at line 24 of file rc80211\-\_\-minstrel\-\_\-ht.\-h.
+
+\hypertarget{rc80211__minstrel__ht_8h_a84316f6ae6c19bbf1b626e00e6f7fca3}{\index{rc80211\-\_\-minstrel\-\_\-ht.\-h@{rc80211\-\_\-minstrel\-\_\-ht.\-h}!M\-I\-N\-S\-T\-R\-E\-L\-\_\-\-F\-R\-A\-C@{M\-I\-N\-S\-T\-R\-E\-L\-\_\-\-F\-R\-A\-C}}
+\index{M\-I\-N\-S\-T\-R\-E\-L\-\_\-\-F\-R\-A\-C@{M\-I\-N\-S\-T\-R\-E\-L\-\_\-\-F\-R\-A\-C}!rc80211_minstrel_ht.h@{rc80211\-\_\-minstrel\-\_\-ht.\-h}}
+\subsubsection[{M\-I\-N\-S\-T\-R\-E\-L\-\_\-\-F\-R\-A\-C}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\-I\-N\-S\-T\-R\-E\-L\-\_\-\-F\-R\-A\-C(
+\begin{DoxyParamCaption}
+\item[{}]{val, }
+\item[{}]{div}
+\end{DoxyParamCaption}
+)~(((val) $<$$<$ {\bf M\-I\-N\-S\-T\-R\-E\-L\-\_\-\-S\-C\-A\-L\-E}) / div)}}\label{rc80211__minstrel__ht_8h_a84316f6ae6c19bbf1b626e00e6f7fca3}
+
+
+Definition at line 21 of file rc80211\-\_\-minstrel\-\_\-ht.\-h.
+
+\hypertarget{rc80211__minstrel__ht_8h_a158e497cdbf9ea61badd923e095cb3d4}{\index{rc80211\-\_\-minstrel\-\_\-ht.\-h@{rc80211\-\_\-minstrel\-\_\-ht.\-h}!M\-I\-N\-S\-T\-R\-E\-L\-\_\-\-M\-A\-X\-\_\-\-S\-T\-R\-E\-A\-M\-S@{M\-I\-N\-S\-T\-R\-E\-L\-\_\-\-M\-A\-X\-\_\-\-S\-T\-R\-E\-A\-M\-S}}
+\index{M\-I\-N\-S\-T\-R\-E\-L\-\_\-\-M\-A\-X\-\_\-\-S\-T\-R\-E\-A\-M\-S@{M\-I\-N\-S\-T\-R\-E\-L\-\_\-\-M\-A\-X\-\_\-\-S\-T\-R\-E\-A\-M\-S}!rc80211_minstrel_ht.h@{rc80211\-\_\-minstrel\-\_\-ht.\-h}}
+\subsubsection[{M\-I\-N\-S\-T\-R\-E\-L\-\_\-\-M\-A\-X\-\_\-\-S\-T\-R\-E\-A\-M\-S}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\-I\-N\-S\-T\-R\-E\-L\-\_\-\-M\-A\-X\-\_\-\-S\-T\-R\-E\-A\-M\-S~3}}\label{rc80211__minstrel__ht_8h_a158e497cdbf9ea61badd923e095cb3d4}
+
+
+Definition at line 16 of file rc80211\-\_\-minstrel\-\_\-ht.\-h.
+
+\hypertarget{rc80211__minstrel__ht_8h_a15ed3067388a92cac6ebcd738c3a66b4}{\index{rc80211\-\_\-minstrel\-\_\-ht.\-h@{rc80211\-\_\-minstrel\-\_\-ht.\-h}!M\-I\-N\-S\-T\-R\-E\-L\-\_\-\-S\-C\-A\-L\-E@{M\-I\-N\-S\-T\-R\-E\-L\-\_\-\-S\-C\-A\-L\-E}}
+\index{M\-I\-N\-S\-T\-R\-E\-L\-\_\-\-S\-C\-A\-L\-E@{M\-I\-N\-S\-T\-R\-E\-L\-\_\-\-S\-C\-A\-L\-E}!rc80211_minstrel_ht.h@{rc80211\-\_\-minstrel\-\_\-ht.\-h}}
+\subsubsection[{M\-I\-N\-S\-T\-R\-E\-L\-\_\-\-S\-C\-A\-L\-E}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\-I\-N\-S\-T\-R\-E\-L\-\_\-\-S\-C\-A\-L\-E~16}}\label{rc80211__minstrel__ht_8h_a15ed3067388a92cac6ebcd738c3a66b4}
+
+
+Definition at line 20 of file rc80211\-\_\-minstrel\-\_\-ht.\-h.
+
+\hypertarget{rc80211__minstrel__ht_8h_a392070f099c290936c19a9674a383602}{\index{rc80211\-\_\-minstrel\-\_\-ht.\-h@{rc80211\-\_\-minstrel\-\_\-ht.\-h}!M\-I\-N\-S\-T\-R\-E\-L\-\_\-\-S\-T\-R\-E\-A\-M\-\_\-\-G\-R\-O\-U\-P\-S@{M\-I\-N\-S\-T\-R\-E\-L\-\_\-\-S\-T\-R\-E\-A\-M\-\_\-\-G\-R\-O\-U\-P\-S}}
+\index{M\-I\-N\-S\-T\-R\-E\-L\-\_\-\-S\-T\-R\-E\-A\-M\-\_\-\-G\-R\-O\-U\-P\-S@{M\-I\-N\-S\-T\-R\-E\-L\-\_\-\-S\-T\-R\-E\-A\-M\-\_\-\-G\-R\-O\-U\-P\-S}!rc80211_minstrel_ht.h@{rc80211\-\_\-minstrel\-\_\-ht.\-h}}
+\subsubsection[{M\-I\-N\-S\-T\-R\-E\-L\-\_\-\-S\-T\-R\-E\-A\-M\-\_\-\-G\-R\-O\-U\-P\-S}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\-I\-N\-S\-T\-R\-E\-L\-\_\-\-S\-T\-R\-E\-A\-M\-\_\-\-G\-R\-O\-U\-P\-S~4}}\label{rc80211__minstrel__ht_8h_a392070f099c290936c19a9674a383602}
+
+
+Definition at line 17 of file rc80211\-\_\-minstrel\-\_\-ht.\-h.
+
+\hypertarget{rc80211__minstrel__ht_8h_a56de787e6af41a51a1a75fcf94d7d96e}{\index{rc80211\-\_\-minstrel\-\_\-ht.\-h@{rc80211\-\_\-minstrel\-\_\-ht.\-h}!M\-I\-N\-S\-T\-R\-E\-L\-\_\-\-T\-R\-U\-N\-C@{M\-I\-N\-S\-T\-R\-E\-L\-\_\-\-T\-R\-U\-N\-C}}
+\index{M\-I\-N\-S\-T\-R\-E\-L\-\_\-\-T\-R\-U\-N\-C@{M\-I\-N\-S\-T\-R\-E\-L\-\_\-\-T\-R\-U\-N\-C}!rc80211_minstrel_ht.h@{rc80211\-\_\-minstrel\-\_\-ht.\-h}}
+\subsubsection[{M\-I\-N\-S\-T\-R\-E\-L\-\_\-\-T\-R\-U\-N\-C}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\-I\-N\-S\-T\-R\-E\-L\-\_\-\-T\-R\-U\-N\-C(
+\begin{DoxyParamCaption}
+\item[{}]{val}
+\end{DoxyParamCaption}
+)~((val) $>$$>$ {\bf M\-I\-N\-S\-T\-R\-E\-L\-\_\-\-S\-C\-A\-L\-E})}}\label{rc80211__minstrel__ht_8h_a56de787e6af41a51a1a75fcf94d7d96e}
+
+
+Definition at line 22 of file rc80211\-\_\-minstrel\-\_\-ht.\-h.
+
+
+
+\subsection{Function Documentation}
+\hypertarget{rc80211__minstrel__ht_8h_ac547aaf2d59f39d48af030b6401d0d4c}{\index{rc80211\-\_\-minstrel\-\_\-ht.\-h@{rc80211\-\_\-minstrel\-\_\-ht.\-h}!minstrel\-\_\-ht\-\_\-add\-\_\-sta\-\_\-debugfs@{minstrel\-\_\-ht\-\_\-add\-\_\-sta\-\_\-debugfs}}
+\index{minstrel\-\_\-ht\-\_\-add\-\_\-sta\-\_\-debugfs@{minstrel\-\_\-ht\-\_\-add\-\_\-sta\-\_\-debugfs}!rc80211_minstrel_ht.h@{rc80211\-\_\-minstrel\-\_\-ht.\-h}}
+\subsubsection[{minstrel\-\_\-ht\-\_\-add\-\_\-sta\-\_\-debugfs}]{\setlength{\rightskip}{0pt plus 5cm}void minstrel\-\_\-ht\-\_\-add\-\_\-sta\-\_\-debugfs (
+\begin{DoxyParamCaption}
+\item[{void $\ast$}]{priv, }
+\item[{void $\ast$}]{priv\-\_\-sta, }
+\item[{struct dentry $\ast$}]{dir}
+\end{DoxyParamCaption}
+)}}\label{rc80211__minstrel__ht_8h_ac547aaf2d59f39d48af030b6401d0d4c}
+
+
+Definition at line 106 of file rc80211\-\_\-minstrel\-\_\-ht\-\_\-debugfs.\-c.
+
+\hypertarget{rc80211__minstrel__ht_8h_a02f0b94d877b068e932d6cbb6d023a1f}{\index{rc80211\-\_\-minstrel\-\_\-ht.\-h@{rc80211\-\_\-minstrel\-\_\-ht.\-h}!minstrel\-\_\-ht\-\_\-remove\-\_\-sta\-\_\-debugfs@{minstrel\-\_\-ht\-\_\-remove\-\_\-sta\-\_\-debugfs}}
+\index{minstrel\-\_\-ht\-\_\-remove\-\_\-sta\-\_\-debugfs@{minstrel\-\_\-ht\-\_\-remove\-\_\-sta\-\_\-debugfs}!rc80211_minstrel_ht.h@{rc80211\-\_\-minstrel\-\_\-ht.\-h}}
+\subsubsection[{minstrel\-\_\-ht\-\_\-remove\-\_\-sta\-\_\-debugfs}]{\setlength{\rightskip}{0pt plus 5cm}void minstrel\-\_\-ht\-\_\-remove\-\_\-sta\-\_\-debugfs (
+\begin{DoxyParamCaption}
+\item[{void $\ast$}]{priv, }
+\item[{void $\ast$}]{priv\-\_\-sta}
+\end{DoxyParamCaption}
+)}}\label{rc80211__minstrel__ht_8h_a02f0b94d877b068e932d6cbb6d023a1f}
+
+
+Definition at line 115 of file rc80211\-\_\-minstrel\-\_\-ht\-\_\-debugfs.\-c.
+
+
+
+\subsection{Variable Documentation}
+\hypertarget{rc80211__minstrel__ht_8h_a0275d6b1dc2b07593544384ba9a79183}{\index{rc80211\-\_\-minstrel\-\_\-ht.\-h@{rc80211\-\_\-minstrel\-\_\-ht.\-h}!minstrel\-\_\-mcs\-\_\-groups@{minstrel\-\_\-mcs\-\_\-groups}}
+\index{minstrel\-\_\-mcs\-\_\-groups@{minstrel\-\_\-mcs\-\_\-groups}!rc80211_minstrel_ht.h@{rc80211\-\_\-minstrel\-\_\-ht.\-h}}
+\subsubsection[{minstrel\-\_\-mcs\-\_\-groups}]{\setlength{\rightskip}{0pt plus 5cm}struct {\bf mcs\-\_\-group} minstrel\-\_\-mcs\-\_\-groups\mbox{[}$\,$\mbox{]}}}\label{rc80211__minstrel__ht_8h_a0275d6b1dc2b07593544384ba9a79183}
+
+
+Definition at line 74 of file rc80211\-\_\-minstrel\-\_\-ht.\-c.
+

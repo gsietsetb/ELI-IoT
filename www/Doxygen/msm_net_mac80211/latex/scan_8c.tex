@@ -1,0 +1,408 @@
+\hypertarget{scan_8c}{\section{/home/guille/msm/net/mac80211/scan.c File Reference}
+\label{scan_8c}\index{/home/guille/msm/net/mac80211/scan.\-c@{/home/guille/msm/net/mac80211/scan.\-c}}
+}
+{\ttfamily \#include $<$linux/if\-\_\-arp.\-h$>$}\\*
+{\ttfamily \#include $<$linux/etherdevice.\-h$>$}\\*
+{\ttfamily \#include $<$linux/rtnetlink.\-h$>$}\\*
+{\ttfamily \#include $<$linux/pm\-\_\-qos.\-h$>$}\\*
+{\ttfamily \#include $<$net/sch\-\_\-generic.\-h$>$}\\*
+{\ttfamily \#include $<$linux/slab.\-h$>$}\\*
+{\ttfamily \#include $<$linux/export.\-h$>$}\\*
+{\ttfamily \#include $<$net/mac80211.\-h$>$}\\*
+{\ttfamily \#include \char`\"{}ieee80211\-\_\-i.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}driver-\/ops.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}mesh.\-h\char`\"{}}\\*
+Include dependency graph for scan.\-c\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{scan_8c__incl}
+\end{center}
+\end{figure}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{scan_8c_af080b38d888d18368594d5a912ed80b7}{I\-E\-E\-E80211\-\_\-\-P\-R\-O\-B\-E\-\_\-\-D\-E\-L\-A\-Y}~(H\-Z / 33)
+\item 
+\#define \hyperlink{scan_8c_a6c35762bc427ca26d08f70911b396d89}{I\-E\-E\-E80211\-\_\-\-C\-H\-A\-N\-N\-E\-L\-\_\-\-T\-I\-M\-E}~(H\-Z / 33)
+\item 
+\#define \hyperlink{scan_8c_a30de3c3be2816d43107df4d3e8092081}{I\-E\-E\-E80211\-\_\-\-P\-A\-S\-S\-I\-V\-E\-\_\-\-C\-H\-A\-N\-N\-E\-L\-\_\-\-T\-I\-M\-E}~(H\-Z / 8)
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structieee80211__bss}{ieee80211\-\_\-bss} $\ast$ \hyperlink{scan_8c_a7d695d2385da846a6d8b000d379651ea}{ieee80211\-\_\-rx\-\_\-bss\-\_\-get} (struct \hyperlink{structieee80211__local}{ieee80211\-\_\-local} $\ast$local, u8 $\ast$bssid, int freq, u8 $\ast$ssid, u8 ssid\-\_\-len)
+\item 
+void \hyperlink{scan_8c_a200f83800bc0da16155e6ccb1cdd53c3}{ieee80211\-\_\-rx\-\_\-bss\-\_\-put} (struct \hyperlink{structieee80211__local}{ieee80211\-\_\-local} $\ast$local, struct \hyperlink{structieee80211__bss}{ieee80211\-\_\-bss} $\ast$bss)
+\item 
+struct \hyperlink{structieee80211__bss}{ieee80211\-\_\-bss} $\ast$ \hyperlink{scan_8c_a59a8e2853006722662ef5e30d12f8519}{ieee80211\-\_\-bss\-\_\-info\-\_\-update} (struct \hyperlink{structieee80211__local}{ieee80211\-\_\-local} $\ast$local, struct ieee80211\-\_\-rx\-\_\-status $\ast$rx\-\_\-status, struct ieee80211\-\_\-mgmt $\ast$mgmt, size\-\_\-t len, struct \hyperlink{structieee802__11__elems}{ieee802\-\_\-11\-\_\-elems} $\ast$elems, struct ieee80211\-\_\-channel $\ast$channel, bool beacon)
+\item 
+\hyperlink{ieee80211__i_8h_a079ae32596356b2d6e9f167e43dc00bd}{ieee80211\-\_\-rx\-\_\-result} \hyperlink{scan_8c_ae9ebf5a892c50412836ec3f1d13ed4de}{ieee80211\-\_\-scan\-\_\-rx} (struct \hyperlink{structieee80211__sub__if__data}{ieee80211\-\_\-sub\-\_\-if\-\_\-data} $\ast$sdata, struct sk\-\_\-buff $\ast$skb)
+\item 
+void \hyperlink{scan_8c_a6074005a655e2f6cc73dd9af20c0b429}{ieee80211\-\_\-scan\-\_\-completed} (struct ieee80211\-\_\-hw $\ast$hw, bool aborted)
+\item 
+\hyperlink{scan_8c_a3660b50a9369dc0251179e721fc8bbae}{E\-X\-P\-O\-R\-T\-\_\-\-S\-Y\-M\-B\-O\-L} (\hyperlink{scan_8c_a6074005a655e2f6cc73dd9af20c0b429}{ieee80211\-\_\-scan\-\_\-completed})
+\item 
+void \hyperlink{scan_8c_a4f0b6352e2be699fcf921bb586c02359}{ieee80211\-\_\-scan\-\_\-work} (struct work\-\_\-struct $\ast$work)
+\item 
+int \hyperlink{scan_8c_a02cf1b8dcd8ae4b63a40923b91c497f4}{ieee80211\-\_\-request\-\_\-scan} (struct \hyperlink{structieee80211__sub__if__data}{ieee80211\-\_\-sub\-\_\-if\-\_\-data} $\ast$sdata, struct cfg80211\-\_\-scan\-\_\-request $\ast$req)
+\item 
+int \hyperlink{scan_8c_aa5f403f9390a88db1ec3bc8a830a8cdd}{ieee80211\-\_\-request\-\_\-internal\-\_\-scan} (struct \hyperlink{structieee80211__sub__if__data}{ieee80211\-\_\-sub\-\_\-if\-\_\-data} $\ast$sdata, const u8 $\ast$ssid, u8 ssid\-\_\-len, struct ieee80211\-\_\-channel $\ast$chan)
+\item 
+void \hyperlink{scan_8c_a48e757d9f59ff8225bb8db5814d93b2c}{ieee80211\-\_\-scan\-\_\-cancel} (struct \hyperlink{structieee80211__local}{ieee80211\-\_\-local} $\ast$local)
+\item 
+int \hyperlink{scan_8c_af897339e31165a40a403ebb0403b41d9}{ieee80211\-\_\-request\-\_\-sched\-\_\-scan\-\_\-start} (struct \hyperlink{structieee80211__sub__if__data}{ieee80211\-\_\-sub\-\_\-if\-\_\-data} $\ast$sdata, struct cfg80211\-\_\-sched\-\_\-scan\-\_\-request $\ast$req)
+\item 
+int \hyperlink{scan_8c_a633458e3677808afde7e5751b89f9781}{ieee80211\-\_\-request\-\_\-sched\-\_\-scan\-\_\-stop} (struct \hyperlink{structieee80211__sub__if__data}{ieee80211\-\_\-sub\-\_\-if\-\_\-data} $\ast$sdata)
+\item 
+void \hyperlink{scan_8c_aee8ea6487b614d895d3fc6fa8044a6d4}{ieee80211\-\_\-sched\-\_\-scan\-\_\-results} (struct ieee80211\-\_\-hw $\ast$hw)
+\item 
+\hyperlink{scan_8c_a767fdcff0135b8b70266bba019cf0991}{E\-X\-P\-O\-R\-T\-\_\-\-S\-Y\-M\-B\-O\-L} (\hyperlink{scan_8c_aee8ea6487b614d895d3fc6fa8044a6d4}{ieee80211\-\_\-sched\-\_\-scan\-\_\-results})
+\item 
+void \hyperlink{scan_8c_aa6b3b453d69c613a757bc86d9ba8a22c}{ieee80211\-\_\-sched\-\_\-scan\-\_\-stopped\-\_\-work} (struct work\-\_\-struct $\ast$work)
+\item 
+void \hyperlink{scan_8c_a9e74393d44b40794f4d5eb1fc7eb891e}{ieee80211\-\_\-sched\-\_\-scan\-\_\-stopped} (struct ieee80211\-\_\-hw $\ast$hw)
+\item 
+\hyperlink{scan_8c_ab0a66ac3d7eb694c7ed7678c74a378da}{E\-X\-P\-O\-R\-T\-\_\-\-S\-Y\-M\-B\-O\-L} (\hyperlink{scan_8c_a9e74393d44b40794f4d5eb1fc7eb891e}{ieee80211\-\_\-sched\-\_\-scan\-\_\-stopped})
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{scan_8c_a6c35762bc427ca26d08f70911b396d89}{\index{scan.\-c@{scan.\-c}!I\-E\-E\-E80211\-\_\-\-C\-H\-A\-N\-N\-E\-L\-\_\-\-T\-I\-M\-E@{I\-E\-E\-E80211\-\_\-\-C\-H\-A\-N\-N\-E\-L\-\_\-\-T\-I\-M\-E}}
+\index{I\-E\-E\-E80211\-\_\-\-C\-H\-A\-N\-N\-E\-L\-\_\-\-T\-I\-M\-E@{I\-E\-E\-E80211\-\_\-\-C\-H\-A\-N\-N\-E\-L\-\_\-\-T\-I\-M\-E}!scan.c@{scan.\-c}}
+\subsubsection[{I\-E\-E\-E80211\-\_\-\-C\-H\-A\-N\-N\-E\-L\-\_\-\-T\-I\-M\-E}]{\setlength{\rightskip}{0pt plus 5cm}\#define I\-E\-E\-E80211\-\_\-\-C\-H\-A\-N\-N\-E\-L\-\_\-\-T\-I\-M\-E~(H\-Z / 33)}}\label{scan_8c_a6c35762bc427ca26d08f70911b396d89}
+
+
+Definition at line 29 of file scan.\-c.
+
+\hypertarget{scan_8c_a30de3c3be2816d43107df4d3e8092081}{\index{scan.\-c@{scan.\-c}!I\-E\-E\-E80211\-\_\-\-P\-A\-S\-S\-I\-V\-E\-\_\-\-C\-H\-A\-N\-N\-E\-L\-\_\-\-T\-I\-M\-E@{I\-E\-E\-E80211\-\_\-\-P\-A\-S\-S\-I\-V\-E\-\_\-\-C\-H\-A\-N\-N\-E\-L\-\_\-\-T\-I\-M\-E}}
+\index{I\-E\-E\-E80211\-\_\-\-P\-A\-S\-S\-I\-V\-E\-\_\-\-C\-H\-A\-N\-N\-E\-L\-\_\-\-T\-I\-M\-E@{I\-E\-E\-E80211\-\_\-\-P\-A\-S\-S\-I\-V\-E\-\_\-\-C\-H\-A\-N\-N\-E\-L\-\_\-\-T\-I\-M\-E}!scan.c@{scan.\-c}}
+\subsubsection[{I\-E\-E\-E80211\-\_\-\-P\-A\-S\-S\-I\-V\-E\-\_\-\-C\-H\-A\-N\-N\-E\-L\-\_\-\-T\-I\-M\-E}]{\setlength{\rightskip}{0pt plus 5cm}\#define I\-E\-E\-E80211\-\_\-\-P\-A\-S\-S\-I\-V\-E\-\_\-\-C\-H\-A\-N\-N\-E\-L\-\_\-\-T\-I\-M\-E~(H\-Z / 8)}}\label{scan_8c_a30de3c3be2816d43107df4d3e8092081}
+
+
+Definition at line 30 of file scan.\-c.
+
+\hypertarget{scan_8c_af080b38d888d18368594d5a912ed80b7}{\index{scan.\-c@{scan.\-c}!I\-E\-E\-E80211\-\_\-\-P\-R\-O\-B\-E\-\_\-\-D\-E\-L\-A\-Y@{I\-E\-E\-E80211\-\_\-\-P\-R\-O\-B\-E\-\_\-\-D\-E\-L\-A\-Y}}
+\index{I\-E\-E\-E80211\-\_\-\-P\-R\-O\-B\-E\-\_\-\-D\-E\-L\-A\-Y@{I\-E\-E\-E80211\-\_\-\-P\-R\-O\-B\-E\-\_\-\-D\-E\-L\-A\-Y}!scan.c@{scan.\-c}}
+\subsubsection[{I\-E\-E\-E80211\-\_\-\-P\-R\-O\-B\-E\-\_\-\-D\-E\-L\-A\-Y}]{\setlength{\rightskip}{0pt plus 5cm}\#define I\-E\-E\-E80211\-\_\-\-P\-R\-O\-B\-E\-\_\-\-D\-E\-L\-A\-Y~(H\-Z / 33)}}\label{scan_8c_af080b38d888d18368594d5a912ed80b7}
+
+
+Definition at line 28 of file scan.\-c.
+
+
+
+\subsection{Function Documentation}
+\hypertarget{scan_8c_a3660b50a9369dc0251179e721fc8bbae}{\index{scan.\-c@{scan.\-c}!E\-X\-P\-O\-R\-T\-\_\-\-S\-Y\-M\-B\-O\-L@{E\-X\-P\-O\-R\-T\-\_\-\-S\-Y\-M\-B\-O\-L}}
+\index{E\-X\-P\-O\-R\-T\-\_\-\-S\-Y\-M\-B\-O\-L@{E\-X\-P\-O\-R\-T\-\_\-\-S\-Y\-M\-B\-O\-L}!scan.c@{scan.\-c}}
+\subsubsection[{E\-X\-P\-O\-R\-T\-\_\-\-S\-Y\-M\-B\-O\-L}]{\setlength{\rightskip}{0pt plus 5cm}E\-X\-P\-O\-R\-T\-\_\-\-S\-Y\-M\-B\-O\-L (
+\begin{DoxyParamCaption}
+\item[{{\bf ieee80211\-\_\-scan\-\_\-completed}}]{}
+\end{DoxyParamCaption}
+)}}\label{scan_8c_a3660b50a9369dc0251179e721fc8bbae}
+\hypertarget{scan_8c_a767fdcff0135b8b70266bba019cf0991}{\index{scan.\-c@{scan.\-c}!E\-X\-P\-O\-R\-T\-\_\-\-S\-Y\-M\-B\-O\-L@{E\-X\-P\-O\-R\-T\-\_\-\-S\-Y\-M\-B\-O\-L}}
+\index{E\-X\-P\-O\-R\-T\-\_\-\-S\-Y\-M\-B\-O\-L@{E\-X\-P\-O\-R\-T\-\_\-\-S\-Y\-M\-B\-O\-L}!scan.c@{scan.\-c}}
+\subsubsection[{E\-X\-P\-O\-R\-T\-\_\-\-S\-Y\-M\-B\-O\-L}]{\setlength{\rightskip}{0pt plus 5cm}E\-X\-P\-O\-R\-T\-\_\-\-S\-Y\-M\-B\-O\-L (
+\begin{DoxyParamCaption}
+\item[{{\bf ieee80211\-\_\-sched\-\_\-scan\-\_\-results}}]{}
+\end{DoxyParamCaption}
+)}}\label{scan_8c_a767fdcff0135b8b70266bba019cf0991}
+\hypertarget{scan_8c_ab0a66ac3d7eb694c7ed7678c74a378da}{\index{scan.\-c@{scan.\-c}!E\-X\-P\-O\-R\-T\-\_\-\-S\-Y\-M\-B\-O\-L@{E\-X\-P\-O\-R\-T\-\_\-\-S\-Y\-M\-B\-O\-L}}
+\index{E\-X\-P\-O\-R\-T\-\_\-\-S\-Y\-M\-B\-O\-L@{E\-X\-P\-O\-R\-T\-\_\-\-S\-Y\-M\-B\-O\-L}!scan.c@{scan.\-c}}
+\subsubsection[{E\-X\-P\-O\-R\-T\-\_\-\-S\-Y\-M\-B\-O\-L}]{\setlength{\rightskip}{0pt plus 5cm}E\-X\-P\-O\-R\-T\-\_\-\-S\-Y\-M\-B\-O\-L (
+\begin{DoxyParamCaption}
+\item[{{\bf ieee80211\-\_\-sched\-\_\-scan\-\_\-stopped}}]{}
+\end{DoxyParamCaption}
+)}}\label{scan_8c_ab0a66ac3d7eb694c7ed7678c74a378da}
+\hypertarget{scan_8c_a59a8e2853006722662ef5e30d12f8519}{\index{scan.\-c@{scan.\-c}!ieee80211\-\_\-bss\-\_\-info\-\_\-update@{ieee80211\-\_\-bss\-\_\-info\-\_\-update}}
+\index{ieee80211\-\_\-bss\-\_\-info\-\_\-update@{ieee80211\-\_\-bss\-\_\-info\-\_\-update}!scan.c@{scan.\-c}}
+\subsubsection[{ieee80211\-\_\-bss\-\_\-info\-\_\-update}]{\setlength{\rightskip}{0pt plus 5cm}struct {\bf ieee80211\-\_\-bss}$\ast$ ieee80211\-\_\-bss\-\_\-info\-\_\-update (
+\begin{DoxyParamCaption}
+\item[{struct {\bf ieee80211\-\_\-local} $\ast$}]{local, }
+\item[{struct ieee80211\-\_\-rx\-\_\-status $\ast$}]{rx\-\_\-status, }
+\item[{struct ieee80211\-\_\-mgmt $\ast$}]{mgmt, }
+\item[{size\-\_\-t}]{len, }
+\item[{struct {\bf ieee802\-\_\-11\-\_\-elems} $\ast$}]{elems, }
+\item[{struct ieee80211\-\_\-channel $\ast$}]{channel, }
+\item[{bool}]{beacon}
+\end{DoxyParamCaption}
+)}}\label{scan_8c_a59a8e2853006722662ef5e30d12f8519}
+
+
+Definition at line 80 of file scan.\-c.
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=322pt]{scan_8c_a59a8e2853006722662ef5e30d12f8519_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{scan_8c_aa5f403f9390a88db1ec3bc8a830a8cdd}{\index{scan.\-c@{scan.\-c}!ieee80211\-\_\-request\-\_\-internal\-\_\-scan@{ieee80211\-\_\-request\-\_\-internal\-\_\-scan}}
+\index{ieee80211\-\_\-request\-\_\-internal\-\_\-scan@{ieee80211\-\_\-request\-\_\-internal\-\_\-scan}!scan.c@{scan.\-c}}
+\subsubsection[{ieee80211\-\_\-request\-\_\-internal\-\_\-scan}]{\setlength{\rightskip}{0pt plus 5cm}int ieee80211\-\_\-request\-\_\-internal\-\_\-scan (
+\begin{DoxyParamCaption}
+\item[{struct {\bf ieee80211\-\_\-sub\-\_\-if\-\_\-data} $\ast$}]{sdata, }
+\item[{const u8 $\ast$}]{ssid, }
+\item[{u8}]{ssid\-\_\-len, }
+\item[{struct ieee80211\-\_\-channel $\ast$}]{chan}
+\end{DoxyParamCaption}
+)}}\label{scan_8c_aa5f403f9390a88db1ec3bc8a830a8cdd}
+
+
+Definition at line 764 of file scan.\-c.
+
+\hypertarget{scan_8c_a02cf1b8dcd8ae4b63a40923b91c497f4}{\index{scan.\-c@{scan.\-c}!ieee80211\-\_\-request\-\_\-scan@{ieee80211\-\_\-request\-\_\-scan}}
+\index{ieee80211\-\_\-request\-\_\-scan@{ieee80211\-\_\-request\-\_\-scan}!scan.c@{scan.\-c}}
+\subsubsection[{ieee80211\-\_\-request\-\_\-scan}]{\setlength{\rightskip}{0pt plus 5cm}int ieee80211\-\_\-request\-\_\-scan (
+\begin{DoxyParamCaption}
+\item[{struct {\bf ieee80211\-\_\-sub\-\_\-if\-\_\-data} $\ast$}]{sdata, }
+\item[{struct cfg80211\-\_\-scan\-\_\-request $\ast$}]{req}
+\end{DoxyParamCaption}
+)}}\label{scan_8c_a02cf1b8dcd8ae4b63a40923b91c497f4}
+
+
+Definition at line 752 of file scan.\-c.
+
+\hypertarget{scan_8c_af897339e31165a40a403ebb0403b41d9}{\index{scan.\-c@{scan.\-c}!ieee80211\-\_\-request\-\_\-sched\-\_\-scan\-\_\-start@{ieee80211\-\_\-request\-\_\-sched\-\_\-scan\-\_\-start}}
+\index{ieee80211\-\_\-request\-\_\-sched\-\_\-scan\-\_\-start@{ieee80211\-\_\-request\-\_\-sched\-\_\-scan\-\_\-start}!scan.c@{scan.\-c}}
+\subsubsection[{ieee80211\-\_\-request\-\_\-sched\-\_\-scan\-\_\-start}]{\setlength{\rightskip}{0pt plus 5cm}int ieee80211\-\_\-request\-\_\-sched\-\_\-scan\-\_\-start (
+\begin{DoxyParamCaption}
+\item[{struct {\bf ieee80211\-\_\-sub\-\_\-if\-\_\-data} $\ast$}]{sdata, }
+\item[{struct cfg80211\-\_\-sched\-\_\-scan\-\_\-request $\ast$}]{req}
+\end{DoxyParamCaption}
+)}}\label{scan_8c_af897339e31165a40a403ebb0403b41d9}
+
+
+Definition at line 856 of file scan.\-c.
+
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{scan_8c_af897339e31165a40a403ebb0403b41d9_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{scan_8c_a633458e3677808afde7e5751b89f9781}{\index{scan.\-c@{scan.\-c}!ieee80211\-\_\-request\-\_\-sched\-\_\-scan\-\_\-stop@{ieee80211\-\_\-request\-\_\-sched\-\_\-scan\-\_\-stop}}
+\index{ieee80211\-\_\-request\-\_\-sched\-\_\-scan\-\_\-stop@{ieee80211\-\_\-request\-\_\-sched\-\_\-scan\-\_\-stop}!scan.c@{scan.\-c}}
+\subsubsection[{ieee80211\-\_\-request\-\_\-sched\-\_\-scan\-\_\-stop}]{\setlength{\rightskip}{0pt plus 5cm}int ieee80211\-\_\-request\-\_\-sched\-\_\-scan\-\_\-stop (
+\begin{DoxyParamCaption}
+\item[{struct {\bf ieee80211\-\_\-sub\-\_\-if\-\_\-data} $\ast$}]{sdata}
+\end{DoxyParamCaption}
+)}}\label{scan_8c_a633458e3677808afde7e5751b89f9781}
+
+
+Definition at line 907 of file scan.\-c.
+
+\hypertarget{scan_8c_a7d695d2385da846a6d8b000d379651ea}{\index{scan.\-c@{scan.\-c}!ieee80211\-\_\-rx\-\_\-bss\-\_\-get@{ieee80211\-\_\-rx\-\_\-bss\-\_\-get}}
+\index{ieee80211\-\_\-rx\-\_\-bss\-\_\-get@{ieee80211\-\_\-rx\-\_\-bss\-\_\-get}!scan.c@{scan.\-c}}
+\subsubsection[{ieee80211\-\_\-rx\-\_\-bss\-\_\-get}]{\setlength{\rightskip}{0pt plus 5cm}struct {\bf ieee80211\-\_\-bss}$\ast$ ieee80211\-\_\-rx\-\_\-bss\-\_\-get (
+\begin{DoxyParamCaption}
+\item[{struct {\bf ieee80211\-\_\-local} $\ast$}]{local, }
+\item[{u8 $\ast$}]{bssid, }
+\item[{int}]{freq, }
+\item[{u8 $\ast$}]{ssid, }
+\item[{u8}]{ssid\-\_\-len}
+\end{DoxyParamCaption}
+)}}\label{scan_8c_a7d695d2385da846a6d8b000d379651ea}
+
+
+Definition at line 33 of file scan.\-c.
+
+\hypertarget{scan_8c_a200f83800bc0da16155e6ccb1cdd53c3}{\index{scan.\-c@{scan.\-c}!ieee80211\-\_\-rx\-\_\-bss\-\_\-put@{ieee80211\-\_\-rx\-\_\-bss\-\_\-put}}
+\index{ieee80211\-\_\-rx\-\_\-bss\-\_\-put@{ieee80211\-\_\-rx\-\_\-bss\-\_\-put}!scan.c@{scan.\-c}}
+\subsubsection[{ieee80211\-\_\-rx\-\_\-bss\-\_\-put}]{\setlength{\rightskip}{0pt plus 5cm}void ieee80211\-\_\-rx\-\_\-bss\-\_\-put (
+\begin{DoxyParamCaption}
+\item[{struct {\bf ieee80211\-\_\-local} $\ast$}]{local, }
+\item[{struct {\bf ieee80211\-\_\-bss} $\ast$}]{bss}
+\end{DoxyParamCaption}
+)}}\label{scan_8c_a200f83800bc0da16155e6ccb1cdd53c3}
+
+
+Definition at line 54 of file scan.\-c.
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=332pt]{scan_8c_a200f83800bc0da16155e6ccb1cdd53c3_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{scan_8c_a48e757d9f59ff8225bb8db5814d93b2c}{\index{scan.\-c@{scan.\-c}!ieee80211\-\_\-scan\-\_\-cancel@{ieee80211\-\_\-scan\-\_\-cancel}}
+\index{ieee80211\-\_\-scan\-\_\-cancel@{ieee80211\-\_\-scan\-\_\-cancel}!scan.c@{scan.\-c}}
+\subsubsection[{ieee80211\-\_\-scan\-\_\-cancel}]{\setlength{\rightskip}{0pt plus 5cm}void ieee80211\-\_\-scan\-\_\-cancel (
+\begin{DoxyParamCaption}
+\item[{struct {\bf ieee80211\-\_\-local} $\ast$}]{local}
+\end{DoxyParamCaption}
+)}}\label{scan_8c_a48e757d9f59ff8225bb8db5814d93b2c}
+
+
+Definition at line 814 of file scan.\-c.
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{scan_8c_a48e757d9f59ff8225bb8db5814d93b2c_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{scan_8c_a6074005a655e2f6cc73dd9af20c0b429}{\index{scan.\-c@{scan.\-c}!ieee80211\-\_\-scan\-\_\-completed@{ieee80211\-\_\-scan\-\_\-completed}}
+\index{ieee80211\-\_\-scan\-\_\-completed@{ieee80211\-\_\-scan\-\_\-completed}!scan.c@{scan.\-c}}
+\subsubsection[{ieee80211\-\_\-scan\-\_\-completed}]{\setlength{\rightskip}{0pt plus 5cm}void ieee80211\-\_\-scan\-\_\-completed (
+\begin{DoxyParamCaption}
+\item[{struct ieee80211\-\_\-hw $\ast$}]{hw, }
+\item[{bool}]{aborted}
+\end{DoxyParamCaption}
+)}}\label{scan_8c_a6074005a655e2f6cc73dd9af20c0b429}
+
+
+Definition at line 343 of file scan.\-c.
+
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{scan_8c_a6074005a655e2f6cc73dd9af20c0b429_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{scan_8c_ae9ebf5a892c50412836ec3f1d13ed4de}{\index{scan.\-c@{scan.\-c}!ieee80211\-\_\-scan\-\_\-rx@{ieee80211\-\_\-scan\-\_\-rx}}
+\index{ieee80211\-\_\-scan\-\_\-rx@{ieee80211\-\_\-scan\-\_\-rx}!scan.c@{scan.\-c}}
+\subsubsection[{ieee80211\-\_\-scan\-\_\-rx}]{\setlength{\rightskip}{0pt plus 5cm}{\bf ieee80211\-\_\-rx\-\_\-result} ieee80211\-\_\-scan\-\_\-rx (
+\begin{DoxyParamCaption}
+\item[{struct {\bf ieee80211\-\_\-sub\-\_\-if\-\_\-data} $\ast$}]{sdata, }
+\item[{struct sk\-\_\-buff $\ast$}]{skb}
+\end{DoxyParamCaption}
+)}}\label{scan_8c_ae9ebf5a892c50412836ec3f1d13ed4de}
+
+
+Definition at line 183 of file scan.\-c.
+
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{scan_8c_ae9ebf5a892c50412836ec3f1d13ed4de_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{scan_8c_a4f0b6352e2be699fcf921bb586c02359}{\index{scan.\-c@{scan.\-c}!ieee80211\-\_\-scan\-\_\-work@{ieee80211\-\_\-scan\-\_\-work}}
+\index{ieee80211\-\_\-scan\-\_\-work@{ieee80211\-\_\-scan\-\_\-work}!scan.c@{scan.\-c}}
+\subsubsection[{ieee80211\-\_\-scan\-\_\-work}]{\setlength{\rightskip}{0pt plus 5cm}void ieee80211\-\_\-scan\-\_\-work (
+\begin{DoxyParamCaption}
+\item[{struct work\-\_\-struct $\ast$}]{work}
+\end{DoxyParamCaption}
+)}}\label{scan_8c_a4f0b6352e2be699fcf921bb586c02359}
+
+
+Definition at line 663 of file scan.\-c.
+
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{scan_8c_a4f0b6352e2be699fcf921bb586c02359_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=334pt]{scan_8c_a4f0b6352e2be699fcf921bb586c02359_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{scan_8c_aee8ea6487b614d895d3fc6fa8044a6d4}{\index{scan.\-c@{scan.\-c}!ieee80211\-\_\-sched\-\_\-scan\-\_\-results@{ieee80211\-\_\-sched\-\_\-scan\-\_\-results}}
+\index{ieee80211\-\_\-sched\-\_\-scan\-\_\-results@{ieee80211\-\_\-sched\-\_\-scan\-\_\-results}!scan.c@{scan.\-c}}
+\subsubsection[{ieee80211\-\_\-sched\-\_\-scan\-\_\-results}]{\setlength{\rightskip}{0pt plus 5cm}void ieee80211\-\_\-sched\-\_\-scan\-\_\-results (
+\begin{DoxyParamCaption}
+\item[{struct ieee80211\-\_\-hw $\ast$}]{hw}
+\end{DoxyParamCaption}
+)}}\label{scan_8c_aee8ea6487b614d895d3fc6fa8044a6d4}
+
+
+Definition at line 932 of file scan.\-c.
+
+\hypertarget{scan_8c_a9e74393d44b40794f4d5eb1fc7eb891e}{\index{scan.\-c@{scan.\-c}!ieee80211\-\_\-sched\-\_\-scan\-\_\-stopped@{ieee80211\-\_\-sched\-\_\-scan\-\_\-stopped}}
+\index{ieee80211\-\_\-sched\-\_\-scan\-\_\-stopped@{ieee80211\-\_\-sched\-\_\-scan\-\_\-stopped}!scan.c@{scan.\-c}}
+\subsubsection[{ieee80211\-\_\-sched\-\_\-scan\-\_\-stopped}]{\setlength{\rightskip}{0pt plus 5cm}void ieee80211\-\_\-sched\-\_\-scan\-\_\-stopped (
+\begin{DoxyParamCaption}
+\item[{struct ieee80211\-\_\-hw $\ast$}]{hw}
+\end{DoxyParamCaption}
+)}}\label{scan_8c_a9e74393d44b40794f4d5eb1fc7eb891e}
+
+
+Definition at line 966 of file scan.\-c.
+
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{scan_8c_a9e74393d44b40794f4d5eb1fc7eb891e_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{scan_8c_aa6b3b453d69c613a757bc86d9ba8a22c}{\index{scan.\-c@{scan.\-c}!ieee80211\-\_\-sched\-\_\-scan\-\_\-stopped\-\_\-work@{ieee80211\-\_\-sched\-\_\-scan\-\_\-stopped\-\_\-work}}
+\index{ieee80211\-\_\-sched\-\_\-scan\-\_\-stopped\-\_\-work@{ieee80211\-\_\-sched\-\_\-scan\-\_\-stopped\-\_\-work}!scan.c@{scan.\-c}}
+\subsubsection[{ieee80211\-\_\-sched\-\_\-scan\-\_\-stopped\-\_\-work}]{\setlength{\rightskip}{0pt plus 5cm}void ieee80211\-\_\-sched\-\_\-scan\-\_\-stopped\-\_\-work (
+\begin{DoxyParamCaption}
+\item[{struct work\-\_\-struct $\ast$}]{work}
+\end{DoxyParamCaption}
+)}}\label{scan_8c_aa6b3b453d69c613a757bc86d9ba8a22c}
+
+
+Definition at line 942 of file scan.\-c.
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=340pt]{scan_8c_aa6b3b453d69c613a757bc86d9ba8a22c_icgraph}
+\end{center}
+\end{figure}
+
+

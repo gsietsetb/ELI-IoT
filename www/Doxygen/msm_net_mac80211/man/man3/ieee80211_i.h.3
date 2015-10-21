@@ -1,0 +1,1540 @@
+.TH "/home/guille/msm/net/mac80211/ieee80211_i.h" 3 "Sun Jun 1 2014" "Version 1.0" "net_mac80211" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+/home/guille/msm/net/mac80211/ieee80211_i.h \- 
+.SH SYNOPSIS
+.br
+.PP
+\fC#include <linux/kernel\&.h>\fP
+.br
+\fC#include <linux/device\&.h>\fP
+.br
+\fC#include <linux/if_ether\&.h>\fP
+.br
+\fC#include <linux/interrupt\&.h>\fP
+.br
+\fC#include <linux/list\&.h>\fP
+.br
+\fC#include <linux/netdevice\&.h>\fP
+.br
+\fC#include <linux/skbuff\&.h>\fP
+.br
+\fC#include <linux/workqueue\&.h>\fP
+.br
+\fC#include <linux/types\&.h>\fP
+.br
+\fC#include <linux/spinlock\&.h>\fP
+.br
+\fC#include <linux/etherdevice\&.h>\fP
+.br
+\fC#include <linux/leds\&.h>\fP
+.br
+\fC#include <linux/idr\&.h>\fP
+.br
+\fC#include <net/ieee80211_radiotap\&.h>\fP
+.br
+\fC#include <net/cfg80211\&.h>\fP
+.br
+\fC#include <net/mac80211\&.h>\fP
+.br
+\fC#include 'key\&.h'\fP
+.br
+\fC#include 'sta_info\&.h'\fP
+.br
+
+.SS "Data Structures"
+
+.in +1c
+.ti -1c
+.RI "struct \fBieee80211_fragment_entry\fP"
+.br
+.ti -1c
+.RI "struct \fBieee80211_bss\fP"
+.br
+.ti -1c
+.RI "struct \fBieee80211_tx_data\fP"
+.br
+.ti -1c
+.RI "struct \fBieee80211_rx_data\fP"
+.br
+.ti -1c
+.RI "struct \fBbeacon_data\fP"
+.br
+.ti -1c
+.RI "struct \fBieee80211_if_ap\fP"
+.br
+.ti -1c
+.RI "struct \fBieee80211_if_wds\fP"
+.br
+.ti -1c
+.RI "struct \fBieee80211_if_vlan\fP"
+.br
+.ti -1c
+.RI "struct \fBmesh_stats\fP"
+.br
+.ti -1c
+.RI "struct \fBmesh_preq_queue\fP"
+.br
+.ti -1c
+.RI "struct \fBieee80211_work\fP"
+.br
+.ti -1c
+.RI "struct \fBieee80211_mgd_auth_data\fP"
+.br
+.ti -1c
+.RI "struct \fBieee80211_mgd_assoc_data\fP"
+.br
+.ti -1c
+.RI "struct \fBieee80211_if_managed\fP"
+.br
+.ti -1c
+.RI "struct \fBieee80211_if_ibss\fP"
+.br
+.ti -1c
+.RI "struct \fBieee80211_if_mesh\fP"
+.br
+.ti -1c
+.RI "struct \fBieee80211_sub_if_data\fP"
+.br
+.ti -1c
+.RI "struct \fBskb_eosp_msg_data\fP"
+.br
+.ti -1c
+.RI "struct \fBieee80211_local\fP"
+.br
+.ti -1c
+.RI "struct \fBieee80211_ra_tid\fP"
+.br
+.ti -1c
+.RI "struct \fBieee802_11_elems\fP"
+.br
+.in -1c
+.SS "Macros"
+
+.in +1c
+.ti -1c
+.RI "#define \fBAP_MAX_BC_BUFFER\fP   128"
+.br
+.ti -1c
+.RI "#define \fBTOTAL_MAX_TX_BUFFER\fP   512"
+.br
+.ti -1c
+.RI "#define \fBIEEE80211_ENCRYPT_HEADROOM\fP   8"
+.br
+.ti -1c
+.RI "#define \fBIEEE80211_ENCRYPT_TAILROOM\fP   18"
+.br
+.ti -1c
+.RI "#define \fBIEEE80211_FRAGMENT_MAX\fP   4"
+.br
+.ti -1c
+.RI "#define \fBTU_TO_EXP_TIME\fP(x)   (jiffies + usecs_to_jiffies((x) * 1024))"
+.br
+.ti -1c
+.RI "#define \fBIEEE80211_DEFAULT_UAPSD_QUEUES\fP"
+.br
+.ti -1c
+.RI "#define \fBIEEE80211_DEFAULT_MAX_SP_LEN\fP   IEEE80211_WMM_IE_STA_QOSINFO_SP_ALL"
+.br
+.ti -1c
+.RI "#define \fBIEEE80211_MAX_SUPP_RATES\fP   32"
+.br
+.ti -1c
+.RI "#define \fBTX_CONTINUE\fP   ((__force \fBieee80211_tx_result\fP) 0u)"
+.br
+.ti -1c
+.RI "#define \fBTX_DROP\fP   ((__force \fBieee80211_tx_result\fP) 1u)"
+.br
+.ti -1c
+.RI "#define \fBTX_QUEUED\fP   ((__force \fBieee80211_tx_result\fP) 2u)"
+.br
+.ti -1c
+.RI "#define \fBIEEE80211_TX_UNICAST\fP   BIT(1)"
+.br
+.ti -1c
+.RI "#define \fBIEEE80211_TX_PS_BUFFERED\fP   BIT(2)"
+.br
+.ti -1c
+.RI "#define \fBRX_CONTINUE\fP   ((__force \fBieee80211_rx_result\fP) 0u)"
+.br
+.ti -1c
+.RI "#define \fBRX_DROP_UNUSABLE\fP   ((__force \fBieee80211_rx_result\fP) 1u)"
+.br
+.ti -1c
+.RI "#define \fBRX_DROP_MONITOR\fP   ((__force \fBieee80211_rx_result\fP) 2u)"
+.br
+.ti -1c
+.RI "#define \fBRX_QUEUED\fP   ((__force \fBieee80211_rx_result\fP) 3u)"
+.br
+.ti -1c
+.RI "#define \fBPREQ_Q_F_START\fP   0x1"
+.br
+.ti -1c
+.RI "#define \fBPREQ_Q_F_REFRESH\fP   0x2"
+.br
+.ti -1c
+.RI "#define \fBIEEE80211_IFSTA_MESH_CTR_INC\fP(msh, name)   do { } while (0)"
+.br
+.ti -1c
+.RI "#define \fBIEEE80211_IRQSAFE_QUEUE_LIMIT\fP   128"
+.br
+.ti -1c
+.RI "#define \fBI802_DEBUG_INC\fP(c)   do { } while (0)"
+.br
+.ti -1c
+.RI "#define \fBdebug_noinline\fP"
+.br
+.in -1c
+.SS "Typedefs"
+
+.in +1c
+.ti -1c
+.RI "typedef unsigned __bitwise__ \fBieee80211_tx_result\fP"
+.br
+.ti -1c
+.RI "typedef unsigned __bitwise__ \fBieee80211_rx_result\fP"
+.br
+.in -1c
+.SS "Enumerations"
+
+.in +1c
+.ti -1c
+.RI "enum \fBieee80211_bss_corrupt_data_flags\fP { \fBIEEE80211_BSS_CORRUPT_BEACON\fP = BIT(0), \fBIEEE80211_BSS_CORRUPT_PROBE_RESP\fP = BIT(1) }"
+.br
+.ti -1c
+.RI "enum \fBieee80211_bss_valid_data_flags\fP { \fBIEEE80211_BSS_VALID_DTIM\fP = BIT(0), \fBIEEE80211_BSS_VALID_WMM\fP = BIT(1), \fBIEEE80211_BSS_VALID_RATES\fP = BIT(2), \fBIEEE80211_BSS_VALID_ERP\fP = BIT(3) }"
+.br
+.ti -1c
+.RI "enum \fBieee80211_packet_rx_flags\fP { \fBIEEE80211_RX_IN_SCAN\fP = BIT(0), \fBIEEE80211_RX_RA_MATCH\fP = BIT(1), \fBIEEE80211_RX_FRAGMENTED\fP = BIT(2), \fBIEEE80211_RX_AMSDU\fP = BIT(3), \fBIEEE80211_RX_MALFORMED_ACTION_FRM\fP = BIT(4), \fBIEEE80211_RX_DEFERRED_RELEASE\fP = BIT(5) }"
+.br
+.ti -1c
+.RI "enum \fBieee80211_rx_flags\fP { \fBIEEE80211_RX_CMNTR\fP = BIT(0), \fBIEEE80211_RX_BEACON_REPORTED\fP = BIT(1) }"
+.br
+.ti -1c
+.RI "enum \fBieee80211_work_type\fP { \fBIEEE80211_WORK_ABORT\fP, \fBIEEE80211_WORK_REMAIN_ON_CHANNEL\fP, \fBIEEE80211_WORK_OFFCHANNEL_TX\fP }"
+.br
+.ti -1c
+.RI "enum \fBwork_done_result\fP { \fBWORK_DONE_DESTROY\fP, \fBWORK_DONE_REQUEUE\fP }"
+.br
+.ti -1c
+.RI "enum \fBieee80211_sta_flags\fP { \fBIEEE80211_STA_BEACON_POLL\fP = BIT(0), \fBIEEE80211_STA_CONNECTION_POLL\fP = BIT(1), \fBIEEE80211_STA_CONTROL_PORT\fP = BIT(2), \fBIEEE80211_STA_DISABLE_11N\fP = BIT(4), \fBIEEE80211_STA_CSA_RECEIVED\fP = BIT(5), \fBIEEE80211_STA_MFP_ENABLED\fP = BIT(6), \fBIEEE80211_STA_UAPSD_ENABLED\fP = BIT(7), \fBIEEE80211_STA_NULLFUNC_ACKED\fP = BIT(8), \fBIEEE80211_STA_RESET_SIGNAL_AVE\fP = BIT(9), \fBIEEE80211_STA_DISABLE_VHT\fP = BIT(11) }"
+.br
+.ti -1c
+.RI "enum \fBieee80211_sub_if_data_flags\fP { \fBIEEE80211_SDATA_ALLMULTI\fP = BIT(0), \fBIEEE80211_SDATA_PROMISC\fP = BIT(1), \fBIEEE80211_SDATA_OPERATING_GMODE\fP = BIT(2), \fBIEEE80211_SDATA_DONT_BRIDGE_PACKETS\fP = BIT(3), \fBIEEE80211_SDATA_DISCONNECT_RESUME\fP = BIT(4), \fBIEEE80211_SDATA_IN_DRIVER\fP = BIT(5) }"
+.br
+.ti -1c
+.RI "enum \fBieee80211_sdata_state_bits\fP { \fBSDATA_STATE_RUNNING\fP, \fBSDATA_STATE_OFFCHANNEL\fP }"
+.br
+.ti -1c
+.RI "enum \fBsdata_queue_type\fP { \fBIEEE80211_SDATA_QUEUE_TYPE_FRAME\fP = 0, \fBIEEE80211_SDATA_QUEUE_AGG_START\fP = 1, \fBIEEE80211_SDATA_QUEUE_AGG_STOP\fP = 2 }"
+.br
+.ti -1c
+.RI "enum { \fBIEEE80211_RX_MSG\fP = 1, \fBIEEE80211_TX_STATUS_MSG\fP = 2, \fBIEEE80211_EOSP_MSG\fP = 3 }"
+.br
+.ti -1c
+.RI "enum \fBqueue_stop_reason\fP { \fBIEEE80211_QUEUE_STOP_REASON_DRIVER\fP, \fBIEEE80211_QUEUE_STOP_REASON_PS\fP, \fBIEEE80211_QUEUE_STOP_REASON_CSA\fP, \fBIEEE80211_QUEUE_STOP_REASON_AGGREGATION\fP, \fBIEEE80211_QUEUE_STOP_REASON_SUSPEND\fP, \fBIEEE80211_QUEUE_STOP_REASON_SKB_ADD\fP, \fBIEEE80211_QUEUE_STOP_REASON_CHTYPE_CHANGE\fP }"
+.br
+.ti -1c
+.RI "enum { \fBSCAN_SW_SCANNING\fP, \fBSCAN_HW_SCANNING\fP, \fBSCAN_COMPLETED\fP, \fBSCAN_ABORTED\fP }"
+.br
+.ti -1c
+.RI "enum \fBmac80211_scan_state\fP { \fBSCAN_DECISION\fP, \fBSCAN_SET_CHANNEL\fP, \fBSCAN_SEND_PROBE\fP, \fBSCAN_SUSPEND\fP, \fBSCAN_RESUME\fP }"
+.br
+.ti -1c
+.RI "enum \fBieee80211_chan_mode\fP { \fBCHAN_MODE_UNDEFINED\fP, \fBCHAN_MODE_HOPPING\fP, \fBCHAN_MODE_FIXED\fP }"
+.br
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "int \fBieee80211_hw_config\fP (struct \fBieee80211_local\fP *local, u32 changed)"
+.br
+.ti -1c
+.RI "void \fBieee80211_tx_set_protected\fP (struct \fBieee80211_tx_data\fP *tx)"
+.br
+.ti -1c
+.RI "void \fBieee80211_bss_info_change_notify\fP (struct \fBieee80211_sub_if_data\fP *sdata, u32 changed)"
+.br
+.ti -1c
+.RI "void \fBieee80211_configure_filter\fP (struct \fBieee80211_local\fP *local)"
+.br
+.ti -1c
+.RI "u32 \fBieee80211_reset_erp_info\fP (struct \fBieee80211_sub_if_data\fP *sdata)"
+.br
+.ti -1c
+.RI "void \fBieee80211_sta_setup_sdata\fP (struct \fBieee80211_sub_if_data\fP *sdata)"
+.br
+.ti -1c
+.RI "int \fBieee80211_mgd_auth\fP (struct \fBieee80211_sub_if_data\fP *sdata, struct cfg80211_auth_request *req)"
+.br
+.ti -1c
+.RI "int \fBieee80211_mgd_assoc\fP (struct \fBieee80211_sub_if_data\fP *sdata, struct cfg80211_assoc_request *req)"
+.br
+.ti -1c
+.RI "int \fBieee80211_mgd_deauth\fP (struct \fBieee80211_sub_if_data\fP *sdata, struct cfg80211_deauth_request *req)"
+.br
+.ti -1c
+.RI "int \fBieee80211_mgd_disassoc\fP (struct \fBieee80211_sub_if_data\fP *sdata, struct cfg80211_disassoc_request *req)"
+.br
+.ti -1c
+.RI "void \fBieee80211_send_pspoll\fP (struct \fBieee80211_local\fP *local, struct \fBieee80211_sub_if_data\fP *sdata)"
+.br
+.ti -1c
+.RI "void \fBieee80211_recalc_ps\fP (struct \fBieee80211_local\fP *local, s32 latency)"
+.br
+.ti -1c
+.RI "int \fBieee80211_max_network_latency\fP (struct notifier_block *nb, unsigned long data, void *dummy)"
+.br
+.ti -1c
+.RI "int \fBieee80211_set_arp_filter\fP (struct \fBieee80211_sub_if_data\fP *sdata)"
+.br
+.ti -1c
+.RI "void \fBieee80211_sta_process_chanswitch\fP (struct \fBieee80211_sub_if_data\fP *sdata, struct ieee80211_channel_sw_ie *sw_elem, struct \fBieee80211_bss\fP *bss, u64 timestamp)"
+.br
+.ti -1c
+.RI "void \fBieee80211_sta_quiesce\fP (struct \fBieee80211_sub_if_data\fP *sdata)"
+.br
+.ti -1c
+.RI "void \fBieee80211_sta_restart\fP (struct \fBieee80211_sub_if_data\fP *sdata)"
+.br
+.ti -1c
+.RI "void \fBieee80211_sta_work\fP (struct \fBieee80211_sub_if_data\fP *sdata)"
+.br
+.ti -1c
+.RI "void \fBieee80211_sta_rx_queued_mgmt\fP (struct \fBieee80211_sub_if_data\fP *sdata, struct sk_buff *skb)"
+.br
+.ti -1c
+.RI "void \fBieee80211_sta_reset_beacon_monitor\fP (struct \fBieee80211_sub_if_data\fP *sdata)"
+.br
+.ti -1c
+.RI "void \fBieee80211_sta_reset_conn_monitor\fP (struct \fBieee80211_sub_if_data\fP *sdata)"
+.br
+.ti -1c
+.RI "void \fBieee80211_mgd_stop\fP (struct \fBieee80211_sub_if_data\fP *sdata)"
+.br
+.ti -1c
+.RI "void \fBieee80211_ibss_notify_scan_completed\fP (struct \fBieee80211_local\fP *local)"
+.br
+.ti -1c
+.RI "void \fBieee80211_ibss_setup_sdata\fP (struct \fBieee80211_sub_if_data\fP *sdata)"
+.br
+.ti -1c
+.RI "void \fBieee80211_ibss_rx_no_sta\fP (struct \fBieee80211_sub_if_data\fP *sdata, const u8 *bssid, const u8 *addr, u32 supp_rates)"
+.br
+.ti -1c
+.RI "int \fBieee80211_ibss_join\fP (struct \fBieee80211_sub_if_data\fP *sdata, struct cfg80211_ibss_params *params)"
+.br
+.ti -1c
+.RI "int \fBieee80211_ibss_leave\fP (struct \fBieee80211_sub_if_data\fP *sdata)"
+.br
+.ti -1c
+.RI "void \fBieee80211_ibss_quiesce\fP (struct \fBieee80211_sub_if_data\fP *sdata)"
+.br
+.ti -1c
+.RI "void \fBieee80211_ibss_restart\fP (struct \fBieee80211_sub_if_data\fP *sdata)"
+.br
+.ti -1c
+.RI "void \fBieee80211_ibss_work\fP (struct \fBieee80211_sub_if_data\fP *sdata)"
+.br
+.ti -1c
+.RI "void \fBieee80211_ibss_rx_queued_mgmt\fP (struct \fBieee80211_sub_if_data\fP *sdata, struct sk_buff *skb)"
+.br
+.ti -1c
+.RI "void \fBieee80211_mesh_work\fP (struct \fBieee80211_sub_if_data\fP *sdata)"
+.br
+.ti -1c
+.RI "void \fBieee80211_mesh_rx_queued_mgmt\fP (struct \fBieee80211_sub_if_data\fP *sdata, struct sk_buff *skb)"
+.br
+.ti -1c
+.RI "void \fBieee80211_scan_work\fP (struct work_struct *work)"
+.br
+.ti -1c
+.RI "int \fBieee80211_request_internal_scan\fP (struct \fBieee80211_sub_if_data\fP *sdata, const u8 *ssid, u8 ssid_len, struct ieee80211_channel *chan)"
+.br
+.ti -1c
+.RI "int \fBieee80211_request_scan\fP (struct \fBieee80211_sub_if_data\fP *sdata, struct cfg80211_scan_request *req)"
+.br
+.ti -1c
+.RI "void \fBieee80211_scan_cancel\fP (struct \fBieee80211_local\fP *local)"
+.br
+.ti -1c
+.RI "\fBieee80211_rx_result\fP \fBieee80211_scan_rx\fP (struct \fBieee80211_sub_if_data\fP *sdata, struct sk_buff *skb)"
+.br
+.ti -1c
+.RI "void \fBieee80211_mlme_notify_scan_completed\fP (struct \fBieee80211_local\fP *local)"
+.br
+.ti -1c
+.RI "struct \fBieee80211_bss\fP * \fBieee80211_bss_info_update\fP (struct \fBieee80211_local\fP *local, struct ieee80211_rx_status *rx_status, struct ieee80211_mgmt *mgmt, size_t len, struct \fBieee802_11_elems\fP *elems, struct ieee80211_channel *channel, bool beacon)"
+.br
+.ti -1c
+.RI "struct \fBieee80211_bss\fP * \fBieee80211_rx_bss_get\fP (struct \fBieee80211_local\fP *local, u8 *bssid, int freq, u8 *ssid, u8 ssid_len)"
+.br
+.ti -1c
+.RI "void \fBieee80211_rx_bss_put\fP (struct \fBieee80211_local\fP *local, struct \fBieee80211_bss\fP *bss)"
+.br
+.ti -1c
+.RI "int \fBieee80211_request_sched_scan_start\fP (struct \fBieee80211_sub_if_data\fP *sdata, struct cfg80211_sched_scan_request *req)"
+.br
+.ti -1c
+.RI "int \fBieee80211_request_sched_scan_stop\fP (struct \fBieee80211_sub_if_data\fP *sdata)"
+.br
+.ti -1c
+.RI "void \fBieee80211_sched_scan_stopped_work\fP (struct work_struct *work)"
+.br
+.ti -1c
+.RI "void \fBieee80211_offchannel_stop_vifs\fP (struct \fBieee80211_local\fP *local, bool offchannel_ps_enable)"
+.br
+.ti -1c
+.RI "void \fBieee80211_offchannel_return\fP (struct \fBieee80211_local\fP *local, bool offchannel_ps_disable)"
+.br
+.ti -1c
+.RI "void \fBieee80211_hw_roc_setup\fP (struct \fBieee80211_local\fP *local)"
+.br
+.ti -1c
+.RI "int \fBieee80211_iface_init\fP (void)"
+.br
+.ti -1c
+.RI "void \fBieee80211_iface_exit\fP (void)"
+.br
+.ti -1c
+.RI "int \fBieee80211_if_add\fP (struct \fBieee80211_local\fP *local, const char *name, struct net_device **new_dev, enum nl80211_iftype type, struct vif_params *params)"
+.br
+.ti -1c
+.RI "int \fBieee80211_if_change_type\fP (struct \fBieee80211_sub_if_data\fP *sdata, enum nl80211_iftype type)"
+.br
+.ti -1c
+.RI "void \fBieee80211_if_remove\fP (struct \fBieee80211_sub_if_data\fP *sdata)"
+.br
+.ti -1c
+.RI "void \fBieee80211_remove_interfaces\fP (struct \fBieee80211_local\fP *local)"
+.br
+.ti -1c
+.RI "u32 \fB__ieee80211_recalc_idle\fP (struct \fBieee80211_local\fP *local)"
+.br
+.ti -1c
+.RI "void \fBieee80211_recalc_idle\fP (struct \fBieee80211_local\fP *local)"
+.br
+.ti -1c
+.RI "void \fBieee80211_adjust_monitor_flags\fP (struct \fBieee80211_sub_if_data\fP *sdata, const int offset)"
+.br
+.ti -1c
+.RI "void \fBieee80211_clear_tx_pending\fP (struct \fBieee80211_local\fP *local)"
+.br
+.ti -1c
+.RI "void \fBieee80211_tx_pending\fP (unsigned long data)"
+.br
+.ti -1c
+.RI "netdev_tx_t \fBieee80211_monitor_start_xmit\fP (struct sk_buff *skb, struct net_device *dev)"
+.br
+.ti -1c
+.RI "netdev_tx_t \fBieee80211_subif_start_xmit\fP (struct sk_buff *skb, struct net_device *dev)"
+.br
+.ti -1c
+.RI "bool \fBieee80111_cfg_override_disables_ht40\fP (struct \fBieee80211_sub_if_data\fP *sdata)"
+.br
+.ti -1c
+.RI "void \fBieee80211_apply_htcap_overrides\fP (struct \fBieee80211_sub_if_data\fP *sdata, struct ieee80211_sta_ht_cap *ht_cap)"
+.br
+.ti -1c
+.RI "void \fBieee80211_ht_cap_ie_to_sta_ht_cap\fP (struct \fBieee80211_sub_if_data\fP *sdata, struct ieee80211_supported_band *sband, struct ieee80211_ht_cap *ht_cap_ie, struct ieee80211_sta_ht_cap *ht_cap)"
+.br
+.ti -1c
+.RI "void \fBieee80211_send_delba\fP (struct \fBieee80211_sub_if_data\fP *sdata, const u8 *da, u16 tid, u16 initiator, u16 reason_code)"
+.br
+.ti -1c
+.RI "int \fBieee80211_send_smps_action\fP (struct \fBieee80211_sub_if_data\fP *sdata, enum ieee80211_smps_mode smps, const u8 *da, const u8 *bssid)"
+.br
+.ti -1c
+.RI "void \fBieee80211_request_smps_work\fP (struct work_struct *work)"
+.br
+.ti -1c
+.RI "void \fB___ieee80211_stop_rx_ba_session\fP (struct \fBsta_info\fP *sta, u16 tid, u16 initiator, u16 reason, bool stop)"
+.br
+.ti -1c
+.RI "void \fB__ieee80211_stop_rx_ba_session\fP (struct \fBsta_info\fP *sta, u16 tid, u16 initiator, u16 reason, bool stop)"
+.br
+.ti -1c
+.RI "void \fBieee80211_sta_tear_down_BA_sessions\fP (struct \fBsta_info\fP *sta, bool tx)"
+.br
+.ti -1c
+.RI "void \fBieee80211_process_delba\fP (struct \fBieee80211_sub_if_data\fP *sdata, struct \fBsta_info\fP *sta, struct ieee80211_mgmt *mgmt, size_t len)"
+.br
+.ti -1c
+.RI "void \fBieee80211_process_addba_resp\fP (struct \fBieee80211_local\fP *local, struct \fBsta_info\fP *sta, struct ieee80211_mgmt *mgmt, size_t len)"
+.br
+.ti -1c
+.RI "void \fBieee80211_process_addba_request\fP (struct \fBieee80211_local\fP *local, struct \fBsta_info\fP *sta, struct ieee80211_mgmt *mgmt, size_t len)"
+.br
+.ti -1c
+.RI "int \fB__ieee80211_stop_tx_ba_session\fP (struct \fBsta_info\fP *sta, u16 tid, enum ieee80211_back_parties initiator, bool tx)"
+.br
+.ti -1c
+.RI "int \fB___ieee80211_stop_tx_ba_session\fP (struct \fBsta_info\fP *sta, u16 tid, enum ieee80211_back_parties initiator, bool tx)"
+.br
+.ti -1c
+.RI "void \fBieee80211_start_tx_ba_cb\fP (struct ieee80211_vif *vif, u8 *ra, u16 tid)"
+.br
+.ti -1c
+.RI "void \fBieee80211_stop_tx_ba_cb\fP (struct ieee80211_vif *vif, u8 *ra, u8 tid)"
+.br
+.ti -1c
+.RI "void \fBieee80211_ba_session_work\fP (struct work_struct *work)"
+.br
+.ti -1c
+.RI "void \fBieee80211_tx_ba_session_handle_start\fP (struct \fBsta_info\fP *sta, int tid)"
+.br
+.ti -1c
+.RI "void \fBieee80211_release_reorder_timeout\fP (struct \fBsta_info\fP *sta, int tid)"
+.br
+.ti -1c
+.RI "void \fBieee80211_process_measurement_req\fP (struct \fBieee80211_sub_if_data\fP *sdata, struct ieee80211_mgmt *mgmt, size_t len)"
+.br
+.ti -1c
+.RI "int \fBieee80211_reconfig\fP (struct \fBieee80211_local\fP *local)"
+.br
+.ti -1c
+.RI "void \fBieee80211_stop_device\fP (struct \fBieee80211_local\fP *local)"
+.br
+.ti -1c
+.RI "u8 * \fBieee80211_get_bssid\fP (struct ieee80211_hdr *hdr, size_t len, enum nl80211_iftype type)"
+.br
+.ti -1c
+.RI "int \fBieee80211_frame_duration\fP (struct \fBieee80211_local\fP *local, size_t len, int rate, int erp, int short_preamble)"
+.br
+.ti -1c
+.RI "void \fBmac80211_ev_michael_mic_failure\fP (struct \fBieee80211_sub_if_data\fP *sdata, int keyidx, struct ieee80211_hdr *hdr, const u8 *tsc, gfp_t gfp)"
+.br
+.ti -1c
+.RI "void \fBieee80211_set_wmm_default\fP (struct \fBieee80211_sub_if_data\fP *sdata, bool bss_notify)"
+.br
+.ti -1c
+.RI "void \fBieee80211_xmit\fP (struct \fBieee80211_sub_if_data\fP *sdata, struct sk_buff *skb)"
+.br
+.ti -1c
+.RI "void \fBieee80211_tx_skb_tid\fP (struct \fBieee80211_sub_if_data\fP *sdata, struct sk_buff *skb, int tid)"
+.br
+.ti -1c
+.RI "void \fBieee802_11_parse_elems\fP (u8 *start, size_t len, struct \fBieee802_11_elems\fP *elems)"
+.br
+.ti -1c
+.RI "u32 \fBieee802_11_parse_elems_crc\fP (u8 *start, size_t len, struct \fBieee802_11_elems\fP *elems, u64 filter, u32 crc)"
+.br
+.ti -1c
+.RI "u32 \fBieee80211_mandatory_rates\fP (struct \fBieee80211_local\fP *local, enum ieee80211_band band)"
+.br
+.ti -1c
+.RI "void \fBieee80211_dynamic_ps_enable_work\fP (struct work_struct *work)"
+.br
+.ti -1c
+.RI "void \fBieee80211_dynamic_ps_disable_work\fP (struct work_struct *work)"
+.br
+.ti -1c
+.RI "void \fBieee80211_dynamic_ps_timer\fP (unsigned long data)"
+.br
+.ti -1c
+.RI "void \fBieee80211_send_nullfunc\fP (struct \fBieee80211_local\fP *local, struct \fBieee80211_sub_if_data\fP *sdata, int powersave)"
+.br
+.ti -1c
+.RI "void \fBieee80211_sta_rx_notify\fP (struct \fBieee80211_sub_if_data\fP *sdata, struct ieee80211_hdr *hdr)"
+.br
+.ti -1c
+.RI "void \fBieee80211_sta_tx_notify\fP (struct \fBieee80211_sub_if_data\fP *sdata, struct ieee80211_hdr *hdr, bool ack)"
+.br
+.ti -1c
+.RI "void \fBieee80211_beacon_connection_loss_work\fP (struct work_struct *work)"
+.br
+.ti -1c
+.RI "void \fBieee80211_wake_queues_by_reason\fP (struct ieee80211_hw *hw, enum \fBqueue_stop_reason\fP reason)"
+.br
+.ti -1c
+.RI "void \fBieee80211_stop_queues_by_reason\fP (struct ieee80211_hw *hw, enum \fBqueue_stop_reason\fP reason)"
+.br
+.ti -1c
+.RI "void \fBieee80211_wake_queue_by_reason\fP (struct ieee80211_hw *hw, int queue, enum \fBqueue_stop_reason\fP reason)"
+.br
+.ti -1c
+.RI "void \fBieee80211_stop_queue_by_reason\fP (struct ieee80211_hw *hw, int queue, enum \fBqueue_stop_reason\fP reason)"
+.br
+.ti -1c
+.RI "void \fBieee80211_add_pending_skb\fP (struct \fBieee80211_local\fP *local, struct sk_buff *skb)"
+.br
+.ti -1c
+.RI "void \fBieee80211_add_pending_skbs\fP (struct \fBieee80211_local\fP *local, struct sk_buff_head *skbs)"
+.br
+.ti -1c
+.RI "void \fBieee80211_add_pending_skbs_fn\fP (struct \fBieee80211_local\fP *local, struct sk_buff_head *skbs, void(*fn)(void *data), void *data)"
+.br
+.ti -1c
+.RI "void \fBieee80211_send_auth\fP (struct \fBieee80211_sub_if_data\fP *sdata, u16 transaction, u16 auth_alg, u8 *extra, size_t extra_len, const u8 *bssid, const u8 *da, const u8 *key, u8 key_len, u8 key_idx)"
+.br
+.ti -1c
+.RI "int \fBieee80211_build_preq_ies\fP (struct \fBieee80211_local\fP *local, u8 *buffer, const u8 *ie, size_t ie_len, enum ieee80211_band band, u32 rate_mask, u8 channel)"
+.br
+.ti -1c
+.RI "struct sk_buff * \fBieee80211_build_probe_req\fP (struct \fBieee80211_sub_if_data\fP *sdata, u8 *dst, u32 ratemask, const u8 *ssid, size_t ssid_len, const u8 *ie, size_t ie_len, bool directed)"
+.br
+.ti -1c
+.RI "void \fBieee80211_send_probe_req\fP (struct \fBieee80211_sub_if_data\fP *sdata, u8 *dst, const u8 *ssid, size_t ssid_len, const u8 *ie, size_t ie_len, u32 ratemask, bool directed, bool no_cck)"
+.br
+.ti -1c
+.RI "void \fBieee80211_sta_def_wmm_params\fP (struct \fBieee80211_sub_if_data\fP *sdata, const size_t supp_rates_len, const u8 *supp_rates)"
+.br
+.ti -1c
+.RI "u32 \fBieee80211_sta_get_rates\fP (struct \fBieee80211_local\fP *local, struct \fBieee802_11_elems\fP *elems, enum ieee80211_band band)"
+.br
+.ti -1c
+.RI "int \fB__ieee80211_request_smps\fP (struct \fBieee80211_sub_if_data\fP *sdata, enum ieee80211_smps_mode smps_mode)"
+.br
+.ti -1c
+.RI "void \fBieee80211_recalc_smps\fP (struct \fBieee80211_local\fP *local)"
+.br
+.ti -1c
+.RI "size_t \fBieee80211_ie_split\fP (const u8 *ies, size_t ielen, const u8 *ids, int n_ids, size_t offset)"
+.br
+.ti -1c
+.RI "size_t \fBieee80211_ie_split_vendor\fP (const u8 *ies, size_t ielen, size_t offset)"
+.br
+.ti -1c
+.RI "u8 * \fBieee80211_ie_build_ht_cap\fP (u8 *pos, struct ieee80211_sta_ht_cap *ht_cap, u16 cap)"
+.br
+.ti -1c
+.RI "u8 * \fBieee80211_ie_build_ht_info\fP (u8 *pos, struct ieee80211_sta_ht_cap *ht_cap, struct ieee80211_channel *channel, enum nl80211_channel_type channel_type)"
+.br
+.ti -1c
+.RI "u8 * \fBieee80211_ie_build_vht_cap\fP (u8 *pos, struct ieee80211_sta_vht_cap *vht_cap, u32 cap)"
+.br
+.ti -1c
+.RI "void \fBieee80211_work_init\fP (struct \fBieee80211_local\fP *local)"
+.br
+.ti -1c
+.RI "void \fBieee80211_add_work\fP (struct \fBieee80211_work\fP *wk)"
+.br
+.ti -1c
+.RI "void \fBfree_work\fP (struct \fBieee80211_work\fP *wk)"
+.br
+.ti -1c
+.RI "void \fBieee80211_work_purge\fP (struct \fBieee80211_sub_if_data\fP *sdata)"
+.br
+.ti -1c
+.RI "int \fBieee80211_wk_remain_on_channel\fP (struct \fBieee80211_sub_if_data\fP *sdata, struct ieee80211_channel *chan, enum nl80211_channel_type channel_type, unsigned int duration, u64 *cookie)"
+.br
+.ti -1c
+.RI "int \fBieee80211_wk_cancel_remain_on_channel\fP (struct \fBieee80211_sub_if_data\fP *sdata, u64 cookie)"
+.br
+.ti -1c
+.RI "enum \fBieee80211_chan_mode\fP \fBieee80211_get_channel_mode\fP (struct \fBieee80211_local\fP *local, struct \fBieee80211_sub_if_data\fP *ignore)"
+.br
+.ti -1c
+.RI "bool \fBieee80211_set_channel_type\fP (struct \fBieee80211_local\fP *local, struct \fBieee80211_sub_if_data\fP *sdata, enum nl80211_channel_type chantype)"
+.br
+.ti -1c
+.RI "enum nl80211_channel_type \fBieee80211_ht_info_to_channel_type\fP (struct ieee80211_ht_info *ht_info)"
+.br
+.ti -1c
+.RI "enum nl80211_channel_type \fBieee80211_get_tx_channel_type\fP (struct \fBieee80211_local\fP *local, enum nl80211_channel_type channel_type)"
+.br
+.in -1c
+.SS "Variables"
+
+.in +1c
+.ti -1c
+.RI "void * \fBmac80211_wiphy_privid\fP"
+.br
+.in -1c
+.SH "Macro Definition Documentation"
+.PP 
+.SS "#define AP_MAX_BC_BUFFER   128"
+
+.PP
+Definition at line 38 of file ieee80211_i\&.h\&.
+.SS "#define debug_noinline"
+
+.PP
+Definition at line 1515 of file ieee80211_i\&.h\&.
+.SS "#define I802_DEBUG_INC(c)   do { } while (0)"
+
+.PP
+Definition at line 1026 of file ieee80211_i\&.h\&.
+.SS "#define IEEE80211_DEFAULT_MAX_SP_LEN   IEEE80211_WMM_IE_STA_QOSINFO_SP_ALL"
+
+.PP
+Definition at line 63 of file ieee80211_i\&.h\&.
+.SS "#define IEEE80211_DEFAULT_UAPSD_QUEUES"
+\fBValue:\fP
+.PP
+.nf
+(IEEE80211_WMM_IE_STA_QOSINFO_AC_BK |  \
+     IEEE80211_WMM_IE_STA_QOSINFO_AC_BE |   \
+     IEEE80211_WMM_IE_STA_QOSINFO_AC_VI |   \
+     IEEE80211_WMM_IE_STA_QOSINFO_AC_VO)
+.fi
+.PP
+Definition at line 57 of file ieee80211_i\&.h\&.
+.SS "#define IEEE80211_ENCRYPT_HEADROOM   8"
+
+.PP
+Definition at line 46 of file ieee80211_i\&.h\&.
+.SS "#define IEEE80211_ENCRYPT_TAILROOM   18"
+
+.PP
+Definition at line 47 of file ieee80211_i\&.h\&.
+.SS "#define IEEE80211_FRAGMENT_MAX   4"
+
+.PP
+Definition at line 53 of file ieee80211_i\&.h\&.
+.SS "#define IEEE80211_IFSTA_MESH_CTR_INC(msh, name)   do { } while (0)"
+
+.PP
+Definition at line 610 of file ieee80211_i\&.h\&.
+.SS "#define IEEE80211_IRQSAFE_QUEUE_LIMIT   128"
+
+.PP
+Definition at line 904 of file ieee80211_i\&.h\&.
+.SS "#define IEEE80211_MAX_SUPP_RATES   32"
+
+.PP
+Definition at line 96 of file ieee80211_i\&.h\&.
+.SS "#define IEEE80211_TX_PS_BUFFERED   BIT(2)"
+
+.PP
+Definition at line 179 of file ieee80211_i\&.h\&.
+.SS "#define IEEE80211_TX_UNICAST   BIT(1)"
+
+.PP
+Definition at line 178 of file ieee80211_i\&.h\&.
+.SS "#define PREQ_Q_F_REFRESH   0x2"
+
+.PP
+Definition at line 312 of file ieee80211_i\&.h\&.
+.SS "#define PREQ_Q_F_START   0x1"
+
+.PP
+Definition at line 311 of file ieee80211_i\&.h\&.
+.SS "#define RX_CONTINUE   ((__force \fBieee80211_rx_result\fP) 0u)"
+
+.PP
+Definition at line 196 of file ieee80211_i\&.h\&.
+.SS "#define RX_DROP_MONITOR   ((__force \fBieee80211_rx_result\fP) 2u)"
+
+.PP
+Definition at line 198 of file ieee80211_i\&.h\&.
+.SS "#define RX_DROP_UNUSABLE   ((__force \fBieee80211_rx_result\fP) 1u)"
+
+.PP
+Definition at line 197 of file ieee80211_i\&.h\&.
+.SS "#define RX_QUEUED   ((__force \fBieee80211_rx_result\fP) 3u)"
+
+.PP
+Definition at line 199 of file ieee80211_i\&.h\&.
+.SS "#define TOTAL_MAX_TX_BUFFER   512"
+
+.PP
+Definition at line 43 of file ieee80211_i\&.h\&.
+.SS "#define TU_TO_EXP_TIME(x)   (jiffies + usecs_to_jiffies((x) * 1024))"
+
+.PP
+Definition at line 55 of file ieee80211_i\&.h\&.
+.SS "#define TX_CONTINUE   ((__force \fBieee80211_tx_result\fP) 0u)"
+
+.PP
+Definition at line 174 of file ieee80211_i\&.h\&.
+.SS "#define TX_DROP   ((__force \fBieee80211_tx_result\fP) 1u)"
+
+.PP
+Definition at line 175 of file ieee80211_i\&.h\&.
+.SS "#define TX_QUEUED   ((__force \fBieee80211_tx_result\fP) 2u)"
+
+.PP
+Definition at line 176 of file ieee80211_i\&.h\&.
+.SH "Typedef Documentation"
+.PP 
+.SS "typedef unsigned __bitwise__ \fBieee80211_rx_result\fP"
+
+.PP
+Definition at line 195 of file ieee80211_i\&.h\&.
+.SS "typedef unsigned __bitwise__ \fBieee80211_tx_result\fP"
+
+.PP
+Definition at line 173 of file ieee80211_i\&.h\&.
+.SH "Enumeration Type Documentation"
+.PP 
+.SS "anonymous enum"
+
+.PP
+\fBEnumerator\fP
+.in +1c
+.TP
+\fB\fIIEEE80211_RX_MSG \fP\fP
+.TP
+\fB\fIIEEE80211_TX_STATUS_MSG \fP\fP
+.TP
+\fB\fIIEEE80211_EOSP_MSG \fP\fP
+.PP
+Definition at line 748 of file ieee80211_i\&.h\&.
+.SS "anonymous enum"
+mac80211 scan flags - currently active scan mode
+.PP
+: We're currently in the process of scanning but may as well be on the operating channel : The hardware is scanning for us, we have no way to determine if we are on the operating channel or not : Set for our scan work function when the driver reported that the scan completed\&. : Set for our scan work function when the driver reported a scan complete for an aborted scan\&. 
+.PP
+\fBEnumerator\fP
+.in +1c
+.TP
+\fB\fISCAN_SW_SCANNING \fP\fP
+.TP
+\fB\fISCAN_HW_SCANNING \fP\fP
+.TP
+\fB\fISCAN_COMPLETED \fP\fP
+.TP
+\fB\fISCAN_ABORTED \fP\fP
+.PP
+Definition at line 794 of file ieee80211_i\&.h\&.
+.SS "enum \fBieee80211_bss_corrupt_data_flags\fP"
+enum ieee80211_corrupt_data_flags - BSS data corruption flags : last beacon frame received was corrupted : last probe response received was corrupted
+.PP
+These are bss flags that are attached to a bss in the  field of &struct \fBieee80211_bss\fP\&. 
+.PP
+\fBEnumerator\fP
+.in +1c
+.TP
+\fB\fIIEEE80211_BSS_CORRUPT_BEACON \fP\fP
+.TP
+\fB\fIIEEE80211_BSS_CORRUPT_PROBE_RESP \fP\fP
+.PP
+Definition at line 124 of file ieee80211_i\&.h\&.
+.SS "enum \fBieee80211_bss_valid_data_flags\fP"
+enum ieee80211_valid_data_flags - BSS valid data flags : DTIM data was gathered from non-corrupt IE : WMM/UAPSD data was gathered from non-corrupt IE : Supported rates were gathered from non-corrupt IE : ERP flag was gathered from non-corrupt IE
+.PP
+These are bss flags that are attached to a bss in the  field of &struct \fBieee80211_bss\fP\&. They show which parts of the data structure were recieved as a result of an un-corrupted beacon/probe response\&. 
+.PP
+\fBEnumerator\fP
+.in +1c
+.TP
+\fB\fIIEEE80211_BSS_VALID_DTIM \fP\fP
+.TP
+\fB\fIIEEE80211_BSS_VALID_WMM \fP\fP
+.TP
+\fB\fIIEEE80211_BSS_VALID_RATES \fP\fP
+.TP
+\fB\fIIEEE80211_BSS_VALID_ERP \fP\fP
+.PP
+Definition at line 141 of file ieee80211_i\&.h\&.
+.SS "enum \fBieee80211_chan_mode\fP"
+
+.PP
+\fBEnumerator\fP
+.in +1c
+.TP
+\fB\fICHAN_MODE_UNDEFINED \fP\fP
+.TP
+\fB\fICHAN_MODE_HOPPING \fP\fP
+.TP
+\fB\fICHAN_MODE_FIXED \fP\fP
+.PP
+Definition at line 1494 of file ieee80211_i\&.h\&.
+.SS "enum \fBieee80211_packet_rx_flags\fP"
+enum ieee80211_packet_rx_flags - packet RX flags : frame is destined to interface currently processed (incl\&. multicast frames) : received while scanning : fragmented frame : a-MSDU packet : action frame is malformed : frame was subjected to receive reordering
+.PP
+These are per-frame flags that are attached to a frame in the  field of &struct ieee80211_rx_status\&. 
+.PP
+\fBEnumerator\fP
+.in +1c
+.TP
+\fB\fIIEEE80211_RX_IN_SCAN \fP\fP
+.TP
+\fB\fIIEEE80211_RX_RA_MATCH \fP\fP
+.TP
+\fB\fIIEEE80211_RX_FRAGMENTED \fP\fP
+.TP
+\fB\fIIEEE80211_RX_AMSDU \fP\fP
+.TP
+\fB\fIIEEE80211_RX_MALFORMED_ACTION_FRM \fP\fP
+.TP
+\fB\fIIEEE80211_RX_DEFERRED_RELEASE \fP\fP
+.PP
+Definition at line 214 of file ieee80211_i\&.h\&.
+.SS "enum \fBieee80211_rx_flags\fP"
+enum ieee80211_rx_flags - RX data flags
+.PP
+: received on cooked monitor already : This frame was already reported to cfg80211_report_obss_beacon()\&.
+.PP
+These flags are used across handling multiple interfaces for a single frame\&. 
+.PP
+\fBEnumerator\fP
+.in +1c
+.TP
+\fB\fIIEEE80211_RX_CMNTR \fP\fP
+.TP
+\fB\fIIEEE80211_RX_BEACON_REPORTED \fP\fP
+.PP
+Definition at line 233 of file ieee80211_i\&.h\&.
+.SS "enum \fBieee80211_sdata_state_bits\fP"
+enum ieee80211_sdata_state_bits - virtual interface state bits : virtual interface is up & running; this mirrors netif_running() but is separate for interface type change handling while the interface is up : This interface is currently in offchannel mode, so queues are stopped 
+.PP
+\fBEnumerator\fP
+.in +1c
+.TP
+\fB\fISDATA_STATE_RUNNING \fP\fP
+.TP
+\fB\fISDATA_STATE_OFFCHANNEL \fP\fP
+.PP
+Definition at line 643 of file ieee80211_i\&.h\&.
+.SS "enum \fBieee80211_sta_flags\fP"
+
+.PP
+\fBEnumerator\fP
+.in +1c
+.TP
+\fB\fIIEEE80211_STA_BEACON_POLL \fP\fP
+.TP
+\fB\fIIEEE80211_STA_CONNECTION_POLL \fP\fP
+.TP
+\fB\fIIEEE80211_STA_CONTROL_PORT \fP\fP
+.TP
+\fB\fIIEEE80211_STA_DISABLE_11N \fP\fP
+.TP
+\fB\fIIEEE80211_STA_CSA_RECEIVED \fP\fP
+.TP
+\fB\fIIEEE80211_STA_MFP_ENABLED \fP\fP
+.TP
+\fB\fIIEEE80211_STA_UAPSD_ENABLED \fP\fP
+.TP
+\fB\fIIEEE80211_STA_NULLFUNC_ACKED \fP\fP
+.TP
+\fB\fIIEEE80211_STA_RESET_SIGNAL_AVE \fP\fP
+.TP
+\fB\fIIEEE80211_STA_DISABLE_VHT \fP\fP
+.PP
+Definition at line 371 of file ieee80211_i\&.h\&.
+.SS "enum \fBieee80211_sub_if_data_flags\fP"
+enum ieee80211_sub_if_data_flags - virtual interface flags
+.PP
+: interface wants all multicast packets : interface is promisc : operating in G-only mode : bridge packets between associated stations and deliver multicast frames both back to wireless media and to the local net stack\&. : Disconnect after resume\&. : indicates interface was added to driver 
+.PP
+\fBEnumerator\fP
+.in +1c
+.TP
+\fB\fIIEEE80211_SDATA_ALLMULTI \fP\fP
+.TP
+\fB\fIIEEE80211_SDATA_PROMISC \fP\fP
+.TP
+\fB\fIIEEE80211_SDATA_OPERATING_GMODE \fP\fP
+.TP
+\fB\fIIEEE80211_SDATA_DONT_BRIDGE_PACKETS \fP\fP
+.TP
+\fB\fIIEEE80211_SDATA_DISCONNECT_RESUME \fP\fP
+.TP
+\fB\fIIEEE80211_SDATA_IN_DRIVER \fP\fP
+.PP
+Definition at line 626 of file ieee80211_i\&.h\&.
+.SS "enum \fBieee80211_work_type\fP"
+
+.PP
+\fBEnumerator\fP
+.in +1c
+.TP
+\fB\fIIEEE80211_WORK_ABORT \fP\fP
+.TP
+\fB\fIIEEE80211_WORK_REMAIN_ON_CHANNEL \fP\fP
+.TP
+\fB\fIIEEE80211_WORK_OFFCHANNEL_TX \fP\fP
+.PP
+Definition at line 319 of file ieee80211_i\&.h\&.
+.SS "enum \fBmac80211_scan_state\fP"
+enum mac80211_scan_state - scan state machine states
+.PP
+: Main entry point to the scan state machine, this state determines if we should keep on scanning or switch back to the operating channel : Set the next channel to be scanned : Send probe requests and wait for probe responses : Suspend the scan and go back to operating channel to send out data : Resume the scan and scan the next channel 
+.PP
+\fBEnumerator\fP
+.in +1c
+.TP
+\fB\fISCAN_DECISION \fP\fP
+.TP
+\fB\fISCAN_SET_CHANNEL \fP\fP
+.TP
+\fB\fISCAN_SEND_PROBE \fP\fP
+.TP
+\fB\fISCAN_SUSPEND \fP\fP
+.TP
+\fB\fISCAN_RESUME \fP\fP
+.PP
+Definition at line 813 of file ieee80211_i\&.h\&.
+.SS "enum \fBqueue_stop_reason\fP"
+
+.PP
+\fBEnumerator\fP
+.in +1c
+.TP
+\fB\fIIEEE80211_QUEUE_STOP_REASON_DRIVER \fP\fP
+.TP
+\fB\fIIEEE80211_QUEUE_STOP_REASON_PS \fP\fP
+.TP
+\fB\fIIEEE80211_QUEUE_STOP_REASON_CSA \fP\fP
+.TP
+\fB\fIIEEE80211_QUEUE_STOP_REASON_AGGREGATION \fP\fP
+.TP
+\fB\fIIEEE80211_QUEUE_STOP_REASON_SUSPEND \fP\fP
+.TP
+\fB\fIIEEE80211_QUEUE_STOP_REASON_SKB_ADD \fP\fP
+.TP
+\fB\fIIEEE80211_QUEUE_STOP_REASON_CHTYPE_CHANGE \fP\fP
+.PP
+Definition at line 758 of file ieee80211_i\&.h\&.
+.SS "enum \fBsdata_queue_type\fP"
+
+.PP
+\fBEnumerator\fP
+.in +1c
+.TP
+\fB\fIIEEE80211_SDATA_QUEUE_TYPE_FRAME \fP\fP
+.TP
+\fB\fIIEEE80211_SDATA_QUEUE_AGG_START \fP\fP
+.TP
+\fB\fIIEEE80211_SDATA_QUEUE_AGG_STOP \fP\fP
+.PP
+Definition at line 742 of file ieee80211_i\&.h\&.
+.SS "enum \fBwork_done_result\fP"
+enum work_done_result - indicates what to do after work was done
+.PP
+: This work item is no longer needed, destroy\&. : This work item was reset to be reused, and should be requeued\&. 
+.PP
+\fBEnumerator\fP
+.in +1c
+.TP
+\fB\fIWORK_DONE_DESTROY \fP\fP
+.TP
+\fB\fIWORK_DONE_REQUEUE \fP\fP
+.PP
+Definition at line 332 of file ieee80211_i\&.h\&.
+.SH "Function Documentation"
+.PP 
+.SS "void ___ieee80211_stop_rx_ba_session (struct \fBsta_info\fP *sta, u16tid, u16initiator, u16reason, boolstop)"
+
+.PP
+Definition at line 61 of file agg-rx\&.c\&.
+.SS "int ___ieee80211_stop_tx_ba_session (struct \fBsta_info\fP *sta, u16tid, enum ieee80211_back_partiesinitiator, booltx)"
+
+.PP
+Definition at line 151 of file agg-tx\&.c\&.
+.SS "u32 __ieee80211_recalc_idle (struct \fBieee80211_local\fP *local)"
+
+.PP
+Definition at line 1291 of file iface\&.c\&.
+.SS "int __ieee80211_request_smps (struct \fBieee80211_sub_if_data\fP *sdata, enum ieee80211_smps_modesmps_mode)"
+
+.PP
+Definition at line 1774 of file cfg\&.c\&.
+.SS "void __ieee80211_stop_rx_ba_session (struct \fBsta_info\fP *sta, u16tid, u16initiator, u16reason, boolstop)"
+
+.PP
+Definition at line 100 of file agg-rx\&.c\&.
+.SS "int __ieee80211_stop_tx_ba_session (struct \fBsta_info\fP *sta, u16tid, enum ieee80211_back_partiesinitiator, booltx)"
+
+.PP
+Definition at line 670 of file agg-tx\&.c\&.
+.SS "void free_work (struct \fBieee80211_work\fP *wk)"
+
+.PP
+Definition at line 62 of file work\&.c\&.
+.SS "bool ieee80111_cfg_override_disables_ht40 (struct \fBieee80211_sub_if_data\fP *sdata)"
+
+.PP
+Definition at line 22 of file ht\&.c\&.
+.SS "void ieee80211_add_pending_skb (struct \fBieee80211_local\fP *local, struct sk_buff *skb)"
+
+.PP
+Definition at line 352 of file util\&.c\&.
+.SS "void ieee80211_add_pending_skbs (struct \fBieee80211_local\fP *local, struct sk_buff_head *skbs)"
+
+.PP
+Definition at line 407 of file util\&.c\&.
+.SS "void ieee80211_add_pending_skbs_fn (struct \fBieee80211_local\fP *local, struct sk_buff_head *skbs, void(*)(void *data)fn, void *data)"
+
+.PP
+Definition at line 372 of file util\&.c\&.
+.SS "void ieee80211_add_work (struct \fBieee80211_work\fP *wk)"
+
+.PP
+Definition at line 246 of file work\&.c\&.
+.SS "void ieee80211_adjust_monitor_flags (struct \fBieee80211_sub_if_data\fP *sdata, const intoffset)"
+
+.PP
+Definition at line 152 of file iface\&.c\&.
+.SS "void ieee80211_apply_htcap_overrides (struct \fBieee80211_sub_if_data\fP *sdata, struct ieee80211_sta_ht_cap *ht_cap)"
+
+.PP
+Definition at line 42 of file ht\&.c\&.
+.SS "void ieee80211_ba_session_work (struct work_struct *work)"
+
+.PP
+Definition at line 204 of file ht\&.c\&.
+.SS "void ieee80211_beacon_connection_loss_work (struct work_struct *work)"
+
+.PP
+Definition at line 1722 of file mlme\&.c\&.
+.SS "void ieee80211_bss_info_change_notify (struct \fBieee80211_sub_if_data\fP *sdata, u32changed)"
+
+.PP
+Definition at line 189 of file main\&.c\&.
+.SS "struct \fBieee80211_bss\fP* ieee80211_bss_info_update (struct \fBieee80211_local\fP *local, struct ieee80211_rx_status *rx_status, struct ieee80211_mgmt *mgmt, size_tlen, struct \fBieee802_11_elems\fP *elems, struct ieee80211_channel *channel, boolbeacon)"
+
+.PP
+Definition at line 80 of file scan\&.c\&.
+.SS "int ieee80211_build_preq_ies (struct \fBieee80211_local\fP *local, u8 *buffer, const u8 *ie, size_tie_len, enum ieee80211_bandband, u32rate_mask, u8channel)"
+
+.PP
+Definition at line 939 of file util\&.c\&.
+.SS "struct sk_buff* ieee80211_build_probe_req (struct \fBieee80211_sub_if_data\fP *sdata, u8 *dst, u32ratemask, const u8 *ssid, size_tssid_len, const u8 *ie, size_tie_len, booldirected)"
+
+.PP
+Definition at line 1041 of file util\&.c\&.
+.SS "void ieee80211_clear_tx_pending (struct \fBieee80211_local\fP *local)"
+
+.PP
+Definition at line 2127 of file tx\&.c\&.
+.SS "void ieee80211_configure_filter (struct \fBieee80211_local\fP *local)"
+
+.PP
+Definition at line 38 of file main\&.c\&.
+.SS "void ieee80211_dynamic_ps_disable_work (struct work_struct *work)"
+
+.PP
+Definition at line 1095 of file mlme\&.c\&.
+.SS "void ieee80211_dynamic_ps_enable_work (struct work_struct *work)"
+
+.PP
+Definition at line 1110 of file mlme\&.c\&.
+.SS "void ieee80211_dynamic_ps_timer (unsigned longdata)"
+
+.PP
+Definition at line 1185 of file mlme\&.c\&.
+.SS "int ieee80211_frame_duration (struct \fBieee80211_local\fP *local, size_tlen, intrate, interp, intshort_preamble)"
+
+.PP
+Definition at line 109 of file util\&.c\&.
+.SS "u8* ieee80211_get_bssid (struct ieee80211_hdr *hdr, size_tlen, enum nl80211_iftypetype)"
+
+.PP
+Definition at line 49 of file util\&.c\&.
+.SS "enum \fBieee80211_chan_mode\fP ieee80211_get_channel_mode (struct \fBieee80211_local\fP *local, struct \fBieee80211_sub_if_data\fP *ignore)"
+
+.PP
+Definition at line 55 of file chan\&.c\&.
+.SS "enum nl80211_channel_type ieee80211_get_tx_channel_type (struct \fBieee80211_local\fP *local, enum nl80211_channel_typechannel_type)"
+
+.PP
+Definition at line 144 of file chan\&.c\&.
+.SS "void ieee80211_ht_cap_ie_to_sta_ht_cap (struct \fBieee80211_sub_if_data\fP *sdata, struct ieee80211_supported_band *sband, struct ieee80211_ht_cap *ht_cap_ie, struct ieee80211_sta_ht_cap *ht_cap)"
+
+.PP
+Definition at line 98 of file ht\&.c\&.
+.SS "enum nl80211_channel_type ieee80211_ht_info_to_channel_type (struct ieee80211_ht_info *ht_info)"
+
+.PP
+Definition at line 1682 of file util\&.c\&.
+.SS "int ieee80211_hw_config (struct \fBieee80211_local\fP *local, u32changed)"
+
+.PP
+Definition at line 95 of file main\&.c\&.
+.SS "void ieee80211_hw_roc_setup (struct \fBieee80211_local\fP *local)"
+
+.PP
+Definition at line 262 of file offchannel\&.c\&.
+.SS "int ieee80211_ibss_join (struct \fBieee80211_sub_if_data\fP *sdata, struct cfg80211_ibss_params *params)"
+
+.PP
+Definition at line 1051 of file ibss\&.c\&.
+.SS "int ieee80211_ibss_leave (struct \fBieee80211_sub_if_data\fP *sdata)"
+
+.PP
+Definition at line 1144 of file ibss\&.c\&.
+.SS "void ieee80211_ibss_notify_scan_completed (struct \fBieee80211_local\fP *local)"
+
+.PP
+Definition at line 1035 of file ibss\&.c\&.
+.SS "void ieee80211_ibss_quiesce (struct \fBieee80211_sub_if_data\fP *sdata)"
+
+.SS "void ieee80211_ibss_restart (struct \fBieee80211_sub_if_data\fP *sdata)"
+
+.SS "void ieee80211_ibss_rx_no_sta (struct \fBieee80211_sub_if_data\fP *sdata, const u8 *bssid, const u8 *addr, u32supp_rates)"
+
+.PP
+Definition at line 573 of file ibss\&.c\&.
+.SS "void ieee80211_ibss_rx_queued_mgmt (struct \fBieee80211_sub_if_data\fP *sdata, struct sk_buff *skb)"
+
+.PP
+Definition at line 907 of file ibss\&.c\&.
+.SS "void ieee80211_ibss_setup_sdata (struct \fBieee80211_sub_if_data\fP *sdata)"
+
+.PP
+Definition at line 1023 of file ibss\&.c\&.
+.SS "void ieee80211_ibss_work (struct \fBieee80211_sub_if_data\fP *sdata)"
+
+.PP
+Definition at line 944 of file ibss\&.c\&.
+.SS "u8* ieee80211_ie_build_ht_cap (u8 *pos, struct ieee80211_sta_ht_cap *ht_cap, u16cap)"
+
+.PP
+Definition at line 1583 of file util\&.c\&.
+.SS "u8* ieee80211_ie_build_ht_info (u8 *pos, struct ieee80211_sta_ht_cap *ht_cap, struct ieee80211_channel *channel, enum nl80211_channel_typechannel_type)"
+
+.PP
+Definition at line 1639 of file util\&.c\&.
+.SS "u8* ieee80211_ie_build_vht_cap (u8 *pos, struct ieee80211_sta_vht_cap *vht_cap, u32cap)"
+
+.PP
+Definition at line 1618 of file util\&.c\&.
+.SS "size_t ieee80211_ie_split (const u8 *ies, size_tielen, const u8 *ids, intn_ids, size_toffset)"
+ieee80211_ie_split - split an IE buffer according to ordering
+.PP
+: the IE buffer : the length of the IE buffer : an array with element IDs that are allowed before the split : the size of the element ID array : offset where to start splitting in the buffer
+.PP
+This function splits an IE buffer by updating the  variable to point to the location where the buffer should be split\&.
+.PP
+It assumes that the given IE buffer is well-formed, this has to be guaranteed by the caller!
+.PP
+It also assumes that the IEs in the buffer are ordered correctly, if not the result of using this function will not be ordered correctly either, i\&.e\&. it does no reordering\&.
+.PP
+The function returns the offset where the next part of the buffer starts, which may be  if the entire (remainder) of the buffer should be used\&. 
+.PP
+Definition at line 1522 of file util\&.c\&.
+.SS "size_t ieee80211_ie_split_vendor (const u8 *ies, size_tielen, size_toffset)"
+
+.PP
+Definition at line 1533 of file util\&.c\&.
+.SS "int ieee80211_if_add (struct \fBieee80211_local\fP *local, const char *name, struct net_device **new_dev, enum nl80211_iftypetype, struct vif_params *params)"
+
+.PP
+Definition at line 1129 of file iface\&.c\&.
+.SS "int ieee80211_if_change_type (struct \fBieee80211_sub_if_data\fP *sdata, enum nl80211_iftypetype)"
+
+.PP
+Definition at line 981 of file iface\&.c\&.
+.SS "void ieee80211_if_remove (struct \fBieee80211_sub_if_data\fP *sdata)"
+
+.PP
+Definition at line 1222 of file iface\&.c\&.
+.SS "void ieee80211_iface_exit (void)"
+
+.PP
+Definition at line 1427 of file iface\&.c\&.
+.SS "int ieee80211_iface_init (void)"
+
+.PP
+Definition at line 1422 of file iface\&.c\&.
+.SS "u32 ieee80211_mandatory_rates (struct \fBieee80211_local\fP *local, enum ieee80211_bandband)"
+
+.PP
+Definition at line 871 of file util\&.c\&.
+.SS "int ieee80211_max_network_latency (struct notifier_block *nb, unsigned longdata, void *dummy)"
+
+.PP
+Definition at line 3063 of file mlme\&.c\&.
+.SS "void ieee80211_mesh_rx_queued_mgmt (struct \fBieee80211_sub_if_data\fP *sdata, struct sk_buff *skb)"
+
+.PP
+Definition at line 681 of file mesh\&.c\&.
+.SS "void ieee80211_mesh_work (struct \fBieee80211_sub_if_data\fP *sdata)"
+
+.PP
+Definition at line 704 of file mesh\&.c\&.
+.SS "int ieee80211_mgd_assoc (struct \fBieee80211_sub_if_data\fP *sdata, struct cfg80211_assoc_request *req)"
+
+.PP
+Definition at line 3270 of file mlme\&.c\&.
+.SS "int ieee80211_mgd_auth (struct \fBieee80211_sub_if_data\fP *sdata, struct cfg80211_auth_request *req)"
+
+.PP
+Definition at line 3174 of file mlme\&.c\&.
+.SS "int ieee80211_mgd_deauth (struct \fBieee80211_sub_if_data\fP *sdata, struct cfg80211_deauth_request *req)"
+
+.PP
+Definition at line 3464 of file mlme\&.c\&.
+.SS "int ieee80211_mgd_disassoc (struct \fBieee80211_sub_if_data\fP *sdata, struct cfg80211_disassoc_request *req)"
+
+.PP
+Definition at line 3502 of file mlme\&.c\&.
+.SS "void ieee80211_mgd_stop (struct \fBieee80211_sub_if_data\fP *sdata)"
+
+.PP
+Definition at line 3540 of file mlme\&.c\&.
+.SS "void ieee80211_mlme_notify_scan_completed (struct \fBieee80211_local\fP *local)"
+
+.PP
+Definition at line 3052 of file mlme\&.c\&.
+.SS "netdev_tx_t ieee80211_monitor_start_xmit (struct sk_buff *skb, struct net_device *dev)"
+
+.PP
+Definition at line 1567 of file tx\&.c\&.
+.SS "void ieee80211_offchannel_return (struct \fBieee80211_local\fP *local, booloffchannel_ps_disable)"
+
+.PP
+Definition at line 141 of file offchannel\&.c\&.
+.SS "void ieee80211_offchannel_stop_vifs (struct \fBieee80211_local\fP *local, booloffchannel_ps_enable)"
+
+.PP
+Definition at line 106 of file offchannel\&.c\&.
+.SS "void ieee80211_process_addba_request (struct \fBieee80211_local\fP *local, struct \fBsta_info\fP *sta, struct ieee80211_mgmt *mgmt, size_tlen)"
+
+.PP
+Definition at line 211 of file agg-rx\&.c\&.
+.SS "void ieee80211_process_addba_resp (struct \fBieee80211_local\fP *local, struct \fBsta_info\fP *sta, struct ieee80211_mgmt *mgmt, size_tlen)"
+
+.PP
+Definition at line 819 of file agg-tx\&.c\&.
+.SS "void ieee80211_process_delba (struct \fBieee80211_sub_if_data\fP *sdata, struct \fBsta_info\fP *sta, struct ieee80211_mgmt *mgmt, size_tlen)"
+
+.PP
+Definition at line 306 of file ht\&.c\&.
+.SS "void ieee80211_process_measurement_req (struct \fBieee80211_sub_if_data\fP *sdata, struct ieee80211_mgmt *mgmt, size_tlen)"
+
+.PP
+Definition at line 67 of file spectmgmt\&.c\&.
+.SS "void ieee80211_recalc_idle (struct \fBieee80211_local\fP *local)"
+
+.PP
+Definition at line 1383 of file iface\&.c\&.
+.SS "void ieee80211_recalc_ps (struct \fBieee80211_local\fP *local, s32latency)"
+
+.PP
+Definition at line 1003 of file mlme\&.c\&.
+.SS "void ieee80211_recalc_smps (struct \fBieee80211_local\fP *local)"
+
+.PP
+Definition at line 1446 of file util\&.c\&.
+.SS "int ieee80211_reconfig (struct \fBieee80211_local\fP *local)"
+
+.PP
+Definition at line 1158 of file util\&.c\&.
+.SS "void ieee80211_release_reorder_timeout (struct \fBsta_info\fP *sta, inttid)"
+
+.PP
+Definition at line 2738 of file rx\&.c\&.
+.SS "void ieee80211_remove_interfaces (struct \fBieee80211_local\fP *local)"
+
+.PP
+Definition at line 1241 of file iface\&.c\&.
+.SS "int ieee80211_request_internal_scan (struct \fBieee80211_sub_if_data\fP *sdata, const u8 *ssid, u8ssid_len, struct ieee80211_channel *chan)"
+
+.PP
+Definition at line 764 of file scan\&.c\&.
+.SS "int ieee80211_request_scan (struct \fBieee80211_sub_if_data\fP *sdata, struct cfg80211_scan_request *req)"
+
+.PP
+Definition at line 752 of file scan\&.c\&.
+.SS "int ieee80211_request_sched_scan_start (struct \fBieee80211_sub_if_data\fP *sdata, struct cfg80211_sched_scan_request *req)"
+
+.PP
+Definition at line 856 of file scan\&.c\&.
+.SS "int ieee80211_request_sched_scan_stop (struct \fBieee80211_sub_if_data\fP *sdata)"
+
+.PP
+Definition at line 907 of file scan\&.c\&.
+.SS "void ieee80211_request_smps_work (struct work_struct *work)"
+
+.PP
+Definition at line 379 of file ht\&.c\&.
+.SS "u32 ieee80211_reset_erp_info (struct \fBieee80211_sub_if_data\fP *sdata)"
+
+.PP
+Definition at line 262 of file main\&.c\&.
+.SS "struct \fBieee80211_bss\fP* ieee80211_rx_bss_get (struct \fBieee80211_local\fP *local, u8 *bssid, intfreq, u8 *ssid, u8ssid_len)"
+
+.PP
+Definition at line 33 of file scan\&.c\&.
+.SS "void ieee80211_rx_bss_put (struct \fBieee80211_local\fP *local, struct \fBieee80211_bss\fP *bss)"
+
+.PP
+Definition at line 54 of file scan\&.c\&.
+.SS "void ieee80211_scan_cancel (struct \fBieee80211_local\fP *local)"
+
+.PP
+Definition at line 814 of file scan\&.c\&.
+.SS "\fBieee80211_rx_result\fP ieee80211_scan_rx (struct \fBieee80211_sub_if_data\fP *sdata, struct sk_buff *skb)"
+
+.PP
+Definition at line 183 of file scan\&.c\&.
+.SS "void ieee80211_scan_work (struct work_struct *work)"
+
+.PP
+Definition at line 663 of file scan\&.c\&.
+.SS "void ieee80211_sched_scan_stopped_work (struct work_struct *work)"
+
+.PP
+Definition at line 942 of file scan\&.c\&.
+.SS "void ieee80211_send_auth (struct \fBieee80211_sub_if_data\fP *sdata, u16transaction, u16auth_alg, u8 *extra, size_textra_len, const u8 *bssid, const u8 *da, const u8 *key, u8key_len, u8key_idx)"
+
+.PP
+Definition at line 899 of file util\&.c\&.
+.SS "void ieee80211_send_delba (struct \fBieee80211_sub_if_data\fP *sdata, const u8 *da, u16tid, u16initiator, u16reason_code)"
+
+.PP
+Definition at line 263 of file ht\&.c\&.
+.SS "void ieee80211_send_nullfunc (struct \fBieee80211_local\fP *local, struct \fBieee80211_sub_if_data\fP *sdata, intpowersave)"
+
+.PP
+Definition at line 685 of file mlme\&.c\&.
+.SS "void ieee80211_send_probe_req (struct \fBieee80211_sub_if_data\fP *sdata, u8 *dst, const u8 *ssid, size_tssid_len, const u8 *ie, size_tie_len, u32ratemask, booldirected, boolno_cck)"
+
+.PP
+Definition at line 1094 of file util\&.c\&.
+.SS "void ieee80211_send_pspoll (struct \fBieee80211_local\fP *local, struct \fBieee80211_sub_if_data\fP *sdata)"
+
+.PP
+Definition at line 668 of file mlme\&.c\&.
+.SS "int ieee80211_send_smps_action (struct \fBieee80211_sub_if_data\fP *sdata, enum ieee80211_smps_modesmps, const u8 *da, const u8 *bssid)"
+
+.PP
+Definition at line 332 of file ht\&.c\&.
+.SS "int ieee80211_set_arp_filter (struct \fBieee80211_sub_if_data\fP *sdata)"
+
+.SS "bool ieee80211_set_channel_type (struct \fBieee80211_local\fP *local, struct \fBieee80211_sub_if_data\fP *sdata, enum nl80211_channel_typechantype)"
+
+.PP
+Definition at line 67 of file chan\&.c\&.
+.SS "void ieee80211_set_wmm_default (struct \fBieee80211_sub_if_data\fP *sdata, boolbss_notify)"
+
+.PP
+Definition at line 773 of file util\&.c\&.
+.SS "void ieee80211_sta_def_wmm_params (struct \fBieee80211_sub_if_data\fP *sdata, const size_tsupp_rates_len, const u8 *supp_rates)"
+
+.PP
+Definition at line 850 of file util\&.c\&.
+.SS "u32 ieee80211_sta_get_rates (struct \fBieee80211_local\fP *local, struct \fBieee802_11_elems\fP *elems, enum ieee80211_bandband)"
+
+.PP
+Definition at line 1111 of file util\&.c\&.
+.SS "void ieee80211_sta_process_chanswitch (struct \fBieee80211_sub_if_data\fP *sdata, struct ieee80211_channel_sw_ie *sw_elem, struct \fBieee80211_bss\fP *bss, u64timestamp)"
+
+.PP
+Definition at line 810 of file mlme\&.c\&.
+.SS "void ieee80211_sta_quiesce (struct \fBieee80211_sub_if_data\fP *sdata)"
+
+.SS "void ieee80211_sta_reset_beacon_monitor (struct \fBieee80211_sub_if_data\fP *sdata)"
+
+.PP
+Definition at line 144 of file mlme\&.c\&.
+.SS "void ieee80211_sta_reset_conn_monitor (struct \fBieee80211_sub_if_data\fP *sdata)"
+
+.PP
+Definition at line 153 of file mlme\&.c\&.
+.SS "void ieee80211_sta_restart (struct \fBieee80211_sub_if_data\fP *sdata)"
+
+.SS "void ieee80211_sta_rx_notify (struct \fBieee80211_sub_if_data\fP *sdata, struct ieee80211_hdr *hdr)"
+
+.PP
+Definition at line 1503 of file mlme\&.c\&.
+.SS "void ieee80211_sta_rx_queued_mgmt (struct \fBieee80211_sub_if_data\fP *sdata, struct sk_buff *skb)"
+
+.PP
+Definition at line 2571 of file mlme\&.c\&.
+.SS "void ieee80211_sta_setup_sdata (struct \fBieee80211_sub_if_data\fP *sdata)"
+
+.PP
+Definition at line 3019 of file mlme\&.c\&.
+.SS "void ieee80211_sta_tear_down_BA_sessions (struct \fBsta_info\fP *sta, booltx)"
+
+.PP
+Definition at line 191 of file ht\&.c\&.
+.SS "void ieee80211_sta_tx_notify (struct \fBieee80211_sub_if_data\fP *sdata, struct ieee80211_hdr *hdr, boolack)"
+
+.PP
+Definition at line 1549 of file mlme\&.c\&.
+.SS "void ieee80211_sta_work (struct \fBieee80211_sub_if_data\fP *sdata)"
+
+.PP
+Definition at line 2777 of file mlme\&.c\&.
+.SS "void ieee80211_start_tx_ba_cb (struct ieee80211_vif *vif, u8 *ra, u16tid)"
+
+.PP
+Definition at line 601 of file agg-tx\&.c\&.
+.SS "void ieee80211_stop_device (struct \fBieee80211_local\fP *local)"
+
+.PP
+Definition at line 1147 of file util\&.c\&.
+.SS "void ieee80211_stop_queue_by_reason (struct ieee80211_hw *hw, intqueue, enum \fBqueue_stop_reason\fPreason)"
+
+.PP
+Definition at line 334 of file util\&.c\&.
+.SS "void ieee80211_stop_queues_by_reason (struct ieee80211_hw *hw, enum \fBqueue_stop_reason\fPreason)"
+
+.PP
+Definition at line 413 of file util\&.c\&.
+.SS "void ieee80211_stop_tx_ba_cb (struct ieee80211_vif *vif, u8 *ra, u8tid)"
+
+.PP
+Definition at line 724 of file agg-tx\&.c\&.
+.SS "netdev_tx_t ieee80211_subif_start_xmit (struct sk_buff *skb, struct net_device *dev)"
+ieee80211_subif_start_xmit - netif start_xmit function for Ethernet-type subinterfaces (wlan#, WDS, and VLAN interfaces) : packet to be sent : incoming interface
+.PP
+Returns: 0 on success (and frees skb in this case) or 1 on failure (skb will not be freed, and caller is responsible for either retrying later or freeing skb)\&.
+.PP
+This function takes in an Ethernet header and encapsulates it with suitable IEEE 802\&.11 header based on which interface the packet is coming in\&. The encapsulated packet will then be passed to master interface, wlan#\&.11, for transmission (through low-level driver)\&. 
+.PP
+Definition at line 1710 of file tx\&.c\&.
+.SS "void ieee80211_tx_ba_session_handle_start (struct \fBsta_info\fP *sta, inttid)"
+
+.PP
+Definition at line 344 of file agg-tx\&.c\&.
+.SS "void ieee80211_tx_pending (unsigned longdata)"
+
+.PP
+Definition at line 2171 of file tx\&.c\&.
+.SS "void ieee80211_tx_set_protected (struct \fBieee80211_tx_data\fP *tx)"
+
+.PP
+Definition at line 98 of file util\&.c\&.
+.SS "void ieee80211_tx_skb_tid (struct \fBieee80211_sub_if_data\fP *sdata, struct sk_buff *skb, inttid)"
+
+.PP
+Definition at line 2711 of file tx\&.c\&.
+.SS "void ieee80211_wake_queue_by_reason (struct ieee80211_hw *hw, intqueue, enum \fBqueue_stop_reason\fPreason)"
+
+.PP
+Definition at line 297 of file util\&.c\&.
+.SS "void ieee80211_wake_queues_by_reason (struct ieee80211_hw *hw, enum \fBqueue_stop_reason\fPreason)"
+
+.PP
+Definition at line 451 of file util\&.c\&.
+.SS "int ieee80211_wk_cancel_remain_on_channel (struct \fBieee80211_sub_if_data\fP *sdata, u64cookie)"
+
+.PP
+Definition at line 350 of file work\&.c\&.
+.SS "int ieee80211_wk_remain_on_channel (struct \fBieee80211_sub_if_data\fP *sdata, struct ieee80211_channel *chan, enum nl80211_channel_typechannel_type, unsigned intduration, u64 *cookie)"
+
+.PP
+Definition at line 324 of file work\&.c\&.
+.SS "void ieee80211_work_init (struct \fBieee80211_local\fP *local)"
+
+.PP
+Definition at line 272 of file work\&.c\&.
+.SS "void ieee80211_work_purge (struct \fBieee80211_sub_if_data\fP *sdata)"
+
+.PP
+Definition at line 280 of file work\&.c\&.
+.SS "void ieee80211_xmit (struct \fBieee80211_sub_if_data\fP *sdata, struct sk_buff *skb)"
+
+.PP
+Definition at line 1443 of file tx\&.c\&.
+.SS "void ieee802_11_parse_elems (u8 *start, size_tlen, struct \fBieee802_11_elems\fP *elems)"
+
+.PP
+Definition at line 767 of file util\&.c\&.
+.SS "u32 ieee802_11_parse_elems_crc (u8 *start, size_tlen, struct \fBieee802_11_elems\fP *elems, u64filter, u32crc)"
+
+.PP
+Definition at line 568 of file util\&.c\&.
+.SS "void mac80211_ev_michael_mic_failure (struct \fBieee80211_sub_if_data\fP *sdata, intkeyidx, struct ieee80211_hdr *hdr, const u8 *tsc, gfp_tgfp)"
+
+.PP
+Definition at line 18 of file event\&.c\&.
+.SH "Variable Documentation"
+.PP 
+.SS "void* mac80211_wiphy_privid"
+
+.PP
+Definition at line 37 of file util\&.c\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for net_mac80211 from the source code\&.

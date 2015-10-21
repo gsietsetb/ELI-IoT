@@ -1,0 +1,69 @@
+.TH "/home/guille/msm/net/mac80211/tkip.h" 3 "Sun Jun 1 2014" "Version 1.0" "net_mac80211" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+/home/guille/msm/net/mac80211/tkip.h \- 
+.SH SYNOPSIS
+.br
+.PP
+\fC#include <linux/types\&.h>\fP
+.br
+\fC#include <linux/crypto\&.h>\fP
+.br
+\fC#include 'key\&.h'\fP
+.br
+
+.SS "Enumerations"
+
+.in +1c
+.ti -1c
+.RI "enum { \fBTKIP_DECRYPT_OK\fP = 0, \fBTKIP_DECRYPT_NO_EXT_IV\fP = -1, \fBTKIP_DECRYPT_INVALID_KEYIDX\fP = -2, \fBTKIP_DECRYPT_REPLAY\fP = -3 }"
+.br
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "u8 * \fBieee80211_tkip_add_iv\fP (u8 *pos, struct \fBieee80211_key\fP *key)"
+.br
+.ti -1c
+.RI "int \fBieee80211_tkip_encrypt_data\fP (struct crypto_cipher *tfm, struct \fBieee80211_key\fP *key, struct sk_buff *skb, u8 *payload, size_t payload_len)"
+.br
+.ti -1c
+.RI "int \fBieee80211_tkip_decrypt_data\fP (struct crypto_cipher *tfm, struct \fBieee80211_key\fP *key, u8 *payload, size_t payload_len, u8 *ta, u8 *ra, int only_iv, int queue, u32 *out_iv32, u16 *out_iv16)"
+.br
+.in -1c
+.SH "Enumeration Type Documentation"
+.PP 
+.SS "anonymous enum"
+
+.PP
+\fBEnumerator\fP
+.in +1c
+.TP
+\fB\fITKIP_DECRYPT_OK \fP\fP
+.TP
+\fB\fITKIP_DECRYPT_NO_EXT_IV \fP\fP
+.TP
+\fB\fITKIP_DECRYPT_INVALID_KEYIDX \fP\fP
+.TP
+\fB\fITKIP_DECRYPT_REPLAY \fP\fP
+.PP
+Definition at line 23 of file tkip\&.h\&.
+.SH "Function Documentation"
+.PP 
+.SS "u8* ieee80211_tkip_add_iv (u8 *pos, struct \fBieee80211_key\fP *key)"
+
+.PP
+Definition at line 145 of file tkip\&.c\&.
+.SS "int ieee80211_tkip_decrypt_data (struct crypto_cipher *tfm, struct \fBieee80211_key\fP *key, u8 *payload, size_tpayload_len, u8 *ta, u8 *ra, intonly_iv, intqueue, u32 *out_iv32, u16 *out_iv16)"
+
+.PP
+Definition at line 244 of file tkip\&.c\&.
+.SS "int ieee80211_tkip_encrypt_data (struct crypto_cipher *tfm, struct \fBieee80211_key\fP *key, struct sk_buff *skb, u8 *payload, size_tpayload_len)"
+
+.PP
+Definition at line 227 of file tkip\&.c\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for net_mac80211 from the source code\&.

@@ -1,0 +1,75 @@
+.TH "/home/guille/msm/net/mac80211/wep.h" 3 "Sun Jun 1 2014" "Version 1.0" "net_mac80211" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+/home/guille/msm/net/mac80211/wep.h \- 
+.SH SYNOPSIS
+.br
+.PP
+\fC#include <linux/skbuff\&.h>\fP
+.br
+\fC#include <linux/types\&.h>\fP
+.br
+\fC#include 'ieee80211_i\&.h'\fP
+.br
+\fC#include 'key\&.h'\fP
+.br
+
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "int \fBieee80211_wep_init\fP (struct \fBieee80211_local\fP *local)"
+.br
+.ti -1c
+.RI "void \fBieee80211_wep_free\fP (struct \fBieee80211_local\fP *local)"
+.br
+.ti -1c
+.RI "int \fBieee80211_wep_encrypt_data\fP (struct crypto_cipher *tfm, u8 *rc4key, size_t klen, u8 *data, size_t data_len)"
+.br
+.ti -1c
+.RI "int \fBieee80211_wep_encrypt\fP (struct \fBieee80211_local\fP *local, struct sk_buff *skb, const u8 *key, int keylen, int keyidx)"
+.br
+.ti -1c
+.RI "int \fBieee80211_wep_decrypt_data\fP (struct crypto_cipher *tfm, u8 *rc4key, size_t klen, u8 *data, size_t data_len)"
+.br
+.ti -1c
+.RI "\fBieee80211_rx_result\fP \fBieee80211_crypto_wep_decrypt\fP (struct \fBieee80211_rx_data\fP *rx)"
+.br
+.ti -1c
+.RI "\fBieee80211_tx_result\fP \fBieee80211_crypto_wep_encrypt\fP (struct \fBieee80211_tx_data\fP *tx)"
+.br
+.in -1c
+.SH "Function Documentation"
+.PP 
+.SS "\fBieee80211_rx_result\fP ieee80211_crypto_wep_decrypt (struct \fBieee80211_rx_data\fP *rx)"
+
+.PP
+Definition at line 282 of file wep\&.c\&.
+.SS "\fBieee80211_tx_result\fP ieee80211_crypto_wep_encrypt (struct \fBieee80211_tx_data\fP *tx)"
+
+.PP
+Definition at line 334 of file wep\&.c\&.
+.SS "int ieee80211_wep_decrypt_data (struct crypto_cipher *tfm, u8 *rc4key, size_tklen, u8 *data, size_tdata_len)"
+
+.PP
+Definition at line 186 of file wep\&.c\&.
+.SS "int ieee80211_wep_encrypt (struct \fBieee80211_local\fP *local, struct sk_buff *skb, const u8 *key, intkeylen, intkeyidx)"
+
+.PP
+Definition at line 155 of file wep\&.c\&.
+.SS "int ieee80211_wep_encrypt_data (struct crypto_cipher *tfm, u8 *rc4key, size_tklen, u8 *data, size_tdata_len)"
+
+.PP
+Definition at line 128 of file wep\&.c\&.
+.SS "void ieee80211_wep_free (struct \fBieee80211_local\fP *local)"
+
+.PP
+Definition at line 49 of file wep\&.c\&.
+.SS "int ieee80211_wep_init (struct \fBieee80211_local\fP *local)"
+
+.PP
+Definition at line 28 of file wep\&.c\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for net_mac80211 from the source code\&.

@@ -1,0 +1,58 @@
+.TH "/home/guille/msm/net/mac80211/rate.h" 3 "Sun Jun 1 2014" "Version 1.0" "net_mac80211" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+/home/guille/msm/net/mac80211/rate.h \- 
+.SH SYNOPSIS
+.br
+.PP
+\fC#include <linux/netdevice\&.h>\fP
+.br
+\fC#include <linux/skbuff\&.h>\fP
+.br
+\fC#include <linux/types\&.h>\fP
+.br
+\fC#include <net/mac80211\&.h>\fP
+.br
+\fC#include 'ieee80211_i\&.h'\fP
+.br
+\fC#include 'sta_info\&.h'\fP
+.br
+
+.SS "Data Structures"
+
+.in +1c
+.ti -1c
+.RI "struct \fBrate_control_ref\fP"
+.br
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBrate_control_get_rate\fP (struct \fBieee80211_sub_if_data\fP *sdata, struct \fBsta_info\fP *sta, struct ieee80211_tx_rate_control *txrc)"
+.br
+.ti -1c
+.RI "int \fBieee80211_init_rate_ctrl_alg\fP (struct \fBieee80211_local\fP *local, const char *name)"
+.br
+.ti -1c
+.RI "void \fBrate_control_deinitialize\fP (struct \fBieee80211_local\fP *local)"
+.br
+.in -1c
+.SH "Function Documentation"
+.PP 
+.SS "int ieee80211_init_rate_ctrl_alg (struct \fBieee80211_local\fP *local, const char *name)"
+
+.PP
+Definition at line 490 of file rate\&.c\&.
+.SS "void rate_control_deinitialize (struct \fBieee80211_local\fP *local)"
+
+.PP
+Definition at line 522 of file rate\&.c\&.
+.SS "void rate_control_get_rate (struct \fBieee80211_sub_if_data\fP *sdata, struct \fBsta_info\fP *sta, struct ieee80211_tx_rate_control *txrc)"
+
+.PP
+Definition at line 430 of file rate\&.c\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for net_mac80211 from the source code\&.

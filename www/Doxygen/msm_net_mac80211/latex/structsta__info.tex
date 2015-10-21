@@ -1,0 +1,444 @@
+\hypertarget{structsta__info}{\section{sta\-\_\-info Struct Reference}
+\label{structsta__info}\index{sta\-\_\-info@{sta\-\_\-info}}
+}
+
+
+{\ttfamily \#include $<$sta\-\_\-info.\-h$>$}
+
+
+
+Collaboration diagram for sta\-\_\-info\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{structsta__info__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+struct list\-\_\-head \hyperlink{structsta__info_a1f00f18b91d5a820f2c43064243aa86e}{list}
+\item 
+struct \hyperlink{structsta__info}{sta\-\_\-info} \-\_\-\-\_\-rcu $\ast$ \hyperlink{structsta__info_aa178703df252667045be48a8874eec89}{hnext}
+\item 
+struct \hyperlink{structieee80211__local}{ieee80211\-\_\-local} $\ast$ \hyperlink{structsta__info_ad436a024f420f219c4fe2eebce7e4ab2}{local}
+\item 
+struct \hyperlink{structieee80211__sub__if__data}{ieee80211\-\_\-sub\-\_\-if\-\_\-data} $\ast$ \hyperlink{structsta__info_ad829d8d33f06a7245cc303f924f259ac}{sdata}
+\item 
+struct \hyperlink{structieee80211__key}{ieee80211\-\_\-key} \-\_\-\-\_\-rcu $\ast$ \hyperlink{structsta__info_ac5aa183bc3b32140826a8d0fcbad185e}{gtk} \mbox{[}\hyperlink{key_8h_afc56a6aebd37a90bca92708898c4e80a}{N\-U\-M\-\_\-\-D\-E\-F\-A\-U\-L\-T\-\_\-\-K\-E\-Y\-S}+\hyperlink{key_8h_a7cb10042c995311e0b4dfa6a8cabdd11}{N\-U\-M\-\_\-\-D\-E\-F\-A\-U\-L\-T\-\_\-\-M\-G\-M\-T\-\_\-\-K\-E\-Y\-S}\mbox{]}
+\item 
+struct \hyperlink{structieee80211__key}{ieee80211\-\_\-key} \-\_\-\-\_\-rcu $\ast$ \hyperlink{structsta__info_a20cca2acd1f1b3a9435094e1f0b73092}{ptk}
+\item 
+struct \hyperlink{structrate__control__ref}{rate\-\_\-control\-\_\-ref} $\ast$ \hyperlink{structsta__info_a0f6ac21a75ada1908328210ec3b42667}{rate\-\_\-ctrl}
+\item 
+void $\ast$ \hyperlink{structsta__info_a4212dd3a8398e8cd2ccb74821fc2fad0}{rate\-\_\-ctrl\-\_\-priv}
+\item 
+spinlock\-\_\-t \hyperlink{structsta__info_a79cda015c79ff2b4c1444e3070f0bb5d}{lock}
+\item 
+struct work\-\_\-struct \hyperlink{structsta__info_a2c95e461fff888fae360c7a55a151223}{drv\-\_\-unblock\-\_\-wk}
+\item 
+u16 \hyperlink{structsta__info_a778b871f4950f5c807895a3267025b6c}{listen\-\_\-interval}
+\item 
+bool \hyperlink{structsta__info_a79810da189102ac7036cb8eca47d104d}{dead}
+\item 
+bool \hyperlink{structsta__info_a5a978acf843365688119db95ca4ba0b1}{uploaded}
+\item 
+enum ieee80211\-\_\-sta\-\_\-state \hyperlink{structsta__info_a0bb9a8b1f52f5d772f02e2421c893545}{sta\-\_\-state}
+\item 
+unsigned long \hyperlink{structsta__info_a8d0d1e503953e175f5716febfded04f0}{\-\_\-flags}
+\item 
+struct sk\-\_\-buff\-\_\-head \hyperlink{structsta__info_af43dd904dd2c48899bae7cff072a56b5}{ps\-\_\-tx\-\_\-buf} \mbox{[}I\-E\-E\-E80211\-\_\-\-N\-U\-M\-\_\-\-A\-C\-S\mbox{]}
+\item 
+struct sk\-\_\-buff\-\_\-head \hyperlink{structsta__info_a11b1213a5b6c2d45b8e5e4526ac01620}{tx\-\_\-filtered} \mbox{[}I\-E\-E\-E80211\-\_\-\-N\-U\-M\-\_\-\-A\-C\-S\mbox{]}
+\item 
+unsigned long \hyperlink{structsta__info_ad258a0c1471c80553236dd314610d03e}{driver\-\_\-buffered\-\_\-tids}
+\item 
+unsigned long \hyperlink{structsta__info_a056e6ed90717e599b8ee70649fcd14b0}{rx\-\_\-packets}
+\item 
+unsigned long \hyperlink{structsta__info_adfbb81d9e73e27eedc0750a0ea4cb7b7}{rx\-\_\-bytes}
+\item 
+unsigned long \hyperlink{structsta__info_a9eda8cff20a9c485782549583ccaac14}{wep\-\_\-weak\-\_\-iv\-\_\-count}
+\item 
+unsigned long \hyperlink{structsta__info_a2e9fc210260fb987fa6b767ef12930e7}{last\-\_\-rx}
+\item 
+long \hyperlink{structsta__info_a53686acd631d8f635a4c945952904896}{last\-\_\-connected}
+\item 
+unsigned long \hyperlink{structsta__info_a92103871c3849fc35afb2eefe76b249e}{num\-\_\-duplicates}
+\item 
+unsigned long \hyperlink{structsta__info_a5ac9d5a701fcf1a16343d0de95856e24}{rx\-\_\-fragments}
+\item 
+unsigned long \hyperlink{structsta__info_ac3653bc0393e5b307149b410d204ff5a}{rx\-\_\-dropped}
+\item 
+int \hyperlink{structsta__info_a1d01d8e411dc32dde1ab25208eab05f8}{last\-\_\-signal}
+\item 
+struct ewma \hyperlink{structsta__info_aa7659d752f4407855f0c482afbcd879f}{avg\-\_\-signal}
+\item 
+\-\_\-\-\_\-le16 \hyperlink{structsta__info_a1068cbcad5e62974b8a3a9e1de889b9f}{last\-\_\-seq\-\_\-ctrl} \mbox{[}\hyperlink{key_8h_a99cb7469613fea382d3951d37ee2c075}{N\-U\-M\-\_\-\-R\-X\-\_\-\-D\-A\-T\-A\-\_\-\-Q\-U\-E\-U\-E\-S}+1\mbox{]}
+\item 
+unsigned long \hyperlink{structsta__info_a4ea3ebbcb6af9d8f4f401897d2d16f13}{tx\-\_\-filtered\-\_\-count}
+\item 
+unsigned long \hyperlink{structsta__info_af0a03540f21240022f46246dd3fd1136}{tx\-\_\-retry\-\_\-failed}
+\item 
+unsigned long \hyperlink{structsta__info_ac0325bffa5a0874c0f3f62ec77ddbadf}{tx\-\_\-retry\-\_\-count}
+\item 
+unsigned int \hyperlink{structsta__info_a2e8ebe1593e8bfdb0696ad9adbab7209}{fail\-\_\-avg}
+\item 
+unsigned long \hyperlink{structsta__info_a04c4bb1c42d342d7b70a79c91a7ab2b7}{tx\-\_\-packets}
+\item 
+unsigned long \hyperlink{structsta__info_a7639b5284b79992ec806f00466ee1f24}{tx\-\_\-bytes}
+\item 
+unsigned long \hyperlink{structsta__info_ad4530b03477a3a0603c240e67c163ab9}{tx\-\_\-fragments}
+\item 
+struct ieee80211\-\_\-tx\-\_\-rate \hyperlink{structsta__info_a0691fc258d91f737d761976ad8c96118}{last\-\_\-tx\-\_\-rate}
+\item 
+int \hyperlink{structsta__info_a91ccafb08a519aa4bd9efdd330b3d6a9}{last\-\_\-rx\-\_\-rate\-\_\-idx}
+\item 
+int \hyperlink{structsta__info_a3ce20e50f9c3e0019984f7fce388ff53}{last\-\_\-rx\-\_\-rate\-\_\-flag}
+\item 
+u16 \hyperlink{structsta__info_a51a374321b9b3f2f41ec59ed2dc0eca9}{tid\-\_\-seq} \mbox{[}I\-E\-E\-E80211\-\_\-\-Q\-O\-S\-\_\-\-C\-T\-L\-\_\-\-T\-I\-D\-\_\-\-M\-A\-S\-K+1\mbox{]}
+\item 
+struct \hyperlink{structsta__ampdu__mlme}{sta\-\_\-ampdu\-\_\-mlme} \hyperlink{structsta__info_ad42a305af8f3528d28546f33350e4473}{ampdu\-\_\-mlme}
+\item 
+u8 \hyperlink{structsta__info_ab892eac21bd848831f225404459d91ff}{timer\-\_\-to\-\_\-tid} \mbox{[}\hyperlink{sta__info_8h_a8376226f35c3c806965ac03355cc1a00}{S\-T\-A\-\_\-\-T\-I\-D\-\_\-\-N\-U\-M}\mbox{]}
+\item 
+unsigned int \hyperlink{structsta__info_ab7d0bdf10d99357afd115dd2c9926cb9}{lost\-\_\-packets}
+\item 
+unsigned int \hyperlink{structsta__info_a2d5a8a52432b6f6ab32bcb069ca3115a}{beacon\-\_\-loss\-\_\-count}
+\item 
+struct ieee80211\-\_\-sta \hyperlink{structsta__info_a10bf230d5f2e241e9de2a67c2da53d4e}{sta}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+struct \hyperlink{structsta__info}{sta\-\_\-info} -\/ S\-T\-A information
+
+This structure collects information about a station that mac80211 is communicating with.
+
+\-: global linked list entry \-: hash table linked list pointer \-: pointer to the global information \-: virtual interface this station belongs to \-: peer key negotiated with this station, if any \-: group keys negotiated with this station, if any \-: rate control algorithm reference \-: rate control private per-\/\-S\-T\-A pointer \-: rate used for last transmit, to report to userspace as \char`\"{}the\char`\"{} transmit rate \-: rx status rate index of the last data packet \-: rx status flag of the last data packet \-: used for locking all fields that require locking, see comments in the header file. \-: used for driver P\-S unblocking \-: listen interval of this station, when we're acting as A\-P \-: S\-T\-A flags, see \&enum ieee80211\-\_\-sta\-\_\-info\-\_\-flags, do not use directly \-: buffers (per A\-C) of frames to transmit to this station when it leaves power saving state or polls \-: buffers (per A\-C) of frames we already tried to transmit but were filtered by hardware due to S\-T\-A having entered power saving state, these are also delivered to the station when it leaves powersave or polls for frames \-: bitmap of T\-I\-Ds the driver has data buffered on \-: Number of M\-S\-D\-Us received from this S\-T\-A \-: Number of bytes received from this S\-T\-A \-: number of weak W\-E\-P I\-Vs received from this station \-: time (in jiffies) when last frame was received from this S\-T\-A \-: time (in seconds) when a station got connected \-: number of duplicate frames received from this S\-T\-A \-: number of received M\-P\-D\-Us \-: number of dropped M\-P\-D\-Us from this S\-T\-A \-: signal of last received frame from this S\-T\-A \-: moving average of signal of received frames from this S\-T\-A \-: last received seq/frag number from this S\-T\-A (per R\-X queue) \-: number of frames the hardware filtered for this S\-T\-A \-: number of frames that failed retry \-: total number of retries for frames to this S\-T\-A \-: moving percentage of failed M\-S\-D\-Us \-: number of R\-X/\-T\-X M\-S\-D\-Us \-: number of bytes transmitted to this S\-T\-A \-: number of transmitted M\-P\-D\-Us \-: per-\/\-T\-I\-D sequence numbers for sending to this S\-T\-A \-: A-\/\-M\-P\-D\-U state machine state \-: identity mapping to I\-D timers \-: Local link I\-D \-: Peer link I\-D \-: Cancel reason on P\-L\-I\-N\-K\-\_\-\-H\-O\-L\-D\-I\-N\-G state \-: Retries in establishment \-: ignore the peer-\/link timer (used internally) \-: peer link state \-: timeout of peer link \-: peer link watch timer \-: used by suspend/resume to restore timers \-: debug filesystem info \-: set to true when sta is unlinked \-: set to true when sta is uploaded to the driver \-: number of consecutive lost packets \-: station information we share with the driver \-: duplicates information about station state (for debug) \-: number of times beacon loss has triggered 
+
+Definition at line 275 of file sta\-\_\-info.\-h.
+
+
+
+\subsection{Field Documentation}
+\hypertarget{structsta__info_a8d0d1e503953e175f5716febfded04f0}{\index{sta\-\_\-info@{sta\-\_\-info}!\-\_\-flags@{\-\_\-flags}}
+\index{\-\_\-flags@{\-\_\-flags}!sta_info@{sta\-\_\-info}}
+\subsubsection[{\-\_\-flags}]{\setlength{\rightskip}{0pt plus 5cm}unsigned long \-\_\-flags}}\label{structsta__info_a8d0d1e503953e175f5716febfded04f0}
+
+
+Definition at line 298 of file sta\-\_\-info.\-h.
+
+\hypertarget{structsta__info_ad42a305af8f3528d28546f33350e4473}{\index{sta\-\_\-info@{sta\-\_\-info}!ampdu\-\_\-mlme@{ampdu\-\_\-mlme}}
+\index{ampdu\-\_\-mlme@{ampdu\-\_\-mlme}!sta_info@{sta\-\_\-info}}
+\subsubsection[{ampdu\-\_\-mlme}]{\setlength{\rightskip}{0pt plus 5cm}struct {\bf sta\-\_\-ampdu\-\_\-mlme} ampdu\-\_\-mlme}}\label{structsta__info_ad42a305af8f3528d28546f33350e4473}
+
+
+Definition at line 339 of file sta\-\_\-info.\-h.
+
+\hypertarget{structsta__info_aa7659d752f4407855f0c482afbcd879f}{\index{sta\-\_\-info@{sta\-\_\-info}!avg\-\_\-signal@{avg\-\_\-signal}}
+\index{avg\-\_\-signal@{avg\-\_\-signal}!sta_info@{sta\-\_\-info}}
+\subsubsection[{avg\-\_\-signal}]{\setlength{\rightskip}{0pt plus 5cm}struct ewma avg\-\_\-signal}}\label{structsta__info_aa7659d752f4407855f0c482afbcd879f}
+
+
+Definition at line 317 of file sta\-\_\-info.\-h.
+
+\hypertarget{structsta__info_a2d5a8a52432b6f6ab32bcb069ca3115a}{\index{sta\-\_\-info@{sta\-\_\-info}!beacon\-\_\-loss\-\_\-count@{beacon\-\_\-loss\-\_\-count}}
+\index{beacon\-\_\-loss\-\_\-count@{beacon\-\_\-loss\-\_\-count}!sta_info@{sta\-\_\-info}}
+\subsubsection[{beacon\-\_\-loss\-\_\-count}]{\setlength{\rightskip}{0pt plus 5cm}unsigned int beacon\-\_\-loss\-\_\-count}}\label{structsta__info_a2d5a8a52432b6f6ab32bcb069ca3115a}
+
+
+Definition at line 366 of file sta\-\_\-info.\-h.
+
+\hypertarget{structsta__info_a79810da189102ac7036cb8eca47d104d}{\index{sta\-\_\-info@{sta\-\_\-info}!dead@{dead}}
+\index{dead@{dead}!sta_info@{sta\-\_\-info}}
+\subsubsection[{dead}]{\setlength{\rightskip}{0pt plus 5cm}bool dead}}\label{structsta__info_a79810da189102ac7036cb8eca47d104d}
+
+
+Definition at line 291 of file sta\-\_\-info.\-h.
+
+\hypertarget{structsta__info_ad258a0c1471c80553236dd314610d03e}{\index{sta\-\_\-info@{sta\-\_\-info}!driver\-\_\-buffered\-\_\-tids@{driver\-\_\-buffered\-\_\-tids}}
+\index{driver\-\_\-buffered\-\_\-tids@{driver\-\_\-buffered\-\_\-tids}!sta_info@{sta\-\_\-info}}
+\subsubsection[{driver\-\_\-buffered\-\_\-tids}]{\setlength{\rightskip}{0pt plus 5cm}unsigned long driver\-\_\-buffered\-\_\-tids}}\label{structsta__info_ad258a0c1471c80553236dd314610d03e}
+
+
+Definition at line 306 of file sta\-\_\-info.\-h.
+
+\hypertarget{structsta__info_a2c95e461fff888fae360c7a55a151223}{\index{sta\-\_\-info@{sta\-\_\-info}!drv\-\_\-unblock\-\_\-wk@{drv\-\_\-unblock\-\_\-wk}}
+\index{drv\-\_\-unblock\-\_\-wk@{drv\-\_\-unblock\-\_\-wk}!sta_info@{sta\-\_\-info}}
+\subsubsection[{drv\-\_\-unblock\-\_\-wk}]{\setlength{\rightskip}{0pt plus 5cm}struct work\-\_\-struct drv\-\_\-unblock\-\_\-wk}}\label{structsta__info_a2c95e461fff888fae360c7a55a151223}
+
+
+Definition at line 287 of file sta\-\_\-info.\-h.
+
+\hypertarget{structsta__info_a2e8ebe1593e8bfdb0696ad9adbab7209}{\index{sta\-\_\-info@{sta\-\_\-info}!fail\-\_\-avg@{fail\-\_\-avg}}
+\index{fail\-\_\-avg@{fail\-\_\-avg}!sta_info@{sta\-\_\-info}}
+\subsubsection[{fail\-\_\-avg}]{\setlength{\rightskip}{0pt plus 5cm}unsigned int fail\-\_\-avg}}\label{structsta__info_a2e8ebe1593e8bfdb0696ad9adbab7209}
+
+
+Definition at line 325 of file sta\-\_\-info.\-h.
+
+\hypertarget{structsta__info_ac5aa183bc3b32140826a8d0fcbad185e}{\index{sta\-\_\-info@{sta\-\_\-info}!gtk@{gtk}}
+\index{gtk@{gtk}!sta_info@{sta\-\_\-info}}
+\subsubsection[{gtk}]{\setlength{\rightskip}{0pt plus 5cm}struct {\bf ieee80211\-\_\-key} \-\_\-\-\_\-rcu$\ast$ gtk\mbox{[}{\bf N\-U\-M\-\_\-\-D\-E\-F\-A\-U\-L\-T\-\_\-\-K\-E\-Y\-S}+{\bf N\-U\-M\-\_\-\-D\-E\-F\-A\-U\-L\-T\-\_\-\-M\-G\-M\-T\-\_\-\-K\-E\-Y\-S}\mbox{]}}}\label{structsta__info_ac5aa183bc3b32140826a8d0fcbad185e}
+
+
+Definition at line 281 of file sta\-\_\-info.\-h.
+
+\hypertarget{structsta__info_aa178703df252667045be48a8874eec89}{\index{sta\-\_\-info@{sta\-\_\-info}!hnext@{hnext}}
+\index{hnext@{hnext}!sta_info@{sta\-\_\-info}}
+\subsubsection[{hnext}]{\setlength{\rightskip}{0pt plus 5cm}struct {\bf sta\-\_\-info} \-\_\-\-\_\-rcu$\ast$ hnext}}\label{structsta__info_aa178703df252667045be48a8874eec89}
+
+
+Definition at line 278 of file sta\-\_\-info.\-h.
+
+\hypertarget{structsta__info_a53686acd631d8f635a4c945952904896}{\index{sta\-\_\-info@{sta\-\_\-info}!last\-\_\-connected@{last\-\_\-connected}}
+\index{last\-\_\-connected@{last\-\_\-connected}!sta_info@{sta\-\_\-info}}
+\subsubsection[{last\-\_\-connected}]{\setlength{\rightskip}{0pt plus 5cm}long last\-\_\-connected}}\label{structsta__info_a53686acd631d8f635a4c945952904896}
+
+
+Definition at line 312 of file sta\-\_\-info.\-h.
+
+\hypertarget{structsta__info_a2e9fc210260fb987fa6b767ef12930e7}{\index{sta\-\_\-info@{sta\-\_\-info}!last\-\_\-rx@{last\-\_\-rx}}
+\index{last\-\_\-rx@{last\-\_\-rx}!sta_info@{sta\-\_\-info}}
+\subsubsection[{last\-\_\-rx}]{\setlength{\rightskip}{0pt plus 5cm}unsigned long last\-\_\-rx}}\label{structsta__info_a2e9fc210260fb987fa6b767ef12930e7}
+
+
+Definition at line 311 of file sta\-\_\-info.\-h.
+
+\hypertarget{structsta__info_a3ce20e50f9c3e0019984f7fce388ff53}{\index{sta\-\_\-info@{sta\-\_\-info}!last\-\_\-rx\-\_\-rate\-\_\-flag@{last\-\_\-rx\-\_\-rate\-\_\-flag}}
+\index{last\-\_\-rx\-\_\-rate\-\_\-flag@{last\-\_\-rx\-\_\-rate\-\_\-flag}!sta_info@{sta\-\_\-info}}
+\subsubsection[{last\-\_\-rx\-\_\-rate\-\_\-flag}]{\setlength{\rightskip}{0pt plus 5cm}int last\-\_\-rx\-\_\-rate\-\_\-flag}}\label{structsta__info_a3ce20e50f9c3e0019984f7fce388ff53}
+
+
+Definition at line 333 of file sta\-\_\-info.\-h.
+
+\hypertarget{structsta__info_a91ccafb08a519aa4bd9efdd330b3d6a9}{\index{sta\-\_\-info@{sta\-\_\-info}!last\-\_\-rx\-\_\-rate\-\_\-idx@{last\-\_\-rx\-\_\-rate\-\_\-idx}}
+\index{last\-\_\-rx\-\_\-rate\-\_\-idx@{last\-\_\-rx\-\_\-rate\-\_\-idx}!sta_info@{sta\-\_\-info}}
+\subsubsection[{last\-\_\-rx\-\_\-rate\-\_\-idx}]{\setlength{\rightskip}{0pt plus 5cm}int last\-\_\-rx\-\_\-rate\-\_\-idx}}\label{structsta__info_a91ccafb08a519aa4bd9efdd330b3d6a9}
+
+
+Definition at line 332 of file sta\-\_\-info.\-h.
+
+\hypertarget{structsta__info_a1068cbcad5e62974b8a3a9e1de889b9f}{\index{sta\-\_\-info@{sta\-\_\-info}!last\-\_\-seq\-\_\-ctrl@{last\-\_\-seq\-\_\-ctrl}}
+\index{last\-\_\-seq\-\_\-ctrl@{last\-\_\-seq\-\_\-ctrl}!sta_info@{sta\-\_\-info}}
+\subsubsection[{last\-\_\-seq\-\_\-ctrl}]{\setlength{\rightskip}{0pt plus 5cm}\-\_\-\-\_\-le16 last\-\_\-seq\-\_\-ctrl\mbox{[}{\bf N\-U\-M\-\_\-\-R\-X\-\_\-\-D\-A\-T\-A\-\_\-\-Q\-U\-E\-U\-E\-S}+1\mbox{]}}}\label{structsta__info_a1068cbcad5e62974b8a3a9e1de889b9f}
+
+
+Definition at line 319 of file sta\-\_\-info.\-h.
+
+\hypertarget{structsta__info_a1d01d8e411dc32dde1ab25208eab05f8}{\index{sta\-\_\-info@{sta\-\_\-info}!last\-\_\-signal@{last\-\_\-signal}}
+\index{last\-\_\-signal@{last\-\_\-signal}!sta_info@{sta\-\_\-info}}
+\subsubsection[{last\-\_\-signal}]{\setlength{\rightskip}{0pt plus 5cm}int last\-\_\-signal}}\label{structsta__info_a1d01d8e411dc32dde1ab25208eab05f8}
+
+
+Definition at line 316 of file sta\-\_\-info.\-h.
+
+\hypertarget{structsta__info_a0691fc258d91f737d761976ad8c96118}{\index{sta\-\_\-info@{sta\-\_\-info}!last\-\_\-tx\-\_\-rate@{last\-\_\-tx\-\_\-rate}}
+\index{last\-\_\-tx\-\_\-rate@{last\-\_\-tx\-\_\-rate}!sta_info@{sta\-\_\-info}}
+\subsubsection[{last\-\_\-tx\-\_\-rate}]{\setlength{\rightskip}{0pt plus 5cm}struct ieee80211\-\_\-tx\-\_\-rate last\-\_\-tx\-\_\-rate}}\label{structsta__info_a0691fc258d91f737d761976ad8c96118}
+
+
+Definition at line 331 of file sta\-\_\-info.\-h.
+
+\hypertarget{structsta__info_a1f00f18b91d5a820f2c43064243aa86e}{\index{sta\-\_\-info@{sta\-\_\-info}!list@{list}}
+\index{list@{list}!sta_info@{sta\-\_\-info}}
+\subsubsection[{list}]{\setlength{\rightskip}{0pt plus 5cm}struct list\-\_\-head list}}\label{structsta__info_a1f00f18b91d5a820f2c43064243aa86e}
+
+
+Definition at line 277 of file sta\-\_\-info.\-h.
+
+\hypertarget{structsta__info_a778b871f4950f5c807895a3267025b6c}{\index{sta\-\_\-info@{sta\-\_\-info}!listen\-\_\-interval@{listen\-\_\-interval}}
+\index{listen\-\_\-interval@{listen\-\_\-interval}!sta_info@{sta\-\_\-info}}
+\subsubsection[{listen\-\_\-interval}]{\setlength{\rightskip}{0pt plus 5cm}u16 listen\-\_\-interval}}\label{structsta__info_a778b871f4950f5c807895a3267025b6c}
+
+
+Definition at line 289 of file sta\-\_\-info.\-h.
+
+\hypertarget{structsta__info_ad436a024f420f219c4fe2eebce7e4ab2}{\index{sta\-\_\-info@{sta\-\_\-info}!local@{local}}
+\index{local@{local}!sta_info@{sta\-\_\-info}}
+\subsubsection[{local}]{\setlength{\rightskip}{0pt plus 5cm}struct {\bf ieee80211\-\_\-local}$\ast$ local}}\label{structsta__info_ad436a024f420f219c4fe2eebce7e4ab2}
+
+
+Definition at line 279 of file sta\-\_\-info.\-h.
+
+\hypertarget{structsta__info_a79cda015c79ff2b4c1444e3070f0bb5d}{\index{sta\-\_\-info@{sta\-\_\-info}!lock@{lock}}
+\index{lock@{lock}!sta_info@{sta\-\_\-info}}
+\subsubsection[{lock}]{\setlength{\rightskip}{0pt plus 5cm}spinlock\-\_\-t lock}}\label{structsta__info_a79cda015c79ff2b4c1444e3070f0bb5d}
+
+
+Definition at line 285 of file sta\-\_\-info.\-h.
+
+\hypertarget{structsta__info_ab7d0bdf10d99357afd115dd2c9926cb9}{\index{sta\-\_\-info@{sta\-\_\-info}!lost\-\_\-packets@{lost\-\_\-packets}}
+\index{lost\-\_\-packets@{lost\-\_\-packets}!sta_info@{sta\-\_\-info}}
+\subsubsection[{lost\-\_\-packets}]{\setlength{\rightskip}{0pt plus 5cm}unsigned int lost\-\_\-packets}}\label{structsta__info_ab7d0bdf10d99357afd115dd2c9926cb9}
+
+
+Definition at line 365 of file sta\-\_\-info.\-h.
+
+\hypertarget{structsta__info_a92103871c3849fc35afb2eefe76b249e}{\index{sta\-\_\-info@{sta\-\_\-info}!num\-\_\-duplicates@{num\-\_\-duplicates}}
+\index{num\-\_\-duplicates@{num\-\_\-duplicates}!sta_info@{sta\-\_\-info}}
+\subsubsection[{num\-\_\-duplicates}]{\setlength{\rightskip}{0pt plus 5cm}unsigned long num\-\_\-duplicates}}\label{structsta__info_a92103871c3849fc35afb2eefe76b249e}
+
+
+Definition at line 313 of file sta\-\_\-info.\-h.
+
+\hypertarget{structsta__info_af43dd904dd2c48899bae7cff072a56b5}{\index{sta\-\_\-info@{sta\-\_\-info}!ps\-\_\-tx\-\_\-buf@{ps\-\_\-tx\-\_\-buf}}
+\index{ps\-\_\-tx\-\_\-buf@{ps\-\_\-tx\-\_\-buf}!sta_info@{sta\-\_\-info}}
+\subsubsection[{ps\-\_\-tx\-\_\-buf}]{\setlength{\rightskip}{0pt plus 5cm}struct sk\-\_\-buff\-\_\-head ps\-\_\-tx\-\_\-buf\mbox{[}I\-E\-E\-E80211\-\_\-\-N\-U\-M\-\_\-\-A\-C\-S\mbox{]}}}\label{structsta__info_af43dd904dd2c48899bae7cff072a56b5}
+
+
+Definition at line 304 of file sta\-\_\-info.\-h.
+
+\hypertarget{structsta__info_a20cca2acd1f1b3a9435094e1f0b73092}{\index{sta\-\_\-info@{sta\-\_\-info}!ptk@{ptk}}
+\index{ptk@{ptk}!sta_info@{sta\-\_\-info}}
+\subsubsection[{ptk}]{\setlength{\rightskip}{0pt plus 5cm}struct {\bf ieee80211\-\_\-key} \-\_\-\-\_\-rcu$\ast$ ptk}}\label{structsta__info_a20cca2acd1f1b3a9435094e1f0b73092}
+
+
+Definition at line 282 of file sta\-\_\-info.\-h.
+
+\hypertarget{structsta__info_a0f6ac21a75ada1908328210ec3b42667}{\index{sta\-\_\-info@{sta\-\_\-info}!rate\-\_\-ctrl@{rate\-\_\-ctrl}}
+\index{rate\-\_\-ctrl@{rate\-\_\-ctrl}!sta_info@{sta\-\_\-info}}
+\subsubsection[{rate\-\_\-ctrl}]{\setlength{\rightskip}{0pt plus 5cm}struct {\bf rate\-\_\-control\-\_\-ref}$\ast$ rate\-\_\-ctrl}}\label{structsta__info_a0f6ac21a75ada1908328210ec3b42667}
+
+
+Definition at line 283 of file sta\-\_\-info.\-h.
+
+\hypertarget{structsta__info_a4212dd3a8398e8cd2ccb74821fc2fad0}{\index{sta\-\_\-info@{sta\-\_\-info}!rate\-\_\-ctrl\-\_\-priv@{rate\-\_\-ctrl\-\_\-priv}}
+\index{rate\-\_\-ctrl\-\_\-priv@{rate\-\_\-ctrl\-\_\-priv}!sta_info@{sta\-\_\-info}}
+\subsubsection[{rate\-\_\-ctrl\-\_\-priv}]{\setlength{\rightskip}{0pt plus 5cm}void$\ast$ rate\-\_\-ctrl\-\_\-priv}}\label{structsta__info_a4212dd3a8398e8cd2ccb74821fc2fad0}
+
+
+Definition at line 284 of file sta\-\_\-info.\-h.
+
+\hypertarget{structsta__info_adfbb81d9e73e27eedc0750a0ea4cb7b7}{\index{sta\-\_\-info@{sta\-\_\-info}!rx\-\_\-bytes@{rx\-\_\-bytes}}
+\index{rx\-\_\-bytes@{rx\-\_\-bytes}!sta_info@{sta\-\_\-info}}
+\subsubsection[{rx\-\_\-bytes}]{\setlength{\rightskip}{0pt plus 5cm}unsigned long rx\-\_\-bytes}}\label{structsta__info_adfbb81d9e73e27eedc0750a0ea4cb7b7}
+
+
+Definition at line 309 of file sta\-\_\-info.\-h.
+
+\hypertarget{structsta__info_ac3653bc0393e5b307149b410d204ff5a}{\index{sta\-\_\-info@{sta\-\_\-info}!rx\-\_\-dropped@{rx\-\_\-dropped}}
+\index{rx\-\_\-dropped@{rx\-\_\-dropped}!sta_info@{sta\-\_\-info}}
+\subsubsection[{rx\-\_\-dropped}]{\setlength{\rightskip}{0pt plus 5cm}unsigned long rx\-\_\-dropped}}\label{structsta__info_ac3653bc0393e5b307149b410d204ff5a}
+
+
+Definition at line 315 of file sta\-\_\-info.\-h.
+
+\hypertarget{structsta__info_a5ac9d5a701fcf1a16343d0de95856e24}{\index{sta\-\_\-info@{sta\-\_\-info}!rx\-\_\-fragments@{rx\-\_\-fragments}}
+\index{rx\-\_\-fragments@{rx\-\_\-fragments}!sta_info@{sta\-\_\-info}}
+\subsubsection[{rx\-\_\-fragments}]{\setlength{\rightskip}{0pt plus 5cm}unsigned long rx\-\_\-fragments}}\label{structsta__info_a5ac9d5a701fcf1a16343d0de95856e24}
+
+
+Definition at line 314 of file sta\-\_\-info.\-h.
+
+\hypertarget{structsta__info_a056e6ed90717e599b8ee70649fcd14b0}{\index{sta\-\_\-info@{sta\-\_\-info}!rx\-\_\-packets@{rx\-\_\-packets}}
+\index{rx\-\_\-packets@{rx\-\_\-packets}!sta_info@{sta\-\_\-info}}
+\subsubsection[{rx\-\_\-packets}]{\setlength{\rightskip}{0pt plus 5cm}unsigned long rx\-\_\-packets}}\label{structsta__info_a056e6ed90717e599b8ee70649fcd14b0}
+
+
+Definition at line 309 of file sta\-\_\-info.\-h.
+
+\hypertarget{structsta__info_ad829d8d33f06a7245cc303f924f259ac}{\index{sta\-\_\-info@{sta\-\_\-info}!sdata@{sdata}}
+\index{sdata@{sdata}!sta_info@{sta\-\_\-info}}
+\subsubsection[{sdata}]{\setlength{\rightskip}{0pt plus 5cm}struct {\bf ieee80211\-\_\-sub\-\_\-if\-\_\-data}$\ast$ sdata}}\label{structsta__info_ad829d8d33f06a7245cc303f924f259ac}
+
+
+Definition at line 280 of file sta\-\_\-info.\-h.
+
+\hypertarget{structsta__info_a10bf230d5f2e241e9de2a67c2da53d4e}{\index{sta\-\_\-info@{sta\-\_\-info}!sta@{sta}}
+\index{sta@{sta}!sta_info@{sta\-\_\-info}}
+\subsubsection[{sta}]{\setlength{\rightskip}{0pt plus 5cm}struct ieee80211\-\_\-sta sta}}\label{structsta__info_a10bf230d5f2e241e9de2a67c2da53d4e}
+
+
+Definition at line 369 of file sta\-\_\-info.\-h.
+
+\hypertarget{structsta__info_a0bb9a8b1f52f5d772f02e2421c893545}{\index{sta\-\_\-info@{sta\-\_\-info}!sta\-\_\-state@{sta\-\_\-state}}
+\index{sta\-\_\-state@{sta\-\_\-state}!sta_info@{sta\-\_\-info}}
+\subsubsection[{sta\-\_\-state}]{\setlength{\rightskip}{0pt plus 5cm}enum ieee80211\-\_\-sta\-\_\-state sta\-\_\-state}}\label{structsta__info_a0bb9a8b1f52f5d772f02e2421c893545}
+
+
+Definition at line 295 of file sta\-\_\-info.\-h.
+
+\hypertarget{structsta__info_a51a374321b9b3f2f41ec59ed2dc0eca9}{\index{sta\-\_\-info@{sta\-\_\-info}!tid\-\_\-seq@{tid\-\_\-seq}}
+\index{tid\-\_\-seq@{tid\-\_\-seq}!sta_info@{sta\-\_\-info}}
+\subsubsection[{tid\-\_\-seq}]{\setlength{\rightskip}{0pt plus 5cm}u16 tid\-\_\-seq\mbox{[}I\-E\-E\-E80211\-\_\-\-Q\-O\-S\-\_\-\-C\-T\-L\-\_\-\-T\-I\-D\-\_\-\-M\-A\-S\-K+1\mbox{]}}}\label{structsta__info_a51a374321b9b3f2f41ec59ed2dc0eca9}
+
+
+Definition at line 334 of file sta\-\_\-info.\-h.
+
+\hypertarget{structsta__info_ab892eac21bd848831f225404459d91ff}{\index{sta\-\_\-info@{sta\-\_\-info}!timer\-\_\-to\-\_\-tid@{timer\-\_\-to\-\_\-tid}}
+\index{timer\-\_\-to\-\_\-tid@{timer\-\_\-to\-\_\-tid}!sta_info@{sta\-\_\-info}}
+\subsubsection[{timer\-\_\-to\-\_\-tid}]{\setlength{\rightskip}{0pt plus 5cm}u8 timer\-\_\-to\-\_\-tid\mbox{[}{\bf S\-T\-A\-\_\-\-T\-I\-D\-\_\-\-N\-U\-M}\mbox{]}}}\label{structsta__info_ab892eac21bd848831f225404459d91ff}
+
+
+Definition at line 340 of file sta\-\_\-info.\-h.
+
+\hypertarget{structsta__info_a7639b5284b79992ec806f00466ee1f24}{\index{sta\-\_\-info@{sta\-\_\-info}!tx\-\_\-bytes@{tx\-\_\-bytes}}
+\index{tx\-\_\-bytes@{tx\-\_\-bytes}!sta_info@{sta\-\_\-info}}
+\subsubsection[{tx\-\_\-bytes}]{\setlength{\rightskip}{0pt plus 5cm}unsigned long tx\-\_\-bytes}}\label{structsta__info_a7639b5284b79992ec806f00466ee1f24}
+
+
+Definition at line 329 of file sta\-\_\-info.\-h.
+
+\hypertarget{structsta__info_a11b1213a5b6c2d45b8e5e4526ac01620}{\index{sta\-\_\-info@{sta\-\_\-info}!tx\-\_\-filtered@{tx\-\_\-filtered}}
+\index{tx\-\_\-filtered@{tx\-\_\-filtered}!sta_info@{sta\-\_\-info}}
+\subsubsection[{tx\-\_\-filtered}]{\setlength{\rightskip}{0pt plus 5cm}struct sk\-\_\-buff\-\_\-head tx\-\_\-filtered\mbox{[}I\-E\-E\-E80211\-\_\-\-N\-U\-M\-\_\-\-A\-C\-S\mbox{]}}}\label{structsta__info_a11b1213a5b6c2d45b8e5e4526ac01620}
+
+
+Definition at line 305 of file sta\-\_\-info.\-h.
+
+\hypertarget{structsta__info_a4ea3ebbcb6af9d8f4f401897d2d16f13}{\index{sta\-\_\-info@{sta\-\_\-info}!tx\-\_\-filtered\-\_\-count@{tx\-\_\-filtered\-\_\-count}}
+\index{tx\-\_\-filtered\-\_\-count@{tx\-\_\-filtered\-\_\-count}!sta_info@{sta\-\_\-info}}
+\subsubsection[{tx\-\_\-filtered\-\_\-count}]{\setlength{\rightskip}{0pt plus 5cm}unsigned long tx\-\_\-filtered\-\_\-count}}\label{structsta__info_a4ea3ebbcb6af9d8f4f401897d2d16f13}
+
+
+Definition at line 322 of file sta\-\_\-info.\-h.
+
+\hypertarget{structsta__info_ad4530b03477a3a0603c240e67c163ab9}{\index{sta\-\_\-info@{sta\-\_\-info}!tx\-\_\-fragments@{tx\-\_\-fragments}}
+\index{tx\-\_\-fragments@{tx\-\_\-fragments}!sta_info@{sta\-\_\-info}}
+\subsubsection[{tx\-\_\-fragments}]{\setlength{\rightskip}{0pt plus 5cm}unsigned long tx\-\_\-fragments}}\label{structsta__info_ad4530b03477a3a0603c240e67c163ab9}
+
+
+Definition at line 330 of file sta\-\_\-info.\-h.
+
+\hypertarget{structsta__info_a04c4bb1c42d342d7b70a79c91a7ab2b7}{\index{sta\-\_\-info@{sta\-\_\-info}!tx\-\_\-packets@{tx\-\_\-packets}}
+\index{tx\-\_\-packets@{tx\-\_\-packets}!sta_info@{sta\-\_\-info}}
+\subsubsection[{tx\-\_\-packets}]{\setlength{\rightskip}{0pt plus 5cm}unsigned long tx\-\_\-packets}}\label{structsta__info_a04c4bb1c42d342d7b70a79c91a7ab2b7}
+
+
+Definition at line 328 of file sta\-\_\-info.\-h.
+
+\hypertarget{structsta__info_ac0325bffa5a0874c0f3f62ec77ddbadf}{\index{sta\-\_\-info@{sta\-\_\-info}!tx\-\_\-retry\-\_\-count@{tx\-\_\-retry\-\_\-count}}
+\index{tx\-\_\-retry\-\_\-count@{tx\-\_\-retry\-\_\-count}!sta_info@{sta\-\_\-info}}
+\subsubsection[{tx\-\_\-retry\-\_\-count}]{\setlength{\rightskip}{0pt plus 5cm}unsigned long tx\-\_\-retry\-\_\-count}}\label{structsta__info_ac0325bffa5a0874c0f3f62ec77ddbadf}
+
+
+Definition at line 323 of file sta\-\_\-info.\-h.
+
+\hypertarget{structsta__info_af0a03540f21240022f46246dd3fd1136}{\index{sta\-\_\-info@{sta\-\_\-info}!tx\-\_\-retry\-\_\-failed@{tx\-\_\-retry\-\_\-failed}}
+\index{tx\-\_\-retry\-\_\-failed@{tx\-\_\-retry\-\_\-failed}!sta_info@{sta\-\_\-info}}
+\subsubsection[{tx\-\_\-retry\-\_\-failed}]{\setlength{\rightskip}{0pt plus 5cm}unsigned long tx\-\_\-retry\-\_\-failed}}\label{structsta__info_af0a03540f21240022f46246dd3fd1136}
+
+
+Definition at line 323 of file sta\-\_\-info.\-h.
+
+\hypertarget{structsta__info_a5a978acf843365688119db95ca4ba0b1}{\index{sta\-\_\-info@{sta\-\_\-info}!uploaded@{uploaded}}
+\index{uploaded@{uploaded}!sta_info@{sta\-\_\-info}}
+\subsubsection[{uploaded}]{\setlength{\rightskip}{0pt plus 5cm}bool uploaded}}\label{structsta__info_a5a978acf843365688119db95ca4ba0b1}
+
+
+Definition at line 293 of file sta\-\_\-info.\-h.
+
+\hypertarget{structsta__info_a9eda8cff20a9c485782549583ccaac14}{\index{sta\-\_\-info@{sta\-\_\-info}!wep\-\_\-weak\-\_\-iv\-\_\-count@{wep\-\_\-weak\-\_\-iv\-\_\-count}}
+\index{wep\-\_\-weak\-\_\-iv\-\_\-count@{wep\-\_\-weak\-\_\-iv\-\_\-count}!sta_info@{sta\-\_\-info}}
+\subsubsection[{wep\-\_\-weak\-\_\-iv\-\_\-count}]{\setlength{\rightskip}{0pt plus 5cm}unsigned long wep\-\_\-weak\-\_\-iv\-\_\-count}}\label{structsta__info_a9eda8cff20a9c485782549583ccaac14}
+
+
+Definition at line 310 of file sta\-\_\-info.\-h.
+
+
+
+The documentation for this struct was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+/home/guille/msm/net/mac80211/\hyperlink{sta__info_8h}{sta\-\_\-info.\-h}\end{DoxyCompactItemize}

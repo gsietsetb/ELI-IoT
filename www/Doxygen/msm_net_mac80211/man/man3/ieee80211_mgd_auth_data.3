@@ -1,0 +1,100 @@
+.TH "ieee80211_mgd_auth_data" 3 "Sun Jun 1 2014" "Version 1.0" "net_mac80211" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+ieee80211_mgd_auth_data \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <ieee80211_i\&.h>\fP
+.SS "Data Fields"
+
+.in +1c
+.ti -1c
+.RI "struct cfg80211_bss * \fBbss\fP"
+.br
+.ti -1c
+.RI "unsigned long \fBtimeout\fP"
+.br
+.ti -1c
+.RI "int \fBtries\fP"
+.br
+.ti -1c
+.RI "u16 \fBalgorithm\fP"
+.br
+.ti -1c
+.RI "u16 \fBexpected_transaction\fP"
+.br
+.ti -1c
+.RI "u8 \fBkey\fP [WLAN_KEY_LEN_WEP104]"
+.br
+.ti -1c
+.RI "u8 \fBkey_len\fP"
+.br
+.ti -1c
+.RI "u8 \fBkey_idx\fP"
+.br
+.ti -1c
+.RI "bool \fBdone\fP"
+.br
+.ti -1c
+.RI "size_t \fBie_len\fP"
+.br
+.ti -1c
+.RI "u8 \fBie\fP []"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Definition at line 384 of file ieee80211_i\&.h\&.
+.SH "Field Documentation"
+.PP 
+.SS "u16 algorithm"
+
+.PP
+Definition at line 388 of file ieee80211_i\&.h\&.
+.SS "struct cfg80211_bss* bss"
+
+.PP
+Definition at line 385 of file ieee80211_i\&.h\&.
+.SS "bool done"
+
+.PP
+Definition at line 392 of file ieee80211_i\&.h\&.
+.SS "u16 expected_transaction"
+
+.PP
+Definition at line 388 of file ieee80211_i\&.h\&.
+.SS "u8 ie[]"
+
+.PP
+Definition at line 395 of file ieee80211_i\&.h\&.
+.SS "size_t ie_len"
+
+.PP
+Definition at line 394 of file ieee80211_i\&.h\&.
+.SS "u8 key[WLAN_KEY_LEN_WEP104]"
+
+.PP
+Definition at line 390 of file ieee80211_i\&.h\&.
+.SS "u8 key_idx"
+
+.PP
+Definition at line 391 of file ieee80211_i\&.h\&.
+.SS "u8 key_len"
+
+.PP
+Definition at line 391 of file ieee80211_i\&.h\&.
+.SS "unsigned long timeout"
+
+.PP
+Definition at line 386 of file ieee80211_i\&.h\&.
+.SS "int tries"
+
+.PP
+Definition at line 387 of file ieee80211_i\&.h\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for net_mac80211 from the source code\&.

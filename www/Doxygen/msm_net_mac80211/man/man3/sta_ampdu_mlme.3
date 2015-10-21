@@ -1,0 +1,97 @@
+.TH "sta_ampdu_mlme" 3 "Sun Jun 1 2014" "Version 1.0" "net_mac80211" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+sta_ampdu_mlme \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <sta_info\&.h>\fP
+.SS "Data Fields"
+
+.in +1c
+.ti -1c
+.RI "struct mutex \fBmtx\fP"
+.br
+.ti -1c
+.RI "struct \fBtid_ampdu_rx\fP __rcu * \fBtid_rx\fP [\fBSTA_TID_NUM\fP]"
+.br
+.ti -1c
+.RI "unsigned long \fBtid_rx_timer_expired\fP [BITS_TO_LONGS(\fBSTA_TID_NUM\fP)]"
+.br
+.ti -1c
+.RI "unsigned long \fBtid_rx_stop_requested\fP [BITS_TO_LONGS(\fBSTA_TID_NUM\fP)]"
+.br
+.ti -1c
+.RI "struct work_struct \fBwork\fP"
+.br
+.ti -1c
+.RI "struct \fBtid_ampdu_tx\fP __rcu * \fBtid_tx\fP [\fBSTA_TID_NUM\fP]"
+.br
+.ti -1c
+.RI "struct \fBtid_ampdu_tx\fP * \fBtid_start_tx\fP [\fBSTA_TID_NUM\fP]"
+.br
+.ti -1c
+.RI "unsigned long \fBlast_addba_req_time\fP [\fBSTA_TID_NUM\fP]"
+.br
+.ti -1c
+.RI "u8 \fBaddba_req_num\fP [\fBSTA_TID_NUM\fP]"
+.br
+.ti -1c
+.RI "u8 \fBdialog_token_allocator\fP"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+struct \fBsta_ampdu_mlme\fP - STA aggregation information\&.
+.PP
+: aggregation info for Rx per TID -- RCU protected : aggregation info for Tx per TID : sessions where start was requested : number of times addBA request has been sent\&. : timestamp of the last addBA request\&. : dialog token enumerator for each new session; : work struct for starting/stopping aggregation : bitmap indicating on which TIDs the RX timer expired until the work for it runs : bitmap indicating which BA sessions per TID the driver requested to close until the work for it runs : mutex to protect all TX data (except non-NULL assignments to tid_tx[idx], which are protected by the sta spinlock) 
+.PP
+Definition at line 191 of file sta_info\&.h\&.
+.SH "Field Documentation"
+.PP 
+.SS "u8 addba_req_num[\fBSTA_TID_NUM\fP]"
+
+.PP
+Definition at line 202 of file sta_info\&.h\&.
+.SS "u8 dialog_token_allocator"
+
+.PP
+Definition at line 203 of file sta_info\&.h\&.
+.SS "unsigned long last_addba_req_time[\fBSTA_TID_NUM\fP]"
+
+.PP
+Definition at line 201 of file sta_info\&.h\&.
+.SS "struct mutex mtx"
+
+.PP
+Definition at line 192 of file sta_info\&.h\&.
+.SS "struct \fBtid_ampdu_rx\fP __rcu* tid_rx[\fBSTA_TID_NUM\fP]"
+
+.PP
+Definition at line 194 of file sta_info\&.h\&.
+.SS "unsigned long tid_rx_stop_requested[BITS_TO_LONGS(\fBSTA_TID_NUM\fP)]"
+
+.PP
+Definition at line 196 of file sta_info\&.h\&.
+.SS "unsigned long tid_rx_timer_expired[BITS_TO_LONGS(\fBSTA_TID_NUM\fP)]"
+
+.PP
+Definition at line 195 of file sta_info\&.h\&.
+.SS "struct \fBtid_ampdu_tx\fP* tid_start_tx[\fBSTA_TID_NUM\fP]"
+
+.PP
+Definition at line 200 of file sta_info\&.h\&.
+.SS "struct \fBtid_ampdu_tx\fP __rcu* tid_tx[\fBSTA_TID_NUM\fP]"
+
+.PP
+Definition at line 199 of file sta_info\&.h\&.
+.SS "struct work_struct work"
+
+.PP
+Definition at line 198 of file sta_info\&.h\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for net_mac80211 from the source code\&.

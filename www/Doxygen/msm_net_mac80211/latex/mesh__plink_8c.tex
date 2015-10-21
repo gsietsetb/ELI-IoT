@@ -1,0 +1,370 @@
+\hypertarget{mesh__plink_8c}{\section{/home/guille/msm/net/mac80211/mesh\-\_\-plink.c File Reference}
+\label{mesh__plink_8c}\index{/home/guille/msm/net/mac80211/mesh\-\_\-plink.\-c@{/home/guille/msm/net/mac80211/mesh\-\_\-plink.\-c}}
+}
+{\ttfamily \#include $<$linux/gfp.\-h$>$}\\*
+{\ttfamily \#include $<$linux/kernel.\-h$>$}\\*
+{\ttfamily \#include $<$linux/random.\-h$>$}\\*
+{\ttfamily \#include \char`\"{}ieee80211\-\_\-i.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}rate.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}mesh.\-h\char`\"{}}\\*
+Include dependency graph for mesh\-\_\-plink.\-c\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{mesh__plink_8c__incl}
+\end{center}
+\end{figure}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{mesh__plink_8c_aefc7dc3eb0d8ea5c594efe439172942d}{mpl\-\_\-dbg}(fmt, args...)~do \{ (void)(0); \} while (0)
+\item 
+\#define \hyperlink{mesh__plink_8c_a708174fe8ec9d428a9cea074dc86d0c6}{P\-L\-I\-N\-K\-\_\-\-G\-E\-T\-\_\-\-L\-L\-I\-D}(p)~(p + 2)
+\item 
+\#define \hyperlink{mesh__plink_8c_a49f73efdef8316ec6c71bd8eb9f67d5c}{P\-L\-I\-N\-K\-\_\-\-G\-E\-T\-\_\-\-P\-L\-I\-D}(p)~(p + 4)
+\item 
+\#define \hyperlink{mesh__plink_8c_a30ac0a0046cfb0bea4f383a771c4d742}{mod\-\_\-plink\-\_\-timer}(s, t)
+\item 
+\#define \hyperlink{mesh__plink_8c_a8c4eecba49fbc6957ed452ea9e8157c8}{dot11\-Mesh\-Max\-Retries}(s)~(s-\/$>$u.\-mesh.\-mshcfg.\-dot11\-Mesh\-Max\-Retries)
+\item 
+\#define \hyperlink{mesh__plink_8c_a1c5667c875a608baff6773b5bb6cdfd0}{dot11\-Mesh\-Retry\-Timeout}(s)~(s-\/$>$u.\-mesh.\-mshcfg.\-dot11\-Mesh\-Retry\-Timeout)
+\item 
+\#define \hyperlink{mesh__plink_8c_a85628971f8727d1d136299e5f9ee6004}{dot11\-Mesh\-Confirm\-Timeout}(s)~(s-\/$>$u.\-mesh.\-mshcfg.\-dot11\-Mesh\-Confirm\-Timeout)
+\item 
+\#define \hyperlink{mesh__plink_8c_ae582f0688e0d5cf11a5692293cfd817f}{dot11\-Mesh\-Holding\-Timeout}(s)~(s-\/$>$u.\-mesh.\-mshcfg.\-dot11\-Mesh\-Holding\-Timeout)
+\item 
+\#define \hyperlink{mesh__plink_8c_a98066ff8a9c6e6b7337ace2dbc975169}{dot11\-Mesh\-Max\-Peer\-Links}(s)~(s-\/$>$u.\-mesh.\-mshcfg.\-dot11\-Mesh\-Max\-Peer\-Links)
+\item 
+\#define \hyperlink{mesh__plink_8c_addd4a4a62dd4584ce8af3444e2b3c356}{rssi\-\_\-threshold\-\_\-check}(sta, sdata)
+\end{DoxyCompactItemize}
+\subsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \hyperlink{mesh__plink_8c_ac03b86835039d55f8cf97b3d149de1bf}{plink\-\_\-event} \{ \\*
+\hyperlink{mesh__plink_8c_ac03b86835039d55f8cf97b3d149de1bfa36eb77af890a70597e4f8f5a9ab595a7}{P\-L\-I\-N\-K\-\_\-\-U\-N\-D\-E\-F\-I\-N\-E\-D}, 
+\hyperlink{mesh__plink_8c_ac03b86835039d55f8cf97b3d149de1bfa8f58f34b88deaf7c7ce541ee027523f7}{O\-P\-N\-\_\-\-A\-C\-P\-T}, 
+\hyperlink{mesh__plink_8c_ac03b86835039d55f8cf97b3d149de1bfa8480dc4b59cdd753119ed0d6aa65aa2b}{O\-P\-N\-\_\-\-R\-J\-C\-T}, 
+\hyperlink{mesh__plink_8c_ac03b86835039d55f8cf97b3d149de1bfa1fe689484c14020c322510bc4a2a9291}{O\-P\-N\-\_\-\-I\-G\-N\-R}, 
+\\*
+\hyperlink{mesh__plink_8c_ac03b86835039d55f8cf97b3d149de1bfa01dafba9dfce148a960c72e50770db3a}{C\-N\-F\-\_\-\-A\-C\-P\-T}, 
+\hyperlink{mesh__plink_8c_ac03b86835039d55f8cf97b3d149de1bfac737e917108eee8d9312bf6e05165728}{C\-N\-F\-\_\-\-R\-J\-C\-T}, 
+\hyperlink{mesh__plink_8c_ac03b86835039d55f8cf97b3d149de1bfabdcd5f6de29a82b445032a883f4fb0a1}{C\-N\-F\-\_\-\-I\-G\-N\-R}, 
+\hyperlink{mesh__plink_8c_ac03b86835039d55f8cf97b3d149de1bfae0fbf71f628e8d7f661a91cd99d248eb}{C\-L\-S\-\_\-\-A\-C\-P\-T}, 
+\\*
+\hyperlink{mesh__plink_8c_ac03b86835039d55f8cf97b3d149de1bfaf5afa3f3c52e27ff0f0759d46ebec669}{C\-L\-S\-\_\-\-I\-G\-N\-R}
+ \}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{mesh__plink_8c_ad48cae814bc9933988941baf8fe181ba}{mesh\-\_\-plink\-\_\-deactivate} (struct \hyperlink{structsta__info}{sta\-\_\-info} $\ast$sta)
+\item 
+void \hyperlink{mesh__plink_8c_ad6fa8ae610b25f57404b125f12f9abb4}{mesh\-\_\-neighbour\-\_\-update} (u8 $\ast$hw\-\_\-addr, u32 rates, struct \hyperlink{structieee80211__sub__if__data}{ieee80211\-\_\-sub\-\_\-if\-\_\-data} $\ast$sdata, struct \hyperlink{structieee802__11__elems}{ieee802\-\_\-11\-\_\-elems} $\ast$elems)
+\item 
+int \hyperlink{mesh__plink_8c_abebf8d91cef315054bb89b5ea4bffe40}{mesh\-\_\-plink\-\_\-open} (struct \hyperlink{structsta__info}{sta\-\_\-info} $\ast$sta)
+\item 
+void \hyperlink{mesh__plink_8c_aa849d370a375feb8e7843a781ad9fc62}{mesh\-\_\-plink\-\_\-block} (struct \hyperlink{structsta__info}{sta\-\_\-info} $\ast$sta)
+\item 
+void \hyperlink{mesh__plink_8c_af3cc1ba7b5230d6fb3285d14d7b5344b}{mesh\-\_\-rx\-\_\-plink\-\_\-frame} (struct \hyperlink{structieee80211__sub__if__data}{ieee80211\-\_\-sub\-\_\-if\-\_\-data} $\ast$sdata, struct ieee80211\-\_\-mgmt $\ast$mgmt, size\-\_\-t len, struct ieee80211\-\_\-rx\-\_\-status $\ast$rx\-\_\-status)
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{mesh__plink_8c_a85628971f8727d1d136299e5f9ee6004}{\index{mesh\-\_\-plink.\-c@{mesh\-\_\-plink.\-c}!dot11\-Mesh\-Confirm\-Timeout@{dot11\-Mesh\-Confirm\-Timeout}}
+\index{dot11\-Mesh\-Confirm\-Timeout@{dot11\-Mesh\-Confirm\-Timeout}!mesh_plink.c@{mesh\-\_\-plink.\-c}}
+\subsubsection[{dot11\-Mesh\-Confirm\-Timeout}]{\setlength{\rightskip}{0pt plus 5cm}\#define dot11\-Mesh\-Confirm\-Timeout(
+\begin{DoxyParamCaption}
+\item[{}]{s}
+\end{DoxyParamCaption}
+)~(s-\/$>$u.\-mesh.\-mshcfg.\-dot11\-Mesh\-Confirm\-Timeout)}}\label{mesh__plink_8c_a85628971f8727d1d136299e5f9ee6004}
+
+
+Definition at line 30 of file mesh\-\_\-plink.\-c.
+
+\hypertarget{mesh__plink_8c_ae582f0688e0d5cf11a5692293cfd817f}{\index{mesh\-\_\-plink.\-c@{mesh\-\_\-plink.\-c}!dot11\-Mesh\-Holding\-Timeout@{dot11\-Mesh\-Holding\-Timeout}}
+\index{dot11\-Mesh\-Holding\-Timeout@{dot11\-Mesh\-Holding\-Timeout}!mesh_plink.c@{mesh\-\_\-plink.\-c}}
+\subsubsection[{dot11\-Mesh\-Holding\-Timeout}]{\setlength{\rightskip}{0pt plus 5cm}\#define dot11\-Mesh\-Holding\-Timeout(
+\begin{DoxyParamCaption}
+\item[{}]{s}
+\end{DoxyParamCaption}
+)~(s-\/$>$u.\-mesh.\-mshcfg.\-dot11\-Mesh\-Holding\-Timeout)}}\label{mesh__plink_8c_ae582f0688e0d5cf11a5692293cfd817f}
+
+
+Definition at line 31 of file mesh\-\_\-plink.\-c.
+
+\hypertarget{mesh__plink_8c_a98066ff8a9c6e6b7337ace2dbc975169}{\index{mesh\-\_\-plink.\-c@{mesh\-\_\-plink.\-c}!dot11\-Mesh\-Max\-Peer\-Links@{dot11\-Mesh\-Max\-Peer\-Links}}
+\index{dot11\-Mesh\-Max\-Peer\-Links@{dot11\-Mesh\-Max\-Peer\-Links}!mesh_plink.c@{mesh\-\_\-plink.\-c}}
+\subsubsection[{dot11\-Mesh\-Max\-Peer\-Links}]{\setlength{\rightskip}{0pt plus 5cm}\#define dot11\-Mesh\-Max\-Peer\-Links(
+\begin{DoxyParamCaption}
+\item[{}]{s}
+\end{DoxyParamCaption}
+)~(s-\/$>$u.\-mesh.\-mshcfg.\-dot11\-Mesh\-Max\-Peer\-Links)}}\label{mesh__plink_8c_a98066ff8a9c6e6b7337ace2dbc975169}
+
+
+Definition at line 32 of file mesh\-\_\-plink.\-c.
+
+\hypertarget{mesh__plink_8c_a8c4eecba49fbc6957ed452ea9e8157c8}{\index{mesh\-\_\-plink.\-c@{mesh\-\_\-plink.\-c}!dot11\-Mesh\-Max\-Retries@{dot11\-Mesh\-Max\-Retries}}
+\index{dot11\-Mesh\-Max\-Retries@{dot11\-Mesh\-Max\-Retries}!mesh_plink.c@{mesh\-\_\-plink.\-c}}
+\subsubsection[{dot11\-Mesh\-Max\-Retries}]{\setlength{\rightskip}{0pt plus 5cm}\#define dot11\-Mesh\-Max\-Retries(
+\begin{DoxyParamCaption}
+\item[{}]{s}
+\end{DoxyParamCaption}
+)~(s-\/$>$u.\-mesh.\-mshcfg.\-dot11\-Mesh\-Max\-Retries)}}\label{mesh__plink_8c_a8c4eecba49fbc6957ed452ea9e8157c8}
+
+
+Definition at line 28 of file mesh\-\_\-plink.\-c.
+
+\hypertarget{mesh__plink_8c_a1c5667c875a608baff6773b5bb6cdfd0}{\index{mesh\-\_\-plink.\-c@{mesh\-\_\-plink.\-c}!dot11\-Mesh\-Retry\-Timeout@{dot11\-Mesh\-Retry\-Timeout}}
+\index{dot11\-Mesh\-Retry\-Timeout@{dot11\-Mesh\-Retry\-Timeout}!mesh_plink.c@{mesh\-\_\-plink.\-c}}
+\subsubsection[{dot11\-Mesh\-Retry\-Timeout}]{\setlength{\rightskip}{0pt plus 5cm}\#define dot11\-Mesh\-Retry\-Timeout(
+\begin{DoxyParamCaption}
+\item[{}]{s}
+\end{DoxyParamCaption}
+)~(s-\/$>$u.\-mesh.\-mshcfg.\-dot11\-Mesh\-Retry\-Timeout)}}\label{mesh__plink_8c_a1c5667c875a608baff6773b5bb6cdfd0}
+
+
+Definition at line 29 of file mesh\-\_\-plink.\-c.
+
+\hypertarget{mesh__plink_8c_a30ac0a0046cfb0bea4f383a771c4d742}{\index{mesh\-\_\-plink.\-c@{mesh\-\_\-plink.\-c}!mod\-\_\-plink\-\_\-timer@{mod\-\_\-plink\-\_\-timer}}
+\index{mod\-\_\-plink\-\_\-timer@{mod\-\_\-plink\-\_\-timer}!mesh_plink.c@{mesh\-\_\-plink.\-c}}
+\subsubsection[{mod\-\_\-plink\-\_\-timer}]{\setlength{\rightskip}{0pt plus 5cm}\#define mod\-\_\-plink\-\_\-timer(
+\begin{DoxyParamCaption}
+\item[{}]{s, }
+\item[{}]{t}
+\end{DoxyParamCaption}
+)}}\label{mesh__plink_8c_a30ac0a0046cfb0bea4f383a771c4d742}
+{\bfseries Value\-:}
+\begin{DoxyCode}
+(mod\_timer(&s->plink\_timer, \(\backslash\)
+                jiffies + HZ * t / 1000))
+\end{DoxyCode}
+
+
+Definition at line 25 of file mesh\-\_\-plink.\-c.
+
+\hypertarget{mesh__plink_8c_aefc7dc3eb0d8ea5c594efe439172942d}{\index{mesh\-\_\-plink.\-c@{mesh\-\_\-plink.\-c}!mpl\-\_\-dbg@{mpl\-\_\-dbg}}
+\index{mpl\-\_\-dbg@{mpl\-\_\-dbg}!mesh_plink.c@{mesh\-\_\-plink.\-c}}
+\subsubsection[{mpl\-\_\-dbg}]{\setlength{\rightskip}{0pt plus 5cm}\#define mpl\-\_\-dbg(
+\begin{DoxyParamCaption}
+\item[{}]{fmt, }
+\item[{}]{args...}
+\end{DoxyParamCaption}
+)~do \{ (void)(0); \} while (0)}}\label{mesh__plink_8c_aefc7dc3eb0d8ea5c594efe439172942d}
+
+
+Definition at line 19 of file mesh\-\_\-plink.\-c.
+
+\hypertarget{mesh__plink_8c_a708174fe8ec9d428a9cea074dc86d0c6}{\index{mesh\-\_\-plink.\-c@{mesh\-\_\-plink.\-c}!P\-L\-I\-N\-K\-\_\-\-G\-E\-T\-\_\-\-L\-L\-I\-D@{P\-L\-I\-N\-K\-\_\-\-G\-E\-T\-\_\-\-L\-L\-I\-D}}
+\index{P\-L\-I\-N\-K\-\_\-\-G\-E\-T\-\_\-\-L\-L\-I\-D@{P\-L\-I\-N\-K\-\_\-\-G\-E\-T\-\_\-\-L\-L\-I\-D}!mesh_plink.c@{mesh\-\_\-plink.\-c}}
+\subsubsection[{P\-L\-I\-N\-K\-\_\-\-G\-E\-T\-\_\-\-L\-L\-I\-D}]{\setlength{\rightskip}{0pt plus 5cm}\#define P\-L\-I\-N\-K\-\_\-\-G\-E\-T\-\_\-\-L\-L\-I\-D(
+\begin{DoxyParamCaption}
+\item[{}]{p}
+\end{DoxyParamCaption}
+)~(p + 2)}}\label{mesh__plink_8c_a708174fe8ec9d428a9cea074dc86d0c6}
+
+
+Definition at line 22 of file mesh\-\_\-plink.\-c.
+
+\hypertarget{mesh__plink_8c_a49f73efdef8316ec6c71bd8eb9f67d5c}{\index{mesh\-\_\-plink.\-c@{mesh\-\_\-plink.\-c}!P\-L\-I\-N\-K\-\_\-\-G\-E\-T\-\_\-\-P\-L\-I\-D@{P\-L\-I\-N\-K\-\_\-\-G\-E\-T\-\_\-\-P\-L\-I\-D}}
+\index{P\-L\-I\-N\-K\-\_\-\-G\-E\-T\-\_\-\-P\-L\-I\-D@{P\-L\-I\-N\-K\-\_\-\-G\-E\-T\-\_\-\-P\-L\-I\-D}!mesh_plink.c@{mesh\-\_\-plink.\-c}}
+\subsubsection[{P\-L\-I\-N\-K\-\_\-\-G\-E\-T\-\_\-\-P\-L\-I\-D}]{\setlength{\rightskip}{0pt plus 5cm}\#define P\-L\-I\-N\-K\-\_\-\-G\-E\-T\-\_\-\-P\-L\-I\-D(
+\begin{DoxyParamCaption}
+\item[{}]{p}
+\end{DoxyParamCaption}
+)~(p + 4)}}\label{mesh__plink_8c_a49f73efdef8316ec6c71bd8eb9f67d5c}
+
+
+Definition at line 23 of file mesh\-\_\-plink.\-c.
+
+\hypertarget{mesh__plink_8c_addd4a4a62dd4584ce8af3444e2b3c356}{\index{mesh\-\_\-plink.\-c@{mesh\-\_\-plink.\-c}!rssi\-\_\-threshold\-\_\-check@{rssi\-\_\-threshold\-\_\-check}}
+\index{rssi\-\_\-threshold\-\_\-check@{rssi\-\_\-threshold\-\_\-check}!mesh_plink.c@{mesh\-\_\-plink.\-c}}
+\subsubsection[{rssi\-\_\-threshold\-\_\-check}]{\setlength{\rightskip}{0pt plus 5cm}\#define rssi\-\_\-threshold\-\_\-check(
+\begin{DoxyParamCaption}
+\item[{}]{sta, }
+\item[{}]{sdata}
+\end{DoxyParamCaption}
+)}}\label{mesh__plink_8c_addd4a4a62dd4584ce8af3444e2b3c356}
+{\bfseries Value\-:}
+\begin{DoxyCode}
+(sdata->u.mesh.mshcfg.rssi\_threshold == 0 ||\(\backslash\)
+        (sta && (s8) -ewma\_read(&sta->avg\_signal) > \(\backslash\)
+        sdata->u.mesh.mshcfg.rssi\_threshold))
+\end{DoxyCode}
+
+
+Definition at line 35 of file mesh\-\_\-plink.\-c.
+
+
+
+\subsection{Enumeration Type Documentation}
+\hypertarget{mesh__plink_8c_ac03b86835039d55f8cf97b3d149de1bf}{\index{mesh\-\_\-plink.\-c@{mesh\-\_\-plink.\-c}!plink\-\_\-event@{plink\-\_\-event}}
+\index{plink\-\_\-event@{plink\-\_\-event}!mesh_plink.c@{mesh\-\_\-plink.\-c}}
+\subsubsection[{plink\-\_\-event}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf plink\-\_\-event}}}\label{mesh__plink_8c_ac03b86835039d55f8cf97b3d149de1bf}
+\begin{Desc}
+\item[Enumerator]\par
+\begin{description}
+\index{P\-L\-I\-N\-K\-\_\-\-U\-N\-D\-E\-F\-I\-N\-E\-D@{P\-L\-I\-N\-K\-\_\-\-U\-N\-D\-E\-F\-I\-N\-E\-D}!mesh\-\_\-plink.\-c@{mesh\-\_\-plink.\-c}}\index{mesh\-\_\-plink.\-c@{mesh\-\_\-plink.\-c}!P\-L\-I\-N\-K\-\_\-\-U\-N\-D\-E\-F\-I\-N\-E\-D@{P\-L\-I\-N\-K\-\_\-\-U\-N\-D\-E\-F\-I\-N\-E\-D}}\item[{\em 
+\hypertarget{mesh__plink_8c_ac03b86835039d55f8cf97b3d149de1bfa36eb77af890a70597e4f8f5a9ab595a7}{P\-L\-I\-N\-K\-\_\-\-U\-N\-D\-E\-F\-I\-N\-E\-D}\label{mesh__plink_8c_ac03b86835039d55f8cf97b3d149de1bfa36eb77af890a70597e4f8f5a9ab595a7}
+}]\index{O\-P\-N\-\_\-\-A\-C\-P\-T@{O\-P\-N\-\_\-\-A\-C\-P\-T}!mesh\-\_\-plink.\-c@{mesh\-\_\-plink.\-c}}\index{mesh\-\_\-plink.\-c@{mesh\-\_\-plink.\-c}!O\-P\-N\-\_\-\-A\-C\-P\-T@{O\-P\-N\-\_\-\-A\-C\-P\-T}}\item[{\em 
+\hypertarget{mesh__plink_8c_ac03b86835039d55f8cf97b3d149de1bfa8f58f34b88deaf7c7ce541ee027523f7}{O\-P\-N\-\_\-\-A\-C\-P\-T}\label{mesh__plink_8c_ac03b86835039d55f8cf97b3d149de1bfa8f58f34b88deaf7c7ce541ee027523f7}
+}]\index{O\-P\-N\-\_\-\-R\-J\-C\-T@{O\-P\-N\-\_\-\-R\-J\-C\-T}!mesh\-\_\-plink.\-c@{mesh\-\_\-plink.\-c}}\index{mesh\-\_\-plink.\-c@{mesh\-\_\-plink.\-c}!O\-P\-N\-\_\-\-R\-J\-C\-T@{O\-P\-N\-\_\-\-R\-J\-C\-T}}\item[{\em 
+\hypertarget{mesh__plink_8c_ac03b86835039d55f8cf97b3d149de1bfa8480dc4b59cdd753119ed0d6aa65aa2b}{O\-P\-N\-\_\-\-R\-J\-C\-T}\label{mesh__plink_8c_ac03b86835039d55f8cf97b3d149de1bfa8480dc4b59cdd753119ed0d6aa65aa2b}
+}]\index{O\-P\-N\-\_\-\-I\-G\-N\-R@{O\-P\-N\-\_\-\-I\-G\-N\-R}!mesh\-\_\-plink.\-c@{mesh\-\_\-plink.\-c}}\index{mesh\-\_\-plink.\-c@{mesh\-\_\-plink.\-c}!O\-P\-N\-\_\-\-I\-G\-N\-R@{O\-P\-N\-\_\-\-I\-G\-N\-R}}\item[{\em 
+\hypertarget{mesh__plink_8c_ac03b86835039d55f8cf97b3d149de1bfa1fe689484c14020c322510bc4a2a9291}{O\-P\-N\-\_\-\-I\-G\-N\-R}\label{mesh__plink_8c_ac03b86835039d55f8cf97b3d149de1bfa1fe689484c14020c322510bc4a2a9291}
+}]\index{C\-N\-F\-\_\-\-A\-C\-P\-T@{C\-N\-F\-\_\-\-A\-C\-P\-T}!mesh\-\_\-plink.\-c@{mesh\-\_\-plink.\-c}}\index{mesh\-\_\-plink.\-c@{mesh\-\_\-plink.\-c}!C\-N\-F\-\_\-\-A\-C\-P\-T@{C\-N\-F\-\_\-\-A\-C\-P\-T}}\item[{\em 
+\hypertarget{mesh__plink_8c_ac03b86835039d55f8cf97b3d149de1bfa01dafba9dfce148a960c72e50770db3a}{C\-N\-F\-\_\-\-A\-C\-P\-T}\label{mesh__plink_8c_ac03b86835039d55f8cf97b3d149de1bfa01dafba9dfce148a960c72e50770db3a}
+}]\index{C\-N\-F\-\_\-\-R\-J\-C\-T@{C\-N\-F\-\_\-\-R\-J\-C\-T}!mesh\-\_\-plink.\-c@{mesh\-\_\-plink.\-c}}\index{mesh\-\_\-plink.\-c@{mesh\-\_\-plink.\-c}!C\-N\-F\-\_\-\-R\-J\-C\-T@{C\-N\-F\-\_\-\-R\-J\-C\-T}}\item[{\em 
+\hypertarget{mesh__plink_8c_ac03b86835039d55f8cf97b3d149de1bfac737e917108eee8d9312bf6e05165728}{C\-N\-F\-\_\-\-R\-J\-C\-T}\label{mesh__plink_8c_ac03b86835039d55f8cf97b3d149de1bfac737e917108eee8d9312bf6e05165728}
+}]\index{C\-N\-F\-\_\-\-I\-G\-N\-R@{C\-N\-F\-\_\-\-I\-G\-N\-R}!mesh\-\_\-plink.\-c@{mesh\-\_\-plink.\-c}}\index{mesh\-\_\-plink.\-c@{mesh\-\_\-plink.\-c}!C\-N\-F\-\_\-\-I\-G\-N\-R@{C\-N\-F\-\_\-\-I\-G\-N\-R}}\item[{\em 
+\hypertarget{mesh__plink_8c_ac03b86835039d55f8cf97b3d149de1bfabdcd5f6de29a82b445032a883f4fb0a1}{C\-N\-F\-\_\-\-I\-G\-N\-R}\label{mesh__plink_8c_ac03b86835039d55f8cf97b3d149de1bfabdcd5f6de29a82b445032a883f4fb0a1}
+}]\index{C\-L\-S\-\_\-\-A\-C\-P\-T@{C\-L\-S\-\_\-\-A\-C\-P\-T}!mesh\-\_\-plink.\-c@{mesh\-\_\-plink.\-c}}\index{mesh\-\_\-plink.\-c@{mesh\-\_\-plink.\-c}!C\-L\-S\-\_\-\-A\-C\-P\-T@{C\-L\-S\-\_\-\-A\-C\-P\-T}}\item[{\em 
+\hypertarget{mesh__plink_8c_ac03b86835039d55f8cf97b3d149de1bfae0fbf71f628e8d7f661a91cd99d248eb}{C\-L\-S\-\_\-\-A\-C\-P\-T}\label{mesh__plink_8c_ac03b86835039d55f8cf97b3d149de1bfae0fbf71f628e8d7f661a91cd99d248eb}
+}]\index{C\-L\-S\-\_\-\-I\-G\-N\-R@{C\-L\-S\-\_\-\-I\-G\-N\-R}!mesh\-\_\-plink.\-c@{mesh\-\_\-plink.\-c}}\index{mesh\-\_\-plink.\-c@{mesh\-\_\-plink.\-c}!C\-L\-S\-\_\-\-I\-G\-N\-R@{C\-L\-S\-\_\-\-I\-G\-N\-R}}\item[{\em 
+\hypertarget{mesh__plink_8c_ac03b86835039d55f8cf97b3d149de1bfaf5afa3f3c52e27ff0f0759d46ebec669}{C\-L\-S\-\_\-\-I\-G\-N\-R}\label{mesh__plink_8c_ac03b86835039d55f8cf97b3d149de1bfaf5afa3f3c52e27ff0f0759d46ebec669}
+}]\end{description}
+\end{Desc}
+
+
+Definition at line 40 of file mesh\-\_\-plink.\-c.
+
+
+
+\subsection{Function Documentation}
+\hypertarget{mesh__plink_8c_ad6fa8ae610b25f57404b125f12f9abb4}{\index{mesh\-\_\-plink.\-c@{mesh\-\_\-plink.\-c}!mesh\-\_\-neighbour\-\_\-update@{mesh\-\_\-neighbour\-\_\-update}}
+\index{mesh\-\_\-neighbour\-\_\-update@{mesh\-\_\-neighbour\-\_\-update}!mesh_plink.c@{mesh\-\_\-plink.\-c}}
+\subsubsection[{mesh\-\_\-neighbour\-\_\-update}]{\setlength{\rightskip}{0pt plus 5cm}void mesh\-\_\-neighbour\-\_\-update (
+\begin{DoxyParamCaption}
+\item[{u8 $\ast$}]{hw\-\_\-addr, }
+\item[{u32}]{rates, }
+\item[{struct {\bf ieee80211\-\_\-sub\-\_\-if\-\_\-data} $\ast$}]{sdata, }
+\item[{struct {\bf ieee802\-\_\-11\-\_\-elems} $\ast$}]{elems}
+\end{DoxyParamCaption}
+)}}\label{mesh__plink_8c_ad6fa8ae610b25f57404b125f12f9abb4}
+
+
+Definition at line 277 of file mesh\-\_\-plink.\-c.
+
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{mesh__plink_8c_ad6fa8ae610b25f57404b125f12f9abb4_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{mesh__plink_8c_aa849d370a375feb8e7843a781ad9fc62}{\index{mesh\-\_\-plink.\-c@{mesh\-\_\-plink.\-c}!mesh\-\_\-plink\-\_\-block@{mesh\-\_\-plink\-\_\-block}}
+\index{mesh\-\_\-plink\-\_\-block@{mesh\-\_\-plink\-\_\-block}!mesh_plink.c@{mesh\-\_\-plink.\-c}}
+\subsubsection[{mesh\-\_\-plink\-\_\-block}]{\setlength{\rightskip}{0pt plus 5cm}void mesh\-\_\-plink\-\_\-block (
+\begin{DoxyParamCaption}
+\item[{struct {\bf sta\-\_\-info} $\ast$}]{sta}
+\end{DoxyParamCaption}
+)}}\label{mesh__plink_8c_aa849d370a375feb8e7843a781ad9fc62}
+
+
+Definition at line 441 of file mesh\-\_\-plink.\-c.
+
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=316pt]{mesh__plink_8c_aa849d370a375feb8e7843a781ad9fc62_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{mesh__plink_8c_ad48cae814bc9933988941baf8fe181ba}{\index{mesh\-\_\-plink.\-c@{mesh\-\_\-plink.\-c}!mesh\-\_\-plink\-\_\-deactivate@{mesh\-\_\-plink\-\_\-deactivate}}
+\index{mesh\-\_\-plink\-\_\-deactivate@{mesh\-\_\-plink\-\_\-deactivate}!mesh_plink.c@{mesh\-\_\-plink.\-c}}
+\subsubsection[{mesh\-\_\-plink\-\_\-deactivate}]{\setlength{\rightskip}{0pt plus 5cm}void mesh\-\_\-plink\-\_\-deactivate (
+\begin{DoxyParamCaption}
+\item[{struct {\bf sta\-\_\-info} $\ast$}]{sta}
+\end{DoxyParamCaption}
+)}}\label{mesh__plink_8c_ad48cae814bc9933988941baf8fe181ba}
+mesh\-\_\-plink\-\_\-deactivate -\/ deactivate mesh peer link
+
+\-: mesh peer link to deactivate
+
+All mesh paths with this peer as next hop will be flushed 
+
+Definition at line 152 of file mesh\-\_\-plink.\-c.
+
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=336pt]{mesh__plink_8c_ad48cae814bc9933988941baf8fe181ba_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{mesh__plink_8c_ad48cae814bc9933988941baf8fe181ba_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{mesh__plink_8c_abebf8d91cef315054bb89b5ea4bffe40}{\index{mesh\-\_\-plink.\-c@{mesh\-\_\-plink.\-c}!mesh\-\_\-plink\-\_\-open@{mesh\-\_\-plink\-\_\-open}}
+\index{mesh\-\_\-plink\-\_\-open@{mesh\-\_\-plink\-\_\-open}!mesh_plink.c@{mesh\-\_\-plink.\-c}}
+\subsubsection[{mesh\-\_\-plink\-\_\-open}]{\setlength{\rightskip}{0pt plus 5cm}int mesh\-\_\-plink\-\_\-open (
+\begin{DoxyParamCaption}
+\item[{struct {\bf sta\-\_\-info} $\ast$}]{sta}
+\end{DoxyParamCaption}
+)}}\label{mesh__plink_8c_abebf8d91cef315054bb89b5ea4bffe40}
+
+
+Definition at line 416 of file mesh\-\_\-plink.\-c.
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=330pt]{mesh__plink_8c_abebf8d91cef315054bb89b5ea4bffe40_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{mesh__plink_8c_af3cc1ba7b5230d6fb3285d14d7b5344b}{\index{mesh\-\_\-plink.\-c@{mesh\-\_\-plink.\-c}!mesh\-\_\-rx\-\_\-plink\-\_\-frame@{mesh\-\_\-rx\-\_\-plink\-\_\-frame}}
+\index{mesh\-\_\-rx\-\_\-plink\-\_\-frame@{mesh\-\_\-rx\-\_\-plink\-\_\-frame}!mesh_plink.c@{mesh\-\_\-plink.\-c}}
+\subsubsection[{mesh\-\_\-rx\-\_\-plink\-\_\-frame}]{\setlength{\rightskip}{0pt plus 5cm}void mesh\-\_\-rx\-\_\-plink\-\_\-frame (
+\begin{DoxyParamCaption}
+\item[{struct {\bf ieee80211\-\_\-sub\-\_\-if\-\_\-data} $\ast$}]{sdata, }
+\item[{struct ieee80211\-\_\-mgmt $\ast$}]{mgmt, }
+\item[{size\-\_\-t}]{len, }
+\item[{struct ieee80211\-\_\-rx\-\_\-status $\ast$}]{rx\-\_\-status}
+\end{DoxyParamCaption}
+)}}\label{mesh__plink_8c_af3cc1ba7b5230d6fb3285d14d7b5344b}
+
+
+Definition at line 456 of file mesh\-\_\-plink.\-c.
+
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{mesh__plink_8c_af3cc1ba7b5230d6fb3285d14d7b5344b_cgraph}
+\end{center}
+\end{figure}
+
+

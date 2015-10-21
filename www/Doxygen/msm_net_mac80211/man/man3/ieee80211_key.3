@@ -1,0 +1,172 @@
+.TH "ieee80211_key" 3 "Sun Jun 1 2014" "Version 1.0" "net_mac80211" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+ieee80211_key \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <key\&.h>\fP
+.SS "Data Fields"
+
+.in +1c
+.ti -1c
+.RI "struct \fBieee80211_local\fP * \fBlocal\fP"
+.br
+.ti -1c
+.RI "struct \fBieee80211_sub_if_data\fP * \fBsdata\fP"
+.br
+.ti -1c
+.RI "struct \fBsta_info\fP * \fBsta\fP"
+.br
+.ti -1c
+.RI "struct list_head \fBlist\fP"
+.br
+.ti -1c
+.RI "unsigned int \fBflags\fP"
+.br
+.ti -1c
+.RI "union {"
+.br
+.ti -1c
+.RI "   struct {"
+.br
+.ti -1c
+.RI "      spinlock_t \fBtxlock\fP"
+.br
+.ti -1c
+.RI "      struct \fBtkip_ctx\fP \fBtx\fP"
+.br
+.ti -1c
+.RI "      struct \fBtkip_ctx\fP \fBrx\fP [\fBNUM_RX_DATA_QUEUES\fP]"
+.br
+.ti -1c
+.RI "   } \fBtkip\fP"
+.br
+.ti -1c
+.RI "   struct {"
+.br
+.ti -1c
+.RI "      atomic64_t \fBtx_pn\fP"
+.br
+.ti -1c
+.RI "      u8 \fBrx_pn\fP [\fBNUM_RX_DATA_QUEUES\fP+1][\fBCCMP_PN_LEN\fP]"
+.br
+.ti -1c
+.RI "      struct crypto_cipher * \fBtfm\fP"
+.br
+.ti -1c
+.RI "      u32 \fBreplays\fP"
+.br
+.ti -1c
+.RI "   } \fBccmp\fP"
+.br
+.ti -1c
+.RI "   struct {"
+.br
+.ti -1c
+.RI "      atomic64_t \fBtx_pn\fP"
+.br
+.ti -1c
+.RI "      u8 \fBrx_pn\fP [\fBCMAC_PN_LEN\fP]"
+.br
+.ti -1c
+.RI "      struct crypto_cipher * \fBtfm\fP"
+.br
+.ti -1c
+.RI "      u32 \fBreplays\fP"
+.br
+.ti -1c
+.RI "      u32 \fBicverrors\fP"
+.br
+.ti -1c
+.RI "   } \fBaes_cmac\fP"
+.br
+.ti -1c
+.RI "} \fBu\fP"
+.br
+.ti -1c
+.RI "int \fBtx_rx_count\fP"
+.br
+.ti -1c
+.RI "struct ieee80211_key_conf \fBconf\fP"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Definition at line 65 of file key\&.h\&.
+.SH "Field Documentation"
+.PP 
+.SS "struct { \&.\&.\&. }   aes_cmac"
+
+.SS "struct { \&.\&.\&. }   ccmp"
+
+.SS "struct ieee80211_key_conf conf"
+
+.PP
+Definition at line 123 of file key\&.h\&.
+.SS "unsigned int flags"
+
+.PP
+Definition at line 74 of file key\&.h\&.
+.SS "u32 icverrors"
+
+.PP
+Definition at line 104 of file key\&.h\&.
+.SS "struct list_head list"
+
+.PP
+Definition at line 71 of file key\&.h\&.
+.SS "struct \fBieee80211_local\fP* local"
+
+.PP
+Definition at line 66 of file key\&.h\&.
+.SS "u32 replays"
+
+.PP
+Definition at line 97 of file key\&.h\&.
+.SS "struct \fBtkip_ctx\fP rx[\fBNUM_RX_DATA_QUEUES\fP]"
+
+.PP
+Definition at line 85 of file key\&.h\&.
+.SS "u8 rx_pn[\fBCMAC_PN_LEN\fP]"
+
+.PP
+Definition at line 95 of file key\&.h\&.
+.SS "struct \fBieee80211_sub_if_data\fP* sdata"
+
+.PP
+Definition at line 67 of file key\&.h\&.
+.SS "struct \fBsta_info\fP* sta"
+
+.PP
+Definition at line 68 of file key\&.h\&.
+.SS "struct crypto_cipher* tfm"
+
+.PP
+Definition at line 96 of file key\&.h\&.
+.SS "struct { \&.\&.\&. }   tkip"
+
+.SS "struct \fBtkip_ctx\fP tx"
+
+.PP
+Definition at line 82 of file key\&.h\&.
+.SS "atomic64_t tx_pn"
+
+.PP
+Definition at line 88 of file key\&.h\&.
+.SS "int tx_rx_count"
+
+.PP
+Definition at line 109 of file key\&.h\&.
+.SS "spinlock_t txlock"
+
+.PP
+Definition at line 79 of file key\&.h\&.
+.SS "union { \&.\&.\&. }   u"
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for net_mac80211 from the source code\&.

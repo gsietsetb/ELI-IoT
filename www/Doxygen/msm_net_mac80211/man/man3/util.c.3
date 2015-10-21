@@ -1,0 +1,490 @@
+.TH "/home/guille/msm/net/mac80211/util.c" 3 "Sun Jun 1 2014" "Version 1.0" "net_mac80211" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+/home/guille/msm/net/mac80211/util.c \- 
+.SH SYNOPSIS
+.br
+.PP
+\fC#include <net/mac80211\&.h>\fP
+.br
+\fC#include <linux/netdevice\&.h>\fP
+.br
+\fC#include <linux/export\&.h>\fP
+.br
+\fC#include <linux/types\&.h>\fP
+.br
+\fC#include <linux/slab\&.h>\fP
+.br
+\fC#include <linux/skbuff\&.h>\fP
+.br
+\fC#include <linux/etherdevice\&.h>\fP
+.br
+\fC#include <linux/if_arp\&.h>\fP
+.br
+\fC#include <linux/bitmap\&.h>\fP
+.br
+\fC#include <linux/crc32\&.h>\fP
+.br
+\fC#include <net/net_namespace\&.h>\fP
+.br
+\fC#include <net/cfg80211\&.h>\fP
+.br
+\fC#include <net/rtnetlink\&.h>\fP
+.br
+\fC#include 'ieee80211_i\&.h'\fP
+.br
+\fC#include 'driver-ops\&.h'\fP
+.br
+\fC#include 'rate\&.h'\fP
+.br
+\fC#include 'mesh\&.h'\fP
+.br
+\fC#include 'wme\&.h'\fP
+.br
+\fC#include 'led\&.h'\fP
+.br
+\fC#include 'wep\&.h'\fP
+.br
+
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "struct ieee80211_hw * \fBwiphy_to_ieee80211_hw\fP (struct wiphy *wiphy)"
+.br
+.ti -1c
+.RI "\fBEXPORT_SYMBOL\fP (\fBwiphy_to_ieee80211_hw\fP)"
+.br
+.ti -1c
+.RI "u8 * \fBieee80211_get_bssid\fP (struct ieee80211_hdr *hdr, size_t len, enum nl80211_iftype type)"
+.br
+.ti -1c
+.RI "void \fBieee80211_tx_set_protected\fP (struct \fBieee80211_tx_data\fP *tx)"
+.br
+.ti -1c
+.RI "int \fBieee80211_frame_duration\fP (struct \fBieee80211_local\fP *local, size_t len, int rate, int erp, int short_preamble)"
+.br
+.ti -1c
+.RI "__le16 \fBieee80211_generic_frame_duration\fP (struct ieee80211_hw *hw, struct ieee80211_vif *vif, size_t frame_len, struct ieee80211_rate *rate)"
+.br
+.ti -1c
+.RI "\fBEXPORT_SYMBOL\fP (\fBieee80211_generic_frame_duration\fP)"
+.br
+.ti -1c
+.RI "__le16 \fBieee80211_rts_duration\fP (struct ieee80211_hw *hw, struct ieee80211_vif *vif, size_t frame_len, const struct ieee80211_tx_info *frame_txctl)"
+.br
+.ti -1c
+.RI "\fBEXPORT_SYMBOL\fP (\fBieee80211_rts_duration\fP)"
+.br
+.ti -1c
+.RI "__le16 \fBieee80211_ctstoself_duration\fP (struct ieee80211_hw *hw, struct ieee80211_vif *vif, size_t frame_len, const struct ieee80211_tx_info *frame_txctl)"
+.br
+.ti -1c
+.RI "\fBEXPORT_SYMBOL\fP (\fBieee80211_ctstoself_duration\fP)"
+.br
+.ti -1c
+.RI "void \fBieee80211_wake_queue_by_reason\fP (struct ieee80211_hw *hw, int queue, enum \fBqueue_stop_reason\fP reason)"
+.br
+.ti -1c
+.RI "void \fBieee80211_wake_queue\fP (struct ieee80211_hw *hw, int queue)"
+.br
+.ti -1c
+.RI "\fBEXPORT_SYMBOL\fP (\fBieee80211_wake_queue\fP)"
+.br
+.ti -1c
+.RI "void \fBieee80211_stop_queue_by_reason\fP (struct ieee80211_hw *hw, int queue, enum \fBqueue_stop_reason\fP reason)"
+.br
+.ti -1c
+.RI "void \fBieee80211_stop_queue\fP (struct ieee80211_hw *hw, int queue)"
+.br
+.ti -1c
+.RI "\fBEXPORT_SYMBOL\fP (\fBieee80211_stop_queue\fP)"
+.br
+.ti -1c
+.RI "void \fBieee80211_add_pending_skb\fP (struct \fBieee80211_local\fP *local, struct sk_buff *skb)"
+.br
+.ti -1c
+.RI "void \fBieee80211_add_pending_skbs_fn\fP (struct \fBieee80211_local\fP *local, struct sk_buff_head *skbs, void(*fn)(void *data), void *data)"
+.br
+.ti -1c
+.RI "void \fBieee80211_add_pending_skbs\fP (struct \fBieee80211_local\fP *local, struct sk_buff_head *skbs)"
+.br
+.ti -1c
+.RI "void \fBieee80211_stop_queues_by_reason\fP (struct ieee80211_hw *hw, enum \fBqueue_stop_reason\fP reason)"
+.br
+.ti -1c
+.RI "void \fBieee80211_stop_queues\fP (struct ieee80211_hw *hw)"
+.br
+.ti -1c
+.RI "\fBEXPORT_SYMBOL\fP (\fBieee80211_stop_queues\fP)"
+.br
+.ti -1c
+.RI "int \fBieee80211_queue_stopped\fP (struct ieee80211_hw *hw, int queue)"
+.br
+.ti -1c
+.RI "\fBEXPORT_SYMBOL\fP (\fBieee80211_queue_stopped\fP)"
+.br
+.ti -1c
+.RI "void \fBieee80211_wake_queues_by_reason\fP (struct ieee80211_hw *hw, enum \fBqueue_stop_reason\fP reason)"
+.br
+.ti -1c
+.RI "void \fBieee80211_wake_queues\fP (struct ieee80211_hw *hw)"
+.br
+.ti -1c
+.RI "\fBEXPORT_SYMBOL\fP (\fBieee80211_wake_queues\fP)"
+.br
+.ti -1c
+.RI "void \fBieee80211_iterate_active_interfaces\fP (struct ieee80211_hw *hw, void(*iterator)(void *data, u8 *mac, struct ieee80211_vif *vif), void *data)"
+.br
+.ti -1c
+.RI "\fBEXPORT_SYMBOL_GPL\fP (\fBieee80211_iterate_active_interfaces\fP)"
+.br
+.ti -1c
+.RI "void \fBieee80211_iterate_active_interfaces_atomic\fP (struct ieee80211_hw *hw, void(*iterator)(void *data, u8 *mac, struct ieee80211_vif *vif), void *data)"
+.br
+.ti -1c
+.RI "\fBEXPORT_SYMBOL_GPL\fP (\fBieee80211_iterate_active_interfaces_atomic\fP)"
+.br
+.ti -1c
+.RI "void \fBieee80211_queue_work\fP (struct ieee80211_hw *hw, struct work_struct *work)"
+.br
+.ti -1c
+.RI "\fBEXPORT_SYMBOL\fP (\fBieee80211_queue_work\fP)"
+.br
+.ti -1c
+.RI "void \fBieee80211_queue_delayed_work\fP (struct ieee80211_hw *hw, struct delayed_work *dwork, unsigned long delay)"
+.br
+.ti -1c
+.RI "\fBEXPORT_SYMBOL\fP (\fBieee80211_queue_delayed_work\fP)"
+.br
+.ti -1c
+.RI "u32 \fBieee802_11_parse_elems_crc\fP (u8 *start, size_t len, struct \fBieee802_11_elems\fP *elems, u64 filter, u32 crc)"
+.br
+.ti -1c
+.RI "void \fBieee802_11_parse_elems\fP (u8 *start, size_t len, struct \fBieee802_11_elems\fP *elems)"
+.br
+.ti -1c
+.RI "void \fBieee80211_set_wmm_default\fP (struct \fBieee80211_sub_if_data\fP *sdata, bool bss_notify)"
+.br
+.ti -1c
+.RI "void \fBieee80211_sta_def_wmm_params\fP (struct \fBieee80211_sub_if_data\fP *sdata, const size_t supp_rates_len, const u8 *supp_rates)"
+.br
+.ti -1c
+.RI "u32 \fBieee80211_mandatory_rates\fP (struct \fBieee80211_local\fP *local, enum ieee80211_band band)"
+.br
+.ti -1c
+.RI "void \fBieee80211_send_auth\fP (struct \fBieee80211_sub_if_data\fP *sdata, u16 transaction, u16 auth_alg, u8 *extra, size_t extra_len, const u8 *da, const u8 *bssid, const u8 *key, u8 key_len, u8 key_idx)"
+.br
+.ti -1c
+.RI "int \fBieee80211_build_preq_ies\fP (struct \fBieee80211_local\fP *local, u8 *buffer, const u8 *ie, size_t ie_len, enum ieee80211_band band, u32 rate_mask, u8 channel)"
+.br
+.ti -1c
+.RI "struct sk_buff * \fBieee80211_build_probe_req\fP (struct \fBieee80211_sub_if_data\fP *sdata, u8 *dst, u32 ratemask, const u8 *ssid, size_t ssid_len, const u8 *ie, size_t ie_len, bool directed)"
+.br
+.ti -1c
+.RI "void \fBieee80211_send_probe_req\fP (struct \fBieee80211_sub_if_data\fP *sdata, u8 *dst, const u8 *ssid, size_t ssid_len, const u8 *ie, size_t ie_len, u32 ratemask, bool directed, bool no_cck)"
+.br
+.ti -1c
+.RI "u32 \fBieee80211_sta_get_rates\fP (struct \fBieee80211_local\fP *local, struct \fBieee802_11_elems\fP *elems, enum ieee80211_band band)"
+.br
+.ti -1c
+.RI "void \fBieee80211_stop_device\fP (struct \fBieee80211_local\fP *local)"
+.br
+.ti -1c
+.RI "int \fBieee80211_reconfig\fP (struct \fBieee80211_local\fP *local)"
+.br
+.ti -1c
+.RI "void \fBieee80211_resume_disconnect\fP (struct ieee80211_vif *vif)"
+.br
+.ti -1c
+.RI "\fBEXPORT_SYMBOL_GPL\fP (\fBieee80211_resume_disconnect\fP)"
+.br
+.ti -1c
+.RI "void \fBieee80211_recalc_smps\fP (struct \fBieee80211_local\fP *local)"
+.br
+.ti -1c
+.RI "size_t \fBieee80211_ie_split\fP (const u8 *ies, size_t ielen, const u8 *ids, int n_ids, size_t offset)"
+.br
+.ti -1c
+.RI "size_t \fBieee80211_ie_split_vendor\fP (const u8 *ies, size_t ielen, size_t offset)"
+.br
+.ti -1c
+.RI "void \fBieee80211_enable_rssi_reports\fP (struct ieee80211_vif *vif, int rssi_min_thold, int rssi_max_thold)"
+.br
+.ti -1c
+.RI "\fBEXPORT_SYMBOL\fP (\fBieee80211_enable_rssi_reports\fP)"
+.br
+.ti -1c
+.RI "void \fBieee80211_disable_rssi_reports\fP (struct ieee80211_vif *vif)"
+.br
+.ti -1c
+.RI "\fBEXPORT_SYMBOL\fP (\fBieee80211_disable_rssi_reports\fP)"
+.br
+.ti -1c
+.RI "u8 * \fBieee80211_ie_build_ht_cap\fP (u8 *pos, struct ieee80211_sta_ht_cap *ht_cap, u16 cap)"
+.br
+.ti -1c
+.RI "u8 * \fBieee80211_ie_build_vht_cap\fP (u8 *pos, struct ieee80211_sta_vht_cap *vht_cap, u32 cap)"
+.br
+.ti -1c
+.RI "u8 * \fBieee80211_ie_build_ht_info\fP (u8 *pos, struct ieee80211_sta_ht_cap *ht_cap, struct ieee80211_channel *channel, enum nl80211_channel_type channel_type)"
+.br
+.ti -1c
+.RI "enum nl80211_channel_type \fBieee80211_ht_info_to_channel_type\fP (struct ieee80211_ht_info *ht_info)"
+.br
+.ti -1c
+.RI "int \fBieee80211_add_srates_ie\fP (struct ieee80211_vif *vif, struct sk_buff *skb)"
+.br
+.ti -1c
+.RI "int \fBieee80211_add_ext_srates_ie\fP (struct ieee80211_vif *vif, struct sk_buff *skb)"
+.br
+.in -1c
+.SS "Variables"
+
+.in +1c
+.ti -1c
+.RI "void * \fBmac80211_wiphy_privid\fP = &mac80211_wiphy_privid"
+.br
+.in -1c
+.SH "Function Documentation"
+.PP 
+.SS "EXPORT_SYMBOL (\fBwiphy_to_ieee80211_hw\fP)"
+
+.SS "EXPORT_SYMBOL (\fBieee80211_generic_frame_duration\fP)"
+
+.SS "EXPORT_SYMBOL (\fBieee80211_rts_duration\fP)"
+
+.SS "EXPORT_SYMBOL (\fBieee80211_ctstoself_duration\fP)"
+
+.SS "EXPORT_SYMBOL (\fBieee80211_wake_queue\fP)"
+
+.SS "EXPORT_SYMBOL (\fBieee80211_stop_queue\fP)"
+
+.SS "EXPORT_SYMBOL (\fBieee80211_stop_queues\fP)"
+
+.SS "EXPORT_SYMBOL (\fBieee80211_queue_stopped\fP)"
+
+.SS "EXPORT_SYMBOL (\fBieee80211_wake_queues\fP)"
+
+.SS "EXPORT_SYMBOL (\fBieee80211_queue_work\fP)"
+
+.SS "EXPORT_SYMBOL (\fBieee80211_queue_delayed_work\fP)"
+
+.SS "EXPORT_SYMBOL (\fBieee80211_enable_rssi_reports\fP)"
+
+.SS "EXPORT_SYMBOL (\fBieee80211_disable_rssi_reports\fP)"
+
+.SS "EXPORT_SYMBOL_GPL (\fBieee80211_iterate_active_interfaces\fP)"
+
+.SS "EXPORT_SYMBOL_GPL (\fBieee80211_iterate_active_interfaces_atomic\fP)"
+
+.SS "EXPORT_SYMBOL_GPL (\fBieee80211_resume_disconnect\fP)"
+
+.SS "int ieee80211_add_ext_srates_ie (struct ieee80211_vif *vif, struct sk_buff *skb)"
+
+.PP
+Definition at line 1733 of file util\&.c\&.
+.SS "void ieee80211_add_pending_skb (struct \fBieee80211_local\fP *local, struct sk_buff *skb)"
+
+.PP
+Definition at line 352 of file util\&.c\&.
+.SS "void ieee80211_add_pending_skbs (struct \fBieee80211_local\fP *local, struct sk_buff_head *skbs)"
+
+.PP
+Definition at line 407 of file util\&.c\&.
+.SS "void ieee80211_add_pending_skbs_fn (struct \fBieee80211_local\fP *local, struct sk_buff_head *skbs, void(*)(void *data)fn, void *data)"
+
+.PP
+Definition at line 372 of file util\&.c\&.
+.SS "int ieee80211_add_srates_ie (struct ieee80211_vif *vif, struct sk_buff *skb)"
+
+.PP
+Definition at line 1706 of file util\&.c\&.
+.SS "int ieee80211_build_preq_ies (struct \fBieee80211_local\fP *local, u8 *buffer, const u8 *ie, size_tie_len, enum ieee80211_bandband, u32rate_mask, u8channel)"
+
+.PP
+Definition at line 939 of file util\&.c\&.
+.SS "struct sk_buff* ieee80211_build_probe_req (struct \fBieee80211_sub_if_data\fP *sdata, u8 *dst, u32ratemask, const u8 *ssid, size_tssid_len, const u8 *ie, size_tie_len, booldirected)"
+
+.PP
+Definition at line 1041 of file util\&.c\&.
+.SS "__le16 ieee80211_ctstoself_duration (struct ieee80211_hw *hw, struct ieee80211_vif *vif, size_tframe_len, const struct ieee80211_tx_info *frame_txctl)"
+
+.PP
+Definition at line 229 of file util\&.c\&.
+.SS "void ieee80211_disable_rssi_reports (struct ieee80211_vif *vif)"
+
+.PP
+Definition at line 1575 of file util\&.c\&.
+.SS "void ieee80211_enable_rssi_reports (struct ieee80211_vif *vif, intrssi_min_thold, intrssi_max_thold)"
+
+.PP
+Definition at line 1561 of file util\&.c\&.
+.SS "int ieee80211_frame_duration (struct \fBieee80211_local\fP *local, size_tlen, intrate, interp, intshort_preamble)"
+
+.PP
+Definition at line 109 of file util\&.c\&.
+.SS "__le16 ieee80211_generic_frame_duration (struct ieee80211_hw *hw, struct ieee80211_vif *vif, size_tframe_len, struct ieee80211_rate *rate)"
+
+.PP
+Definition at line 163 of file util\&.c\&.
+.SS "u8* ieee80211_get_bssid (struct ieee80211_hdr *hdr, size_tlen, enum nl80211_iftypetype)"
+
+.PP
+Definition at line 49 of file util\&.c\&.
+.SS "enum nl80211_channel_type ieee80211_ht_info_to_channel_type (struct ieee80211_ht_info *ht_info)"
+
+.PP
+Definition at line 1682 of file util\&.c\&.
+.SS "u8* ieee80211_ie_build_ht_cap (u8 *pos, struct ieee80211_sta_ht_cap *ht_cap, u16cap)"
+
+.PP
+Definition at line 1583 of file util\&.c\&.
+.SS "u8* ieee80211_ie_build_ht_info (u8 *pos, struct ieee80211_sta_ht_cap *ht_cap, struct ieee80211_channel *channel, enum nl80211_channel_typechannel_type)"
+
+.PP
+Definition at line 1639 of file util\&.c\&.
+.SS "u8* ieee80211_ie_build_vht_cap (u8 *pos, struct ieee80211_sta_vht_cap *vht_cap, u32cap)"
+
+.PP
+Definition at line 1618 of file util\&.c\&.
+.SS "size_t ieee80211_ie_split (const u8 *ies, size_tielen, const u8 *ids, intn_ids, size_toffset)"
+ieee80211_ie_split - split an IE buffer according to ordering
+.PP
+: the IE buffer : the length of the IE buffer : an array with element IDs that are allowed before the split : the size of the element ID array : offset where to start splitting in the buffer
+.PP
+This function splits an IE buffer by updating the  variable to point to the location where the buffer should be split\&.
+.PP
+It assumes that the given IE buffer is well-formed, this has to be guaranteed by the caller!
+.PP
+It also assumes that the IEs in the buffer are ordered correctly, if not the result of using this function will not be ordered correctly either, i\&.e\&. it does no reordering\&.
+.PP
+The function returns the offset where the next part of the buffer starts, which may be  if the entire (remainder) of the buffer should be used\&. 
+.PP
+Definition at line 1522 of file util\&.c\&.
+.SS "size_t ieee80211_ie_split_vendor (const u8 *ies, size_tielen, size_toffset)"
+
+.PP
+Definition at line 1533 of file util\&.c\&.
+.SS "void ieee80211_iterate_active_interfaces (struct ieee80211_hw *hw, void(*)(void *data, u8 *mac, struct ieee80211_vif *vif)iterator, void *data)"
+
+.PP
+Definition at line 472 of file util\&.c\&.
+.SS "void ieee80211_iterate_active_interfaces_atomic (struct ieee80211_hw *hw, void(*)(void *data, u8 *mac, struct ieee80211_vif *vif)iterator, void *data)"
+
+.PP
+Definition at line 500 of file util\&.c\&.
+.SS "u32 ieee80211_mandatory_rates (struct \fBieee80211_local\fP *local, enum ieee80211_bandband)"
+
+.PP
+Definition at line 871 of file util\&.c\&.
+.SS "void ieee80211_queue_delayed_work (struct ieee80211_hw *hw, struct delayed_work *dwork, unsigned longdelay)"
+
+.PP
+Definition at line 555 of file util\&.c\&.
+.SS "int ieee80211_queue_stopped (struct ieee80211_hw *hw, intqueue)"
+
+.PP
+Definition at line 435 of file util\&.c\&.
+.SS "void ieee80211_queue_work (struct ieee80211_hw *hw, struct work_struct *work)"
+
+.PP
+Definition at line 544 of file util\&.c\&.
+.SS "void ieee80211_recalc_smps (struct \fBieee80211_local\fP *local)"
+
+.PP
+Definition at line 1446 of file util\&.c\&.
+.SS "int ieee80211_reconfig (struct \fBieee80211_local\fP *local)"
+
+.PP
+Definition at line 1158 of file util\&.c\&.
+.SS "void ieee80211_resume_disconnect (struct ieee80211_vif *vif)"
+
+.PP
+Definition at line 1399 of file util\&.c\&.
+.SS "__le16 ieee80211_rts_duration (struct ieee80211_hw *hw, struct ieee80211_vif *vif, size_tframe_len, const struct ieee80211_tx_info *frame_txctl)"
+
+.PP
+Definition at line 189 of file util\&.c\&.
+.SS "void ieee80211_send_auth (struct \fBieee80211_sub_if_data\fP *sdata, u16transaction, u16auth_alg, u8 *extra, size_textra_len, const u8 *da, const u8 *bssid, const u8 *key, u8key_len, u8key_idx)"
+
+.PP
+Definition at line 899 of file util\&.c\&.
+.SS "void ieee80211_send_probe_req (struct \fBieee80211_sub_if_data\fP *sdata, u8 *dst, const u8 *ssid, size_tssid_len, const u8 *ie, size_tie_len, u32ratemask, booldirected, boolno_cck)"
+
+.PP
+Definition at line 1094 of file util\&.c\&.
+.SS "void ieee80211_set_wmm_default (struct \fBieee80211_sub_if_data\fP *sdata, boolbss_notify)"
+
+.PP
+Definition at line 773 of file util\&.c\&.
+.SS "void ieee80211_sta_def_wmm_params (struct \fBieee80211_sub_if_data\fP *sdata, const size_tsupp_rates_len, const u8 *supp_rates)"
+
+.PP
+Definition at line 850 of file util\&.c\&.
+.SS "u32 ieee80211_sta_get_rates (struct \fBieee80211_local\fP *local, struct \fBieee802_11_elems\fP *elems, enum ieee80211_bandband)"
+
+.PP
+Definition at line 1111 of file util\&.c\&.
+.SS "void ieee80211_stop_device (struct \fBieee80211_local\fP *local)"
+
+.PP
+Definition at line 1147 of file util\&.c\&.
+.SS "void ieee80211_stop_queue (struct ieee80211_hw *hw, intqueue)"
+
+.PP
+Definition at line 345 of file util\&.c\&.
+.SS "void ieee80211_stop_queue_by_reason (struct ieee80211_hw *hw, intqueue, enum \fBqueue_stop_reason\fPreason)"
+
+.PP
+Definition at line 334 of file util\&.c\&.
+.SS "void ieee80211_stop_queues (struct ieee80211_hw *hw)"
+
+.PP
+Definition at line 428 of file util\&.c\&.
+.SS "void ieee80211_stop_queues_by_reason (struct ieee80211_hw *hw, enum \fBqueue_stop_reason\fPreason)"
+
+.PP
+Definition at line 413 of file util\&.c\&.
+.SS "void ieee80211_tx_set_protected (struct \fBieee80211_tx_data\fP *tx)"
+
+.PP
+Definition at line 98 of file util\&.c\&.
+.SS "void ieee80211_wake_queue (struct ieee80211_hw *hw, intqueue)"
+
+.PP
+Definition at line 308 of file util\&.c\&.
+.SS "void ieee80211_wake_queue_by_reason (struct ieee80211_hw *hw, intqueue, enum \fBqueue_stop_reason\fPreason)"
+
+.PP
+Definition at line 297 of file util\&.c\&.
+.SS "void ieee80211_wake_queues (struct ieee80211_hw *hw)"
+
+.PP
+Definition at line 466 of file util\&.c\&.
+.SS "void ieee80211_wake_queues_by_reason (struct ieee80211_hw *hw, enum \fBqueue_stop_reason\fPreason)"
+
+.PP
+Definition at line 451 of file util\&.c\&.
+.SS "void ieee802_11_parse_elems (u8 *start, size_tlen, struct \fBieee802_11_elems\fP *elems)"
+
+.PP
+Definition at line 767 of file util\&.c\&.
+.SS "u32 ieee802_11_parse_elems_crc (u8 *start, size_tlen, struct \fBieee802_11_elems\fP *elems, u64filter, u32crc)"
+
+.PP
+Definition at line 568 of file util\&.c\&.
+.SS "struct ieee80211_hw* wiphy_to_ieee80211_hw (struct wiphy *wiphy)"
+
+.PP
+Definition at line 39 of file util\&.c\&.
+.SH "Variable Documentation"
+.PP 
+.SS "void* mac80211_wiphy_privid = &mac80211_wiphy_privid"
+
+.PP
+Definition at line 37 of file util\&.c\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for net_mac80211 from the source code\&.

@@ -1,0 +1,369 @@
+\hypertarget{main_8c}{\section{/home/guille/msm/net/mac80211/main.c File Reference}
+\label{main_8c}\index{/home/guille/msm/net/mac80211/main.\-c@{/home/guille/msm/net/mac80211/main.\-c}}
+}
+{\ttfamily \#include $<$net/mac80211.\-h$>$}\\*
+{\ttfamily \#include $<$linux/module.\-h$>$}\\*
+{\ttfamily \#include $<$linux/init.\-h$>$}\\*
+{\ttfamily \#include $<$linux/netdevice.\-h$>$}\\*
+{\ttfamily \#include $<$linux/types.\-h$>$}\\*
+{\ttfamily \#include $<$linux/slab.\-h$>$}\\*
+{\ttfamily \#include $<$linux/skbuff.\-h$>$}\\*
+{\ttfamily \#include $<$linux/etherdevice.\-h$>$}\\*
+{\ttfamily \#include $<$linux/if\-\_\-arp.\-h$>$}\\*
+{\ttfamily \#include $<$linux/rtnetlink.\-h$>$}\\*
+{\ttfamily \#include $<$linux/bitmap.\-h$>$}\\*
+{\ttfamily \#include $<$linux/pm\-\_\-qos.\-h$>$}\\*
+{\ttfamily \#include $<$linux/inetdevice.\-h$>$}\\*
+{\ttfamily \#include $<$net/net\-\_\-namespace.\-h$>$}\\*
+{\ttfamily \#include $<$net/cfg80211.\-h$>$}\\*
+{\ttfamily \#include \char`\"{}ieee80211\-\_\-i.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}driver-\/ops.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}rate.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}mesh.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}wep.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}led.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}cfg.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}debugfs.\-h\char`\"{}}\\*
+Include dependency graph for main.\-c\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{main_8c__incl}
+\end{center}
+\end{figure}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{main_8c_a4c48661b021f2eb6ca0410104284922b}{ieee80211\-\_\-configure\-\_\-filter} (struct \hyperlink{structieee80211__local}{ieee80211\-\_\-local} $\ast$local)
+\item 
+int \hyperlink{main_8c_a49bb88c073bff4009536f5fca167f05b}{ieee80211\-\_\-hw\-\_\-config} (struct \hyperlink{structieee80211__local}{ieee80211\-\_\-local} $\ast$local, u32 changed)
+\item 
+void \hyperlink{main_8c_a8131603ee8b6f260b2030b11cfddf4a5}{ieee80211\-\_\-bss\-\_\-info\-\_\-change\-\_\-notify} (struct \hyperlink{structieee80211__sub__if__data}{ieee80211\-\_\-sub\-\_\-if\-\_\-data} $\ast$sdata, u32 changed)
+\item 
+u32 \hyperlink{main_8c_a00c037b839bcf2734b9dabafc4af9c37}{ieee80211\-\_\-reset\-\_\-erp\-\_\-info} (struct \hyperlink{structieee80211__sub__if__data}{ieee80211\-\_\-sub\-\_\-if\-\_\-data} $\ast$sdata)
+\item 
+void \hyperlink{main_8c_a9b95b699cd0923a1f68895ccfbf368ce}{ieee80211\-\_\-restart\-\_\-hw} (struct ieee80211\-\_\-hw $\ast$hw)
+\item 
+\hyperlink{main_8c_a84c15ebde9bb4601c241d398d221a685}{E\-X\-P\-O\-R\-T\-\_\-\-S\-Y\-M\-B\-O\-L} (\hyperlink{main_8c_a9b95b699cd0923a1f68895ccfbf368ce}{ieee80211\-\_\-restart\-\_\-hw})
+\item 
+void \hyperlink{main_8c_a814022577710777ca7b5fdafb9f9d3ae}{ieee80211\-\_\-napi\-\_\-schedule} (struct ieee80211\-\_\-hw $\ast$hw)
+\item 
+\hyperlink{main_8c_af42b7f3736023e89b37d86c083ff2f81}{E\-X\-P\-O\-R\-T\-\_\-\-S\-Y\-M\-B\-O\-L} (\hyperlink{main_8c_a814022577710777ca7b5fdafb9f9d3ae}{ieee80211\-\_\-napi\-\_\-schedule})
+\item 
+void \hyperlink{main_8c_a35e8fc0a716809721205b7ea18178415}{ieee80211\-\_\-napi\-\_\-complete} (struct ieee80211\-\_\-hw $\ast$hw)
+\item 
+\hyperlink{main_8c_a08415047fcd1cf367695738327f6d580}{E\-X\-P\-O\-R\-T\-\_\-\-S\-Y\-M\-B\-O\-L} (\hyperlink{main_8c_a35e8fc0a716809721205b7ea18178415}{ieee80211\-\_\-napi\-\_\-complete})
+\item 
+struct ieee80211\-\_\-hw $\ast$ \hyperlink{main_8c_ae81309c02669db645ed32d4b75ea401c}{ieee80211\-\_\-alloc\-\_\-hw} (size\-\_\-t priv\-\_\-data\-\_\-len, const struct ieee80211\-\_\-ops $\ast$ops)
+\item 
+\hyperlink{main_8c_a7e6b25cf038344b9067240812f5028d8}{E\-X\-P\-O\-R\-T\-\_\-\-S\-Y\-M\-B\-O\-L} (\hyperlink{main_8c_ae81309c02669db645ed32d4b75ea401c}{ieee80211\-\_\-alloc\-\_\-hw})
+\item 
+int \hyperlink{main_8c_a586dce5e97410e5c30461abb111a3920}{ieee80211\-\_\-register\-\_\-hw} (struct ieee80211\-\_\-hw $\ast$hw)
+\item 
+\hyperlink{main_8c_abe2abfe4b98eb021bb84fcf821956bcb}{E\-X\-P\-O\-R\-T\-\_\-\-S\-Y\-M\-B\-O\-L} (\hyperlink{main_8c_a586dce5e97410e5c30461abb111a3920}{ieee80211\-\_\-register\-\_\-hw})
+\item 
+void \hyperlink{main_8c_a2ac40dd22ba89ae5b942dddad650c423}{ieee80211\-\_\-unregister\-\_\-hw} (struct ieee80211\-\_\-hw $\ast$hw)
+\item 
+\hyperlink{main_8c_a21573e44f505acb96541c54056eb050c}{E\-X\-P\-O\-R\-T\-\_\-\-S\-Y\-M\-B\-O\-L} (\hyperlink{main_8c_a2ac40dd22ba89ae5b942dddad650c423}{ieee80211\-\_\-unregister\-\_\-hw})
+\item 
+void \hyperlink{main_8c_aed151a159c200a1398b6557ae9e9e788}{ieee80211\-\_\-free\-\_\-hw} (struct ieee80211\-\_\-hw $\ast$hw)
+\item 
+\hyperlink{main_8c_a492040d9cd426b2f49db26d003bb59ab}{E\-X\-P\-O\-R\-T\-\_\-\-S\-Y\-M\-B\-O\-L} (\hyperlink{main_8c_aed151a159c200a1398b6557ae9e9e788}{ieee80211\-\_\-free\-\_\-hw})
+\item 
+\hyperlink{main_8c_ab76ef9e8ecdfa67c64fd607267229c69}{subsys\-\_\-initcall} (ieee80211\-\_\-init)
+\item 
+\hyperlink{main_8c_a7f258115f3ff9812d90e2149089bf86d}{module\-\_\-exit} (ieee80211\-\_\-exit)
+\item 
+\hyperlink{main_8c_adad3be7ca04b7c1ae03c18dfaf3cbc6b}{M\-O\-D\-U\-L\-E\-\_\-\-D\-E\-S\-C\-R\-I\-P\-T\-I\-O\-N} (\char`\"{}I\-E\-E\-E 802.\-11 subsystem\char`\"{})
+\item 
+\hyperlink{main_8c_ad94b36675e7eb067ea3ce6ff9e244a44}{M\-O\-D\-U\-L\-E\-\_\-\-L\-I\-C\-E\-N\-S\-E} (\char`\"{}G\-P\-L\char`\"{})
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\hypertarget{main_8c_a84c15ebde9bb4601c241d398d221a685}{\index{main.\-c@{main.\-c}!E\-X\-P\-O\-R\-T\-\_\-\-S\-Y\-M\-B\-O\-L@{E\-X\-P\-O\-R\-T\-\_\-\-S\-Y\-M\-B\-O\-L}}
+\index{E\-X\-P\-O\-R\-T\-\_\-\-S\-Y\-M\-B\-O\-L@{E\-X\-P\-O\-R\-T\-\_\-\-S\-Y\-M\-B\-O\-L}!main.c@{main.\-c}}
+\subsubsection[{E\-X\-P\-O\-R\-T\-\_\-\-S\-Y\-M\-B\-O\-L}]{\setlength{\rightskip}{0pt plus 5cm}E\-X\-P\-O\-R\-T\-\_\-\-S\-Y\-M\-B\-O\-L (
+\begin{DoxyParamCaption}
+\item[{{\bf ieee80211\-\_\-restart\-\_\-hw}}]{}
+\end{DoxyParamCaption}
+)}}\label{main_8c_a84c15ebde9bb4601c241d398d221a685}
+\hypertarget{main_8c_af42b7f3736023e89b37d86c083ff2f81}{\index{main.\-c@{main.\-c}!E\-X\-P\-O\-R\-T\-\_\-\-S\-Y\-M\-B\-O\-L@{E\-X\-P\-O\-R\-T\-\_\-\-S\-Y\-M\-B\-O\-L}}
+\index{E\-X\-P\-O\-R\-T\-\_\-\-S\-Y\-M\-B\-O\-L@{E\-X\-P\-O\-R\-T\-\_\-\-S\-Y\-M\-B\-O\-L}!main.c@{main.\-c}}
+\subsubsection[{E\-X\-P\-O\-R\-T\-\_\-\-S\-Y\-M\-B\-O\-L}]{\setlength{\rightskip}{0pt plus 5cm}E\-X\-P\-O\-R\-T\-\_\-\-S\-Y\-M\-B\-O\-L (
+\begin{DoxyParamCaption}
+\item[{{\bf ieee80211\-\_\-napi\-\_\-schedule}}]{}
+\end{DoxyParamCaption}
+)}}\label{main_8c_af42b7f3736023e89b37d86c083ff2f81}
+\hypertarget{main_8c_a08415047fcd1cf367695738327f6d580}{\index{main.\-c@{main.\-c}!E\-X\-P\-O\-R\-T\-\_\-\-S\-Y\-M\-B\-O\-L@{E\-X\-P\-O\-R\-T\-\_\-\-S\-Y\-M\-B\-O\-L}}
+\index{E\-X\-P\-O\-R\-T\-\_\-\-S\-Y\-M\-B\-O\-L@{E\-X\-P\-O\-R\-T\-\_\-\-S\-Y\-M\-B\-O\-L}!main.c@{main.\-c}}
+\subsubsection[{E\-X\-P\-O\-R\-T\-\_\-\-S\-Y\-M\-B\-O\-L}]{\setlength{\rightskip}{0pt plus 5cm}E\-X\-P\-O\-R\-T\-\_\-\-S\-Y\-M\-B\-O\-L (
+\begin{DoxyParamCaption}
+\item[{{\bf ieee80211\-\_\-napi\-\_\-complete}}]{}
+\end{DoxyParamCaption}
+)}}\label{main_8c_a08415047fcd1cf367695738327f6d580}
+\hypertarget{main_8c_a7e6b25cf038344b9067240812f5028d8}{\index{main.\-c@{main.\-c}!E\-X\-P\-O\-R\-T\-\_\-\-S\-Y\-M\-B\-O\-L@{E\-X\-P\-O\-R\-T\-\_\-\-S\-Y\-M\-B\-O\-L}}
+\index{E\-X\-P\-O\-R\-T\-\_\-\-S\-Y\-M\-B\-O\-L@{E\-X\-P\-O\-R\-T\-\_\-\-S\-Y\-M\-B\-O\-L}!main.c@{main.\-c}}
+\subsubsection[{E\-X\-P\-O\-R\-T\-\_\-\-S\-Y\-M\-B\-O\-L}]{\setlength{\rightskip}{0pt plus 5cm}E\-X\-P\-O\-R\-T\-\_\-\-S\-Y\-M\-B\-O\-L (
+\begin{DoxyParamCaption}
+\item[{{\bf ieee80211\-\_\-alloc\-\_\-hw}}]{}
+\end{DoxyParamCaption}
+)}}\label{main_8c_a7e6b25cf038344b9067240812f5028d8}
+\hypertarget{main_8c_abe2abfe4b98eb021bb84fcf821956bcb}{\index{main.\-c@{main.\-c}!E\-X\-P\-O\-R\-T\-\_\-\-S\-Y\-M\-B\-O\-L@{E\-X\-P\-O\-R\-T\-\_\-\-S\-Y\-M\-B\-O\-L}}
+\index{E\-X\-P\-O\-R\-T\-\_\-\-S\-Y\-M\-B\-O\-L@{E\-X\-P\-O\-R\-T\-\_\-\-S\-Y\-M\-B\-O\-L}!main.c@{main.\-c}}
+\subsubsection[{E\-X\-P\-O\-R\-T\-\_\-\-S\-Y\-M\-B\-O\-L}]{\setlength{\rightskip}{0pt plus 5cm}E\-X\-P\-O\-R\-T\-\_\-\-S\-Y\-M\-B\-O\-L (
+\begin{DoxyParamCaption}
+\item[{{\bf ieee80211\-\_\-register\-\_\-hw}}]{}
+\end{DoxyParamCaption}
+)}}\label{main_8c_abe2abfe4b98eb021bb84fcf821956bcb}
+\hypertarget{main_8c_a21573e44f505acb96541c54056eb050c}{\index{main.\-c@{main.\-c}!E\-X\-P\-O\-R\-T\-\_\-\-S\-Y\-M\-B\-O\-L@{E\-X\-P\-O\-R\-T\-\_\-\-S\-Y\-M\-B\-O\-L}}
+\index{E\-X\-P\-O\-R\-T\-\_\-\-S\-Y\-M\-B\-O\-L@{E\-X\-P\-O\-R\-T\-\_\-\-S\-Y\-M\-B\-O\-L}!main.c@{main.\-c}}
+\subsubsection[{E\-X\-P\-O\-R\-T\-\_\-\-S\-Y\-M\-B\-O\-L}]{\setlength{\rightskip}{0pt plus 5cm}E\-X\-P\-O\-R\-T\-\_\-\-S\-Y\-M\-B\-O\-L (
+\begin{DoxyParamCaption}
+\item[{{\bf ieee80211\-\_\-unregister\-\_\-hw}}]{}
+\end{DoxyParamCaption}
+)}}\label{main_8c_a21573e44f505acb96541c54056eb050c}
+\hypertarget{main_8c_a492040d9cd426b2f49db26d003bb59ab}{\index{main.\-c@{main.\-c}!E\-X\-P\-O\-R\-T\-\_\-\-S\-Y\-M\-B\-O\-L@{E\-X\-P\-O\-R\-T\-\_\-\-S\-Y\-M\-B\-O\-L}}
+\index{E\-X\-P\-O\-R\-T\-\_\-\-S\-Y\-M\-B\-O\-L@{E\-X\-P\-O\-R\-T\-\_\-\-S\-Y\-M\-B\-O\-L}!main.c@{main.\-c}}
+\subsubsection[{E\-X\-P\-O\-R\-T\-\_\-\-S\-Y\-M\-B\-O\-L}]{\setlength{\rightskip}{0pt plus 5cm}E\-X\-P\-O\-R\-T\-\_\-\-S\-Y\-M\-B\-O\-L (
+\begin{DoxyParamCaption}
+\item[{{\bf ieee80211\-\_\-free\-\_\-hw}}]{}
+\end{DoxyParamCaption}
+)}}\label{main_8c_a492040d9cd426b2f49db26d003bb59ab}
+\hypertarget{main_8c_ae81309c02669db645ed32d4b75ea401c}{\index{main.\-c@{main.\-c}!ieee80211\-\_\-alloc\-\_\-hw@{ieee80211\-\_\-alloc\-\_\-hw}}
+\index{ieee80211\-\_\-alloc\-\_\-hw@{ieee80211\-\_\-alloc\-\_\-hw}!main.c@{main.\-c}}
+\subsubsection[{ieee80211\-\_\-alloc\-\_\-hw}]{\setlength{\rightskip}{0pt plus 5cm}struct ieee80211\-\_\-hw$\ast$ ieee80211\-\_\-alloc\-\_\-hw (
+\begin{DoxyParamCaption}
+\item[{size\-\_\-t}]{priv\-\_\-data\-\_\-len, }
+\item[{const struct ieee80211\-\_\-ops $\ast$}]{ops}
+\end{DoxyParamCaption}
+)}}\label{main_8c_ae81309c02669db645ed32d4b75ea401c}
+
+
+Definition at line 520 of file main.\-c.
+
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{main_8c_ae81309c02669db645ed32d4b75ea401c_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{main_8c_a8131603ee8b6f260b2030b11cfddf4a5}{\index{main.\-c@{main.\-c}!ieee80211\-\_\-bss\-\_\-info\-\_\-change\-\_\-notify@{ieee80211\-\_\-bss\-\_\-info\-\_\-change\-\_\-notify}}
+\index{ieee80211\-\_\-bss\-\_\-info\-\_\-change\-\_\-notify@{ieee80211\-\_\-bss\-\_\-info\-\_\-change\-\_\-notify}!main.c@{main.\-c}}
+\subsubsection[{ieee80211\-\_\-bss\-\_\-info\-\_\-change\-\_\-notify}]{\setlength{\rightskip}{0pt plus 5cm}void ieee80211\-\_\-bss\-\_\-info\-\_\-change\-\_\-notify (
+\begin{DoxyParamCaption}
+\item[{struct {\bf ieee80211\-\_\-sub\-\_\-if\-\_\-data} $\ast$}]{sdata, }
+\item[{u32}]{changed}
+\end{DoxyParamCaption}
+)}}\label{main_8c_a8131603ee8b6f260b2030b11cfddf4a5}
+
+
+Definition at line 189 of file main.\-c.
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{main_8c_a8131603ee8b6f260b2030b11cfddf4a5_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{main_8c_a4c48661b021f2eb6ca0410104284922b}{\index{main.\-c@{main.\-c}!ieee80211\-\_\-configure\-\_\-filter@{ieee80211\-\_\-configure\-\_\-filter}}
+\index{ieee80211\-\_\-configure\-\_\-filter@{ieee80211\-\_\-configure\-\_\-filter}!main.c@{main.\-c}}
+\subsubsection[{ieee80211\-\_\-configure\-\_\-filter}]{\setlength{\rightskip}{0pt plus 5cm}void ieee80211\-\_\-configure\-\_\-filter (
+\begin{DoxyParamCaption}
+\item[{struct {\bf ieee80211\-\_\-local} $\ast$}]{local}
+\end{DoxyParamCaption}
+)}}\label{main_8c_a4c48661b021f2eb6ca0410104284922b}
+
+
+Definition at line 38 of file main.\-c.
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=338pt]{main_8c_a4c48661b021f2eb6ca0410104284922b_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{main_8c_aed151a159c200a1398b6557ae9e9e788}{\index{main.\-c@{main.\-c}!ieee80211\-\_\-free\-\_\-hw@{ieee80211\-\_\-free\-\_\-hw}}
+\index{ieee80211\-\_\-free\-\_\-hw@{ieee80211\-\_\-free\-\_\-hw}!main.c@{main.\-c}}
+\subsubsection[{ieee80211\-\_\-free\-\_\-hw}]{\setlength{\rightskip}{0pt plus 5cm}void ieee80211\-\_\-free\-\_\-hw (
+\begin{DoxyParamCaption}
+\item[{struct ieee80211\-\_\-hw $\ast$}]{hw}
+\end{DoxyParamCaption}
+)}}\label{main_8c_aed151a159c200a1398b6557ae9e9e788}
+
+
+Definition at line 1040 of file main.\-c.
+
+\hypertarget{main_8c_a49bb88c073bff4009536f5fca167f05b}{\index{main.\-c@{main.\-c}!ieee80211\-\_\-hw\-\_\-config@{ieee80211\-\_\-hw\-\_\-config}}
+\index{ieee80211\-\_\-hw\-\_\-config@{ieee80211\-\_\-hw\-\_\-config}!main.c@{main.\-c}}
+\subsubsection[{ieee80211\-\_\-hw\-\_\-config}]{\setlength{\rightskip}{0pt plus 5cm}int ieee80211\-\_\-hw\-\_\-config (
+\begin{DoxyParamCaption}
+\item[{struct {\bf ieee80211\-\_\-local} $\ast$}]{local, }
+\item[{u32}]{changed}
+\end{DoxyParamCaption}
+)}}\label{main_8c_a49bb88c073bff4009536f5fca167f05b}
+
+
+Definition at line 95 of file main.\-c.
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{main_8c_a49bb88c073bff4009536f5fca167f05b_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{main_8c_a35e8fc0a716809721205b7ea18178415}{\index{main.\-c@{main.\-c}!ieee80211\-\_\-napi\-\_\-complete@{ieee80211\-\_\-napi\-\_\-complete}}
+\index{ieee80211\-\_\-napi\-\_\-complete@{ieee80211\-\_\-napi\-\_\-complete}!main.c@{main.\-c}}
+\subsubsection[{ieee80211\-\_\-napi\-\_\-complete}]{\setlength{\rightskip}{0pt plus 5cm}void ieee80211\-\_\-napi\-\_\-complete (
+\begin{DoxyParamCaption}
+\item[{struct ieee80211\-\_\-hw $\ast$}]{hw}
+\end{DoxyParamCaption}
+)}}\label{main_8c_a35e8fc0a716809721205b7ea18178415}
+
+
+Definition at line 443 of file main.\-c.
+
+\hypertarget{main_8c_a814022577710777ca7b5fdafb9f9d3ae}{\index{main.\-c@{main.\-c}!ieee80211\-\_\-napi\-\_\-schedule@{ieee80211\-\_\-napi\-\_\-schedule}}
+\index{ieee80211\-\_\-napi\-\_\-schedule@{ieee80211\-\_\-napi\-\_\-schedule}!main.c@{main.\-c}}
+\subsubsection[{ieee80211\-\_\-napi\-\_\-schedule}]{\setlength{\rightskip}{0pt plus 5cm}void ieee80211\-\_\-napi\-\_\-schedule (
+\begin{DoxyParamCaption}
+\item[{struct ieee80211\-\_\-hw $\ast$}]{hw}
+\end{DoxyParamCaption}
+)}}\label{main_8c_a814022577710777ca7b5fdafb9f9d3ae}
+
+
+Definition at line 435 of file main.\-c.
+
+\hypertarget{main_8c_a586dce5e97410e5c30461abb111a3920}{\index{main.\-c@{main.\-c}!ieee80211\-\_\-register\-\_\-hw@{ieee80211\-\_\-register\-\_\-hw}}
+\index{ieee80211\-\_\-register\-\_\-hw@{ieee80211\-\_\-register\-\_\-hw}!main.c@{main.\-c}}
+\subsubsection[{ieee80211\-\_\-register\-\_\-hw}]{\setlength{\rightskip}{0pt plus 5cm}int ieee80211\-\_\-register\-\_\-hw (
+\begin{DoxyParamCaption}
+\item[{struct ieee80211\-\_\-hw $\ast$}]{hw}
+\end{DoxyParamCaption}
+)}}\label{main_8c_a586dce5e97410e5c30461abb111a3920}
+
+
+Definition at line 670 of file main.\-c.
+
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{main_8c_a586dce5e97410e5c30461abb111a3920_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{main_8c_a00c037b839bcf2734b9dabafc4af9c37}{\index{main.\-c@{main.\-c}!ieee80211\-\_\-reset\-\_\-erp\-\_\-info@{ieee80211\-\_\-reset\-\_\-erp\-\_\-info}}
+\index{ieee80211\-\_\-reset\-\_\-erp\-\_\-info@{ieee80211\-\_\-reset\-\_\-erp\-\_\-info}!main.c@{main.\-c}}
+\subsubsection[{ieee80211\-\_\-reset\-\_\-erp\-\_\-info}]{\setlength{\rightskip}{0pt plus 5cm}u32 ieee80211\-\_\-reset\-\_\-erp\-\_\-info (
+\begin{DoxyParamCaption}
+\item[{struct {\bf ieee80211\-\_\-sub\-\_\-if\-\_\-data} $\ast$}]{sdata}
+\end{DoxyParamCaption}
+)}}\label{main_8c_a00c037b839bcf2734b9dabafc4af9c37}
+
+
+Definition at line 262 of file main.\-c.
+
+\hypertarget{main_8c_a9b95b699cd0923a1f68895ccfbf368ce}{\index{main.\-c@{main.\-c}!ieee80211\-\_\-restart\-\_\-hw@{ieee80211\-\_\-restart\-\_\-hw}}
+\index{ieee80211\-\_\-restart\-\_\-hw@{ieee80211\-\_\-restart\-\_\-hw}!main.c@{main.\-c}}
+\subsubsection[{ieee80211\-\_\-restart\-\_\-hw}]{\setlength{\rightskip}{0pt plus 5cm}void ieee80211\-\_\-restart\-\_\-hw (
+\begin{DoxyParamCaption}
+\item[{struct ieee80211\-\_\-hw $\ast$}]{hw}
+\end{DoxyParamCaption}
+)}}\label{main_8c_a9b95b699cd0923a1f68895ccfbf368ce}
+
+
+Definition at line 333 of file main.\-c.
+
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{main_8c_a9b95b699cd0923a1f68895ccfbf368ce_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{main_8c_a2ac40dd22ba89ae5b942dddad650c423}{\index{main.\-c@{main.\-c}!ieee80211\-\_\-unregister\-\_\-hw@{ieee80211\-\_\-unregister\-\_\-hw}}
+\index{ieee80211\-\_\-unregister\-\_\-hw@{ieee80211\-\_\-unregister\-\_\-hw}!main.c@{main.\-c}}
+\subsubsection[{ieee80211\-\_\-unregister\-\_\-hw}]{\setlength{\rightskip}{0pt plus 5cm}void ieee80211\-\_\-unregister\-\_\-hw (
+\begin{DoxyParamCaption}
+\item[{struct ieee80211\-\_\-hw $\ast$}]{hw}
+\end{DoxyParamCaption}
+)}}\label{main_8c_a2ac40dd22ba89ae5b942dddad650c423}
+
+
+Definition at line 981 of file main.\-c.
+
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{main_8c_a2ac40dd22ba89ae5b942dddad650c423_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{main_8c_adad3be7ca04b7c1ae03c18dfaf3cbc6b}{\index{main.\-c@{main.\-c}!M\-O\-D\-U\-L\-E\-\_\-\-D\-E\-S\-C\-R\-I\-P\-T\-I\-O\-N@{M\-O\-D\-U\-L\-E\-\_\-\-D\-E\-S\-C\-R\-I\-P\-T\-I\-O\-N}}
+\index{M\-O\-D\-U\-L\-E\-\_\-\-D\-E\-S\-C\-R\-I\-P\-T\-I\-O\-N@{M\-O\-D\-U\-L\-E\-\_\-\-D\-E\-S\-C\-R\-I\-P\-T\-I\-O\-N}!main.c@{main.\-c}}
+\subsubsection[{M\-O\-D\-U\-L\-E\-\_\-\-D\-E\-S\-C\-R\-I\-P\-T\-I\-O\-N}]{\setlength{\rightskip}{0pt plus 5cm}M\-O\-D\-U\-L\-E\-\_\-\-D\-E\-S\-C\-R\-I\-P\-T\-I\-O\-N (
+\begin{DoxyParamCaption}
+\item[{\char`\"{}I\-E\-E\-E 802.\-11 subsystem\char`\"{}}]{}
+\end{DoxyParamCaption}
+)}}\label{main_8c_adad3be7ca04b7c1ae03c18dfaf3cbc6b}
+\hypertarget{main_8c_a7f258115f3ff9812d90e2149089bf86d}{\index{main.\-c@{main.\-c}!module\-\_\-exit@{module\-\_\-exit}}
+\index{module\-\_\-exit@{module\-\_\-exit}!main.c@{main.\-c}}
+\subsubsection[{module\-\_\-exit}]{\setlength{\rightskip}{0pt plus 5cm}module\-\_\-exit (
+\begin{DoxyParamCaption}
+\item[{ieee80211\-\_\-exit}]{}
+\end{DoxyParamCaption}
+)}}\label{main_8c_a7f258115f3ff9812d90e2149089bf86d}
+\hypertarget{main_8c_ad94b36675e7eb067ea3ce6ff9e244a44}{\index{main.\-c@{main.\-c}!M\-O\-D\-U\-L\-E\-\_\-\-L\-I\-C\-E\-N\-S\-E@{M\-O\-D\-U\-L\-E\-\_\-\-L\-I\-C\-E\-N\-S\-E}}
+\index{M\-O\-D\-U\-L\-E\-\_\-\-L\-I\-C\-E\-N\-S\-E@{M\-O\-D\-U\-L\-E\-\_\-\-L\-I\-C\-E\-N\-S\-E}!main.c@{main.\-c}}
+\subsubsection[{M\-O\-D\-U\-L\-E\-\_\-\-L\-I\-C\-E\-N\-S\-E}]{\setlength{\rightskip}{0pt plus 5cm}M\-O\-D\-U\-L\-E\-\_\-\-L\-I\-C\-E\-N\-S\-E (
+\begin{DoxyParamCaption}
+\item[{\char`\"{}G\-P\-L\char`\"{}}]{}
+\end{DoxyParamCaption}
+)}}\label{main_8c_ad94b36675e7eb067ea3ce6ff9e244a44}
+\hypertarget{main_8c_ab76ef9e8ecdfa67c64fd607267229c69}{\index{main.\-c@{main.\-c}!subsys\-\_\-initcall@{subsys\-\_\-initcall}}
+\index{subsys\-\_\-initcall@{subsys\-\_\-initcall}!main.c@{main.\-c}}
+\subsubsection[{subsys\-\_\-initcall}]{\setlength{\rightskip}{0pt plus 5cm}subsys\-\_\-initcall (
+\begin{DoxyParamCaption}
+\item[{ieee80211\-\_\-init}]{}
+\end{DoxyParamCaption}
+)}}\label{main_8c_ab76ef9e8ecdfa67c64fd607267229c69}

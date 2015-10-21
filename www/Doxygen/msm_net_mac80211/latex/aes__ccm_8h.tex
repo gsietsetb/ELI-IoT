@@ -1,0 +1,112 @@
+\hypertarget{aes__ccm_8h}{\section{/home/guille/msm/net/mac80211/aes\-\_\-ccm.h File Reference}
+\label{aes__ccm_8h}\index{/home/guille/msm/net/mac80211/aes\-\_\-ccm.\-h@{/home/guille/msm/net/mac80211/aes\-\_\-ccm.\-h}}
+}
+{\ttfamily \#include $<$linux/crypto.\-h$>$}\\*
+Include dependency graph for aes\-\_\-ccm.\-h\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=196pt]{aes__ccm_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{aes__ccm_8h__dep__incl}
+\end{center}
+\end{figure}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+struct crypto\-\_\-cipher $\ast$ \hyperlink{aes__ccm_8h_a5916412ea1b0a287d0d0085b813523ca}{ieee80211\-\_\-aes\-\_\-key\-\_\-setup\-\_\-encrypt} (const u8 key\mbox{[}$\,$\mbox{]})
+\item 
+void \hyperlink{aes__ccm_8h_a77cbb0f9aa6da9d6338b508c734208c3}{ieee80211\-\_\-aes\-\_\-ccm\-\_\-encrypt} (struct crypto\-\_\-cipher $\ast$tfm, u8 $\ast$scratch, u8 $\ast$data, size\-\_\-t data\-\_\-len, u8 $\ast$cdata, u8 $\ast$mic)
+\item 
+int \hyperlink{aes__ccm_8h_ac80d54e2f7cfe21570ad9994aa01b75e}{ieee80211\-\_\-aes\-\_\-ccm\-\_\-decrypt} (struct crypto\-\_\-cipher $\ast$tfm, u8 $\ast$scratch, u8 $\ast$cdata, size\-\_\-t data\-\_\-len, u8 $\ast$mic, u8 $\ast$data)
+\item 
+void \hyperlink{aes__ccm_8h_a902197e5ed87dda0b20439f762eb7973}{ieee80211\-\_\-aes\-\_\-key\-\_\-free} (struct crypto\-\_\-cipher $\ast$tfm)
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\hypertarget{aes__ccm_8h_ac80d54e2f7cfe21570ad9994aa01b75e}{\index{aes\-\_\-ccm.\-h@{aes\-\_\-ccm.\-h}!ieee80211\-\_\-aes\-\_\-ccm\-\_\-decrypt@{ieee80211\-\_\-aes\-\_\-ccm\-\_\-decrypt}}
+\index{ieee80211\-\_\-aes\-\_\-ccm\-\_\-decrypt@{ieee80211\-\_\-aes\-\_\-ccm\-\_\-decrypt}!aes_ccm.h@{aes\-\_\-ccm.\-h}}
+\subsubsection[{ieee80211\-\_\-aes\-\_\-ccm\-\_\-decrypt}]{\setlength{\rightskip}{0pt plus 5cm}int ieee80211\-\_\-aes\-\_\-ccm\-\_\-decrypt (
+\begin{DoxyParamCaption}
+\item[{struct crypto\-\_\-cipher $\ast$}]{tfm, }
+\item[{u8 $\ast$}]{scratch, }
+\item[{u8 $\ast$}]{cdata, }
+\item[{size\-\_\-t}]{data\-\_\-len, }
+\item[{u8 $\ast$}]{mic, }
+\item[{u8 $\ast$}]{data}
+\end{DoxyParamCaption}
+)}}\label{aes__ccm_8h_ac80d54e2f7cfe21570ad9994aa01b75e}
+
+
+Definition at line 93 of file aes\-\_\-ccm.\-c.
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{aes__ccm_8h_ac80d54e2f7cfe21570ad9994aa01b75e_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{aes__ccm_8h_a77cbb0f9aa6da9d6338b508c734208c3}{\index{aes\-\_\-ccm.\-h@{aes\-\_\-ccm.\-h}!ieee80211\-\_\-aes\-\_\-ccm\-\_\-encrypt@{ieee80211\-\_\-aes\-\_\-ccm\-\_\-encrypt}}
+\index{ieee80211\-\_\-aes\-\_\-ccm\-\_\-encrypt@{ieee80211\-\_\-aes\-\_\-ccm\-\_\-encrypt}!aes_ccm.h@{aes\-\_\-ccm.\-h}}
+\subsubsection[{ieee80211\-\_\-aes\-\_\-ccm\-\_\-encrypt}]{\setlength{\rightskip}{0pt plus 5cm}void ieee80211\-\_\-aes\-\_\-ccm\-\_\-encrypt (
+\begin{DoxyParamCaption}
+\item[{struct crypto\-\_\-cipher $\ast$}]{tfm, }
+\item[{u8 $\ast$}]{scratch, }
+\item[{u8 $\ast$}]{data, }
+\item[{size\-\_\-t}]{data\-\_\-len, }
+\item[{u8 $\ast$}]{cdata, }
+\item[{u8 $\ast$}]{mic}
+\end{DoxyParamCaption}
+)}}\label{aes__ccm_8h_a77cbb0f9aa6da9d6338b508c734208c3}
+
+
+Definition at line 53 of file aes\-\_\-ccm.\-c.
+
+\hypertarget{aes__ccm_8h_a902197e5ed87dda0b20439f762eb7973}{\index{aes\-\_\-ccm.\-h@{aes\-\_\-ccm.\-h}!ieee80211\-\_\-aes\-\_\-key\-\_\-free@{ieee80211\-\_\-aes\-\_\-key\-\_\-free}}
+\index{ieee80211\-\_\-aes\-\_\-key\-\_\-free@{ieee80211\-\_\-aes\-\_\-key\-\_\-free}!aes_ccm.h@{aes\-\_\-ccm.\-h}}
+\subsubsection[{ieee80211\-\_\-aes\-\_\-key\-\_\-free}]{\setlength{\rightskip}{0pt plus 5cm}void ieee80211\-\_\-aes\-\_\-key\-\_\-free (
+\begin{DoxyParamCaption}
+\item[{struct crypto\-\_\-cipher $\ast$}]{tfm}
+\end{DoxyParamCaption}
+)}}\label{aes__ccm_8h_a902197e5ed87dda0b20439f762eb7973}
+
+
+Definition at line 147 of file aes\-\_\-ccm.\-c.
+
+\hypertarget{aes__ccm_8h_a5916412ea1b0a287d0d0085b813523ca}{\index{aes\-\_\-ccm.\-h@{aes\-\_\-ccm.\-h}!ieee80211\-\_\-aes\-\_\-key\-\_\-setup\-\_\-encrypt@{ieee80211\-\_\-aes\-\_\-key\-\_\-setup\-\_\-encrypt}}
+\index{ieee80211\-\_\-aes\-\_\-key\-\_\-setup\-\_\-encrypt@{ieee80211\-\_\-aes\-\_\-key\-\_\-setup\-\_\-encrypt}!aes_ccm.h@{aes\-\_\-ccm.\-h}}
+\subsubsection[{ieee80211\-\_\-aes\-\_\-key\-\_\-setup\-\_\-encrypt}]{\setlength{\rightskip}{0pt plus 5cm}struct crypto\-\_\-cipher$\ast$ ieee80211\-\_\-aes\-\_\-key\-\_\-setup\-\_\-encrypt (
+\begin{DoxyParamCaption}
+\item[{const u8}]{key\mbox{[}$\,$\mbox{]}}
+\end{DoxyParamCaption}
+)}}\label{aes__ccm_8h_a5916412ea1b0a287d0d0085b813523ca}
+
+
+Definition at line 135 of file aes\-\_\-ccm.\-c.
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{aes__ccm_8h_a5916412ea1b0a287d0d0085b813523ca_icgraph}
+\end{center}
+\end{figure}
+
+

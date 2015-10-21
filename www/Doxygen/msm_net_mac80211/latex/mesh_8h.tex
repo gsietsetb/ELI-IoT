@@ -1,0 +1,1932 @@
+\hypertarget{mesh_8h}{\section{/home/guille/msm/net/mac80211/mesh.h File Reference}
+\label{mesh_8h}\index{/home/guille/msm/net/mac80211/mesh.\-h@{/home/guille/msm/net/mac80211/mesh.\-h}}
+}
+{\ttfamily \#include $<$linux/types.\-h$>$}\\*
+{\ttfamily \#include $<$linux/jhash.\-h$>$}\\*
+{\ttfamily \#include \char`\"{}ieee80211\-\_\-i.\-h\char`\"{}}\\*
+Include dependency graph for mesh.\-h\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{mesh_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{mesh_8h__dep__incl}
+\end{center}
+\end{figure}
+\subsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structmesh__path}{mesh\-\_\-path}
+\item 
+struct \hyperlink{structmesh__table}{mesh\-\_\-table}
+\item 
+struct \hyperlink{structrmc__entry}{rmc\-\_\-entry}
+\item 
+struct \hyperlink{structmesh__rmc}{mesh\-\_\-rmc}
+\end{DoxyCompactItemize}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{mesh_8h_a2909ba21ed27a80429f34262b9dda565}{R\-M\-C\-\_\-\-B\-U\-C\-K\-E\-T\-S}~256
+\item 
+\#define \hyperlink{mesh_8h_a2255bdccf3c9adade6b1f333e2c72c30}{R\-M\-C\-\_\-\-Q\-U\-E\-U\-E\-\_\-\-M\-A\-X\-\_\-\-L\-E\-N}~4
+\item 
+\#define \hyperlink{mesh_8h_a2615892da0e8ce8ed1087f68ab945251}{R\-M\-C\-\_\-\-T\-I\-M\-E\-O\-U\-T}~(3 $\ast$ H\-Z)
+\item 
+\#define \hyperlink{mesh_8h_a39d0dbf170593a042ce27db6fb4d600b}{I\-E\-E\-E80211\-\_\-\-M\-E\-S\-H\-\_\-\-P\-E\-E\-R\-\_\-\-I\-N\-A\-C\-T\-I\-V\-I\-T\-Y\-\_\-\-L\-I\-M\-I\-T}~(1800 $\ast$ H\-Z)
+\item 
+\#define \hyperlink{mesh_8h_a8d960646397cca45a5feb4c110005bef}{I\-E\-E\-E80211\-\_\-\-M\-E\-S\-H\-\_\-\-H\-O\-U\-S\-E\-K\-E\-E\-P\-I\-N\-G\-\_\-\-I\-N\-T\-E\-R\-V\-A\-L}~(60 $\ast$ H\-Z)
+\item 
+\#define \hyperlink{mesh_8h_a57acded3589b3315d51a0aa6cb32d411}{M\-E\-S\-H\-\_\-\-D\-E\-F\-A\-U\-L\-T\-\_\-\-B\-E\-A\-C\-O\-N\-\_\-\-I\-N\-T\-E\-R\-V\-A\-L}~1000 	/$\ast$ in 1024 us units $\ast$/
+\item 
+\#define \hyperlink{mesh_8h_aeaa5b1d89caef088d986f90b62c0fb93}{M\-E\-S\-H\-\_\-\-P\-A\-T\-H\-\_\-\-E\-X\-P\-I\-R\-E}~(600 $\ast$ H\-Z)
+\item 
+\#define \hyperlink{mesh_8h_a891915a9babfcb0b3306eaa309faecf4}{M\-E\-S\-H\-\_\-\-M\-A\-X\-\_\-\-P\-L\-I\-N\-K\-S}~256
+\item 
+\#define \hyperlink{mesh_8h_a652b0ae79c82de460c3f767bba96c983}{M\-E\-S\-H\-\_\-\-M\-A\-X\-\_\-\-M\-P\-A\-T\-H\-S}~1024
+\item 
+\#define \hyperlink{mesh_8h_a02c1d043611a0174d78cc3480ee31bb2}{mesh\-\_\-allocated}~0
+\end{DoxyCompactItemize}
+\subsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \hyperlink{mesh_8h_a1108038688d583a88056a1ebebd89fa2}{mesh\-\_\-path\-\_\-flags} \{ \\*
+\hyperlink{mesh_8h_a1108038688d583a88056a1ebebd89fa2a64ca4728e1fb232637a6d28878c700be}{M\-E\-S\-H\-\_\-\-P\-A\-T\-H\-\_\-\-A\-C\-T\-I\-V\-E} = B\-I\-T(0), 
+\hyperlink{mesh_8h_a1108038688d583a88056a1ebebd89fa2a44dbd12b2601dca7105dfedc88277dc4}{M\-E\-S\-H\-\_\-\-P\-A\-T\-H\-\_\-\-R\-E\-S\-O\-L\-V\-I\-N\-G} = B\-I\-T(1), 
+\hyperlink{mesh_8h_a1108038688d583a88056a1ebebd89fa2a4da141165ad1c2a664ead9feafaa421d}{M\-E\-S\-H\-\_\-\-P\-A\-T\-H\-\_\-\-S\-N\-\_\-\-V\-A\-L\-I\-D} = B\-I\-T(2), 
+\hyperlink{mesh_8h_a1108038688d583a88056a1ebebd89fa2a82162e466aee394e88e80550ac71000f}{M\-E\-S\-H\-\_\-\-P\-A\-T\-H\-\_\-\-F\-I\-X\-E\-D} = B\-I\-T(3), 
+\\*
+\hyperlink{mesh_8h_a1108038688d583a88056a1ebebd89fa2a97c142cb591032adb61806a3ee9f8469}{M\-E\-S\-H\-\_\-\-P\-A\-T\-H\-\_\-\-R\-E\-S\-O\-L\-V\-E\-D} = B\-I\-T(4), 
+\hyperlink{mesh_8h_a1108038688d583a88056a1ebebd89fa2ace5bd26e7cc8b042426e8d4174c36a39}{M\-E\-S\-H\-\_\-\-P\-A\-T\-H\-\_\-\-R\-E\-Q\-\_\-\-Q\-U\-E\-U\-E\-D} = B\-I\-T(5)
+ \}
+\item 
+enum \hyperlink{mesh_8h_aa1de3f68cf5c6ae5fcf2e2f6883d895f}{mesh\-\_\-deferred\-\_\-task\-\_\-flags} \{ \hyperlink{mesh_8h_aa1de3f68cf5c6ae5fcf2e2f6883d895fae85704545fde65e17c0d73b5f6d441ba}{M\-E\-S\-H\-\_\-\-W\-O\-R\-K\-\_\-\-H\-O\-U\-S\-E\-K\-E\-E\-P\-I\-N\-G}, 
+\hyperlink{mesh_8h_aa1de3f68cf5c6ae5fcf2e2f6883d895fa9ca5537a11360fb22c502cf024b4adb5}{M\-E\-S\-H\-\_\-\-W\-O\-R\-K\-\_\-\-G\-R\-O\-W\-\_\-\-M\-P\-A\-T\-H\-\_\-\-T\-A\-B\-L\-E}, 
+\hyperlink{mesh_8h_aa1de3f68cf5c6ae5fcf2e2f6883d895fad96b8eebf244bc36827be0577d6071d3}{M\-E\-S\-H\-\_\-\-W\-O\-R\-K\-\_\-\-G\-R\-O\-W\-\_\-\-M\-P\-P\-\_\-\-T\-A\-B\-L\-E}, 
+\hyperlink{mesh_8h_aa1de3f68cf5c6ae5fcf2e2f6883d895fa921f3935d7f41a5546e477af488ef27d}{M\-E\-S\-H\-\_\-\-W\-O\-R\-K\-\_\-\-R\-O\-O\-T}
+ \}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{mesh_8h_aa41e331355f5830c7dae2ada6992b811}{ieee80211\-\_\-fill\-\_\-mesh\-\_\-addresses} (struct ieee80211\-\_\-hdr $\ast$hdr, \-\_\-\-\_\-le16 $\ast$fc, const u8 $\ast$da, const u8 $\ast$sa)
+\item 
+int \hyperlink{mesh_8h_a4853941ff45b8b8193a331ae1b868483}{ieee80211\-\_\-new\-\_\-mesh\-\_\-header} (struct ieee80211s\-\_\-hdr $\ast$meshhdr, struct \hyperlink{structieee80211__sub__if__data}{ieee80211\-\_\-sub\-\_\-if\-\_\-data} $\ast$sdata, char $\ast$addr4or5, char $\ast$addr6)
+\item 
+int \hyperlink{mesh_8h_ade1ad1e865ae96fde4f814423c5f1225}{mesh\-\_\-rmc\-\_\-check} (u8 $\ast$addr, struct ieee80211s\-\_\-hdr $\ast$mesh\-\_\-hdr, struct \hyperlink{structieee80211__sub__if__data}{ieee80211\-\_\-sub\-\_\-if\-\_\-data} $\ast$sdata)
+\item 
+bool \hyperlink{mesh_8h_a733149fad303aa552e5922abf80c8ec4}{mesh\-\_\-matches\-\_\-local} (struct \hyperlink{structieee802__11__elems}{ieee802\-\_\-11\-\_\-elems} $\ast$ie, struct \hyperlink{structieee80211__sub__if__data}{ieee80211\-\_\-sub\-\_\-if\-\_\-data} $\ast$sdata)
+\item 
+void \hyperlink{mesh_8h_a4f6fc9180ebcfad10394dbbc3d364f0f}{mesh\-\_\-ids\-\_\-set\-\_\-default} (struct \hyperlink{structieee80211__if__mesh}{ieee80211\-\_\-if\-\_\-mesh} $\ast$mesh)
+\item 
+void \hyperlink{mesh_8h_aa7b343b8edb9f86f36a7bdaa04f2d3e7}{mesh\-\_\-mgmt\-\_\-ies\-\_\-add} (struct sk\-\_\-buff $\ast$skb, struct \hyperlink{structieee80211__sub__if__data}{ieee80211\-\_\-sub\-\_\-if\-\_\-data} $\ast$sdata)
+\item 
+int \hyperlink{mesh_8h_a94fe8b464b1fa371dca0c9342449e671}{mesh\-\_\-add\-\_\-meshconf\-\_\-ie} (struct sk\-\_\-buff $\ast$skb, struct \hyperlink{structieee80211__sub__if__data}{ieee80211\-\_\-sub\-\_\-if\-\_\-data} $\ast$sdata)
+\item 
+int \hyperlink{mesh_8h_ab828efacf7dd55c4fa7e03035cbe534f}{mesh\-\_\-add\-\_\-meshid\-\_\-ie} (struct sk\-\_\-buff $\ast$skb, struct \hyperlink{structieee80211__sub__if__data}{ieee80211\-\_\-sub\-\_\-if\-\_\-data} $\ast$sdata)
+\item 
+int \hyperlink{mesh_8h_a8f1d932ba380076f535af2a4459d5741}{mesh\-\_\-add\-\_\-rsn\-\_\-ie} (struct sk\-\_\-buff $\ast$skb, struct \hyperlink{structieee80211__sub__if__data}{ieee80211\-\_\-sub\-\_\-if\-\_\-data} $\ast$sdata)
+\item 
+int \hyperlink{mesh_8h_ab35fe97a980e1d1a6764379d8eb055d2}{mesh\-\_\-add\-\_\-vendor\-\_\-ies} (struct sk\-\_\-buff $\ast$skb, struct \hyperlink{structieee80211__sub__if__data}{ieee80211\-\_\-sub\-\_\-if\-\_\-data} $\ast$sdata)
+\item 
+int \hyperlink{mesh_8h_aafb943e2be8b477ca692c415c01d2f7e}{mesh\-\_\-add\-\_\-ds\-\_\-params\-\_\-ie} (struct sk\-\_\-buff $\ast$skb, struct \hyperlink{structieee80211__sub__if__data}{ieee80211\-\_\-sub\-\_\-if\-\_\-data} $\ast$sdata)
+\item 
+int \hyperlink{mesh_8h_ad85da6e7729e0ce164724a233ea44435}{mesh\-\_\-add\-\_\-ht\-\_\-cap\-\_\-ie} (struct sk\-\_\-buff $\ast$skb, struct \hyperlink{structieee80211__sub__if__data}{ieee80211\-\_\-sub\-\_\-if\-\_\-data} $\ast$sdata)
+\item 
+int \hyperlink{mesh_8h_a1b2e97b19b4f11ab3f2a5f617827ef5b}{mesh\-\_\-add\-\_\-ht\-\_\-info\-\_\-ie} (struct sk\-\_\-buff $\ast$skb, struct \hyperlink{structieee80211__sub__if__data}{ieee80211\-\_\-sub\-\_\-if\-\_\-data} $\ast$sdata)
+\item 
+void \hyperlink{mesh_8h_a90063d5785b5baa8164a3d382b2ed659}{mesh\-\_\-rmc\-\_\-free} (struct \hyperlink{structieee80211__sub__if__data}{ieee80211\-\_\-sub\-\_\-if\-\_\-data} $\ast$sdata)
+\item 
+int \hyperlink{mesh_8h_a8010fb0eba335e4845d3e769c569a890}{mesh\-\_\-rmc\-\_\-init} (struct \hyperlink{structieee80211__sub__if__data}{ieee80211\-\_\-sub\-\_\-if\-\_\-data} $\ast$sdata)
+\item 
+void \hyperlink{mesh_8h_a1652ccfaa1caeeff4a15d30fd1661f28}{ieee80211s\-\_\-init} (void)
+\item 
+void \hyperlink{mesh_8h_af2dc80ac8cb32fc451793cbbb2082a89}{ieee80211s\-\_\-update\-\_\-metric} (struct \hyperlink{structieee80211__local}{ieee80211\-\_\-local} $\ast$local, struct \hyperlink{structsta__info}{sta\-\_\-info} $\ast$stainfo, struct sk\-\_\-buff $\ast$skb)
+\item 
+void \hyperlink{mesh_8h_a3be81db23aea1ab81be9e08800014cab}{ieee80211s\-\_\-stop} (void)
+\item 
+void \hyperlink{mesh_8h_a612be5d762db6c7b5e9d4c5894dfdcb3}{ieee80211\-\_\-mesh\-\_\-init\-\_\-sdata} (struct \hyperlink{structieee80211__sub__if__data}{ieee80211\-\_\-sub\-\_\-if\-\_\-data} $\ast$sdata)
+\item 
+void \hyperlink{mesh_8h_a3816bb4bcc9f55449999d4f9ab47db3c}{ieee80211\-\_\-start\-\_\-mesh} (struct \hyperlink{structieee80211__sub__if__data}{ieee80211\-\_\-sub\-\_\-if\-\_\-data} $\ast$sdata)
+\item 
+void \hyperlink{mesh_8h_a7c27e82983b3da51ca238f14a5c6cbea}{ieee80211\-\_\-stop\-\_\-mesh} (struct \hyperlink{structieee80211__sub__if__data}{ieee80211\-\_\-sub\-\_\-if\-\_\-data} $\ast$sdata)
+\item 
+void \hyperlink{mesh_8h_ac0d84faf096db9b3d2324af543f1a42a}{ieee80211\-\_\-mesh\-\_\-root\-\_\-setup} (struct \hyperlink{structieee80211__if__mesh}{ieee80211\-\_\-if\-\_\-mesh} $\ast$ifmsh)
+\item 
+int \hyperlink{mesh_8h_a9d9333d534703251d6b25e5e58979a8d}{mesh\-\_\-nexthop\-\_\-lookup} (struct sk\-\_\-buff $\ast$skb, struct \hyperlink{structieee80211__sub__if__data}{ieee80211\-\_\-sub\-\_\-if\-\_\-data} $\ast$sdata)
+\item 
+int \hyperlink{mesh_8h_a730b0e40f9056c043cdb988589638fe1}{mesh\-\_\-nexthop\-\_\-resolve} (struct sk\-\_\-buff $\ast$skb, struct \hyperlink{structieee80211__sub__if__data}{ieee80211\-\_\-sub\-\_\-if\-\_\-data} $\ast$sdata)
+\item 
+void \hyperlink{mesh_8h_adcc5bbc97b6e4d90352ed4ad250986e2}{mesh\-\_\-path\-\_\-start\-\_\-discovery} (struct \hyperlink{structieee80211__sub__if__data}{ieee80211\-\_\-sub\-\_\-if\-\_\-data} $\ast$sdata)
+\item 
+struct \hyperlink{structmesh__path}{mesh\-\_\-path} $\ast$ \hyperlink{mesh_8h_a1794882e6c44e105ce79ff35a74a160b}{mesh\-\_\-path\-\_\-lookup} (u8 $\ast$dst, struct \hyperlink{structieee80211__sub__if__data}{ieee80211\-\_\-sub\-\_\-if\-\_\-data} $\ast$sdata)
+\item 
+struct \hyperlink{structmesh__path}{mesh\-\_\-path} $\ast$ \hyperlink{mesh_8h_ade75b84e7888b0843fa63cd03a3ec015}{mpp\-\_\-path\-\_\-lookup} (u8 $\ast$dst, struct \hyperlink{structieee80211__sub__if__data}{ieee80211\-\_\-sub\-\_\-if\-\_\-data} $\ast$sdata)
+\item 
+int \hyperlink{mesh_8h_a43c1db07be87b3dce6f20e16ca8e1c3a}{mpp\-\_\-path\-\_\-add} (u8 $\ast$dst, u8 $\ast$mpp, struct \hyperlink{structieee80211__sub__if__data}{ieee80211\-\_\-sub\-\_\-if\-\_\-data} $\ast$sdata)
+\item 
+struct \hyperlink{structmesh__path}{mesh\-\_\-path} $\ast$ \hyperlink{mesh_8h_a291a74d17d68d23e5d0ff9abeccbb9fa}{mesh\-\_\-path\-\_\-lookup\-\_\-by\-\_\-idx} (int idx, struct \hyperlink{structieee80211__sub__if__data}{ieee80211\-\_\-sub\-\_\-if\-\_\-data} $\ast$sdata)
+\item 
+void \hyperlink{mesh_8h_a2da3453bee1fbea601bb76e75687a14e}{mesh\-\_\-path\-\_\-fix\-\_\-nexthop} (struct \hyperlink{structmesh__path}{mesh\-\_\-path} $\ast$mpath, struct \hyperlink{structsta__info}{sta\-\_\-info} $\ast$next\-\_\-hop)
+\item 
+void \hyperlink{mesh_8h_a0f6ee851cd26b2b89230140fc89460d4}{mesh\-\_\-path\-\_\-expire} (struct \hyperlink{structieee80211__sub__if__data}{ieee80211\-\_\-sub\-\_\-if\-\_\-data} $\ast$sdata)
+\item 
+void \hyperlink{mesh_8h_ad09af1edb1e70d04aecb63ede83a4b45}{mesh\-\_\-rx\-\_\-path\-\_\-sel\-\_\-frame} (struct \hyperlink{structieee80211__sub__if__data}{ieee80211\-\_\-sub\-\_\-if\-\_\-data} $\ast$sdata, struct ieee80211\-\_\-mgmt $\ast$mgmt, size\-\_\-t len)
+\item 
+int \hyperlink{mesh_8h_abf045a31559b7aea3fa56394d7ab1372}{mesh\-\_\-path\-\_\-add} (u8 $\ast$dst, struct \hyperlink{structieee80211__sub__if__data}{ieee80211\-\_\-sub\-\_\-if\-\_\-data} $\ast$sdata)
+\item 
+int \hyperlink{mesh_8h_af99521d45a7ba659d9c988ad8e274966}{mesh\-\_\-path\-\_\-add\-\_\-gate} (struct \hyperlink{structmesh__path}{mesh\-\_\-path} $\ast$mpath)
+\item 
+int \hyperlink{mesh_8h_acfaaabcef47e7a6e3b75022748bd0abc}{mesh\-\_\-path\-\_\-send\-\_\-to\-\_\-gates} (struct \hyperlink{structmesh__path}{mesh\-\_\-path} $\ast$mpath)
+\item 
+int \hyperlink{mesh_8h_a9bb1def60ac1348affaef2be516cb928}{mesh\-\_\-gate\-\_\-num} (struct \hyperlink{structieee80211__sub__if__data}{ieee80211\-\_\-sub\-\_\-if\-\_\-data} $\ast$sdata)
+\item 
+void \hyperlink{mesh_8h_ae97677a60e7fd512015b1c8f160be784}{mesh\-\_\-neighbour\-\_\-update} (u8 $\ast$hw\-\_\-addr, u32 rates, struct \hyperlink{structieee80211__sub__if__data}{ieee80211\-\_\-sub\-\_\-if\-\_\-data} $\ast$sdata, struct \hyperlink{structieee802__11__elems}{ieee802\-\_\-11\-\_\-elems} $\ast$ie)
+\item 
+bool \hyperlink{mesh_8h_a637eb75f6df7df499099793619a2393e}{mesh\-\_\-peer\-\_\-accepts\-\_\-plinks} (struct \hyperlink{structieee802__11__elems}{ieee802\-\_\-11\-\_\-elems} $\ast$ie)
+\item 
+void \hyperlink{mesh_8h_a40469145876b1db95a00473347b23175}{mesh\-\_\-accept\-\_\-plinks\-\_\-update} (struct \hyperlink{structieee80211__sub__if__data}{ieee80211\-\_\-sub\-\_\-if\-\_\-data} $\ast$sdata)
+\item 
+void \hyperlink{mesh_8h_a347c473ad002d31a76c9856c38af804b}{mesh\-\_\-plink\-\_\-broken} (struct \hyperlink{structsta__info}{sta\-\_\-info} $\ast$sta)
+\item 
+void \hyperlink{mesh_8h_ad48cae814bc9933988941baf8fe181ba}{mesh\-\_\-plink\-\_\-deactivate} (struct \hyperlink{structsta__info}{sta\-\_\-info} $\ast$sta)
+\item 
+int \hyperlink{mesh_8h_abebf8d91cef315054bb89b5ea4bffe40}{mesh\-\_\-plink\-\_\-open} (struct \hyperlink{structsta__info}{sta\-\_\-info} $\ast$sta)
+\item 
+void \hyperlink{mesh_8h_aa849d370a375feb8e7843a781ad9fc62}{mesh\-\_\-plink\-\_\-block} (struct \hyperlink{structsta__info}{sta\-\_\-info} $\ast$sta)
+\item 
+void \hyperlink{mesh_8h_af3cc1ba7b5230d6fb3285d14d7b5344b}{mesh\-\_\-rx\-\_\-plink\-\_\-frame} (struct \hyperlink{structieee80211__sub__if__data}{ieee80211\-\_\-sub\-\_\-if\-\_\-data} $\ast$sdata, struct ieee80211\-\_\-mgmt $\ast$mgmt, size\-\_\-t len, struct ieee80211\-\_\-rx\-\_\-status $\ast$rx\-\_\-status)
+\item 
+void \hyperlink{mesh_8h_a69e53ed90bb9493db24a820fff7db860}{mesh\-\_\-mpath\-\_\-table\-\_\-grow} (void)
+\item 
+void \hyperlink{mesh_8h_a86c0b167f83fc46ca1441594853d69da}{mesh\-\_\-mpp\-\_\-table\-\_\-grow} (void)
+\item 
+int \hyperlink{mesh_8h_af57470fb1db40170d88d1d742534e7c8}{mesh\-\_\-path\-\_\-error\-\_\-tx} (u8 ttl, u8 $\ast$target, \-\_\-\-\_\-le32 target\-\_\-sn, \-\_\-\-\_\-le16 target\-\_\-rcode, const u8 $\ast$ra, struct \hyperlink{structieee80211__sub__if__data}{ieee80211\-\_\-sub\-\_\-if\-\_\-data} $\ast$sdata)
+\item 
+void \hyperlink{mesh_8h_aa0eb720f520e04822384c44fdd66bc0c}{mesh\-\_\-path\-\_\-assign\-\_\-nexthop} (struct \hyperlink{structmesh__path}{mesh\-\_\-path} $\ast$mpath, struct \hyperlink{structsta__info}{sta\-\_\-info} $\ast$sta)
+\item 
+void \hyperlink{mesh_8h_ae453f6c3c228429527920b139aca79d7}{mesh\-\_\-path\-\_\-flush\-\_\-pending} (struct \hyperlink{structmesh__path}{mesh\-\_\-path} $\ast$mpath)
+\item 
+void \hyperlink{mesh_8h_a53b7762f7fb8c8cd60e943f1c292abab}{mesh\-\_\-path\-\_\-tx\-\_\-pending} (struct \hyperlink{structmesh__path}{mesh\-\_\-path} $\ast$mpath)
+\item 
+int \hyperlink{mesh_8h_a545e27353ed69a7d8c94f4b6cae204f1}{mesh\-\_\-pathtbl\-\_\-init} (void)
+\item 
+void \hyperlink{mesh_8h_a5a45b0108a76cf186ef91b494da9a4ea}{mesh\-\_\-pathtbl\-\_\-unregister} (void)
+\item 
+int \hyperlink{mesh_8h_a881ea8f05596c17b19b72f0cbc38b6a4}{mesh\-\_\-path\-\_\-del} (u8 $\ast$addr, struct \hyperlink{structieee80211__sub__if__data}{ieee80211\-\_\-sub\-\_\-if\-\_\-data} $\ast$sdata)
+\item 
+void \hyperlink{mesh_8h_a4a547cd7d0a2595ca69e59fb18638fa3}{mesh\-\_\-path\-\_\-timer} (unsigned long data)
+\item 
+void \hyperlink{mesh_8h_a92ce0e2138aadd5098196a5f49557f4f}{mesh\-\_\-path\-\_\-flush\-\_\-by\-\_\-nexthop} (struct \hyperlink{structsta__info}{sta\-\_\-info} $\ast$sta)
+\item 
+void \hyperlink{mesh_8h_ab80f623ac3eea4f453cbd899f3d7b3be}{mesh\-\_\-path\-\_\-flush\-\_\-by\-\_\-iface} (struct \hyperlink{structieee80211__sub__if__data}{ieee80211\-\_\-sub\-\_\-if\-\_\-data} $\ast$sdata)
+\item 
+void \hyperlink{mesh_8h_a90f2613b99917c6405a441e0c7de6027}{mesh\-\_\-path\-\_\-discard\-\_\-frame} (struct sk\-\_\-buff $\ast$skb, struct \hyperlink{structieee80211__sub__if__data}{ieee80211\-\_\-sub\-\_\-if\-\_\-data} $\ast$sdata)
+\item 
+void \hyperlink{mesh_8h_a6e35ec5b0cb5bba21a4b58b084c25dc4}{mesh\-\_\-path\-\_\-quiesce} (struct \hyperlink{structieee80211__sub__if__data}{ieee80211\-\_\-sub\-\_\-if\-\_\-data} $\ast$sdata)
+\item 
+void \hyperlink{mesh_8h_a2be532451e45187b0cea04cf38c86917}{mesh\-\_\-path\-\_\-restart} (struct \hyperlink{structieee80211__sub__if__data}{ieee80211\-\_\-sub\-\_\-if\-\_\-data} $\ast$sdata)
+\item 
+void \hyperlink{mesh_8h_a2320e242ed0520b086988c9beece933f}{mesh\-\_\-path\-\_\-tx\-\_\-root\-\_\-frame} (struct \hyperlink{structieee80211__sub__if__data}{ieee80211\-\_\-sub\-\_\-if\-\_\-data} $\ast$sdata)
+\item 
+bool \hyperlink{mesh_8h_aecd30474a0dbc30b358f7d1e3db4ba84}{mesh\-\_\-action\-\_\-is\-\_\-path\-\_\-sel} (struct ieee80211\-\_\-mgmt $\ast$mgmt)
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{mesh_8h_ac5d21413a6ce5e2d23d20e86f60f60cf}{mesh\-\_\-paths\-\_\-generation}
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{mesh_8h_a8d960646397cca45a5feb4c110005bef}{\index{mesh.\-h@{mesh.\-h}!I\-E\-E\-E80211\-\_\-\-M\-E\-S\-H\-\_\-\-H\-O\-U\-S\-E\-K\-E\-E\-P\-I\-N\-G\-\_\-\-I\-N\-T\-E\-R\-V\-A\-L@{I\-E\-E\-E80211\-\_\-\-M\-E\-S\-H\-\_\-\-H\-O\-U\-S\-E\-K\-E\-E\-P\-I\-N\-G\-\_\-\-I\-N\-T\-E\-R\-V\-A\-L}}
+\index{I\-E\-E\-E80211\-\_\-\-M\-E\-S\-H\-\_\-\-H\-O\-U\-S\-E\-K\-E\-E\-P\-I\-N\-G\-\_\-\-I\-N\-T\-E\-R\-V\-A\-L@{I\-E\-E\-E80211\-\_\-\-M\-E\-S\-H\-\_\-\-H\-O\-U\-S\-E\-K\-E\-E\-P\-I\-N\-G\-\_\-\-I\-N\-T\-E\-R\-V\-A\-L}!mesh.h@{mesh.\-h}}
+\subsubsection[{I\-E\-E\-E80211\-\_\-\-M\-E\-S\-H\-\_\-\-H\-O\-U\-S\-E\-K\-E\-E\-P\-I\-N\-G\-\_\-\-I\-N\-T\-E\-R\-V\-A\-L}]{\setlength{\rightskip}{0pt plus 5cm}\#define I\-E\-E\-E80211\-\_\-\-M\-E\-S\-H\-\_\-\-H\-O\-U\-S\-E\-K\-E\-E\-P\-I\-N\-G\-\_\-\-I\-N\-T\-E\-R\-V\-A\-L~(60 $\ast$ H\-Z)}}\label{mesh_8h_a8d960646397cca45a5feb4c110005bef}
+
+
+Definition at line 185 of file mesh.\-h.
+
+\hypertarget{mesh_8h_a39d0dbf170593a042ce27db6fb4d600b}{\index{mesh.\-h@{mesh.\-h}!I\-E\-E\-E80211\-\_\-\-M\-E\-S\-H\-\_\-\-P\-E\-E\-R\-\_\-\-I\-N\-A\-C\-T\-I\-V\-I\-T\-Y\-\_\-\-L\-I\-M\-I\-T@{I\-E\-E\-E80211\-\_\-\-M\-E\-S\-H\-\_\-\-P\-E\-E\-R\-\_\-\-I\-N\-A\-C\-T\-I\-V\-I\-T\-Y\-\_\-\-L\-I\-M\-I\-T}}
+\index{I\-E\-E\-E80211\-\_\-\-M\-E\-S\-H\-\_\-\-P\-E\-E\-R\-\_\-\-I\-N\-A\-C\-T\-I\-V\-I\-T\-Y\-\_\-\-L\-I\-M\-I\-T@{I\-E\-E\-E80211\-\_\-\-M\-E\-S\-H\-\_\-\-P\-E\-E\-R\-\_\-\-I\-N\-A\-C\-T\-I\-V\-I\-T\-Y\-\_\-\-L\-I\-M\-I\-T}!mesh.h@{mesh.\-h}}
+\subsubsection[{I\-E\-E\-E80211\-\_\-\-M\-E\-S\-H\-\_\-\-P\-E\-E\-R\-\_\-\-I\-N\-A\-C\-T\-I\-V\-I\-T\-Y\-\_\-\-L\-I\-M\-I\-T}]{\setlength{\rightskip}{0pt plus 5cm}\#define I\-E\-E\-E80211\-\_\-\-M\-E\-S\-H\-\_\-\-P\-E\-E\-R\-\_\-\-I\-N\-A\-C\-T\-I\-V\-I\-T\-Y\-\_\-\-L\-I\-M\-I\-T~(1800 $\ast$ H\-Z)}}\label{mesh_8h_a39d0dbf170593a042ce27db6fb4d600b}
+
+
+Definition at line 184 of file mesh.\-h.
+
+\hypertarget{mesh_8h_a02c1d043611a0174d78cc3480ee31bb2}{\index{mesh.\-h@{mesh.\-h}!mesh\-\_\-allocated@{mesh\-\_\-allocated}}
+\index{mesh\-\_\-allocated@{mesh\-\_\-allocated}!mesh.h@{mesh.\-h}}
+\subsubsection[{mesh\-\_\-allocated}]{\setlength{\rightskip}{0pt plus 5cm}\#define mesh\-\_\-allocated~0}}\label{mesh_8h_a02c1d043611a0174d78cc3480ee31bb2}
+
+
+Definition at line 329 of file mesh.\-h.
+
+\hypertarget{mesh_8h_a57acded3589b3315d51a0aa6cb32d411}{\index{mesh.\-h@{mesh.\-h}!M\-E\-S\-H\-\_\-\-D\-E\-F\-A\-U\-L\-T\-\_\-\-B\-E\-A\-C\-O\-N\-\_\-\-I\-N\-T\-E\-R\-V\-A\-L@{M\-E\-S\-H\-\_\-\-D\-E\-F\-A\-U\-L\-T\-\_\-\-B\-E\-A\-C\-O\-N\-\_\-\-I\-N\-T\-E\-R\-V\-A\-L}}
+\index{M\-E\-S\-H\-\_\-\-D\-E\-F\-A\-U\-L\-T\-\_\-\-B\-E\-A\-C\-O\-N\-\_\-\-I\-N\-T\-E\-R\-V\-A\-L@{M\-E\-S\-H\-\_\-\-D\-E\-F\-A\-U\-L\-T\-\_\-\-B\-E\-A\-C\-O\-N\-\_\-\-I\-N\-T\-E\-R\-V\-A\-L}!mesh.h@{mesh.\-h}}
+\subsubsection[{M\-E\-S\-H\-\_\-\-D\-E\-F\-A\-U\-L\-T\-\_\-\-B\-E\-A\-C\-O\-N\-\_\-\-I\-N\-T\-E\-R\-V\-A\-L}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\-E\-S\-H\-\_\-\-D\-E\-F\-A\-U\-L\-T\-\_\-\-B\-E\-A\-C\-O\-N\-\_\-\-I\-N\-T\-E\-R\-V\-A\-L~1000 	/$\ast$ in 1024 us units $\ast$/}}\label{mesh_8h_a57acded3589b3315d51a0aa6cb32d411}
+
+
+Definition at line 187 of file mesh.\-h.
+
+\hypertarget{mesh_8h_a652b0ae79c82de460c3f767bba96c983}{\index{mesh.\-h@{mesh.\-h}!M\-E\-S\-H\-\_\-\-M\-A\-X\-\_\-\-M\-P\-A\-T\-H\-S@{M\-E\-S\-H\-\_\-\-M\-A\-X\-\_\-\-M\-P\-A\-T\-H\-S}}
+\index{M\-E\-S\-H\-\_\-\-M\-A\-X\-\_\-\-M\-P\-A\-T\-H\-S@{M\-E\-S\-H\-\_\-\-M\-A\-X\-\_\-\-M\-P\-A\-T\-H\-S}!mesh.h@{mesh.\-h}}
+\subsubsection[{M\-E\-S\-H\-\_\-\-M\-A\-X\-\_\-\-M\-P\-A\-T\-H\-S}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\-E\-S\-H\-\_\-\-M\-A\-X\-\_\-\-M\-P\-A\-T\-H\-S~1024}}\label{mesh_8h_a652b0ae79c82de460c3f767bba96c983}
+
+
+Definition at line 195 of file mesh.\-h.
+
+\hypertarget{mesh_8h_a891915a9babfcb0b3306eaa309faecf4}{\index{mesh.\-h@{mesh.\-h}!M\-E\-S\-H\-\_\-\-M\-A\-X\-\_\-\-P\-L\-I\-N\-K\-S@{M\-E\-S\-H\-\_\-\-M\-A\-X\-\_\-\-P\-L\-I\-N\-K\-S}}
+\index{M\-E\-S\-H\-\_\-\-M\-A\-X\-\_\-\-P\-L\-I\-N\-K\-S@{M\-E\-S\-H\-\_\-\-M\-A\-X\-\_\-\-P\-L\-I\-N\-K\-S}!mesh.h@{mesh.\-h}}
+\subsubsection[{M\-E\-S\-H\-\_\-\-M\-A\-X\-\_\-\-P\-L\-I\-N\-K\-S}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\-E\-S\-H\-\_\-\-M\-A\-X\-\_\-\-P\-L\-I\-N\-K\-S~256}}\label{mesh_8h_a891915a9babfcb0b3306eaa309faecf4}
+
+
+Definition at line 192 of file mesh.\-h.
+
+\hypertarget{mesh_8h_aeaa5b1d89caef088d986f90b62c0fb93}{\index{mesh.\-h@{mesh.\-h}!M\-E\-S\-H\-\_\-\-P\-A\-T\-H\-\_\-\-E\-X\-P\-I\-R\-E@{M\-E\-S\-H\-\_\-\-P\-A\-T\-H\-\_\-\-E\-X\-P\-I\-R\-E}}
+\index{M\-E\-S\-H\-\_\-\-P\-A\-T\-H\-\_\-\-E\-X\-P\-I\-R\-E@{M\-E\-S\-H\-\_\-\-P\-A\-T\-H\-\_\-\-E\-X\-P\-I\-R\-E}!mesh.h@{mesh.\-h}}
+\subsubsection[{M\-E\-S\-H\-\_\-\-P\-A\-T\-H\-\_\-\-E\-X\-P\-I\-R\-E}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\-E\-S\-H\-\_\-\-P\-A\-T\-H\-\_\-\-E\-X\-P\-I\-R\-E~(600 $\ast$ H\-Z)}}\label{mesh_8h_aeaa5b1d89caef088d986f90b62c0fb93}
+
+
+Definition at line 189 of file mesh.\-h.
+
+\hypertarget{mesh_8h_a2909ba21ed27a80429f34262b9dda565}{\index{mesh.\-h@{mesh.\-h}!R\-M\-C\-\_\-\-B\-U\-C\-K\-E\-T\-S@{R\-M\-C\-\_\-\-B\-U\-C\-K\-E\-T\-S}}
+\index{R\-M\-C\-\_\-\-B\-U\-C\-K\-E\-T\-S@{R\-M\-C\-\_\-\-B\-U\-C\-K\-E\-T\-S}!mesh.h@{mesh.\-h}}
+\subsubsection[{R\-M\-C\-\_\-\-B\-U\-C\-K\-E\-T\-S}]{\setlength{\rightskip}{0pt plus 5cm}\#define R\-M\-C\-\_\-\-B\-U\-C\-K\-E\-T\-S~256}}\label{mesh_8h_a2909ba21ed27a80429f34262b9dda565}
+
+
+Definition at line 157 of file mesh.\-h.
+
+\hypertarget{mesh_8h_a2255bdccf3c9adade6b1f333e2c72c30}{\index{mesh.\-h@{mesh.\-h}!R\-M\-C\-\_\-\-Q\-U\-E\-U\-E\-\_\-\-M\-A\-X\-\_\-\-L\-E\-N@{R\-M\-C\-\_\-\-Q\-U\-E\-U\-E\-\_\-\-M\-A\-X\-\_\-\-L\-E\-N}}
+\index{R\-M\-C\-\_\-\-Q\-U\-E\-U\-E\-\_\-\-M\-A\-X\-\_\-\-L\-E\-N@{R\-M\-C\-\_\-\-Q\-U\-E\-U\-E\-\_\-\-M\-A\-X\-\_\-\-L\-E\-N}!mesh.h@{mesh.\-h}}
+\subsubsection[{R\-M\-C\-\_\-\-Q\-U\-E\-U\-E\-\_\-\-M\-A\-X\-\_\-\-L\-E\-N}]{\setlength{\rightskip}{0pt plus 5cm}\#define R\-M\-C\-\_\-\-Q\-U\-E\-U\-E\-\_\-\-M\-A\-X\-\_\-\-L\-E\-N~4}}\label{mesh_8h_a2255bdccf3c9adade6b1f333e2c72c30}
+
+
+Definition at line 158 of file mesh.\-h.
+
+\hypertarget{mesh_8h_a2615892da0e8ce8ed1087f68ab945251}{\index{mesh.\-h@{mesh.\-h}!R\-M\-C\-\_\-\-T\-I\-M\-E\-O\-U\-T@{R\-M\-C\-\_\-\-T\-I\-M\-E\-O\-U\-T}}
+\index{R\-M\-C\-\_\-\-T\-I\-M\-E\-O\-U\-T@{R\-M\-C\-\_\-\-T\-I\-M\-E\-O\-U\-T}!mesh.h@{mesh.\-h}}
+\subsubsection[{R\-M\-C\-\_\-\-T\-I\-M\-E\-O\-U\-T}]{\setlength{\rightskip}{0pt plus 5cm}\#define R\-M\-C\-\_\-\-T\-I\-M\-E\-O\-U\-T~(3 $\ast$ H\-Z)}}\label{mesh_8h_a2615892da0e8ce8ed1087f68ab945251}
+
+
+Definition at line 159 of file mesh.\-h.
+
+
+
+\subsection{Enumeration Type Documentation}
+\hypertarget{mesh_8h_aa1de3f68cf5c6ae5fcf2e2f6883d895f}{\index{mesh.\-h@{mesh.\-h}!mesh\-\_\-deferred\-\_\-task\-\_\-flags@{mesh\-\_\-deferred\-\_\-task\-\_\-flags}}
+\index{mesh\-\_\-deferred\-\_\-task\-\_\-flags@{mesh\-\_\-deferred\-\_\-task\-\_\-flags}!mesh.h@{mesh.\-h}}
+\subsubsection[{mesh\-\_\-deferred\-\_\-task\-\_\-flags}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf mesh\-\_\-deferred\-\_\-task\-\_\-flags}}}\label{mesh_8h_aa1de3f68cf5c6ae5fcf2e2f6883d895f}
+enum mesh\-\_\-deferred\-\_\-task\-\_\-flags -\/ mac80211 mesh deferred tasks
+
+\-: run the periodic mesh housekeeping tasks \-: the mesh path table is full and needs to grow. \-: the mesh portals table is full and needs to grow \-: the mesh root station needs to send a frame \begin{Desc}
+\item[Enumerator]\par
+\begin{description}
+\index{M\-E\-S\-H\-\_\-\-W\-O\-R\-K\-\_\-\-H\-O\-U\-S\-E\-K\-E\-E\-P\-I\-N\-G@{M\-E\-S\-H\-\_\-\-W\-O\-R\-K\-\_\-\-H\-O\-U\-S\-E\-K\-E\-E\-P\-I\-N\-G}!mesh.\-h@{mesh.\-h}}\index{mesh.\-h@{mesh.\-h}!M\-E\-S\-H\-\_\-\-W\-O\-R\-K\-\_\-\-H\-O\-U\-S\-E\-K\-E\-E\-P\-I\-N\-G@{M\-E\-S\-H\-\_\-\-W\-O\-R\-K\-\_\-\-H\-O\-U\-S\-E\-K\-E\-E\-P\-I\-N\-G}}\item[{\em 
+\hypertarget{mesh_8h_aa1de3f68cf5c6ae5fcf2e2f6883d895fae85704545fde65e17c0d73b5f6d441ba}{M\-E\-S\-H\-\_\-\-W\-O\-R\-K\-\_\-\-H\-O\-U\-S\-E\-K\-E\-E\-P\-I\-N\-G}\label{mesh_8h_aa1de3f68cf5c6ae5fcf2e2f6883d895fae85704545fde65e17c0d73b5f6d441ba}
+}]\index{M\-E\-S\-H\-\_\-\-W\-O\-R\-K\-\_\-\-G\-R\-O\-W\-\_\-\-M\-P\-A\-T\-H\-\_\-\-T\-A\-B\-L\-E@{M\-E\-S\-H\-\_\-\-W\-O\-R\-K\-\_\-\-G\-R\-O\-W\-\_\-\-M\-P\-A\-T\-H\-\_\-\-T\-A\-B\-L\-E}!mesh.\-h@{mesh.\-h}}\index{mesh.\-h@{mesh.\-h}!M\-E\-S\-H\-\_\-\-W\-O\-R\-K\-\_\-\-G\-R\-O\-W\-\_\-\-M\-P\-A\-T\-H\-\_\-\-T\-A\-B\-L\-E@{M\-E\-S\-H\-\_\-\-W\-O\-R\-K\-\_\-\-G\-R\-O\-W\-\_\-\-M\-P\-A\-T\-H\-\_\-\-T\-A\-B\-L\-E}}\item[{\em 
+\hypertarget{mesh_8h_aa1de3f68cf5c6ae5fcf2e2f6883d895fa9ca5537a11360fb22c502cf024b4adb5}{M\-E\-S\-H\-\_\-\-W\-O\-R\-K\-\_\-\-G\-R\-O\-W\-\_\-\-M\-P\-A\-T\-H\-\_\-\-T\-A\-B\-L\-E}\label{mesh_8h_aa1de3f68cf5c6ae5fcf2e2f6883d895fa9ca5537a11360fb22c502cf024b4adb5}
+}]\index{M\-E\-S\-H\-\_\-\-W\-O\-R\-K\-\_\-\-G\-R\-O\-W\-\_\-\-M\-P\-P\-\_\-\-T\-A\-B\-L\-E@{M\-E\-S\-H\-\_\-\-W\-O\-R\-K\-\_\-\-G\-R\-O\-W\-\_\-\-M\-P\-P\-\_\-\-T\-A\-B\-L\-E}!mesh.\-h@{mesh.\-h}}\index{mesh.\-h@{mesh.\-h}!M\-E\-S\-H\-\_\-\-W\-O\-R\-K\-\_\-\-G\-R\-O\-W\-\_\-\-M\-P\-P\-\_\-\-T\-A\-B\-L\-E@{M\-E\-S\-H\-\_\-\-W\-O\-R\-K\-\_\-\-G\-R\-O\-W\-\_\-\-M\-P\-P\-\_\-\-T\-A\-B\-L\-E}}\item[{\em 
+\hypertarget{mesh_8h_aa1de3f68cf5c6ae5fcf2e2f6883d895fad96b8eebf244bc36827be0577d6071d3}{M\-E\-S\-H\-\_\-\-W\-O\-R\-K\-\_\-\-G\-R\-O\-W\-\_\-\-M\-P\-P\-\_\-\-T\-A\-B\-L\-E}\label{mesh_8h_aa1de3f68cf5c6ae5fcf2e2f6883d895fad96b8eebf244bc36827be0577d6071d3}
+}]\index{M\-E\-S\-H\-\_\-\-W\-O\-R\-K\-\_\-\-R\-O\-O\-T@{M\-E\-S\-H\-\_\-\-W\-O\-R\-K\-\_\-\-R\-O\-O\-T}!mesh.\-h@{mesh.\-h}}\index{mesh.\-h@{mesh.\-h}!M\-E\-S\-H\-\_\-\-W\-O\-R\-K\-\_\-\-R\-O\-O\-T@{M\-E\-S\-H\-\_\-\-W\-O\-R\-K\-\_\-\-R\-O\-O\-T}}\item[{\em 
+\hypertarget{mesh_8h_aa1de3f68cf5c6ae5fcf2e2f6883d895fa921f3935d7f41a5546e477af488ef27d}{M\-E\-S\-H\-\_\-\-W\-O\-R\-K\-\_\-\-R\-O\-O\-T}\label{mesh_8h_aa1de3f68cf5c6ae5fcf2e2f6883d895fa921f3935d7f41a5546e477af488ef27d}
+}]\end{description}
+\end{Desc}
+
+
+Definition at line 60 of file mesh.\-h.
+
+\hypertarget{mesh_8h_a1108038688d583a88056a1ebebd89fa2}{\index{mesh.\-h@{mesh.\-h}!mesh\-\_\-path\-\_\-flags@{mesh\-\_\-path\-\_\-flags}}
+\index{mesh\-\_\-path\-\_\-flags@{mesh\-\_\-path\-\_\-flags}!mesh.h@{mesh.\-h}}
+\subsubsection[{mesh\-\_\-path\-\_\-flags}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf mesh\-\_\-path\-\_\-flags}}}\label{mesh_8h_a1108038688d583a88056a1ebebd89fa2}
+enum mesh\-\_\-path\-\_\-flags -\/ mac80211 mesh path flags
+
+\-: the mesh path can be used for forwarding \-: the discovery process is running for this mesh path \-: the mesh path contains a valid destination sequence number \-: the mesh path has been manually set and should not be modified \-: the mesh path can has been resolved \-: there is an unsent path request for this destination already queued up, waiting for the discovery process to start.
+
+M\-E\-S\-H\-\_\-\-P\-A\-T\-H\-\_\-\-R\-E\-S\-O\-L\-V\-E\-D is used by the mesh path timer to decide when to stop or cancel the mesh path discovery. \begin{Desc}
+\item[Enumerator]\par
+\begin{description}
+\index{M\-E\-S\-H\-\_\-\-P\-A\-T\-H\-\_\-\-A\-C\-T\-I\-V\-E@{M\-E\-S\-H\-\_\-\-P\-A\-T\-H\-\_\-\-A\-C\-T\-I\-V\-E}!mesh.\-h@{mesh.\-h}}\index{mesh.\-h@{mesh.\-h}!M\-E\-S\-H\-\_\-\-P\-A\-T\-H\-\_\-\-A\-C\-T\-I\-V\-E@{M\-E\-S\-H\-\_\-\-P\-A\-T\-H\-\_\-\-A\-C\-T\-I\-V\-E}}\item[{\em 
+\hypertarget{mesh_8h_a1108038688d583a88056a1ebebd89fa2a64ca4728e1fb232637a6d28878c700be}{M\-E\-S\-H\-\_\-\-P\-A\-T\-H\-\_\-\-A\-C\-T\-I\-V\-E}\label{mesh_8h_a1108038688d583a88056a1ebebd89fa2a64ca4728e1fb232637a6d28878c700be}
+}]\index{M\-E\-S\-H\-\_\-\-P\-A\-T\-H\-\_\-\-R\-E\-S\-O\-L\-V\-I\-N\-G@{M\-E\-S\-H\-\_\-\-P\-A\-T\-H\-\_\-\-R\-E\-S\-O\-L\-V\-I\-N\-G}!mesh.\-h@{mesh.\-h}}\index{mesh.\-h@{mesh.\-h}!M\-E\-S\-H\-\_\-\-P\-A\-T\-H\-\_\-\-R\-E\-S\-O\-L\-V\-I\-N\-G@{M\-E\-S\-H\-\_\-\-P\-A\-T\-H\-\_\-\-R\-E\-S\-O\-L\-V\-I\-N\-G}}\item[{\em 
+\hypertarget{mesh_8h_a1108038688d583a88056a1ebebd89fa2a44dbd12b2601dca7105dfedc88277dc4}{M\-E\-S\-H\-\_\-\-P\-A\-T\-H\-\_\-\-R\-E\-S\-O\-L\-V\-I\-N\-G}\label{mesh_8h_a1108038688d583a88056a1ebebd89fa2a44dbd12b2601dca7105dfedc88277dc4}
+}]\index{M\-E\-S\-H\-\_\-\-P\-A\-T\-H\-\_\-\-S\-N\-\_\-\-V\-A\-L\-I\-D@{M\-E\-S\-H\-\_\-\-P\-A\-T\-H\-\_\-\-S\-N\-\_\-\-V\-A\-L\-I\-D}!mesh.\-h@{mesh.\-h}}\index{mesh.\-h@{mesh.\-h}!M\-E\-S\-H\-\_\-\-P\-A\-T\-H\-\_\-\-S\-N\-\_\-\-V\-A\-L\-I\-D@{M\-E\-S\-H\-\_\-\-P\-A\-T\-H\-\_\-\-S\-N\-\_\-\-V\-A\-L\-I\-D}}\item[{\em 
+\hypertarget{mesh_8h_a1108038688d583a88056a1ebebd89fa2a4da141165ad1c2a664ead9feafaa421d}{M\-E\-S\-H\-\_\-\-P\-A\-T\-H\-\_\-\-S\-N\-\_\-\-V\-A\-L\-I\-D}\label{mesh_8h_a1108038688d583a88056a1ebebd89fa2a4da141165ad1c2a664ead9feafaa421d}
+}]\index{M\-E\-S\-H\-\_\-\-P\-A\-T\-H\-\_\-\-F\-I\-X\-E\-D@{M\-E\-S\-H\-\_\-\-P\-A\-T\-H\-\_\-\-F\-I\-X\-E\-D}!mesh.\-h@{mesh.\-h}}\index{mesh.\-h@{mesh.\-h}!M\-E\-S\-H\-\_\-\-P\-A\-T\-H\-\_\-\-F\-I\-X\-E\-D@{M\-E\-S\-H\-\_\-\-P\-A\-T\-H\-\_\-\-F\-I\-X\-E\-D}}\item[{\em 
+\hypertarget{mesh_8h_a1108038688d583a88056a1ebebd89fa2a82162e466aee394e88e80550ac71000f}{M\-E\-S\-H\-\_\-\-P\-A\-T\-H\-\_\-\-F\-I\-X\-E\-D}\label{mesh_8h_a1108038688d583a88056a1ebebd89fa2a82162e466aee394e88e80550ac71000f}
+}]\index{M\-E\-S\-H\-\_\-\-P\-A\-T\-H\-\_\-\-R\-E\-S\-O\-L\-V\-E\-D@{M\-E\-S\-H\-\_\-\-P\-A\-T\-H\-\_\-\-R\-E\-S\-O\-L\-V\-E\-D}!mesh.\-h@{mesh.\-h}}\index{mesh.\-h@{mesh.\-h}!M\-E\-S\-H\-\_\-\-P\-A\-T\-H\-\_\-\-R\-E\-S\-O\-L\-V\-E\-D@{M\-E\-S\-H\-\_\-\-P\-A\-T\-H\-\_\-\-R\-E\-S\-O\-L\-V\-E\-D}}\item[{\em 
+\hypertarget{mesh_8h_a1108038688d583a88056a1ebebd89fa2a97c142cb591032adb61806a3ee9f8469}{M\-E\-S\-H\-\_\-\-P\-A\-T\-H\-\_\-\-R\-E\-S\-O\-L\-V\-E\-D}\label{mesh_8h_a1108038688d583a88056a1ebebd89fa2a97c142cb591032adb61806a3ee9f8469}
+}]\index{M\-E\-S\-H\-\_\-\-P\-A\-T\-H\-\_\-\-R\-E\-Q\-\_\-\-Q\-U\-E\-U\-E\-D@{M\-E\-S\-H\-\_\-\-P\-A\-T\-H\-\_\-\-R\-E\-Q\-\_\-\-Q\-U\-E\-U\-E\-D}!mesh.\-h@{mesh.\-h}}\index{mesh.\-h@{mesh.\-h}!M\-E\-S\-H\-\_\-\-P\-A\-T\-H\-\_\-\-R\-E\-Q\-\_\-\-Q\-U\-E\-U\-E\-D@{M\-E\-S\-H\-\_\-\-P\-A\-T\-H\-\_\-\-R\-E\-Q\-\_\-\-Q\-U\-E\-U\-E\-D}}\item[{\em 
+\hypertarget{mesh_8h_a1108038688d583a88056a1ebebd89fa2ace5bd26e7cc8b042426e8d4174c36a39}{M\-E\-S\-H\-\_\-\-P\-A\-T\-H\-\_\-\-R\-E\-Q\-\_\-\-Q\-U\-E\-U\-E\-D}\label{mesh_8h_a1108038688d583a88056a1ebebd89fa2ace5bd26e7cc8b042426e8d4174c36a39}
+}]\end{description}
+\end{Desc}
+
+
+Definition at line 39 of file mesh.\-h.
+
+
+
+\subsection{Function Documentation}
+\hypertarget{mesh_8h_aa41e331355f5830c7dae2ada6992b811}{\index{mesh.\-h@{mesh.\-h}!ieee80211\-\_\-fill\-\_\-mesh\-\_\-addresses@{ieee80211\-\_\-fill\-\_\-mesh\-\_\-addresses}}
+\index{ieee80211\-\_\-fill\-\_\-mesh\-\_\-addresses@{ieee80211\-\_\-fill\-\_\-mesh\-\_\-addresses}!mesh.h@{mesh.\-h}}
+\subsubsection[{ieee80211\-\_\-fill\-\_\-mesh\-\_\-addresses}]{\setlength{\rightskip}{0pt plus 5cm}int ieee80211\-\_\-fill\-\_\-mesh\-\_\-addresses (
+\begin{DoxyParamCaption}
+\item[{struct ieee80211\-\_\-hdr $\ast$}]{hdr, }
+\item[{\-\_\-\-\_\-le16 $\ast$}]{fc, }
+\item[{const u8 $\ast$}]{meshda, }
+\item[{const u8 $\ast$}]{meshsa}
+\end{DoxyParamCaption}
+)}}\label{mesh_8h_aa41e331355f5830c7dae2ada6992b811}
+ieee80211\-\_\-fill\-\_\-mesh\-\_\-addresses -\/ fill addresses of a locally originated mesh frame \-: 802.\-11 frame header \-: frame control field \-: destination address in the mesh \-: source address address in the mesh. Same as T\-A, as frame is locally originated.
+
+Return the length of the 802.\-11 (does not include a mesh control header) 
+
+Definition at line 449 of file mesh.\-c.
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{mesh_8h_aa41e331355f5830c7dae2ada6992b811_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{mesh_8h_a612be5d762db6c7b5e9d4c5894dfdcb3}{\index{mesh.\-h@{mesh.\-h}!ieee80211\-\_\-mesh\-\_\-init\-\_\-sdata@{ieee80211\-\_\-mesh\-\_\-init\-\_\-sdata}}
+\index{ieee80211\-\_\-mesh\-\_\-init\-\_\-sdata@{ieee80211\-\_\-mesh\-\_\-init\-\_\-sdata}!mesh.h@{mesh.\-h}}
+\subsubsection[{ieee80211\-\_\-mesh\-\_\-init\-\_\-sdata}]{\setlength{\rightskip}{0pt plus 5cm}void ieee80211\-\_\-mesh\-\_\-init\-\_\-sdata (
+\begin{DoxyParamCaption}
+\item[{struct {\bf ieee80211\-\_\-sub\-\_\-if\-\_\-data} $\ast$}]{sdata}
+\end{DoxyParamCaption}
+)}}\label{mesh_8h_a612be5d762db6c7b5e9d4c5894dfdcb3}
+
+
+Definition at line 737 of file mesh.\-c.
+
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{mesh_8h_a612be5d762db6c7b5e9d4c5894dfdcb3_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{mesh_8h_ac0d84faf096db9b3d2324af543f1a42a}{\index{mesh.\-h@{mesh.\-h}!ieee80211\-\_\-mesh\-\_\-root\-\_\-setup@{ieee80211\-\_\-mesh\-\_\-root\-\_\-setup}}
+\index{ieee80211\-\_\-mesh\-\_\-root\-\_\-setup@{ieee80211\-\_\-mesh\-\_\-root\-\_\-setup}!mesh.h@{mesh.\-h}}
+\subsubsection[{ieee80211\-\_\-mesh\-\_\-root\-\_\-setup}]{\setlength{\rightskip}{0pt plus 5cm}void ieee80211\-\_\-mesh\-\_\-root\-\_\-setup (
+\begin{DoxyParamCaption}
+\item[{struct {\bf ieee80211\-\_\-if\-\_\-mesh} $\ast$}]{ifmsh}
+\end{DoxyParamCaption}
+)}}\label{mesh_8h_ac0d84faf096db9b3d2324af543f1a42a}
+
+
+Definition at line 428 of file mesh.\-c.
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=344pt]{mesh_8h_ac0d84faf096db9b3d2324af543f1a42a_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{mesh_8h_a4853941ff45b8b8193a331ae1b868483}{\index{mesh.\-h@{mesh.\-h}!ieee80211\-\_\-new\-\_\-mesh\-\_\-header@{ieee80211\-\_\-new\-\_\-mesh\-\_\-header}}
+\index{ieee80211\-\_\-new\-\_\-mesh\-\_\-header@{ieee80211\-\_\-new\-\_\-mesh\-\_\-header}!mesh.h@{mesh.\-h}}
+\subsubsection[{ieee80211\-\_\-new\-\_\-mesh\-\_\-header}]{\setlength{\rightskip}{0pt plus 5cm}int ieee80211\-\_\-new\-\_\-mesh\-\_\-header (
+\begin{DoxyParamCaption}
+\item[{struct ieee80211s\-\_\-hdr $\ast$}]{meshhdr, }
+\item[{struct {\bf ieee80211\-\_\-sub\-\_\-if\-\_\-data} $\ast$}]{sdata, }
+\item[{char $\ast$}]{addr4or5, }
+\item[{char $\ast$}]{addr6}
+\end{DoxyParamCaption}
+)}}\label{mesh_8h_a4853941ff45b8b8193a331ae1b868483}
+ieee80211\-\_\-new\-\_\-mesh\-\_\-header -\/ create a new mesh header \-: uninitialized mesh header \-: mesh interface to be used \-: 1st address in the ae header, which may correspond to address 4 (if addr6 is N\-U\-L\-L) or address 5 (if addr6 is present). It may be N\-U\-L\-L. \-: 2nd address in the ae header, which corresponds to addr6 of the mesh frame
+
+Return the header length. 
+
+Definition at line 482 of file mesh.\-c.
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{mesh_8h_a4853941ff45b8b8193a331ae1b868483_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{mesh_8h_a3816bb4bcc9f55449999d4f9ab47db3c}{\index{mesh.\-h@{mesh.\-h}!ieee80211\-\_\-start\-\_\-mesh@{ieee80211\-\_\-start\-\_\-mesh}}
+\index{ieee80211\-\_\-start\-\_\-mesh@{ieee80211\-\_\-start\-\_\-mesh}!mesh.h@{mesh.\-h}}
+\subsubsection[{ieee80211\-\_\-start\-\_\-mesh}]{\setlength{\rightskip}{0pt plus 5cm}void ieee80211\-\_\-start\-\_\-mesh (
+\begin{DoxyParamCaption}
+\item[{struct {\bf ieee80211\-\_\-sub\-\_\-if\-\_\-data} $\ast$}]{sdata}
+\end{DoxyParamCaption}
+)}}\label{mesh_8h_a3816bb4bcc9f55449999d4f9ab47db3c}
+
+
+Definition at line 565 of file mesh.\-c.
+
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{mesh_8h_a3816bb4bcc9f55449999d4f9ab47db3c_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{mesh_8h_a7c27e82983b3da51ca238f14a5c6cbea}{\index{mesh.\-h@{mesh.\-h}!ieee80211\-\_\-stop\-\_\-mesh@{ieee80211\-\_\-stop\-\_\-mesh}}
+\index{ieee80211\-\_\-stop\-\_\-mesh@{ieee80211\-\_\-stop\-\_\-mesh}!mesh.h@{mesh.\-h}}
+\subsubsection[{ieee80211\-\_\-stop\-\_\-mesh}]{\setlength{\rightskip}{0pt plus 5cm}void ieee80211\-\_\-stop\-\_\-mesh (
+\begin{DoxyParamCaption}
+\item[{struct {\bf ieee80211\-\_\-sub\-\_\-if\-\_\-data} $\ast$}]{sdata}
+\end{DoxyParamCaption}
+)}}\label{mesh_8h_a7c27e82983b3da51ca238f14a5c6cbea}
+
+
+Definition at line 587 of file mesh.\-c.
+
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{mesh_8h_a7c27e82983b3da51ca238f14a5c6cbea_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{mesh_8h_a1652ccfaa1caeeff4a15d30fd1661f28}{\index{mesh.\-h@{mesh.\-h}!ieee80211s\-\_\-init@{ieee80211s\-\_\-init}}
+\index{ieee80211s\-\_\-init@{ieee80211s\-\_\-init}!mesh.h@{mesh.\-h}}
+\subsubsection[{ieee80211s\-\_\-init}]{\setlength{\rightskip}{0pt plus 5cm}void ieee80211s\-\_\-init (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{mesh_8h_a1652ccfaa1caeeff4a15d30fd1661f28}
+
+
+Definition at line 37 of file mesh.\-c.
+
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=294pt]{mesh_8h_a1652ccfaa1caeeff4a15d30fd1661f28_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=308pt]{mesh_8h_a1652ccfaa1caeeff4a15d30fd1661f28_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{mesh_8h_a3be81db23aea1ab81be9e08800014cab}{\index{mesh.\-h@{mesh.\-h}!ieee80211s\-\_\-stop@{ieee80211s\-\_\-stop}}
+\index{ieee80211s\-\_\-stop@{ieee80211s\-\_\-stop}!mesh.h@{mesh.\-h}}
+\subsubsection[{ieee80211s\-\_\-stop}]{\setlength{\rightskip}{0pt plus 5cm}void ieee80211s\-\_\-stop (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{mesh_8h_a3be81db23aea1ab81be9e08800014cab}
+
+
+Definition at line 45 of file mesh.\-c.
+
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=330pt]{mesh_8h_a3be81db23aea1ab81be9e08800014cab_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{mesh_8h_af2dc80ac8cb32fc451793cbbb2082a89}{\index{mesh.\-h@{mesh.\-h}!ieee80211s\-\_\-update\-\_\-metric@{ieee80211s\-\_\-update\-\_\-metric}}
+\index{ieee80211s\-\_\-update\-\_\-metric@{ieee80211s\-\_\-update\-\_\-metric}!mesh.h@{mesh.\-h}}
+\subsubsection[{ieee80211s\-\_\-update\-\_\-metric}]{\setlength{\rightskip}{0pt plus 5cm}void ieee80211s\-\_\-update\-\_\-metric (
+\begin{DoxyParamCaption}
+\item[{struct {\bf ieee80211\-\_\-local} $\ast$}]{local, }
+\item[{struct {\bf sta\-\_\-info} $\ast$}]{stainfo, }
+\item[{struct sk\-\_\-buff $\ast$}]{skb}
+\end{DoxyParamCaption}
+)}}\label{mesh_8h_af2dc80ac8cb32fc451793cbbb2082a89}
+
+
+Definition at line 305 of file mesh\-\_\-hwmp.\-c.
+
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{mesh_8h_af2dc80ac8cb32fc451793cbbb2082a89_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{mesh_8h_af2dc80ac8cb32fc451793cbbb2082a89_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{mesh_8h_a40469145876b1db95a00473347b23175}{\index{mesh.\-h@{mesh.\-h}!mesh\-\_\-accept\-\_\-plinks\-\_\-update@{mesh\-\_\-accept\-\_\-plinks\-\_\-update}}
+\index{mesh\-\_\-accept\-\_\-plinks\-\_\-update@{mesh\-\_\-accept\-\_\-plinks\-\_\-update}!mesh.h@{mesh.\-h}}
+\subsubsection[{mesh\-\_\-accept\-\_\-plinks\-\_\-update}]{\setlength{\rightskip}{0pt plus 5cm}void mesh\-\_\-accept\-\_\-plinks\-\_\-update (
+\begin{DoxyParamCaption}
+\item[{struct {\bf ieee80211\-\_\-sub\-\_\-if\-\_\-data} $\ast$}]{sdata}
+\end{DoxyParamCaption}
+)}}\label{mesh_8h_a40469145876b1db95a00473347b23175}
+mesh\-\_\-accept\-\_\-plinks\-\_\-update\-: update accepting\-\_\-plink in local mesh beacons
+
+\-: mesh interface in which mesh beacons are going to be updated 
+
+Definition at line 127 of file mesh.\-c.
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{mesh_8h_a40469145876b1db95a00473347b23175_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{mesh_8h_aecd30474a0dbc30b358f7d1e3db4ba84}{\index{mesh.\-h@{mesh.\-h}!mesh\-\_\-action\-\_\-is\-\_\-path\-\_\-sel@{mesh\-\_\-action\-\_\-is\-\_\-path\-\_\-sel}}
+\index{mesh\-\_\-action\-\_\-is\-\_\-path\-\_\-sel@{mesh\-\_\-action\-\_\-is\-\_\-path\-\_\-sel}!mesh.h@{mesh.\-h}}
+\subsubsection[{mesh\-\_\-action\-\_\-is\-\_\-path\-\_\-sel}]{\setlength{\rightskip}{0pt plus 5cm}bool mesh\-\_\-action\-\_\-is\-\_\-path\-\_\-sel (
+\begin{DoxyParamCaption}
+\item[{struct ieee80211\-\_\-mgmt $\ast$}]{mgmt}
+\end{DoxyParamCaption}
+)}}\label{mesh_8h_aecd30474a0dbc30b358f7d1e3db4ba84}
+
+
+Definition at line 33 of file mesh.\-c.
+
+\hypertarget{mesh_8h_aafb943e2be8b477ca692c415c01d2f7e}{\index{mesh.\-h@{mesh.\-h}!mesh\-\_\-add\-\_\-ds\-\_\-params\-\_\-ie@{mesh\-\_\-add\-\_\-ds\-\_\-params\-\_\-ie}}
+\index{mesh\-\_\-add\-\_\-ds\-\_\-params\-\_\-ie@{mesh\-\_\-add\-\_\-ds\-\_\-params\-\_\-ie}!mesh.h@{mesh.\-h}}
+\subsubsection[{mesh\-\_\-add\-\_\-ds\-\_\-params\-\_\-ie}]{\setlength{\rightskip}{0pt plus 5cm}int mesh\-\_\-add\-\_\-ds\-\_\-params\-\_\-ie (
+\begin{DoxyParamCaption}
+\item[{struct sk\-\_\-buff $\ast$}]{skb, }
+\item[{struct {\bf ieee80211\-\_\-sub\-\_\-if\-\_\-data} $\ast$}]{sdata}
+\end{DoxyParamCaption}
+)}}\label{mesh_8h_aafb943e2be8b477ca692c415c01d2f7e}
+
+
+Definition at line 332 of file mesh.\-c.
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{mesh_8h_aafb943e2be8b477ca692c415c01d2f7e_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{mesh_8h_ad85da6e7729e0ce164724a233ea44435}{\index{mesh.\-h@{mesh.\-h}!mesh\-\_\-add\-\_\-ht\-\_\-cap\-\_\-ie@{mesh\-\_\-add\-\_\-ht\-\_\-cap\-\_\-ie}}
+\index{mesh\-\_\-add\-\_\-ht\-\_\-cap\-\_\-ie@{mesh\-\_\-add\-\_\-ht\-\_\-cap\-\_\-ie}!mesh.h@{mesh.\-h}}
+\subsubsection[{mesh\-\_\-add\-\_\-ht\-\_\-cap\-\_\-ie}]{\setlength{\rightskip}{0pt plus 5cm}int mesh\-\_\-add\-\_\-ht\-\_\-cap\-\_\-ie (
+\begin{DoxyParamCaption}
+\item[{struct sk\-\_\-buff $\ast$}]{skb, }
+\item[{struct {\bf ieee80211\-\_\-sub\-\_\-if\-\_\-data} $\ast$}]{sdata}
+\end{DoxyParamCaption}
+)}}\label{mesh_8h_ad85da6e7729e0ce164724a233ea44435}
+
+
+Definition at line 353 of file mesh.\-c.
+
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=326pt]{mesh_8h_ad85da6e7729e0ce164724a233ea44435_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{mesh_8h_ad85da6e7729e0ce164724a233ea44435_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{mesh_8h_a1b2e97b19b4f11ab3f2a5f617827ef5b}{\index{mesh.\-h@{mesh.\-h}!mesh\-\_\-add\-\_\-ht\-\_\-info\-\_\-ie@{mesh\-\_\-add\-\_\-ht\-\_\-info\-\_\-ie}}
+\index{mesh\-\_\-add\-\_\-ht\-\_\-info\-\_\-ie@{mesh\-\_\-add\-\_\-ht\-\_\-info\-\_\-ie}!mesh.h@{mesh.\-h}}
+\subsubsection[{mesh\-\_\-add\-\_\-ht\-\_\-info\-\_\-ie}]{\setlength{\rightskip}{0pt plus 5cm}int mesh\-\_\-add\-\_\-ht\-\_\-info\-\_\-ie (
+\begin{DoxyParamCaption}
+\item[{struct sk\-\_\-buff $\ast$}]{skb, }
+\item[{struct {\bf ieee80211\-\_\-sub\-\_\-if\-\_\-data} $\ast$}]{sdata}
+\end{DoxyParamCaption}
+)}}\label{mesh_8h_a1b2e97b19b4f11ab3f2a5f617827ef5b}
+
+
+Definition at line 374 of file mesh.\-c.
+
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=326pt]{mesh_8h_a1b2e97b19b4f11ab3f2a5f617827ef5b_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{mesh_8h_a1b2e97b19b4f11ab3f2a5f617827ef5b_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{mesh_8h_a94fe8b464b1fa371dca0c9342449e671}{\index{mesh.\-h@{mesh.\-h}!mesh\-\_\-add\-\_\-meshconf\-\_\-ie@{mesh\-\_\-add\-\_\-meshconf\-\_\-ie}}
+\index{mesh\-\_\-add\-\_\-meshconf\-\_\-ie@{mesh\-\_\-add\-\_\-meshconf\-\_\-ie}!mesh.h@{mesh.\-h}}
+\subsubsection[{mesh\-\_\-add\-\_\-meshconf\-\_\-ie}]{\setlength{\rightskip}{0pt plus 5cm}int mesh\-\_\-add\-\_\-meshconf\-\_\-ie (
+\begin{DoxyParamCaption}
+\item[{struct sk\-\_\-buff $\ast$}]{skb, }
+\item[{struct {\bf ieee80211\-\_\-sub\-\_\-if\-\_\-data} $\ast$}]{sdata}
+\end{DoxyParamCaption}
+)}}\label{mesh_8h_a94fe8b464b1fa371dca0c9342449e671}
+
+
+Definition at line 223 of file mesh.\-c.
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{mesh_8h_a94fe8b464b1fa371dca0c9342449e671_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{mesh_8h_ab828efacf7dd55c4fa7e03035cbe534f}{\index{mesh.\-h@{mesh.\-h}!mesh\-\_\-add\-\_\-meshid\-\_\-ie@{mesh\-\_\-add\-\_\-meshid\-\_\-ie}}
+\index{mesh\-\_\-add\-\_\-meshid\-\_\-ie@{mesh\-\_\-add\-\_\-meshid\-\_\-ie}!mesh.h@{mesh.\-h}}
+\subsubsection[{mesh\-\_\-add\-\_\-meshid\-\_\-ie}]{\setlength{\rightskip}{0pt plus 5cm}int mesh\-\_\-add\-\_\-meshid\-\_\-ie (
+\begin{DoxyParamCaption}
+\item[{struct sk\-\_\-buff $\ast$}]{skb, }
+\item[{struct {\bf ieee80211\-\_\-sub\-\_\-if\-\_\-data} $\ast$}]{sdata}
+\end{DoxyParamCaption}
+)}}\label{mesh_8h_ab828efacf7dd55c4fa7e03035cbe534f}
+
+
+Definition at line 262 of file mesh.\-c.
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{mesh_8h_ab828efacf7dd55c4fa7e03035cbe534f_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{mesh_8h_a8f1d932ba380076f535af2a4459d5741}{\index{mesh.\-h@{mesh.\-h}!mesh\-\_\-add\-\_\-rsn\-\_\-ie@{mesh\-\_\-add\-\_\-rsn\-\_\-ie}}
+\index{mesh\-\_\-add\-\_\-rsn\-\_\-ie@{mesh\-\_\-add\-\_\-rsn\-\_\-ie}!mesh.h@{mesh.\-h}}
+\subsubsection[{mesh\-\_\-add\-\_\-rsn\-\_\-ie}]{\setlength{\rightskip}{0pt plus 5cm}int mesh\-\_\-add\-\_\-rsn\-\_\-ie (
+\begin{DoxyParamCaption}
+\item[{struct sk\-\_\-buff $\ast$}]{skb, }
+\item[{struct {\bf ieee80211\-\_\-sub\-\_\-if\-\_\-data} $\ast$}]{sdata}
+\end{DoxyParamCaption}
+)}}\label{mesh_8h_a8f1d932ba380076f535af2a4459d5741}
+
+
+Definition at line 304 of file mesh.\-c.
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=346pt]{mesh_8h_a8f1d932ba380076f535af2a4459d5741_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{mesh_8h_ab35fe97a980e1d1a6764379d8eb055d2}{\index{mesh.\-h@{mesh.\-h}!mesh\-\_\-add\-\_\-vendor\-\_\-ies@{mesh\-\_\-add\-\_\-vendor\-\_\-ies}}
+\index{mesh\-\_\-add\-\_\-vendor\-\_\-ies@{mesh\-\_\-add\-\_\-vendor\-\_\-ies}!mesh.h@{mesh.\-h}}
+\subsubsection[{mesh\-\_\-add\-\_\-vendor\-\_\-ies}]{\setlength{\rightskip}{0pt plus 5cm}int mesh\-\_\-add\-\_\-vendor\-\_\-ies (
+\begin{DoxyParamCaption}
+\item[{struct sk\-\_\-buff $\ast$}]{skb, }
+\item[{struct {\bf ieee80211\-\_\-sub\-\_\-if\-\_\-data} $\ast$}]{sdata}
+\end{DoxyParamCaption}
+)}}\label{mesh_8h_ab35fe97a980e1d1a6764379d8eb055d2}
+
+
+Definition at line 280 of file mesh.\-c.
+
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=328pt]{mesh_8h_ab35fe97a980e1d1a6764379d8eb055d2_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{mesh_8h_ab35fe97a980e1d1a6764379d8eb055d2_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{mesh_8h_a9bb1def60ac1348affaef2be516cb928}{\index{mesh.\-h@{mesh.\-h}!mesh\-\_\-gate\-\_\-num@{mesh\-\_\-gate\-\_\-num}}
+\index{mesh\-\_\-gate\-\_\-num@{mesh\-\_\-gate\-\_\-num}!mesh.h@{mesh.\-h}}
+\subsubsection[{mesh\-\_\-gate\-\_\-num}]{\setlength{\rightskip}{0pt plus 5cm}int mesh\-\_\-gate\-\_\-num (
+\begin{DoxyParamCaption}
+\item[{struct {\bf ieee80211\-\_\-sub\-\_\-if\-\_\-data} $\ast$}]{sdata}
+\end{DoxyParamCaption}
+)}}\label{mesh_8h_a9bb1def60ac1348affaef2be516cb928}
+mesh\-\_\-gate\-\_\-num -\/ number of gates known to this interface \-: subif data 
+
+Definition at line 493 of file mesh\-\_\-pathtbl.\-c.
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{mesh_8h_a9bb1def60ac1348affaef2be516cb928_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{mesh_8h_a4f6fc9180ebcfad10394dbbc3d364f0f}{\index{mesh.\-h@{mesh.\-h}!mesh\-\_\-ids\-\_\-set\-\_\-default@{mesh\-\_\-ids\-\_\-set\-\_\-default}}
+\index{mesh\-\_\-ids\-\_\-set\-\_\-default@{mesh\-\_\-ids\-\_\-set\-\_\-default}!mesh.h@{mesh.\-h}}
+\subsubsection[{mesh\-\_\-ids\-\_\-set\-\_\-default}]{\setlength{\rightskip}{0pt plus 5cm}void mesh\-\_\-ids\-\_\-set\-\_\-default (
+\begin{DoxyParamCaption}
+\item[{struct {\bf ieee80211\-\_\-if\-\_\-mesh} $\ast$}]{mesh}
+\end{DoxyParamCaption}
+)}}\label{mesh_8h_a4f6fc9180ebcfad10394dbbc3d364f0f}
+\hypertarget{mesh_8h_a733149fad303aa552e5922abf80c8ec4}{\index{mesh.\-h@{mesh.\-h}!mesh\-\_\-matches\-\_\-local@{mesh\-\_\-matches\-\_\-local}}
+\index{mesh\-\_\-matches\-\_\-local@{mesh\-\_\-matches\-\_\-local}!mesh.h@{mesh.\-h}}
+\subsubsection[{mesh\-\_\-matches\-\_\-local}]{\setlength{\rightskip}{0pt plus 5cm}bool mesh\-\_\-matches\-\_\-local (
+\begin{DoxyParamCaption}
+\item[{struct {\bf ieee802\-\_\-11\-\_\-elems} $\ast$}]{ie, }
+\item[{struct {\bf ieee80211\-\_\-sub\-\_\-if\-\_\-data} $\ast$}]{sdata}
+\end{DoxyParamCaption}
+)}}\label{mesh_8h_a733149fad303aa552e5922abf80c8ec4}
+mesh\-\_\-matches\-\_\-local -\/ check if the config of a mesh point matches ours
+
+\-: information elements of a management frame from the mesh peer \-: local mesh subif
+
+This function checks if the mesh configuration of a mesh point matches the local mesh configuration, i.\-e. if both nodes belong to the same mesh network. 
+
+Definition at line 76 of file mesh.\-c.
+
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=336pt]{mesh_8h_a733149fad303aa552e5922abf80c8ec4_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=336pt]{mesh_8h_a733149fad303aa552e5922abf80c8ec4_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{mesh_8h_aa7b343b8edb9f86f36a7bdaa04f2d3e7}{\index{mesh.\-h@{mesh.\-h}!mesh\-\_\-mgmt\-\_\-ies\-\_\-add@{mesh\-\_\-mgmt\-\_\-ies\-\_\-add}}
+\index{mesh\-\_\-mgmt\-\_\-ies\-\_\-add@{mesh\-\_\-mgmt\-\_\-ies\-\_\-add}!mesh.h@{mesh.\-h}}
+\subsubsection[{mesh\-\_\-mgmt\-\_\-ies\-\_\-add}]{\setlength{\rightskip}{0pt plus 5cm}void mesh\-\_\-mgmt\-\_\-ies\-\_\-add (
+\begin{DoxyParamCaption}
+\item[{struct sk\-\_\-buff $\ast$}]{skb, }
+\item[{struct {\bf ieee80211\-\_\-sub\-\_\-if\-\_\-data} $\ast$}]{sdata}
+\end{DoxyParamCaption}
+)}}\label{mesh_8h_aa7b343b8edb9f86f36a7bdaa04f2d3e7}
+\hypertarget{mesh_8h_a69e53ed90bb9493db24a820fff7db860}{\index{mesh.\-h@{mesh.\-h}!mesh\-\_\-mpath\-\_\-table\-\_\-grow@{mesh\-\_\-mpath\-\_\-table\-\_\-grow}}
+\index{mesh\-\_\-mpath\-\_\-table\-\_\-grow@{mesh\-\_\-mpath\-\_\-table\-\_\-grow}!mesh.h@{mesh.\-h}}
+\subsubsection[{mesh\-\_\-mpath\-\_\-table\-\_\-grow}]{\setlength{\rightskip}{0pt plus 5cm}void mesh\-\_\-mpath\-\_\-table\-\_\-grow (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{mesh_8h_a69e53ed90bb9493db24a820fff7db860}
+
+
+Definition at line 599 of file mesh\-\_\-pathtbl.\-c.
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{mesh_8h_a69e53ed90bb9493db24a820fff7db860_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{mesh_8h_a86c0b167f83fc46ca1441594853d69da}{\index{mesh.\-h@{mesh.\-h}!mesh\-\_\-mpp\-\_\-table\-\_\-grow@{mesh\-\_\-mpp\-\_\-table\-\_\-grow}}
+\index{mesh\-\_\-mpp\-\_\-table\-\_\-grow@{mesh\-\_\-mpp\-\_\-table\-\_\-grow}!mesh.h@{mesh.\-h}}
+\subsubsection[{mesh\-\_\-mpp\-\_\-table\-\_\-grow}]{\setlength{\rightskip}{0pt plus 5cm}void mesh\-\_\-mpp\-\_\-table\-\_\-grow (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{mesh_8h_a86c0b167f83fc46ca1441594853d69da}
+
+
+Definition at line 620 of file mesh\-\_\-pathtbl.\-c.
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{mesh_8h_a86c0b167f83fc46ca1441594853d69da_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{mesh_8h_ae97677a60e7fd512015b1c8f160be784}{\index{mesh.\-h@{mesh.\-h}!mesh\-\_\-neighbour\-\_\-update@{mesh\-\_\-neighbour\-\_\-update}}
+\index{mesh\-\_\-neighbour\-\_\-update@{mesh\-\_\-neighbour\-\_\-update}!mesh.h@{mesh.\-h}}
+\subsubsection[{mesh\-\_\-neighbour\-\_\-update}]{\setlength{\rightskip}{0pt plus 5cm}void mesh\-\_\-neighbour\-\_\-update (
+\begin{DoxyParamCaption}
+\item[{u8 $\ast$}]{hw\-\_\-addr, }
+\item[{u32}]{rates, }
+\item[{struct {\bf ieee80211\-\_\-sub\-\_\-if\-\_\-data} $\ast$}]{sdata, }
+\item[{struct {\bf ieee802\-\_\-11\-\_\-elems} $\ast$}]{ie}
+\end{DoxyParamCaption}
+)}}\label{mesh_8h_ae97677a60e7fd512015b1c8f160be784}
+
+
+Definition at line 277 of file mesh\-\_\-plink.\-c.
+
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{mesh_8h_ae97677a60e7fd512015b1c8f160be784_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{mesh_8h_a9d9333d534703251d6b25e5e58979a8d}{\index{mesh.\-h@{mesh.\-h}!mesh\-\_\-nexthop\-\_\-lookup@{mesh\-\_\-nexthop\-\_\-lookup}}
+\index{mesh\-\_\-nexthop\-\_\-lookup@{mesh\-\_\-nexthop\-\_\-lookup}!mesh.h@{mesh.\-h}}
+\subsubsection[{mesh\-\_\-nexthop\-\_\-lookup}]{\setlength{\rightskip}{0pt plus 5cm}int mesh\-\_\-nexthop\-\_\-lookup (
+\begin{DoxyParamCaption}
+\item[{struct sk\-\_\-buff $\ast$}]{skb, }
+\item[{struct {\bf ieee80211\-\_\-sub\-\_\-if\-\_\-data} $\ast$}]{sdata}
+\end{DoxyParamCaption}
+)}}\label{mesh_8h_a9d9333d534703251d6b25e5e58979a8d}
+mesh\-\_\-nexthop\-\_\-lookup -\/ put the appropriate next hop on a mesh frame. Calling this function is considered \char`\"{}using\char`\"{} the associated mpath, so preempt a path refresh if this mpath expires soon.
+
+\-: 802.\-11 frame to be sent \-: network subif the frame will be sent through
+
+Returns\-: 0 if the next hop was found. Nonzero otherwise. 
+
+Definition at line 1071 of file mesh\-\_\-hwmp.\-c.
+
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=328pt]{mesh_8h_a9d9333d534703251d6b25e5e58979a8d_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{mesh_8h_a9d9333d534703251d6b25e5e58979a8d_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{mesh_8h_a730b0e40f9056c043cdb988589638fe1}{\index{mesh.\-h@{mesh.\-h}!mesh\-\_\-nexthop\-\_\-resolve@{mesh\-\_\-nexthop\-\_\-resolve}}
+\index{mesh\-\_\-nexthop\-\_\-resolve@{mesh\-\_\-nexthop\-\_\-resolve}!mesh.h@{mesh.\-h}}
+\subsubsection[{mesh\-\_\-nexthop\-\_\-resolve}]{\setlength{\rightskip}{0pt plus 5cm}int mesh\-\_\-nexthop\-\_\-resolve (
+\begin{DoxyParamCaption}
+\item[{struct sk\-\_\-buff $\ast$}]{skb, }
+\item[{struct {\bf ieee80211\-\_\-sub\-\_\-if\-\_\-data} $\ast$}]{sdata}
+\end{DoxyParamCaption}
+)}}\label{mesh_8h_a730b0e40f9056c043cdb988589638fe1}
+
+
+Definition at line 1017 of file mesh\-\_\-hwmp.\-c.
+
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{mesh_8h_a730b0e40f9056c043cdb988589638fe1_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{mesh_8h_a730b0e40f9056c043cdb988589638fe1_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{mesh_8h_abf045a31559b7aea3fa56394d7ab1372}{\index{mesh.\-h@{mesh.\-h}!mesh\-\_\-path\-\_\-add@{mesh\-\_\-path\-\_\-add}}
+\index{mesh\-\_\-path\-\_\-add@{mesh\-\_\-path\-\_\-add}!mesh.h@{mesh.\-h}}
+\subsubsection[{mesh\-\_\-path\-\_\-add}]{\setlength{\rightskip}{0pt plus 5cm}int mesh\-\_\-path\-\_\-add (
+\begin{DoxyParamCaption}
+\item[{u8 $\ast$}]{dst, }
+\item[{struct {\bf ieee80211\-\_\-sub\-\_\-if\-\_\-data} $\ast$}]{sdata}
+\end{DoxyParamCaption}
+)}}\label{mesh_8h_abf045a31559b7aea3fa56394d7ab1372}
+mesh\-\_\-path\-\_\-add -\/ allocate and add a new path to the mesh path table \-: destination address of the path (E\-T\-H\-\_\-\-A\-L\-E\-N length) \-: local subif
+
+Returns\-: 0 on success
+
+State\-: the initial state of the new path is set to 0 
+
+Definition at line 507 of file mesh\-\_\-pathtbl.\-c.
+
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{mesh_8h_abf045a31559b7aea3fa56394d7ab1372_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{mesh_8h_abf045a31559b7aea3fa56394d7ab1372_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{mesh_8h_af99521d45a7ba659d9c988ad8e274966}{\index{mesh.\-h@{mesh.\-h}!mesh\-\_\-path\-\_\-add\-\_\-gate@{mesh\-\_\-path\-\_\-add\-\_\-gate}}
+\index{mesh\-\_\-path\-\_\-add\-\_\-gate@{mesh\-\_\-path\-\_\-add\-\_\-gate}!mesh.h@{mesh.\-h}}
+\subsubsection[{mesh\-\_\-path\-\_\-add\-\_\-gate}]{\setlength{\rightskip}{0pt plus 5cm}int mesh\-\_\-path\-\_\-add\-\_\-gate (
+\begin{DoxyParamCaption}
+\item[{struct {\bf mesh\-\_\-path} $\ast$}]{mpath}
+\end{DoxyParamCaption}
+)}}\label{mesh_8h_af99521d45a7ba659d9c988ad8e274966}
+mesh\-\_\-path\-\_\-add\-\_\-gate -\/ add the given mpath to a mesh gate to our path table \-: gate path to add to table 
+
+Definition at line 420 of file mesh\-\_\-pathtbl.\-c.
+
+\hypertarget{mesh_8h_aa0eb720f520e04822384c44fdd66bc0c}{\index{mesh.\-h@{mesh.\-h}!mesh\-\_\-path\-\_\-assign\-\_\-nexthop@{mesh\-\_\-path\-\_\-assign\-\_\-nexthop}}
+\index{mesh\-\_\-path\-\_\-assign\-\_\-nexthop@{mesh\-\_\-path\-\_\-assign\-\_\-nexthop}!mesh.h@{mesh.\-h}}
+\subsubsection[{mesh\-\_\-path\-\_\-assign\-\_\-nexthop}]{\setlength{\rightskip}{0pt plus 5cm}void mesh\-\_\-path\-\_\-assign\-\_\-nexthop (
+\begin{DoxyParamCaption}
+\item[{struct {\bf mesh\-\_\-path} $\ast$}]{mpath, }
+\item[{struct {\bf sta\-\_\-info} $\ast$}]{sta}
+\end{DoxyParamCaption}
+)}}\label{mesh_8h_aa0eb720f520e04822384c44fdd66bc0c}
+mesh\-\_\-path\-\_\-assign\-\_\-nexthop -\/ update mesh path next hop
+
+\-: mesh path to update \-: next hop to assign
+
+Locking\-: mpath-\/$>$state\-\_\-lock must be held when calling this function 
+
+Definition at line 208 of file mesh\-\_\-pathtbl.\-c.
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{mesh_8h_aa0eb720f520e04822384c44fdd66bc0c_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{mesh_8h_a881ea8f05596c17b19b72f0cbc38b6a4}{\index{mesh.\-h@{mesh.\-h}!mesh\-\_\-path\-\_\-del@{mesh\-\_\-path\-\_\-del}}
+\index{mesh\-\_\-path\-\_\-del@{mesh\-\_\-path\-\_\-del}!mesh.h@{mesh.\-h}}
+\subsubsection[{mesh\-\_\-path\-\_\-del}]{\setlength{\rightskip}{0pt plus 5cm}int mesh\-\_\-path\-\_\-del (
+\begin{DoxyParamCaption}
+\item[{u8 $\ast$}]{addr, }
+\item[{struct {\bf ieee80211\-\_\-sub\-\_\-if\-\_\-data} $\ast$}]{sdata}
+\end{DoxyParamCaption}
+)}}\label{mesh_8h_a881ea8f05596c17b19b72f0cbc38b6a4}
+mesh\-\_\-path\-\_\-del -\/ delete a mesh path from the table
+
+\-: dst address (E\-T\-H\-\_\-\-A\-L\-E\-N length) \-: local subif
+
+Returns\-: 0 if successful 
+
+Definition at line 866 of file mesh\-\_\-pathtbl.\-c.
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=296pt]{mesh_8h_a881ea8f05596c17b19b72f0cbc38b6a4_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{mesh_8h_a90f2613b99917c6405a441e0c7de6027}{\index{mesh.\-h@{mesh.\-h}!mesh\-\_\-path\-\_\-discard\-\_\-frame@{mesh\-\_\-path\-\_\-discard\-\_\-frame}}
+\index{mesh\-\_\-path\-\_\-discard\-\_\-frame@{mesh\-\_\-path\-\_\-discard\-\_\-frame}!mesh.h@{mesh.\-h}}
+\subsubsection[{mesh\-\_\-path\-\_\-discard\-\_\-frame}]{\setlength{\rightskip}{0pt plus 5cm}void mesh\-\_\-path\-\_\-discard\-\_\-frame (
+\begin{DoxyParamCaption}
+\item[{struct sk\-\_\-buff $\ast$}]{skb, }
+\item[{struct {\bf ieee80211\-\_\-sub\-\_\-if\-\_\-data} $\ast$}]{sdata}
+\end{DoxyParamCaption}
+)}}\label{mesh_8h_a90f2613b99917c6405a441e0c7de6027}
+mesh\-\_\-path\-\_\-discard\-\_\-frame -\/ discard a frame whose path could not be resolved
+
+\-: frame to discard \-: network subif the frame was to be sent through
+
+Locking\-: the function must me called within a rcu\-\_\-read\-\_\-lock region 
+
+Definition at line 974 of file mesh\-\_\-pathtbl.\-c.
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{mesh_8h_a90f2613b99917c6405a441e0c7de6027_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{mesh_8h_af57470fb1db40170d88d1d742534e7c8}{\index{mesh.\-h@{mesh.\-h}!mesh\-\_\-path\-\_\-error\-\_\-tx@{mesh\-\_\-path\-\_\-error\-\_\-tx}}
+\index{mesh\-\_\-path\-\_\-error\-\_\-tx@{mesh\-\_\-path\-\_\-error\-\_\-tx}!mesh.h@{mesh.\-h}}
+\subsubsection[{mesh\-\_\-path\-\_\-error\-\_\-tx}]{\setlength{\rightskip}{0pt plus 5cm}int mesh\-\_\-path\-\_\-error\-\_\-tx (
+\begin{DoxyParamCaption}
+\item[{u8}]{ttl, }
+\item[{u8 $\ast$}]{target, }
+\item[{\-\_\-\-\_\-le32}]{target\-\_\-sn, }
+\item[{\-\_\-\-\_\-le16}]{target\-\_\-rcode, }
+\item[{const u8 $\ast$}]{ra, }
+\item[{struct {\bf ieee80211\-\_\-sub\-\_\-if\-\_\-data} $\ast$}]{sdata}
+\end{DoxyParamCaption}
+)}}\label{mesh_8h_af57470fb1db40170d88d1d742534e7c8}
+mesh\-\_\-send\-\_\-path error -\/ Sends a P\-E\-R\-R mesh management frame
+
+\-: broken destination \-: S\-N of the broken destination \-: reason code for this P\-E\-R\-R \-: node this frame is addressed to
+
+Note\-: This function may be called with driver locks taken that the driver also acquires in the T\-X path. To avoid a deadlock we don't transmit the frame directly but add it to the pending queue instead. 
+
+Definition at line 240 of file mesh\-\_\-hwmp.\-c.
+
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{mesh_8h_af57470fb1db40170d88d1d742534e7c8_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{mesh_8h_af57470fb1db40170d88d1d742534e7c8_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{mesh_8h_a0f6ee851cd26b2b89230140fc89460d4}{\index{mesh.\-h@{mesh.\-h}!mesh\-\_\-path\-\_\-expire@{mesh\-\_\-path\-\_\-expire}}
+\index{mesh\-\_\-path\-\_\-expire@{mesh\-\_\-path\-\_\-expire}!mesh.h@{mesh.\-h}}
+\subsubsection[{mesh\-\_\-path\-\_\-expire}]{\setlength{\rightskip}{0pt plus 5cm}void mesh\-\_\-path\-\_\-expire (
+\begin{DoxyParamCaption}
+\item[{struct {\bf ieee80211\-\_\-sub\-\_\-if\-\_\-data} $\ast$}]{sdata}
+\end{DoxyParamCaption}
+)}}\label{mesh_8h_a0f6ee851cd26b2b89230140fc89460d4}
+
+
+Definition at line 1097 of file mesh\-\_\-pathtbl.\-c.
+
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=296pt]{mesh_8h_a0f6ee851cd26b2b89230140fc89460d4_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{mesh_8h_a2da3453bee1fbea601bb76e75687a14e}{\index{mesh.\-h@{mesh.\-h}!mesh\-\_\-path\-\_\-fix\-\_\-nexthop@{mesh\-\_\-path\-\_\-fix\-\_\-nexthop}}
+\index{mesh\-\_\-path\-\_\-fix\-\_\-nexthop@{mesh\-\_\-path\-\_\-fix\-\_\-nexthop}!mesh.h@{mesh.\-h}}
+\subsubsection[{mesh\-\_\-path\-\_\-fix\-\_\-nexthop}]{\setlength{\rightskip}{0pt plus 5cm}void mesh\-\_\-path\-\_\-fix\-\_\-nexthop (
+\begin{DoxyParamCaption}
+\item[{struct {\bf mesh\-\_\-path} $\ast$}]{mpath, }
+\item[{struct {\bf sta\-\_\-info} $\ast$}]{next\-\_\-hop}
+\end{DoxyParamCaption}
+)}}\label{mesh_8h_a2da3453bee1fbea601bb76e75687a14e}
+mesh\-\_\-path\-\_\-fix\-\_\-nexthop -\/ force a specific next hop for a mesh path
+
+\-: the mesh path to modify \-: the next hop to force
+
+Locking\-: this function must be called holding mpath-\/$>$state\-\_\-lock 
+
+Definition at line 1004 of file mesh\-\_\-pathtbl.\-c.
+
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{mesh_8h_a2da3453bee1fbea601bb76e75687a14e_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{mesh_8h_ab80f623ac3eea4f453cbd899f3d7b3be}{\index{mesh.\-h@{mesh.\-h}!mesh\-\_\-path\-\_\-flush\-\_\-by\-\_\-iface@{mesh\-\_\-path\-\_\-flush\-\_\-by\-\_\-iface}}
+\index{mesh\-\_\-path\-\_\-flush\-\_\-by\-\_\-iface@{mesh\-\_\-path\-\_\-flush\-\_\-by\-\_\-iface}!mesh.h@{mesh.\-h}}
+\subsubsection[{mesh\-\_\-path\-\_\-flush\-\_\-by\-\_\-iface}]{\setlength{\rightskip}{0pt plus 5cm}void mesh\-\_\-path\-\_\-flush\-\_\-by\-\_\-iface (
+\begin{DoxyParamCaption}
+\item[{struct {\bf ieee80211\-\_\-sub\-\_\-if\-\_\-data} $\ast$}]{sdata}
+\end{DoxyParamCaption}
+)}}\label{mesh_8h_ab80f623ac3eea4f453cbd899f3d7b3be}
+mesh\-\_\-path\-\_\-flush\-\_\-by\-\_\-iface -\/ Deletes all mesh paths associated with a given iface
+
+This function deletes both mesh paths as well as mesh portal paths.
+
+-\/ interface data to match 
+
+Definition at line 844 of file mesh\-\_\-pathtbl.\-c.
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{mesh_8h_ab80f623ac3eea4f453cbd899f3d7b3be_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{mesh_8h_a92ce0e2138aadd5098196a5f49557f4f}{\index{mesh.\-h@{mesh.\-h}!mesh\-\_\-path\-\_\-flush\-\_\-by\-\_\-nexthop@{mesh\-\_\-path\-\_\-flush\-\_\-by\-\_\-nexthop}}
+\index{mesh\-\_\-path\-\_\-flush\-\_\-by\-\_\-nexthop@{mesh\-\_\-path\-\_\-flush\-\_\-by\-\_\-nexthop}!mesh.h@{mesh.\-h}}
+\subsubsection[{mesh\-\_\-path\-\_\-flush\-\_\-by\-\_\-nexthop}]{\setlength{\rightskip}{0pt plus 5cm}void mesh\-\_\-path\-\_\-flush\-\_\-by\-\_\-nexthop (
+\begin{DoxyParamCaption}
+\item[{struct {\bf sta\-\_\-info} $\ast$}]{sta}
+\end{DoxyParamCaption}
+)}}\label{mesh_8h_a92ce0e2138aadd5098196a5f49557f4f}
+mesh\-\_\-path\-\_\-flush\-\_\-by\-\_\-nexthop -\/ Deletes mesh paths if their next hop matches
+
+-\/ mesh peer to match
+
+R\-C\-U notes\-: this function is called when a mesh plink transitions from P\-L\-I\-N\-K\-\_\-\-E\-S\-T\-A\-B to any other state, since P\-L\-I\-N\-K\-\_\-\-E\-S\-T\-A\-B state is the only one that allows path creation. This will happen before the sta can be freed (because sta\-\_\-info\-\_\-destroy() calls this) so any reader in a rcu read block will be protected against the plink disappearing. 
+
+Definition at line 794 of file mesh\-\_\-pathtbl.\-c.
+
+\hypertarget{mesh_8h_ae453f6c3c228429527920b139aca79d7}{\index{mesh.\-h@{mesh.\-h}!mesh\-\_\-path\-\_\-flush\-\_\-pending@{mesh\-\_\-path\-\_\-flush\-\_\-pending}}
+\index{mesh\-\_\-path\-\_\-flush\-\_\-pending@{mesh\-\_\-path\-\_\-flush\-\_\-pending}!mesh.h@{mesh.\-h}}
+\subsubsection[{mesh\-\_\-path\-\_\-flush\-\_\-pending}]{\setlength{\rightskip}{0pt plus 5cm}void mesh\-\_\-path\-\_\-flush\-\_\-pending (
+\begin{DoxyParamCaption}
+\item[{struct {\bf mesh\-\_\-path} $\ast$}]{mpath}
+\end{DoxyParamCaption}
+)}}\label{mesh_8h_ae453f6c3c228429527920b139aca79d7}
+mesh\-\_\-path\-\_\-flush\-\_\-pending -\/ free the pending queue of a mesh path
+
+\-: mesh path whose queue has to be freed
+
+Locking\-: the function must me called within a rcu\-\_\-read\-\_\-lock region 
+
+Definition at line 988 of file mesh\-\_\-pathtbl.\-c.
+
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{mesh_8h_ae453f6c3c228429527920b139aca79d7_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{mesh_8h_ae453f6c3c228429527920b139aca79d7_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{mesh_8h_a1794882e6c44e105ce79ff35a74a160b}{\index{mesh.\-h@{mesh.\-h}!mesh\-\_\-path\-\_\-lookup@{mesh\-\_\-path\-\_\-lookup}}
+\index{mesh\-\_\-path\-\_\-lookup@{mesh\-\_\-path\-\_\-lookup}!mesh.h@{mesh.\-h}}
+\subsubsection[{mesh\-\_\-path\-\_\-lookup}]{\setlength{\rightskip}{0pt plus 5cm}struct {\bf mesh\-\_\-path}$\ast$ mesh\-\_\-path\-\_\-lookup (
+\begin{DoxyParamCaption}
+\item[{u8 $\ast$}]{dst, }
+\item[{struct {\bf ieee80211\-\_\-sub\-\_\-if\-\_\-data} $\ast$}]{sdata}
+\end{DoxyParamCaption}
+)}}\label{mesh_8h_a1794882e6c44e105ce79ff35a74a160b}
+mesh\-\_\-path\-\_\-lookup -\/ look up a path in the mesh path table \-: hardware address (E\-T\-H\-\_\-\-A\-L\-E\-N length) of destination \-: local subif
+
+Returns\-: pointer to the mesh path structure, or N\-U\-L\-L if not found
+
+Locking\-: must be called within a read rcu section. 
+
+Definition at line 372 of file mesh\-\_\-pathtbl.\-c.
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{mesh_8h_a1794882e6c44e105ce79ff35a74a160b_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{mesh_8h_a291a74d17d68d23e5d0ff9abeccbb9fa}{\index{mesh.\-h@{mesh.\-h}!mesh\-\_\-path\-\_\-lookup\-\_\-by\-\_\-idx@{mesh\-\_\-path\-\_\-lookup\-\_\-by\-\_\-idx}}
+\index{mesh\-\_\-path\-\_\-lookup\-\_\-by\-\_\-idx@{mesh\-\_\-path\-\_\-lookup\-\_\-by\-\_\-idx}!mesh.h@{mesh.\-h}}
+\subsubsection[{mesh\-\_\-path\-\_\-lookup\-\_\-by\-\_\-idx}]{\setlength{\rightskip}{0pt plus 5cm}struct {\bf mesh\-\_\-path}$\ast$ mesh\-\_\-path\-\_\-lookup\-\_\-by\-\_\-idx (
+\begin{DoxyParamCaption}
+\item[{int}]{idx, }
+\item[{struct {\bf ieee80211\-\_\-sub\-\_\-if\-\_\-data} $\ast$}]{sdata}
+\end{DoxyParamCaption}
+)}}\label{mesh_8h_a291a74d17d68d23e5d0ff9abeccbb9fa}
+mesh\-\_\-path\-\_\-lookup\-\_\-by\-\_\-idx -\/ look up a path in the mesh path table by its index \-: index \-: local subif, or N\-U\-L\-L for all entries
+
+Returns\-: pointer to the mesh path structure, or N\-U\-L\-L if not found.
+
+Locking\-: must be called within a read rcu section. 
+
+Definition at line 392 of file mesh\-\_\-pathtbl.\-c.
+
+\hypertarget{mesh_8h_a6e35ec5b0cb5bba21a4b58b084c25dc4}{\index{mesh.\-h@{mesh.\-h}!mesh\-\_\-path\-\_\-quiesce@{mesh\-\_\-path\-\_\-quiesce}}
+\index{mesh\-\_\-path\-\_\-quiesce@{mesh\-\_\-path\-\_\-quiesce}!mesh.h@{mesh.\-h}}
+\subsubsection[{mesh\-\_\-path\-\_\-quiesce}]{\setlength{\rightskip}{0pt plus 5cm}void mesh\-\_\-path\-\_\-quiesce (
+\begin{DoxyParamCaption}
+\item[{struct {\bf ieee80211\-\_\-sub\-\_\-if\-\_\-data} $\ast$}]{sdata}
+\end{DoxyParamCaption}
+)}}\label{mesh_8h_a6e35ec5b0cb5bba21a4b58b084c25dc4}
+\hypertarget{mesh_8h_a2be532451e45187b0cea04cf38c86917}{\index{mesh.\-h@{mesh.\-h}!mesh\-\_\-path\-\_\-restart@{mesh\-\_\-path\-\_\-restart}}
+\index{mesh\-\_\-path\-\_\-restart@{mesh\-\_\-path\-\_\-restart}!mesh.h@{mesh.\-h}}
+\subsubsection[{mesh\-\_\-path\-\_\-restart}]{\setlength{\rightskip}{0pt plus 5cm}void mesh\-\_\-path\-\_\-restart (
+\begin{DoxyParamCaption}
+\item[{struct {\bf ieee80211\-\_\-sub\-\_\-if\-\_\-data} $\ast$}]{sdata}
+\end{DoxyParamCaption}
+)}}\label{mesh_8h_a2be532451e45187b0cea04cf38c86917}
+\hypertarget{mesh_8h_acfaaabcef47e7a6e3b75022748bd0abc}{\index{mesh.\-h@{mesh.\-h}!mesh\-\_\-path\-\_\-send\-\_\-to\-\_\-gates@{mesh\-\_\-path\-\_\-send\-\_\-to\-\_\-gates}}
+\index{mesh\-\_\-path\-\_\-send\-\_\-to\-\_\-gates@{mesh\-\_\-path\-\_\-send\-\_\-to\-\_\-gates}!mesh.h@{mesh.\-h}}
+\subsubsection[{mesh\-\_\-path\-\_\-send\-\_\-to\-\_\-gates}]{\setlength{\rightskip}{0pt plus 5cm}int mesh\-\_\-path\-\_\-send\-\_\-to\-\_\-gates (
+\begin{DoxyParamCaption}
+\item[{struct {\bf mesh\-\_\-path} $\ast$}]{mpath}
+\end{DoxyParamCaption}
+)}}\label{mesh_8h_acfaaabcef47e7a6e3b75022748bd0abc}
+mesh\-\_\-path\-\_\-send\-\_\-to\-\_\-gates -\/ sends pending frames to all known mesh gates
+
+\-: mesh path whose queue will be emptied
+
+If there is only one gate, the frames are transferred from the failed mpath queue to that gate's queue. If there are more than one gates, the frames are copied from each gate to the next. After frames are copied, the mpath queues are emptied onto the transmission queue. 
+
+Definition at line 924 of file mesh\-\_\-pathtbl.\-c.
+
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{mesh_8h_acfaaabcef47e7a6e3b75022748bd0abc_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{mesh_8h_acfaaabcef47e7a6e3b75022748bd0abc_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{mesh_8h_adcc5bbc97b6e4d90352ed4ad250986e2}{\index{mesh.\-h@{mesh.\-h}!mesh\-\_\-path\-\_\-start\-\_\-discovery@{mesh\-\_\-path\-\_\-start\-\_\-discovery}}
+\index{mesh\-\_\-path\-\_\-start\-\_\-discovery@{mesh\-\_\-path\-\_\-start\-\_\-discovery}!mesh.h@{mesh.\-h}}
+\subsubsection[{mesh\-\_\-path\-\_\-start\-\_\-discovery}]{\setlength{\rightskip}{0pt plus 5cm}void mesh\-\_\-path\-\_\-start\-\_\-discovery (
+\begin{DoxyParamCaption}
+\item[{struct {\bf ieee80211\-\_\-sub\-\_\-if\-\_\-data} $\ast$}]{sdata}
+\end{DoxyParamCaption}
+)}}\label{mesh_8h_adcc5bbc97b6e4d90352ed4ad250986e2}
+mesh\-\_\-path\-\_\-start\-\_\-discovery -\/ launch a path discovery from the P\-R\-E\-Q queue
+
+\-: local mesh subif 
+
+Definition at line 926 of file mesh\-\_\-hwmp.\-c.
+
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{mesh_8h_adcc5bbc97b6e4d90352ed4ad250986e2_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{mesh_8h_adcc5bbc97b6e4d90352ed4ad250986e2_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{mesh_8h_a4a547cd7d0a2595ca69e59fb18638fa3}{\index{mesh.\-h@{mesh.\-h}!mesh\-\_\-path\-\_\-timer@{mesh\-\_\-path\-\_\-timer}}
+\index{mesh\-\_\-path\-\_\-timer@{mesh\-\_\-path\-\_\-timer}!mesh.h@{mesh.\-h}}
+\subsubsection[{mesh\-\_\-path\-\_\-timer}]{\setlength{\rightskip}{0pt plus 5cm}void mesh\-\_\-path\-\_\-timer (
+\begin{DoxyParamCaption}
+\item[{unsigned long}]{data}
+\end{DoxyParamCaption}
+)}}\label{mesh_8h_a4a547cd7d0a2595ca69e59fb18638fa3}
+
+
+Definition at line 1106 of file mesh\-\_\-hwmp.\-c.
+
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{mesh_8h_a4a547cd7d0a2595ca69e59fb18638fa3_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{mesh_8h_a4a547cd7d0a2595ca69e59fb18638fa3_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{mesh_8h_a53b7762f7fb8c8cd60e943f1c292abab}{\index{mesh.\-h@{mesh.\-h}!mesh\-\_\-path\-\_\-tx\-\_\-pending@{mesh\-\_\-path\-\_\-tx\-\_\-pending}}
+\index{mesh\-\_\-path\-\_\-tx\-\_\-pending@{mesh\-\_\-path\-\_\-tx\-\_\-pending}!mesh.h@{mesh.\-h}}
+\subsubsection[{mesh\-\_\-path\-\_\-tx\-\_\-pending}]{\setlength{\rightskip}{0pt plus 5cm}void mesh\-\_\-path\-\_\-tx\-\_\-pending (
+\begin{DoxyParamCaption}
+\item[{struct {\bf mesh\-\_\-path} $\ast$}]{mpath}
+\end{DoxyParamCaption}
+)}}\label{mesh_8h_a53b7762f7fb8c8cd60e943f1c292abab}
+mesh\-\_\-path\-\_\-tx\-\_\-pending -\/ sends pending frames in a mesh path queue
+
+\-: mesh path to activate
+
+Locking\-: the state\-\_\-lock of the mpath structure must N\-O\-T be held when calling this function. 
+
+Definition at line 907 of file mesh\-\_\-pathtbl.\-c.
+
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{mesh_8h_a53b7762f7fb8c8cd60e943f1c292abab_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{mesh_8h_a53b7762f7fb8c8cd60e943f1c292abab_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{mesh_8h_a2320e242ed0520b086988c9beece933f}{\index{mesh.\-h@{mesh.\-h}!mesh\-\_\-path\-\_\-tx\-\_\-root\-\_\-frame@{mesh\-\_\-path\-\_\-tx\-\_\-root\-\_\-frame}}
+\index{mesh\-\_\-path\-\_\-tx\-\_\-root\-\_\-frame@{mesh\-\_\-path\-\_\-tx\-\_\-root\-\_\-frame}!mesh.h@{mesh.\-h}}
+\subsubsection[{mesh\-\_\-path\-\_\-tx\-\_\-root\-\_\-frame}]{\setlength{\rightskip}{0pt plus 5cm}void mesh\-\_\-path\-\_\-tx\-\_\-root\-\_\-frame (
+\begin{DoxyParamCaption}
+\item[{struct {\bf ieee80211\-\_\-sub\-\_\-if\-\_\-data} $\ast$}]{sdata}
+\end{DoxyParamCaption}
+)}}\label{mesh_8h_a2320e242ed0520b086988c9beece933f}
+
+
+Definition at line 1140 of file mesh\-\_\-hwmp.\-c.
+
+\hypertarget{mesh_8h_a545e27353ed69a7d8c94f4b6cae204f1}{\index{mesh.\-h@{mesh.\-h}!mesh\-\_\-pathtbl\-\_\-init@{mesh\-\_\-pathtbl\-\_\-init}}
+\index{mesh\-\_\-pathtbl\-\_\-init@{mesh\-\_\-pathtbl\-\_\-init}!mesh.h@{mesh.\-h}}
+\subsubsection[{mesh\-\_\-pathtbl\-\_\-init}]{\setlength{\rightskip}{0pt plus 5cm}int mesh\-\_\-pathtbl\-\_\-init (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{mesh_8h_a545e27353ed69a7d8c94f4b6cae204f1}
+
+
+Definition at line 1050 of file mesh\-\_\-pathtbl.\-c.
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{mesh_8h_a545e27353ed69a7d8c94f4b6cae204f1_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{mesh_8h_a5a45b0108a76cf186ef91b494da9a4ea}{\index{mesh.\-h@{mesh.\-h}!mesh\-\_\-pathtbl\-\_\-unregister@{mesh\-\_\-pathtbl\-\_\-unregister}}
+\index{mesh\-\_\-pathtbl\-\_\-unregister@{mesh\-\_\-pathtbl\-\_\-unregister}!mesh.h@{mesh.\-h}}
+\subsubsection[{mesh\-\_\-pathtbl\-\_\-unregister}]{\setlength{\rightskip}{0pt plus 5cm}void mesh\-\_\-pathtbl\-\_\-unregister (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{mesh_8h_a5a45b0108a76cf186ef91b494da9a4ea}
+
+
+Definition at line 1119 of file mesh\-\_\-pathtbl.\-c.
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=330pt]{mesh_8h_a5a45b0108a76cf186ef91b494da9a4ea_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{mesh_8h_a637eb75f6df7df499099793619a2393e}{\index{mesh.\-h@{mesh.\-h}!mesh\-\_\-peer\-\_\-accepts\-\_\-plinks@{mesh\-\_\-peer\-\_\-accepts\-\_\-plinks}}
+\index{mesh\-\_\-peer\-\_\-accepts\-\_\-plinks@{mesh\-\_\-peer\-\_\-accepts\-\_\-plinks}!mesh.h@{mesh.\-h}}
+\subsubsection[{mesh\-\_\-peer\-\_\-accepts\-\_\-plinks}]{\setlength{\rightskip}{0pt plus 5cm}bool mesh\-\_\-peer\-\_\-accepts\-\_\-plinks (
+\begin{DoxyParamCaption}
+\item[{struct {\bf ieee802\-\_\-11\-\_\-elems} $\ast$}]{ie}
+\end{DoxyParamCaption}
+)}}\label{mesh_8h_a637eb75f6df7df499099793619a2393e}
+mesh\-\_\-peer\-\_\-accepts\-\_\-plinks -\/ check if an mp is willing to establish peer links
+
+\-: information elements of a management frame from the mesh peer 
+
+Definition at line 116 of file mesh.\-c.
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{mesh_8h_a637eb75f6df7df499099793619a2393e_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{mesh_8h_aa849d370a375feb8e7843a781ad9fc62}{\index{mesh.\-h@{mesh.\-h}!mesh\-\_\-plink\-\_\-block@{mesh\-\_\-plink\-\_\-block}}
+\index{mesh\-\_\-plink\-\_\-block@{mesh\-\_\-plink\-\_\-block}!mesh.h@{mesh.\-h}}
+\subsubsection[{mesh\-\_\-plink\-\_\-block}]{\setlength{\rightskip}{0pt plus 5cm}void mesh\-\_\-plink\-\_\-block (
+\begin{DoxyParamCaption}
+\item[{struct {\bf sta\-\_\-info} $\ast$}]{sta}
+\end{DoxyParamCaption}
+)}}\label{mesh_8h_aa849d370a375feb8e7843a781ad9fc62}
+
+
+Definition at line 441 of file mesh\-\_\-plink.\-c.
+
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=316pt]{mesh_8h_aa849d370a375feb8e7843a781ad9fc62_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{mesh_8h_a347c473ad002d31a76c9856c38af804b}{\index{mesh.\-h@{mesh.\-h}!mesh\-\_\-plink\-\_\-broken@{mesh\-\_\-plink\-\_\-broken}}
+\index{mesh\-\_\-plink\-\_\-broken@{mesh\-\_\-plink\-\_\-broken}!mesh.h@{mesh.\-h}}
+\subsubsection[{mesh\-\_\-plink\-\_\-broken}]{\setlength{\rightskip}{0pt plus 5cm}void mesh\-\_\-plink\-\_\-broken (
+\begin{DoxyParamCaption}
+\item[{struct {\bf sta\-\_\-info} $\ast$}]{sta}
+\end{DoxyParamCaption}
+)}}\label{mesh_8h_a347c473ad002d31a76c9856c38af804b}
+mesh\-\_\-plink\-\_\-broken -\/ deactivates paths and sends perr when a link breaks
+
+\-: broken peer link
+
+This function must be called from the rate control algorithm if enough delivery errors suggest that a peer link is no longer usable. 
+
+Definition at line 727 of file mesh\-\_\-pathtbl.\-c.
+
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{mesh_8h_a347c473ad002d31a76c9856c38af804b_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{mesh_8h_a347c473ad002d31a76c9856c38af804b_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{mesh_8h_ad48cae814bc9933988941baf8fe181ba}{\index{mesh.\-h@{mesh.\-h}!mesh\-\_\-plink\-\_\-deactivate@{mesh\-\_\-plink\-\_\-deactivate}}
+\index{mesh\-\_\-plink\-\_\-deactivate@{mesh\-\_\-plink\-\_\-deactivate}!mesh.h@{mesh.\-h}}
+\subsubsection[{mesh\-\_\-plink\-\_\-deactivate}]{\setlength{\rightskip}{0pt plus 5cm}void mesh\-\_\-plink\-\_\-deactivate (
+\begin{DoxyParamCaption}
+\item[{struct {\bf sta\-\_\-info} $\ast$}]{sta}
+\end{DoxyParamCaption}
+)}}\label{mesh_8h_ad48cae814bc9933988941baf8fe181ba}
+mesh\-\_\-plink\-\_\-deactivate -\/ deactivate mesh peer link
+
+\-: mesh peer link to deactivate
+
+All mesh paths with this peer as next hop will be flushed 
+
+Definition at line 152 of file mesh\-\_\-plink.\-c.
+
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=336pt]{mesh_8h_ad48cae814bc9933988941baf8fe181ba_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{mesh_8h_ad48cae814bc9933988941baf8fe181ba_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{mesh_8h_abebf8d91cef315054bb89b5ea4bffe40}{\index{mesh.\-h@{mesh.\-h}!mesh\-\_\-plink\-\_\-open@{mesh\-\_\-plink\-\_\-open}}
+\index{mesh\-\_\-plink\-\_\-open@{mesh\-\_\-plink\-\_\-open}!mesh.h@{mesh.\-h}}
+\subsubsection[{mesh\-\_\-plink\-\_\-open}]{\setlength{\rightskip}{0pt plus 5cm}int mesh\-\_\-plink\-\_\-open (
+\begin{DoxyParamCaption}
+\item[{struct {\bf sta\-\_\-info} $\ast$}]{sta}
+\end{DoxyParamCaption}
+)}}\label{mesh_8h_abebf8d91cef315054bb89b5ea4bffe40}
+
+
+Definition at line 416 of file mesh\-\_\-plink.\-c.
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=330pt]{mesh_8h_abebf8d91cef315054bb89b5ea4bffe40_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{mesh_8h_ade1ad1e865ae96fde4f814423c5f1225}{\index{mesh.\-h@{mesh.\-h}!mesh\-\_\-rmc\-\_\-check@{mesh\-\_\-rmc\-\_\-check}}
+\index{mesh\-\_\-rmc\-\_\-check@{mesh\-\_\-rmc\-\_\-check}!mesh.h@{mesh.\-h}}
+\subsubsection[{mesh\-\_\-rmc\-\_\-check}]{\setlength{\rightskip}{0pt plus 5cm}int mesh\-\_\-rmc\-\_\-check (
+\begin{DoxyParamCaption}
+\item[{u8 $\ast$}]{sa, }
+\item[{struct ieee80211s\-\_\-hdr $\ast$}]{mesh\-\_\-hdr, }
+\item[{struct {\bf ieee80211\-\_\-sub\-\_\-if\-\_\-data} $\ast$}]{sdata}
+\end{DoxyParamCaption}
+)}}\label{mesh_8h_ade1ad1e865ae96fde4f814423c5f1225}
+mesh\-\_\-rmc\-\_\-check -\/ Check frame in recent multicast cache and add if absent.
+
+\begin{DoxySeeAlso}{See Also}
+\-: source address \-: mesh\-\_\-header
+\end{DoxySeeAlso}
+Returns\-: 0 if the frame is not in the cache, nonzero otherwise.
+
+Checks using the source address and the mesh sequence number if we have received this frame lately. If the frame is not in the cache, it is added to it. 
+
+Definition at line 187 of file mesh.\-c.
+
+\hypertarget{mesh_8h_a90063d5785b5baa8164a3d382b2ed659}{\index{mesh.\-h@{mesh.\-h}!mesh\-\_\-rmc\-\_\-free@{mesh\-\_\-rmc\-\_\-free}}
+\index{mesh\-\_\-rmc\-\_\-free@{mesh\-\_\-rmc\-\_\-free}!mesh.h@{mesh.\-h}}
+\subsubsection[{mesh\-\_\-rmc\-\_\-free}]{\setlength{\rightskip}{0pt plus 5cm}void mesh\-\_\-rmc\-\_\-free (
+\begin{DoxyParamCaption}
+\item[{struct {\bf ieee80211\-\_\-sub\-\_\-if\-\_\-data} $\ast$}]{sdata}
+\end{DoxyParamCaption}
+)}}\label{mesh_8h_a90063d5785b5baa8164a3d382b2ed659}
+
+
+Definition at line 156 of file mesh.\-c.
+
+\hypertarget{mesh_8h_a8010fb0eba335e4845d3e769c569a890}{\index{mesh.\-h@{mesh.\-h}!mesh\-\_\-rmc\-\_\-init@{mesh\-\_\-rmc\-\_\-init}}
+\index{mesh\-\_\-rmc\-\_\-init@{mesh\-\_\-rmc\-\_\-init}!mesh.h@{mesh.\-h}}
+\subsubsection[{mesh\-\_\-rmc\-\_\-init}]{\setlength{\rightskip}{0pt plus 5cm}int mesh\-\_\-rmc\-\_\-init (
+\begin{DoxyParamCaption}
+\item[{struct {\bf ieee80211\-\_\-sub\-\_\-if\-\_\-data} $\ast$}]{sdata}
+\end{DoxyParamCaption}
+)}}\label{mesh_8h_a8010fb0eba335e4845d3e769c569a890}
+
+
+Definition at line 143 of file mesh.\-c.
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=304pt]{mesh_8h_a8010fb0eba335e4845d3e769c569a890_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{mesh_8h_ad09af1edb1e70d04aecb63ede83a4b45}{\index{mesh.\-h@{mesh.\-h}!mesh\-\_\-rx\-\_\-path\-\_\-sel\-\_\-frame@{mesh\-\_\-rx\-\_\-path\-\_\-sel\-\_\-frame}}
+\index{mesh\-\_\-rx\-\_\-path\-\_\-sel\-\_\-frame@{mesh\-\_\-rx\-\_\-path\-\_\-sel\-\_\-frame}!mesh.h@{mesh.\-h}}
+\subsubsection[{mesh\-\_\-rx\-\_\-path\-\_\-sel\-\_\-frame}]{\setlength{\rightskip}{0pt plus 5cm}void mesh\-\_\-rx\-\_\-path\-\_\-sel\-\_\-frame (
+\begin{DoxyParamCaption}
+\item[{struct {\bf ieee80211\-\_\-sub\-\_\-if\-\_\-data} $\ast$}]{sdata, }
+\item[{struct ieee80211\-\_\-mgmt $\ast$}]{mgmt, }
+\item[{size\-\_\-t}]{len}
+\end{DoxyParamCaption}
+)}}\label{mesh_8h_ad09af1edb1e70d04aecb63ede83a4b45}
+
+
+Definition at line 804 of file mesh\-\_\-hwmp.\-c.
+
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{mesh_8h_ad09af1edb1e70d04aecb63ede83a4b45_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{mesh_8h_af3cc1ba7b5230d6fb3285d14d7b5344b}{\index{mesh.\-h@{mesh.\-h}!mesh\-\_\-rx\-\_\-plink\-\_\-frame@{mesh\-\_\-rx\-\_\-plink\-\_\-frame}}
+\index{mesh\-\_\-rx\-\_\-plink\-\_\-frame@{mesh\-\_\-rx\-\_\-plink\-\_\-frame}!mesh.h@{mesh.\-h}}
+\subsubsection[{mesh\-\_\-rx\-\_\-plink\-\_\-frame}]{\setlength{\rightskip}{0pt plus 5cm}void mesh\-\_\-rx\-\_\-plink\-\_\-frame (
+\begin{DoxyParamCaption}
+\item[{struct {\bf ieee80211\-\_\-sub\-\_\-if\-\_\-data} $\ast$}]{sdata, }
+\item[{struct ieee80211\-\_\-mgmt $\ast$}]{mgmt, }
+\item[{size\-\_\-t}]{len, }
+\item[{struct ieee80211\-\_\-rx\-\_\-status $\ast$}]{rx\-\_\-status}
+\end{DoxyParamCaption}
+)}}\label{mesh_8h_af3cc1ba7b5230d6fb3285d14d7b5344b}
+
+
+Definition at line 456 of file mesh\-\_\-plink.\-c.
+
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{mesh_8h_af3cc1ba7b5230d6fb3285d14d7b5344b_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{mesh_8h_a43c1db07be87b3dce6f20e16ca8e1c3a}{\index{mesh.\-h@{mesh.\-h}!mpp\-\_\-path\-\_\-add@{mpp\-\_\-path\-\_\-add}}
+\index{mpp\-\_\-path\-\_\-add@{mpp\-\_\-path\-\_\-add}!mesh.h@{mesh.\-h}}
+\subsubsection[{mpp\-\_\-path\-\_\-add}]{\setlength{\rightskip}{0pt plus 5cm}int mpp\-\_\-path\-\_\-add (
+\begin{DoxyParamCaption}
+\item[{u8 $\ast$}]{dst, }
+\item[{u8 $\ast$}]{mpp, }
+\item[{struct {\bf ieee80211\-\_\-sub\-\_\-if\-\_\-data} $\ast$}]{sdata}
+\end{DoxyParamCaption}
+)}}\label{mesh_8h_a43c1db07be87b3dce6f20e16ca8e1c3a}
+
+
+Definition at line 640 of file mesh\-\_\-pathtbl.\-c.
+
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=316pt]{mesh_8h_a43c1db07be87b3dce6f20e16ca8e1c3a_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{mesh_8h_ade75b84e7888b0843fa63cd03a3ec015}{\index{mesh.\-h@{mesh.\-h}!mpp\-\_\-path\-\_\-lookup@{mpp\-\_\-path\-\_\-lookup}}
+\index{mpp\-\_\-path\-\_\-lookup@{mpp\-\_\-path\-\_\-lookup}!mesh.h@{mesh.\-h}}
+\subsubsection[{mpp\-\_\-path\-\_\-lookup}]{\setlength{\rightskip}{0pt plus 5cm}struct {\bf mesh\-\_\-path}$\ast$ mpp\-\_\-path\-\_\-lookup (
+\begin{DoxyParamCaption}
+\item[{u8 $\ast$}]{dst, }
+\item[{struct {\bf ieee80211\-\_\-sub\-\_\-if\-\_\-data} $\ast$}]{sdata}
+\end{DoxyParamCaption}
+)}}\label{mesh_8h_ade75b84e7888b0843fa63cd03a3ec015}
+
+
+Definition at line 377 of file mesh\-\_\-pathtbl.\-c.
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=346pt]{mesh_8h_ade75b84e7888b0843fa63cd03a3ec015_icgraph}
+\end{center}
+\end{figure}
+
+
+
+
+\subsection{Variable Documentation}
+\hypertarget{mesh_8h_ac5d21413a6ce5e2d23d20e86f60f60cf}{\index{mesh.\-h@{mesh.\-h}!mesh\-\_\-paths\-\_\-generation@{mesh\-\_\-paths\-\_\-generation}}
+\index{mesh\-\_\-paths\-\_\-generation@{mesh\-\_\-paths\-\_\-generation}!mesh.h@{mesh.\-h}}
+\subsubsection[{mesh\-\_\-paths\-\_\-generation}]{\setlength{\rightskip}{0pt plus 5cm}int mesh\-\_\-paths\-\_\-generation}}\label{mesh_8h_ac5d21413a6ce5e2d23d20e86f60f60cf}
+
+
+Definition at line 49 of file mesh\-\_\-pathtbl.\-c.
+

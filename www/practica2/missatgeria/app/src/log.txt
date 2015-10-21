@@ -1,0 +1,42 @@
+Creant base de dades...
+No existia. Creada
+Creant taula users...
+Creada
+Creant taula...
+Creada
+Usuaris inicials...
+Afegit
+Afegit
+Creant taula users...
+Creada
+Creant taula mails...
+Creada
+Afegint mail de prova...
+Afegit
+Creant taula comptadors...
+Creada
+Afegint valors...
+Afegits
+
+--------------------
+
+
+> Usuaris:
+
+user_id	user_name	passwd
+0	root	root
+1	paco	patata
+
+
+> Sessions: ¿Buida?
+session_id	user_id
+
+
+> Mails
+mail_id	from	to	content
+0	root	paco	Benvingut al sistema cutroide de mails! :D
+
+
+> Comptadors:
+users	mails	sessions
+2	1	0

@@ -1,0 +1,62 @@
+.TH "rmc_entry" 3 "Sun Jun 1 2014" "Version 1.0" "net_mac80211" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+rmc_entry \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <mesh\&.h>\fP
+.SS "Data Fields"
+
+.in +1c
+.ti -1c
+.RI "struct list_head \fBlist\fP"
+.br
+.ti -1c
+.RI "u32 \fBseqnum\fP"
+.br
+.ti -1c
+.RI "unsigned long \fBexp_time\fP"
+.br
+.ti -1c
+.RI "u8 \fBsa\fP [ETH_ALEN]"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+struct \fBrmc_entry\fP - entry in the Recent Multicast Cache
+.PP
+: mesh sequence number of the frame : expiration time of the entry, in jiffies 
+.PP
+\fBSee Also:\fP
+.RS 4
+: source address of the frame
+.RE
+.PP
+The Recent Multicast Cache keeps track of the latest multicast frames that have been received by a mesh interface and discards received multicast frames that are found in the cache\&. 
+.PP
+Definition at line 172 of file mesh\&.h\&.
+.SH "Field Documentation"
+.PP 
+.SS "unsigned long exp_time"
+
+.PP
+Definition at line 175 of file mesh\&.h\&.
+.SS "struct list_head list"
+
+.PP
+Definition at line 173 of file mesh\&.h\&.
+.SS "u8 sa[ETH_ALEN]"
+
+.PP
+Definition at line 176 of file mesh\&.h\&.
+.SS "u32 seqnum"
+
+.PP
+Definition at line 174 of file mesh\&.h\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for net_mac80211 from the source code\&.

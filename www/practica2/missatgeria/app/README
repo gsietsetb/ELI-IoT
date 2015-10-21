@@ -1,0 +1,26 @@
+
+Contenido
+=========
+
+    README         Este fichero.
+    src/           Fuentes del CGI.
+    www/           Pàginas estáticas de la aplicación.
+    Makefile       Makefile para la construcción de la aplicación.
+    example.text   'Script' de test de la aplicación.
+
+
+Construcción del ejemplo
+========================
+
+    1. Situarse en este directorio.
+
+    2. Ejecutar 'make all'.
+       Esto construirà un directorio 'build' con el CGI y todas las páginas
+       necesarias de la aplicación.
+
+    3. Copiar el directorio 'build' construido al lugar adecuado de su servidor WEB.
+
+IMPORTANTE: Es necesario construir préviamente la biblioteca de soporte '../lib/web-pract2.a'
+            (ver '../README').
+
+

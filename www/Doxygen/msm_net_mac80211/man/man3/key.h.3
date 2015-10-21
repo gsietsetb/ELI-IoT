@@ -1,0 +1,243 @@
+.TH "/home/guille/msm/net/mac80211/key.h" 3 "Sun Jun 1 2014" "Version 1.0" "net_mac80211" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+/home/guille/msm/net/mac80211/key.h \- 
+.SH SYNOPSIS
+.br
+.PP
+\fC#include <linux/types\&.h>\fP
+.br
+\fC#include <linux/list\&.h>\fP
+.br
+\fC#include <linux/crypto\&.h>\fP
+.br
+\fC#include <linux/rcupdate\&.h>\fP
+.br
+\fC#include <net/mac80211\&.h>\fP
+.br
+
+.SS "Data Structures"
+
+.in +1c
+.ti -1c
+.RI "struct \fBtkip_ctx\fP"
+.br
+.ti -1c
+.RI "struct \fBieee80211_key\fP"
+.br
+.in -1c
+.SS "Macros"
+
+.in +1c
+.ti -1c
+.RI "#define \fBNUM_DEFAULT_KEYS\fP   4"
+.br
+.ti -1c
+.RI "#define \fBNUM_DEFAULT_MGMT_KEYS\fP   2"
+.br
+.ti -1c
+.RI "#define \fBWEP_IV_LEN\fP   4"
+.br
+.ti -1c
+.RI "#define \fBWEP_ICV_LEN\fP   4"
+.br
+.ti -1c
+.RI "#define \fBALG_CCMP_KEY_LEN\fP   16"
+.br
+.ti -1c
+.RI "#define \fBCCMP_HDR_LEN\fP   8"
+.br
+.ti -1c
+.RI "#define \fBCCMP_MIC_LEN\fP   8"
+.br
+.ti -1c
+.RI "#define \fBCCMP_TK_LEN\fP   16"
+.br
+.ti -1c
+.RI "#define \fBCCMP_PN_LEN\fP   6"
+.br
+.ti -1c
+.RI "#define \fBTKIP_IV_LEN\fP   8"
+.br
+.ti -1c
+.RI "#define \fBTKIP_ICV_LEN\fP   4"
+.br
+.ti -1c
+.RI "#define \fBCMAC_PN_LEN\fP   6"
+.br
+.ti -1c
+.RI "#define \fBNUM_RX_DATA_QUEUES\fP   16"
+.br
+.ti -1c
+.RI "#define \fBkey_mtx_dereference\fP(local, ref)   rcu_dereference_protected(ref, lockdep_is_held(&((local)->key_mtx)))"
+.br
+.in -1c
+.SS "Enumerations"
+
+.in +1c
+.ti -1c
+.RI "enum \fBieee80211_internal_key_flags\fP { \fBKEY_FLAG_UPLOADED_TO_HARDWARE\fP = BIT(0), \fBKEY_FLAG_TAINTED\fP = BIT(1) }"
+.br
+.ti -1c
+.RI "enum \fBieee80211_internal_tkip_state\fP { \fBTKIP_STATE_NOT_INIT\fP, \fBTKIP_STATE_PHASE1_DONE\fP, \fBTKIP_STATE_PHASE1_HW_UPLOADED\fP }"
+.br
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "struct \fBieee80211_key\fP * \fBieee80211_key_alloc\fP (u32 cipher, int idx, size_t key_len, const u8 *key_data, size_t seq_len, const u8 *seq)"
+.br
+.ti -1c
+.RI "int __must_check \fBieee80211_key_link\fP (struct \fBieee80211_key\fP *key, struct \fBieee80211_sub_if_data\fP *sdata, struct \fBsta_info\fP *sta)"
+.br
+.ti -1c
+.RI "void \fB__ieee80211_key_free\fP (struct \fBieee80211_key\fP *key)"
+.br
+.ti -1c
+.RI "void \fBieee80211_key_free\fP (struct \fBieee80211_local\fP *local, struct \fBieee80211_key\fP *key)"
+.br
+.ti -1c
+.RI "void \fBieee80211_set_default_key\fP (struct \fBieee80211_sub_if_data\fP *sdata, int idx, bool uni, bool multi)"
+.br
+.ti -1c
+.RI "void \fBieee80211_set_default_mgmt_key\fP (struct \fBieee80211_sub_if_data\fP *sdata, int idx)"
+.br
+.ti -1c
+.RI "void \fBieee80211_free_keys\fP (struct \fBieee80211_sub_if_data\fP *sdata)"
+.br
+.ti -1c
+.RI "void \fBieee80211_enable_keys\fP (struct \fBieee80211_sub_if_data\fP *sdata)"
+.br
+.ti -1c
+.RI "void \fBieee80211_disable_keys\fP (struct \fBieee80211_sub_if_data\fP *sdata)"
+.br
+.in -1c
+.SH "Macro Definition Documentation"
+.PP 
+.SS "#define ALG_CCMP_KEY_LEN   16"
+
+.PP
+Definition at line 24 of file key\&.h\&.
+.SS "#define CCMP_HDR_LEN   8"
+
+.PP
+Definition at line 25 of file key\&.h\&.
+.SS "#define CCMP_MIC_LEN   8"
+
+.PP
+Definition at line 26 of file key\&.h\&.
+.SS "#define CCMP_PN_LEN   6"
+
+.PP
+Definition at line 28 of file key\&.h\&.
+.SS "#define CCMP_TK_LEN   16"
+
+.PP
+Definition at line 27 of file key\&.h\&.
+.SS "#define CMAC_PN_LEN   6"
+
+.PP
+Definition at line 31 of file key\&.h\&.
+.SS "#define key_mtx_dereference(local, ref)   rcu_dereference_protected(ref, lockdep_is_held(&((local)->key_mtx)))"
+
+.PP
+Definition at line 147 of file key\&.h\&.
+.SS "#define NUM_DEFAULT_KEYS   4"
+
+.PP
+Definition at line 19 of file key\&.h\&.
+.SS "#define NUM_DEFAULT_MGMT_KEYS   2"
+
+.PP
+Definition at line 20 of file key\&.h\&.
+.SS "#define NUM_RX_DATA_QUEUES   16"
+
+.PP
+Definition at line 33 of file key\&.h\&.
+.SS "#define TKIP_ICV_LEN   4"
+
+.PP
+Definition at line 30 of file key\&.h\&.
+.SS "#define TKIP_IV_LEN   8"
+
+.PP
+Definition at line 29 of file key\&.h\&.
+.SS "#define WEP_ICV_LEN   4"
+
+.PP
+Definition at line 23 of file key\&.h\&.
+.SS "#define WEP_IV_LEN   4"
+
+.PP
+Definition at line 22 of file key\&.h\&.
+.SH "Enumeration Type Documentation"
+.PP 
+.SS "enum \fBieee80211_internal_key_flags\fP"
+enum ieee80211_internal_key_flags - internal key flags
+.PP
+: Indicates that this key is present in the hardware for TX crypto hardware acceleration\&. : Key is tainted and packets should be dropped\&. 
+.PP
+\fBEnumerator\fP
+.in +1c
+.TP
+\fB\fIKEY_FLAG_UPLOADED_TO_HARDWARE \fP\fP
+.TP
+\fB\fIKEY_FLAG_TAINTED \fP\fP
+.PP
+Definition at line 46 of file key\&.h\&.
+.SS "enum \fBieee80211_internal_tkip_state\fP"
+
+.PP
+\fBEnumerator\fP
+.in +1c
+.TP
+\fB\fITKIP_STATE_NOT_INIT \fP\fP
+.TP
+\fB\fITKIP_STATE_PHASE1_DONE \fP\fP
+.TP
+\fB\fITKIP_STATE_PHASE1_HW_UPLOADED \fP\fP
+.PP
+Definition at line 51 of file key\&.h\&.
+.SH "Function Documentation"
+.PP 
+.SS "void __ieee80211_key_free (struct \fBieee80211_key\fP *key)"
+
+.PP
+Definition at line 508 of file key\&.c\&.
+.SS "void ieee80211_disable_keys (struct \fBieee80211_sub_if_data\fP *sdata)"
+
+.PP
+Definition at line 585 of file key\&.c\&.
+.SS "void ieee80211_enable_keys (struct \fBieee80211_sub_if_data\fP *sdata)"
+
+.PP
+Definition at line 531 of file key\&.c\&.
+.SS "void ieee80211_free_keys (struct \fBieee80211_sub_if_data\fP *sdata)"
+
+.PP
+Definition at line 599 of file key\&.c\&.
+.SS "struct \fBieee80211_key\fP* ieee80211_key_alloc (u32cipher, intidx, size_tkey_len, const u8 *key_data, size_tseq_len, const u8 *seq)"
+
+.PP
+Definition at line 329 of file key\&.c\&.
+.SS "void ieee80211_key_free (struct \fBieee80211_local\fP *local, struct \fBieee80211_key\fP *key)"
+
+.PP
+Definition at line 523 of file key\&.c\&.
+.SS "int __must_check ieee80211_key_link (struct \fBieee80211_key\fP *key, struct \fBieee80211_sub_if_data\fP *sdata, struct \fBsta_info\fP *sta)"
+
+.PP
+Definition at line 442 of file key\&.c\&.
+.SS "void ieee80211_set_default_key (struct \fBieee80211_sub_if_data\fP *sdata, intidx, booluni, boolmulti)"
+
+.PP
+Definition at line 235 of file key\&.c\&.
+.SS "void ieee80211_set_default_mgmt_key (struct \fBieee80211_sub_if_data\fP *sdata, intidx)"
+
+.PP
+Definition at line 259 of file key\&.c\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for net_mac80211 from the source code\&.

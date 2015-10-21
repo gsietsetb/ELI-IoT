@@ -1,0 +1,113 @@
+.TH "mesh_table" 3 "Sun Jun 1 2014" "Version 1.0" "net_mac80211" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+mesh_table \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <mesh\&.h>\fP
+.SS "Data Fields"
+
+.in +1c
+.ti -1c
+.RI "struct hlist_head * \fBhash_buckets\fP"
+.br
+.ti -1c
+.RI "spinlock_t * \fBhashwlock\fP"
+.br
+.ti -1c
+.RI "unsigned int \fBhash_mask\fP"
+.br
+.ti -1c
+.RI "__u32 \fBhash_rnd\fP"
+.br
+.ti -1c
+.RI "atomic_t \fBentries\fP"
+.br
+.ti -1c
+.RI "void(* \fBfree_node\fP )(struct hlist_node *p, bool free_leafs)"
+.br
+.ti -1c
+.RI "int(* \fBcopy_node\fP )(struct hlist_node *p, struct \fBmesh_table\fP *newtbl)"
+.br
+.ti -1c
+.RI "int \fBsize_order\fP"
+.br
+.ti -1c
+.RI "int \fBmean_chain_len\fP"
+.br
+.ti -1c
+.RI "struct hlist_head * \fBknown_gates\fP"
+.br
+.ti -1c
+.RI "spinlock_t \fBgates_lock\fP"
+.br
+.ti -1c
+.RI "struct rcu_head \fBrcu_head\fP"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+struct \fBmesh_table\fP
+.PP
+: array of hash buckets of the table : array of locks to protect write operations, one per bucket : 2^size_order - 1, used to compute hash idx : random value used for hash computations : number of entries in the table : function to free nodes of the table : function to copy nodes of the table : determines size of the table, there will be 2^size_order hash buckets : maximum average length for the hash buckets' list, if it is reached, the table will grow : list of known mesh gates and their mpaths by the station\&. The gate's mpath may or may not be resolved and active\&.
+.PP
+rcu_head: RCU head to free the table 
+.PP
+Definition at line 138 of file mesh\&.h\&.
+.SH "Field Documentation"
+.PP 
+.SS "int(* copy_node)(struct hlist_node *p, struct \fBmesh_table\fP *newtbl)"
+
+.PP
+Definition at line 146 of file mesh\&.h\&.
+.SS "atomic_t entries"
+
+.PP
+Definition at line 144 of file mesh\&.h\&.
+.SS "void(* free_node)(struct hlist_node *p, bool free_leafs)"
+
+.PP
+Definition at line 145 of file mesh\&.h\&.
+.SS "spinlock_t gates_lock"
+
+.PP
+Definition at line 150 of file mesh\&.h\&.
+.SS "struct hlist_head* hash_buckets"
+
+.PP
+Definition at line 140 of file mesh\&.h\&.
+.SS "unsigned int hash_mask"
+
+.PP
+Definition at line 142 of file mesh\&.h\&.
+.SS "__u32 hash_rnd"
+
+.PP
+Definition at line 143 of file mesh\&.h\&.
+.SS "spinlock_t* hashwlock"
+
+.PP
+Definition at line 141 of file mesh\&.h\&.
+.SS "struct hlist_head* known_gates"
+
+.PP
+Definition at line 149 of file mesh\&.h\&.
+.SS "int mean_chain_len"
+
+.PP
+Definition at line 148 of file mesh\&.h\&.
+.SS "struct rcu_head rcu_head"
+
+.PP
+Definition at line 152 of file mesh\&.h\&.
+.SS "int size_order"
+
+.PP
+Definition at line 147 of file mesh\&.h\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for net_mac80211 from the source code\&.

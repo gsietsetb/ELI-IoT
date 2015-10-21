@@ -1,0 +1,232 @@
+\hypertarget{ibss_8c}{\section{/home/guille/msm/net/mac80211/ibss.c File Reference}
+\label{ibss_8c}\index{/home/guille/msm/net/mac80211/ibss.\-c@{/home/guille/msm/net/mac80211/ibss.\-c}}
+}
+{\ttfamily \#include $<$linux/delay.\-h$>$}\\*
+{\ttfamily \#include $<$linux/slab.\-h$>$}\\*
+{\ttfamily \#include $<$linux/if\-\_\-ether.\-h$>$}\\*
+{\ttfamily \#include $<$linux/skbuff.\-h$>$}\\*
+{\ttfamily \#include $<$linux/if\-\_\-arp.\-h$>$}\\*
+{\ttfamily \#include $<$linux/etherdevice.\-h$>$}\\*
+{\ttfamily \#include $<$linux/rtnetlink.\-h$>$}\\*
+{\ttfamily \#include $<$net/mac80211.\-h$>$}\\*
+{\ttfamily \#include \char`\"{}ieee80211\-\_\-i.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}driver-\/ops.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}rate.\-h\char`\"{}}\\*
+Include dependency graph for ibss.\-c\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ibss_8c__incl}
+\end{center}
+\end{figure}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{ibss_8c_a8fa863b74357820ad5b0ad8a82a2c034}{I\-E\-E\-E80211\-\_\-\-S\-C\-A\-N\-\_\-\-I\-N\-T\-E\-R\-V\-A\-L}~(2 $\ast$ H\-Z)
+\item 
+\#define \hyperlink{ibss_8c_a33530275e3940417b060d04169a1ada6}{I\-E\-E\-E80211\-\_\-\-S\-C\-A\-N\-\_\-\-I\-N\-T\-E\-R\-V\-A\-L\-\_\-\-S\-L\-O\-W}~(15 $\ast$ H\-Z)
+\item 
+\#define \hyperlink{ibss_8c_ac0b6193c825045edae743e06d0ecd5de}{I\-E\-E\-E80211\-\_\-\-I\-B\-S\-S\-\_\-\-J\-O\-I\-N\-\_\-\-T\-I\-M\-E\-O\-U\-T}~(7 $\ast$ H\-Z)
+\item 
+\#define \hyperlink{ibss_8c_afabd66c9d009cc3e10fa6aa5d865c765}{I\-E\-E\-E80211\-\_\-\-I\-B\-S\-S\-\_\-\-M\-E\-R\-G\-E\-\_\-\-I\-N\-T\-E\-R\-V\-A\-L}~(30 $\ast$ H\-Z)
+\item 
+\#define \hyperlink{ibss_8c_a9b5f65b3a0d3637c597926781d25579f}{I\-E\-E\-E80211\-\_\-\-I\-B\-S\-S\-\_\-\-I\-N\-A\-C\-T\-I\-V\-I\-T\-Y\-\_\-\-L\-I\-M\-I\-T}~(60 $\ast$ H\-Z)
+\item 
+\#define \hyperlink{ibss_8c_aae7245616b6b3659fe9147f072e1de75}{I\-E\-E\-E80211\-\_\-\-I\-B\-S\-S\-\_\-\-M\-A\-X\-\_\-\-S\-T\-A\-\_\-\-E\-N\-T\-R\-I\-E\-S}~128
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{ibss_8c_a174401b5fb0620ac96f2fa218955ab78}{ieee80211\-\_\-ibss\-\_\-rx\-\_\-no\-\_\-sta} (struct \hyperlink{structieee80211__sub__if__data}{ieee80211\-\_\-sub\-\_\-if\-\_\-data} $\ast$sdata, const u8 $\ast$bssid, const u8 $\ast$addr, u32 supp\-\_\-rates)
+\item 
+void \hyperlink{ibss_8c_af1c01d38d8caf01ca746a3de9203be7a}{ieee80211\-\_\-ibss\-\_\-rx\-\_\-queued\-\_\-mgmt} (struct \hyperlink{structieee80211__sub__if__data}{ieee80211\-\_\-sub\-\_\-if\-\_\-data} $\ast$sdata, struct sk\-\_\-buff $\ast$skb)
+\item 
+void \hyperlink{ibss_8c_aa0442a16f159e69eebd748755d662f36}{ieee80211\-\_\-ibss\-\_\-work} (struct \hyperlink{structieee80211__sub__if__data}{ieee80211\-\_\-sub\-\_\-if\-\_\-data} $\ast$sdata)
+\item 
+void \hyperlink{ibss_8c_a9d06bc7525279931704b618dc6462cf7}{ieee80211\-\_\-ibss\-\_\-setup\-\_\-sdata} (struct \hyperlink{structieee80211__sub__if__data}{ieee80211\-\_\-sub\-\_\-if\-\_\-data} $\ast$sdata)
+\item 
+void \hyperlink{ibss_8c_a60f0f2b5c809e90656ad8de6608d7430}{ieee80211\-\_\-ibss\-\_\-notify\-\_\-scan\-\_\-completed} (struct \hyperlink{structieee80211__local}{ieee80211\-\_\-local} $\ast$local)
+\item 
+int \hyperlink{ibss_8c_a2bee7850722df9caee17a2050250723e}{ieee80211\-\_\-ibss\-\_\-join} (struct \hyperlink{structieee80211__sub__if__data}{ieee80211\-\_\-sub\-\_\-if\-\_\-data} $\ast$sdata, struct cfg80211\-\_\-ibss\-\_\-params $\ast$params)
+\item 
+int \hyperlink{ibss_8c_a17bf894f772ab6dbbc7d2e3e4a264197}{ieee80211\-\_\-ibss\-\_\-leave} (struct \hyperlink{structieee80211__sub__if__data}{ieee80211\-\_\-sub\-\_\-if\-\_\-data} $\ast$sdata)
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{ibss_8c_a9b5f65b3a0d3637c597926781d25579f}{\index{ibss.\-c@{ibss.\-c}!I\-E\-E\-E80211\-\_\-\-I\-B\-S\-S\-\_\-\-I\-N\-A\-C\-T\-I\-V\-I\-T\-Y\-\_\-\-L\-I\-M\-I\-T@{I\-E\-E\-E80211\-\_\-\-I\-B\-S\-S\-\_\-\-I\-N\-A\-C\-T\-I\-V\-I\-T\-Y\-\_\-\-L\-I\-M\-I\-T}}
+\index{I\-E\-E\-E80211\-\_\-\-I\-B\-S\-S\-\_\-\-I\-N\-A\-C\-T\-I\-V\-I\-T\-Y\-\_\-\-L\-I\-M\-I\-T@{I\-E\-E\-E80211\-\_\-\-I\-B\-S\-S\-\_\-\-I\-N\-A\-C\-T\-I\-V\-I\-T\-Y\-\_\-\-L\-I\-M\-I\-T}!ibss.c@{ibss.\-c}}
+\subsubsection[{I\-E\-E\-E80211\-\_\-\-I\-B\-S\-S\-\_\-\-I\-N\-A\-C\-T\-I\-V\-I\-T\-Y\-\_\-\-L\-I\-M\-I\-T}]{\setlength{\rightskip}{0pt plus 5cm}\#define I\-E\-E\-E80211\-\_\-\-I\-B\-S\-S\-\_\-\-I\-N\-A\-C\-T\-I\-V\-I\-T\-Y\-\_\-\-L\-I\-M\-I\-T~(60 $\ast$ H\-Z)}}\label{ibss_8c_a9b5f65b3a0d3637c597926781d25579f}
+
+
+Definition at line 33 of file ibss.\-c.
+
+\hypertarget{ibss_8c_ac0b6193c825045edae743e06d0ecd5de}{\index{ibss.\-c@{ibss.\-c}!I\-E\-E\-E80211\-\_\-\-I\-B\-S\-S\-\_\-\-J\-O\-I\-N\-\_\-\-T\-I\-M\-E\-O\-U\-T@{I\-E\-E\-E80211\-\_\-\-I\-B\-S\-S\-\_\-\-J\-O\-I\-N\-\_\-\-T\-I\-M\-E\-O\-U\-T}}
+\index{I\-E\-E\-E80211\-\_\-\-I\-B\-S\-S\-\_\-\-J\-O\-I\-N\-\_\-\-T\-I\-M\-E\-O\-U\-T@{I\-E\-E\-E80211\-\_\-\-I\-B\-S\-S\-\_\-\-J\-O\-I\-N\-\_\-\-T\-I\-M\-E\-O\-U\-T}!ibss.c@{ibss.\-c}}
+\subsubsection[{I\-E\-E\-E80211\-\_\-\-I\-B\-S\-S\-\_\-\-J\-O\-I\-N\-\_\-\-T\-I\-M\-E\-O\-U\-T}]{\setlength{\rightskip}{0pt plus 5cm}\#define I\-E\-E\-E80211\-\_\-\-I\-B\-S\-S\-\_\-\-J\-O\-I\-N\-\_\-\-T\-I\-M\-E\-O\-U\-T~(7 $\ast$ H\-Z)}}\label{ibss_8c_ac0b6193c825045edae743e06d0ecd5de}
+
+
+Definition at line 30 of file ibss.\-c.
+
+\hypertarget{ibss_8c_aae7245616b6b3659fe9147f072e1de75}{\index{ibss.\-c@{ibss.\-c}!I\-E\-E\-E80211\-\_\-\-I\-B\-S\-S\-\_\-\-M\-A\-X\-\_\-\-S\-T\-A\-\_\-\-E\-N\-T\-R\-I\-E\-S@{I\-E\-E\-E80211\-\_\-\-I\-B\-S\-S\-\_\-\-M\-A\-X\-\_\-\-S\-T\-A\-\_\-\-E\-N\-T\-R\-I\-E\-S}}
+\index{I\-E\-E\-E80211\-\_\-\-I\-B\-S\-S\-\_\-\-M\-A\-X\-\_\-\-S\-T\-A\-\_\-\-E\-N\-T\-R\-I\-E\-S@{I\-E\-E\-E80211\-\_\-\-I\-B\-S\-S\-\_\-\-M\-A\-X\-\_\-\-S\-T\-A\-\_\-\-E\-N\-T\-R\-I\-E\-S}!ibss.c@{ibss.\-c}}
+\subsubsection[{I\-E\-E\-E80211\-\_\-\-I\-B\-S\-S\-\_\-\-M\-A\-X\-\_\-\-S\-T\-A\-\_\-\-E\-N\-T\-R\-I\-E\-S}]{\setlength{\rightskip}{0pt plus 5cm}\#define I\-E\-E\-E80211\-\_\-\-I\-B\-S\-S\-\_\-\-M\-A\-X\-\_\-\-S\-T\-A\-\_\-\-E\-N\-T\-R\-I\-E\-S~128}}\label{ibss_8c_aae7245616b6b3659fe9147f072e1de75}
+
+
+Definition at line 35 of file ibss.\-c.
+
+\hypertarget{ibss_8c_afabd66c9d009cc3e10fa6aa5d865c765}{\index{ibss.\-c@{ibss.\-c}!I\-E\-E\-E80211\-\_\-\-I\-B\-S\-S\-\_\-\-M\-E\-R\-G\-E\-\_\-\-I\-N\-T\-E\-R\-V\-A\-L@{I\-E\-E\-E80211\-\_\-\-I\-B\-S\-S\-\_\-\-M\-E\-R\-G\-E\-\_\-\-I\-N\-T\-E\-R\-V\-A\-L}}
+\index{I\-E\-E\-E80211\-\_\-\-I\-B\-S\-S\-\_\-\-M\-E\-R\-G\-E\-\_\-\-I\-N\-T\-E\-R\-V\-A\-L@{I\-E\-E\-E80211\-\_\-\-I\-B\-S\-S\-\_\-\-M\-E\-R\-G\-E\-\_\-\-I\-N\-T\-E\-R\-V\-A\-L}!ibss.c@{ibss.\-c}}
+\subsubsection[{I\-E\-E\-E80211\-\_\-\-I\-B\-S\-S\-\_\-\-M\-E\-R\-G\-E\-\_\-\-I\-N\-T\-E\-R\-V\-A\-L}]{\setlength{\rightskip}{0pt plus 5cm}\#define I\-E\-E\-E80211\-\_\-\-I\-B\-S\-S\-\_\-\-M\-E\-R\-G\-E\-\_\-\-I\-N\-T\-E\-R\-V\-A\-L~(30 $\ast$ H\-Z)}}\label{ibss_8c_afabd66c9d009cc3e10fa6aa5d865c765}
+
+
+Definition at line 32 of file ibss.\-c.
+
+\hypertarget{ibss_8c_a8fa863b74357820ad5b0ad8a82a2c034}{\index{ibss.\-c@{ibss.\-c}!I\-E\-E\-E80211\-\_\-\-S\-C\-A\-N\-\_\-\-I\-N\-T\-E\-R\-V\-A\-L@{I\-E\-E\-E80211\-\_\-\-S\-C\-A\-N\-\_\-\-I\-N\-T\-E\-R\-V\-A\-L}}
+\index{I\-E\-E\-E80211\-\_\-\-S\-C\-A\-N\-\_\-\-I\-N\-T\-E\-R\-V\-A\-L@{I\-E\-E\-E80211\-\_\-\-S\-C\-A\-N\-\_\-\-I\-N\-T\-E\-R\-V\-A\-L}!ibss.c@{ibss.\-c}}
+\subsubsection[{I\-E\-E\-E80211\-\_\-\-S\-C\-A\-N\-\_\-\-I\-N\-T\-E\-R\-V\-A\-L}]{\setlength{\rightskip}{0pt plus 5cm}\#define I\-E\-E\-E80211\-\_\-\-S\-C\-A\-N\-\_\-\-I\-N\-T\-E\-R\-V\-A\-L~(2 $\ast$ H\-Z)}}\label{ibss_8c_a8fa863b74357820ad5b0ad8a82a2c034}
+
+
+Definition at line 28 of file ibss.\-c.
+
+\hypertarget{ibss_8c_a33530275e3940417b060d04169a1ada6}{\index{ibss.\-c@{ibss.\-c}!I\-E\-E\-E80211\-\_\-\-S\-C\-A\-N\-\_\-\-I\-N\-T\-E\-R\-V\-A\-L\-\_\-\-S\-L\-O\-W@{I\-E\-E\-E80211\-\_\-\-S\-C\-A\-N\-\_\-\-I\-N\-T\-E\-R\-V\-A\-L\-\_\-\-S\-L\-O\-W}}
+\index{I\-E\-E\-E80211\-\_\-\-S\-C\-A\-N\-\_\-\-I\-N\-T\-E\-R\-V\-A\-L\-\_\-\-S\-L\-O\-W@{I\-E\-E\-E80211\-\_\-\-S\-C\-A\-N\-\_\-\-I\-N\-T\-E\-R\-V\-A\-L\-\_\-\-S\-L\-O\-W}!ibss.c@{ibss.\-c}}
+\subsubsection[{I\-E\-E\-E80211\-\_\-\-S\-C\-A\-N\-\_\-\-I\-N\-T\-E\-R\-V\-A\-L\-\_\-\-S\-L\-O\-W}]{\setlength{\rightskip}{0pt plus 5cm}\#define I\-E\-E\-E80211\-\_\-\-S\-C\-A\-N\-\_\-\-I\-N\-T\-E\-R\-V\-A\-L\-\_\-\-S\-L\-O\-W~(15 $\ast$ H\-Z)}}\label{ibss_8c_a33530275e3940417b060d04169a1ada6}
+
+
+Definition at line 29 of file ibss.\-c.
+
+
+
+\subsection{Function Documentation}
+\hypertarget{ibss_8c_a2bee7850722df9caee17a2050250723e}{\index{ibss.\-c@{ibss.\-c}!ieee80211\-\_\-ibss\-\_\-join@{ieee80211\-\_\-ibss\-\_\-join}}
+\index{ieee80211\-\_\-ibss\-\_\-join@{ieee80211\-\_\-ibss\-\_\-join}!ibss.c@{ibss.\-c}}
+\subsubsection[{ieee80211\-\_\-ibss\-\_\-join}]{\setlength{\rightskip}{0pt plus 5cm}int ieee80211\-\_\-ibss\-\_\-join (
+\begin{DoxyParamCaption}
+\item[{struct {\bf ieee80211\-\_\-sub\-\_\-if\-\_\-data} $\ast$}]{sdata, }
+\item[{struct cfg80211\-\_\-ibss\-\_\-params $\ast$}]{params}
+\end{DoxyParamCaption}
+)}}\label{ibss_8c_a2bee7850722df9caee17a2050250723e}
+
+
+Definition at line 1051 of file ibss.\-c.
+
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ibss_8c_a2bee7850722df9caee17a2050250723e_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{ibss_8c_a17bf894f772ab6dbbc7d2e3e4a264197}{\index{ibss.\-c@{ibss.\-c}!ieee80211\-\_\-ibss\-\_\-leave@{ieee80211\-\_\-ibss\-\_\-leave}}
+\index{ieee80211\-\_\-ibss\-\_\-leave@{ieee80211\-\_\-ibss\-\_\-leave}!ibss.c@{ibss.\-c}}
+\subsubsection[{ieee80211\-\_\-ibss\-\_\-leave}]{\setlength{\rightskip}{0pt plus 5cm}int ieee80211\-\_\-ibss\-\_\-leave (
+\begin{DoxyParamCaption}
+\item[{struct {\bf ieee80211\-\_\-sub\-\_\-if\-\_\-data} $\ast$}]{sdata}
+\end{DoxyParamCaption}
+)}}\label{ibss_8c_a17bf894f772ab6dbbc7d2e3e4a264197}
+
+
+Definition at line 1144 of file ibss.\-c.
+
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ibss_8c_a17bf894f772ab6dbbc7d2e3e4a264197_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{ibss_8c_a60f0f2b5c809e90656ad8de6608d7430}{\index{ibss.\-c@{ibss.\-c}!ieee80211\-\_\-ibss\-\_\-notify\-\_\-scan\-\_\-completed@{ieee80211\-\_\-ibss\-\_\-notify\-\_\-scan\-\_\-completed}}
+\index{ieee80211\-\_\-ibss\-\_\-notify\-\_\-scan\-\_\-completed@{ieee80211\-\_\-ibss\-\_\-notify\-\_\-scan\-\_\-completed}!ibss.c@{ibss.\-c}}
+\subsubsection[{ieee80211\-\_\-ibss\-\_\-notify\-\_\-scan\-\_\-completed}]{\setlength{\rightskip}{0pt plus 5cm}void ieee80211\-\_\-ibss\-\_\-notify\-\_\-scan\-\_\-completed (
+\begin{DoxyParamCaption}
+\item[{struct {\bf ieee80211\-\_\-local} $\ast$}]{local}
+\end{DoxyParamCaption}
+)}}\label{ibss_8c_a60f0f2b5c809e90656ad8de6608d7430}
+
+
+Definition at line 1035 of file ibss.\-c.
+
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ibss_8c_a60f0f2b5c809e90656ad8de6608d7430_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{ibss_8c_a174401b5fb0620ac96f2fa218955ab78}{\index{ibss.\-c@{ibss.\-c}!ieee80211\-\_\-ibss\-\_\-rx\-\_\-no\-\_\-sta@{ieee80211\-\_\-ibss\-\_\-rx\-\_\-no\-\_\-sta}}
+\index{ieee80211\-\_\-ibss\-\_\-rx\-\_\-no\-\_\-sta@{ieee80211\-\_\-ibss\-\_\-rx\-\_\-no\-\_\-sta}!ibss.c@{ibss.\-c}}
+\subsubsection[{ieee80211\-\_\-ibss\-\_\-rx\-\_\-no\-\_\-sta}]{\setlength{\rightskip}{0pt plus 5cm}void ieee80211\-\_\-ibss\-\_\-rx\-\_\-no\-\_\-sta (
+\begin{DoxyParamCaption}
+\item[{struct {\bf ieee80211\-\_\-sub\-\_\-if\-\_\-data} $\ast$}]{sdata, }
+\item[{const u8 $\ast$}]{bssid, }
+\item[{const u8 $\ast$}]{addr, }
+\item[{u32}]{supp\-\_\-rates}
+\end{DoxyParamCaption}
+)}}\label{ibss_8c_a174401b5fb0620ac96f2fa218955ab78}
+
+
+Definition at line 573 of file ibss.\-c.
+
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ibss_8c_a174401b5fb0620ac96f2fa218955ab78_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{ibss_8c_af1c01d38d8caf01ca746a3de9203be7a}{\index{ibss.\-c@{ibss.\-c}!ieee80211\-\_\-ibss\-\_\-rx\-\_\-queued\-\_\-mgmt@{ieee80211\-\_\-ibss\-\_\-rx\-\_\-queued\-\_\-mgmt}}
+\index{ieee80211\-\_\-ibss\-\_\-rx\-\_\-queued\-\_\-mgmt@{ieee80211\-\_\-ibss\-\_\-rx\-\_\-queued\-\_\-mgmt}!ibss.c@{ibss.\-c}}
+\subsubsection[{ieee80211\-\_\-ibss\-\_\-rx\-\_\-queued\-\_\-mgmt}]{\setlength{\rightskip}{0pt plus 5cm}void ieee80211\-\_\-ibss\-\_\-rx\-\_\-queued\-\_\-mgmt (
+\begin{DoxyParamCaption}
+\item[{struct {\bf ieee80211\-\_\-sub\-\_\-if\-\_\-data} $\ast$}]{sdata, }
+\item[{struct sk\-\_\-buff $\ast$}]{skb}
+\end{DoxyParamCaption}
+)}}\label{ibss_8c_af1c01d38d8caf01ca746a3de9203be7a}
+
+
+Definition at line 907 of file ibss.\-c.
+
+\hypertarget{ibss_8c_a9d06bc7525279931704b618dc6462cf7}{\index{ibss.\-c@{ibss.\-c}!ieee80211\-\_\-ibss\-\_\-setup\-\_\-sdata@{ieee80211\-\_\-ibss\-\_\-setup\-\_\-sdata}}
+\index{ieee80211\-\_\-ibss\-\_\-setup\-\_\-sdata@{ieee80211\-\_\-ibss\-\_\-setup\-\_\-sdata}!ibss.c@{ibss.\-c}}
+\subsubsection[{ieee80211\-\_\-ibss\-\_\-setup\-\_\-sdata}]{\setlength{\rightskip}{0pt plus 5cm}void ieee80211\-\_\-ibss\-\_\-setup\-\_\-sdata (
+\begin{DoxyParamCaption}
+\item[{struct {\bf ieee80211\-\_\-sub\-\_\-if\-\_\-data} $\ast$}]{sdata}
+\end{DoxyParamCaption}
+)}}\label{ibss_8c_a9d06bc7525279931704b618dc6462cf7}
+
+
+Definition at line 1023 of file ibss.\-c.
+
+\hypertarget{ibss_8c_aa0442a16f159e69eebd748755d662f36}{\index{ibss.\-c@{ibss.\-c}!ieee80211\-\_\-ibss\-\_\-work@{ieee80211\-\_\-ibss\-\_\-work}}
+\index{ieee80211\-\_\-ibss\-\_\-work@{ieee80211\-\_\-ibss\-\_\-work}!ibss.c@{ibss.\-c}}
+\subsubsection[{ieee80211\-\_\-ibss\-\_\-work}]{\setlength{\rightskip}{0pt plus 5cm}void ieee80211\-\_\-ibss\-\_\-work (
+\begin{DoxyParamCaption}
+\item[{struct {\bf ieee80211\-\_\-sub\-\_\-if\-\_\-data} $\ast$}]{sdata}
+\end{DoxyParamCaption}
+)}}\label{ibss_8c_aa0442a16f159e69eebd748755d662f36}
+
+
+Definition at line 944 of file ibss.\-c.
+

@@ -1,0 +1,71 @@
+.TH "/home/guille/msm/net/mac80211/offchannel.c" 3 "Sun Jun 1 2014" "Version 1.0" "net_mac80211" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+/home/guille/msm/net/mac80211/offchannel.c \- 
+.SH SYNOPSIS
+.br
+.PP
+\fC#include <linux/export\&.h>\fP
+.br
+\fC#include <net/mac80211\&.h>\fP
+.br
+\fC#include 'ieee80211_i\&.h'\fP
+.br
+\fC#include 'driver-trace\&.h'\fP
+.br
+
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBieee80211_offchannel_stop_vifs\fP (struct \fBieee80211_local\fP *local, bool offchannel_ps_enable)"
+.br
+.ti -1c
+.RI "void \fBieee80211_offchannel_return\fP (struct \fBieee80211_local\fP *local, bool offchannel_ps_disable)"
+.br
+.ti -1c
+.RI "void \fBieee80211_ready_on_channel\fP (struct ieee80211_hw *hw)"
+.br
+.ti -1c
+.RI "\fBEXPORT_SYMBOL_GPL\fP (\fBieee80211_ready_on_channel\fP)"
+.br
+.ti -1c
+.RI "void \fBieee80211_remain_on_channel_expired\fP (struct ieee80211_hw *hw)"
+.br
+.ti -1c
+.RI "\fBEXPORT_SYMBOL_GPL\fP (\fBieee80211_remain_on_channel_expired\fP)"
+.br
+.ti -1c
+.RI "void \fBieee80211_hw_roc_setup\fP (struct \fBieee80211_local\fP *local)"
+.br
+.in -1c
+.SH "Function Documentation"
+.PP 
+.SS "EXPORT_SYMBOL_GPL (\fBieee80211_ready_on_channel\fP)"
+
+.SS "EXPORT_SYMBOL_GPL (\fBieee80211_remain_on_channel_expired\fP)"
+
+.SS "void ieee80211_hw_roc_setup (struct \fBieee80211_local\fP *local)"
+
+.PP
+Definition at line 262 of file offchannel\&.c\&.
+.SS "void ieee80211_offchannel_return (struct \fBieee80211_local\fP *local, booloffchannel_ps_disable)"
+
+.PP
+Definition at line 141 of file offchannel\&.c\&.
+.SS "void ieee80211_offchannel_stop_vifs (struct \fBieee80211_local\fP *local, booloffchannel_ps_enable)"
+
+.PP
+Definition at line 106 of file offchannel\&.c\&.
+.SS "void ieee80211_ready_on_channel (struct ieee80211_hw *hw)"
+
+.PP
+Definition at line 215 of file offchannel\&.c\&.
+.SS "void ieee80211_remain_on_channel_expired (struct ieee80211_hw *hw)"
+
+.PP
+Definition at line 252 of file offchannel\&.c\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for net_mac80211 from the source code\&.

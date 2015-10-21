@@ -1,0 +1,125 @@
+\hypertarget{structieee80211__rx__data}{\section{ieee80211\-\_\-rx\-\_\-data Struct Reference}
+\label{structieee80211__rx__data}\index{ieee80211\-\_\-rx\-\_\-data@{ieee80211\-\_\-rx\-\_\-data}}
+}
+
+
+{\ttfamily \#include $<$ieee80211\-\_\-i.\-h$>$}
+
+
+
+Collaboration diagram for ieee80211\-\_\-rx\-\_\-data\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{structieee80211__rx__data__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+struct sk\-\_\-buff $\ast$ \hyperlink{structieee80211__rx__data_aeba6836824708325a83121030f092c30}{skb}
+\item 
+struct \hyperlink{structieee80211__local}{ieee80211\-\_\-local} $\ast$ \hyperlink{structieee80211__rx__data_ad436a024f420f219c4fe2eebce7e4ab2}{local}
+\item 
+struct \hyperlink{structieee80211__sub__if__data}{ieee80211\-\_\-sub\-\_\-if\-\_\-data} $\ast$ \hyperlink{structieee80211__rx__data_ad829d8d33f06a7245cc303f924f259ac}{sdata}
+\item 
+struct \hyperlink{structsta__info}{sta\-\_\-info} $\ast$ \hyperlink{structieee80211__rx__data_aafa9dadbeccd54b4a6b9f77f2908a093}{sta}
+\item 
+struct \hyperlink{structieee80211__key}{ieee80211\-\_\-key} $\ast$ \hyperlink{structieee80211__rx__data_a6fb9dce4966e6727c301a63b8185c388}{key}
+\item 
+unsigned int \hyperlink{structieee80211__rx__data_ac92588540e8c1d014a08cd8a45462b19}{flags}
+\item 
+int \hyperlink{structieee80211__rx__data_a5e3319f7a0db16f766c18522826f155e}{seqno\-\_\-idx}
+\item 
+int \hyperlink{structieee80211__rx__data_ae61977ea897e469c291f27e7e5b09d19}{security\-\_\-idx}
+\item 
+u32 \hyperlink{structieee80211__rx__data_a0f259da682b3ab5890f6e19716221029}{tkip\-\_\-iv32}
+\item 
+u16 \hyperlink{structieee80211__rx__data_a1b0e9025f6b0dc8ceb064641a7909a26}{tkip\-\_\-iv16}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+
+
+Definition at line 238 of file ieee80211\-\_\-i.\-h.
+
+
+
+\subsection{Field Documentation}
+\hypertarget{structieee80211__rx__data_ac92588540e8c1d014a08cd8a45462b19}{\index{ieee80211\-\_\-rx\-\_\-data@{ieee80211\-\_\-rx\-\_\-data}!flags@{flags}}
+\index{flags@{flags}!ieee80211_rx_data@{ieee80211\-\_\-rx\-\_\-data}}
+\subsubsection[{flags}]{\setlength{\rightskip}{0pt plus 5cm}unsigned int flags}}\label{structieee80211__rx__data_ac92588540e8c1d014a08cd8a45462b19}
+
+
+Definition at line 245 of file ieee80211\-\_\-i.\-h.
+
+\hypertarget{structieee80211__rx__data_a6fb9dce4966e6727c301a63b8185c388}{\index{ieee80211\-\_\-rx\-\_\-data@{ieee80211\-\_\-rx\-\_\-data}!key@{key}}
+\index{key@{key}!ieee80211_rx_data@{ieee80211\-\_\-rx\-\_\-data}}
+\subsubsection[{key}]{\setlength{\rightskip}{0pt plus 5cm}struct {\bf ieee80211\-\_\-key}$\ast$ key}}\label{structieee80211__rx__data_a6fb9dce4966e6727c301a63b8185c388}
+
+
+Definition at line 243 of file ieee80211\-\_\-i.\-h.
+
+\hypertarget{structieee80211__rx__data_ad436a024f420f219c4fe2eebce7e4ab2}{\index{ieee80211\-\_\-rx\-\_\-data@{ieee80211\-\_\-rx\-\_\-data}!local@{local}}
+\index{local@{local}!ieee80211_rx_data@{ieee80211\-\_\-rx\-\_\-data}}
+\subsubsection[{local}]{\setlength{\rightskip}{0pt plus 5cm}struct {\bf ieee80211\-\_\-local}$\ast$ local}}\label{structieee80211__rx__data_ad436a024f420f219c4fe2eebce7e4ab2}
+
+
+Definition at line 240 of file ieee80211\-\_\-i.\-h.
+
+\hypertarget{structieee80211__rx__data_ad829d8d33f06a7245cc303f924f259ac}{\index{ieee80211\-\_\-rx\-\_\-data@{ieee80211\-\_\-rx\-\_\-data}!sdata@{sdata}}
+\index{sdata@{sdata}!ieee80211_rx_data@{ieee80211\-\_\-rx\-\_\-data}}
+\subsubsection[{sdata}]{\setlength{\rightskip}{0pt plus 5cm}struct {\bf ieee80211\-\_\-sub\-\_\-if\-\_\-data}$\ast$ sdata}}\label{structieee80211__rx__data_ad829d8d33f06a7245cc303f924f259ac}
+
+
+Definition at line 241 of file ieee80211\-\_\-i.\-h.
+
+\hypertarget{structieee80211__rx__data_ae61977ea897e469c291f27e7e5b09d19}{\index{ieee80211\-\_\-rx\-\_\-data@{ieee80211\-\_\-rx\-\_\-data}!security\-\_\-idx@{security\-\_\-idx}}
+\index{security\-\_\-idx@{security\-\_\-idx}!ieee80211_rx_data@{ieee80211\-\_\-rx\-\_\-data}}
+\subsubsection[{security\-\_\-idx}]{\setlength{\rightskip}{0pt plus 5cm}int security\-\_\-idx}}\label{structieee80211__rx__data_ae61977ea897e469c291f27e7e5b09d19}
+
+
+Definition at line 260 of file ieee80211\-\_\-i.\-h.
+
+\hypertarget{structieee80211__rx__data_a5e3319f7a0db16f766c18522826f155e}{\index{ieee80211\-\_\-rx\-\_\-data@{ieee80211\-\_\-rx\-\_\-data}!seqno\-\_\-idx@{seqno\-\_\-idx}}
+\index{seqno\-\_\-idx@{seqno\-\_\-idx}!ieee80211_rx_data@{ieee80211\-\_\-rx\-\_\-data}}
+\subsubsection[{seqno\-\_\-idx}]{\setlength{\rightskip}{0pt plus 5cm}int seqno\-\_\-idx}}\label{structieee80211__rx__data_a5e3319f7a0db16f766c18522826f155e}
+
+
+Definition at line 252 of file ieee80211\-\_\-i.\-h.
+
+\hypertarget{structieee80211__rx__data_aeba6836824708325a83121030f092c30}{\index{ieee80211\-\_\-rx\-\_\-data@{ieee80211\-\_\-rx\-\_\-data}!skb@{skb}}
+\index{skb@{skb}!ieee80211_rx_data@{ieee80211\-\_\-rx\-\_\-data}}
+\subsubsection[{skb}]{\setlength{\rightskip}{0pt plus 5cm}struct sk\-\_\-buff$\ast$ skb}}\label{structieee80211__rx__data_aeba6836824708325a83121030f092c30}
+
+
+Definition at line 239 of file ieee80211\-\_\-i.\-h.
+
+\hypertarget{structieee80211__rx__data_aafa9dadbeccd54b4a6b9f77f2908a093}{\index{ieee80211\-\_\-rx\-\_\-data@{ieee80211\-\_\-rx\-\_\-data}!sta@{sta}}
+\index{sta@{sta}!ieee80211_rx_data@{ieee80211\-\_\-rx\-\_\-data}}
+\subsubsection[{sta}]{\setlength{\rightskip}{0pt plus 5cm}struct {\bf sta\-\_\-info}$\ast$ sta}}\label{structieee80211__rx__data_aafa9dadbeccd54b4a6b9f77f2908a093}
+
+
+Definition at line 242 of file ieee80211\-\_\-i.\-h.
+
+\hypertarget{structieee80211__rx__data_a1b0e9025f6b0dc8ceb064641a7909a26}{\index{ieee80211\-\_\-rx\-\_\-data@{ieee80211\-\_\-rx\-\_\-data}!tkip\-\_\-iv16@{tkip\-\_\-iv16}}
+\index{tkip\-\_\-iv16@{tkip\-\_\-iv16}!ieee80211_rx_data@{ieee80211\-\_\-rx\-\_\-data}}
+\subsubsection[{tkip\-\_\-iv16}]{\setlength{\rightskip}{0pt plus 5cm}u16 tkip\-\_\-iv16}}\label{structieee80211__rx__data_a1b0e9025f6b0dc8ceb064641a7909a26}
+
+
+Definition at line 263 of file ieee80211\-\_\-i.\-h.
+
+\hypertarget{structieee80211__rx__data_a0f259da682b3ab5890f6e19716221029}{\index{ieee80211\-\_\-rx\-\_\-data@{ieee80211\-\_\-rx\-\_\-data}!tkip\-\_\-iv32@{tkip\-\_\-iv32}}
+\index{tkip\-\_\-iv32@{tkip\-\_\-iv32}!ieee80211_rx_data@{ieee80211\-\_\-rx\-\_\-data}}
+\subsubsection[{tkip\-\_\-iv32}]{\setlength{\rightskip}{0pt plus 5cm}u32 tkip\-\_\-iv32}}\label{structieee80211__rx__data_a0f259da682b3ab5890f6e19716221029}
+
+
+Definition at line 262 of file ieee80211\-\_\-i.\-h.
+
+
+
+The documentation for this struct was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+/home/guille/msm/net/mac80211/\hyperlink{ieee80211__i_8h}{ieee80211\-\_\-i.\-h}\end{DoxyCompactItemize}

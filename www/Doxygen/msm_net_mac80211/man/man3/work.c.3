@@ -1,0 +1,104 @@
+.TH "/home/guille/msm/net/mac80211/work.c" 3 "Sun Jun 1 2014" "Version 1.0" "net_mac80211" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+/home/guille/msm/net/mac80211/work.c \- 
+.SH SYNOPSIS
+.br
+.PP
+\fC#include <linux/delay\&.h>\fP
+.br
+\fC#include <linux/if_ether\&.h>\fP
+.br
+\fC#include <linux/skbuff\&.h>\fP
+.br
+\fC#include <linux/if_arp\&.h>\fP
+.br
+\fC#include <linux/etherdevice\&.h>\fP
+.br
+\fC#include <linux/crc32\&.h>\fP
+.br
+\fC#include <linux/slab\&.h>\fP
+.br
+\fC#include <net/mac80211\&.h>\fP
+.br
+\fC#include <asm/unaligned\&.h>\fP
+.br
+\fC#include 'ieee80211_i\&.h'\fP
+.br
+\fC#include 'rate\&.h'\fP
+.br
+\fC#include 'driver-ops\&.h'\fP
+.br
+
+.SS "Enumerations"
+
+.in +1c
+.ti -1c
+.RI "enum \fBwork_action\fP { \fBWORK_ACT_NONE\fP, \fBWORK_ACT_TIMEOUT\fP }"
+.br
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBfree_work\fP (struct \fBieee80211_work\fP *wk)"
+.br
+.ti -1c
+.RI "void \fBieee80211_add_work\fP (struct \fBieee80211_work\fP *wk)"
+.br
+.ti -1c
+.RI "void \fBieee80211_work_init\fP (struct \fBieee80211_local\fP *local)"
+.br
+.ti -1c
+.RI "void \fBieee80211_work_purge\fP (struct \fBieee80211_sub_if_data\fP *sdata)"
+.br
+.ti -1c
+.RI "int \fBieee80211_wk_remain_on_channel\fP (struct \fBieee80211_sub_if_data\fP *sdata, struct ieee80211_channel *chan, enum nl80211_channel_type channel_type, unsigned int duration, u64 *cookie)"
+.br
+.ti -1c
+.RI "int \fBieee80211_wk_cancel_remain_on_channel\fP (struct \fBieee80211_sub_if_data\fP *sdata, u64 cookie)"
+.br
+.in -1c
+.SH "Enumeration Type Documentation"
+.PP 
+.SS "enum \fBwork_action\fP"
+
+.PP
+\fBEnumerator\fP
+.in +1c
+.TP
+\fB\fIWORK_ACT_NONE \fP\fP
+.TP
+\fB\fIWORK_ACT_TIMEOUT \fP\fP
+.PP
+Definition at line 30 of file work\&.c\&.
+.SH "Function Documentation"
+.PP 
+.SS "void free_work (struct \fBieee80211_work\fP *wk)"
+
+.PP
+Definition at line 62 of file work\&.c\&.
+.SS "void ieee80211_add_work (struct \fBieee80211_work\fP *wk)"
+
+.PP
+Definition at line 246 of file work\&.c\&.
+.SS "int ieee80211_wk_cancel_remain_on_channel (struct \fBieee80211_sub_if_data\fP *sdata, u64cookie)"
+
+.PP
+Definition at line 350 of file work\&.c\&.
+.SS "int ieee80211_wk_remain_on_channel (struct \fBieee80211_sub_if_data\fP *sdata, struct ieee80211_channel *chan, enum nl80211_channel_typechannel_type, unsigned intduration, u64 *cookie)"
+
+.PP
+Definition at line 324 of file work\&.c\&.
+.SS "void ieee80211_work_init (struct \fBieee80211_local\fP *local)"
+
+.PP
+Definition at line 272 of file work\&.c\&.
+.SS "void ieee80211_work_purge (struct \fBieee80211_sub_if_data\fP *sdata)"
+
+.PP
+Definition at line 280 of file work\&.c\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for net_mac80211 from the source code\&.

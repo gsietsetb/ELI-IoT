@@ -1,0 +1,344 @@
+.TH "sta_info" 3 "Sun Jun 1 2014" "Version 1.0" "net_mac80211" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+sta_info \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <sta_info\&.h>\fP
+.SS "Data Fields"
+
+.in +1c
+.ti -1c
+.RI "struct list_head \fBlist\fP"
+.br
+.ti -1c
+.RI "struct \fBsta_info\fP __rcu * \fBhnext\fP"
+.br
+.ti -1c
+.RI "struct \fBieee80211_local\fP * \fBlocal\fP"
+.br
+.ti -1c
+.RI "struct \fBieee80211_sub_if_data\fP * \fBsdata\fP"
+.br
+.ti -1c
+.RI "struct \fBieee80211_key\fP __rcu * \fBgtk\fP [\fBNUM_DEFAULT_KEYS\fP+\fBNUM_DEFAULT_MGMT_KEYS\fP]"
+.br
+.ti -1c
+.RI "struct \fBieee80211_key\fP __rcu * \fBptk\fP"
+.br
+.ti -1c
+.RI "struct \fBrate_control_ref\fP * \fBrate_ctrl\fP"
+.br
+.ti -1c
+.RI "void * \fBrate_ctrl_priv\fP"
+.br
+.ti -1c
+.RI "spinlock_t \fBlock\fP"
+.br
+.ti -1c
+.RI "struct work_struct \fBdrv_unblock_wk\fP"
+.br
+.ti -1c
+.RI "u16 \fBlisten_interval\fP"
+.br
+.ti -1c
+.RI "bool \fBdead\fP"
+.br
+.ti -1c
+.RI "bool \fBuploaded\fP"
+.br
+.ti -1c
+.RI "enum ieee80211_sta_state \fBsta_state\fP"
+.br
+.ti -1c
+.RI "unsigned long \fB_flags\fP"
+.br
+.ti -1c
+.RI "struct sk_buff_head \fBps_tx_buf\fP [IEEE80211_NUM_ACS]"
+.br
+.ti -1c
+.RI "struct sk_buff_head \fBtx_filtered\fP [IEEE80211_NUM_ACS]"
+.br
+.ti -1c
+.RI "unsigned long \fBdriver_buffered_tids\fP"
+.br
+.ti -1c
+.RI "unsigned long \fBrx_packets\fP"
+.br
+.ti -1c
+.RI "unsigned long \fBrx_bytes\fP"
+.br
+.ti -1c
+.RI "unsigned long \fBwep_weak_iv_count\fP"
+.br
+.ti -1c
+.RI "unsigned long \fBlast_rx\fP"
+.br
+.ti -1c
+.RI "long \fBlast_connected\fP"
+.br
+.ti -1c
+.RI "unsigned long \fBnum_duplicates\fP"
+.br
+.ti -1c
+.RI "unsigned long \fBrx_fragments\fP"
+.br
+.ti -1c
+.RI "unsigned long \fBrx_dropped\fP"
+.br
+.ti -1c
+.RI "int \fBlast_signal\fP"
+.br
+.ti -1c
+.RI "struct ewma \fBavg_signal\fP"
+.br
+.ti -1c
+.RI "__le16 \fBlast_seq_ctrl\fP [\fBNUM_RX_DATA_QUEUES\fP+1]"
+.br
+.ti -1c
+.RI "unsigned long \fBtx_filtered_count\fP"
+.br
+.ti -1c
+.RI "unsigned long \fBtx_retry_failed\fP"
+.br
+.ti -1c
+.RI "unsigned long \fBtx_retry_count\fP"
+.br
+.ti -1c
+.RI "unsigned int \fBfail_avg\fP"
+.br
+.ti -1c
+.RI "unsigned long \fBtx_packets\fP"
+.br
+.ti -1c
+.RI "unsigned long \fBtx_bytes\fP"
+.br
+.ti -1c
+.RI "unsigned long \fBtx_fragments\fP"
+.br
+.ti -1c
+.RI "struct ieee80211_tx_rate \fBlast_tx_rate\fP"
+.br
+.ti -1c
+.RI "int \fBlast_rx_rate_idx\fP"
+.br
+.ti -1c
+.RI "int \fBlast_rx_rate_flag\fP"
+.br
+.ti -1c
+.RI "u16 \fBtid_seq\fP [IEEE80211_QOS_CTL_TID_MASK+1]"
+.br
+.ti -1c
+.RI "struct \fBsta_ampdu_mlme\fP \fBampdu_mlme\fP"
+.br
+.ti -1c
+.RI "u8 \fBtimer_to_tid\fP [\fBSTA_TID_NUM\fP]"
+.br
+.ti -1c
+.RI "unsigned int \fBlost_packets\fP"
+.br
+.ti -1c
+.RI "unsigned int \fBbeacon_loss_count\fP"
+.br
+.ti -1c
+.RI "struct ieee80211_sta \fBsta\fP"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+struct \fBsta_info\fP - STA information
+.PP
+This structure collects information about a station that mac80211 is communicating with\&.
+.PP
+: global linked list entry : hash table linked list pointer : pointer to the global information : virtual interface this station belongs to : peer key negotiated with this station, if any : group keys negotiated with this station, if any : rate control algorithm reference : rate control private per-STA pointer : rate used for last transmit, to report to userspace as 'the' transmit rate : rx status rate index of the last data packet : rx status flag of the last data packet : used for locking all fields that require locking, see comments in the header file\&. : used for driver PS unblocking : listen interval of this station, when we're acting as AP : STA flags, see &enum ieee80211_sta_info_flags, do not use directly : buffers (per AC) of frames to transmit to this station when it leaves power saving state or polls : buffers (per AC) of frames we already tried to transmit but were filtered by hardware due to STA having entered power saving state, these are also delivered to the station when it leaves powersave or polls for frames : bitmap of TIDs the driver has data buffered on : Number of MSDUs received from this STA : Number of bytes received from this STA : number of weak WEP IVs received from this station : time (in jiffies) when last frame was received from this STA : time (in seconds) when a station got connected : number of duplicate frames received from this STA : number of received MPDUs : number of dropped MPDUs from this STA : signal of last received frame from this STA : moving average of signal of received frames from this STA : last received seq/frag number from this STA (per RX queue) : number of frames the hardware filtered for this STA : number of frames that failed retry : total number of retries for frames to this STA : moving percentage of failed MSDUs : number of RX/TX MSDUs : number of bytes transmitted to this STA : number of transmitted MPDUs : per-TID sequence numbers for sending to this STA : A-MPDU state machine state : identity mapping to ID timers : Local link ID : Peer link ID : Cancel reason on PLINK_HOLDING state : Retries in establishment : ignore the peer-link timer (used internally) : peer link state : timeout of peer link : peer link watch timer : used by suspend/resume to restore timers : debug filesystem info : set to true when sta is unlinked : set to true when sta is uploaded to the driver : number of consecutive lost packets : station information we share with the driver : duplicates information about station state (for debug) : number of times beacon loss has triggered 
+.PP
+Definition at line 275 of file sta_info\&.h\&.
+.SH "Field Documentation"
+.PP 
+.SS "unsigned long _flags"
+
+.PP
+Definition at line 298 of file sta_info\&.h\&.
+.SS "struct \fBsta_ampdu_mlme\fP ampdu_mlme"
+
+.PP
+Definition at line 339 of file sta_info\&.h\&.
+.SS "struct ewma avg_signal"
+
+.PP
+Definition at line 317 of file sta_info\&.h\&.
+.SS "unsigned int beacon_loss_count"
+
+.PP
+Definition at line 366 of file sta_info\&.h\&.
+.SS "bool dead"
+
+.PP
+Definition at line 291 of file sta_info\&.h\&.
+.SS "unsigned long driver_buffered_tids"
+
+.PP
+Definition at line 306 of file sta_info\&.h\&.
+.SS "struct work_struct drv_unblock_wk"
+
+.PP
+Definition at line 287 of file sta_info\&.h\&.
+.SS "unsigned int fail_avg"
+
+.PP
+Definition at line 325 of file sta_info\&.h\&.
+.SS "struct \fBieee80211_key\fP __rcu* gtk[\fBNUM_DEFAULT_KEYS\fP+\fBNUM_DEFAULT_MGMT_KEYS\fP]"
+
+.PP
+Definition at line 281 of file sta_info\&.h\&.
+.SS "struct \fBsta_info\fP __rcu* hnext"
+
+.PP
+Definition at line 278 of file sta_info\&.h\&.
+.SS "long last_connected"
+
+.PP
+Definition at line 312 of file sta_info\&.h\&.
+.SS "unsigned long last_rx"
+
+.PP
+Definition at line 311 of file sta_info\&.h\&.
+.SS "int last_rx_rate_flag"
+
+.PP
+Definition at line 333 of file sta_info\&.h\&.
+.SS "int last_rx_rate_idx"
+
+.PP
+Definition at line 332 of file sta_info\&.h\&.
+.SS "__le16 last_seq_ctrl[\fBNUM_RX_DATA_QUEUES\fP+1]"
+
+.PP
+Definition at line 319 of file sta_info\&.h\&.
+.SS "int last_signal"
+
+.PP
+Definition at line 316 of file sta_info\&.h\&.
+.SS "struct ieee80211_tx_rate last_tx_rate"
+
+.PP
+Definition at line 331 of file sta_info\&.h\&.
+.SS "struct list_head list"
+
+.PP
+Definition at line 277 of file sta_info\&.h\&.
+.SS "u16 listen_interval"
+
+.PP
+Definition at line 289 of file sta_info\&.h\&.
+.SS "struct \fBieee80211_local\fP* local"
+
+.PP
+Definition at line 279 of file sta_info\&.h\&.
+.SS "spinlock_t lock"
+
+.PP
+Definition at line 285 of file sta_info\&.h\&.
+.SS "unsigned int lost_packets"
+
+.PP
+Definition at line 365 of file sta_info\&.h\&.
+.SS "unsigned long num_duplicates"
+
+.PP
+Definition at line 313 of file sta_info\&.h\&.
+.SS "struct sk_buff_head ps_tx_buf[IEEE80211_NUM_ACS]"
+
+.PP
+Definition at line 304 of file sta_info\&.h\&.
+.SS "struct \fBieee80211_key\fP __rcu* ptk"
+
+.PP
+Definition at line 282 of file sta_info\&.h\&.
+.SS "struct \fBrate_control_ref\fP* rate_ctrl"
+
+.PP
+Definition at line 283 of file sta_info\&.h\&.
+.SS "void* rate_ctrl_priv"
+
+.PP
+Definition at line 284 of file sta_info\&.h\&.
+.SS "unsigned long rx_bytes"
+
+.PP
+Definition at line 309 of file sta_info\&.h\&.
+.SS "unsigned long rx_dropped"
+
+.PP
+Definition at line 315 of file sta_info\&.h\&.
+.SS "unsigned long rx_fragments"
+
+.PP
+Definition at line 314 of file sta_info\&.h\&.
+.SS "unsigned long rx_packets"
+
+.PP
+Definition at line 309 of file sta_info\&.h\&.
+.SS "struct \fBieee80211_sub_if_data\fP* sdata"
+
+.PP
+Definition at line 280 of file sta_info\&.h\&.
+.SS "struct ieee80211_sta sta"
+
+.PP
+Definition at line 369 of file sta_info\&.h\&.
+.SS "enum ieee80211_sta_state sta_state"
+
+.PP
+Definition at line 295 of file sta_info\&.h\&.
+.SS "u16 tid_seq[IEEE80211_QOS_CTL_TID_MASK+1]"
+
+.PP
+Definition at line 334 of file sta_info\&.h\&.
+.SS "u8 timer_to_tid[\fBSTA_TID_NUM\fP]"
+
+.PP
+Definition at line 340 of file sta_info\&.h\&.
+.SS "unsigned long tx_bytes"
+
+.PP
+Definition at line 329 of file sta_info\&.h\&.
+.SS "struct sk_buff_head tx_filtered[IEEE80211_NUM_ACS]"
+
+.PP
+Definition at line 305 of file sta_info\&.h\&.
+.SS "unsigned long tx_filtered_count"
+
+.PP
+Definition at line 322 of file sta_info\&.h\&.
+.SS "unsigned long tx_fragments"
+
+.PP
+Definition at line 330 of file sta_info\&.h\&.
+.SS "unsigned long tx_packets"
+
+.PP
+Definition at line 328 of file sta_info\&.h\&.
+.SS "unsigned long tx_retry_count"
+
+.PP
+Definition at line 323 of file sta_info\&.h\&.
+.SS "unsigned long tx_retry_failed"
+
+.PP
+Definition at line 323 of file sta_info\&.h\&.
+.SS "bool uploaded"
+
+.PP
+Definition at line 293 of file sta_info\&.h\&.
+.SS "unsigned long wep_weak_iv_count"
+
+.PP
+Definition at line 310 of file sta_info\&.h\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for net_mac80211 from the source code\&.

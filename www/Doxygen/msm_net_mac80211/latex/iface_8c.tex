@@ -1,0 +1,286 @@
+\hypertarget{iface_8c}{\section{/home/guille/msm/net/mac80211/iface.c File Reference}
+\label{iface_8c}\index{/home/guille/msm/net/mac80211/iface.\-c@{/home/guille/msm/net/mac80211/iface.\-c}}
+}
+{\ttfamily \#include $<$linux/slab.\-h$>$}\\*
+{\ttfamily \#include $<$linux/kernel.\-h$>$}\\*
+{\ttfamily \#include $<$linux/if\-\_\-arp.\-h$>$}\\*
+{\ttfamily \#include $<$linux/netdevice.\-h$>$}\\*
+{\ttfamily \#include $<$linux/rtnetlink.\-h$>$}\\*
+{\ttfamily \#include $<$net/mac80211.\-h$>$}\\*
+{\ttfamily \#include $<$net/ieee80211\-\_\-radiotap.\-h$>$}\\*
+{\ttfamily \#include \char`\"{}ieee80211\-\_\-i.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}sta\-\_\-info.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}debugfs\-\_\-netdev.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}mesh.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}led.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}driver-\/ops.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}wme.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}rate.\-h\char`\"{}}\\*
+Include dependency graph for iface.\-c\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{iface_8c__incl}
+\end{center}
+\end{figure}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{iface_8c_a653f307f51024e922b5c5644664444d3}{A\-D\-J\-U\-S\-T}(\-\_\-f, \-\_\-s)
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{iface_8c_a843985c54b10e8c6beb7832c50cbd57b}{ieee80211\-\_\-adjust\-\_\-monitor\-\_\-flags} (struct \hyperlink{structieee80211__sub__if__data}{ieee80211\-\_\-sub\-\_\-if\-\_\-data} $\ast$sdata, const int offset)
+\item 
+int \hyperlink{iface_8c_ac5768c3c47e6c2ae3437a18a5df46e87}{ieee80211\-\_\-if\-\_\-change\-\_\-type} (struct \hyperlink{structieee80211__sub__if__data}{ieee80211\-\_\-sub\-\_\-if\-\_\-data} $\ast$sdata, enum nl80211\-\_\-iftype type)
+\item 
+int \hyperlink{iface_8c_a3ec36a747fba28522f6e01afd9ee1d27}{ieee80211\-\_\-if\-\_\-add} (struct \hyperlink{structieee80211__local}{ieee80211\-\_\-local} $\ast$local, const char $\ast$name, struct net\-\_\-device $\ast$$\ast$new\-\_\-dev, enum nl80211\-\_\-iftype type, struct vif\-\_\-params $\ast$params)
+\item 
+void \hyperlink{iface_8c_a237e194c746d28db64ccbcdd67aa42eb}{ieee80211\-\_\-if\-\_\-remove} (struct \hyperlink{structieee80211__sub__if__data}{ieee80211\-\_\-sub\-\_\-if\-\_\-data} $\ast$sdata)
+\item 
+void \hyperlink{iface_8c_a1b8161ca5ac856266d663cf6fc571594}{ieee80211\-\_\-remove\-\_\-interfaces} (struct \hyperlink{structieee80211__local}{ieee80211\-\_\-local} $\ast$local)
+\item 
+u32 \hyperlink{iface_8c_af79b5aaff627860408244f47fa6cf67d}{\-\_\-\-\_\-ieee80211\-\_\-recalc\-\_\-idle} (struct \hyperlink{structieee80211__local}{ieee80211\-\_\-local} $\ast$local)
+\item 
+void \hyperlink{iface_8c_a5ddd2beaf75c280b9215075c72a81e78}{ieee80211\-\_\-recalc\-\_\-idle} (struct \hyperlink{structieee80211__local}{ieee80211\-\_\-local} $\ast$local)
+\item 
+int \hyperlink{iface_8c_aae9fb3a1462485be74909bfe3af8d360}{ieee80211\-\_\-iface\-\_\-init} (void)
+\item 
+void \hyperlink{iface_8c_afc76113a7222cb3b27507a1de35c3d56}{ieee80211\-\_\-iface\-\_\-exit} (void)
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{iface_8c_a653f307f51024e922b5c5644664444d3}{\index{iface.\-c@{iface.\-c}!A\-D\-J\-U\-S\-T@{A\-D\-J\-U\-S\-T}}
+\index{A\-D\-J\-U\-S\-T@{A\-D\-J\-U\-S\-T}!iface.c@{iface.\-c}}
+\subsubsection[{A\-D\-J\-U\-S\-T}]{\setlength{\rightskip}{0pt plus 5cm}\#define A\-D\-J\-U\-S\-T(
+\begin{DoxyParamCaption}
+\item[{}]{\-\_\-f, }
+\item[{}]{\-\_\-s}
+\end{DoxyParamCaption}
+)}}\label{iface_8c_a653f307f51024e922b5c5644664444d3}
+{\bfseries Value\-:}
+\begin{DoxyCode}
+\textcolor{keywordflow}{do} \{                    \(\backslash\)
+    if (flags & MONITOR\_FLAG\_##\_f)              \(\backslash\)
+        local->fif\_##\_s += offset;          \(\backslash\)
+    \} \textcolor{keywordflow}{while} (0)
+\end{DoxyCode}
+
+
+\subsection{Function Documentation}
+\hypertarget{iface_8c_af79b5aaff627860408244f47fa6cf67d}{\index{iface.\-c@{iface.\-c}!\-\_\-\-\_\-ieee80211\-\_\-recalc\-\_\-idle@{\-\_\-\-\_\-ieee80211\-\_\-recalc\-\_\-idle}}
+\index{\-\_\-\-\_\-ieee80211\-\_\-recalc\-\_\-idle@{\-\_\-\-\_\-ieee80211\-\_\-recalc\-\_\-idle}!iface.c@{iface.\-c}}
+\subsubsection[{\-\_\-\-\_\-ieee80211\-\_\-recalc\-\_\-idle}]{\setlength{\rightskip}{0pt plus 5cm}u32 \-\_\-\-\_\-ieee80211\-\_\-recalc\-\_\-idle (
+\begin{DoxyParamCaption}
+\item[{struct {\bf ieee80211\-\_\-local} $\ast$}]{local}
+\end{DoxyParamCaption}
+)}}\label{iface_8c_af79b5aaff627860408244f47fa6cf67d}
+
+
+Definition at line 1291 of file iface.\-c.
+
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{iface_8c_af79b5aaff627860408244f47fa6cf67d_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{iface_8c_af79b5aaff627860408244f47fa6cf67d_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{iface_8c_a843985c54b10e8c6beb7832c50cbd57b}{\index{iface.\-c@{iface.\-c}!ieee80211\-\_\-adjust\-\_\-monitor\-\_\-flags@{ieee80211\-\_\-adjust\-\_\-monitor\-\_\-flags}}
+\index{ieee80211\-\_\-adjust\-\_\-monitor\-\_\-flags@{ieee80211\-\_\-adjust\-\_\-monitor\-\_\-flags}!iface.c@{iface.\-c}}
+\subsubsection[{ieee80211\-\_\-adjust\-\_\-monitor\-\_\-flags}]{\setlength{\rightskip}{0pt plus 5cm}void ieee80211\-\_\-adjust\-\_\-monitor\-\_\-flags (
+\begin{DoxyParamCaption}
+\item[{struct {\bf ieee80211\-\_\-sub\-\_\-if\-\_\-data} $\ast$}]{sdata, }
+\item[{const int}]{offset}
+\end{DoxyParamCaption}
+)}}\label{iface_8c_a843985c54b10e8c6beb7832c50cbd57b}
+
+
+Definition at line 152 of file iface.\-c.
+
+\hypertarget{iface_8c_a3ec36a747fba28522f6e01afd9ee1d27}{\index{iface.\-c@{iface.\-c}!ieee80211\-\_\-if\-\_\-add@{ieee80211\-\_\-if\-\_\-add}}
+\index{ieee80211\-\_\-if\-\_\-add@{ieee80211\-\_\-if\-\_\-add}!iface.c@{iface.\-c}}
+\subsubsection[{ieee80211\-\_\-if\-\_\-add}]{\setlength{\rightskip}{0pt plus 5cm}int ieee80211\-\_\-if\-\_\-add (
+\begin{DoxyParamCaption}
+\item[{struct {\bf ieee80211\-\_\-local} $\ast$}]{local, }
+\item[{const char $\ast$}]{name, }
+\item[{struct net\-\_\-device $\ast$$\ast$}]{new\-\_\-dev, }
+\item[{enum nl80211\-\_\-iftype}]{type, }
+\item[{struct vif\-\_\-params $\ast$}]{params}
+\end{DoxyParamCaption}
+)}}\label{iface_8c_a3ec36a747fba28522f6e01afd9ee1d27}
+
+
+Definition at line 1129 of file iface.\-c.
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=324pt]{iface_8c_a3ec36a747fba28522f6e01afd9ee1d27_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{iface_8c_ac5768c3c47e6c2ae3437a18a5df46e87}{\index{iface.\-c@{iface.\-c}!ieee80211\-\_\-if\-\_\-change\-\_\-type@{ieee80211\-\_\-if\-\_\-change\-\_\-type}}
+\index{ieee80211\-\_\-if\-\_\-change\-\_\-type@{ieee80211\-\_\-if\-\_\-change\-\_\-type}!iface.c@{iface.\-c}}
+\subsubsection[{ieee80211\-\_\-if\-\_\-change\-\_\-type}]{\setlength{\rightskip}{0pt plus 5cm}int ieee80211\-\_\-if\-\_\-change\-\_\-type (
+\begin{DoxyParamCaption}
+\item[{struct {\bf ieee80211\-\_\-sub\-\_\-if\-\_\-data} $\ast$}]{sdata, }
+\item[{enum nl80211\-\_\-iftype}]{type}
+\end{DoxyParamCaption}
+)}}\label{iface_8c_ac5768c3c47e6c2ae3437a18a5df46e87}
+
+
+Definition at line 981 of file iface.\-c.
+
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{iface_8c_ac5768c3c47e6c2ae3437a18a5df46e87_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{iface_8c_a237e194c746d28db64ccbcdd67aa42eb}{\index{iface.\-c@{iface.\-c}!ieee80211\-\_\-if\-\_\-remove@{ieee80211\-\_\-if\-\_\-remove}}
+\index{ieee80211\-\_\-if\-\_\-remove@{ieee80211\-\_\-if\-\_\-remove}!iface.c@{iface.\-c}}
+\subsubsection[{ieee80211\-\_\-if\-\_\-remove}]{\setlength{\rightskip}{0pt plus 5cm}void ieee80211\-\_\-if\-\_\-remove (
+\begin{DoxyParamCaption}
+\item[{struct {\bf ieee80211\-\_\-sub\-\_\-if\-\_\-data} $\ast$}]{sdata}
+\end{DoxyParamCaption}
+)}}\label{iface_8c_a237e194c746d28db64ccbcdd67aa42eb}
+
+
+Definition at line 1222 of file iface.\-c.
+
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=334pt]{iface_8c_a237e194c746d28db64ccbcdd67aa42eb_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{iface_8c_afc76113a7222cb3b27507a1de35c3d56}{\index{iface.\-c@{iface.\-c}!ieee80211\-\_\-iface\-\_\-exit@{ieee80211\-\_\-iface\-\_\-exit}}
+\index{ieee80211\-\_\-iface\-\_\-exit@{ieee80211\-\_\-iface\-\_\-exit}!iface.c@{iface.\-c}}
+\subsubsection[{ieee80211\-\_\-iface\-\_\-exit}]{\setlength{\rightskip}{0pt plus 5cm}void ieee80211\-\_\-iface\-\_\-exit (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{iface_8c_afc76113a7222cb3b27507a1de35c3d56}
+
+
+Definition at line 1427 of file iface.\-c.
+
+\hypertarget{iface_8c_aae9fb3a1462485be74909bfe3af8d360}{\index{iface.\-c@{iface.\-c}!ieee80211\-\_\-iface\-\_\-init@{ieee80211\-\_\-iface\-\_\-init}}
+\index{ieee80211\-\_\-iface\-\_\-init@{ieee80211\-\_\-iface\-\_\-init}!iface.c@{iface.\-c}}
+\subsubsection[{ieee80211\-\_\-iface\-\_\-init}]{\setlength{\rightskip}{0pt plus 5cm}int ieee80211\-\_\-iface\-\_\-init (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{iface_8c_aae9fb3a1462485be74909bfe3af8d360}
+
+
+Definition at line 1422 of file iface.\-c.
+
+\hypertarget{iface_8c_a5ddd2beaf75c280b9215075c72a81e78}{\index{iface.\-c@{iface.\-c}!ieee80211\-\_\-recalc\-\_\-idle@{ieee80211\-\_\-recalc\-\_\-idle}}
+\index{ieee80211\-\_\-recalc\-\_\-idle@{ieee80211\-\_\-recalc\-\_\-idle}!iface.c@{iface.\-c}}
+\subsubsection[{ieee80211\-\_\-recalc\-\_\-idle}]{\setlength{\rightskip}{0pt plus 5cm}void ieee80211\-\_\-recalc\-\_\-idle (
+\begin{DoxyParamCaption}
+\item[{struct {\bf ieee80211\-\_\-local} $\ast$}]{local}
+\end{DoxyParamCaption}
+)}}\label{iface_8c_a5ddd2beaf75c280b9215075c72a81e78}
+
+
+Definition at line 1383 of file iface.\-c.
+
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{iface_8c_a5ddd2beaf75c280b9215075c72a81e78_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{iface_8c_a5ddd2beaf75c280b9215075c72a81e78_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{iface_8c_a1b8161ca5ac856266d663cf6fc571594}{\index{iface.\-c@{iface.\-c}!ieee80211\-\_\-remove\-\_\-interfaces@{ieee80211\-\_\-remove\-\_\-interfaces}}
+\index{ieee80211\-\_\-remove\-\_\-interfaces@{ieee80211\-\_\-remove\-\_\-interfaces}!iface.c@{iface.\-c}}
+\subsubsection[{ieee80211\-\_\-remove\-\_\-interfaces}]{\setlength{\rightskip}{0pt plus 5cm}void ieee80211\-\_\-remove\-\_\-interfaces (
+\begin{DoxyParamCaption}
+\item[{struct {\bf ieee80211\-\_\-local} $\ast$}]{local}
+\end{DoxyParamCaption}
+)}}\label{iface_8c_a1b8161ca5ac856266d663cf6fc571594}
+
+
+Definition at line 1241 of file iface.\-c.
+
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{iface_8c_a1b8161ca5ac856266d663cf6fc571594_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{iface_8c_a1b8161ca5ac856266d663cf6fc571594_icgraph}
+\end{center}
+\end{figure}
+
+

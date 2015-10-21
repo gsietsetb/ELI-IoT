@@ -1,0 +1,187 @@
+\hypertarget{rx_8c}{\section{/home/guille/msm/net/mac80211/rx.c File Reference}
+\label{rx_8c}\index{/home/guille/msm/net/mac80211/rx.\-c@{/home/guille/msm/net/mac80211/rx.\-c}}
+}
+{\ttfamily \#include $<$linux/jiffies.\-h$>$}\\*
+{\ttfamily \#include $<$linux/slab.\-h$>$}\\*
+{\ttfamily \#include $<$linux/kernel.\-h$>$}\\*
+{\ttfamily \#include $<$linux/skbuff.\-h$>$}\\*
+{\ttfamily \#include $<$linux/netdevice.\-h$>$}\\*
+{\ttfamily \#include $<$linux/etherdevice.\-h$>$}\\*
+{\ttfamily \#include $<$linux/rcupdate.\-h$>$}\\*
+{\ttfamily \#include $<$linux/export.\-h$>$}\\*
+{\ttfamily \#include $<$net/mac80211.\-h$>$}\\*
+{\ttfamily \#include $<$net/ieee80211\-\_\-radiotap.\-h$>$}\\*
+{\ttfamily \#include $<$asm/unaligned.\-h$>$}\\*
+{\ttfamily \#include \char`\"{}ieee80211\-\_\-i.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}driver-\/ops.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}led.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}mesh.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}wep.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}wpa.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}tkip.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}wme.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}rate.\-h\char`\"{}}\\*
+Include dependency graph for rx.\-c\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{rx_8c__incl}
+\end{center}
+\end{figure}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{rx_8c_aff6de7600e02419c1c0be6e4edf01ec6}{S\-E\-Q\-\_\-\-M\-O\-D\-U\-L\-O}~0x1000
+\item 
+\#define \hyperlink{rx_8c_aadc4da6396a8bb0e7fd0e1c879d82bbd}{S\-E\-Q\-\_\-\-M\-A\-S\-K}~0xfff
+\item 
+\#define \hyperlink{rx_8c_a029184a972ba38fd8d631b7c34755b58}{H\-T\-\_\-\-R\-X\-\_\-\-R\-E\-O\-R\-D\-E\-R\-\_\-\-B\-U\-F\-\_\-\-T\-I\-M\-E\-O\-U\-T}~(H\-Z / 10)
+\item 
+\#define \hyperlink{rx_8c_a2b3283cd2c7ebd41aafb84cf7a5cd147}{C\-A\-L\-L\-\_\-\-R\-X\-H}(rxh)
+\item 
+\#define \hyperlink{rx_8c_a2b3283cd2c7ebd41aafb84cf7a5cd147}{C\-A\-L\-L\-\_\-\-R\-X\-H}(rxh)
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{rx_8c_a4b660b613e7c98267ee82779179cf60a}{ieee80211\-\_\-sta\-\_\-ps\-\_\-transition} (struct ieee80211\-\_\-sta $\ast$sta, bool start)
+\item 
+\hyperlink{rx_8c_a3fd53fe8f7ae5f930533ee4f5a474553}{E\-X\-P\-O\-R\-T\-\_\-\-S\-Y\-M\-B\-O\-L} (\hyperlink{rx_8c_a4b660b613e7c98267ee82779179cf60a}{ieee80211\-\_\-sta\-\_\-ps\-\_\-transition})
+\item 
+void \hyperlink{rx_8c_a1e3fa259fda79338e591031a94a94a47}{ieee80211\-\_\-release\-\_\-reorder\-\_\-timeout} (struct \hyperlink{structsta__info}{sta\-\_\-info} $\ast$sta, int tid)
+\item 
+void \hyperlink{rx_8c_a0bebc0d70fd70c681c9332d4dd3ac204}{ieee80211\-\_\-rx} (struct ieee80211\-\_\-hw $\ast$hw, struct sk\-\_\-buff $\ast$skb)
+\item 
+\hyperlink{rx_8c_a07d90cbb52fb2b2e4cece845ad33d545}{E\-X\-P\-O\-R\-T\-\_\-\-S\-Y\-M\-B\-O\-L} (\hyperlink{rx_8c_a0bebc0d70fd70c681c9332d4dd3ac204}{ieee80211\-\_\-rx})
+\item 
+void \hyperlink{rx_8c_acdf29893df0401c02e8dd40254f14a5a}{ieee80211\-\_\-rx\-\_\-irqsafe} (struct ieee80211\-\_\-hw $\ast$hw, struct sk\-\_\-buff $\ast$skb)
+\item 
+\hyperlink{rx_8c_a468249b86914c1abdf90e5f99585afc0}{E\-X\-P\-O\-R\-T\-\_\-\-S\-Y\-M\-B\-O\-L} (\hyperlink{rx_8c_acdf29893df0401c02e8dd40254f14a5a}{ieee80211\-\_\-rx\-\_\-irqsafe})
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{rx_8c_a2b3283cd2c7ebd41aafb84cf7a5cd147}{\index{rx.\-c@{rx.\-c}!C\-A\-L\-L\-\_\-\-R\-X\-H@{C\-A\-L\-L\-\_\-\-R\-X\-H}}
+\index{C\-A\-L\-L\-\_\-\-R\-X\-H@{C\-A\-L\-L\-\_\-\-R\-X\-H}!rx.c@{rx.\-c}}
+\subsubsection[{C\-A\-L\-L\-\_\-\-R\-X\-H}]{\setlength{\rightskip}{0pt plus 5cm}\#define C\-A\-L\-L\-\_\-\-R\-X\-H(
+\begin{DoxyParamCaption}
+\item[{}]{rxh}
+\end{DoxyParamCaption}
+)}}\label{rx_8c_a2b3283cd2c7ebd41aafb84cf7a5cd147}
+{\bfseries Value\-:}
+\begin{DoxyCode}
+\textcolor{keywordflow}{do} \{                \(\backslash\)
+        res = rxh(rx);      \(\backslash\)
+        if (res != \hyperlink{ieee80211__i_8h_ac42ba7f346ad31760b6b775a7326bdf9}{RX\_CONTINUE})  \(\backslash\)
+            goto rxh\_next;  \(\backslash\)
+    \} \textcolor{keywordflow}{while} (0);
+\end{DoxyCode}
+\hypertarget{rx_8c_a2b3283cd2c7ebd41aafb84cf7a5cd147}{\index{rx.\-c@{rx.\-c}!C\-A\-L\-L\-\_\-\-R\-X\-H@{C\-A\-L\-L\-\_\-\-R\-X\-H}}
+\index{C\-A\-L\-L\-\_\-\-R\-X\-H@{C\-A\-L\-L\-\_\-\-R\-X\-H}!rx.c@{rx.\-c}}
+\subsubsection[{C\-A\-L\-L\-\_\-\-R\-X\-H}]{\setlength{\rightskip}{0pt plus 5cm}\#define C\-A\-L\-L\-\_\-\-R\-X\-H(
+\begin{DoxyParamCaption}
+\item[{}]{rxh}
+\end{DoxyParamCaption}
+)}}\label{rx_8c_a2b3283cd2c7ebd41aafb84cf7a5cd147}
+{\bfseries Value\-:}
+\begin{DoxyCode}
+\textcolor{keywordflow}{do} \{                \(\backslash\)
+        res = rxh(rx);      \(\backslash\)
+        if (res != \hyperlink{ieee80211__i_8h_ac42ba7f346ad31760b6b775a7326bdf9}{RX\_CONTINUE})  \(\backslash\)
+            goto rxh\_next;  \(\backslash\)
+    \} \textcolor{keywordflow}{while} (0);
+\end{DoxyCode}
+\hypertarget{rx_8c_a029184a972ba38fd8d631b7c34755b58}{\index{rx.\-c@{rx.\-c}!H\-T\-\_\-\-R\-X\-\_\-\-R\-E\-O\-R\-D\-E\-R\-\_\-\-B\-U\-F\-\_\-\-T\-I\-M\-E\-O\-U\-T@{H\-T\-\_\-\-R\-X\-\_\-\-R\-E\-O\-R\-D\-E\-R\-\_\-\-B\-U\-F\-\_\-\-T\-I\-M\-E\-O\-U\-T}}
+\index{H\-T\-\_\-\-R\-X\-\_\-\-R\-E\-O\-R\-D\-E\-R\-\_\-\-B\-U\-F\-\_\-\-T\-I\-M\-E\-O\-U\-T@{H\-T\-\_\-\-R\-X\-\_\-\-R\-E\-O\-R\-D\-E\-R\-\_\-\-B\-U\-F\-\_\-\-T\-I\-M\-E\-O\-U\-T}!rx.c@{rx.\-c}}
+\subsubsection[{H\-T\-\_\-\-R\-X\-\_\-\-R\-E\-O\-R\-D\-E\-R\-\_\-\-B\-U\-F\-\_\-\-T\-I\-M\-E\-O\-U\-T}]{\setlength{\rightskip}{0pt plus 5cm}\#define H\-T\-\_\-\-R\-X\-\_\-\-R\-E\-O\-R\-D\-E\-R\-\_\-\-B\-U\-F\-\_\-\-T\-I\-M\-E\-O\-U\-T~(H\-Z / 10)}}\label{rx_8c_a029184a972ba38fd8d631b7c34755b58}
+
+
+Definition at line 604 of file rx.\-c.
+
+\hypertarget{rx_8c_aadc4da6396a8bb0e7fd0e1c879d82bbd}{\index{rx.\-c@{rx.\-c}!S\-E\-Q\-\_\-\-M\-A\-S\-K@{S\-E\-Q\-\_\-\-M\-A\-S\-K}}
+\index{S\-E\-Q\-\_\-\-M\-A\-S\-K@{S\-E\-Q\-\_\-\-M\-A\-S\-K}!rx.c@{rx.\-c}}
+\subsubsection[{S\-E\-Q\-\_\-\-M\-A\-S\-K}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\-E\-Q\-\_\-\-M\-A\-S\-K~0xfff}}\label{rx_8c_aadc4da6396a8bb0e7fd0e1c879d82bbd}
+
+
+Definition at line 538 of file rx.\-c.
+
+\hypertarget{rx_8c_aff6de7600e02419c1c0be6e4edf01ec6}{\index{rx.\-c@{rx.\-c}!S\-E\-Q\-\_\-\-M\-O\-D\-U\-L\-O@{S\-E\-Q\-\_\-\-M\-O\-D\-U\-L\-O}}
+\index{S\-E\-Q\-\_\-\-M\-O\-D\-U\-L\-O@{S\-E\-Q\-\_\-\-M\-O\-D\-U\-L\-O}!rx.c@{rx.\-c}}
+\subsubsection[{S\-E\-Q\-\_\-\-M\-O\-D\-U\-L\-O}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\-E\-Q\-\_\-\-M\-O\-D\-U\-L\-O~0x1000}}\label{rx_8c_aff6de7600e02419c1c0be6e4edf01ec6}
+
+
+Definition at line 537 of file rx.\-c.
+
+
+
+\subsection{Function Documentation}
+\hypertarget{rx_8c_a3fd53fe8f7ae5f930533ee4f5a474553}{\index{rx.\-c@{rx.\-c}!E\-X\-P\-O\-R\-T\-\_\-\-S\-Y\-M\-B\-O\-L@{E\-X\-P\-O\-R\-T\-\_\-\-S\-Y\-M\-B\-O\-L}}
+\index{E\-X\-P\-O\-R\-T\-\_\-\-S\-Y\-M\-B\-O\-L@{E\-X\-P\-O\-R\-T\-\_\-\-S\-Y\-M\-B\-O\-L}!rx.c@{rx.\-c}}
+\subsubsection[{E\-X\-P\-O\-R\-T\-\_\-\-S\-Y\-M\-B\-O\-L}]{\setlength{\rightskip}{0pt plus 5cm}E\-X\-P\-O\-R\-T\-\_\-\-S\-Y\-M\-B\-O\-L (
+\begin{DoxyParamCaption}
+\item[{{\bf ieee80211\-\_\-sta\-\_\-ps\-\_\-transition}}]{}
+\end{DoxyParamCaption}
+)}}\label{rx_8c_a3fd53fe8f7ae5f930533ee4f5a474553}
+\hypertarget{rx_8c_a07d90cbb52fb2b2e4cece845ad33d545}{\index{rx.\-c@{rx.\-c}!E\-X\-P\-O\-R\-T\-\_\-\-S\-Y\-M\-B\-O\-L@{E\-X\-P\-O\-R\-T\-\_\-\-S\-Y\-M\-B\-O\-L}}
+\index{E\-X\-P\-O\-R\-T\-\_\-\-S\-Y\-M\-B\-O\-L@{E\-X\-P\-O\-R\-T\-\_\-\-S\-Y\-M\-B\-O\-L}!rx.c@{rx.\-c}}
+\subsubsection[{E\-X\-P\-O\-R\-T\-\_\-\-S\-Y\-M\-B\-O\-L}]{\setlength{\rightskip}{0pt plus 5cm}E\-X\-P\-O\-R\-T\-\_\-\-S\-Y\-M\-B\-O\-L (
+\begin{DoxyParamCaption}
+\item[{{\bf ieee80211\-\_\-rx}}]{}
+\end{DoxyParamCaption}
+)}}\label{rx_8c_a07d90cbb52fb2b2e4cece845ad33d545}
+\hypertarget{rx_8c_a468249b86914c1abdf90e5f99585afc0}{\index{rx.\-c@{rx.\-c}!E\-X\-P\-O\-R\-T\-\_\-\-S\-Y\-M\-B\-O\-L@{E\-X\-P\-O\-R\-T\-\_\-\-S\-Y\-M\-B\-O\-L}}
+\index{E\-X\-P\-O\-R\-T\-\_\-\-S\-Y\-M\-B\-O\-L@{E\-X\-P\-O\-R\-T\-\_\-\-S\-Y\-M\-B\-O\-L}!rx.c@{rx.\-c}}
+\subsubsection[{E\-X\-P\-O\-R\-T\-\_\-\-S\-Y\-M\-B\-O\-L}]{\setlength{\rightskip}{0pt plus 5cm}E\-X\-P\-O\-R\-T\-\_\-\-S\-Y\-M\-B\-O\-L (
+\begin{DoxyParamCaption}
+\item[{{\bf ieee80211\-\_\-rx\-\_\-irqsafe}}]{}
+\end{DoxyParamCaption}
+)}}\label{rx_8c_a468249b86914c1abdf90e5f99585afc0}
+\hypertarget{rx_8c_a1e3fa259fda79338e591031a94a94a47}{\index{rx.\-c@{rx.\-c}!ieee80211\-\_\-release\-\_\-reorder\-\_\-timeout@{ieee80211\-\_\-release\-\_\-reorder\-\_\-timeout}}
+\index{ieee80211\-\_\-release\-\_\-reorder\-\_\-timeout@{ieee80211\-\_\-release\-\_\-reorder\-\_\-timeout}!rx.c@{rx.\-c}}
+\subsubsection[{ieee80211\-\_\-release\-\_\-reorder\-\_\-timeout}]{\setlength{\rightskip}{0pt plus 5cm}void ieee80211\-\_\-release\-\_\-reorder\-\_\-timeout (
+\begin{DoxyParamCaption}
+\item[{struct {\bf sta\-\_\-info} $\ast$}]{sta, }
+\item[{int}]{tid}
+\end{DoxyParamCaption}
+)}}\label{rx_8c_a1e3fa259fda79338e591031a94a94a47}
+
+
+Definition at line 2738 of file rx.\-c.
+
+\hypertarget{rx_8c_a0bebc0d70fd70c681c9332d4dd3ac204}{\index{rx.\-c@{rx.\-c}!ieee80211\-\_\-rx@{ieee80211\-\_\-rx}}
+\index{ieee80211\-\_\-rx@{ieee80211\-\_\-rx}!rx.c@{rx.\-c}}
+\subsubsection[{ieee80211\-\_\-rx}]{\setlength{\rightskip}{0pt plus 5cm}void ieee80211\-\_\-rx (
+\begin{DoxyParamCaption}
+\item[{struct ieee80211\-\_\-hw $\ast$}]{hw, }
+\item[{struct sk\-\_\-buff $\ast$}]{skb}
+\end{DoxyParamCaption}
+)}}\label{rx_8c_a0bebc0d70fd70c681c9332d4dd3ac204}
+
+
+Definition at line 3011 of file rx.\-c.
+
+\hypertarget{rx_8c_acdf29893df0401c02e8dd40254f14a5a}{\index{rx.\-c@{rx.\-c}!ieee80211\-\_\-rx\-\_\-irqsafe@{ieee80211\-\_\-rx\-\_\-irqsafe}}
+\index{ieee80211\-\_\-rx\-\_\-irqsafe@{ieee80211\-\_\-rx\-\_\-irqsafe}!rx.c@{rx.\-c}}
+\subsubsection[{ieee80211\-\_\-rx\-\_\-irqsafe}]{\setlength{\rightskip}{0pt plus 5cm}void ieee80211\-\_\-rx\-\_\-irqsafe (
+\begin{DoxyParamCaption}
+\item[{struct ieee80211\-\_\-hw $\ast$}]{hw, }
+\item[{struct sk\-\_\-buff $\ast$}]{skb}
+\end{DoxyParamCaption}
+)}}\label{rx_8c_acdf29893df0401c02e8dd40254f14a5a}
+
+
+Definition at line 3114 of file rx.\-c.
+
+\hypertarget{rx_8c_a4b660b613e7c98267ee82779179cf60a}{\index{rx.\-c@{rx.\-c}!ieee80211\-\_\-sta\-\_\-ps\-\_\-transition@{ieee80211\-\_\-sta\-\_\-ps\-\_\-transition}}
+\index{ieee80211\-\_\-sta\-\_\-ps\-\_\-transition@{ieee80211\-\_\-sta\-\_\-ps\-\_\-transition}!rx.c@{rx.\-c}}
+\subsubsection[{ieee80211\-\_\-sta\-\_\-ps\-\_\-transition}]{\setlength{\rightskip}{0pt plus 5cm}int ieee80211\-\_\-sta\-\_\-ps\-\_\-transition (
+\begin{DoxyParamCaption}
+\item[{struct ieee80211\-\_\-sta $\ast$}]{sta, }
+\item[{bool}]{start}
+\end{DoxyParamCaption}
+)}}\label{rx_8c_a4b660b613e7c98267ee82779179cf60a}
+
+
+Definition at line 1163 of file rx.\-c.
+

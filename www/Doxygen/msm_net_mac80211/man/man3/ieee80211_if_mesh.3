@@ -1,0 +1,253 @@
+.TH "ieee80211_if_mesh" 3 "Sun Jun 1 2014" "Version 1.0" "net_mac80211" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+ieee80211_if_mesh \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <ieee80211_i\&.h>\fP
+.SS "Public Types"
+
+.in +1c
+.ti -1c
+.RI "enum { \fBIEEE80211_MESH_SEC_NONE\fP = 0x0, \fBIEEE80211_MESH_SEC_AUTHED\fP = 0x1, \fBIEEE80211_MESH_SEC_SECURED\fP = 0x2 }"
+.br
+.in -1c
+.SS "Data Fields"
+
+.in +1c
+.ti -1c
+.RI "struct timer_list \fBhousekeeping_timer\fP"
+.br
+.ti -1c
+.RI "struct timer_list \fBmesh_path_timer\fP"
+.br
+.ti -1c
+.RI "struct timer_list \fBmesh_path_root_timer\fP"
+.br
+.ti -1c
+.RI "unsigned long \fBtimers_running\fP"
+.br
+.ti -1c
+.RI "unsigned long \fBwrkq_flags\fP"
+.br
+.ti -1c
+.RI "u8 \fBmesh_id\fP [IEEE80211_MAX_MESH_ID_LEN]"
+.br
+.ti -1c
+.RI "size_t \fBmesh_id_len\fP"
+.br
+.ti -1c
+.RI "u8 \fBmesh_pp_id\fP"
+.br
+.ti -1c
+.RI "u8 \fBmesh_pm_id\fP"
+.br
+.ti -1c
+.RI "u8 \fBmesh_cc_id\fP"
+.br
+.ti -1c
+.RI "u8 \fBmesh_sp_id\fP"
+.br
+.ti -1c
+.RI "u8 \fBmesh_auth_id\fP"
+.br
+.ti -1c
+.RI "u32 \fBsn\fP"
+.br
+.ti -1c
+.RI "u32 \fBpreq_id\fP"
+.br
+.ti -1c
+.RI "atomic_t \fBmpaths\fP"
+.br
+.ti -1c
+.RI "unsigned long \fBlast_sn_update\fP"
+.br
+.ti -1c
+.RI "unsigned long \fBnext_perr\fP"
+.br
+.ti -1c
+.RI "unsigned long \fBlast_preq\fP"
+.br
+.ti -1c
+.RI "struct \fBmesh_rmc\fP * \fBrmc\fP"
+.br
+.ti -1c
+.RI "spinlock_t \fBmesh_preq_queue_lock\fP"
+.br
+.ti -1c
+.RI "struct \fBmesh_preq_queue\fP \fBpreq_queue\fP"
+.br
+.ti -1c
+.RI "int \fBpreq_queue_len\fP"
+.br
+.ti -1c
+.RI "struct \fBmesh_stats\fP \fBmshstats\fP"
+.br
+.ti -1c
+.RI "struct mesh_config \fBmshcfg\fP"
+.br
+.ti -1c
+.RI "u32 \fBmesh_seqnum\fP"
+.br
+.ti -1c
+.RI "bool \fBaccepting_plinks\fP"
+.br
+.ti -1c
+.RI "int \fBnum_gates\fP"
+.br
+.ti -1c
+.RI "const u8 * \fBie\fP"
+.br
+.ti -1c
+.RI "u8 \fBie_len\fP"
+.br
+.ti -1c
+.RI "enum ieee80211_if_mesh:: { \&.\&.\&. }  \fBsecurity\fP"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Definition at line 556 of file ieee80211_i\&.h\&.
+.SH "Member Enumeration Documentation"
+.PP 
+.SS "anonymous enum"
+
+.PP
+\fBEnumerator\fP
+.in +1c
+.TP
+\fB\fIIEEE80211_MESH_SEC_NONE \fP\fP
+.TP
+\fB\fIIEEE80211_MESH_SEC_AUTHED \fP\fP
+.TP
+\fB\fIIEEE80211_MESH_SEC_SECURED \fP\fP
+.PP
+Definition at line 599 of file ieee80211_i\&.h\&.
+.SH "Field Documentation"
+.PP 
+.SS "bool accepting_plinks"
+
+.PP
+Definition at line 595 of file ieee80211_i\&.h\&.
+.SS "struct timer_list housekeeping_timer"
+
+.PP
+Definition at line 557 of file ieee80211_i\&.h\&.
+.SS "const u8* ie"
+
+.PP
+Definition at line 597 of file ieee80211_i\&.h\&.
+.SS "u8 ie_len"
+
+.PP
+Definition at line 598 of file ieee80211_i\&.h\&.
+.SS "unsigned long last_preq"
+
+.PP
+Definition at line 587 of file ieee80211_i\&.h\&.
+.SS "unsigned long last_sn_update"
+
+.PP
+Definition at line 583 of file ieee80211_i\&.h\&.
+.SS "u8 mesh_auth_id"
+
+.PP
+Definition at line 576 of file ieee80211_i\&.h\&.
+.SS "u8 mesh_cc_id"
+
+.PP
+Definition at line 572 of file ieee80211_i\&.h\&.
+.SS "u8 mesh_id[IEEE80211_MAX_MESH_ID_LEN]"
+
+.PP
+Definition at line 565 of file ieee80211_i\&.h\&.
+.SS "size_t mesh_id_len"
+
+.PP
+Definition at line 566 of file ieee80211_i\&.h\&.
+.SS "struct timer_list mesh_path_root_timer"
+
+.PP
+Definition at line 559 of file ieee80211_i\&.h\&.
+.SS "struct timer_list mesh_path_timer"
+
+.PP
+Definition at line 558 of file ieee80211_i\&.h\&.
+.SS "u8 mesh_pm_id"
+
+.PP
+Definition at line 570 of file ieee80211_i\&.h\&.
+.SS "u8 mesh_pp_id"
+
+.PP
+Definition at line 568 of file ieee80211_i\&.h\&.
+.SS "spinlock_t mesh_preq_queue_lock"
+
+.PP
+Definition at line 589 of file ieee80211_i\&.h\&.
+.SS "u32 mesh_seqnum"
+
+.PP
+Definition at line 594 of file ieee80211_i\&.h\&.
+.SS "u8 mesh_sp_id"
+
+.PP
+Definition at line 574 of file ieee80211_i\&.h\&.
+.SS "atomic_t mpaths"
+
+.PP
+Definition at line 581 of file ieee80211_i\&.h\&.
+.SS "struct mesh_config mshcfg"
+
+.PP
+Definition at line 593 of file ieee80211_i\&.h\&.
+.SS "struct \fBmesh_stats\fP mshstats"
+
+.PP
+Definition at line 592 of file ieee80211_i\&.h\&.
+.SS "unsigned long next_perr"
+
+.PP
+Definition at line 585 of file ieee80211_i\&.h\&.
+.SS "int num_gates"
+
+.PP
+Definition at line 596 of file ieee80211_i\&.h\&.
+.SS "u32 preq_id"
+
+.PP
+Definition at line 580 of file ieee80211_i\&.h\&.
+.SS "struct \fBmesh_preq_queue\fP preq_queue"
+
+.PP
+Definition at line 590 of file ieee80211_i\&.h\&.
+.SS "int preq_queue_len"
+
+.PP
+Definition at line 591 of file ieee80211_i\&.h\&.
+.SS "struct \fBmesh_rmc\fP* rmc"
+
+.PP
+Definition at line 588 of file ieee80211_i\&.h\&.
+.SS "enum { \&.\&.\&. }   security"
+
+.SS "u32 sn"
+
+.PP
+Definition at line 578 of file ieee80211_i\&.h\&.
+.SS "unsigned long timers_running"
+
+.PP
+Definition at line 561 of file ieee80211_i\&.h\&.
+.SS "unsigned long wrkq_flags"
+
+.PP
+Definition at line 563 of file ieee80211_i\&.h\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for net_mac80211 from the source code\&.

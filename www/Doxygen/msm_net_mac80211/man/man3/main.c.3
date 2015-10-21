@@ -1,0 +1,196 @@
+.TH "/home/guille/msm/net/mac80211/main.c" 3 "Sun Jun 1 2014" "Version 1.0" "net_mac80211" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+/home/guille/msm/net/mac80211/main.c \- 
+.SH SYNOPSIS
+.br
+.PP
+\fC#include <net/mac80211\&.h>\fP
+.br
+\fC#include <linux/module\&.h>\fP
+.br
+\fC#include <linux/init\&.h>\fP
+.br
+\fC#include <linux/netdevice\&.h>\fP
+.br
+\fC#include <linux/types\&.h>\fP
+.br
+\fC#include <linux/slab\&.h>\fP
+.br
+\fC#include <linux/skbuff\&.h>\fP
+.br
+\fC#include <linux/etherdevice\&.h>\fP
+.br
+\fC#include <linux/if_arp\&.h>\fP
+.br
+\fC#include <linux/rtnetlink\&.h>\fP
+.br
+\fC#include <linux/bitmap\&.h>\fP
+.br
+\fC#include <linux/pm_qos\&.h>\fP
+.br
+\fC#include <linux/inetdevice\&.h>\fP
+.br
+\fC#include <net/net_namespace\&.h>\fP
+.br
+\fC#include <net/cfg80211\&.h>\fP
+.br
+\fC#include 'ieee80211_i\&.h'\fP
+.br
+\fC#include 'driver-ops\&.h'\fP
+.br
+\fC#include 'rate\&.h'\fP
+.br
+\fC#include 'mesh\&.h'\fP
+.br
+\fC#include 'wep\&.h'\fP
+.br
+\fC#include 'led\&.h'\fP
+.br
+\fC#include 'cfg\&.h'\fP
+.br
+\fC#include 'debugfs\&.h'\fP
+.br
+
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBieee80211_configure_filter\fP (struct \fBieee80211_local\fP *local)"
+.br
+.ti -1c
+.RI "int \fBieee80211_hw_config\fP (struct \fBieee80211_local\fP *local, u32 changed)"
+.br
+.ti -1c
+.RI "void \fBieee80211_bss_info_change_notify\fP (struct \fBieee80211_sub_if_data\fP *sdata, u32 changed)"
+.br
+.ti -1c
+.RI "u32 \fBieee80211_reset_erp_info\fP (struct \fBieee80211_sub_if_data\fP *sdata)"
+.br
+.ti -1c
+.RI "void \fBieee80211_restart_hw\fP (struct ieee80211_hw *hw)"
+.br
+.ti -1c
+.RI "\fBEXPORT_SYMBOL\fP (\fBieee80211_restart_hw\fP)"
+.br
+.ti -1c
+.RI "void \fBieee80211_napi_schedule\fP (struct ieee80211_hw *hw)"
+.br
+.ti -1c
+.RI "\fBEXPORT_SYMBOL\fP (\fBieee80211_napi_schedule\fP)"
+.br
+.ti -1c
+.RI "void \fBieee80211_napi_complete\fP (struct ieee80211_hw *hw)"
+.br
+.ti -1c
+.RI "\fBEXPORT_SYMBOL\fP (\fBieee80211_napi_complete\fP)"
+.br
+.ti -1c
+.RI "struct ieee80211_hw * \fBieee80211_alloc_hw\fP (size_t priv_data_len, const struct ieee80211_ops *ops)"
+.br
+.ti -1c
+.RI "\fBEXPORT_SYMBOL\fP (\fBieee80211_alloc_hw\fP)"
+.br
+.ti -1c
+.RI "int \fBieee80211_register_hw\fP (struct ieee80211_hw *hw)"
+.br
+.ti -1c
+.RI "\fBEXPORT_SYMBOL\fP (\fBieee80211_register_hw\fP)"
+.br
+.ti -1c
+.RI "void \fBieee80211_unregister_hw\fP (struct ieee80211_hw *hw)"
+.br
+.ti -1c
+.RI "\fBEXPORT_SYMBOL\fP (\fBieee80211_unregister_hw\fP)"
+.br
+.ti -1c
+.RI "void \fBieee80211_free_hw\fP (struct ieee80211_hw *hw)"
+.br
+.ti -1c
+.RI "\fBEXPORT_SYMBOL\fP (\fBieee80211_free_hw\fP)"
+.br
+.ti -1c
+.RI "\fBsubsys_initcall\fP (ieee80211_init)"
+.br
+.ti -1c
+.RI "\fBmodule_exit\fP (ieee80211_exit)"
+.br
+.ti -1c
+.RI "\fBMODULE_DESCRIPTION\fP ('IEEE 802\&.11 subsystem')"
+.br
+.ti -1c
+.RI "\fBMODULE_LICENSE\fP ('GPL')"
+.br
+.in -1c
+.SH "Function Documentation"
+.PP 
+.SS "EXPORT_SYMBOL (\fBieee80211_restart_hw\fP)"
+
+.SS "EXPORT_SYMBOL (\fBieee80211_napi_schedule\fP)"
+
+.SS "EXPORT_SYMBOL (\fBieee80211_napi_complete\fP)"
+
+.SS "EXPORT_SYMBOL (\fBieee80211_alloc_hw\fP)"
+
+.SS "EXPORT_SYMBOL (\fBieee80211_register_hw\fP)"
+
+.SS "EXPORT_SYMBOL (\fBieee80211_unregister_hw\fP)"
+
+.SS "EXPORT_SYMBOL (\fBieee80211_free_hw\fP)"
+
+.SS "struct ieee80211_hw* ieee80211_alloc_hw (size_tpriv_data_len, const struct ieee80211_ops *ops)"
+
+.PP
+Definition at line 520 of file main\&.c\&.
+.SS "void ieee80211_bss_info_change_notify (struct \fBieee80211_sub_if_data\fP *sdata, u32changed)"
+
+.PP
+Definition at line 189 of file main\&.c\&.
+.SS "void ieee80211_configure_filter (struct \fBieee80211_local\fP *local)"
+
+.PP
+Definition at line 38 of file main\&.c\&.
+.SS "void ieee80211_free_hw (struct ieee80211_hw *hw)"
+
+.PP
+Definition at line 1040 of file main\&.c\&.
+.SS "int ieee80211_hw_config (struct \fBieee80211_local\fP *local, u32changed)"
+
+.PP
+Definition at line 95 of file main\&.c\&.
+.SS "void ieee80211_napi_complete (struct ieee80211_hw *hw)"
+
+.PP
+Definition at line 443 of file main\&.c\&.
+.SS "void ieee80211_napi_schedule (struct ieee80211_hw *hw)"
+
+.PP
+Definition at line 435 of file main\&.c\&.
+.SS "int ieee80211_register_hw (struct ieee80211_hw *hw)"
+
+.PP
+Definition at line 670 of file main\&.c\&.
+.SS "u32 ieee80211_reset_erp_info (struct \fBieee80211_sub_if_data\fP *sdata)"
+
+.PP
+Definition at line 262 of file main\&.c\&.
+.SS "void ieee80211_restart_hw (struct ieee80211_hw *hw)"
+
+.PP
+Definition at line 333 of file main\&.c\&.
+.SS "void ieee80211_unregister_hw (struct ieee80211_hw *hw)"
+
+.PP
+Definition at line 981 of file main\&.c\&.
+.SS "MODULE_DESCRIPTION ('IEEE 802\&.11 subsystem')"
+
+.SS "module_exit (ieee80211_exit)"
+
+.SS "MODULE_LICENSE ('GPL')"
+
+.SS "subsys_initcall (ieee80211_init)"
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for net_mac80211 from the source code\&.

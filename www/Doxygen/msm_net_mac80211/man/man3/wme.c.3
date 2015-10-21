@@ -1,0 +1,92 @@
+.TH "/home/guille/msm/net/mac80211/wme.c" 3 "Sun Jun 1 2014" "Version 1.0" "net_mac80211" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+/home/guille/msm/net/mac80211/wme.c \- 
+.SH SYNOPSIS
+.br
+.PP
+\fC#include <linux/netdevice\&.h>\fP
+.br
+\fC#include <linux/skbuff\&.h>\fP
+.br
+\fC#include <linux/module\&.h>\fP
+.br
+\fC#include <linux/if_arp\&.h>\fP
+.br
+\fC#include <linux/types\&.h>\fP
+.br
+\fC#include <net/ip\&.h>\fP
+.br
+\fC#include <net/pkt_sched\&.h>\fP
+.br
+\fC#include <net/mac80211\&.h>\fP
+.br
+\fC#include 'ieee80211_i\&.h'\fP
+.br
+\fC#include 'wme\&.h'\fP
+.br
+
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "u16 \fBieee80211_select_queue_80211\fP (struct \fBieee80211_local\fP *local, struct sk_buff *skb, struct ieee80211_hdr *hdr)"
+.br
+.ti -1c
+.RI "u16 \fBieee80211_select_queue\fP (struct \fBieee80211_sub_if_data\fP *sdata, struct sk_buff *skb)"
+.br
+.ti -1c
+.RI "u16 \fBieee80211_downgrade_queue\fP (struct \fBieee80211_local\fP *local, struct sk_buff *skb)"
+.br
+.ti -1c
+.RI "void \fBieee80211_set_qos_hdr\fP (struct \fBieee80211_sub_if_data\fP *sdata, struct sk_buff *skb)"
+.br
+.in -1c
+.SS "Variables"
+
+.in +1c
+.ti -1c
+.RI "const int \fBieee802_1d_to_ac\fP [8]"
+.br
+.in -1c
+.SH "Function Documentation"
+.PP 
+.SS "u16 ieee80211_downgrade_queue (struct \fBieee80211_local\fP *local, struct sk_buff *skb)"
+
+.PP
+Definition at line 142 of file wme\&.c\&.
+.SS "u16 ieee80211_select_queue (struct \fBieee80211_sub_if_data\fP *sdata, struct sk_buff *skb)"
+
+.PP
+Definition at line 81 of file wme\&.c\&.
+.SS "u16 ieee80211_select_queue_80211 (struct \fBieee80211_local\fP *local, struct sk_buff *skb, struct ieee80211_hdr *hdr)"
+
+.PP
+Definition at line 56 of file wme\&.c\&.
+.SS "void ieee80211_set_qos_hdr (struct \fBieee80211_sub_if_data\fP *sdata, struct sk_buff *skb)"
+
+.PP
+Definition at line 162 of file wme\&.c\&.
+.SH "Variable Documentation"
+.PP 
+.SS "const int ieee802_1d_to_ac[8]"
+\fBInitial value:\fP
+.PP
+.nf
+= {
+    IEEE80211_AC_BE,
+    IEEE80211_AC_BK,
+    IEEE80211_AC_BK,
+    IEEE80211_AC_BE,
+    IEEE80211_AC_VI,
+    IEEE80211_AC_VI,
+    IEEE80211_AC_VO,
+    IEEE80211_AC_VO
+}
+.fi
+.PP
+Definition at line 24 of file wme\&.c\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for net_mac80211 from the source code\&.

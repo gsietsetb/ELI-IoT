@@ -1,0 +1,439 @@
+.TH "/home/guille/msm/net/mac80211/mesh_hwmp.c" 3 "Sun Jun 1 2014" "Version 1.0" "net_mac80211" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+/home/guille/msm/net/mac80211/mesh_hwmp.c \- 
+.SH SYNOPSIS
+.br
+.PP
+\fC#include <linux/slab\&.h>\fP
+.br
+\fC#include <linux/etherdevice\&.h>\fP
+.br
+\fC#include <asm/unaligned\&.h>\fP
+.br
+\fC#include 'wme\&.h'\fP
+.br
+\fC#include 'mesh\&.h'\fP
+.br
+
+.SS "Macros"
+
+.in +1c
+.ti -1c
+.RI "#define \fBmhwmp_dbg\fP(fmt, args\&.\&.\&.)   do { (void)(0); } while (0)"
+.br
+.ti -1c
+.RI "#define \fBTEST_FRAME_LEN\fP   8192"
+.br
+.ti -1c
+.RI "#define \fBMAX_METRIC\fP   0xffffffff"
+.br
+.ti -1c
+.RI "#define \fBARITH_SHIFT\fP   8"
+.br
+.ti -1c
+.RI "#define \fBMESH_FRAME_QUEUE_LEN\fP   10"
+.br
+.ti -1c
+.RI "#define \fBMAX_PREQ_QUEUE_LEN\fP   64"
+.br
+.ti -1c
+.RI "#define \fBMP_F_DO\fP   0x1"
+.br
+.ti -1c
+.RI "#define \fBMP_F_RF\fP   0x2"
+.br
+.ti -1c
+.RI "#define \fBMP_F_USN\fP   0x01"
+.br
+.ti -1c
+.RI "#define \fBMP_F_RCODE\fP   0x02"
+.br
+.ti -1c
+.RI "#define \fBAE_F\fP   (1<<6)"
+.br
+.ti -1c
+.RI "#define \fBAE_F_SET\fP(x)   (*x & \fBAE_F\fP)"
+.br
+.ti -1c
+.RI "#define \fBPREQ_IE_FLAGS\fP(x)   (*(x))"
+.br
+.ti -1c
+.RI "#define \fBPREQ_IE_HOPCOUNT\fP(x)   (*(x + 1))"
+.br
+.ti -1c
+.RI "#define \fBPREQ_IE_TTL\fP(x)   (*(x + 2))"
+.br
+.ti -1c
+.RI "#define \fBPREQ_IE_PREQ_ID\fP(x)   u32_field_get(x, 3, 0)"
+.br
+.ti -1c
+.RI "#define \fBPREQ_IE_ORIG_ADDR\fP(x)   (x + 7)"
+.br
+.ti -1c
+.RI "#define \fBPREQ_IE_ORIG_SN\fP(x)   u32_field_get(x, 13, 0)"
+.br
+.ti -1c
+.RI "#define \fBPREQ_IE_LIFETIME\fP(x)   u32_field_get(x, 17, \fBAE_F_SET\fP(x))"
+.br
+.ti -1c
+.RI "#define \fBPREQ_IE_METRIC\fP(x)   u32_field_get(x, 21, \fBAE_F_SET\fP(x))"
+.br
+.ti -1c
+.RI "#define \fBPREQ_IE_TARGET_F\fP(x)   (*(\fBAE_F_SET\fP(x) ? x + 32 : x + 26))"
+.br
+.ti -1c
+.RI "#define \fBPREQ_IE_TARGET_ADDR\fP(x)   (\fBAE_F_SET\fP(x) ? x + 33 : x + 27)"
+.br
+.ti -1c
+.RI "#define \fBPREQ_IE_TARGET_SN\fP(x)   u32_field_get(x, 33, \fBAE_F_SET\fP(x))"
+.br
+.ti -1c
+.RI "#define \fBPREP_IE_FLAGS\fP(x)   \fBPREQ_IE_FLAGS\fP(x)"
+.br
+.ti -1c
+.RI "#define \fBPREP_IE_HOPCOUNT\fP(x)   \fBPREQ_IE_HOPCOUNT\fP(x)"
+.br
+.ti -1c
+.RI "#define \fBPREP_IE_TTL\fP(x)   \fBPREQ_IE_TTL\fP(x)"
+.br
+.ti -1c
+.RI "#define \fBPREP_IE_ORIG_ADDR\fP(x)   (\fBAE_F_SET\fP(x) ? x + 27 : x + 21)"
+.br
+.ti -1c
+.RI "#define \fBPREP_IE_ORIG_SN\fP(x)   u32_field_get(x, 27, \fBAE_F_SET\fP(x))"
+.br
+.ti -1c
+.RI "#define \fBPREP_IE_LIFETIME\fP(x)   u32_field_get(x, 13, \fBAE_F_SET\fP(x))"
+.br
+.ti -1c
+.RI "#define \fBPREP_IE_METRIC\fP(x)   u32_field_get(x, 17, \fBAE_F_SET\fP(x))"
+.br
+.ti -1c
+.RI "#define \fBPREP_IE_TARGET_ADDR\fP(x)   (x + 3)"
+.br
+.ti -1c
+.RI "#define \fBPREP_IE_TARGET_SN\fP(x)   u32_field_get(x, 9, 0)"
+.br
+.ti -1c
+.RI "#define \fBPERR_IE_TTL\fP(x)   (*(x))"
+.br
+.ti -1c
+.RI "#define \fBPERR_IE_TARGET_FLAGS\fP(x)   (*(x + 2))"
+.br
+.ti -1c
+.RI "#define \fBPERR_IE_TARGET_ADDR\fP(x)   (x + 3)"
+.br
+.ti -1c
+.RI "#define \fBPERR_IE_TARGET_SN\fP(x)   u32_field_get(x, 9, 0)"
+.br
+.ti -1c
+.RI "#define \fBPERR_IE_TARGET_RCODE\fP(x)   u16_field_get(x, 13, 0)"
+.br
+.ti -1c
+.RI "#define \fBMSEC_TO_TU\fP(x)   (x*1000/1024)"
+.br
+.ti -1c
+.RI "#define \fBSN_GT\fP(x, y)   ((long) (y) - (long) (x) < 0)"
+.br
+.ti -1c
+.RI "#define \fBSN_LT\fP(x, y)   ((long) (x) - (long) (y) < 0)"
+.br
+.ti -1c
+.RI "#define \fBnet_traversal_jiffies\fP(s)   msecs_to_jiffies(s->u\&.mesh\&.mshcfg\&.dot11MeshHWMPnetDiameterTraversalTime)"
+.br
+.ti -1c
+.RI "#define \fBdefault_lifetime\fP(s)   \fBMSEC_TO_TU\fP(s->u\&.mesh\&.mshcfg\&.dot11MeshHWMPactivePathTimeout)"
+.br
+.ti -1c
+.RI "#define \fBmin_preq_int_jiff\fP(s)   (msecs_to_jiffies(s->u\&.mesh\&.mshcfg\&.dot11MeshHWMPpreqMinInterval))"
+.br
+.ti -1c
+.RI "#define \fBmax_preq_retries\fP(s)   (s->u\&.mesh\&.mshcfg\&.dot11MeshHWMPmaxPREQretries)"
+.br
+.ti -1c
+.RI "#define \fBdisc_timeout_jiff\fP(s)   msecs_to_jiffies(sdata->u\&.mesh\&.mshcfg\&.min_discovery_timeout)"
+.br
+.in -1c
+.SS "Enumerations"
+
+.in +1c
+.ti -1c
+.RI "enum \fBmpath_frame_type\fP { \fBMPATH_PREQ\fP = 0, \fBMPATH_PREP\fP, \fBMPATH_PERR\fP, \fBMPATH_RANN\fP }"
+.br
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "int \fBmesh_path_error_tx\fP (u8 ttl, u8 *target, __le32 target_sn, __le16 target_rcode, const u8 *ra, struct \fBieee80211_sub_if_data\fP *sdata)"
+.br
+.ti -1c
+.RI "void \fBieee80211s_update_metric\fP (struct \fBieee80211_local\fP *local, struct \fBsta_info\fP *stainfo, struct sk_buff *skb)"
+.br
+.ti -1c
+.RI "void \fBmesh_rx_path_sel_frame\fP (struct \fBieee80211_sub_if_data\fP *sdata, struct ieee80211_mgmt *mgmt, size_t len)"
+.br
+.ti -1c
+.RI "void \fBmesh_path_start_discovery\fP (struct \fBieee80211_sub_if_data\fP *sdata)"
+.br
+.ti -1c
+.RI "int \fBmesh_nexthop_resolve\fP (struct sk_buff *skb, struct \fBieee80211_sub_if_data\fP *sdata)"
+.br
+.ti -1c
+.RI "int \fBmesh_nexthop_lookup\fP (struct sk_buff *skb, struct \fBieee80211_sub_if_data\fP *sdata)"
+.br
+.ti -1c
+.RI "void \fBmesh_path_timer\fP (unsigned long data)"
+.br
+.ti -1c
+.RI "void \fBmesh_path_tx_root_frame\fP (struct \fBieee80211_sub_if_data\fP *sdata)"
+.br
+.in -1c
+.SH "Macro Definition Documentation"
+.PP 
+.SS "#define AE_F   (1<<6)"
+
+.PP
+Definition at line 57 of file mesh_hwmp\&.c\&.
+.SS "#define AE_F_SET(x)   (*x & \fBAE_F\fP)"
+
+.PP
+Definition at line 58 of file mesh_hwmp\&.c\&.
+.SS "#define ARITH_SHIFT   8"
+
+.PP
+Definition at line 25 of file mesh_hwmp\&.c\&.
+.SS "#define default_lifetime(s)   \fBMSEC_TO_TU\fP(s->u\&.mesh\&.mshcfg\&.dot11MeshHWMPactivePathTimeout)"
+
+.PP
+Definition at line 94 of file mesh_hwmp\&.c\&.
+.SS "#define disc_timeout_jiff(s)   msecs_to_jiffies(sdata->u\&.mesh\&.mshcfg\&.min_discovery_timeout)"
+
+.PP
+Definition at line 99 of file mesh_hwmp\&.c\&.
+.SS "#define MAX_METRIC   0xffffffff"
+
+.PP
+Definition at line 24 of file mesh_hwmp\&.c\&.
+.SS "#define MAX_PREQ_QUEUE_LEN   64"
+
+.PP
+Definition at line 29 of file mesh_hwmp\&.c\&.
+.SS "#define max_preq_retries(s)   (s->u\&.mesh\&.mshcfg\&.dot11MeshHWMPmaxPREQretries)"
+
+.PP
+Definition at line 98 of file mesh_hwmp\&.c\&.
+.SS "#define MESH_FRAME_QUEUE_LEN   10"
+
+.PP
+Definition at line 28 of file mesh_hwmp\&.c\&.
+.SS "#define mhwmp_dbg(fmt, args\&.\&.\&.)   do { (void)(0); } while (0)"
+
+.PP
+Definition at line 20 of file mesh_hwmp\&.c\&.
+.SS "#define min_preq_int_jiff(s)   (msecs_to_jiffies(s->u\&.mesh\&.mshcfg\&.dot11MeshHWMPpreqMinInterval))"
+
+.PP
+Definition at line 96 of file mesh_hwmp\&.c\&.
+.SS "#define MP_F_DO   0x1"
+
+.PP
+Definition at line 32 of file mesh_hwmp\&.c\&.
+.SS "#define MP_F_RCODE   0x02"
+
+.PP
+Definition at line 38 of file mesh_hwmp\&.c\&.
+.SS "#define MP_F_RF   0x2"
+
+.PP
+Definition at line 34 of file mesh_hwmp\&.c\&.
+.SS "#define MP_F_USN   0x01"
+
+.PP
+Definition at line 36 of file mesh_hwmp\&.c\&.
+.SS "#define MSEC_TO_TU(x)   (x*1000/1024)"
+
+.PP
+Definition at line 88 of file mesh_hwmp\&.c\&.
+.SS "#define net_traversal_jiffies(s)   msecs_to_jiffies(s->u\&.mesh\&.mshcfg\&.dot11MeshHWMPnetDiameterTraversalTime)"
+
+.PP
+Definition at line 92 of file mesh_hwmp\&.c\&.
+.SS "#define PERR_IE_TARGET_ADDR(x)   (x + 3)"
+
+.PP
+Definition at line 84 of file mesh_hwmp\&.c\&.
+.SS "#define PERR_IE_TARGET_FLAGS(x)   (*(x + 2))"
+
+.PP
+Definition at line 83 of file mesh_hwmp\&.c\&.
+.SS "#define PERR_IE_TARGET_RCODE(x)   u16_field_get(x, 13, 0)"
+
+.PP
+Definition at line 86 of file mesh_hwmp\&.c\&.
+.SS "#define PERR_IE_TARGET_SN(x)   u32_field_get(x, 9, 0)"
+
+.PP
+Definition at line 85 of file mesh_hwmp\&.c\&.
+.SS "#define PERR_IE_TTL(x)   (*(x))"
+
+.PP
+Definition at line 82 of file mesh_hwmp\&.c\&.
+.SS "#define PREP_IE_FLAGS(x)   \fBPREQ_IE_FLAGS\fP(x)"
+
+.PP
+Definition at line 72 of file mesh_hwmp\&.c\&.
+.SS "#define PREP_IE_HOPCOUNT(x)   \fBPREQ_IE_HOPCOUNT\fP(x)"
+
+.PP
+Definition at line 73 of file mesh_hwmp\&.c\&.
+.SS "#define PREP_IE_LIFETIME(x)   u32_field_get(x, 13, \fBAE_F_SET\fP(x))"
+
+.PP
+Definition at line 77 of file mesh_hwmp\&.c\&.
+.SS "#define PREP_IE_METRIC(x)   u32_field_get(x, 17, \fBAE_F_SET\fP(x))"
+
+.PP
+Definition at line 78 of file mesh_hwmp\&.c\&.
+.SS "#define PREP_IE_ORIG_ADDR(x)   (\fBAE_F_SET\fP(x) ? x + 27 : x + 21)"
+
+.PP
+Definition at line 75 of file mesh_hwmp\&.c\&.
+.SS "#define PREP_IE_ORIG_SN(x)   u32_field_get(x, 27, \fBAE_F_SET\fP(x))"
+
+.PP
+Definition at line 76 of file mesh_hwmp\&.c\&.
+.SS "#define PREP_IE_TARGET_ADDR(x)   (x + 3)"
+
+.PP
+Definition at line 79 of file mesh_hwmp\&.c\&.
+.SS "#define PREP_IE_TARGET_SN(x)   u32_field_get(x, 9, 0)"
+
+.PP
+Definition at line 80 of file mesh_hwmp\&.c\&.
+.SS "#define PREP_IE_TTL(x)   \fBPREQ_IE_TTL\fP(x)"
+
+.PP
+Definition at line 74 of file mesh_hwmp\&.c\&.
+.SS "#define PREQ_IE_FLAGS(x)   (*(x))"
+
+.PP
+Definition at line 59 of file mesh_hwmp\&.c\&.
+.SS "#define PREQ_IE_HOPCOUNT(x)   (*(x + 1))"
+
+.PP
+Definition at line 60 of file mesh_hwmp\&.c\&.
+.SS "#define PREQ_IE_LIFETIME(x)   u32_field_get(x, 17, \fBAE_F_SET\fP(x))"
+
+.PP
+Definition at line 65 of file mesh_hwmp\&.c\&.
+.SS "#define PREQ_IE_METRIC(x)   u32_field_get(x, 21, \fBAE_F_SET\fP(x))"
+
+.PP
+Definition at line 66 of file mesh_hwmp\&.c\&.
+.SS "#define PREQ_IE_ORIG_ADDR(x)   (x + 7)"
+
+.PP
+Definition at line 63 of file mesh_hwmp\&.c\&.
+.SS "#define PREQ_IE_ORIG_SN(x)   u32_field_get(x, 13, 0)"
+
+.PP
+Definition at line 64 of file mesh_hwmp\&.c\&.
+.SS "#define PREQ_IE_PREQ_ID(x)   u32_field_get(x, 3, 0)"
+
+.PP
+Definition at line 62 of file mesh_hwmp\&.c\&.
+.SS "#define PREQ_IE_TARGET_ADDR(x)   (\fBAE_F_SET\fP(x) ? x + 33 : x + 27)"
+
+.PP
+Definition at line 68 of file mesh_hwmp\&.c\&.
+.SS "#define PREQ_IE_TARGET_F(x)   (*(\fBAE_F_SET\fP(x) ? x + 32 : x + 26))"
+
+.PP
+Definition at line 67 of file mesh_hwmp\&.c\&.
+.SS "#define PREQ_IE_TARGET_SN(x)   u32_field_get(x, 33, \fBAE_F_SET\fP(x))"
+
+.PP
+Definition at line 69 of file mesh_hwmp\&.c\&.
+.SS "#define PREQ_IE_TTL(x)   (*(x + 2))"
+
+.PP
+Definition at line 61 of file mesh_hwmp\&.c\&.
+.SS "#define SN_GT(x, y)   ((long) (y) - (long) (x) < 0)"
+
+.PP
+Definition at line 89 of file mesh_hwmp\&.c\&.
+.SS "#define SN_LT(x, y)   ((long) (x) - (long) (y) < 0)"
+
+.PP
+Definition at line 90 of file mesh_hwmp\&.c\&.
+.SS "#define TEST_FRAME_LEN   8192"
+
+.PP
+Definition at line 23 of file mesh_hwmp\&.c\&.
+.SH "Enumeration Type Documentation"
+.PP 
+.SS "enum \fBmpath_frame_type\fP"
+
+.PP
+\fBEnumerator\fP
+.in +1c
+.TP
+\fB\fIMPATH_PREQ \fP\fP
+.TP
+\fB\fIMPATH_PREP \fP\fP
+.TP
+\fB\fIMPATH_PERR \fP\fP
+.TP
+\fB\fIMPATH_RANN \fP\fP
+.PP
+Definition at line 102 of file mesh_hwmp\&.c\&.
+.SH "Function Documentation"
+.PP 
+.SS "void ieee80211s_update_metric (struct \fBieee80211_local\fP *local, struct \fBsta_info\fP *stainfo, struct sk_buff *skb)"
+
+.PP
+Definition at line 305 of file mesh_hwmp\&.c\&.
+.SS "int mesh_nexthop_lookup (struct sk_buff *skb, struct \fBieee80211_sub_if_data\fP *sdata)"
+mesh_nexthop_lookup - put the appropriate next hop on a mesh frame\&. Calling this function is considered 'using' the associated mpath, so preempt a path refresh if this mpath expires soon\&.
+.PP
+: 802\&.11 frame to be sent : network subif the frame will be sent through
+.PP
+Returns: 0 if the next hop was found\&. Nonzero otherwise\&. 
+.PP
+Definition at line 1071 of file mesh_hwmp\&.c\&.
+.SS "int mesh_nexthop_resolve (struct sk_buff *skb, struct \fBieee80211_sub_if_data\fP *sdata)"
+
+.PP
+Definition at line 1017 of file mesh_hwmp\&.c\&.
+.SS "int mesh_path_error_tx (u8ttl, u8 *target, __le32target_sn, __le16target_rcode, const u8 *ra, struct \fBieee80211_sub_if_data\fP *sdata)"
+mesh_send_path error - Sends a PERR mesh management frame
+.PP
+: broken destination : SN of the broken destination : reason code for this PERR : node this frame is addressed to
+.PP
+Note: This function may be called with driver locks taken that the driver also acquires in the TX path\&. To avoid a deadlock we don't transmit the frame directly but add it to the pending queue instead\&. 
+.PP
+Definition at line 240 of file mesh_hwmp\&.c\&.
+.SS "void mesh_path_start_discovery (struct \fBieee80211_sub_if_data\fP *sdata)"
+mesh_path_start_discovery - launch a path discovery from the PREQ queue
+.PP
+: local mesh subif 
+.PP
+Definition at line 926 of file mesh_hwmp\&.c\&.
+.SS "void mesh_path_timer (unsigned longdata)"
+
+.PP
+Definition at line 1106 of file mesh_hwmp\&.c\&.
+.SS "void mesh_path_tx_root_frame (struct \fBieee80211_sub_if_data\fP *sdata)"
+
+.PP
+Definition at line 1140 of file mesh_hwmp\&.c\&.
+.SS "void mesh_rx_path_sel_frame (struct \fBieee80211_sub_if_data\fP *sdata, struct ieee80211_mgmt *mgmt, size_tlen)"
+
+.PP
+Definition at line 804 of file mesh_hwmp\&.c\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for net_mac80211 from the source code\&.

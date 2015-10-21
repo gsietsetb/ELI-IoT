@@ -1,0 +1,95 @@
+.TH "/home/guille/msm/net/mac80211/rc80211_pid_debugfs.c" 3 "Sun Jun 1 2014" "Version 1.0" "net_mac80211" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+/home/guille/msm/net/mac80211/rc80211_pid_debugfs.c \- 
+.SH SYNOPSIS
+.br
+.PP
+\fC#include <linux/sched\&.h>\fP
+.br
+\fC#include <linux/spinlock\&.h>\fP
+.br
+\fC#include <linux/poll\&.h>\fP
+.br
+\fC#include <linux/netdevice\&.h>\fP
+.br
+\fC#include <linux/types\&.h>\fP
+.br
+\fC#include <linux/skbuff\&.h>\fP
+.br
+\fC#include <linux/slab\&.h>\fP
+.br
+\fC#include <linux/export\&.h>\fP
+.br
+\fC#include <net/mac80211\&.h>\fP
+.br
+\fC#include 'rate\&.h'\fP
+.br
+\fC#include 'rc80211_pid\&.h'\fP
+.br
+
+.SS "Macros"
+
+.in +1c
+.ti -1c
+.RI "#define \fBRC_PID_PRINT_BUF_SIZE\fP   64"
+.br
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBrate_control_pid_event_tx_status\fP (struct \fBrc_pid_event_buffer\fP *buf, struct ieee80211_tx_info *stat)"
+.br
+.ti -1c
+.RI "void \fBrate_control_pid_event_rate_change\fP (struct \fBrc_pid_event_buffer\fP *buf, int index, int rate)"
+.br
+.ti -1c
+.RI "void \fBrate_control_pid_event_tx_rate\fP (struct \fBrc_pid_event_buffer\fP *buf, int index, int rate)"
+.br
+.ti -1c
+.RI "void \fBrate_control_pid_event_pf_sample\fP (struct \fBrc_pid_event_buffer\fP *buf, s32 pf_sample, s32 prop_err, s32 int_err, s32 der_err)"
+.br
+.ti -1c
+.RI "void \fBrate_control_pid_add_sta_debugfs\fP (void *priv, void *priv_sta, struct dentry *dir)"
+.br
+.ti -1c
+.RI "void \fBrate_control_pid_remove_sta_debugfs\fP (void *priv, void *priv_sta)"
+.br
+.in -1c
+.SH "Macro Definition Documentation"
+.PP 
+.SS "#define RC_PID_PRINT_BUF_SIZE   64"
+
+.PP
+Definition at line 131 of file rc80211_pid_debugfs\&.c\&.
+.SH "Function Documentation"
+.PP 
+.SS "void rate_control_pid_add_sta_debugfs (void *priv, void *priv_sta, struct dentry *dir)"
+
+.PP
+Definition at line 213 of file rc80211_pid_debugfs\&.c\&.
+.SS "void rate_control_pid_event_pf_sample (struct \fBrc_pid_event_buffer\fP *buf, s32pf_sample, s32prop_err, s32int_err, s32der_err)"
+
+.PP
+Definition at line 74 of file rc80211_pid_debugfs\&.c\&.
+.SS "void rate_control_pid_event_rate_change (struct \fBrc_pid_event_buffer\fP *buf, intindex, intrate)"
+
+.PP
+Definition at line 54 of file rc80211_pid_debugfs\&.c\&.
+.SS "void rate_control_pid_event_tx_rate (struct \fBrc_pid_event_buffer\fP *buf, intindex, intrate)"
+
+.PP
+Definition at line 64 of file rc80211_pid_debugfs\&.c\&.
+.SS "void rate_control_pid_event_tx_status (struct \fBrc_pid_event_buffer\fP *buf, struct ieee80211_tx_info *stat)"
+
+.PP
+Definition at line 44 of file rc80211_pid_debugfs\&.c\&.
+.SS "void rate_control_pid_remove_sta_debugfs (void *priv, void *priv_sta)"
+
+.PP
+Definition at line 223 of file rc80211_pid_debugfs\&.c\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for net_mac80211 from the source code\&.

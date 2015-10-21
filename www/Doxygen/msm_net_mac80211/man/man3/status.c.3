@@ -1,0 +1,97 @@
+.TH "/home/guille/msm/net/mac80211/status.c" 3 "Sun Jun 1 2014" "Version 1.0" "net_mac80211" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+/home/guille/msm/net/mac80211/status.c \- 
+.SH SYNOPSIS
+.br
+.PP
+\fC#include <linux/export\&.h>\fP
+.br
+\fC#include <linux/etherdevice\&.h>\fP
+.br
+\fC#include <net/mac80211\&.h>\fP
+.br
+\fC#include <asm/unaligned\&.h>\fP
+.br
+\fC#include 'ieee80211_i\&.h'\fP
+.br
+\fC#include 'rate\&.h'\fP
+.br
+\fC#include 'mesh\&.h'\fP
+.br
+\fC#include 'led\&.h'\fP
+.br
+\fC#include 'wme\&.h'\fP
+.br
+
+.SS "Macros"
+
+.in +1c
+.ti -1c
+.RI "#define \fBSTA_LOST_PKT_THRESHOLD\fP   50"
+.br
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBieee80211_tx_status_irqsafe\fP (struct ieee80211_hw *hw, struct sk_buff *skb)"
+.br
+.ti -1c
+.RI "\fBEXPORT_SYMBOL\fP (\fBieee80211_tx_status_irqsafe\fP)"
+.br
+.ti -1c
+.RI "void \fBieee80211_tx_status\fP (struct ieee80211_hw *hw, struct sk_buff *skb)"
+.br
+.ti -1c
+.RI "\fBEXPORT_SYMBOL\fP (\fBieee80211_tx_status\fP)"
+.br
+.ti -1c
+.RI "void \fBieee80211_report_low_ack\fP (struct ieee80211_sta *pubsta, u32 num_packets)"
+.br
+.ti -1c
+.RI "\fBEXPORT_SYMBOL\fP (\fBieee80211_report_low_ack\fP)"
+.br
+.ti -1c
+.RI "void \fBieee80211_free_txskb\fP (struct ieee80211_hw *hw, struct sk_buff *skb)"
+.br
+.ti -1c
+.RI "\fBEXPORT_SYMBOL\fP (\fBieee80211_free_txskb\fP)"
+.br
+.in -1c
+.SH "Macro Definition Documentation"
+.PP 
+.SS "#define STA_LOST_PKT_THRESHOLD   50"
+
+.PP
+Definition at line 337 of file status\&.c\&.
+.SH "Function Documentation"
+.PP 
+.SS "EXPORT_SYMBOL (\fBieee80211_tx_status_irqsafe\fP)"
+
+.SS "EXPORT_SYMBOL (\fBieee80211_tx_status\fP)"
+
+.SS "EXPORT_SYMBOL (\fBieee80211_report_low_ack\fP)"
+
+.SS "EXPORT_SYMBOL (\fBieee80211_free_txskb\fP)"
+
+.SS "void ieee80211_free_txskb (struct ieee80211_hw *hw, struct sk_buff *skb)"
+
+.PP
+Definition at line 638 of file status\&.c\&.
+.SS "void ieee80211_report_low_ack (struct ieee80211_sta *pubsta, u32num_packets)"
+
+.PP
+Definition at line 630 of file status\&.c\&.
+.SS "void ieee80211_tx_status (struct ieee80211_hw *hw, struct sk_buff *skb)"
+
+.PP
+Definition at line 339 of file status\&.c\&.
+.SS "void ieee80211_tx_status_irqsafe (struct ieee80211_hw *hw, struct sk_buff *skb)"
+
+.PP
+Definition at line 23 of file status\&.c\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for net_mac80211 from the source code\&.

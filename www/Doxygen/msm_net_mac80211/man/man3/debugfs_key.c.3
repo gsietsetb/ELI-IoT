@@ -1,0 +1,255 @@
+.TH "/home/guille/msm/net/mac80211/debugfs_key.c" 3 "Sun Jun 1 2014" "Version 1.0" "net_mac80211" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+/home/guille/msm/net/mac80211/debugfs_key.c \- 
+.SH SYNOPSIS
+.br
+.PP
+\fC#include <linux/kobject\&.h>\fP
+.br
+\fC#include <linux/slab\&.h>\fP
+.br
+\fC#include 'ieee80211_i\&.h'\fP
+.br
+\fC#include 'key\&.h'\fP
+.br
+\fC#include 'debugfs\&.h'\fP
+.br
+\fC#include 'debugfs_key\&.h'\fP
+.br
+
+.SS "Macros"
+
+.in +1c
+.ti -1c
+.RI "#define \fBKEY_READ\fP(name, prop, format_string)"
+.br
+.ti -1c
+.RI "#define \fBKEY_READ_D\fP(name)   \fBKEY_READ\fP(name, name, '%d\\n')"
+.br
+.ti -1c
+.RI "#define \fBKEY_READ_X\fP(name)   \fBKEY_READ\fP(name, name, '0x%x\\n')"
+.br
+.ti -1c
+.RI "#define \fBKEY_OPS\fP(name)"
+.br
+.ti -1c
+.RI "#define \fBKEY_FILE\fP(name, format)"
+.br
+.ti -1c
+.RI "#define \fBKEY_CONF_READ\fP(name, format_string)   \fBKEY_READ\fP(conf_##name, conf\&.name, format_string)"
+.br
+.ti -1c
+.RI "#define \fBKEY_CONF_READ_D\fP(name)   \fBKEY_CONF_READ\fP(name, '%d\\n')"
+.br
+.ti -1c
+.RI "#define \fBKEY_CONF_OPS\fP(name)"
+.br
+.ti -1c
+.RI "#define \fBKEY_CONF_FILE\fP(name, format)"
+.br
+.ti -1c
+.RI "#define \fBDEBUGFS_ADD\fP(name)"
+.br
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBKEY_CONF_FILE\fP (keylen, D)"
+.br
+.ti -1c
+.RI "\fBKEY_CONF_FILE\fP (keyidx, D)"
+.br
+.ti -1c
+.RI "\fBKEY_CONF_FILE\fP (hw_key_idx, D)"
+.br
+.ti -1c
+.RI "\fBKEY_FILE\fP (flags, X)"
+.br
+.ti -1c
+.RI "\fBKEY_FILE\fP (tx_rx_count, D)"
+.br
+.ti -1c
+.RI "\fBKEY_READ\fP (ifindex, sdata->name,'%s\\n')"
+.br
+.ti -1c
+.RI "\fBKEY_OPS\fP (ifindex)"
+.br
+.ti -1c
+.RI "\fBKEY_OPS\fP (algorithm)"
+.br
+.ti -1c
+.RI "\fBKEY_OPS\fP (tx_spec)"
+.br
+.ti -1c
+.RI "\fBKEY_OPS\fP (rx_spec)"
+.br
+.ti -1c
+.RI "\fBKEY_OPS\fP (replays)"
+.br
+.ti -1c
+.RI "\fBKEY_OPS\fP (icverrors)"
+.br
+.ti -1c
+.RI "\fBKEY_OPS\fP (key)"
+.br
+.ti -1c
+.RI "void \fBieee80211_debugfs_key_add\fP (struct \fBieee80211_key\fP *key)"
+.br
+.ti -1c
+.RI "void \fBieee80211_debugfs_key_remove\fP (struct \fBieee80211_key\fP *key)"
+.br
+.ti -1c
+.RI "void \fBieee80211_debugfs_key_update_default\fP (struct \fBieee80211_sub_if_data\fP *sdata)"
+.br
+.ti -1c
+.RI "void \fBieee80211_debugfs_key_add_mgmt_default\fP (struct \fBieee80211_sub_if_data\fP *sdata)"
+.br
+.ti -1c
+.RI "void \fBieee80211_debugfs_key_remove_mgmt_default\fP (struct \fBieee80211_sub_if_data\fP *sdata)"
+.br
+.ti -1c
+.RI "void \fBieee80211_debugfs_key_sta_del\fP (struct \fBieee80211_key\fP *key, struct \fBsta_info\fP *sta)"
+.br
+.in -1c
+.SH "Macro Definition Documentation"
+.PP 
+.SS "#define DEBUGFS_ADD(name)"
+\fBValue:\fP
+.PP
+.nf
+debugfs_create_file(#name, 0400, key->debugfs\&.dir, \
+                key, &key_##name##_ops);
+.fi
+.PP
+Definition at line 223 of file debugfs_key\&.c\&.
+.SS "#define KEY_CONF_FILE(name, format)"
+\fBValue:\fP
+.PP
+.nf
+KEY_CONF_READ_##format(name)              \
+         KEY_CONF_OPS(name)
+.fi
+.PP
+Definition at line 52 of file debugfs_key\&.c\&.
+.SS "#define KEY_CONF_OPS(name)"
+\fBValue:\fP
+.PP
+.nf
+static const struct file_operations key_ ##name## _ops = {      \
+    \&.read = key_conf_##name##_read,                  \
+    \&.open = simple_open,                     \
+    \&.llseek = generic_file_llseek,                   \
+}
+.fi
+.PP
+Definition at line 45 of file debugfs_key\&.c\&.
+.SS "#define KEY_CONF_READ(name, format_string)   \fBKEY_READ\fP(conf_##name, conf\&.name, format_string)"
+
+.PP
+Definition at line 41 of file debugfs_key\&.c\&.
+.SS "#define KEY_CONF_READ_D(name)   \fBKEY_CONF_READ\fP(name, '%d\\n')"
+
+.PP
+Definition at line 43 of file debugfs_key\&.c\&.
+.SS "#define KEY_FILE(name, format)"
+\fBValue:\fP
+.PP
+.nf
+KEY_READ_##format(name)             \
+         KEY_OPS(name)
+.fi
+.PP
+Definition at line 37 of file debugfs_key\&.c\&.
+.SS "#define KEY_OPS(name)"
+\fBValue:\fP
+.PP
+.nf
+static const struct file_operations key_ ##name## _ops = {       \
+    \&.read = key_##name##_read,                   \
+    \&.open = simple_open,                     \
+    \&.llseek = generic_file_llseek,                   \
+}
+.fi
+.PP
+Definition at line 30 of file debugfs_key\&.c\&.
+.SS "#define KEY_READ(name, prop, format_string)"
+\fBValue:\fP
+.PP
+.nf
+static ssize_t key_##name##_read(struct file *file,            \
+                 char __user *userbuf,          \
+                 size_t count, loff_t *ppos)        \
+{                                   \
+    struct ieee80211_key *key = file->private_data;         \
+    return mac80211_format_buffer(userbuf, count, ppos,         \
+                      format_string, key->prop);    \
+}
+.fi
+.PP
+Definition at line 18 of file debugfs_key\&.c\&.
+.SS "#define KEY_READ_D(name)   \fBKEY_READ\fP(name, name, '%d\\n')"
+
+.PP
+Definition at line 27 of file debugfs_key\&.c\&.
+.SS "#define KEY_READ_X(name)   \fBKEY_READ\fP(name, name, '0x%x\\n')"
+
+.PP
+Definition at line 28 of file debugfs_key\&.c\&.
+.SH "Function Documentation"
+.PP 
+.SS "void ieee80211_debugfs_key_add (struct \fBieee80211_key\fP *key)"
+
+.PP
+Definition at line 227 of file debugfs_key\&.c\&.
+.SS "void ieee80211_debugfs_key_add_mgmt_default (struct \fBieee80211_sub_if_data\fP *sdata)"
+
+.PP
+Definition at line 311 of file debugfs_key\&.c\&.
+.SS "void ieee80211_debugfs_key_remove (struct \fBieee80211_key\fP *key)"
+
+.PP
+Definition at line 267 of file debugfs_key\&.c\&.
+.SS "void ieee80211_debugfs_key_remove_mgmt_default (struct \fBieee80211_sub_if_data\fP *sdata)"
+
+.PP
+Definition at line 330 of file debugfs_key\&.c\&.
+.SS "void ieee80211_debugfs_key_sta_del (struct \fBieee80211_key\fP *key, struct \fBsta_info\fP *sta)"
+
+.PP
+Definition at line 339 of file debugfs_key\&.c\&.
+.SS "void ieee80211_debugfs_key_update_default (struct \fBieee80211_sub_if_data\fP *sdata)"
+
+.PP
+Definition at line 276 of file debugfs_key\&.c\&.
+.SS "KEY_CONF_FILE (keylen, D)"
+
+.SS "KEY_CONF_FILE (keyidx, D)"
+
+.SS "KEY_CONF_FILE (hw_key_idx, D)"
+
+.SS "KEY_FILE (flags, X)"
+
+.SS "KEY_FILE (tx_rx_count, D)"
+
+.SS "KEY_OPS (ifindex)"
+
+.SS "KEY_OPS (algorithm)"
+
+.SS "KEY_OPS (tx_spec)"
+
+.SS "KEY_OPS (rx_spec)"
+
+.SS "KEY_OPS (replays)"
+
+.SS "KEY_OPS (icverrors)"
+
+.SS "KEY_OPS (key)"
+
+.SS "KEY_READ (ifindex, sdata->name, '%s\\n')"
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for net_mac80211 from the source code\&.

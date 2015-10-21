@@ -1,0 +1,333 @@
+\hypertarget{ht_8c}{\section{/home/guille/msm/net/mac80211/ht.c File Reference}
+\label{ht_8c}\index{/home/guille/msm/net/mac80211/ht.\-c@{/home/guille/msm/net/mac80211/ht.\-c}}
+}
+{\ttfamily \#include $<$linux/ieee80211.\-h$>$}\\*
+{\ttfamily \#include $<$linux/export.\-h$>$}\\*
+{\ttfamily \#include $<$net/mac80211.\-h$>$}\\*
+{\ttfamily \#include \char`\"{}ieee80211\-\_\-i.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}rate.\-h\char`\"{}}\\*
+Include dependency graph for ht.\-c\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ht_8c__incl}
+\end{center}
+\end{figure}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \hyperlink{ht_8c_ab28ae2c680e4ce8f0123f096f3e320f3}{ieee80111\-\_\-cfg\-\_\-override\-\_\-disables\-\_\-ht40} (struct \hyperlink{structieee80211__sub__if__data}{ieee80211\-\_\-sub\-\_\-if\-\_\-data} $\ast$sdata)
+\item 
+void \hyperlink{ht_8c_aacd8befe3436b00b764e42984420ebad}{ieee80211\-\_\-apply\-\_\-htcap\-\_\-overrides} (struct \hyperlink{structieee80211__sub__if__data}{ieee80211\-\_\-sub\-\_\-if\-\_\-data} $\ast$sdata, struct ieee80211\-\_\-sta\-\_\-ht\-\_\-cap $\ast$ht\-\_\-cap)
+\item 
+void \hyperlink{ht_8c_a3eb90dee17d640d6cb8b2815c4d46599}{ieee80211\-\_\-ht\-\_\-cap\-\_\-ie\-\_\-to\-\_\-sta\-\_\-ht\-\_\-cap} (struct \hyperlink{structieee80211__sub__if__data}{ieee80211\-\_\-sub\-\_\-if\-\_\-data} $\ast$sdata, struct ieee80211\-\_\-supported\-\_\-band $\ast$sband, struct ieee80211\-\_\-ht\-\_\-cap $\ast$ht\-\_\-cap\-\_\-ie, struct ieee80211\-\_\-sta\-\_\-ht\-\_\-cap $\ast$ht\-\_\-cap)
+\item 
+void \hyperlink{ht_8c_ae788982286d60635e8bf38d29131b35d}{ieee80211\-\_\-sta\-\_\-tear\-\_\-down\-\_\-\-B\-A\-\_\-sessions} (struct \hyperlink{structsta__info}{sta\-\_\-info} $\ast$sta, bool tx)
+\item 
+void \hyperlink{ht_8c_af86121690f6fda12dd0559a341dc41f1}{ieee80211\-\_\-ba\-\_\-session\-\_\-work} (struct work\-\_\-struct $\ast$work)
+\item 
+void \hyperlink{ht_8c_a8c8b789d1b013ae6aaf6abf4d407e6ae}{ieee80211\-\_\-send\-\_\-delba} (struct \hyperlink{structieee80211__sub__if__data}{ieee80211\-\_\-sub\-\_\-if\-\_\-data} $\ast$sdata, const u8 $\ast$da, u16 tid, u16 initiator, u16 reason\-\_\-code)
+\item 
+void \hyperlink{ht_8c_a17a9aff2b17f94d5656d2fb4112fb4d4}{ieee80211\-\_\-process\-\_\-delba} (struct \hyperlink{structieee80211__sub__if__data}{ieee80211\-\_\-sub\-\_\-if\-\_\-data} $\ast$sdata, struct \hyperlink{structsta__info}{sta\-\_\-info} $\ast$sta, struct ieee80211\-\_\-mgmt $\ast$mgmt, size\-\_\-t len)
+\item 
+int \hyperlink{ht_8c_a269705f44f9efe3afe166d5f3e3bfcb7}{ieee80211\-\_\-send\-\_\-smps\-\_\-action} (struct \hyperlink{structieee80211__sub__if__data}{ieee80211\-\_\-sub\-\_\-if\-\_\-data} $\ast$sdata, enum ieee80211\-\_\-smps\-\_\-mode smps, const u8 $\ast$da, const u8 $\ast$bssid)
+\item 
+void \hyperlink{ht_8c_ab3099ec7da4a93729ccb520d9db75c50}{ieee80211\-\_\-request\-\_\-smps\-\_\-work} (struct work\-\_\-struct $\ast$work)
+\item 
+void \hyperlink{ht_8c_ad521888f062461b351bf48f487a368f0}{ieee80211\-\_\-request\-\_\-smps} (struct ieee80211\-\_\-vif $\ast$vif, enum ieee80211\-\_\-smps\-\_\-mode smps\-\_\-mode)
+\item 
+\hyperlink{ht_8c_a1f6f4a08a114edf0418ee3485065585b}{E\-X\-P\-O\-R\-T\-\_\-\-S\-Y\-M\-B\-O\-L\-\_\-\-G\-P\-L} (\hyperlink{ht_8c_ad521888f062461b351bf48f487a368f0}{ieee80211\-\_\-request\-\_\-smps})
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\hypertarget{ht_8c_a1f6f4a08a114edf0418ee3485065585b}{\index{ht.\-c@{ht.\-c}!E\-X\-P\-O\-R\-T\-\_\-\-S\-Y\-M\-B\-O\-L\-\_\-\-G\-P\-L@{E\-X\-P\-O\-R\-T\-\_\-\-S\-Y\-M\-B\-O\-L\-\_\-\-G\-P\-L}}
+\index{E\-X\-P\-O\-R\-T\-\_\-\-S\-Y\-M\-B\-O\-L\-\_\-\-G\-P\-L@{E\-X\-P\-O\-R\-T\-\_\-\-S\-Y\-M\-B\-O\-L\-\_\-\-G\-P\-L}!ht.c@{ht.\-c}}
+\subsubsection[{E\-X\-P\-O\-R\-T\-\_\-\-S\-Y\-M\-B\-O\-L\-\_\-\-G\-P\-L}]{\setlength{\rightskip}{0pt plus 5cm}E\-X\-P\-O\-R\-T\-\_\-\-S\-Y\-M\-B\-O\-L\-\_\-\-G\-P\-L (
+\begin{DoxyParamCaption}
+\item[{{\bf ieee80211\-\_\-request\-\_\-smps}}]{}
+\end{DoxyParamCaption}
+)}}\label{ht_8c_a1f6f4a08a114edf0418ee3485065585b}
+\hypertarget{ht_8c_ab28ae2c680e4ce8f0123f096f3e320f3}{\index{ht.\-c@{ht.\-c}!ieee80111\-\_\-cfg\-\_\-override\-\_\-disables\-\_\-ht40@{ieee80111\-\_\-cfg\-\_\-override\-\_\-disables\-\_\-ht40}}
+\index{ieee80111\-\_\-cfg\-\_\-override\-\_\-disables\-\_\-ht40@{ieee80111\-\_\-cfg\-\_\-override\-\_\-disables\-\_\-ht40}!ht.c@{ht.\-c}}
+\subsubsection[{ieee80111\-\_\-cfg\-\_\-override\-\_\-disables\-\_\-ht40}]{\setlength{\rightskip}{0pt plus 5cm}bool ieee80111\-\_\-cfg\-\_\-override\-\_\-disables\-\_\-ht40 (
+\begin{DoxyParamCaption}
+\item[{struct {\bf ieee80211\-\_\-sub\-\_\-if\-\_\-data} $\ast$}]{sdata}
+\end{DoxyParamCaption}
+)}}\label{ht_8c_ab28ae2c680e4ce8f0123f096f3e320f3}
+
+
+Definition at line 22 of file ht.\-c.
+
+\hypertarget{ht_8c_aacd8befe3436b00b764e42984420ebad}{\index{ht.\-c@{ht.\-c}!ieee80211\-\_\-apply\-\_\-htcap\-\_\-overrides@{ieee80211\-\_\-apply\-\_\-htcap\-\_\-overrides}}
+\index{ieee80211\-\_\-apply\-\_\-htcap\-\_\-overrides@{ieee80211\-\_\-apply\-\_\-htcap\-\_\-overrides}!ht.c@{ht.\-c}}
+\subsubsection[{ieee80211\-\_\-apply\-\_\-htcap\-\_\-overrides}]{\setlength{\rightskip}{0pt plus 5cm}void ieee80211\-\_\-apply\-\_\-htcap\-\_\-overrides (
+\begin{DoxyParamCaption}
+\item[{struct {\bf ieee80211\-\_\-sub\-\_\-if\-\_\-data} $\ast$}]{sdata, }
+\item[{struct ieee80211\-\_\-sta\-\_\-ht\-\_\-cap $\ast$}]{ht\-\_\-cap}
+\end{DoxyParamCaption}
+)}}\label{ht_8c_aacd8befe3436b00b764e42984420ebad}
+
+
+Definition at line 42 of file ht.\-c.
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=344pt]{ht_8c_aacd8befe3436b00b764e42984420ebad_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{ht_8c_af86121690f6fda12dd0559a341dc41f1}{\index{ht.\-c@{ht.\-c}!ieee80211\-\_\-ba\-\_\-session\-\_\-work@{ieee80211\-\_\-ba\-\_\-session\-\_\-work}}
+\index{ieee80211\-\_\-ba\-\_\-session\-\_\-work@{ieee80211\-\_\-ba\-\_\-session\-\_\-work}!ht.c@{ht.\-c}}
+\subsubsection[{ieee80211\-\_\-ba\-\_\-session\-\_\-work}]{\setlength{\rightskip}{0pt plus 5cm}void ieee80211\-\_\-ba\-\_\-session\-\_\-work (
+\begin{DoxyParamCaption}
+\item[{struct work\-\_\-struct $\ast$}]{work}
+\end{DoxyParamCaption}
+)}}\label{ht_8c_af86121690f6fda12dd0559a341dc41f1}
+
+
+Definition at line 204 of file ht.\-c.
+
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ht_8c_af86121690f6fda12dd0559a341dc41f1_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ht_8c_af86121690f6fda12dd0559a341dc41f1_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{ht_8c_a3eb90dee17d640d6cb8b2815c4d46599}{\index{ht.\-c@{ht.\-c}!ieee80211\-\_\-ht\-\_\-cap\-\_\-ie\-\_\-to\-\_\-sta\-\_\-ht\-\_\-cap@{ieee80211\-\_\-ht\-\_\-cap\-\_\-ie\-\_\-to\-\_\-sta\-\_\-ht\-\_\-cap}}
+\index{ieee80211\-\_\-ht\-\_\-cap\-\_\-ie\-\_\-to\-\_\-sta\-\_\-ht\-\_\-cap@{ieee80211\-\_\-ht\-\_\-cap\-\_\-ie\-\_\-to\-\_\-sta\-\_\-ht\-\_\-cap}!ht.c@{ht.\-c}}
+\subsubsection[{ieee80211\-\_\-ht\-\_\-cap\-\_\-ie\-\_\-to\-\_\-sta\-\_\-ht\-\_\-cap}]{\setlength{\rightskip}{0pt plus 5cm}void ieee80211\-\_\-ht\-\_\-cap\-\_\-ie\-\_\-to\-\_\-sta\-\_\-ht\-\_\-cap (
+\begin{DoxyParamCaption}
+\item[{struct {\bf ieee80211\-\_\-sub\-\_\-if\-\_\-data} $\ast$}]{sdata, }
+\item[{struct ieee80211\-\_\-supported\-\_\-band $\ast$}]{sband, }
+\item[{struct ieee80211\-\_\-ht\-\_\-cap $\ast$}]{ht\-\_\-cap\-\_\-ie, }
+\item[{struct ieee80211\-\_\-sta\-\_\-ht\-\_\-cap $\ast$}]{ht\-\_\-cap}
+\end{DoxyParamCaption}
+)}}\label{ht_8c_a3eb90dee17d640d6cb8b2815c4d46599}
+
+
+Definition at line 98 of file ht.\-c.
+
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=344pt]{ht_8c_a3eb90dee17d640d6cb8b2815c4d46599_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{ht_8c_a17a9aff2b17f94d5656d2fb4112fb4d4}{\index{ht.\-c@{ht.\-c}!ieee80211\-\_\-process\-\_\-delba@{ieee80211\-\_\-process\-\_\-delba}}
+\index{ieee80211\-\_\-process\-\_\-delba@{ieee80211\-\_\-process\-\_\-delba}!ht.c@{ht.\-c}}
+\subsubsection[{ieee80211\-\_\-process\-\_\-delba}]{\setlength{\rightskip}{0pt plus 5cm}void ieee80211\-\_\-process\-\_\-delba (
+\begin{DoxyParamCaption}
+\item[{struct {\bf ieee80211\-\_\-sub\-\_\-if\-\_\-data} $\ast$}]{sdata, }
+\item[{struct {\bf sta\-\_\-info} $\ast$}]{sta, }
+\item[{struct ieee80211\-\_\-mgmt $\ast$}]{mgmt, }
+\item[{size\-\_\-t}]{len}
+\end{DoxyParamCaption}
+)}}\label{ht_8c_a17a9aff2b17f94d5656d2fb4112fb4d4}
+
+
+Definition at line 306 of file ht.\-c.
+
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ht_8c_a17a9aff2b17f94d5656d2fb4112fb4d4_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{ht_8c_ad521888f062461b351bf48f487a368f0}{\index{ht.\-c@{ht.\-c}!ieee80211\-\_\-request\-\_\-smps@{ieee80211\-\_\-request\-\_\-smps}}
+\index{ieee80211\-\_\-request\-\_\-smps@{ieee80211\-\_\-request\-\_\-smps}!ht.c@{ht.\-c}}
+\subsubsection[{ieee80211\-\_\-request\-\_\-smps}]{\setlength{\rightskip}{0pt plus 5cm}void ieee80211\-\_\-request\-\_\-smps (
+\begin{DoxyParamCaption}
+\item[{struct ieee80211\-\_\-vif $\ast$}]{vif, }
+\item[{enum ieee80211\-\_\-smps\-\_\-mode}]{smps\-\_\-mode}
+\end{DoxyParamCaption}
+)}}\label{ht_8c_ad521888f062461b351bf48f487a368f0}
+
+
+Definition at line 390 of file ht.\-c.
+
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ht_8c_ad521888f062461b351bf48f487a368f0_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{ht_8c_ab3099ec7da4a93729ccb520d9db75c50}{\index{ht.\-c@{ht.\-c}!ieee80211\-\_\-request\-\_\-smps\-\_\-work@{ieee80211\-\_\-request\-\_\-smps\-\_\-work}}
+\index{ieee80211\-\_\-request\-\_\-smps\-\_\-work@{ieee80211\-\_\-request\-\_\-smps\-\_\-work}!ht.c@{ht.\-c}}
+\subsubsection[{ieee80211\-\_\-request\-\_\-smps\-\_\-work}]{\setlength{\rightskip}{0pt plus 5cm}void ieee80211\-\_\-request\-\_\-smps\-\_\-work (
+\begin{DoxyParamCaption}
+\item[{struct work\-\_\-struct $\ast$}]{work}
+\end{DoxyParamCaption}
+)}}\label{ht_8c_ab3099ec7da4a93729ccb520d9db75c50}
+
+
+Definition at line 379 of file ht.\-c.
+
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ht_8c_ab3099ec7da4a93729ccb520d9db75c50_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ht_8c_ab3099ec7da4a93729ccb520d9db75c50_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{ht_8c_a8c8b789d1b013ae6aaf6abf4d407e6ae}{\index{ht.\-c@{ht.\-c}!ieee80211\-\_\-send\-\_\-delba@{ieee80211\-\_\-send\-\_\-delba}}
+\index{ieee80211\-\_\-send\-\_\-delba@{ieee80211\-\_\-send\-\_\-delba}!ht.c@{ht.\-c}}
+\subsubsection[{ieee80211\-\_\-send\-\_\-delba}]{\setlength{\rightskip}{0pt plus 5cm}void ieee80211\-\_\-send\-\_\-delba (
+\begin{DoxyParamCaption}
+\item[{struct {\bf ieee80211\-\_\-sub\-\_\-if\-\_\-data} $\ast$}]{sdata, }
+\item[{const u8 $\ast$}]{da, }
+\item[{u16}]{tid, }
+\item[{u16}]{initiator, }
+\item[{u16}]{reason\-\_\-code}
+\end{DoxyParamCaption}
+)}}\label{ht_8c_a8c8b789d1b013ae6aaf6abf4d407e6ae}
+
+
+Definition at line 263 of file ht.\-c.
+
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ht_8c_a8c8b789d1b013ae6aaf6abf4d407e6ae_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ht_8c_a8c8b789d1b013ae6aaf6abf4d407e6ae_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{ht_8c_a269705f44f9efe3afe166d5f3e3bfcb7}{\index{ht.\-c@{ht.\-c}!ieee80211\-\_\-send\-\_\-smps\-\_\-action@{ieee80211\-\_\-send\-\_\-smps\-\_\-action}}
+\index{ieee80211\-\_\-send\-\_\-smps\-\_\-action@{ieee80211\-\_\-send\-\_\-smps\-\_\-action}!ht.c@{ht.\-c}}
+\subsubsection[{ieee80211\-\_\-send\-\_\-smps\-\_\-action}]{\setlength{\rightskip}{0pt plus 5cm}int ieee80211\-\_\-send\-\_\-smps\-\_\-action (
+\begin{DoxyParamCaption}
+\item[{struct {\bf ieee80211\-\_\-sub\-\_\-if\-\_\-data} $\ast$}]{sdata, }
+\item[{enum ieee80211\-\_\-smps\-\_\-mode}]{smps, }
+\item[{const u8 $\ast$}]{da, }
+\item[{const u8 $\ast$}]{bssid}
+\end{DoxyParamCaption}
+)}}\label{ht_8c_a269705f44f9efe3afe166d5f3e3bfcb7}
+
+
+Definition at line 332 of file ht.\-c.
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ht_8c_a269705f44f9efe3afe166d5f3e3bfcb7_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{ht_8c_ae788982286d60635e8bf38d29131b35d}{\index{ht.\-c@{ht.\-c}!ieee80211\-\_\-sta\-\_\-tear\-\_\-down\-\_\-\-B\-A\-\_\-sessions@{ieee80211\-\_\-sta\-\_\-tear\-\_\-down\-\_\-\-B\-A\-\_\-sessions}}
+\index{ieee80211\-\_\-sta\-\_\-tear\-\_\-down\-\_\-\-B\-A\-\_\-sessions@{ieee80211\-\_\-sta\-\_\-tear\-\_\-down\-\_\-\-B\-A\-\_\-sessions}!ht.c@{ht.\-c}}
+\subsubsection[{ieee80211\-\_\-sta\-\_\-tear\-\_\-down\-\_\-\-B\-A\-\_\-sessions}]{\setlength{\rightskip}{0pt plus 5cm}void ieee80211\-\_\-sta\-\_\-tear\-\_\-down\-\_\-\-B\-A\-\_\-sessions (
+\begin{DoxyParamCaption}
+\item[{struct {\bf sta\-\_\-info} $\ast$}]{sta, }
+\item[{bool}]{tx}
+\end{DoxyParamCaption}
+)}}\label{ht_8c_ae788982286d60635e8bf38d29131b35d}
+
+
+Definition at line 191 of file ht.\-c.
+
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ht_8c_ae788982286d60635e8bf38d29131b35d_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ht_8c_ae788982286d60635e8bf38d29131b35d_icgraph}
+\end{center}
+\end{figure}
+
+

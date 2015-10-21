@@ -1,0 +1,220 @@
+\hypertarget{rate_8c}{\section{/home/guille/msm/net/mac80211/rate.c File Reference}
+\label{rate_8c}\index{/home/guille/msm/net/mac80211/rate.\-c@{/home/guille/msm/net/mac80211/rate.\-c}}
+}
+{\ttfamily \#include $<$linux/kernel.\-h$>$}\\*
+{\ttfamily \#include $<$linux/rtnetlink.\-h$>$}\\*
+{\ttfamily \#include $<$linux/slab.\-h$>$}\\*
+{\ttfamily \#include $<$linux/module.\-h$>$}\\*
+{\ttfamily \#include \char`\"{}rate.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}ieee80211\-\_\-i.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}debugfs.\-h\char`\"{}}\\*
+Include dependency graph for rate.\-c\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{rate_8c__incl}
+\end{center}
+\end{figure}
+\subsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structrate__control__alg}{rate\-\_\-control\-\_\-alg}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{rate_8c_abfcb4ce04ab9294ae049042afd7c0bcd}{module\-\_\-param} (ieee80211\-\_\-default\-\_\-rc\-\_\-algo, charp, 0644)
+\item 
+\hyperlink{rate_8c_aa281d6309b01b1399ee7463bdfa9b3ff}{M\-O\-D\-U\-L\-E\-\_\-\-P\-A\-R\-M\-\_\-\-D\-E\-S\-C} (ieee80211\-\_\-default\-\_\-rc\-\_\-algo,\char`\"{}Default rate control algorithm for mac80211 to use\char`\"{})
+\item 
+int \hyperlink{rate_8c_a17343f924b544a5da5a602cb2927fac1}{ieee80211\-\_\-rate\-\_\-control\-\_\-register} (struct rate\-\_\-control\-\_\-ops $\ast$ops)
+\item 
+\hyperlink{rate_8c_a3e6901b61b96c46125bbd8ab57381c79}{E\-X\-P\-O\-R\-T\-\_\-\-S\-Y\-M\-B\-O\-L} (\hyperlink{rate_8c_a17343f924b544a5da5a602cb2927fac1}{ieee80211\-\_\-rate\-\_\-control\-\_\-register})
+\item 
+void \hyperlink{rate_8c_a2c1fe66d3925c5ba2af2b90c85156d67}{ieee80211\-\_\-rate\-\_\-control\-\_\-unregister} (struct rate\-\_\-control\-\_\-ops $\ast$ops)
+\item 
+\hyperlink{rate_8c_a30d3a9dcc4d38a7464d2ddc7d8df1d87}{E\-X\-P\-O\-R\-T\-\_\-\-S\-Y\-M\-B\-O\-L} (\hyperlink{rate_8c_a2c1fe66d3925c5ba2af2b90c85156d67}{ieee80211\-\_\-rate\-\_\-control\-\_\-unregister})
+\item 
+bool \hyperlink{rate_8c_a1606b67fa6b77b97069a830f564cb2af}{rate\-\_\-control\-\_\-send\-\_\-low} (struct ieee80211\-\_\-sta $\ast$sta, void $\ast$priv\-\_\-sta, struct ieee80211\-\_\-tx\-\_\-rate\-\_\-control $\ast$txrc)
+\item 
+\hyperlink{rate_8c_aa37ac1708316bbd7c4bf3deff84a7a12}{E\-X\-P\-O\-R\-T\-\_\-\-S\-Y\-M\-B\-O\-L} (\hyperlink{rate_8c_a1606b67fa6b77b97069a830f564cb2af}{rate\-\_\-control\-\_\-send\-\_\-low})
+\item 
+void \hyperlink{rate_8c_a7716eda318c5869ba3c9b2816bb3f4a4}{rate\-\_\-control\-\_\-get\-\_\-rate} (struct \hyperlink{structieee80211__sub__if__data}{ieee80211\-\_\-sub\-\_\-if\-\_\-data} $\ast$sdata, struct \hyperlink{structsta__info}{sta\-\_\-info} $\ast$sta, struct ieee80211\-\_\-tx\-\_\-rate\-\_\-control $\ast$txrc)
+\item 
+int \hyperlink{rate_8c_affba3aaac16cf8ff032b488a24a16e3e}{ieee80211\-\_\-init\-\_\-rate\-\_\-ctrl\-\_\-alg} (struct \hyperlink{structieee80211__local}{ieee80211\-\_\-local} $\ast$local, const char $\ast$name)
+\item 
+void \hyperlink{rate_8c_a62cf573f37f2fe0b8608636309351403}{rate\-\_\-control\-\_\-deinitialize} (struct \hyperlink{structieee80211__local}{ieee80211\-\_\-local} $\ast$local)
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\hypertarget{rate_8c_a3e6901b61b96c46125bbd8ab57381c79}{\index{rate.\-c@{rate.\-c}!E\-X\-P\-O\-R\-T\-\_\-\-S\-Y\-M\-B\-O\-L@{E\-X\-P\-O\-R\-T\-\_\-\-S\-Y\-M\-B\-O\-L}}
+\index{E\-X\-P\-O\-R\-T\-\_\-\-S\-Y\-M\-B\-O\-L@{E\-X\-P\-O\-R\-T\-\_\-\-S\-Y\-M\-B\-O\-L}!rate.c@{rate.\-c}}
+\subsubsection[{E\-X\-P\-O\-R\-T\-\_\-\-S\-Y\-M\-B\-O\-L}]{\setlength{\rightskip}{0pt plus 5cm}E\-X\-P\-O\-R\-T\-\_\-\-S\-Y\-M\-B\-O\-L (
+\begin{DoxyParamCaption}
+\item[{{\bf ieee80211\-\_\-rate\-\_\-control\-\_\-register}}]{}
+\end{DoxyParamCaption}
+)}}\label{rate_8c_a3e6901b61b96c46125bbd8ab57381c79}
+\hypertarget{rate_8c_a30d3a9dcc4d38a7464d2ddc7d8df1d87}{\index{rate.\-c@{rate.\-c}!E\-X\-P\-O\-R\-T\-\_\-\-S\-Y\-M\-B\-O\-L@{E\-X\-P\-O\-R\-T\-\_\-\-S\-Y\-M\-B\-O\-L}}
+\index{E\-X\-P\-O\-R\-T\-\_\-\-S\-Y\-M\-B\-O\-L@{E\-X\-P\-O\-R\-T\-\_\-\-S\-Y\-M\-B\-O\-L}!rate.c@{rate.\-c}}
+\subsubsection[{E\-X\-P\-O\-R\-T\-\_\-\-S\-Y\-M\-B\-O\-L}]{\setlength{\rightskip}{0pt plus 5cm}E\-X\-P\-O\-R\-T\-\_\-\-S\-Y\-M\-B\-O\-L (
+\begin{DoxyParamCaption}
+\item[{{\bf ieee80211\-\_\-rate\-\_\-control\-\_\-unregister}}]{}
+\end{DoxyParamCaption}
+)}}\label{rate_8c_a30d3a9dcc4d38a7464d2ddc7d8df1d87}
+\hypertarget{rate_8c_aa37ac1708316bbd7c4bf3deff84a7a12}{\index{rate.\-c@{rate.\-c}!E\-X\-P\-O\-R\-T\-\_\-\-S\-Y\-M\-B\-O\-L@{E\-X\-P\-O\-R\-T\-\_\-\-S\-Y\-M\-B\-O\-L}}
+\index{E\-X\-P\-O\-R\-T\-\_\-\-S\-Y\-M\-B\-O\-L@{E\-X\-P\-O\-R\-T\-\_\-\-S\-Y\-M\-B\-O\-L}!rate.c@{rate.\-c}}
+\subsubsection[{E\-X\-P\-O\-R\-T\-\_\-\-S\-Y\-M\-B\-O\-L}]{\setlength{\rightskip}{0pt plus 5cm}E\-X\-P\-O\-R\-T\-\_\-\-S\-Y\-M\-B\-O\-L (
+\begin{DoxyParamCaption}
+\item[{{\bf rate\-\_\-control\-\_\-send\-\_\-low}}]{}
+\end{DoxyParamCaption}
+)}}\label{rate_8c_aa37ac1708316bbd7c4bf3deff84a7a12}
+\hypertarget{rate_8c_affba3aaac16cf8ff032b488a24a16e3e}{\index{rate.\-c@{rate.\-c}!ieee80211\-\_\-init\-\_\-rate\-\_\-ctrl\-\_\-alg@{ieee80211\-\_\-init\-\_\-rate\-\_\-ctrl\-\_\-alg}}
+\index{ieee80211\-\_\-init\-\_\-rate\-\_\-ctrl\-\_\-alg@{ieee80211\-\_\-init\-\_\-rate\-\_\-ctrl\-\_\-alg}!rate.c@{rate.\-c}}
+\subsubsection[{ieee80211\-\_\-init\-\_\-rate\-\_\-ctrl\-\_\-alg}]{\setlength{\rightskip}{0pt plus 5cm}int ieee80211\-\_\-init\-\_\-rate\-\_\-ctrl\-\_\-alg (
+\begin{DoxyParamCaption}
+\item[{struct {\bf ieee80211\-\_\-local} $\ast$}]{local, }
+\item[{const char $\ast$}]{name}
+\end{DoxyParamCaption}
+)}}\label{rate_8c_affba3aaac16cf8ff032b488a24a16e3e}
+
+
+Definition at line 490 of file rate.\-c.
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=334pt]{rate_8c_affba3aaac16cf8ff032b488a24a16e3e_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{rate_8c_a17343f924b544a5da5a602cb2927fac1}{\index{rate.\-c@{rate.\-c}!ieee80211\-\_\-rate\-\_\-control\-\_\-register@{ieee80211\-\_\-rate\-\_\-control\-\_\-register}}
+\index{ieee80211\-\_\-rate\-\_\-control\-\_\-register@{ieee80211\-\_\-rate\-\_\-control\-\_\-register}!rate.c@{rate.\-c}}
+\subsubsection[{ieee80211\-\_\-rate\-\_\-control\-\_\-register}]{\setlength{\rightskip}{0pt plus 5cm}int ieee80211\-\_\-rate\-\_\-control\-\_\-register (
+\begin{DoxyParamCaption}
+\item[{struct rate\-\_\-control\-\_\-ops $\ast$}]{ops}
+\end{DoxyParamCaption}
+)}}\label{rate_8c_a17343f924b544a5da5a602cb2927fac1}
+
+
+Definition at line 32 of file rate.\-c.
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{rate_8c_a17343f924b544a5da5a602cb2927fac1_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{rate_8c_a2c1fe66d3925c5ba2af2b90c85156d67}{\index{rate.\-c@{rate.\-c}!ieee80211\-\_\-rate\-\_\-control\-\_\-unregister@{ieee80211\-\_\-rate\-\_\-control\-\_\-unregister}}
+\index{ieee80211\-\_\-rate\-\_\-control\-\_\-unregister@{ieee80211\-\_\-rate\-\_\-control\-\_\-unregister}!rate.c@{rate.\-c}}
+\subsubsection[{ieee80211\-\_\-rate\-\_\-control\-\_\-unregister}]{\setlength{\rightskip}{0pt plus 5cm}void ieee80211\-\_\-rate\-\_\-control\-\_\-unregister (
+\begin{DoxyParamCaption}
+\item[{struct rate\-\_\-control\-\_\-ops $\ast$}]{ops}
+\end{DoxyParamCaption}
+)}}\label{rate_8c_a2c1fe66d3925c5ba2af2b90c85156d67}
+
+
+Definition at line 63 of file rate.\-c.
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{rate_8c_a2c1fe66d3925c5ba2af2b90c85156d67_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{rate_8c_abfcb4ce04ab9294ae049042afd7c0bcd}{\index{rate.\-c@{rate.\-c}!module\-\_\-param@{module\-\_\-param}}
+\index{module\-\_\-param@{module\-\_\-param}!rate.c@{rate.\-c}}
+\subsubsection[{module\-\_\-param}]{\setlength{\rightskip}{0pt plus 5cm}module\-\_\-param (
+\begin{DoxyParamCaption}
+\item[{ieee80211\-\_\-default\-\_\-rc\-\_\-algo}]{, }
+\item[{charp}]{, }
+\item[{0644}]{}
+\end{DoxyParamCaption}
+)}}\label{rate_8c_abfcb4ce04ab9294ae049042afd7c0bcd}
+\hypertarget{rate_8c_aa281d6309b01b1399ee7463bdfa9b3ff}{\index{rate.\-c@{rate.\-c}!M\-O\-D\-U\-L\-E\-\_\-\-P\-A\-R\-M\-\_\-\-D\-E\-S\-C@{M\-O\-D\-U\-L\-E\-\_\-\-P\-A\-R\-M\-\_\-\-D\-E\-S\-C}}
+\index{M\-O\-D\-U\-L\-E\-\_\-\-P\-A\-R\-M\-\_\-\-D\-E\-S\-C@{M\-O\-D\-U\-L\-E\-\_\-\-P\-A\-R\-M\-\_\-\-D\-E\-S\-C}!rate.c@{rate.\-c}}
+\subsubsection[{M\-O\-D\-U\-L\-E\-\_\-\-P\-A\-R\-M\-\_\-\-D\-E\-S\-C}]{\setlength{\rightskip}{0pt plus 5cm}M\-O\-D\-U\-L\-E\-\_\-\-P\-A\-R\-M\-\_\-\-D\-E\-S\-C (
+\begin{DoxyParamCaption}
+\item[{ieee80211\-\_\-default\-\_\-rc\-\_\-algo}]{, }
+\item[{\char`\"{}Default rate control algorithm for mac80211 to use\char`\"{}}]{}
+\end{DoxyParamCaption}
+)}}\label{rate_8c_aa281d6309b01b1399ee7463bdfa9b3ff}
+\hypertarget{rate_8c_a62cf573f37f2fe0b8608636309351403}{\index{rate.\-c@{rate.\-c}!rate\-\_\-control\-\_\-deinitialize@{rate\-\_\-control\-\_\-deinitialize}}
+\index{rate\-\_\-control\-\_\-deinitialize@{rate\-\_\-control\-\_\-deinitialize}!rate.c@{rate.\-c}}
+\subsubsection[{rate\-\_\-control\-\_\-deinitialize}]{\setlength{\rightskip}{0pt plus 5cm}void rate\-\_\-control\-\_\-deinitialize (
+\begin{DoxyParamCaption}
+\item[{struct {\bf ieee80211\-\_\-local} $\ast$}]{local}
+\end{DoxyParamCaption}
+)}}\label{rate_8c_a62cf573f37f2fe0b8608636309351403}
+
+
+Definition at line 522 of file rate.\-c.
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{rate_8c_a62cf573f37f2fe0b8608636309351403_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{rate_8c_a7716eda318c5869ba3c9b2816bb3f4a4}{\index{rate.\-c@{rate.\-c}!rate\-\_\-control\-\_\-get\-\_\-rate@{rate\-\_\-control\-\_\-get\-\_\-rate}}
+\index{rate\-\_\-control\-\_\-get\-\_\-rate@{rate\-\_\-control\-\_\-get\-\_\-rate}!rate.c@{rate.\-c}}
+\subsubsection[{rate\-\_\-control\-\_\-get\-\_\-rate}]{\setlength{\rightskip}{0pt plus 5cm}void rate\-\_\-control\-\_\-get\-\_\-rate (
+\begin{DoxyParamCaption}
+\item[{struct {\bf ieee80211\-\_\-sub\-\_\-if\-\_\-data} $\ast$}]{sdata, }
+\item[{struct {\bf sta\-\_\-info} $\ast$}]{sta, }
+\item[{struct ieee80211\-\_\-tx\-\_\-rate\-\_\-control $\ast$}]{txrc}
+\end{DoxyParamCaption}
+)}}\label{rate_8c_a7716eda318c5869ba3c9b2816bb3f4a4}
+
+
+Definition at line 430 of file rate.\-c.
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{rate_8c_a7716eda318c5869ba3c9b2816bb3f4a4_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{rate_8c_a1606b67fa6b77b97069a830f564cb2af}{\index{rate.\-c@{rate.\-c}!rate\-\_\-control\-\_\-send\-\_\-low@{rate\-\_\-control\-\_\-send\-\_\-low}}
+\index{rate\-\_\-control\-\_\-send\-\_\-low@{rate\-\_\-control\-\_\-send\-\_\-low}!rate.c@{rate.\-c}}
+\subsubsection[{rate\-\_\-control\-\_\-send\-\_\-low}]{\setlength{\rightskip}{0pt plus 5cm}bool rate\-\_\-control\-\_\-send\-\_\-low (
+\begin{DoxyParamCaption}
+\item[{struct ieee80211\-\_\-sta $\ast$}]{sta, }
+\item[{void $\ast$}]{priv\-\_\-sta, }
+\item[{struct ieee80211\-\_\-tx\-\_\-rate\-\_\-control $\ast$}]{txrc}
+\end{DoxyParamCaption}
+)}}\label{rate_8c_a1606b67fa6b77b97069a830f564cb2af}
+
+
+Definition at line 256 of file rate.\-c.
+

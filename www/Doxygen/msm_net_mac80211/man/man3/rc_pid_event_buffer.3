@@ -1,0 +1,58 @@
+.TH "rc_pid_event_buffer" 3 "Sun Jun 1 2014" "Version 1.0" "net_mac80211" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+rc_pid_event_buffer \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <rc80211_pid\&.h>\fP
+.SS "Data Fields"
+
+.in +1c
+.ti -1c
+.RI "unsigned int \fBev_count\fP"
+.br
+.ti -1c
+.RI "struct \fBrc_pid_event\fP \fBring\fP [\fBRC_PID_EVENT_RING_SIZE\fP]"
+.br
+.ti -1c
+.RI "unsigned int \fBnext_entry\fP"
+.br
+.ti -1c
+.RI "spinlock_t \fBlock\fP"
+.br
+.ti -1c
+.RI "wait_queue_head_t \fBwaitqueue\fP"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Definition at line 96 of file rc80211_pid\&.h\&.
+.SH "Field Documentation"
+.PP 
+.SS "unsigned int ev_count"
+
+.PP
+Definition at line 98 of file rc80211_pid\&.h\&.
+.SS "spinlock_t lock"
+
+.PP
+Definition at line 107 of file rc80211_pid\&.h\&.
+.SS "unsigned int next_entry"
+
+.PP
+Definition at line 104 of file rc80211_pid\&.h\&.
+.SS "struct \fBrc_pid_event\fP ring[\fBRC_PID_EVENT_RING_SIZE\fP]"
+
+.PP
+Definition at line 101 of file rc80211_pid\&.h\&.
+.SS "wait_queue_head_t waitqueue"
+
+.PP
+Definition at line 110 of file rc80211_pid\&.h\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for net_mac80211 from the source code\&.

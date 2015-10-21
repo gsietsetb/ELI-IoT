@@ -1,0 +1,245 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
+    "http://www.w3.org/TR/html4/loose.dtd">  
+<html > 
+    <head><title>Stateless Routing based Cross Layer Approach for Interference-Resilient, Low-Delay Networking</title> 
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"> 
+        <meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+        <meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+        <meta name="src" content="ewsn-full_v2.0.tex"> 
+        <meta name="date" content="2015-10-19 15:56:00"> 
+        <style>
+            #header {
+                background-color:black;
+                color:white;
+                text-align:center;
+                padding:5px;
+            }
+            #nav {
+                line-height:30px;
+                background-color:#eeeeee;
+                width:230px;
+                float:left;
+                padding:5px;	      
+                font-size: 12px;
+                text-align: left;
+            }
+            #section {
+                float:center;
+                padding:10px;	      
+            }
+            #footer {
+                background-color:black;
+                color:white;
+                clear:both;
+                text-align: right;
+                padding:5px;	 
+                text-align: center;
+            }
+            table, th, td {
+                border: 1px solid white;
+                border-collapse: collapse;
+            }
+            th, td {
+                <!-- padding: 5px;-->
+            }
+        </style>
+    </head>
+
+    <body>
+        <div id="header">
+            <h2><b>E</b>nergy-Efficient, Low <b>L</b>atency and <b>I</b>nterference-Resilient Networking for <b>I</b>nternet <b>o</b>f <b>T</b>hings </h2>
+            <h1> E . L . I    -   I   o   T </h1>  
+            <h3 class="titleHead">Stateless Routing based Cross Layer Approach for Interference-Resilient, Low-Delay Networking</h3>
+        </div>
+
+        <div id="nav">
+            <h2>E W S N  <a href= "http://www.iti.tugraz.at/EWSN2016/cms/index.php?id=8">Challenge</a> 2015 </h2>   
+            <img width="220" height="130" src="https://openwsn.atlassian.net/wiki/download/attachments/688169/telosb.jpg?version=1&modificationDate=1353371620130&api=v2&effects=border-simple,shadow-kn">
+            <h3> Categories and Subject Descriptors</h3>
+            C.2.1 [<span 
+                class="ptmb7t-">Computer-communication Networks</span>]: Network
+            Architecture and Design&#8212;<span 
+                class="ptmri7t-">Wireless communication</span>
+
+            <h3 class="likesectionHead"><a 
+                    id="x1-3000"></a>General Terms</h3>
+            Measurement, Performance
+
+            <span class="likeparagraphHead"><a 
+                    id="x1-4000"></a>Keywords</span>
+            Energy-efficient Networking, Cross Layer Protocol
+
+            <h3>Authors</h3>
+            ▣  <a href="CV_Guillermo_Sierra_Aiello.html">Guillermo Sierra Aiello</a> <br> Telecommunication Engineering Student <br>
+            Department of Network Engineering		<br>
+            Universitat Politecnica de Catalunya, Spain<br>
+            <a href="mailto:gsie.etsetb@gmail.com?Subject=Hello%20again" target="_top">gsie.etsetb@gmail.com</a><hr>
+
+            ▣  Ilker Demirkol<br>
+            Department of Network Engineering		<br>
+            Universitat Politecnica de Catalunya, Spain<br>
+            <a href="mailto:ilker.demirkol@entel.upc.edu?Subject=Hello%20again" target="_top">ilker.demirkol@entel.upc.edu</a><hr>
+
+            ▣  August Betzler<br>
+            Mobile and Wireless Internet Unit	<br>	
+            i2CAT Foundation, Spain<br>
+            <a href="mailto:august.betzler@i2cat.net?Subject=Hello%20again" target="_top">august.betzler@i2cat.net</a><hr>
+
+            ▣  Anna Calveras<br>
+            Department of Network Engineering		<br>
+            Universitat Politecnica de Catalunya, Spain<br>
+            <a href="mailto:anna.calveras@entel.upc.edu?Subject=Hello%20again" target="_top">anna.calveras@entel.upc.edu</a><hr>
+        </div>
+
+        <div id="section">
+            <h3>Abstract</h3>
+            This document aims to present the general ideas and methodology
+            that may be used in order to design, develop and finally conduct
+            performance tests in order to optimize the metrics of each of the
+            evaluation criteria (i.e. reliability of the send data, end-to-end
+            latency and and power consumption).<hr>
+            <h3><span class="titlemark">2 </span>Introduction</h3>
+            According to EWSN 2016 Dependability challenge specifications,
+            we devise several solution candidates for the high-interference
+            wireless sensor network environments to achieve high
+            energy-efficiency (measured as average energy consumed per
+            successful application layer packet transmission) and low
+            latency. The challenge uses off-the-shelf Maxfor MTM-5000
+            sensor nodes, which bring some computational and memory
+            constraints.           <hr>
+            <h3 class="sectionHead"><span class="titlemark">2 </span>  Proposed Solutions</h3>
+            We take two approaches for this challenge: i) optimization of
+            standardized communication protocol stack through tweaking the
+            parameters of different protocols within stack as we have done in
+            <span class="cite">[<span 
+                    class="ptmb7t-">?</span>]</span>, ii) a cross-layer approach that uses stateless routing as in <span class="cite">[<span 
+                    class="ptmb7t-">?</span>]</span>.
+            In the following we detail these two approaches. For the first
+            approach, we employ the protocols devised by Internet
+            Engineering Task Force (IETF) for Internet of Things (IoT)
+            applications.
+            <h4 class="subsectionHead"><span class="titlemark">2.1    </span> <a 
+                    id="x1-70002.1"></a>IETF IoT Protocol Stack</h4>
+            IETF has developed several solutions for each layer of the OSI
+            protocol stack considering the limitations of the IoT devices
+            could bring. We will be using the stack that is composed of
+            CoAP/UDP/IPv6-RPL/6LoWPAN/IEEE 802.15.4. As an option,
+            the CoCoA algorithm <span class="cite">[<span 
+                    class="ptmb7t-">?</span>]</span> proposed for congestion control over
+            CoAP is also considered within this stack. The derivation of
+            optimal parameter settings for different layers will be studied for
+            interference-environments. As an example, the RPL protocol
+            parameters investigated are minimum Trickle interval size      (Imin), the RPL DIO redundancy (K), and the Parent Switch
+            Threshold (PST) defined by the Objective Function used.
+            These parameters determine how frequently the RPL control
+            messages are transmitted. The clear trade-off of network
+            stability vs. amount of overhead traffic is assessed within this
+            work.
+            <!--l. 86--><p class="indent" >     A clear solution for the MAC and PHY layers for interference
+                environment is the Timeslotted Channel Hopping (TSCH) mode
+                of IEEE802.15.4e that has been standardized in 2012. TSCH
+                enables low-power operation through time synchronization and
+                channel hopping for high reliability. As the targeted platform
+                does not include an RF chip with this functionality, one option
+                considered in this work is the implementation of the MAC layer
+                of this standard.
+                <!--l. 88--><p class="noindent" >
+            <h4 class="subsectionHead"><span class="titlemark">2.2    </span> <a id="x1-80002.2"></a>Cross-layer Approach with Stateless Routing</h4>
+            <!--l. 89--><p class="noindent" >Even though using the inherit capabilities of the well-known
+                IEEE 802.15.4-based stacks such as ZigBee or IETF IoT stack,
+                one can implement a functional solution for the targeted
+                environment, it is clear that there are inefficiency incurred, such
+                as the encapsulation of network, transport and application
+                protocol packets, missing communication of state information
+                between layers, etc. Taking this into account, a potentially
+                simpler and leaner solution for the specific application of the
+                challenge can be developed.
+            <hr><p align="center"> 
+                <img src="http://www.iti.tugraz.at/EWSN2016/cms/fileadmin/_processed_/csm_Competition_cbdb7ece0b.png" alt="PICT" >
+            </p>
+            <!--l. 91--><p class="indent" >     For this, we consider a stateless routing protocol that
+                incorporates the MAC layer functionalities. Regarding the kind
+                of topology and the challenge requirements, a stateless
+                routing is expected to considerably increase the end-to-end
+                performance, while allowing an easier implementation after a
+                short network discovery phase at the beginning. The purpose of
+                this discovery phase is to assign rank numbers (number of hops
+                to reach the sink) to nodes. The basic idea of the method is
+                then the following. When a sender node has some data
+                ready to send, it sends an RTS with its rank number. The
+                available relay nodes with a higher (and possibly equal) rank
+                will send a CTS back, then the data transmission will be
+                carried out. This approach does not require any neighbor
+                information, nor routing table information, allowing an
+                asynchronous system and it is impervious to any broken
+                links or nodes. MAC reliability is enabled through ACK
+                packets.
+                <!--l. 93--><p class="indent" >     Another important aspect that must be taken into consideration
+                is how the interference nodes can be avoided. A channel hoping
+                and duty cycling approach will be used for this purpose.
+                <!--l. 95--><p class="noindent" >
+            <h3 class="sectionHead"><span class="titlemark">3    </span> <a 
+                    id="x1-90003"></a>Evaluation Methodology</h3>
+            <!--l. 96--><p class="noindent" >In order to devise and evaluate the solutions involving different
+                network topologies and different strategies, there are several
+                evaluation methodologies that can be used.
+            <h4 class="subsectionHead"><span class="titlemark">3.1    </span> <a 
+                    id="x1-100003.1"></a>Simulation</h4>
+            <!--l. 98--><p class="noindent" >An available tool for the two operating systems for the
+                constrained nodes, TinyOS and ContikiOS, is Cooja Simulator.
+                This software allows the user to establish the desired network
+                topology, with different number of devices and surrounding
+
+                objects, obstacles or interferences. It also allows collecting the
+                performance information such as delays, errors and energy
+                consumption, which are the target to beat within the challenge
+                context.
+                <!--l. 100--><p class="indent" >  However the ultimate results of a simulation only match to
+                predictions and estimations based on the possible behavior,
+                actually treating it as much as possible with real capabilities.
+                <!--l. 102--><p class="noindent" >
+            <h4 class="subsectionHead"><span class="titlemark">3.2    </span> <a 
+                    id="x1-110003.2"></a>Testbed</h4>
+            <!--l. 103--><p class="noindent" >Another approach to perform tests and check possible programming
+                issues involves the use of a group of physical nodes in which
+                each of them are separately programmed, including at least one
+                sensing and one sink node and few other intermediate node in
+                order to test the behaviour of the developed algorithms. However,
+                a larger size TelosB testbed is available in our university,
+                consisting on a large grid topology of 6x10 TelosB boards,
+                already used in evaluations of <span class="cite">[<span 
+                        class="ptmb7t-">?</span>]</span>. This testbed can be used for   physical environment tests and validation of simulation
+                results.
+                <!--l. 105--><p class="noindent" >
+            <h4 class="subsectionHead"><span class="titlemark">3.3    </span> <a 
+                    id="x1-120003.3"></a>Programing OS environment</h4>
+            <!--l. 106--><p class="noindent" >Due to embedded system capabilities regarding the available
+                boards, two OS options become potentially useful within this
+                context: TinyOS and ContikiOS. A further more detailed analysis
+                would be performed in order to choose which one fits better with
+                the project requirements.
+            <h3 class="sectionHead"><span class="titlemark">4    </span> <a 
+                    id="x1-130004"></a>Acknowledgments</h3>
+            <!--l. 110--><p class="noindent" >This work was supported in part by the Spanish &#8221;Governments
+                Ministerio de Economia y Competitividad&#8221; through project
+                TEC2012-3253, RYC-2013-13029 and FEDER.
+        </div>
+
+        <div id="footer">
+            Copyright EWSN ¢ UPC<hr>
+            Permission to make digital or hard copies of all or part of this work for personal or
+            classroom use is granted without fee provided that copies are not made or distributed
+            for profit or commercial advantage and that copies bear this notice and the full citation
+            on the first page. To copy otherwise, to republish, to post on servers or to redistribute
+            to lists, requires prior specific permission and/or a fee.
+            EWSN’16, February 15–17, 2016, Graz, Austria.
+            Copyright c 2016 ACM 978-1-4503-1169-4 ...$10.00<hr>
+            February 15. – 17. 2016, TU Graz, Austria
+        </div>
+
+    </body>
+</html>
+
+
+
+

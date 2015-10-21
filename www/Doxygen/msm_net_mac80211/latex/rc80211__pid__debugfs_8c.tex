@@ -1,0 +1,133 @@
+\hypertarget{rc80211__pid__debugfs_8c}{\section{/home/guille/msm/net/mac80211/rc80211\-\_\-pid\-\_\-debugfs.c File Reference}
+\label{rc80211__pid__debugfs_8c}\index{/home/guille/msm/net/mac80211/rc80211\-\_\-pid\-\_\-debugfs.\-c@{/home/guille/msm/net/mac80211/rc80211\-\_\-pid\-\_\-debugfs.\-c}}
+}
+{\ttfamily \#include $<$linux/sched.\-h$>$}\\*
+{\ttfamily \#include $<$linux/spinlock.\-h$>$}\\*
+{\ttfamily \#include $<$linux/poll.\-h$>$}\\*
+{\ttfamily \#include $<$linux/netdevice.\-h$>$}\\*
+{\ttfamily \#include $<$linux/types.\-h$>$}\\*
+{\ttfamily \#include $<$linux/skbuff.\-h$>$}\\*
+{\ttfamily \#include $<$linux/slab.\-h$>$}\\*
+{\ttfamily \#include $<$linux/export.\-h$>$}\\*
+{\ttfamily \#include $<$net/mac80211.\-h$>$}\\*
+{\ttfamily \#include \char`\"{}rate.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}rc80211\-\_\-pid.\-h\char`\"{}}\\*
+Include dependency graph for rc80211\-\_\-pid\-\_\-debugfs.\-c\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{rc80211__pid__debugfs_8c__incl}
+\end{center}
+\end{figure}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{rc80211__pid__debugfs_8c_a06658e66483186a890e8d0c3e577eef7}{R\-C\-\_\-\-P\-I\-D\-\_\-\-P\-R\-I\-N\-T\-\_\-\-B\-U\-F\-\_\-\-S\-I\-Z\-E}~64
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{rc80211__pid__debugfs_8c_aecd25d1a039372bae61b538111125bfc}{rate\-\_\-control\-\_\-pid\-\_\-event\-\_\-tx\-\_\-status} (struct \hyperlink{structrc__pid__event__buffer}{rc\-\_\-pid\-\_\-event\-\_\-buffer} $\ast$buf, struct ieee80211\-\_\-tx\-\_\-info $\ast$stat)
+\item 
+void \hyperlink{rc80211__pid__debugfs_8c_ac361272d23d723401248910d919551eb}{rate\-\_\-control\-\_\-pid\-\_\-event\-\_\-rate\-\_\-change} (struct \hyperlink{structrc__pid__event__buffer}{rc\-\_\-pid\-\_\-event\-\_\-buffer} $\ast$buf, int index, int rate)
+\item 
+void \hyperlink{rc80211__pid__debugfs_8c_a75d5edcd01ed0fd57262f1acb7b1d383}{rate\-\_\-control\-\_\-pid\-\_\-event\-\_\-tx\-\_\-rate} (struct \hyperlink{structrc__pid__event__buffer}{rc\-\_\-pid\-\_\-event\-\_\-buffer} $\ast$buf, int index, int rate)
+\item 
+void \hyperlink{rc80211__pid__debugfs_8c_ad0560e7f3fc749f6315da21584b75cb6}{rate\-\_\-control\-\_\-pid\-\_\-event\-\_\-pf\-\_\-sample} (struct \hyperlink{structrc__pid__event__buffer}{rc\-\_\-pid\-\_\-event\-\_\-buffer} $\ast$buf, s32 pf\-\_\-sample, s32 prop\-\_\-err, s32 int\-\_\-err, s32 der\-\_\-err)
+\item 
+void \hyperlink{rc80211__pid__debugfs_8c_adefa1869af81cb55a2377d58f8fe33b6}{rate\-\_\-control\-\_\-pid\-\_\-add\-\_\-sta\-\_\-debugfs} (void $\ast$priv, void $\ast$priv\-\_\-sta, struct dentry $\ast$dir)
+\item 
+void \hyperlink{rc80211__pid__debugfs_8c_a36e4bcb4aec056f2b8f8c175e25fe8a7}{rate\-\_\-control\-\_\-pid\-\_\-remove\-\_\-sta\-\_\-debugfs} (void $\ast$priv, void $\ast$priv\-\_\-sta)
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{rc80211__pid__debugfs_8c_a06658e66483186a890e8d0c3e577eef7}{\index{rc80211\-\_\-pid\-\_\-debugfs.\-c@{rc80211\-\_\-pid\-\_\-debugfs.\-c}!R\-C\-\_\-\-P\-I\-D\-\_\-\-P\-R\-I\-N\-T\-\_\-\-B\-U\-F\-\_\-\-S\-I\-Z\-E@{R\-C\-\_\-\-P\-I\-D\-\_\-\-P\-R\-I\-N\-T\-\_\-\-B\-U\-F\-\_\-\-S\-I\-Z\-E}}
+\index{R\-C\-\_\-\-P\-I\-D\-\_\-\-P\-R\-I\-N\-T\-\_\-\-B\-U\-F\-\_\-\-S\-I\-Z\-E@{R\-C\-\_\-\-P\-I\-D\-\_\-\-P\-R\-I\-N\-T\-\_\-\-B\-U\-F\-\_\-\-S\-I\-Z\-E}!rc80211_pid_debugfs.c@{rc80211\-\_\-pid\-\_\-debugfs.\-c}}
+\subsubsection[{R\-C\-\_\-\-P\-I\-D\-\_\-\-P\-R\-I\-N\-T\-\_\-\-B\-U\-F\-\_\-\-S\-I\-Z\-E}]{\setlength{\rightskip}{0pt plus 5cm}\#define R\-C\-\_\-\-P\-I\-D\-\_\-\-P\-R\-I\-N\-T\-\_\-\-B\-U\-F\-\_\-\-S\-I\-Z\-E~64}}\label{rc80211__pid__debugfs_8c_a06658e66483186a890e8d0c3e577eef7}
+
+
+Definition at line 131 of file rc80211\-\_\-pid\-\_\-debugfs.\-c.
+
+
+
+\subsection{Function Documentation}
+\hypertarget{rc80211__pid__debugfs_8c_adefa1869af81cb55a2377d58f8fe33b6}{\index{rc80211\-\_\-pid\-\_\-debugfs.\-c@{rc80211\-\_\-pid\-\_\-debugfs.\-c}!rate\-\_\-control\-\_\-pid\-\_\-add\-\_\-sta\-\_\-debugfs@{rate\-\_\-control\-\_\-pid\-\_\-add\-\_\-sta\-\_\-debugfs}}
+\index{rate\-\_\-control\-\_\-pid\-\_\-add\-\_\-sta\-\_\-debugfs@{rate\-\_\-control\-\_\-pid\-\_\-add\-\_\-sta\-\_\-debugfs}!rc80211_pid_debugfs.c@{rc80211\-\_\-pid\-\_\-debugfs.\-c}}
+\subsubsection[{rate\-\_\-control\-\_\-pid\-\_\-add\-\_\-sta\-\_\-debugfs}]{\setlength{\rightskip}{0pt plus 5cm}void rate\-\_\-control\-\_\-pid\-\_\-add\-\_\-sta\-\_\-debugfs (
+\begin{DoxyParamCaption}
+\item[{void $\ast$}]{priv, }
+\item[{void $\ast$}]{priv\-\_\-sta, }
+\item[{struct dentry $\ast$}]{dir}
+\end{DoxyParamCaption}
+)}}\label{rc80211__pid__debugfs_8c_adefa1869af81cb55a2377d58f8fe33b6}
+
+
+Definition at line 213 of file rc80211\-\_\-pid\-\_\-debugfs.\-c.
+
+\hypertarget{rc80211__pid__debugfs_8c_ad0560e7f3fc749f6315da21584b75cb6}{\index{rc80211\-\_\-pid\-\_\-debugfs.\-c@{rc80211\-\_\-pid\-\_\-debugfs.\-c}!rate\-\_\-control\-\_\-pid\-\_\-event\-\_\-pf\-\_\-sample@{rate\-\_\-control\-\_\-pid\-\_\-event\-\_\-pf\-\_\-sample}}
+\index{rate\-\_\-control\-\_\-pid\-\_\-event\-\_\-pf\-\_\-sample@{rate\-\_\-control\-\_\-pid\-\_\-event\-\_\-pf\-\_\-sample}!rc80211_pid_debugfs.c@{rc80211\-\_\-pid\-\_\-debugfs.\-c}}
+\subsubsection[{rate\-\_\-control\-\_\-pid\-\_\-event\-\_\-pf\-\_\-sample}]{\setlength{\rightskip}{0pt plus 5cm}void rate\-\_\-control\-\_\-pid\-\_\-event\-\_\-pf\-\_\-sample (
+\begin{DoxyParamCaption}
+\item[{struct {\bf rc\-\_\-pid\-\_\-event\-\_\-buffer} $\ast$}]{buf, }
+\item[{s32}]{pf\-\_\-sample, }
+\item[{s32}]{prop\-\_\-err, }
+\item[{s32}]{int\-\_\-err, }
+\item[{s32}]{der\-\_\-err}
+\end{DoxyParamCaption}
+)}}\label{rc80211__pid__debugfs_8c_ad0560e7f3fc749f6315da21584b75cb6}
+
+
+Definition at line 74 of file rc80211\-\_\-pid\-\_\-debugfs.\-c.
+
+\hypertarget{rc80211__pid__debugfs_8c_ac361272d23d723401248910d919551eb}{\index{rc80211\-\_\-pid\-\_\-debugfs.\-c@{rc80211\-\_\-pid\-\_\-debugfs.\-c}!rate\-\_\-control\-\_\-pid\-\_\-event\-\_\-rate\-\_\-change@{rate\-\_\-control\-\_\-pid\-\_\-event\-\_\-rate\-\_\-change}}
+\index{rate\-\_\-control\-\_\-pid\-\_\-event\-\_\-rate\-\_\-change@{rate\-\_\-control\-\_\-pid\-\_\-event\-\_\-rate\-\_\-change}!rc80211_pid_debugfs.c@{rc80211\-\_\-pid\-\_\-debugfs.\-c}}
+\subsubsection[{rate\-\_\-control\-\_\-pid\-\_\-event\-\_\-rate\-\_\-change}]{\setlength{\rightskip}{0pt plus 5cm}void rate\-\_\-control\-\_\-pid\-\_\-event\-\_\-rate\-\_\-change (
+\begin{DoxyParamCaption}
+\item[{struct {\bf rc\-\_\-pid\-\_\-event\-\_\-buffer} $\ast$}]{buf, }
+\item[{int}]{index, }
+\item[{int}]{rate}
+\end{DoxyParamCaption}
+)}}\label{rc80211__pid__debugfs_8c_ac361272d23d723401248910d919551eb}
+
+
+Definition at line 54 of file rc80211\-\_\-pid\-\_\-debugfs.\-c.
+
+\hypertarget{rc80211__pid__debugfs_8c_a75d5edcd01ed0fd57262f1acb7b1d383}{\index{rc80211\-\_\-pid\-\_\-debugfs.\-c@{rc80211\-\_\-pid\-\_\-debugfs.\-c}!rate\-\_\-control\-\_\-pid\-\_\-event\-\_\-tx\-\_\-rate@{rate\-\_\-control\-\_\-pid\-\_\-event\-\_\-tx\-\_\-rate}}
+\index{rate\-\_\-control\-\_\-pid\-\_\-event\-\_\-tx\-\_\-rate@{rate\-\_\-control\-\_\-pid\-\_\-event\-\_\-tx\-\_\-rate}!rc80211_pid_debugfs.c@{rc80211\-\_\-pid\-\_\-debugfs.\-c}}
+\subsubsection[{rate\-\_\-control\-\_\-pid\-\_\-event\-\_\-tx\-\_\-rate}]{\setlength{\rightskip}{0pt plus 5cm}void rate\-\_\-control\-\_\-pid\-\_\-event\-\_\-tx\-\_\-rate (
+\begin{DoxyParamCaption}
+\item[{struct {\bf rc\-\_\-pid\-\_\-event\-\_\-buffer} $\ast$}]{buf, }
+\item[{int}]{index, }
+\item[{int}]{rate}
+\end{DoxyParamCaption}
+)}}\label{rc80211__pid__debugfs_8c_a75d5edcd01ed0fd57262f1acb7b1d383}
+
+
+Definition at line 64 of file rc80211\-\_\-pid\-\_\-debugfs.\-c.
+
+\hypertarget{rc80211__pid__debugfs_8c_aecd25d1a039372bae61b538111125bfc}{\index{rc80211\-\_\-pid\-\_\-debugfs.\-c@{rc80211\-\_\-pid\-\_\-debugfs.\-c}!rate\-\_\-control\-\_\-pid\-\_\-event\-\_\-tx\-\_\-status@{rate\-\_\-control\-\_\-pid\-\_\-event\-\_\-tx\-\_\-status}}
+\index{rate\-\_\-control\-\_\-pid\-\_\-event\-\_\-tx\-\_\-status@{rate\-\_\-control\-\_\-pid\-\_\-event\-\_\-tx\-\_\-status}!rc80211_pid_debugfs.c@{rc80211\-\_\-pid\-\_\-debugfs.\-c}}
+\subsubsection[{rate\-\_\-control\-\_\-pid\-\_\-event\-\_\-tx\-\_\-status}]{\setlength{\rightskip}{0pt plus 5cm}void rate\-\_\-control\-\_\-pid\-\_\-event\-\_\-tx\-\_\-status (
+\begin{DoxyParamCaption}
+\item[{struct {\bf rc\-\_\-pid\-\_\-event\-\_\-buffer} $\ast$}]{buf, }
+\item[{struct ieee80211\-\_\-tx\-\_\-info $\ast$}]{stat}
+\end{DoxyParamCaption}
+)}}\label{rc80211__pid__debugfs_8c_aecd25d1a039372bae61b538111125bfc}
+
+
+Definition at line 44 of file rc80211\-\_\-pid\-\_\-debugfs.\-c.
+
+\hypertarget{rc80211__pid__debugfs_8c_a36e4bcb4aec056f2b8f8c175e25fe8a7}{\index{rc80211\-\_\-pid\-\_\-debugfs.\-c@{rc80211\-\_\-pid\-\_\-debugfs.\-c}!rate\-\_\-control\-\_\-pid\-\_\-remove\-\_\-sta\-\_\-debugfs@{rate\-\_\-control\-\_\-pid\-\_\-remove\-\_\-sta\-\_\-debugfs}}
+\index{rate\-\_\-control\-\_\-pid\-\_\-remove\-\_\-sta\-\_\-debugfs@{rate\-\_\-control\-\_\-pid\-\_\-remove\-\_\-sta\-\_\-debugfs}!rc80211_pid_debugfs.c@{rc80211\-\_\-pid\-\_\-debugfs.\-c}}
+\subsubsection[{rate\-\_\-control\-\_\-pid\-\_\-remove\-\_\-sta\-\_\-debugfs}]{\setlength{\rightskip}{0pt plus 5cm}void rate\-\_\-control\-\_\-pid\-\_\-remove\-\_\-sta\-\_\-debugfs (
+\begin{DoxyParamCaption}
+\item[{void $\ast$}]{priv, }
+\item[{void $\ast$}]{priv\-\_\-sta}
+\end{DoxyParamCaption}
+)}}\label{rc80211__pid__debugfs_8c_a36e4bcb4aec056f2b8f8c175e25fe8a7}
+
+
+Definition at line 223 of file rc80211\-\_\-pid\-\_\-debugfs.\-c.
+
