@@ -1,0 +1,19 @@
+../../../contiki-3.0/
+├── apps
+├── CONTRIBUTING.md
+├── core
+├── cpu
+├── dev
+├── doc
+├── ELI-IoT
+├── examples
+├── LICENSE
+├── Makefile.include
+├── platform
+├── README-BUILDING.md
+├── README-EXAMPLES.md
+├── README.md
+├── regression-tests
+└── tools
+
+10 directories, 6 files
