@@ -1,1 +1,1 @@
-cd /home/user/contiki-3.x/tools/cooja/ ; ant run
+cd ~/contiki-3.x/tools/cooja/ ; ant run
